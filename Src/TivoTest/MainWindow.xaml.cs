@@ -20,7 +20,7 @@ namespace TivoTest
     /// </summary>
     public partial class MainWindow : Window
     {
-        private TivoConnection connection;
+        //private TivoConnection connection;
 
         public MainWindow()
         {
@@ -29,8 +29,10 @@ namespace TivoTest
 
         private void ConnectButton_Click(object sender, RoutedEventArgs e)
         {
-            this.connection = new TivoConnection();
-            connection.Connect();
+            using (var connection = new TivoConnection())
+            {
+                connection.Connect("192.168.0.16", "9837127953");
+            }
         }
     }
 }

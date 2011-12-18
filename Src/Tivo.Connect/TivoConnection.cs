@@ -1,22 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Net.Sockets;
-using System.Reactive.Linq;
-using System.Net;
-using System.Collections;
-using System.Security.Cryptography.X509Certificates;
-using System.Net.Security;
-using System.Security.Authentication;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
+using System.Net.Security;
+using System.Net.Sockets;
+using System.Security.Authentication;
+using System.Security.Cryptography.X509Certificates;
+using System.Text;
+using System.Web.Script.Serialization;
 
 namespace Tivo.Connect
 {
-    public class TivoConnection
+    public sealed class TivoConnection : IDisposable
     {
-        private static Hashtable certificateErrors = new Hashtable();
+        TcpClient client =null;
+
+        public TivoConnection()
+        {
+            
+        }
+
+        public void Dispose()
+        {
+            if (this.client != null)
+            {
+                this.client.Close();
+                Debug.WriteLine("Client closed.");
+
+                this.client = null;
+            }
+        }
 
         // The following method is invoked by the RemoteCertificateValidationDelegate.
         public static bool ValidateServerCertificate(
@@ -25,24 +39,19 @@ namespace Tivo.Connect
               X509Chain chain,
               SslPolicyErrors sslPolicyErrors)
         {
-            if (sslPolicyErrors == SslPolicyErrors.None)
-                return true;
-
-            Console.WriteLine("Certificate error: {0}", sslPolicyErrors);
-
-            // Do not allow this client to communicate with unauthenticated servers.
+            // Allow this client to communicate with unauthenticated servers.
             return true;
         }
 
-        public void Connect()
+        public void Connect(string serverAddress, string mediaAccessKey)
         {
-            var serverName = "192.168.0.8";
+            if (this.client != null)
+            {
+                throw new InvalidOperationException("Cannot open the same connection twice.");
+            }
 
-            //var tivoEndpoint = new IPEndPoint(IPAddress.Parse("192.168.0.8"), 1413);
-
-            // Create a TCP/IP client socket.
-            // machineName is the host running the server application.
-            TcpClient client = new TcpClient(serverName, 1413);
+            // Create a TCP/IP connection to the TiVo.
+            this.client = new TcpClient(serverAddress, 1413);
 
             Debug.WriteLine("Client connected.");
 
@@ -52,7 +61,7 @@ namespace Tivo.Connect
             // The server name must match the name on the server certificate.
             try
             {
-                sslStream.AuthenticateAsClient(serverName);
+                sslStream.AuthenticateAsClient(serverAddress);
             }
             catch (AuthenticationException e)
             {
@@ -67,47 +76,37 @@ namespace Tivo.Connect
                 throw;
             }
 
-            // Encode a test message into a byte array.
-            string builtMessage = EncodeMindRpcMessage();
-            string hardMessage = GetDefaultMindRpcMessage();
-
-            // Send hello message to the server. 
-            sslStream.Write(Encoding.UTF8.GetBytes(builtMessage));
+            // Send authentication message to the TiVo. 
+            string authMessage = EncodeAuthenticationMessage(mediaAccessKey);
+            sslStream.Write(Encoding.UTF8.GetBytes(authMessage));
             sslStream.Flush();
-
-
-            // Read message from the server.
+            
+            // Read auth response from the server.
             string serverMessage = ReadMessage(sslStream);
             Debug.WriteLine("Server says: {0}", serverMessage);
-            //// Close the client connection.
-            //client.Close();
-            //Debug.WriteLine("Client closed.");
+
+            var serializer = new JavaScriptSerializer();
+            serializer.RegisterConverters(new[] { new DynamicJsonConverter() });
+
+            dynamic obj = serializer.Deserialize(serverMessage, typeof(object));
+
+            if (obj.type != "bodyAuthenticateResponse")
+            {
+                throw new FormatException("Expecting bodyAuthenticateResponse");
+            }
+
+            if (obj.status == "success")
+            {
+                Debug.WriteLine("Authentication successfull");
+                return;
+            }
+
+            throw new AuthenticationException(obj.message as string);
         }
 
-        private string GetDefaultMindRpcMessage()
-        {
-            string messageString = @"MRPC/2 225 85
-Type:request
-RpcId:20
-SchemaVersion:7
-Content-Type:application/json
-RequestType:bodyAuthenticate
-ResponseCount:single
-BodyId:
-X-ApplicationName:Quicksilver
-X-ApplicationVersion:1.2
-X-ApplicationSessionId:0x27dc20
-
-{""type"":""bodyAuthenticate"",""credential"":{""type"":""makCredential"",""key"":""9837127953""}}
-";
-
-            return messageString;
-        }
-
-        private static string EncodeMindRpcMessage()
+        private static string EncodeAuthenticationMessage(string mediaAccessKey)
         {
             string requestType = "bodyAuthenticate";
-            string makString = "9837127953";
 
             var payload = new Dictionary<string, object>
             {
@@ -116,13 +115,16 @@ X-ApplicationSessionId:0x27dc20
                     new Dictionary<string, object>
                     {
                         {"type", "makCredential"},
-                        {"key", makString }
+                        {"key", mediaAccessKey }
                     } 
                 }
             };
 
-            string body = FormatJsonValues(payload);
+            return EncodeMindRpcMessage(requestType, payload);
+        }
 
+        private static string EncodeMindRpcMessage(string requestType, Dictionary<string, object> payload)
+        {
             var header = new StringBuilder();
             header.AppendLine("Type:request");
             header.AppendLine("RpcId:20");
@@ -135,6 +137,8 @@ X-ApplicationSessionId:0x27dc20
             header.AppendLine("X-ApplicationVersion:1.2");
             header.AppendLine("X-ApplicationSessionId:0x27dc20");
             header.AppendLine();
+
+            string body = FormatJsonValues(payload);
 
             var messageString = string.Format("MRPC/2 {0} {1}\r\n{2}{3}",
                 Encoding.UTF8.GetByteCount(header.ToString()),
@@ -186,4 +190,5 @@ X-ApplicationSessionId:0x27dc20
             return body;            
         }
     }
+
 }
