@@ -13,31 +13,19 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Tivo.Connect;
 using System.ComponentModel;
+using Caliburn.Micro;
+using System.ComponentModel.Composition;
 
 namespace TivoTest
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window, INotifyPropertyChanged
+    [Export(typeof(MainViewModel))]
+    public partial class MainViewModel : PropertyChangedBase
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         private TivoConnection connection;
         private IEnumerable<object> shows;
 
-        private void NotifyPropertyChanged(string propertyName)
+        public MainViewModel()
         {
-            var handler = this.PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-
-        public MainWindow()
-        {
-            InitializeComponent();
         }
 
         public IEnumerable<object> Shows
@@ -49,35 +37,46 @@ namespace TivoTest
                     return;
 
                 this.shows = value;
-                NotifyPropertyChanged("Shows");
+                NotifyOfPropertyChange(() => this.Shows);
             }
         }
 
-        private void ConnectButton_Click(object sender, RoutedEventArgs e)
+        public void Connect()
         {
             this.connection = new TivoConnection();
             try
             {
                 connection.Connect("192.168.0.16", "9837127953");
-                MessageBox.Show(this, "Connection succeeeded!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Connection succeeeded!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(this, string.Format("Connection Failed\n{0}", ex), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(string.Format("Connection Failed\n{0}", ex), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                this.connection = null;
+            }
+
+            NotifyOfPropertyChange(() => CanFetchMyShowsList);
+        }
+
+        public bool CanFetchMyShowsList
+        {
+            get
+            {
+                return this.connection != null;
             }
         }
 
-        private void MyShowsButton_Click(object sender, RoutedEventArgs e)
+        public void FetchMyShowsList()
         {
             try
             {
                 var shows = connection.GetMyShowsList();
                 this.Shows = shows;
-                MessageBox.Show(this, "Request succeeeded!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Request succeeeded!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(this, string.Format("Request Failed\n{0}", ex), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(string.Format("Request Failed\n{0}", ex), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
