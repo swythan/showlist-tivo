@@ -1,0 +1,51 @@
+MRPC/2 78 886
+Raw Packet=MRPC/2 78 886
+Content-Type: application/json
+IsFinal: true
+RpcId: 1174
+Type: response
+
+{
+  "isBottom": true, 
+  "subscription": [
+    {
+      "recordingQuality": "high", 
+      "maxRecordings": 10, 
+      "keepBehavior": "forever", 
+      "folderingRules": "seriesOnly", 
+      "startTimePadding": 0, 
+      "title": "Ninja Warrior", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "priority": 2517, 
+      "bodyGeneratesCandidates": true, 
+      "showStatus": "firstRunOnly", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "name": "G4 HD", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "isBlocked": false, 
+          "channelId": "tivo:ch.9", 
+          "callSign": "G4HD", 
+          "isDigital": false, 
+          "stationId": "tivo:st.141442738", 
+          "channelNumber": "692", 
+          "logoIndex": 66418, 
+          "type": "channel", 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.78987353"
+      }, 
+      "subscriptionId": "tivo:sb.15000041", 
+      "levelOfDetail": "medium", 
+      "type": "subscription", 
+      "endTimePadding": 0
+    }
+  ], 
+  "isTop": true, 
+  "type": "subscriptionList"
+}

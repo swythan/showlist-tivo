@@ -1,0 +1,250 @@
+MRPC/2 78 4702
+Raw Packet=MRPC/2 78 4702
+Content-Type: application/json
+IsFinal: true
+RpcId: 1531
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "TOONHD", 
+        "isDigital": true, 
+        "channelNumber": "761", 
+        "logoIndex": 66277, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Family Guy", 
+          "contentId": "tivo:ct.180899897", 
+          "collectionId": "tivo:cl.299214", 
+          "offerId": "tivo:of.ctd.124376605.761.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "LIFEHD", 
+        "isDigital": true, 
+        "channelNumber": "762", 
+        "logoIndex": 66262, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "How I Met Your Mother", 
+          "contentId": "tivo:ct.124636429", 
+          "collectionId": "tivo:cl.55419269", 
+          "offerId": "tivo:of.ctd.125203636.762.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How I Met Your Mother", 
+          "contentId": "tivo:ct.125202547", 
+          "collectionId": "tivo:cl.55419269", 
+          "offerId": "tivo:of.ctd.125203636.762.cable.2011-06-07-03-30-00.1800", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "BIOHD", 
+        "isDigital": true, 
+        "channelNumber": "763", 
+        "logoIndex": 66215, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Biography", 
+          "contentId": "tivo:ct.182836046", 
+          "collectionId": "tivo:cl.14517", 
+          "offerId": "tivo:of.ctd.114977823.763.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HGTVD", 
+        "isDigital": true, 
+        "channelNumber": "764", 
+        "logoIndex": 66257, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "House Hunters", 
+          "contentId": "tivo:ct.176271190", 
+          "collectionId": "tivo:cl.918060", 
+          "offerId": "tivo:of.ctd.66692689.764.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "House Hunters on Vacation", 
+          "contentId": "tivo:ct.181810294", 
+          "collectionId": "tivo:cl.180357567", 
+          "offerId": "tivo:of.ctd.66692689.764.cable.2011-06-07-03-30-00.1800", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "NGCHD", 
+        "isDigital": true, 
+        "channelNumber": "765", 
+        "logoIndex": 66256, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "The Devil's Playground", 
+          "contentId": "tivo:ct.128751162", 
+          "collectionId": "tivo:cl.128751604", 
+          "offerId": "tivo:of.ctd.66458709.765.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "DSCHD", 
+        "isDigital": true, 
+        "channelNumber": "766", 
+        "logoIndex": 66079, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "American Chopper: Senior vs. Junior", 
+          "contentId": "tivo:ct.182460054", 
+          "collectionId": "tivo:cl.168086252", 
+          "offerId": "tivo:of.ctd.107213906.766.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HDT", 
+        "isDigital": true, 
+        "channelNumber": "767", 
+        "logoIndex": 66159, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Wild Pacific", 
+          "contentId": "tivo:ct.148823634", 
+          "collectionId": "tivo:cl.147449042", 
+          "offerId": "tivo:of.ctd.6698707.767.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "SCIHD", 
+        "isDigital": true, 
+        "channelNumber": "775", 
+        "logoIndex": 65773, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "The Hawking Paradox", 
+          "contentId": "tivo:ct.74210787", 
+          "collectionId": "tivo:cl.74211296", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "TRUTVHD", 
+        "isDigital": true, 
+        "channelNumber": "779", 
+        "logoIndex": 65565, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Most Daring", 
+          "contentId": "tivo:ct.166434329", 
+          "collectionId": "tivo:cl.105888235", 
+          "offerId": "tivo:of.ctd.149189260.779.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "LMNHD", 
+        "isDigital": true, 
+        "channelNumber": "780", 
+        "logoIndex": 66259, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "True Confessions of a Hollywood Starlet", 
+          "contentId": "tivo:ct.129880668", 
+          "collectionId": "tivo:cl.129881974", 
+          "offerId": "tivo:of.ctd.95147925.780.cable.2011-06-07-02-00-00.7200", 
+          "startTime": "2011-06-07 02:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

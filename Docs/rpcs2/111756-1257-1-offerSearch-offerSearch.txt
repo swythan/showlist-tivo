@@ -1,0 +1,84 @@
+MRPC/2 241 938
+Raw Packet=MRPC/2 241 938
+Type:request
+RpcId:1257
+SchemaVersion:7
+Content-Type:application/json
+RequestType:offerSearch
+ResponseCount:single
+BodyId:tsn:XXXXXXXXXXXXXXX
+X-ApplicationName:Quicksilver
+X-ApplicationVersion:1.2
+X-ApplicationSessionId:0x27c180
+
+{
+  "searchable": true, 
+  "receivedChannelsOnly": false, 
+  "namespace": "refserver", 
+  "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+  "offerId": [
+    "tivo:of.ctd.111008801.710.cable.2011-06-07-16-00-00.9000"
+  ], 
+  "note": [
+    "recordingForOfferId"
+  ], 
+  "responseTemplate": [
+    {
+      "fieldName": [
+        "subscriptionType"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "subscriptionIdentifier"
+    }, 
+    {
+      "fieldName": [
+        "state", 
+        "recordingId", 
+        "subscriptionIdentifier"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "recording"
+    }, 
+    {
+      "fieldName": [
+        "cc", 
+        "channel", 
+        "duration", 
+        "hdtv", 
+        "episodic", 
+        "offerId", 
+        "repeat", 
+        "recordingForContentId", 
+        "recordingForOfferId", 
+        "hasSignLanguage", 
+        "hasAudioDescription", 
+        "screenFormat", 
+        "title", 
+        "subtitle", 
+        "startTime"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "offer"
+    }, 
+    {
+      "fieldName": [
+        "offer"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "offerList"
+    }, 
+    {
+      "fieldName": [
+        "channelNumber", 
+        "sourceType", 
+        "logoIndex", 
+        "callSign", 
+        "isDigital"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "channel"
+    }
+  ], 
+  "type": "offerSearch", 
+  "levelOfDetail": "medium"
+}

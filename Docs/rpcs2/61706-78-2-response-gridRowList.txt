@@ -1,0 +1,160 @@
+MRPC/2 76 3772
+Raw Packet=MRPC/2 76 3772
+Content-Type: application/json
+IsFinal: true
+RpcId: 78
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "TBS", 
+        "isDigital": true, 
+        "channelNumber": "8", 
+        "logoIndex": 65540, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "The Prince & Me", 
+          "contentId": "tivo:ct.30149401", 
+          "collectionId": "tivo:cl.30149640", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-18-03-25-00.8100", 
+          "startTime": "2011-06-18 03:25:00", 
+          "duration": 8100, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Prince Charming", 
+          "contentId": "tivo:ct.5809045", 
+          "collectionId": "tivo:cl.5809044", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-18-05-40-00.7200", 
+          "startTime": "2011-06-18 05:40:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Interstitial Filler", 
+          "contentId": "tivo:ct.118530400", 
+          "collectionId": "tivo:cl.118530929", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-18-07-40-00.1200", 
+          "startTime": "2011-06-18 07:40:00", 
+          "duration": 1200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Married ... With Children", 
+          "contentId": "tivo:ct.255410", 
+          "collectionId": "tivo:cl.16995", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-18-08-00-00.1800", 
+          "startTime": "2011-06-18 08:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Married ... With Children", 
+          "contentId": "tivo:ct.225214", 
+          "collectionId": "tivo:cl.16995", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-18-08-30-00.1800", 
+          "startTime": "2011-06-18 08:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Married ... With Children", 
+          "contentId": "tivo:ct.255412", 
+          "collectionId": "tivo:cl.16995", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-18-09-00-00.1800", 
+          "startTime": "2011-06-18 09:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Married ... With Children", 
+          "contentId": "tivo:ct.255414", 
+          "collectionId": "tivo:cl.16995", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-18-09-30-00.1800", 
+          "startTime": "2011-06-18 09:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Married ... With Children", 
+          "contentId": "tivo:ct.476084", 
+          "collectionId": "tivo:cl.16995", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-18-10-00-00.1800", 
+          "startTime": "2011-06-18 10:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Married ... With Children", 
+          "contentId": "tivo:ct.268060", 
+          "collectionId": "tivo:cl.16995", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-18-10-30-00.1800", 
+          "startTime": "2011-06-18 10:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Steve Harvey Show", 
+          "contentId": "tivo:ct.255358", 
+          "collectionId": "tivo:cl.19390", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-18-11-00-00.1800", 
+          "startTime": "2011-06-18 11:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Steve Harvey Show", 
+          "contentId": "tivo:ct.238077", 
+          "collectionId": "tivo:cl.19390", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-18-11-30-00.1800", 
+          "startTime": "2011-06-18 11:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Yes, Dear", 
+          "contentId": "tivo:ct.47630855", 
+          "collectionId": "tivo:cl.2511458", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-18-12-00-00.1800", 
+          "startTime": "2011-06-18 12:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Conan & Lopez Short", 
+          "contentId": "tivo:ct.177604967", 
+          "collectionId": "tivo:cl.177605817", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-18-12-30-00.300", 
+          "startTime": "2011-06-18 12:30:00", 
+          "duration": 300, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Princess Diaries 2: Royal Engagement", 
+          "contentId": "tivo:ct.39924783", 
+          "collectionId": "tivo:cl.39925239", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-18-12-35-00.8100", 
+          "startTime": "2011-06-18 12:35:00", 
+          "duration": 8100, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Prince & Me", 
+          "contentId": "tivo:ct.30149401", 
+          "collectionId": "tivo:cl.30149640", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-18-14-50-00.8400", 
+          "startTime": "2011-06-18 14:50:00", 
+          "duration": 8400, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

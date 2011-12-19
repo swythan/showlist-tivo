@@ -1,0 +1,151 @@
+MRPC/2 78 3657
+Raw Packet=MRPC/2 78 3657
+Content-Type: application/json
+IsFinal: true
+RpcId: 1339
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "SCIHD", 
+        "isDigital": true, 
+        "channelNumber": "775", 
+        "logoIndex": 65773, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "What the Ancients Knew", 
+          "contentId": "tivo:ct.68418175", 
+          "collectionId": "tivo:cl.42785481", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-18-08-00-00.3600", 
+          "startTime": "2011-06-18 08:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "What the Ancients Knew", 
+          "contentId": "tivo:ct.43429527", 
+          "collectionId": "tivo:cl.42785481", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-18-09-00-00.3600", 
+          "startTime": "2011-06-18 09:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Forensic Factor", 
+          "contentId": "tivo:ct.36572440", 
+          "collectionId": "tivo:cl.14849193", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-18-10-00-00.3600", 
+          "startTime": "2011-06-18 10:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Forensic Factor", 
+          "contentId": "tivo:ct.176538893", 
+          "collectionId": "tivo:cl.14849193", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-18-11-00-00.3600", 
+          "startTime": "2011-06-18 11:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Forensic Factor", 
+          "contentId": "tivo:ct.94470354", 
+          "collectionId": "tivo:cl.14849193", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-18-12-00-00.3600", 
+          "startTime": "2011-06-18 12:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Colossal Construction", 
+          "contentId": "tivo:ct.138122892", 
+          "collectionId": "tivo:cl.136980441", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-18-13-00-00.3600", 
+          "startTime": "2011-06-18 13:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Colossal Construction", 
+          "contentId": "tivo:ct.141169051", 
+          "collectionId": "tivo:cl.136980441", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-18-14-00-00.3600", 
+          "startTime": "2011-06-18 14:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Colossal Construction", 
+          "contentId": "tivo:ct.143411953", 
+          "collectionId": "tivo:cl.136980441", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-18-15-00-00.3600", 
+          "startTime": "2011-06-18 15:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Colossal Construction", 
+          "contentId": "tivo:ct.142322381", 
+          "collectionId": "tivo:cl.136980441", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-18-16-00-00.3600", 
+          "startTime": "2011-06-18 16:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Colossal Construction", 
+          "contentId": "tivo:ct.142297839", 
+          "collectionId": "tivo:cl.136980441", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-18-17-00-00.3600", 
+          "startTime": "2011-06-18 17:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Colossal Construction", 
+          "contentId": "tivo:ct.143411952", 
+          "collectionId": "tivo:cl.136980441", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-18-18-00-00.3600", 
+          "startTime": "2011-06-18 18:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How Do They Do It?", 
+          "contentId": "tivo:ct.143623304", 
+          "collectionId": "tivo:cl.70360603", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-18-19-00-00.1800", 
+          "startTime": "2011-06-18 19:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How Do They Do It?", 
+          "contentId": "tivo:ct.178258828", 
+          "collectionId": "tivo:cl.70360603", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-18-19-30-00.1800", 
+          "startTime": "2011-06-18 19:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How Do They Do It?", 
+          "contentId": "tivo:ct.168025711", 
+          "collectionId": "tivo:cl.70360603", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-18-20-00-00.1800", 
+          "startTime": "2011-06-18 20:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

@@ -1,0 +1,290 @@
+MRPC/2 78 5628
+Raw Packet=MRPC/2 78 5628
+Content-Type: application/json
+IsFinal: true
+RpcId: 1129
+Type: response
+
+{
+  "unifiedItem": [
+    {
+      "category": [
+        {
+          "image": [
+            {
+              "width": 180, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/GameShow.jpg", 
+              "type": "image", 
+              "imageType": "moviePoster", 
+              "height": 270
+            }, 
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/GameShow.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }
+          ], 
+          "displayRank": 0, 
+          "type": "category", 
+          "label": "Game Show"
+        }, 
+        {
+          "displayRank": 1, 
+          "type": "category", 
+          "label": "TV Show"
+        }
+      ], 
+      "collectionType": "series", 
+      "title": "Ninja Warrior", 
+      "image": [
+        {
+          "width": 139, 
+          "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/6f/d0/6fd01667da842059c2fcee39b0b33be1.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 104
+        }, 
+        {
+          "width": 120, 
+          "imageUrl": "http://i.tivo.com/images-production/os/banner-120/6f/d0/6fd01667da842059c2fcee39b0b33be1.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 90
+        }
+      ], 
+      "collectionId": "tivo:cl.78987353", 
+      "type": "collection", 
+      "tvRating": "pg"
+    }, 
+    {
+      "category": [
+        {
+          "image": [
+            {
+              "width": 180, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/ActionAdventure.jpg", 
+              "type": "image", 
+              "imageType": "moviePoster", 
+              "height": 270
+            }, 
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/ActionAdventure.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }
+          ], 
+          "displayRank": 0, 
+          "type": "category", 
+          "label": "Action Adventure"
+        }, 
+        {
+          "image": [
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/MartialArts.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }, 
+            {
+              "width": 180, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/MartialArts.jpg", 
+              "type": "image", 
+              "imageType": "moviePoster", 
+              "height": 270
+            }
+          ], 
+          "displayRank": 1, 
+          "type": "category", 
+          "label": "Martial Arts"
+        }
+      ], 
+      "collectionType": "movie", 
+      "collectionId": "tivo:cl.161090338", 
+      "image": [
+        {
+          "width": 100, 
+          "imageUrl": "http://i.tivo.com/images-production/hdui-movies/5c/f6/5cf6f3ec2ae4c6f4d5b32c647f863d32.jpg", 
+          "type": "image", 
+          "imageType": "moviePoster", 
+          "height": 150
+        }
+      ], 
+      "title": "Ninja", 
+      "mpaaRating": "r", 
+      "type": "collection", 
+      "tvRating": "ma", 
+      "movieYear": 2009
+    }, 
+    {
+      "category": [
+        {
+          "image": [
+            {
+              "width": 180, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/Fantasy.jpg", 
+              "type": "image", 
+              "imageType": "moviePoster", 
+              "height": 270
+            }, 
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/Fantasy.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }
+          ], 
+          "displayRank": 0, 
+          "type": "category", 
+          "label": "Fantasy"
+        }, 
+        {
+          "image": [
+            {
+              "width": 180, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/ActionAdventure.jpg", 
+              "type": "image", 
+              "imageType": "moviePoster", 
+              "height": 270
+            }, 
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/ActionAdventure.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }
+          ], 
+          "displayRank": 1, 
+          "type": "category", 
+          "label": "Action Adventure"
+        }
+      ], 
+      "collectionType": "movie", 
+      "collectionId": "tivo:cl.63596", 
+      "image": [
+        {
+          "width": 100, 
+          "imageUrl": "http://i.tivo.com/images-production/bravo/movies-med/1b/f8/1bf8df18b4271e2f730fb99af9e4b11b.jpg", 
+          "type": "image", 
+          "imageType": "moviePoster", 
+          "height": 150
+        }
+      ], 
+      "title": "Teenage Mutant Ninja Turtles", 
+      "starRating": "twoPointFive", 
+      "mpaaRating": "pg", 
+      "type": "collection", 
+      "tvRating": "pg", 
+      "movieYear": 1990
+    }, 
+    {
+      "category": [
+        {
+          "image": [
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/Gymnastics.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }, 
+            {
+              "width": 180, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/Gymnastics.jpg", 
+              "type": "image", 
+              "imageType": "moviePoster", 
+              "height": 270
+            }
+          ], 
+          "displayRank": 0, 
+          "type": "category", 
+          "label": "Gymnastics"
+        }, 
+        {
+          "displayRank": 1, 
+          "type": "category", 
+          "label": "Sports"
+        }
+      ], 
+      "collectionType": "series", 
+      "title": "American Ninja Warrior", 
+      "image": [
+        {
+          "width": 139, 
+          "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/58/1b/581b1ee03d8da27f9f98ea4faae690cd.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 104
+        }, 
+        {
+          "width": 120, 
+          "imageUrl": "http://i.tivo.com/images-production/os/banner-120/58/1b/581b1ee03d8da27f9f98ea4faae690cd.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 90
+        }
+      ], 
+      "collectionId": "tivo:cl.156056142", 
+      "type": "collection", 
+      "tvRating": "14"
+    }, 
+    {
+      "category": [
+        {
+          "displayRank": 0, 
+          "type": "category", 
+          "label": "Kids"
+        }, 
+        {
+          "image": [
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/Comedy.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }, 
+            {
+              "width": 180, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/Comedy.jpg", 
+              "type": "image", 
+              "imageType": "moviePoster", 
+              "height": 270
+            }
+          ], 
+          "displayRank": 1, 
+          "type": "category", 
+          "label": "Comedy"
+        }
+      ], 
+      "collectionType": "series", 
+      "title": "Supah Ninjas", 
+      "image": [
+        {
+          "width": 139, 
+          "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/29/d6/29d64b9d16e85cfb063855474a02d17c.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 104
+        }, 
+        {
+          "width": 120, 
+          "imageUrl": "http://i.tivo.com/images-production/os/banner-120/29/d6/29d64b9d16e85cfb063855474a02d17c.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 90
+        }
+      ], 
+      "collectionId": "tivo:cl.174688284", 
+      "type": "collection", 
+      "tvRating": "g"
+    }
+  ], 
+  "type": "unifiedItemList"
+}

@@ -1,0 +1,169 @@
+MRPC/2 78 4150
+Raw Packet=MRPC/2 78 4150
+Content-Type: application/json
+IsFinal: true
+RpcId: 1055
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "FXHD", 
+        "isDigital": true, 
+        "channelNumber": "710", 
+        "logoIndex": 66198, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "The Simpsons Movie", 
+          "contentId": "tivo:ct.99134316", 
+          "collectionId": "tivo:cl.99136229", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-07-02-30-00.9000", 
+          "startTime": "2011-06-07 02:30:00", 
+          "duration": 9000, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Rescue Me", 
+          "contentId": "tivo:ct.99501266", 
+          "collectionId": "tivo:cl.26429515", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-07-05-00-00.3600", 
+          "startTime": "2011-06-07 05:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-07-06-00-00.1800", 
+          "startTime": "2011-06-07 06:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-07-06-30-00.1800", 
+          "startTime": "2011-06-07 06:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-07-07-00-00.1800", 
+          "startTime": "2011-06-07 07:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Six Star Knife Set", 
+          "contentId": "tivo:ct.182994325", 
+          "collectionId": "tivo:cl.182994987", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-07-07-30-00.1800", 
+          "startTime": "2011-06-07 07:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Eat What You Want and Lose Weight", 
+          "contentId": "tivo:ct.172634622", 
+          "collectionId": "tivo:cl.172635156", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-07-08-00-00.1800", 
+          "startTime": "2011-06-07 08:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Ninja Kitchen System", 
+          "contentId": "tivo:ct.172402756", 
+          "collectionId": "tivo:cl.172403221", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-07-08-30-00.1800", 
+          "startTime": "2011-06-07 08:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-07-09-00-00.1800", 
+          "startTime": "2011-06-07 09:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Kill Germs With Steam", 
+          "contentId": "tivo:ct.183257068", 
+          "collectionId": "tivo:cl.183257855", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-07-09-30-00.1800", 
+          "startTime": "2011-06-07 09:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Spinning and Weight Loss, the Perfect Fit", 
+          "contentId": "tivo:ct.144006532", 
+          "collectionId": "tivo:cl.144007605", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-07-10-00-00.1800", 
+          "startTime": "2011-06-07 10:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Say Goodbye to Bad Hair Days with WEN by Chaz Dean", 
+          "contentId": "tivo:ct.148495641", 
+          "collectionId": "tivo:cl.148496278", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-07-10-30-00.1800", 
+          "startTime": "2011-06-07 10:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Malcolm in the Middle", 
+          "contentId": "tivo:ct.45050390", 
+          "collectionId": "tivo:cl.1298999", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-07-11-00-00.1800", 
+          "startTime": "2011-06-07 11:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Malcolm in the Middle", 
+          "contentId": "tivo:ct.46028967", 
+          "collectionId": "tivo:cl.1298999", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-07-11-30-00.1800", 
+          "startTime": "2011-06-07 11:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Six Days, Seven Nights", 
+          "contentId": "tivo:ct.338361", 
+          "collectionId": "tivo:cl.338360", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-07-12-00-00.7200", 
+          "startTime": "2011-06-07 12:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Zoolander", 
+          "contentId": "tivo:ct.4656756", 
+          "collectionId": "tivo:cl.4656755", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-07-14-00-00.7200", 
+          "startTime": "2011-06-07 14:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

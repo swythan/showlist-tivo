@@ -1,0 +1,132 @@
+MRPC/2 78 2965
+Raw Packet=MRPC/2 78 2965
+Content-Type: application/json
+IsFinal: true
+RpcId: 1605
+Type: response
+
+{
+  "recordingFolderItem": [
+    {
+      "childRecordingId": "tivo:rc.230219", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.38952563", 
+        "contentId": "tivo:ct.63851410", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-06-04 21:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "55", 
+          "callSign": "WLNYMH", 
+          "type": "channel"
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "NUMB3RS: \"The Running Man\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.230219", 
+      "startTime": "2011-06-04 21:00:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.228449", 
+      "recordingForChildRecordingId": {
+        "collectionId": "tivo:cl.32405929", 
+        "contentId": "tivo:ct.32405409", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "hdtv": true, 
+        "startTime": "2011-06-04 15:25:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "708", 
+          "callSign": "TBSHD", 
+          "type": "channel", 
+          "logoIndex": 66392
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "Mean Girls (2004)", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.228449", 
+      "startTime": "2011-06-04 15:25:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.232409", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.140083307", 
+        "contentId": "tivo:ct.167099474", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "hdtv": true, 
+        "startTime": "2011-06-04 13:30:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "788", 
+          "callSign": "TRAVHD", 
+          "type": "channel", 
+          "logoIndex": 65719
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "Man v. Food: \"Richmond\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.232409", 
+      "startTime": "2011-06-04 13:30:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.232399", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.140083307", 
+        "contentId": "tivo:ct.142257527", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "hdtv": true, 
+        "startTime": "2011-06-04 13:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "788", 
+          "callSign": "TRAVHD", 
+          "type": "channel", 
+          "logoIndex": 65719
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "Man v. Food: \"Los Angeles\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.232399", 
+      "startTime": "2011-06-04 13:00:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.232329", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.16986", 
+        "contentId": "tivo:ct.213185", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-06-04 00:30:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "759", 
+          "callSign": "WEHD", 
+          "type": "channel", 
+          "logoIndex": 65783
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "Frasier: \"You Can Go Home Again\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.232329", 
+      "startTime": "2011-06-04 00:30:00", 
+      "type": "recordingFolderItem"
+    }
+  ], 
+  "type": "recordingFolderItemList"
+}

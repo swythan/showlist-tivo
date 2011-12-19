@@ -1,0 +1,165 @@
+MRPC/2 78 3240
+Raw Packet=MRPC/2 78 3240
+Content-Type: application/json
+IsFinal: true
+RpcId: 1695
+Type: response
+
+{
+  "type": "subscriptionList", 
+  "subscription": [
+    {
+      "maxRecordings": 10, 
+      "keepBehavior": "fifo", 
+      "title": "Mr. Show With Bob and David", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "type": "channel", 
+          "name": "Independent Film Channel HD", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "bitrate": "-117440512", 
+          "channelId": "tivo:ch.9", 
+          "callSign": "IFCHD", 
+          "isDigital": true, 
+          "stationId": "tivo:st.119114326", 
+          "channelNumber": "781", 
+          "isBlocked": false, 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.16031"
+      }, 
+      "showStatus": "rerunsAllowed", 
+      "subscriptionId": "tivo:sb.169", 
+      "type": "subscription"
+    }, 
+    {
+      "maxRecordings": 10, 
+      "keepBehavior": "forever", 
+      "title": "Frasier", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "type": "channel", 
+          "name": "WLNY", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "bitrate": "-1040187392", 
+          "channelId": "tivo:ch.9", 
+          "callSign": "WLNYMH", 
+          "isDigital": true, 
+          "stationId": "tivo:st.1369", 
+          "channelNumber": "55", 
+          "isBlocked": false, 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.16986"
+      }, 
+      "showStatus": "rerunsAllowed", 
+      "subscriptionId": "tivo:sb.179", 
+      "type": "subscription"
+    }, 
+    {
+      "maxRecordings": 10, 
+      "keepBehavior": "forever", 
+      "title": "Seinfeld", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "type": "channel", 
+          "name": "CW Affiliate", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "bitrate": "997195776", 
+          "channelId": "tivo:ch.9", 
+          "callSign": "WPIX", 
+          "isDigital": true, 
+          "stationId": "tivo:st.1498", 
+          "channelNumber": "11", 
+          "logoIndex": 75537, 
+          "isBlocked": false, 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.16984"
+      }, 
+      "showStatus": "rerunsAllowed", 
+      "subscriptionId": "tivo:sb.189", 
+      "type": "subscription"
+    }, 
+    {
+      "maxRecordings": 10, 
+      "keepBehavior": "forever", 
+      "title": "Friends", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "type": "channel", 
+          "name": "CW Affiliate", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "bitrate": "997195776", 
+          "channelId": "tivo:ch.9", 
+          "callSign": "WPIX", 
+          "isDigital": true, 
+          "stationId": "tivo:st.1498", 
+          "channelNumber": "11", 
+          "logoIndex": 75537, 
+          "isBlocked": false, 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.16645"
+      }, 
+      "showStatus": "rerunsAllowed", 
+      "subscriptionId": "tivo:sb.199", 
+      "type": "subscription"
+    }, 
+    {
+      "maxRecordings": 10, 
+      "keepBehavior": "forever", 
+      "title": "Comedy Central Presents", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "type": "channel", 
+          "name": "Comedy Central", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "bitrate": "-1082130432", 
+          "channelId": "tivo:ch.9", 
+          "callSign": "COMEDY", 
+          "isDigital": true, 
+          "stationId": "tivo:st.379", 
+          "channelNumber": "45", 
+          "logoIndex": 65579, 
+          "isBlocked": false, 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.64484"
+      }, 
+      "showStatus": "rerunsAllowed", 
+      "subscriptionId": "tivo:sb.209", 
+      "type": "subscription"
+    }
+  ]
+}

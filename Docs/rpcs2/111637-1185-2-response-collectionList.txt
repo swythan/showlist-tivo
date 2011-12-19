@@ -1,0 +1,137 @@
+MRPC/2 78 2280
+Raw Packet=MRPC/2 78 2280
+Content-Type: application/json
+IsFinal: true
+RpcId: 1185
+Type: response
+
+{
+  "type": "collectionList", 
+  "collection": [
+    {
+      "category": [
+        {
+          "image": [
+            {
+              "width": 180, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/Reality.jpg", 
+              "type": "image", 
+              "imageType": "moviePoster", 
+              "height": 270
+            }, 
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/Reality.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }
+          ], 
+          "displayRank": 0, 
+          "type": "category", 
+          "label": "Reality"
+        }, 
+        {
+          "image": [
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/Cooking.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }, 
+            {
+              "width": 180, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/Cooking.jpg", 
+              "type": "image", 
+              "imageType": "moviePoster", 
+              "height": 270
+            }
+          ], 
+          "displayRank": 1, 
+          "type": "category", 
+          "label": "Cooking"
+        }
+      ], 
+      "collectionType": "series", 
+      "description": "Amateur chefs compete to become a culinary master and earn the title Masterchef.", 
+      "broadcastOfferGroupForCollectionId": [
+        {
+          "count": 3, 
+          "type": "offerGroup", 
+          "example": {
+            "contentId": "tivo:ct.182226309", 
+            "type": "offer"
+          }
+        }
+      ], 
+      "collectionId": "tivo:cl.162636011", 
+      "episodic": true, 
+      "image": [
+        {
+          "width": 139, 
+          "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/71/31/713139ef2df3a26b70ec1765ff0edc4d.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 104
+        }, 
+        {
+          "width": 200, 
+          "imageUrl": "http://i.tivo.com/images-production/hdui-showing/ef/84/ef849467637eb53e2a460720bea363c7.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 150
+        }
+      ], 
+      "title": "MasterChef", 
+      "credit": [
+        {
+          "role": "judge", 
+          "type": "credit", 
+          "last": "Ramsay", 
+          "first": "Gordon"
+        }, 
+        {
+          "role": "judge", 
+          "type": "credit", 
+          "last": "Bastianich", 
+          "first": "Joe"
+        }, 
+        {
+          "role": "judge", 
+          "type": "credit", 
+          "last": "Elliot", 
+          "first": "Graham"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Elliot", 
+          "first": "Graham"
+        }
+      ], 
+      "type": "collection", 
+      "tvRating": "14", 
+      "broadbandOfferGroupForCollectionId": [
+        {
+          "count": 4, 
+          "type": "offerGroup", 
+          "example": {
+            "contentId": "tivo:ct.ts.69251371", 
+            "partnerId": "tivo:pt.2990", 
+            "type": "offer"
+          }
+        }, 
+        {
+          "count": 4, 
+          "type": "offerGroup", 
+          "example": {
+            "contentId": "tivo:ct.ts.69251361", 
+            "partnerId": "tivo:pt.2990", 
+            "type": "offer"
+          }
+        }
+      ]
+    }
+  ]
+}

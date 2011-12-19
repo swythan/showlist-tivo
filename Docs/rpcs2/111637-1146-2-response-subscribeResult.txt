@@ -1,0 +1,14 @@
+MRPC/2 78 102
+Raw Packet=MRPC/2 78 102
+Content-Type: application/json
+IsFinal: true
+RpcId: 1146
+Type: response
+
+{
+  "conflicts": {
+    "conflictsUnknown": true, 
+    "type": "subscriptionConflicts"
+  }, 
+  "type": "subscribeResult"
+}

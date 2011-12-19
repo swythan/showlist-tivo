@@ -1,0 +1,79 @@
+MRPC/2 78 1630
+Raw Packet=MRPC/2 78 1630
+Content-Type: application/json
+IsFinal: true
+RpcId: 1070
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "FXHD", 
+        "isDigital": true, 
+        "channelNumber": "710", 
+        "logoIndex": 66198, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Double Jeopardy", 
+          "contentId": "tivo:ct.1542755", 
+          "collectionId": "tivo:cl.1542754", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-12-14-30-00.7200", 
+          "startTime": "2011-06-12 14:30:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Wild Hogs", 
+          "contentId": "tivo:ct.93966281", 
+          "collectionId": "tivo:cl.94042842", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-12-16-30-00.7200", 
+          "startTime": "2011-06-12 16:30:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Live Free or Die Hard", 
+          "contentId": "tivo:ct.93967910", 
+          "collectionId": "tivo:cl.93979033", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-12-18-30-00.10800", 
+          "startTime": "2011-06-12 18:30:00", 
+          "duration": 10800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Wanted", 
+          "contentId": "tivo:ct.106969564", 
+          "collectionId": "tivo:cl.106970110", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-12-21-30-00.9000", 
+          "startTime": "2011-06-12 21:30:00", 
+          "duration": 9000, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Taken", 
+          "contentId": "tivo:ct.117219335", 
+          "collectionId": "tivo:cl.117220548", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-13-00-00-00.7200", 
+          "startTime": "2011-06-13 00:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Taken", 
+          "contentId": "tivo:ct.117219335", 
+          "collectionId": "tivo:cl.117220548", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-13-02-00-00.7200", 
+          "startTime": "2011-06-13 02:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

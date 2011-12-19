@@ -1,0 +1,285 @@
+MRPC/2 76 5572
+Raw Packet=MRPC/2 76 5572
+Content-Type: application/json
+IsFinal: true
+RpcId: 56
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "NIKHD", 
+        "isDigital": true, 
+        "channelNumber": "706", 
+        "logoIndex": 66208, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "iCarly", 
+          "contentId": "tivo:ct.135793359", 
+          "collectionId": "tivo:cl.105859033", 
+          "offerId": "tivo:of.ctd.118898599.706.cable.2011-06-06-22-00-00.1800", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "iCarly", 
+          "contentId": "tivo:ct.175810354", 
+          "collectionId": "tivo:cl.105859033", 
+          "offerId": "tivo:of.ctd.118898599.706.cable.2011-06-06-22-30-00.1800", 
+          "startTime": "2011-06-06 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WABCDT", 
+        "isDigital": true, 
+        "channelNumber": "707", 
+        "logoIndex": 65554, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Eyewitness News", 
+          "contentId": "tivo:ct.43429648", 
+          "collectionId": "tivo:cl.43430145", 
+          "offerId": "tivo:of.ctd.4190787.707.cable.2011-06-06-22-00-00.1800", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "ABC World News With Diane Sawyer", 
+          "contentId": "tivo:ct.156122557", 
+          "collectionId": "tivo:cl.156123597", 
+          "offerId": "tivo:of.ctd.4190787.707.cable.2011-06-06-22-30-00.1800", 
+          "startTime": "2011-06-06 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "TBSHD", 
+        "isDigital": true, 
+        "channelNumber": "708", 
+        "logoIndex": 66392, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "The King of Queens", 
+          "contentId": "tivo:ct.2861519", 
+          "collectionId": "tivo:cl.18987", 
+          "offerId": "tivo:of.ctd.109917497.708.cable.2011-06-06-22-00-00.1800", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The King of Queens", 
+          "contentId": "tivo:ct.57583", 
+          "collectionId": "tivo:cl.18987", 
+          "offerId": "tivo:of.ctd.109917497.708.cable.2011-06-06-22-30-00.1800", 
+          "startTime": "2011-06-06 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WWORDT", 
+        "isDigital": true, 
+        "channelNumber": "709", 
+        "logoIndex": 66244, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Everybody Loves Raymond", 
+          "contentId": "tivo:ct.1329504", 
+          "collectionId": "tivo:cl.18989", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-06-22-00-00.1800", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The King of Queens", 
+          "contentId": "tivo:ct.60012996", 
+          "collectionId": "tivo:cl.18987", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-06-22-30-00.1800", 
+          "startTime": "2011-06-06 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "FXHD", 
+        "isDigital": true, 
+        "channelNumber": "710", 
+        "logoIndex": 66198, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Zoolander", 
+          "contentId": "tivo:ct.4656756", 
+          "collectionId": "tivo:cl.4656755", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-06-21-00-00.7200", 
+          "startTime": "2011-06-06 21:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WPIXDT", 
+        "isDigital": true, 
+        "channelNumber": "711", 
+        "logoIndex": 75537, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Family Guy", 
+          "contentId": "tivo:ct.137231220", 
+          "collectionId": "tivo:cl.299214", 
+          "offerId": "tivo:of.ctd.10420174.711.cable.2011-06-06-22-00-00.1800", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Family Guy", 
+          "contentId": "tivo:ct.84754461", 
+          "collectionId": "tivo:cl.299214", 
+          "offerId": "tivo:of.ctd.10420174.711.cable.2011-06-06-22-30-00.1800", 
+          "startTime": "2011-06-06 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "712", 
+        "callSign": "OXYGNHD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Love Games: Bad Girls Need Love Too", 
+          "contentId": "tivo:ct.179572304", 
+          "collectionId": "tivo:cl.160900649", 
+          "offerId": "tivo:of.ctd.175616077.712.cable.2011-06-06-22-00-00.3600", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WNETDT", 
+        "isDigital": true, 
+        "channelNumber": "713", 
+        "logoIndex": 65558, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "NJN News", 
+          "contentId": "tivo:ct.143049", 
+          "collectionId": "tivo:cl.143048", 
+          "offerId": "tivo:of.ctd.6322053.713.cable.2011-06-06-22-00-00.1800", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Nightly Business Report", 
+          "contentId": "tivo:ct.179544876", 
+          "collectionId": "tivo:cl.19591", 
+          "offerId": "tivo:of.ctd.6322053.713.cable.2011-06-06-22-30-00.1800", 
+          "startTime": "2011-06-06 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "USAHD", 
+        "isDigital": true, 
+        "channelNumber": "716", 
+        "logoIndex": 66057, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "NCIS", 
+          "contentId": "tivo:ct.46359981", 
+          "collectionId": "tivo:cl.30244724", 
+          "offerId": "tivo:of.ctd.109673805.716.cable.2011-06-06-22-00-00.3600", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "SYFYHD", 
+        "isDigital": true, 
+        "channelNumber": "717", 
+        "logoIndex": 66056, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Red Faction: Origins", 
+          "contentId": "tivo:ct.180708857", 
+          "collectionId": "tivo:cl.180710392", 
+          "offerId": "tivo:of.ctd.111008803.717.cable.2011-06-06-21-30-00.7200", 
+          "startTime": "2011-06-06 21:30:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

@@ -1,0 +1,154 @@
+MRPC/2 223 2441
+Raw Packet=MRPC/2 223 2441
+Type:request
+RpcId:1368
+SchemaVersion:7
+Content-Type:application/json
+RequestType:logDataWrite
+ResponseCount:single
+BodyId:
+X-ApplicationName:Quicksilver
+X-ApplicationVersion:1.2
+X-ApplicationSessionId:0x27c180
+
+{
+  "logData": [
+    {
+      "data": {
+        "eventName": "ipad_browse_upcoming", 
+        "version": "1.2", 
+        "uuid": "7E1F59D5-CB00-4ACC-A8E5-B32AB4133132"
+      }, 
+      "type": "logData", 
+      "createTime": "2011-06-07 03:25:36"
+    }, 
+    {
+      "data": {
+        "eventName": "ipad_browse_seasonpass", 
+        "version": "1.2", 
+        "uuid": "7E1F59D5-CB00-4ACC-A8E5-B32AB4133132"
+      }, 
+      "type": "logData", 
+      "createTime": "2011-06-07 03:25:49"
+    }, 
+    {
+      "data": {
+        "eventName": "ipad_browse_recordingScheduled", 
+        "version": "1.2", 
+        "uuid": "7E1F59D5-CB00-4ACC-A8E5-B32AB4133132"
+      }, 
+      "type": "logData", 
+      "createTime": "2011-06-07 03:25:57"
+    }, 
+    {
+      "data": {
+        "eventName": "ipad_browse_share", 
+        "version": "1.2", 
+        "uuid": "7E1F59D5-CB00-4ACC-A8E5-B32AB4133132"
+      }, 
+      "type": "logData", 
+      "createTime": "2011-06-07 03:26:02"
+    }, 
+    {
+      "data": {
+        "eventName": "ipad_browse_upcoming", 
+        "version": "1.2", 
+        "uuid": "7E1F59D5-CB00-4ACC-A8E5-B32AB4133132"
+      }, 
+      "type": "logData", 
+      "createTime": "2011-06-07 03:26:04"
+    }, 
+    {
+      "data": {
+        "eventName": "ipad_browse_record", 
+        "version": "1.2", 
+        "uuid": "7E1F59D5-CB00-4ACC-A8E5-B32AB4133132"
+      }, 
+      "type": "logData", 
+      "createTime": "2011-06-07 03:26:09"
+    }, 
+    {
+      "data": {
+        "eventName": "ipad_browse_recordingScheduled", 
+        "version": "1.2", 
+        "uuid": "7E1F59D5-CB00-4ACC-A8E5-B32AB4133132"
+      }, 
+      "type": "logData", 
+      "createTime": "2011-06-07 03:26:12"
+    }, 
+    {
+      "data": {
+        "eventName": "ipad_myShows", 
+        "version": "1.2", 
+        "uuid": "7E1F59D5-CB00-4ACC-A8E5-B32AB4133132"
+      }, 
+      "type": "logData", 
+      "createTime": "2011-06-07 03:26:16"
+    }, 
+    {
+      "data": {
+        "eventName": "ipad_myShows_delete", 
+        "version": "1.2", 
+        "uuid": "7E1F59D5-CB00-4ACC-A8E5-B32AB4133132"
+      }, 
+      "type": "logData", 
+      "createTime": "2011-06-07 03:26:26"
+    }, 
+    {
+      "data": {
+        "eventName": "ipad_myShows_watchnow", 
+        "version": "1.2", 
+        "uuid": "7E1F59D5-CB00-4ACC-A8E5-B32AB4133132"
+      }, 
+      "type": "logData", 
+      "createTime": "2011-06-07 03:26:31"
+    }, 
+    {
+      "data": {
+        "eventName": "ipad_myShows_upcoming", 
+        "version": "1.2", 
+        "uuid": "7E1F59D5-CB00-4ACC-A8E5-B32AB4133132"
+      }, 
+      "type": "logData", 
+      "createTime": "2011-06-07 03:26:36"
+    }, 
+    {
+      "data": {
+        "eventName": "ipad_guide", 
+        "version": "1.2", 
+        "uuid": "7E1F59D5-CB00-4ACC-A8E5-B32AB4133132"
+      }, 
+      "type": "logData", 
+      "createTime": "2011-06-07 03:26:56"
+    }, 
+    {
+      "data": {
+        "eventName": "ipad_guide_explore", 
+        "version": "1.2", 
+        "uuid": "7E1F59D5-CB00-4ACC-A8E5-B32AB4133132"
+      }, 
+      "type": "logData", 
+      "createTime": "2011-06-07 03:27:37"
+    }, 
+    {
+      "data": {
+        "eventName": "ipad_infoScreen", 
+        "version": "1.2", 
+        "uuid": "7E1F59D5-CB00-4ACC-A8E5-B32AB4133132"
+      }, 
+      "type": "logData", 
+      "createTime": "2011-06-07 03:27:45"
+    }, 
+    {
+      "data": {
+        "eventName": "ipad_myShows", 
+        "version": "1.2", 
+        "uuid": "7E1F59D5-CB00-4ACC-A8E5-B32AB4133132"
+      }, 
+      "type": "logData", 
+      "createTime": "2011-06-07 03:27:48"
+    }
+  ], 
+  "identifier": "ipad", 
+  "type": "logDataWrite"
+}

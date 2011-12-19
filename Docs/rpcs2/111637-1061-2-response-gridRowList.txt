@@ -1,0 +1,106 @@
+MRPC/2 78 2379
+Raw Packet=MRPC/2 78 2379
+Content-Type: application/json
+IsFinal: true
+RpcId: 1061
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "FXHD", 
+        "isDigital": true, 
+        "channelNumber": "710", 
+        "logoIndex": 66198, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Blade", 
+          "contentId": "tivo:ct.306278", 
+          "collectionId": "tivo:cl.306277", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-07-16-00-00.9000", 
+          "startTime": "2011-06-07 16:00:00", 
+          "duration": 9000, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Malcolm in the Middle", 
+          "contentId": "tivo:ct.45528139", 
+          "collectionId": "tivo:cl.1298999", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-07-18-30-00.1800", 
+          "startTime": "2011-06-07 18:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Black Hawk Down", 
+          "contentId": "tivo:ct.5074808", 
+          "collectionId": "tivo:cl.5074807", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-07-19-00-00.10800", 
+          "startTime": "2011-06-07 19:00:00", 
+          "duration": 10800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Two and a Half Men", 
+          "contentId": "tivo:ct.47631011", 
+          "collectionId": "tivo:cl.15566705", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-07-22-00-00.1800", 
+          "startTime": "2011-06-07 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Two and a Half Men", 
+          "contentId": "tivo:ct.47819860", 
+          "collectionId": "tivo:cl.15566705", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-07-22-30-00.1800", 
+          "startTime": "2011-06-07 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Two and a Half Men", 
+          "contentId": "tivo:ct.48339147", 
+          "collectionId": "tivo:cl.15566705", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-07-23-00-00.1800", 
+          "startTime": "2011-06-07 23:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Two and a Half Men", 
+          "contentId": "tivo:ct.48002896", 
+          "collectionId": "tivo:cl.15566705", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-07-23-30-00.1800", 
+          "startTime": "2011-06-07 23:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Taken", 
+          "contentId": "tivo:ct.117219335", 
+          "collectionId": "tivo:cl.117220548", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-08-00-00-00.7200", 
+          "startTime": "2011-06-08 00:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Live Free or Die Hard", 
+          "contentId": "tivo:ct.93967910", 
+          "collectionId": "tivo:cl.93979033", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-08-02-00-00.10800", 
+          "startTime": "2011-06-08 02:00:00", 
+          "duration": 10800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

@@ -1,0 +1,273 @@
+MRPC/2 78 5207
+Raw Packet=MRPC/2 78 5207
+Content-Type: application/json
+IsFinal: true
+RpcId: 1518
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "679", 
+        "callSign": "WGNHD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Scrubs", 
+          "contentId": "tivo:ct.141683331", 
+          "collectionId": "tivo:cl.3879910", 
+          "offerId": "tivo:of.ctd.116926615.679.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Scrubs", 
+          "contentId": "tivo:ct.141683332", 
+          "collectionId": "tivo:cl.3879910", 
+          "offerId": "tivo:of.ctd.116926615.679.cable.2011-06-07-03-30-00.1800", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "GMCHD", 
+        "isDigital": true, 
+        "channelNumber": "680", 
+        "logoIndex": 66199, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "227", 
+          "contentId": "tivo:ct.210885", 
+          "collectionId": "tivo:cl.52308", 
+          "offerId": "tivo:of.ctd.158751899.680.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "227", 
+          "contentId": "tivo:ct.158409", 
+          "collectionId": "tivo:cl.52308", 
+          "offerId": "tivo:of.ctd.158751899.680.cable.2011-06-07-03-30-00.1800", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "682", 
+        "callSign": "OWNHD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "The Truth of My Sex", 
+          "contentId": "tivo:ct.179908686", 
+          "collectionId": "tivo:cl.179909861", 
+          "offerId": "tivo:of.ctd.174779607.682.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Frasier", 
+          "contentId": "tivo:ct.5165234", 
+          "collectionId": "tivo:cl.16986", 
+          "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Frasier", 
+          "contentId": "tivo:ct.5250601", 
+          "collectionId": "tivo:cl.16986", 
+          "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-07-03-30-00.1800", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "BBCAHD", 
+        "isDigital": true, 
+        "channelNumber": "685", 
+        "logoIndex": 65725, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Top Gear", 
+          "contentId": "tivo:ct.102502451", 
+          "collectionId": "tivo:cl.863984", 
+          "offerId": "tivo:of.ctd.151168818.685.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "686", 
+        "callSign": "CINHD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "SWAT", 
+          "contentId": "tivo:ct.137231713", 
+          "collectionId": "tivo:cl.137232399", 
+          "offerId": "tivo:of.ctd.138875833.686.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WABCDT2", 
+        "isDigital": true, 
+        "channelNumber": "687", 
+        "logoIndex": 65554, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Motion", 
+          "contentId": "tivo:ct.179572477", 
+          "collectionId": "tivo:cl.179573276", 
+          "offerId": "tivo:of.ctd.38520537.687.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Treasure Hunters Roadshow", 
+          "contentId": "tivo:ct.169785938", 
+          "collectionId": "tivo:cl.169787076", 
+          "offerId": "tivo:of.ctd.38520537.687.cable.2011-06-07-03-30-00.1800", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "688", 
+        "callSign": "DIYHD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Yard Crashers", 
+          "contentId": "tivo:ct.150387922", 
+          "collectionId": "tivo:cl.121168657", 
+          "offerId": "tivo:of.ctd.165011611.688.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "King of Dirt", 
+          "contentId": "tivo:ct.177772813", 
+          "collectionId": "tivo:cl.144331495", 
+          "offerId": "tivo:of.ctd.165011611.688.cable.2011-06-07-03-30-00.1800", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "STYLEHD", 
+        "isDigital": true, 
+        "channelNumber": "689", 
+        "logoIndex": 66212, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Jerseylicious", 
+          "contentId": "tivo:ct.183312313", 
+          "collectionId": "tivo:cl.159740606", 
+          "offerId": "tivo:of.ctd.141442737.689.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "FUSEHD", 
+        "isDigital": true, 
+        "channelNumber": "691", 
+        "logoIndex": 66082, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Usher Takeover", 
+          "contentId": "tivo:ct.184213806", 
+          "collectionId": "tivo:cl.184214602", 
+          "offerId": "tivo:of.ctd.115871933.691.cable.2011-06-07-02-00-00.28800", 
+          "startTime": "2011-06-07 02:00:00", 
+          "duration": 28800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

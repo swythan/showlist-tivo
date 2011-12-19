@@ -1,0 +1,106 @@
+MRPC/2 78 2380
+Raw Packet=MRPC/2 78 2380
+Content-Type: application/json
+IsFinal: true
+RpcId: 1080
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "FXHD", 
+        "isDigital": true, 
+        "channelNumber": "710", 
+        "logoIndex": 66198, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-15-10-30-00.1800", 
+          "startTime": "2011-06-15 10:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Malcolm in the Middle", 
+          "contentId": "tivo:ct.58829270", 
+          "collectionId": "tivo:cl.1298999", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-15-11-00-00.1800", 
+          "startTime": "2011-06-15 11:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Malcolm in the Middle", 
+          "contentId": "tivo:ct.60013022", 
+          "collectionId": "tivo:cl.1298999", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-15-11-30-00.1800", 
+          "startTime": "2011-06-15 11:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Crossover", 
+          "contentId": "tivo:ct.92507781", 
+          "collectionId": "tivo:cl.92508051", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-15-12-00-00.7200", 
+          "startTime": "2011-06-15 12:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Miracle", 
+          "contentId": "tivo:ct.25539229", 
+          "collectionId": "tivo:cl.25539531", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-15-14-00-00.10800", 
+          "startTime": "2011-06-15 14:00:00", 
+          "duration": 10800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Wrestler", 
+          "contentId": "tivo:ct.136894790", 
+          "collectionId": "tivo:cl.136895972", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-15-17-00-00.9000", 
+          "startTime": "2011-06-15 17:00:00", 
+          "duration": 9000, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Slumdog Millionaire", 
+          "contentId": "tivo:ct.123475867", 
+          "collectionId": "tivo:cl.123477055", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-15-19-30-00.9000", 
+          "startTime": "2011-06-15 19:30:00", 
+          "duration": 9000, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Two and a Half Men", 
+          "contentId": "tivo:ct.62336979", 
+          "collectionId": "tivo:cl.15566705", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-15-22-00-00.1800", 
+          "startTime": "2011-06-15 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Two and a Half Men", 
+          "contentId": "tivo:ct.62760114", 
+          "collectionId": "tivo:cl.15566705", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-15-22-30-00.1800", 
+          "startTime": "2011-06-15 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

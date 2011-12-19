@@ -1,0 +1,246 @@
+MRPC/2 76 4578
+Raw Packet=MRPC/2 76 4578
+Content-Type: application/json
+IsFinal: true
+RpcId: 64
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "781", 
+        "callSign": "IFCHD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Freaks and Geeks", 
+          "contentId": "tivo:ct.1051923", 
+          "collectionId": "tivo:cl.894882", 
+          "offerId": "tivo:of.ctd.119114326.781.cable.2011-06-06-22-00-00.3600", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "TCMHD", 
+        "isDigital": true, 
+        "channelNumber": "782", 
+        "logoIndex": 65564, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "North by Northwest", 
+          "contentId": "tivo:ct.177700", 
+          "collectionId": "tivo:cl.177699", 
+          "offerId": "tivo:of.ctd.148496436.782.cable.2011-06-06-21-30-00.9000", 
+          "startTime": "2011-06-06 21:30:00", 
+          "duration": 9000, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "783", 
+        "callSign": "OVATNHD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Fame", 
+          "contentId": "tivo:ct.3233983", 
+          "collectionId": "tivo:cl.705903", 
+          "offerId": "tivo:of.ctd.172225173.783.cable.2011-06-06-22-00-00.3600", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "APLHD", 
+        "isDigital": true, 
+        "channelNumber": "786", 
+        "logoIndex": 66160, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "I Shouldn't Be Alive", 
+          "contentId": "tivo:ct.172402354", 
+          "collectionId": "tivo:cl.56273177", 
+          "offerId": "tivo:of.ctd.107213909.786.cable.2011-06-06-22-00-00.3600", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "TRAVHD", 
+        "isDigital": true, 
+        "channelNumber": "788", 
+        "logoIndex": 65719, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Dining With Death", 
+          "contentId": "tivo:ct.165303564", 
+          "collectionId": "tivo:cl.165304177", 
+          "offerId": "tivo:of.ctd.117692296.788.cable.2011-06-06-22-00-00.3600", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "790", 
+        "callSign": "TVONEHD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "A Different World", 
+          "contentId": "tivo:ct.39922", 
+          "collectionId": "tivo:cl.18437", 
+          "offerId": "tivo:of.ctd.141442739.790.cable.2011-06-06-22-00-00.1800", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "A Different World", 
+          "contentId": "tivo:ct.39923", 
+          "collectionId": "tivo:cl.18437", 
+          "offerId": "tivo:of.ctd.141442739.790.cable.2011-06-06-22-30-00.1800", 
+          "startTime": "2011-06-06 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "PLDHD", 
+        "isDigital": true, 
+        "channelNumber": "791", 
+        "logoIndex": 66365, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Storytellers", 
+          "contentId": "tivo:ct.158083141", 
+          "collectionId": "tivo:cl.31056", 
+          "offerId": "tivo:of.ctd.62943155.791.cable.2011-06-06-22-00-00.3600", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": false, 
+        "channelNumber": "794", 
+        "callSign": "WDDNGHD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Amazing Wedding Cakes", 
+          "contentId": "tivo:ct.147654790", 
+          "collectionId": "tivo:cl.133386878", 
+          "offerId": "tivo:of.ctd.177925979.794.cable.2011-06-06-22-00-00.3600", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "TWANIM", 
+        "isDigital": true, 
+        "channelNumber": "833", 
+        "logoIndex": 65666, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Animal Cops Houston", 
+          "contentId": "tivo:ct.16456591", 
+          "collectionId": "tivo:cl.14586622", 
+          "offerId": "tivo:of.ctd.5136335.833.cable.2011-06-06-22-00-00.3600", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "NIKTON", 
+        "isDigital": true, 
+        "channelNumber": "846", 
+        "logoIndex": 66093, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Avatar: The Last Airbender", 
+          "contentId": "tivo:ct.108187752", 
+          "collectionId": "tivo:cl.40951139", 
+          "offerId": "tivo:of.ctd.6146038.846.cable.2011-06-06-22-00-00.1800", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Avatar: The Last Airbender", 
+          "contentId": "tivo:ct.108187753", 
+          "collectionId": "tivo:cl.40951139", 
+          "offerId": "tivo:of.ctd.6146038.846.cable.2011-06-06-22-30-00.1800", 
+          "startTime": "2011-06-06 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

@@ -1,0 +1,34 @@
+MRPC/2 239 413
+Raw Packet=MRPC/2 239 413
+Type:request
+RpcId:1090
+SchemaVersion:7
+Content-Type:application/json
+RequestType:subscribe
+ResponseCount:single
+BodyId:tsn:XXXXXXXXXXXXXXX
+X-ApplicationName:Quicksilver
+X-ApplicationVersion:1.2
+X-ApplicationSessionId:0x27c180
+
+{
+  "recordingQuality": "best", 
+  "maxRecordings": 5, 
+  "keepBehavior": "fifo", 
+  "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+  "idSetSource": {
+    "contentId": "tivo:ct.306278", 
+    "type": "singleOfferSource", 
+    "channel": {
+      "sourceType": "cable", 
+      "callSign": "FXHD", 
+      "isDigital": true, 
+      "channelNumber": "710", 
+      "logoIndex": 66198, 
+      "type": "channel"
+    }, 
+    "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-07-16-00-00.9000"
+  }, 
+  "showStatus": "rerunsAllowed", 
+  "type": "subscribe"
+}

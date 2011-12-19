@@ -1,0 +1,160 @@
+MRPC/2 78 3873
+Raw Packet=MRPC/2 78 3873
+Content-Type: application/json
+IsFinal: true
+RpcId: 1305
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "SCIHD", 
+        "isDigital": true, 
+        "channelNumber": "775", 
+        "logoIndex": 65773, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.178924361", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-08-04-30-00.1800", 
+          "startTime": "2011-06-08 04:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Life on the Line", 
+          "contentId": "tivo:ct.183945740", 
+          "collectionId": "tivo:cl.183947043", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-08-05-00-00.1800", 
+          "startTime": "2011-06-08 05:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Life on the Line", 
+          "contentId": "tivo:ct.183945741", 
+          "collectionId": "tivo:cl.183947043", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-08-05-30-00.1800", 
+          "startTime": "2011-06-08 05:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.86385500", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-08-06-00-00.1800", 
+          "startTime": "2011-06-08 06:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.56020639", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-08-06-30-00.1800", 
+          "startTime": "2011-06-08 06:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Hawking Paradox", 
+          "contentId": "tivo:ct.74210787", 
+          "collectionId": "tivo:cl.74211296", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-08-07-00-00.3600", 
+          "startTime": "2011-06-08 07:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Seeing Black Holes", 
+          "contentId": "tivo:ct.156582975", 
+          "collectionId": "tivo:cl.156583060", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-08-08-00-00.3600", 
+          "startTime": "2011-06-08 08:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "To See or Not to See", 
+          "contentId": "tivo:ct.185235734", 
+          "collectionId": "tivo:cl.185236652", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-08-09-00-00.3600", 
+          "startTime": "2011-06-08 09:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Exodus Earth", 
+          "contentId": "tivo:ct.148049574", 
+          "collectionId": "tivo:cl.147780285", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-08-10-00-00.3600", 
+          "startTime": "2011-06-08 10:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Exodus Earth", 
+          "contentId": "tivo:ct.147779635", 
+          "collectionId": "tivo:cl.147780285", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-08-11-00-00.3600", 
+          "startTime": "2011-06-08 11:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Exodus Earth", 
+          "contentId": "tivo:ct.147779636", 
+          "collectionId": "tivo:cl.147780285", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-08-12-00-00.3600", 
+          "startTime": "2011-06-08 12:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How the Universe Works", 
+          "contentId": "tivo:ct.165010883", 
+          "collectionId": "tivo:cl.162954163", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-08-13-00-00.3600", 
+          "startTime": "2011-06-08 13:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How the Universe Works", 
+          "contentId": "tivo:ct.174718704", 
+          "collectionId": "tivo:cl.162954163", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-08-14-00-00.3600", 
+          "startTime": "2011-06-08 14:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How the Universe Works", 
+          "contentId": "tivo:ct.173781465", 
+          "collectionId": "tivo:cl.162954163", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-08-15-00-00.3600", 
+          "startTime": "2011-06-08 15:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How the Universe Works", 
+          "contentId": "tivo:ct.174438522", 
+          "collectionId": "tivo:cl.162954163", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-08-16-00-00.3600", 
+          "startTime": "2011-06-08 16:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

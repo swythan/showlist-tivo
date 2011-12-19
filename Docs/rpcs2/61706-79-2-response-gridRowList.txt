@@ -1,0 +1,142 @@
+MRPC/2 76 3220
+Raw Packet=MRPC/2 76 3220
+Content-Type: application/json
+IsFinal: true
+RpcId: 79
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "TBS", 
+        "isDigital": true, 
+        "channelNumber": "8", 
+        "logoIndex": 65540, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Fool's Gold", 
+          "contentId": "tivo:ct.109473906", 
+          "collectionId": "tivo:cl.109474208", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-18-17-10-00.8400", 
+          "startTime": "2011-06-18 17:10:00", 
+          "duration": 8400, 
+          "type": "offer"
+        }, 
+        {
+          "title": "According to Jim", 
+          "contentId": "tivo:ct.12217315", 
+          "collectionId": "tivo:cl.3858871", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-18-19-30-00.1800", 
+          "startTime": "2011-06-18 19:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Everybody Loves Raymond", 
+          "contentId": "tivo:ct.102201", 
+          "collectionId": "tivo:cl.18989", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-18-20-00-00.1800", 
+          "startTime": "2011-06-18 20:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Everybody Loves Raymond", 
+          "contentId": "tivo:ct.102201", 
+          "collectionId": "tivo:cl.18989", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-18-20-30-00.1800", 
+          "startTime": "2011-06-18 20:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Everybody Loves Raymond", 
+          "contentId": "tivo:ct.102201", 
+          "collectionId": "tivo:cl.18989", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-18-21-00-00.1800", 
+          "startTime": "2011-06-18 21:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Everybody Loves Raymond", 
+          "contentId": "tivo:ct.102201", 
+          "collectionId": "tivo:cl.18989", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-18-21-30-00.1800", 
+          "startTime": "2011-06-18 21:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Seinfeld", 
+          "contentId": "tivo:ct.301383", 
+          "collectionId": "tivo:cl.16984", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-18-22-00-00.1800", 
+          "startTime": "2011-06-18 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Seinfeld", 
+          "contentId": "tivo:ct.304294", 
+          "collectionId": "tivo:cl.16984", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-18-22-30-00.1800", 
+          "startTime": "2011-06-18 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The King of Queens", 
+          "contentId": "tivo:ct.3721982", 
+          "collectionId": "tivo:cl.18987", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-18-23-00-00.1800", 
+          "startTime": "2011-06-18 23:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The King of Queens", 
+          "contentId": "tivo:ct.3760479", 
+          "collectionId": "tivo:cl.18987", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-18-23-30-00.1800", 
+          "startTime": "2011-06-18 23:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Meet the Fockers", 
+          "contentId": "tivo:ct.48053242", 
+          "collectionId": "tivo:cl.48053653", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-19-00-00-00.7920", 
+          "startTime": "2011-06-19 00:00:00", 
+          "duration": 7920, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Bucket List", 
+          "contentId": "tivo:ct.105888053", 
+          "collectionId": "tivo:cl.105888232", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-19-02-12-00.7380", 
+          "startTime": "2011-06-19 02:12:00", 
+          "duration": 7380, 
+          "type": "offer"
+        }, 
+        {
+          "title": "RV", 
+          "contentId": "tivo:ct.76964497", 
+          "collectionId": "tivo:cl.76965005", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-19-04-15-00.7200", 
+          "startTime": "2011-06-19 04:15:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

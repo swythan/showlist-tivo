@@ -1,0 +1,156 @@
+MRPC/2 78 2404
+Raw Packet=MRPC/2 78 2404
+Content-Type: application/json
+IsFinal: true
+RpcId: 1099
+Type: response
+
+{
+  "type": "collectionList", 
+  "collection": [
+    {
+      "category": [
+        {
+          "image": [
+            {
+              "width": 180, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/CrimeDrama.jpg", 
+              "type": "image", 
+              "imageType": "moviePoster", 
+              "height": 270
+            }, 
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/CrimeDrama.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }
+          ], 
+          "displayRank": 0, 
+          "type": "category", 
+          "label": "Crime Drama"
+        }, 
+        {
+          "displayRank": 1, 
+          "type": "category", 
+          "label": "TV Show"
+        }
+      ], 
+      "userContentForCollectionId": {
+        "thumbsRating": 2, 
+        "type": "userContent", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX"
+      }, 
+      "collectionType": "series", 
+      "description": "A con artist assists an FBI agent, in exchange for his freedom.", 
+      "broadcastOfferGroupForCollectionId": [
+        {
+          "count": 8, 
+          "type": "offerGroup", 
+          "example": {
+            "contentId": "tivo:ct.182551373", 
+            "type": "offer"
+          }
+        }
+      ], 
+      "collectionId": "tivo:cl.150777031", 
+      "episodic": true, 
+      "image": [
+        {
+          "width": 139, 
+          "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/c3/1d/c31d6f201d84a9894178437ed5d8dd18.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 104
+        }, 
+        {
+          "width": 200, 
+          "imageUrl": "http://i.tivo.com/images-production/hdui-showing/c3/1d/c31d6f201d84a9894178437ed5d8dd18.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 150
+        }
+      ], 
+      "title": "White Collar", 
+      "credit": [
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Bomer", 
+          "first": "Matt"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "DeKay", 
+          "first": "Tim"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Thiessen", 
+          "first": "Tiffani"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Garson", 
+          "first": "Willie"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Thomason", 
+          "first": "Marsha"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Atkins", 
+          "first": "Sharif"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Morales", 
+          "first": "Natalie"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Rebhorn", 
+          "first": "James"
+        }, 
+        {
+          "role": "executiveProducer", 
+          "type": "credit", 
+          "last": "Eastin", 
+          "first": "Jeff"
+        }
+      ], 
+      "type": "collection", 
+      "tvRating": "14", 
+      "broadbandOfferGroupForCollectionId": [
+        {
+          "count": 30, 
+          "type": "offerGroup", 
+          "example": {
+            "contentId": "tivo:ct.ts.65799811", 
+            "partnerId": "tivo:pt.2990", 
+            "type": "offer"
+          }
+        }, 
+        {
+          "count": 31, 
+          "type": "offerGroup", 
+          "example": {
+            "contentId": "tivo:ct.ts.50055341", 
+            "partnerId": "tivo:pt.2990", 
+            "type": "offer"
+          }
+        }
+      ]
+    }
+  ]
+}

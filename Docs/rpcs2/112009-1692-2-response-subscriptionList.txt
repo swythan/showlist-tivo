@@ -1,0 +1,162 @@
+MRPC/2 78 3196
+Raw Packet=MRPC/2 78 3196
+Content-Type: application/json
+IsFinal: true
+RpcId: 1692
+Type: response
+
+{
+  "type": "subscriptionList", 
+  "subscription": [
+    {
+      "maxRecordings": 5, 
+      "keepBehavior": "forever", 
+      "title": "The Good Guys", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "name": "Fox Affiliate", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "isBlocked": false, 
+          "channelId": "tivo:ch.9", 
+          "callSign": "WNYWDT", 
+          "isDigital": false, 
+          "stationId": "tivo:st.5587434", 
+          "channelNumber": "705", 
+          "logoIndex": 65557, 
+          "type": "channel", 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.161866968"
+      }, 
+      "showStatus": "firstRunOnly", 
+      "subscriptionId": "tivo:sb.15000081", 
+      "type": "subscription"
+    }, 
+    {
+      "maxRecordings": 3, 
+      "keepBehavior": "forever", 
+      "title": "Wipeout", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "name": "ABC Affiliate", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "isBlocked": false, 
+          "channelId": "tivo:ch.9", 
+          "callSign": "WABCDT", 
+          "isDigital": false, 
+          "stationId": "tivo:st.4190787", 
+          "channelNumber": "707", 
+          "logoIndex": 65554, 
+          "type": "channel", 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.127519248"
+      }, 
+      "showStatus": "firstRunOnly", 
+      "subscriptionId": "tivo:sb.15000101", 
+      "type": "subscription"
+    }, 
+    {
+      "maxRecordings": 5, 
+      "keepBehavior": "forever", 
+      "title": "Last Comic Standing", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "name": "NBC Affiliate", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "isBlocked": false, 
+          "channelId": "tivo:ch.9", 
+          "callSign": "WNBCDT", 
+          "isDigital": false, 
+          "stationId": "tivo:st.4190788", 
+          "channelNumber": "704", 
+          "logoIndex": 65556, 
+          "type": "channel", 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.13019868"
+      }, 
+      "showStatus": "firstRunOnly", 
+      "subscriptionId": "tivo:sb.15000171", 
+      "type": "subscription"
+    }, 
+    {
+      "maxRecordings": 10, 
+      "keepBehavior": "forever", 
+      "title": "Futurama", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "name": "Comedy Central HD", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "isBlocked": false, 
+          "channelId": "tivo:ch.9", 
+          "callSign": "CCHD", 
+          "isDigital": false, 
+          "stationId": "tivo:st.142627412", 
+          "channelNumber": "745", 
+          "logoIndex": 66171, 
+          "type": "channel", 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.412784"
+      }, 
+      "showStatus": "firstRunOnly", 
+      "subscriptionId": "tivo:sb.15000181", 
+      "type": "subscription"
+    }, 
+    {
+      "maxRecordings": 3, 
+      "keepBehavior": "forever", 
+      "title": "Breaking Bad", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "name": "AMC HD", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "isBlocked": false, 
+          "channelId": "tivo:ch.9", 
+          "callSign": "AMCHD", 
+          "isDigital": false, 
+          "stationId": "tivo:st.118123242", 
+          "channelNumber": "754", 
+          "logoIndex": 66261, 
+          "type": "channel", 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.115241991"
+      }, 
+      "showStatus": "firstRunOnly", 
+      "subscriptionId": "tivo:sb.15000201", 
+      "type": "subscription"
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+MRPC/2 78 2864
+Raw Packet=MRPC/2 78 2864
+Content-Type: application/json
+IsFinal: true
+RpcId: 1623
+Type: response
+
+{
+  "recordingFolderItem": [
+    {
+      "childRecordingId": "tivo:rc.217929", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.161625498", 
+        "contentId": "tivo:ct.161650282", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "hdtv": true, 
+        "startTime": "2011-06-07 00:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "761", 
+          "callSign": "TOONHD", 
+          "type": "channel", 
+          "logoIndex": 66277
+        }
+      }, 
+      "title": "Adventure Time", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "folderItemCount": 5, 
+      "recordingFolderItemId": "tivo:rf.55419", 
+      "startTime": "2011-06-06 23:59:58", 
+      "type": "recordingFolderItem", 
+      "folderType": "series"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.239409", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.16984", 
+        "contentId": "tivo:ct.482056", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "hdtv": true, 
+        "startTime": "2011-06-06 23:30:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "708", 
+          "callSign": "TBSHD", 
+          "type": "channel", 
+          "logoIndex": 66392
+        }
+      }, 
+      "title": "Seinfeld", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "folderItemCount": 15, 
+      "recordingFolderItemId": "tivo:rf.35662", 
+      "startTime": "2011-06-06 23:29:58", 
+      "type": "recordingFolderItem", 
+      "folderType": "series"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.239349", 
+      "recordingForChildRecordingId": {
+        "episodic": true, 
+        "collectionId": "tivo:cl.ts.70410261", 
+        "contentId": "tivo:ct.ts.84978151", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-06-06 19:11:09", 
+        "type": "recording"
+      }, 
+      "title": "TEDTalks (hd)", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "folderItemCount": 3, 
+      "recordingFolderItemId": "tivo:rf.120769", 
+      "startTime": "2011-06-06 19:11:09", 
+      "type": "recordingFolderItem", 
+      "folderType": "series"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.217869", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.64484", 
+        "contentId": "tivo:ct.116152728", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-06-06 08:45:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "45", 
+          "callSign": "COMEDY", 
+          "type": "channel", 
+          "logoIndex": 65579
+        }
+      }, 
+      "title": "Comedy Central Presents", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "folderItemCount": 11, 
+      "recordingFolderItemId": "tivo:rf.36432", 
+      "startTime": "2011-06-06 08:44:58", 
+      "type": "recordingFolderItem", 
+      "folderType": "series"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.217669", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.16031", 
+        "contentId": "tivo:ct.16108", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-06-06 05:30:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "781", 
+          "callSign": "IFCHD", 
+          "type": "channel"
+        }
+      }, 
+      "title": "Mr. Show With Bob and David", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "folderItemCount": 3, 
+      "recordingFolderItemId": "tivo:rf.46006", 
+      "startTime": "2011-06-06 05:29:58", 
+      "type": "recordingFolderItem", 
+      "folderType": "series"
+    }
+  ], 
+  "type": "recordingFolderItemList"
+}

@@ -1,0 +1,143 @@
+MRPC/2 78 2703
+Raw Packet=MRPC/2 78 2703
+Content-Type: application/json
+IsFinal: true
+RpcId: 1634
+Type: response
+
+{
+  "unifiedItem": [
+    {
+      "category": [
+        {
+          "image": [
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/Sitcom.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }, 
+            {
+              "width": 180, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/Sitcom.jpg", 
+              "type": "image", 
+              "imageType": "moviePoster", 
+              "height": 270
+            }
+          ], 
+          "displayRank": 0, 
+          "type": "category", 
+          "label": "Sitcom"
+        }, 
+        {
+          "displayRank": 1, 
+          "type": "category", 
+          "label": "TV Show"
+        }
+      ], 
+      "collectionType": "series", 
+      "title": "Seinfeld", 
+      "image": [
+        {
+          "width": 139, 
+          "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/08/43/0843aa276c229d9c54c0d8a986e717bc.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 104
+        }, 
+        {
+          "width": 120, 
+          "imageUrl": "http://i.tivo.com/images-production/os/banner-120/08/43/0843aa276c229d9c54c0d8a986e717bc.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 90
+        }
+      ], 
+      "collectionId": "tivo:cl.16984", 
+      "type": "collection", 
+      "tvRating": "14"
+    }, 
+    {
+      "personId": "tivo:pn.1585", 
+      "type": "person", 
+      "image": [
+        {
+          "width": 113, 
+          "imageUrl": "http://i.tivo.com/images-production/bravo/person-med/e1/88/e188294c975bd85ed280d5002022cda1.jpg", 
+          "type": "image", 
+          "imageType": "person", 
+          "height": 150
+        }
+      ], 
+      "last": "Seinfeld", 
+      "first": "Jerry"
+    }, 
+    {
+      "collectionType": "movie", 
+      "title": "Lafflink Presents The Platinum Comedy Series, Vol. 1 - Jerry Seinfeld", 
+      "type": "collection", 
+      "collectionId": "tivo:cl.ts.71657261"
+    }, 
+    {
+      "collectionType": "movie", 
+      "title": "Who the f#ck is Chip Seinfeld?", 
+      "type": "collection", 
+      "movieYear": 2009, 
+      "collectionId": "tivo:cl.ts.70394271"
+    }, 
+    {
+      "category": [
+        {
+          "image": [
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/Comedy.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }, 
+            {
+              "width": 180, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/Comedy.jpg", 
+              "type": "image", 
+              "imageType": "moviePoster", 
+              "height": 270
+            }
+          ], 
+          "displayRank": 0, 
+          "type": "category", 
+          "label": "Comedy"
+        }, 
+        {
+          "displayRank": 1, 
+          "type": "category", 
+          "label": "TV Show"
+        }
+      ], 
+      "collectionType": "series", 
+      "subtitle": "Seinfeld", 
+      "collectionId": "tivo:cl.2568927", 
+      "contentId": "tivo:ct.ts.67209431", 
+      "image": [
+        {
+          "width": 139, 
+          "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/74/0c/740c3b718f2ed2f7aab7b3bc1c2ece70.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 104
+        }, 
+        {
+          "width": 120, 
+          "imageUrl": "http://i.tivo.com/images-production/os/banner-120/74/0c/740c3b718f2ed2f7aab7b3bc1c2ece70.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 90
+        }
+      ], 
+      "title": "Curb Your Enthusiasm", 
+      "type": "content"
+    }
+  ], 
+  "type": "unifiedItemList"
+}

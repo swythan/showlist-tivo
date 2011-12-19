@@ -1,0 +1,162 @@
+MRPC/2 78 3194
+Raw Packet=MRPC/2 78 3194
+Content-Type: application/json
+IsFinal: true
+RpcId: 1690
+Type: response
+
+{
+  "type": "subscriptionList", 
+  "subscription": [
+    {
+      "maxRecordings": 3, 
+      "keepBehavior": "forever", 
+      "title": "Royal Pains", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "name": "USA Network HD", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "isBlocked": false, 
+          "channelId": "tivo:ch.9", 
+          "callSign": "USAHD", 
+          "isDigital": false, 
+          "stationId": "tivo:st.109673805", 
+          "channelNumber": "716", 
+          "logoIndex": 66057, 
+          "type": "channel", 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.146100192"
+      }, 
+      "showStatus": "firstRunOnly", 
+      "subscriptionId": "tivo:sb.15000031", 
+      "type": "subscription"
+    }, 
+    {
+      "maxRecordings": 5, 
+      "keepBehavior": "forever", 
+      "title": "White Collar", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "name": "USA Network HD", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "isBlocked": false, 
+          "channelId": "tivo:ch.9", 
+          "callSign": "USAHD", 
+          "isDigital": false, 
+          "stationId": "tivo:st.109673805", 
+          "channelNumber": "716", 
+          "logoIndex": 66057, 
+          "type": "channel", 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.150777031"
+      }, 
+      "showStatus": "firstRunOnly", 
+      "subscriptionId": "tivo:sb.15000311", 
+      "type": "subscription"
+    }, 
+    {
+      "maxRecordings": 5, 
+      "keepBehavior": "forever", 
+      "title": "Covert Affairs", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "name": "USA Network HD", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "isBlocked": false, 
+          "channelId": "tivo:ch.9", 
+          "callSign": "USAHD", 
+          "isDigital": false, 
+          "stationId": "tivo:st.109673805", 
+          "channelNumber": "716", 
+          "logoIndex": 66057, 
+          "type": "channel", 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.165898848"
+      }, 
+      "showStatus": "firstRunOnly", 
+      "subscriptionId": "tivo:sb.15000251", 
+      "type": "subscription"
+    }, 
+    {
+      "maxRecordings": 3, 
+      "keepBehavior": "forever", 
+      "title": "Eureka", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "name": "Syfy HD", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "isBlocked": false, 
+          "channelId": "tivo:ch.9", 
+          "callSign": "SYFYHD", 
+          "isDigital": false, 
+          "stationId": "tivo:st.111008803", 
+          "channelNumber": "717", 
+          "logoIndex": 66056, 
+          "type": "channel", 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.73072581"
+      }, 
+      "showStatus": "firstRunOnly", 
+      "subscriptionId": "tivo:sb.15000061", 
+      "type": "subscription"
+    }, 
+    {
+      "maxRecordings": 5, 
+      "keepBehavior": "forever", 
+      "title": "Warehouse 13", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "name": "Syfy HD", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "isBlocked": false, 
+          "channelId": "tivo:ch.9", 
+          "callSign": "SYFYHD", 
+          "isDigital": false, 
+          "stationId": "tivo:st.111008803", 
+          "channelNumber": "717", 
+          "logoIndex": 66056, 
+          "type": "channel", 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.147568206"
+      }, 
+      "showStatus": "firstRunOnly", 
+      "subscriptionId": "tivo:sb.15000121", 
+      "type": "subscription"
+    }
+  ]
+}

@@ -1,0 +1,257 @@
+MRPC/2 78 4886
+Raw Packet=MRPC/2 78 4886
+Content-Type: application/json
+IsFinal: true
+RpcId: 1283
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "BRAVOHD", 
+        "isDigital": true, 
+        "channelNumber": "718", 
+        "logoIndex": 65607, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "The Real Housewives of New Jersey", 
+          "contentId": "tivo:ct.183177785", 
+          "collectionId": "tivo:cl.143827707", 
+          "offerId": "tivo:of.ctd.111008804.718.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "VH1HD", 
+        "isDigital": true, 
+        "channelNumber": "719", 
+        "logoIndex": 66221, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Single Ladies", 
+          "contentId": "tivo:ct.183495779", 
+          "collectionId": "tivo:cl.183496987", 
+          "offerId": "tivo:of.ctd.124376604.719.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "MTVHD", 
+        "isDigital": true, 
+        "channelNumber": "720", 
+        "logoIndex": 66205, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Teen Wolf", 
+          "contentId": "tivo:ct.182529809", 
+          "collectionId": "tivo:cl.182530648", 
+          "offerId": "tivo:of.ctd.133201847.720.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "722", 
+        "callSign": "HUBHD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Laverne & Shirley", 
+          "contentId": "tivo:ct.41622", 
+          "collectionId": "tivo:cl.21558", 
+          "offerId": "tivo:of.ctd.164931567.722.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Batman", 
+          "contentId": "tivo:ct.2322304", 
+          "collectionId": "tivo:cl.152789", 
+          "offerId": "tivo:of.ctd.164931567.722.cable.2011-06-07-03-30-00.1800", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "IDHD", 
+        "isDigital": true, 
+        "channelNumber": "723", 
+        "logoIndex": 66075, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Sins & Secrets", 
+          "contentId": "tivo:ct.176344129", 
+          "collectionId": "tivo:cl.174991402", 
+          "offerId": "tivo:of.ctd.153523946.723.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "EHD", 
+        "isDigital": true, 
+        "channelNumber": "724", 
+        "logoIndex": 66175, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Chelsea Lately", 
+          "contentId": "tivo:ct.181360339", 
+          "collectionId": "tivo:cl.99597327", 
+          "offerId": "tivo:of.ctd.140197106.724.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "E! News", 
+          "contentId": "tivo:ct.180355697", 
+          "collectionId": "tivo:cl.5679301", 
+          "offerId": "tivo:of.ctd.140197106.724.cable.2011-06-07-03-30-00.3600", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": false, 
+        "channelNumber": "730", 
+        "callSign": "BLOOMHD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Bloomberg West with Emily Chang & Cory Johnson", 
+          "contentId": "tivo:ct.177539934", 
+          "collectionId": "tivo:cl.177540912", 
+          "offerId": "tivo:of.ctd.182837836.730.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WPXNDT", 
+        "isDigital": true, 
+        "channelNumber": "731", 
+        "logoIndex": 65763, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Criminal Minds", 
+          "contentId": "tivo:ct.57122875", 
+          "collectionId": "tivo:cl.55803730", 
+          "offerId": "tivo:of.ctd.38521396.731.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "UHD", 
+        "isDigital": true, 
+        "channelNumber": "734", 
+        "logoIndex": 66133, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Will Penny", 
+          "contentId": "tivo:ct.177513", 
+          "collectionId": "tivo:cl.177512", 
+          "offerId": "tivo:of.ctd.17180539.734.cable.2011-06-07-01-00-00.8700", 
+          "startTime": "2011-06-07 01:00:00", 
+          "duration": 8700, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Law & Order: Special Victims Unit", 
+          "contentId": "tivo:ct.10787240", 
+          "collectionId": "tivo:cl.880788", 
+          "offerId": "tivo:of.ctd.17180539.734.cable.2011-06-07-03-25-00.3600", 
+          "startTime": "2011-06-07 03:25:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "SPIKEHD", 
+        "isDigital": true, 
+        "channelNumber": "736", 
+        "logoIndex": 66211, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "CSI: Crime Scene Investigation", 
+          "contentId": "tivo:ct.94610918", 
+          "collectionId": "tivo:cl.2511852", 
+          "offerId": "tivo:of.ctd.117220691.736.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

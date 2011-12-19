@@ -1,0 +1,64 @@
+MRPC/2 248 669
+Raw Packet=MRPC/2 248 669
+Type:request
+RpcId:1695
+SchemaVersion:7
+Content-Type:application/json
+RequestType:subscriptionSearch
+ResponseCount:single
+BodyId:tsn:XXXXXXXXXXXXXXX
+X-ApplicationName:Quicksilver
+X-ApplicationVersion:1.2
+X-ApplicationSessionId:0x27c180
+
+{
+  "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+  "objectIdAndType": [
+    "581641651700278", 
+    "581641651708599", 
+    "581641651708616", 
+    "581641651708636", 
+    "581641651709041"
+  ], 
+  "noLimit": true, 
+  "levelOfDetail": "medium", 
+  "type": "subscriptionSearch", 
+  "responseTemplate": [
+    {
+      "fieldName": [
+        "subscription"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "subscriptionList"
+    }, 
+    {
+      "fieldName": [
+        "title", 
+        "subscriptionId", 
+        "idSetSource", 
+        "maxRecordings", 
+        "showStatus", 
+        "keepBehavior"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "subscription"
+    }, 
+    {
+      "fieldName": [
+        "title", 
+        "contentId", 
+        "channel", 
+        "startTime", 
+        "duration", 
+        "hasSignLanguage", 
+        "hasAudioDescription", 
+        "screenFormat", 
+        "offerId", 
+        "cc", 
+        "collectionId"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "offer"
+    }
+  ]
+}

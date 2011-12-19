@@ -1,0 +1,160 @@
+MRPC/2 76 3711
+Raw Packet=MRPC/2 76 3711
+Content-Type: application/json
+IsFinal: true
+RpcId: 59
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "TBS", 
+        "isDigital": true, 
+        "channelNumber": "8", 
+        "logoIndex": 65540, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "The Ringer", 
+          "contentId": "tivo:ct.71312711", 
+          "collectionId": "tivo:cl.71313523", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-11-03-40-00.7200", 
+          "startTime": "2011-06-11 03:40:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Envy", 
+          "contentId": "tivo:ct.32405397", 
+          "collectionId": "tivo:cl.32405917", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-11-05-40-00.7200", 
+          "startTime": "2011-06-11 05:40:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Interstitial Filler", 
+          "contentId": "tivo:ct.118530400", 
+          "collectionId": "tivo:cl.118530929", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-11-07-40-00.1200", 
+          "startTime": "2011-06-11 07:40:00", 
+          "duration": 1200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Married ... With Children", 
+          "contentId": "tivo:ct.503018", 
+          "collectionId": "tivo:cl.16995", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-11-08-00-00.1800", 
+          "startTime": "2011-06-11 08:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Married ... With Children", 
+          "contentId": "tivo:ct.510922", 
+          "collectionId": "tivo:cl.16995", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-11-08-30-00.1800", 
+          "startTime": "2011-06-11 08:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Married ... With Children", 
+          "contentId": "tivo:ct.486966", 
+          "collectionId": "tivo:cl.16995", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-11-09-00-00.1800", 
+          "startTime": "2011-06-11 09:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Married ... With Children", 
+          "contentId": "tivo:ct.515756", 
+          "collectionId": "tivo:cl.16995", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-11-09-30-00.1800", 
+          "startTime": "2011-06-11 09:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Married ... With Children", 
+          "contentId": "tivo:ct.523065", 
+          "collectionId": "tivo:cl.16995", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-11-10-00-00.1800", 
+          "startTime": "2011-06-11 10:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Married ... With Children", 
+          "contentId": "tivo:ct.525274", 
+          "collectionId": "tivo:cl.16995", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-11-10-30-00.1800", 
+          "startTime": "2011-06-11 10:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Steve Harvey Show", 
+          "contentId": "tivo:ct.4944554", 
+          "collectionId": "tivo:cl.19390", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-11-11-00-00.1800", 
+          "startTime": "2011-06-11 11:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Steve Harvey Show", 
+          "contentId": "tivo:ct.58706", 
+          "collectionId": "tivo:cl.19390", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-11-11-30-00.1800", 
+          "startTime": "2011-06-11 11:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Yes, Dear", 
+          "contentId": "tivo:ct.23265645", 
+          "collectionId": "tivo:cl.2511458", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-11-12-00-00.1800", 
+          "startTime": "2011-06-11 12:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Yes, Dear", 
+          "contentId": "tivo:ct.24055595", 
+          "collectionId": "tivo:cl.2511458", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-11-12-30-00.1500", 
+          "startTime": "2011-06-11 12:30:00", 
+          "duration": 1500, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Bewitched", 
+          "contentId": "tivo:ct.59292727", 
+          "collectionId": "tivo:cl.59293386", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-11-12-55-00.7200", 
+          "startTime": "2011-06-11 12:55:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Ringer", 
+          "contentId": "tivo:ct.71312711", 
+          "collectionId": "tivo:cl.71313523", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-11-14-55-00.7200", 
+          "startTime": "2011-06-11 14:55:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

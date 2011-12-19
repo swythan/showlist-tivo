@@ -1,0 +1,205 @@
+MRPC/2 78 5054
+Raw Packet=MRPC/2 78 5054
+Content-Type: application/json
+IsFinal: true
+RpcId: 1054
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WWORDT", 
+        "isDigital": true, 
+        "channelNumber": "709", 
+        "logoIndex": 66244, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "America's Funniest Home Videos", 
+          "contentId": "tivo:ct.93337356", 
+          "collectionId": "tivo:cl.18329", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-14-11-30-00.3600", 
+          "startTime": "2011-06-14 11:30:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "That '70s Show", 
+          "contentId": "tivo:ct.12451281", 
+          "collectionId": "tivo:cl.17211", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-14-12-30-00.1800", 
+          "startTime": "2011-06-14 12:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The 700 Club", 
+          "contentId": "tivo:ct.111425", 
+          "collectionId": "tivo:cl.17914", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-14-13-00-00.3600", 
+          "startTime": "2011-06-14 13:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The People's Court", 
+          "contentId": "tivo:ct.180355658", 
+          "collectionId": "tivo:cl.57719", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-14-14-00-00.3600", 
+          "startTime": "2011-06-14 14:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Divorce Court", 
+          "contentId": "tivo:ct.175122756", 
+          "collectionId": "tivo:cl.787592", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-14-15-00-00.1800", 
+          "startTime": "2011-06-14 15:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Divorce Court", 
+          "contentId": "tivo:ct.182529461", 
+          "collectionId": "tivo:cl.787592", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-14-15-30-00.1800", 
+          "startTime": "2011-06-14 15:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Judge Alex", 
+          "contentId": "tivo:ct.170609094", 
+          "collectionId": "tivo:cl.54480793", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-14-16-00-00.1800", 
+          "startTime": "2011-06-14 16:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Judge Alex", 
+          "contentId": "tivo:ct.180355791", 
+          "collectionId": "tivo:cl.54480793", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-14-16-30-00.1800", 
+          "startTime": "2011-06-14 16:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Family Feud", 
+          "contentId": "tivo:ct.171765688", 
+          "collectionId": "tivo:cl.171034861", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-14-17-00-00.1800", 
+          "startTime": "2011-06-14 17:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Family Feud", 
+          "contentId": "tivo:ct.183495742", 
+          "collectionId": "tivo:cl.171034861", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-14-17-30-00.1800", 
+          "startTime": "2011-06-14 17:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Don't Forget the Lyrics!", 
+          "contentId": "tivo:ct.172741754", 
+          "collectionId": "tivo:cl.171148551", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-14-18-00-00.1800", 
+          "startTime": "2011-06-14 18:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Don't Forget the Lyrics!", 
+          "contentId": "tivo:ct.174126560", 
+          "collectionId": "tivo:cl.171148551", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-14-18-30-00.1800", 
+          "startTime": "2011-06-14 18:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "My Wife and Kids", 
+          "contentId": "tivo:ct.41069539", 
+          "collectionId": "tivo:cl.3501280", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-14-19-00-00.1800", 
+          "startTime": "2011-06-14 19:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Everybody Hates Chris", 
+          "contentId": "tivo:ct.110654267", 
+          "collectionId": "tivo:cl.55681269", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-14-19-30-00.1800", 
+          "startTime": "2011-06-14 19:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Tyler Perry's House of Payne", 
+          "contentId": "tivo:ct.160693849", 
+          "collectionId": "tivo:cl.96190305", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-14-20-00-00.1800", 
+          "startTime": "2011-06-14 20:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Tyler Perry's Meet the Browns", 
+          "contentId": "tivo:ct.158276699", 
+          "collectionId": "tivo:cl.140542702", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-14-20-30-00.1800", 
+          "startTime": "2011-06-14 20:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Wendy Williams Show", 
+          "contentId": "tivo:ct.172013760", 
+          "collectionId": "tivo:cl.127854640", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-14-21-00-00.3600", 
+          "startTime": "2011-06-14 21:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How I Met Your Mother", 
+          "contentId": "tivo:ct.145184327", 
+          "collectionId": "tivo:cl.55419269", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-14-22-00-00.1800", 
+          "startTime": "2011-06-14 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How I Met Your Mother", 
+          "contentId": "tivo:ct.79788938", 
+          "collectionId": "tivo:cl.55419269", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-14-22-30-00.1800", 
+          "startTime": "2011-06-14 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "MLB Baseball", 
+          "contentId": "tivo:ct.182837230", 
+          "collectionId": "tivo:cl.10753967", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-14-23-00-00.10800", 
+          "startTime": "2011-06-14 23:00:00", 
+          "duration": 10800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

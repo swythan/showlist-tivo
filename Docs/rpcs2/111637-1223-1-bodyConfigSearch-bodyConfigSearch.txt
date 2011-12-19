@@ -1,0 +1,17 @@
+MRPC/2 246 59
+Raw Packet=MRPC/2 246 59
+Type:request
+RpcId:1223
+SchemaVersion:7
+Content-Type:application/json
+RequestType:bodyConfigSearch
+ResponseCount:single
+BodyId:tsn:XXXXXXXXXXXXXXX
+X-ApplicationName:Quicksilver
+X-ApplicationVersion:1.2
+X-ApplicationSessionId:0x27c180
+
+{
+  "type": "bodyConfigSearch", 
+  "bodyId": "tsn:XXXXXXXXXXXXXXX"
+}

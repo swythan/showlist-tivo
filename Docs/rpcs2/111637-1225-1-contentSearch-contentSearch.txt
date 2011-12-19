@@ -1,0 +1,197 @@
+MRPC/2 243 2133
+Raw Packet=MRPC/2 243 2133
+Type:request
+RpcId:1225
+SchemaVersion:7
+Content-Type:application/json
+RequestType:contentSearch
+ResponseCount:single
+BodyId:tsn:XXXXXXXXXXXXXXX
+X-ApplicationName:Quicksilver
+X-ApplicationVersion:1.2
+X-ApplicationSessionId:0x27c180
+
+{
+  "contentId": [
+    "tivo:ct.181105"
+  ], 
+  "filterUnavailableContent": false, 
+  "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+  "note": [
+    "userContentForCollectionId", 
+    "broadbandOfferGroupForContentId", 
+    "recordingForContentId"
+  ], 
+  "responseTemplate": [
+    {
+      "fieldName": [
+        "subscriptionType"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "subscriptionIdentifier"
+    }, 
+    {
+      "fieldName": [
+        "state", 
+        "recordingId", 
+        "subscriptionIdentifier"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "recording"
+    }, 
+    {
+      "fieldName": [
+        "partnerId", 
+        "contentId"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "offer"
+    }, 
+    {
+      "fieldName": [
+        "content"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "contentList"
+    }, 
+    {
+      "fieldName": [
+        "contentId", 
+        "broadbandOfferGroupForContentId", 
+        "recordingForContentId", 
+        "collectionId", 
+        "collectionType", 
+        "hdtv", 
+        "title", 
+        "movieYear", 
+        "subtitle", 
+        "seasonNumber", 
+        "episodeNum", 
+        "episodic", 
+        "starRating", 
+        "description", 
+        "tvRating", 
+        "mpaaRating", 
+        "tvAdvisory", 
+        "category", 
+        "credit", 
+        "originalAirYear", 
+        "userContentForCollectionId", 
+        "image"
+      ], 
+      "fieldInfo": [
+        {
+          "fieldName": [
+            "credit"
+          ], 
+          "maxArity": [
+            50
+          ], 
+          "type": "responseTemplateFieldInfo"
+        }, 
+        {
+          "fieldName": [
+            "category"
+          ], 
+          "maxArity": [
+            2
+          ], 
+          "type": "responseTemplateFieldInfo"
+        }
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "content"
+    }, 
+    {
+      "fieldName": [
+        "example"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "offerGroup"
+    }, 
+    {
+      "fieldName": [
+        "first", 
+        "last", 
+        "role"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "credit"
+    }, 
+    {
+      "fieldName": [
+        "displayRank", 
+        "image"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "category"
+    }, 
+    {
+      "fieldName": [
+        "thumbsRating"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "userContent"
+    }, 
+    {
+      "fieldName": [
+        "channelNumber", 
+        "sourceType", 
+        "logoIndex", 
+        "callSign", 
+        "isDigital"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "channel"
+    }
+  ], 
+  "imageRuleset": [
+    {
+      "type": "imageRuleset", 
+      "name": "movie", 
+      "rule": [
+        {
+          "width": 133, 
+          "ruleType": "exactMatchDimension", 
+          "type": "imageRule", 
+          "imageType": [
+            "moviePoster"
+          ], 
+          "height": 200
+        }
+      ]
+    }, 
+    {
+      "type": "imageRuleset", 
+      "name": "tvLandscape", 
+      "rule": [
+        {
+          "width": 139, 
+          "ruleType": "exactMatchDimension", 
+          "type": "imageRule", 
+          "imageType": [
+            "showcaseBanner"
+          ], 
+          "height": 104
+        }
+      ]
+    }, 
+    {
+      "type": "imageRuleset", 
+      "name": "tvPortrait", 
+      "rule": [
+        {
+          "width": 200, 
+          "ruleType": "exactMatchDimension", 
+          "type": "imageRule", 
+          "imageType": [
+            "showcaseBanner"
+          ], 
+          "height": 150
+        }
+      ]
+    }
+  ], 
+  "type": "contentSearch", 
+  "levelOfDetail": "high"
+}

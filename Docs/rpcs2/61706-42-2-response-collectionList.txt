@@ -1,0 +1,385 @@
+MRPC/2 76 5216
+Raw Packet=MRPC/2 76 5216
+Content-Type: application/json
+IsFinal: true
+RpcId: 42
+Type: response
+
+{
+  "type": "collectionList", 
+  "collection": [
+    {
+      "category": [
+        {
+          "image": [
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/Sitcom.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }, 
+            {
+              "width": 180, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/Sitcom.jpg", 
+              "type": "image", 
+              "imageType": "moviePoster", 
+              "height": 270
+            }
+          ], 
+          "displayRank": 0, 
+          "type": "category", 
+          "label": "Sitcom"
+        }, 
+        {
+          "displayRank": 1, 
+          "type": "category", 
+          "label": "TV Show"
+        }
+      ], 
+      "collectionType": "series", 
+      "description": "Doug Heffernan shares a house with his wife and father-in-law.", 
+      "broadcastOfferGroupForCollectionId": [
+        {
+          "count": 34, 
+          "type": "offerGroup", 
+          "example": {
+            "contentId": "tivo:ct.2861519", 
+            "type": "offer"
+          }
+        }, 
+        {
+          "count": 20, 
+          "type": "offerGroup", 
+          "example": {
+            "contentId": "tivo:ct.2861519", 
+            "type": "offer"
+          }
+        }
+      ], 
+      "collectionId": "tivo:cl.18987", 
+      "episodic": true, 
+      "image": [
+        {
+          "width": 139, 
+          "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/08/20/0820493678c361c5a544ed8c556f00dc.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 104
+        }, 
+        {
+          "width": 200, 
+          "imageUrl": "http://i.tivo.com/images-production/hdui-showing/08/20/0820493678c361c5a544ed8c556f00dc.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 150
+        }
+      ], 
+      "title": "The King of Queens", 
+      "credit": [
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "James", 
+          "first": "Kevin"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Remini", 
+          "first": "Leah"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Stiller", 
+          "first": "Jerry"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Williams", 
+          "first": "Victor"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Oswalt", 
+          "first": "Patton"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Valentine", 
+          "first": "Gary"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Sullivan", 
+          "first": "Nicole"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Matthews", 
+          "first": "Dakin"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Flaherty", 
+          "first": "Joe"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Dungey", 
+          "first": "Merrin"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Romano", 
+          "first": "Larry"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Rieffel", 
+          "first": "Lisa"
+        }, 
+        {
+          "role": "executiveProducer", 
+          "type": "credit", 
+          "last": "Weithorn", 
+          "first": "Michael"
+        }, 
+        {
+          "role": "executiveProducer", 
+          "type": "credit", 
+          "last": "Goldsmith", 
+          "first": "Josh"
+        }, 
+        {
+          "role": "executiveProducer", 
+          "type": "credit", 
+          "last": "Yuspa", 
+          "first": "Cathy"
+        }, 
+        {
+          "role": "executiveProducer", 
+          "type": "credit", 
+          "last": "James", 
+          "first": "Kevin"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Downey", 
+          "first": "Chris"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Bickel", 
+          "first": "David"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Wernick", 
+          "first": "Ilana"
+        }, 
+        {
+          "role": "director", 
+          "type": "credit", 
+          "last": "Schiller", 
+          "first": "Rob"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Reuben", 
+          "first": "Rock"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Weithorn", 
+          "first": "Michael J."
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Ellickson", 
+          "first": "Owen"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Astrof Aronauer", 
+          "first": "Liz"
+        }, 
+        {
+          "role": "executiveProducer", 
+          "type": "credit", 
+          "last": "Schiller", 
+          "first": "Rob"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Regan", 
+          "first": "Dennis"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Soccio", 
+          "first": "Mike"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Nader", 
+          "first": "Michelle"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Gershwin", 
+          "first": "Amy"
+        }, 
+        {
+          "role": "director", 
+          "type": "credit", 
+          "last": "Chan", 
+          "first": "Henry"
+        }, 
+        {
+          "role": "director", 
+          "type": "credit", 
+          "last": "Whittingham", 
+          "first": "Ken"
+        }, 
+        {
+          "role": "director", 
+          "type": "credit", 
+          "last": "Weithorn", 
+          "first": "Michael J."
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Bakay", 
+          "first": "Nick"
+        }, 
+        {
+          "role": "director", 
+          "type": "credit", 
+          "last": "Cendrowski", 
+          "first": "Mark"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Sheehan", 
+          "first": "Tony"
+        }, 
+        {
+          "role": "director", 
+          "type": "credit", 
+          "last": "Weyman", 
+          "first": "Andrew"
+        }, 
+        {
+          "role": "director", 
+          "type": "credit", 
+          "last": "Cadiff", 
+          "first": "Andy"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Hertz", 
+          "first": "Tom"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Yuspa", 
+          "first": "Cathy"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Goldsmith", 
+          "first": "Josh"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Bruce", 
+          "first": "Jenna"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Weithorn", 
+          "first": "Michael"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Bickell", 
+          "first": "David"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Dellecave", 
+          "first": "Trevor"
+        }, 
+        {
+          "role": "director", 
+          "type": "credit", 
+          "last": "Widdoes", 
+          "first": "James"
+        }, 
+        {
+          "role": "director", 
+          "type": "credit", 
+          "last": "Fortenberry", 
+          "first": "John"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "James", 
+          "first": "Kevin"
+        }, 
+        {
+          "role": "director", 
+          "type": "credit", 
+          "last": "Schiller", 
+          "first": "Bob"
+        }, 
+        {
+          "role": "director", 
+          "type": "credit", 
+          "last": "James", 
+          "first": "Kevin"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Stein", 
+          "first": "Jeff"
+        }
+      ], 
+      "type": "collection", 
+      "tvRating": "14"
+    }
+  ]
+}

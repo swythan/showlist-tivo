@@ -1,0 +1,308 @@
+MRPC/2 78 4274
+Raw Packet=MRPC/2 78 4274
+Content-Type: application/json
+IsFinal: true
+RpcId: 1058
+Type: response
+
+{
+  "type": "collectionList", 
+  "collection": [
+    {
+      "category": [
+        {
+          "displayRank": 0, 
+          "type": "category", 
+          "label": "Animated"
+        }, 
+        {
+          "image": [
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/Comedy.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }, 
+            {
+              "width": 180, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/Comedy.jpg", 
+              "type": "image", 
+              "imageType": "moviePoster", 
+              "height": 270
+            }
+          ], 
+          "displayRank": 1, 
+          "type": "category", 
+          "label": "Comedy"
+        }
+      ], 
+      "collectionType": "movie", 
+      "description": "The combination of Homer, his new pet pig, and a leaky silo full of excrement triggers a disaster that threatens not just Springfield but the world. Animated. Based on the long-running TV series.", 
+      "broadcastOfferGroupForCollectionId": [
+        {
+          "count": 1, 
+          "type": "offerGroup", 
+          "example": {
+            "contentId": "tivo:ct.99134316", 
+            "type": "offer"
+          }
+        }, 
+        {
+          "count": 1, 
+          "type": "offerGroup", 
+          "example": {
+            "contentId": "tivo:ct.99134316", 
+            "type": "offer"
+          }
+        }
+      ], 
+      "collectionId": "tivo:cl.99136229", 
+      "episodic": false, 
+      "image": [
+        {
+          "width": 133, 
+          "imageUrl": "http://i.tivo.com/images-production/bravo/movies-lg/11/bb/11bbba7dec7918410ce6c97003c95ad3.jpg", 
+          "type": "image", 
+          "imageType": "moviePoster", 
+          "height": 200
+        }
+      ], 
+      "title": "The Simpsons Movie", 
+      "starRating": "three", 
+      "credit": [
+        {
+          "role": "voice", 
+          "type": "credit", 
+          "last": "Castellaneta", 
+          "first": "Dan"
+        }, 
+        {
+          "role": "voice", 
+          "type": "credit", 
+          "last": "Kavner", 
+          "first": "Julie"
+        }, 
+        {
+          "role": "voice", 
+          "type": "credit", 
+          "last": "Cartwright", 
+          "first": "Nancy"
+        }, 
+        {
+          "role": "voice", 
+          "type": "credit", 
+          "last": "Smith", 
+          "first": "Yeardley"
+        }, 
+        {
+          "role": "voice", 
+          "type": "credit", 
+          "last": "Azaria", 
+          "first": "Hank"
+        }, 
+        {
+          "role": "voice", 
+          "type": "credit", 
+          "last": "Shearer", 
+          "first": "Harry"
+        }, 
+        {
+          "role": "voice", 
+          "type": "credit", 
+          "last": "Hayden", 
+          "first": "Pamela"
+        }, 
+        {
+          "role": "voice", 
+          "type": "credit", 
+          "last": "MacNeille", 
+          "first": "Tress"
+        }, 
+        {
+          "role": "voice", 
+          "type": "credit", 
+          "last": "Brooks", 
+          "first": "A."
+        }, 
+        {
+          "role": "voice", 
+          "type": "credit", 
+          "last": "Wiedergott", 
+          "first": "Karl"
+        }, 
+        {
+          "role": "voice", 
+          "type": "credit", 
+          "last": "Wallace", 
+          "first": "Marcia"
+        }, 
+        {
+          "role": "voice", 
+          "type": "credit", 
+          "last": "Taylor", 
+          "first": "Russi"
+        }, 
+        {
+          "role": "voice", 
+          "type": "credit", 
+          "last": "Roswell", 
+          "first": "Maggie"
+        }, 
+        {
+          "role": "voice", 
+          "type": "credit", 
+          "last": "Rosenthal", 
+          "first": "Phil"
+        }, 
+        {
+          "role": "voice", 
+          "type": "credit", 
+          "last": "Armstrong", 
+          "first": "Billie Joe"
+        }, 
+        {
+          "role": "voice", 
+          "type": "credit", 
+          "last": "Wright III", 
+          "first": "Frank"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Pritchard", 
+          "first": "Michael"
+        }, 
+        {
+          "role": "voice", 
+          "type": "credit", 
+          "last": "Mantegna", 
+          "first": "Joe"
+        }, 
+        {
+          "role": "voice", 
+          "type": "credit", 
+          "last": "Hanks", 
+          "first": "Tom"
+        }, 
+        {
+          "role": "director", 
+          "type": "credit", 
+          "last": "Silverman", 
+          "first": "David"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Brooks", 
+          "first": "James"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Groening", 
+          "first": "Matt"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Jean", 
+          "first": "Al"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Scully", 
+          "first": "Mike"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Maxtone-Graham", 
+          "first": "Ian"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Meyer", 
+          "first": "George"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Mirkin", 
+          "first": "David"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Reiss", 
+          "first": "Mike"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Selman", 
+          "first": "Matt"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Swartzwelder", 
+          "first": "John"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Vitti", 
+          "first": "Jon"
+        }, 
+        {
+          "role": "producer", 
+          "type": "credit", 
+          "last": "Brooks", 
+          "first": "James"
+        }, 
+        {
+          "role": "producer", 
+          "type": "credit", 
+          "last": "Groening", 
+          "first": "Matt"
+        }, 
+        {
+          "role": "producer", 
+          "type": "credit", 
+          "last": "Jean", 
+          "first": "Al"
+        }, 
+        {
+          "role": "producer", 
+          "type": "credit", 
+          "last": "Scully", 
+          "first": "Mike"
+        }, 
+        {
+          "role": "producer", 
+          "type": "credit", 
+          "last": "Sakai", 
+          "first": "Richard"
+        }
+      ], 
+      "movieYear": 2007, 
+      "mpaaRating": "pg13", 
+      "type": "collection", 
+      "tvRating": "ma", 
+      "broadbandOfferGroupForCollectionId": [
+        {
+          "count": 1, 
+          "type": "offerGroup", 
+          "example": {
+            "contentId": "tivo:ct.ts.3764961", 
+            "partnerId": "tivo:pt.2990", 
+            "type": "offer"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+MRPC/2 226 25
+Raw Packet=MRPC/2 226 25
+Type:request
+RpcId:1464
+SchemaVersion:7
+Content-Type:application/json
+RequestType:whatsOnSearch
+ResponseCount:multiple
+BodyId:
+X-ApplicationName:Quicksilver
+X-ApplicationVersion:1.2
+X-ApplicationSessionId:0x27c180
+
+{
+  "type": "whatsOnSearch"
+}

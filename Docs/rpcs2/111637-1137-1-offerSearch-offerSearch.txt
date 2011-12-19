@@ -1,0 +1,80 @@
+MRPC/2 241 824
+Raw Packet=MRPC/2 241 824
+Type:request
+RpcId:1137
+SchemaVersion:7
+Content-Type:application/json
+RequestType:offerSearch
+ResponseCount:single
+BodyId:tsn:XXXXXXXXXXXXXXX
+X-ApplicationName:Quicksilver
+X-ApplicationVersion:1.2
+X-ApplicationSessionId:0x27c180
+
+{
+  "count": 50, 
+  "searchable": true, 
+  "collectionId": [
+    "tivo:cl.78987353"
+  ], 
+  "namespace": "refserver", 
+  "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+  "note": [
+    "recordingForOfferId"
+  ], 
+  "minEndTime": "2011-06-07 03:25:36", 
+  "type": "offerSearch", 
+  "responseTemplate": [
+    {
+      "fieldName": [
+        "offer"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "offerList"
+    }, 
+    {
+      "fieldName": [
+        "title", 
+        "subtitle", 
+        "channel", 
+        "startTime", 
+        "recordingForOfferId", 
+        "purchasableFrom", 
+        "price", 
+        "drm", 
+        "contentId", 
+        "collectionId", 
+        "offerId", 
+        "partnerOfferId", 
+        "hdtv", 
+        "repeat", 
+        "episodic", 
+        "seasonNumber", 
+        "episodeNum", 
+        "transportType", 
+        "transport"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "offer"
+    }, 
+    {
+      "fieldName": [
+        "channelNumber", 
+        "sourceType", 
+        "logoIndex", 
+        "callSign", 
+        "isDigital"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "channel"
+    }, 
+    {
+      "fieldName": [
+        "maxKeepAfterView", 
+        "maxKeepAfterDownload"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "drm"
+    }
+  ]
+}

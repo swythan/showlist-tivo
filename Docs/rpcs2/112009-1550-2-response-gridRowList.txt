@@ -1,0 +1,213 @@
+MRPC/2 78 5150
+Raw Packet=MRPC/2 78 5150
+Content-Type: application/json
+IsFinal: true
+RpcId: 1550
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "55", 
+        "callSign": "WLNYMH", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Law & Order: Special Victims Unit", 
+          "contentId": "tivo:ct.5933411", 
+          "collectionId": "tivo:cl.880788", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-17-01-00-00.3600", 
+          "startTime": "2011-06-17 01:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Judge Judy", 
+          "contentId": "tivo:ct.18911", 
+          "collectionId": "tivo:cl.18909", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-17-02-00-00.1800", 
+          "startTime": "2011-06-17 02:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Judge Judy", 
+          "contentId": "tivo:ct.18911", 
+          "collectionId": "tivo:cl.18909", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-17-02-30-00.1800", 
+          "startTime": "2011-06-17 02:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "TV10/55 News at 11", 
+          "contentId": "tivo:ct.795289", 
+          "collectionId": "tivo:cl.795288", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-17-03-00-00.2040", 
+          "startTime": "2011-06-17 03:00:00", 
+          "duration": 2040, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Inside Edition", 
+          "contentId": "tivo:ct.183495428", 
+          "collectionId": "tivo:cl.19205", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-17-03-34-00.1800", 
+          "startTime": "2011-06-17 03:34:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "McCloud", 
+          "contentId": "tivo:ct.245974", 
+          "collectionId": "tivo:cl.14603", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-17-04-04-00.6960", 
+          "startTime": "2011-06-17 04:04:00", 
+          "duration": 6960, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-17-06-00-00.1800", 
+          "startTime": "2011-06-17 06:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Armando Montelongo", 
+          "contentId": "tivo:ct.154754522", 
+          "collectionId": "tivo:cl.154755161", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-17-06-30-00.1800", 
+          "startTime": "2011-06-17 06:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Walk Fit Platinum-Ten Million Feet Can't Be Wrong!", 
+          "contentId": "tivo:ct.176857804", 
+          "collectionId": "tivo:cl.176858162", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-17-07-00-00.1800", 
+          "startTime": "2011-06-17 07:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-17-07-30-00.1800", 
+          "startTime": "2011-06-17 07:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-17-08-00-00.1800", 
+          "startTime": "2011-06-17 08:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Abortion: Have We Gone Too Far?", 
+          "contentId": "tivo:ct.5160125", 
+          "collectionId": "tivo:cl.5160124", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-17-08-30-00.1800", 
+          "startTime": "2011-06-17 08:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "TV10/55 News", 
+          "contentId": "tivo:ct.795291", 
+          "collectionId": "tivo:cl.795290", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-17-09-00-00.1800", 
+          "startTime": "2011-06-17 09:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "First Business", 
+          "contentId": "tivo:ct.183495422", 
+          "collectionId": "tivo:cl.57145", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-17-09-30-00.1800", 
+          "startTime": "2011-06-17 09:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Live It Up", 
+          "contentId": "tivo:ct.144889281", 
+          "collectionId": "tivo:cl.144889793", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-17-10-00-00.1800", 
+          "startTime": "2011-06-17 10:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-17-10-30-00.1800", 
+          "startTime": "2011-06-17 10:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Joyce Meyer: Enjoying Everyday Life", 
+          "contentId": "tivo:ct.164091305", 
+          "collectionId": "tivo:cl.63852358", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-17-11-00-00.1800", 
+          "startTime": "2011-06-17 11:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Gospel Truth With Andrew Wommack", 
+          "contentId": "tivo:ct.63099028", 
+          "collectionId": "tivo:cl.63099347", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-17-11-30-00.1800", 
+          "startTime": "2011-06-17 11:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Know the Cause", 
+          "contentId": "tivo:ct.33436421", 
+          "collectionId": "tivo:cl.33436990", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-17-12-00-00.1800", 
+          "startTime": "2011-06-17 12:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Daily Mass", 
+          "contentId": "tivo:ct.140763", 
+          "collectionId": "tivo:cl.127863", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-17-12-30-00.1800", 
+          "startTime": "2011-06-17 12:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Animal Rescue", 
+          "contentId": "tivo:ct.171033667", 
+          "collectionId": "tivo:cl.20262", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-17-13-00-00.1800", 
+          "startTime": "2011-06-17 13:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

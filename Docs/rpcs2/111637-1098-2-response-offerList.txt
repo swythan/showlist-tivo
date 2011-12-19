@@ -1,0 +1,31 @@
+MRPC/2 78 408
+Raw Packet=MRPC/2 78 408
+Content-Type: application/json
+IsFinal: true
+RpcId: 1098
+Type: response
+
+{
+  "type": "offerList", 
+  "offer": [
+    {
+      "subtitle": "On Guard", 
+      "episodic": true, 
+      "title": "White Collar", 
+      "cc": true, 
+      "offerId": "tivo:of.ctd.109673805.716.cable.2011-06-08-01-00-00.3600", 
+      "hdtv": true, 
+      "startTime": "2011-06-08 01:00:00", 
+      "duration": 3600, 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "USAHD", 
+        "isDigital": true, 
+        "channelNumber": "716", 
+        "logoIndex": 66057, 
+        "type": "channel"
+      }
+    }
+  ]
+}

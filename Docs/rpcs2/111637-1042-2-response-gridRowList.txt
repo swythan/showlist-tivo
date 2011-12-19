@@ -1,0 +1,214 @@
+MRPC/2 78 5323
+Raw Packet=MRPC/2 78 5323
+Content-Type: application/json
+IsFinal: true
+RpcId: 1042
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WWORDT", 
+        "isDigital": true, 
+        "channelNumber": "709", 
+        "logoIndex": 66244, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Don't Forget the Lyrics!", 
+          "contentId": "tivo:ct.182333916", 
+          "collectionId": "tivo:cl.101015638", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-08-04-00-00.1800", 
+          "startTime": "2011-06-08 04:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Don't Forget the Lyrics!", 
+          "contentId": "tivo:ct.182333917", 
+          "collectionId": "tivo:cl.101015638", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-08-04-30-00.1800", 
+          "startTime": "2011-06-08 04:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Law & Order: Special Victims Unit", 
+          "contentId": "tivo:ct.5165332", 
+          "collectionId": "tivo:cl.880788", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-08-05-00-00.3600", 
+          "startTime": "2011-06-08 05:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-08-06-00-00.1800", 
+          "startTime": "2011-06-08 06:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-08-06-30-00.1800", 
+          "startTime": "2011-06-08 06:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Anti-Aging Secrets", 
+          "contentId": "tivo:ct.161510444", 
+          "collectionId": "tivo:cl.161511136", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-08-07-00-00.1800", 
+          "startTime": "2011-06-08 07:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Young Healthy Looking Skin", 
+          "contentId": "tivo:ct.116249697", 
+          "collectionId": "tivo:cl.116250174", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-08-07-30-00.1800", 
+          "startTime": "2011-06-08 07:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Rock Hard Abs, No Situps", 
+          "contentId": "tivo:ct.173831506", 
+          "collectionId": "tivo:cl.173832171", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-08-08-00-00.1800", 
+          "startTime": "2011-06-08 08:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Weight Loss Breakthrough!", 
+          "contentId": "tivo:ct.164030657", 
+          "collectionId": "tivo:cl.164031392", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-08-08-30-00.1800", 
+          "startTime": "2011-06-08 08:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Natural Advantage with Jane Seymour", 
+          "contentId": "tivo:ct.162098480", 
+          "collectionId": "tivo:cl.162098880", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-08-09-00-00.1800", 
+          "startTime": "2011-06-08 09:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-08-09-30-00.1800", 
+          "startTime": "2011-06-08 09:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Joseph Prince: Destined to Reign", 
+          "contentId": "tivo:ct.145245098", 
+          "collectionId": "tivo:cl.145245607", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-08-10-00-00.1800", 
+          "startTime": "2011-06-08 10:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Kenneth Copeland", 
+          "contentId": "tivo:ct.183495369", 
+          "collectionId": "tivo:cl.123876", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-08-10-30-00.1800", 
+          "startTime": "2011-06-08 10:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Mystery Hunters", 
+          "contentId": "tivo:ct.13824267", 
+          "collectionId": "tivo:cl.13412275", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-08-11-00-00.1800", 
+          "startTime": "2011-06-08 11:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "America's Funniest Home Videos", 
+          "contentId": "tivo:ct.92293370", 
+          "collectionId": "tivo:cl.18329", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-08-11-30-00.3600", 
+          "startTime": "2011-06-08 11:30:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "That '70s Show", 
+          "contentId": "tivo:ct.11888890", 
+          "collectionId": "tivo:cl.17211", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-08-12-30-00.1800", 
+          "startTime": "2011-06-08 12:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The 700 Club", 
+          "contentId": "tivo:ct.111425", 
+          "collectionId": "tivo:cl.17914", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-08-13-00-00.3600", 
+          "startTime": "2011-06-08 13:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The People's Court", 
+          "contentId": "tivo:ct.180238824", 
+          "collectionId": "tivo:cl.57719", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-08-14-00-00.3600", 
+          "startTime": "2011-06-08 14:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Divorce Court", 
+          "contentId": "tivo:ct.174383337", 
+          "collectionId": "tivo:cl.787592", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-08-15-00-00.1800", 
+          "startTime": "2011-06-08 15:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Divorce Court", 
+          "contentId": "tivo:ct.181635522", 
+          "collectionId": "tivo:cl.787592", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-08-15-30-00.1800", 
+          "startTime": "2011-06-08 15:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Judge Alex", 
+          "contentId": "tivo:ct.175122853", 
+          "collectionId": "tivo:cl.54480793", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-08-16-00-00.1800", 
+          "startTime": "2011-06-08 16:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

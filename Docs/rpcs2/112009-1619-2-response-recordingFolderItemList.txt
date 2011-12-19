@@ -1,0 +1,85 @@
+MRPC/2 78 1869
+Raw Packet=MRPC/2 78 1869
+Content-Type: application/json
+IsFinal: true
+RpcId: 1619
+Type: response
+
+{
+  "recordingFolderItem": [
+    {
+      "childRecordingId": "tivo:rc.227359", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.16645", 
+        "contentId": "tivo:ct.1421942", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "hdtv": true, 
+        "startTime": "2011-06-02 20:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "708", 
+          "callSign": "TBSHD", 
+          "type": "channel", 
+          "logoIndex": 66392
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "Friends: \"The One Where Chandler Can't Cry\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.227359", 
+      "startTime": "2011-06-02 20:00:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.228459", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.52735471", 
+        "contentId": "tivo:ct.135642745", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-06-02 05:30:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "745", 
+          "callSign": "CCHD", 
+          "type": "channel", 
+          "logoIndex": 66171
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "It's Always Sunny in Philadelphia: \"Mac & Dennis: Manhunters\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.228459", 
+      "startTime": "2011-06-02 05:30:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.210339", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.16984", 
+        "contentId": "tivo:ct.458082", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-06-02 03:30:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "11", 
+          "callSign": "WPIX", 
+          "type": "channel", 
+          "logoIndex": 75537
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "Seinfeld: \"The Secretary\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.210339", 
+      "startTime": "2011-06-02 03:30:00", 
+      "type": "recordingFolderItem"
+    }
+  ], 
+  "type": "recordingFolderItemList"
+}

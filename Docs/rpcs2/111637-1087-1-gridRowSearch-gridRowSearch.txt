@@ -1,0 +1,66 @@
+MRPC/2 243 679
+Raw Packet=MRPC/2 243 679
+Type:request
+RpcId:1087
+SchemaVersion:7
+Content-Type:application/json
+RequestType:gridRowSearch
+ResponseCount:single
+BodyId:tsn:XXXXXXXXXXXXXXX
+X-ApplicationName:Quicksilver
+X-ApplicationVersion:1.2
+X-ApplicationSessionId:0x27c180
+
+{
+  "orderBy": [
+    "channelNumber"
+  ], 
+  "maxStartTime": "2011-06-19 18:30:01", 
+  "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+  "minEndTime": "2011-06-19 06:30:01", 
+  "type": "gridRowSearch", 
+  "anchorChannelIdentifier": {
+    "channelNumber": "710", 
+    "type": "channelIdentifier", 
+    "sourceType": "cable"
+  }, 
+  "responseTemplate": [
+    {
+      "fieldName": [
+        "gridRow"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "gridRowList"
+    }, 
+    {
+      "fieldName": [
+        "offer"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "gridRow"
+    }, 
+    {
+      "fieldName": [
+        "title", 
+        "contentId", 
+        "startTime", 
+        "duration", 
+        "offerId", 
+        "collectionId"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "offer"
+    }, 
+    {
+      "fieldName": [
+        "channelNumber", 
+        "sourceType", 
+        "logoIndex", 
+        "callSign", 
+        "isDigital"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "channel"
+    }
+  ]
+}

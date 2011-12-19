@@ -1,0 +1,18 @@
+MRPC/2 239 78
+Raw Packet=MRPC/2 239 78
+Type:request
+RpcId:1119
+SchemaVersion:7
+Content-Type:application/json
+RequestType:mixSearch
+ResponseCount:single
+BodyId:tsn:XXXXXXXXXXXXXXX
+X-ApplicationName:Quicksilver
+X-ApplicationVersion:1.2
+X-ApplicationSessionId:0x27c180
+
+{
+  "rootTitle": "bravoBrowse", 
+  "type": "mixSearch", 
+  "bodyId": "tsn:XXXXXXXXXXXXXXX"
+}

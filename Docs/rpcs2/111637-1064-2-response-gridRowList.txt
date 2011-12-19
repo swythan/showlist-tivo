@@ -1,0 +1,160 @@
+MRPC/2 78 3918
+Raw Packet=MRPC/2 78 3918
+Content-Type: application/json
+IsFinal: true
+RpcId: 1064
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "FXHD", 
+        "isDigital": true, 
+        "channelNumber": "710", 
+        "logoIndex": 66198, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-09-07-30-00.1800", 
+          "startTime": "2011-06-09 07:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Get Hot!", 
+          "contentId": "tivo:ct.175906001", 
+          "collectionId": "tivo:cl.175906323", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-09-08-00-00.1800", 
+          "startTime": "2011-06-09 08:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Cook Healthy & Delicious Food Like a Master Chef!", 
+          "contentId": "tivo:ct.173091874", 
+          "collectionId": "tivo:cl.173092396", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-09-08-30-00.1800", 
+          "startTime": "2011-06-09 08:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Celeb Hair Styling Tips", 
+          "contentId": "tivo:ct.138647058", 
+          "collectionId": "tivo:cl.138647635", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-09-09-00-00.1800", 
+          "startTime": "2011-06-09 09:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-09-09-30-00.1800", 
+          "startTime": "2011-06-09 09:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Must-Have Styling Tool", 
+          "contentId": "tivo:ct.184213695", 
+          "collectionId": "tivo:cl.184214468", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-09-10-00-00.1800", 
+          "startTime": "2011-06-09 10:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Say Goodbye to Bad Hair Days with WEN by Chaz Dean", 
+          "contentId": "tivo:ct.148495641", 
+          "collectionId": "tivo:cl.148496278", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-09-10-30-00.1800", 
+          "startTime": "2011-06-09 10:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Malcolm in the Middle", 
+          "contentId": "tivo:ct.46470688", 
+          "collectionId": "tivo:cl.1298999", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-09-11-00-00.1800", 
+          "startTime": "2011-06-09 11:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Malcolm in the Middle", 
+          "contentId": "tivo:ct.47059640", 
+          "collectionId": "tivo:cl.1298999", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-09-11-30-00.1800", 
+          "startTime": "2011-06-09 11:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Simon Sez", 
+          "contentId": "tivo:ct.1382820", 
+          "collectionId": "tivo:cl.1382819", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-09-12-00-00.7200", 
+          "startTime": "2011-06-09 12:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Domestic Disturbance", 
+          "contentId": "tivo:ct.4843785", 
+          "collectionId": "tivo:cl.4843784", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-09-14-00-00.7200", 
+          "startTime": "2011-06-09 14:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Blow", 
+          "contentId": "tivo:ct.3839327", 
+          "collectionId": "tivo:cl.3839326", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-09-16-00-00.9000", 
+          "startTime": "2011-06-09 16:00:00", 
+          "duration": 9000, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Malcolm in the Middle", 
+          "contentId": "tivo:ct.48145448", 
+          "collectionId": "tivo:cl.1298999", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-09-18-30-00.1800", 
+          "startTime": "2011-06-09 18:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Malcolm in the Middle", 
+          "contentId": "tivo:ct.47819720", 
+          "collectionId": "tivo:cl.1298999", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-09-19-00-00.1800", 
+          "startTime": "2011-06-09 19:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The X-Files: I Want to Believe", 
+          "contentId": "tivo:ct.113226209", 
+          "collectionId": "tivo:cl.113226582", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-09-19-30-00.9000", 
+          "startTime": "2011-06-09 19:30:00", 
+          "duration": 9000, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

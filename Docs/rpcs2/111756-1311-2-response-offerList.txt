@@ -1,0 +1,31 @@
+MRPC/2 78 409
+Raw Packet=MRPC/2 78 409
+Content-Type: application/json
+IsFinal: true
+RpcId: 1311
+Type: response
+
+{
+  "type": "offerList", 
+  "offer": [
+    {
+      "repeat": true, 
+      "episodic": false, 
+      "title": "To See or Not to See", 
+      "cc": true, 
+      "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-07-05-00-00.3600", 
+      "hdtv": true, 
+      "startTime": "2011-06-07 05:00:00", 
+      "duration": 3600, 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "SCIHD", 
+        "isDigital": true, 
+        "channelNumber": "775", 
+        "logoIndex": 65773, 
+        "type": "channel"
+      }
+    }
+  ]
+}

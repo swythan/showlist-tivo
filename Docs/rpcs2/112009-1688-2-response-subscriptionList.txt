@@ -1,0 +1,51 @@
+MRPC/2 78 901
+Raw Packet=MRPC/2 78 901
+Content-Type: application/json
+IsFinal: true
+RpcId: 1688
+Type: response
+
+{
+  "isBottom": true, 
+  "subscription": [
+    {
+      "recordingQuality": "high", 
+      "maxRecordings": 3, 
+      "keepBehavior": "forever", 
+      "folderingRules": "seriesOnly", 
+      "startTimePadding": 0, 
+      "title": "MythBusters", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "priority": 30, 
+      "bodyGeneratesCandidates": true, 
+      "showStatus": "firstRunOnly", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "name": "The Discovery Channel HD", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "isBlocked": false, 
+          "channelId": "tivo:ch.9", 
+          "callSign": "DSCHD", 
+          "isDigital": false, 
+          "stationId": "tivo:st.107213906", 
+          "channelNumber": "766", 
+          "logoIndex": 66079, 
+          "type": "channel", 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.10670781"
+      }, 
+      "subscriptionId": "tivo:sb.15000231", 
+      "levelOfDetail": "medium", 
+      "type": "subscription", 
+      "endTimePadding": 0
+    }
+  ], 
+  "isTop": true, 
+  "type": "subscriptionList"
+}

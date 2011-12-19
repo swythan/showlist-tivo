@@ -1,0 +1,1304 @@
+MRPC/2 78 25614
+Raw Packet=MRPC/2 78 25614
+Content-Type: application/json
+IsFinal: true
+RpcId: 1254
+Type: response
+
+{
+  "type": "offerList", 
+  "offer": [
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 9, 
+      "episodic": true, 
+      "episodeNum": [
+        13
+      ], 
+      "contentId": "tivo:ct.5165234", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-07-03-00-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-07 03:00:00", 
+      "subtitle": "Mother Load", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 9, 
+      "episodic": true, 
+      "episodeNum": [
+        14
+      ], 
+      "contentId": "tivo:ct.5250601", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-07-03-30-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-07 03:30:00", 
+      "subtitle": "Juvenilia", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 9, 
+      "episodic": true, 
+      "episodeNum": [
+        15
+      ], 
+      "contentId": "tivo:ct.5332331", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-07-12-00-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-07 12:00:00", 
+      "subtitle": "The Proposal", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 9, 
+      "episodic": true, 
+      "episodeNum": [
+        16
+      ], 
+      "contentId": "tivo:ct.5480916", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-07-12-30-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-07 12:30:00", 
+      "subtitle": "Wheels of Fortune", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 9, 
+      "episodic": true, 
+      "episodeNum": [
+        17
+      ], 
+      "contentId": "tivo:ct.5621555", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-07-13-00-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-07 13:00:00", 
+      "subtitle": "Three Blind Dates", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 9, 
+      "episodic": true, 
+      "episodeNum": [
+        18
+      ], 
+      "contentId": "tivo:ct.5598735", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-07-13-30-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-07 13:30:00", 
+      "subtitle": "War of the Words", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 6, 
+      "episodic": true, 
+      "episodeNum": [
+        22
+      ], 
+      "contentId": "tivo:ct.495281", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.1369.55.cable.2011-06-07-23-00-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-07 23:00:00", 
+      "subtitle": "Visions of Daphne", 
+      "type": "offer", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "55", 
+        "callSign": "WLNYMH", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 3, 
+      "episodic": true, 
+      "episodeNum": [
+        5
+      ], 
+      "contentId": "tivo:ct.36013", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.1369.55.cable.2011-06-07-23-30-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-07 23:30:00", 
+      "subtitle": "Kisses Sweeter Than Wine", 
+      "type": "offer", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "55", 
+        "callSign": "WLNYMH", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 9, 
+      "episodic": true, 
+      "episodeNum": [
+        15
+      ], 
+      "contentId": "tivo:ct.5332331", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-08-01-00-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-08 01:00:00", 
+      "subtitle": "The Proposal", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 9, 
+      "episodic": true, 
+      "episodeNum": [
+        16
+      ], 
+      "contentId": "tivo:ct.5480916", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-08-01-30-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-08 01:30:00", 
+      "subtitle": "Wheels of Fortune", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 9, 
+      "episodic": true, 
+      "episodeNum": [
+        17
+      ], 
+      "contentId": "tivo:ct.5621555", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-08-02-00-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-08 02:00:00", 
+      "subtitle": "Three Blind Dates", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 9, 
+      "episodic": true, 
+      "episodeNum": [
+        18
+      ], 
+      "contentId": "tivo:ct.5598735", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-08-02-30-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-08 02:30:00", 
+      "subtitle": "War of the Words", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 9, 
+      "episodic": true, 
+      "episodeNum": [
+        19
+      ], 
+      "contentId": "tivo:ct.5802211", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-08-03-00-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-08 03:00:00", 
+      "subtitle": "Deathtrap", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 9, 
+      "episodic": true, 
+      "episodeNum": [
+        20
+      ], 
+      "contentId": "tivo:ct.5881743", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-08-03-30-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-08 03:30:00", 
+      "subtitle": "The Love You Fake", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 9, 
+      "episodic": true, 
+      "episodeNum": [
+        21
+      ], 
+      "contentId": "tivo:ct.5963482", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-08-12-00-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-08 12:00:00", 
+      "subtitle": "Cheerful Goodbyes", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 9, 
+      "episodic": true, 
+      "episodeNum": [
+        22
+      ], 
+      "contentId": "tivo:ct.5989202", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-08-12-30-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-08 12:30:00", 
+      "subtitle": "Frasier Has Spokane", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 9, 
+      "episodic": true, 
+      "episodeNum": [
+        23
+      ], 
+      "contentId": "tivo:ct.5989203", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-08-13-00-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-08 13:00:00", 
+      "subtitle": "The Guilt Trippers", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 9, 
+      "episodic": true, 
+      "episodeNum": [
+        24
+      ], 
+      "contentId": "tivo:ct.5989201", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-08-13-30-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-08 13:30:00", 
+      "subtitle": "Moons Over Seattle", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 6, 
+      "episodic": true, 
+      "episodeNum": [
+        18
+      ], 
+      "contentId": "tivo:ct.405119", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.1369.55.cable.2011-06-08-23-00-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-08 23:00:00", 
+      "subtitle": "Taps at the Montana", 
+      "type": "offer", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "55", 
+        "callSign": "WLNYMH", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 3, 
+      "episodic": true, 
+      "episodeNum": [
+        6
+      ], 
+      "contentId": "tivo:ct.221785", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.1369.55.cable.2011-06-08-23-30-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-08 23:30:00", 
+      "subtitle": "Sleeping With the Enemy", 
+      "type": "offer", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "55", 
+        "callSign": "WLNYMH", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 9, 
+      "episodic": true, 
+      "episodeNum": [
+        21
+      ], 
+      "contentId": "tivo:ct.5963482", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-09-01-00-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-09 01:00:00", 
+      "subtitle": "Cheerful Goodbyes", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 9, 
+      "episodic": true, 
+      "episodeNum": [
+        22
+      ], 
+      "contentId": "tivo:ct.5989202", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-09-01-30-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-09 01:30:00", 
+      "subtitle": "Frasier Has Spokane", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 9, 
+      "episodic": true, 
+      "episodeNum": [
+        23
+      ], 
+      "contentId": "tivo:ct.5989203", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-09-02-00-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-09 02:00:00", 
+      "subtitle": "The Guilt Trippers", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 9, 
+      "episodic": true, 
+      "episodeNum": [
+        24
+      ], 
+      "contentId": "tivo:ct.5989201", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-09-02-30-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-09 02:30:00", 
+      "subtitle": "Moons Over Seattle", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 10, 
+      "episodic": true, 
+      "episodeNum": [
+        1
+      ], 
+      "contentId": "tivo:ct.7204238", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-09-03-00-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-09 03:00:00", 
+      "subtitle": "The Ring Cycle", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 10, 
+      "episodic": true, 
+      "episodeNum": [
+        2
+      ], 
+      "contentId": "tivo:ct.7412306", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-09-03-30-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-09 03:30:00", 
+      "subtitle": "Enemy at the Gate", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 10, 
+      "episodic": true, 
+      "episodeNum": [
+        3
+      ], 
+      "contentId": "tivo:ct.7487541", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-09-12-00-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-09 12:00:00", 
+      "subtitle": "Proxy Prexy", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 10, 
+      "episodic": true, 
+      "episodeNum": [
+        4
+      ], 
+      "contentId": "tivo:ct.7522056", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-09-12-30-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-09 12:30:00", 
+      "subtitle": "Kissing Cousin", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 10, 
+      "episodic": true, 
+      "episodeNum": [
+        5
+      ], 
+      "contentId": "tivo:ct.7585053", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-09-13-00-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-09 13:00:00", 
+      "subtitle": "Tales From the Crypt", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 10, 
+      "episodic": true, 
+      "episodeNum": [
+        6
+      ], 
+      "contentId": "tivo:ct.7822837", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-09-13-30-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-09 13:30:00", 
+      "subtitle": "Star Mitzvah", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 6, 
+      "episodic": true, 
+      "episodeNum": [
+        23
+      ], 
+      "contentId": "tivo:ct.1175788", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.1369.55.cable.2011-06-09-23-00-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-09 23:00:00", 
+      "subtitle": "Shutout in Seattle", 
+      "type": "offer", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "55", 
+        "callSign": "WLNYMH", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 3, 
+      "episodic": true, 
+      "episodeNum": [
+        7
+      ], 
+      "contentId": "tivo:ct.16993", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.1369.55.cable.2011-06-09-23-30-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-09 23:30:00", 
+      "subtitle": "The Adventures of Bad Boy and Dirty Girl", 
+      "type": "offer", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "55", 
+        "callSign": "WLNYMH", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 10, 
+      "episodic": true, 
+      "episodeNum": [
+        3
+      ], 
+      "contentId": "tivo:ct.7487541", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-10-01-00-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-10 01:00:00", 
+      "subtitle": "Proxy Prexy", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 10, 
+      "episodic": true, 
+      "episodeNum": [
+        4
+      ], 
+      "contentId": "tivo:ct.7522056", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-10-01-30-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-10 01:30:00", 
+      "subtitle": "Kissing Cousin", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 10, 
+      "episodic": true, 
+      "episodeNum": [
+        5
+      ], 
+      "contentId": "tivo:ct.7585053", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-10-02-00-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-10 02:00:00", 
+      "subtitle": "Tales From the Crypt", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 10, 
+      "episodic": true, 
+      "episodeNum": [
+        6
+      ], 
+      "contentId": "tivo:ct.7822837", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-10-02-30-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-10 02:30:00", 
+      "subtitle": "Star Mitzvah", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 10, 
+      "episodic": true, 
+      "episodeNum": [
+        7
+      ], 
+      "contentId": "tivo:ct.7822838", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-10-03-00-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-10 03:00:00", 
+      "subtitle": "Bristle While You Work", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 10, 
+      "episodic": true, 
+      "episodeNum": [
+        8
+      ], 
+      "contentId": "tivo:ct.7864598", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-10-03-30-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-10 03:30:00", 
+      "subtitle": "Rooms With a View", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 10, 
+      "episodic": true, 
+      "episodeNum": [
+        9
+      ], 
+      "contentId": "tivo:ct.8046956", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-10-12-00-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-10 12:00:00", 
+      "subtitle": "Don't Go Breaking My Heart", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 10, 
+      "episodic": true, 
+      "episodeNum": [
+        10
+      ], 
+      "contentId": "tivo:ct.10039771", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-10-12-30-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-10 12:30:00", 
+      "subtitle": "We Two Kings", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 10, 
+      "episodic": true, 
+      "episodeNum": [
+        11
+      ], 
+      "contentId": "tivo:ct.7478229", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-10-13-00-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-10 13:00:00", 
+      "subtitle": "Door Jam", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 10, 
+      "episodic": true, 
+      "episodeNum": [
+        12
+      ], 
+      "contentId": "tivo:ct.10542086", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-10-13-30-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-10 13:30:00", 
+      "subtitle": "The Harassed", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 6, 
+      "episodic": true, 
+      "episodeNum": [
+        24
+      ], 
+      "contentId": "tivo:ct.1179237", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.1369.55.cable.2011-06-10-23-00-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-10 23:00:00", 
+      "subtitle": "Shutout in Seattle", 
+      "type": "offer", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "55", 
+        "callSign": "WLNYMH", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 3, 
+      "episodic": true, 
+      "episodeNum": [
+        8
+      ], 
+      "contentId": "tivo:ct.250655", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.1369.55.cable.2011-06-10-23-30-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-10 23:30:00", 
+      "subtitle": "The Last Time I Saw Maris", 
+      "type": "offer", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "55", 
+        "callSign": "WLNYMH", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 4, 
+      "episodic": true, 
+      "episodeNum": [
+        9
+      ], 
+      "contentId": "tivo:ct.204806", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.117361138.759.cable.2011-06-11-00-00-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-11 00:00:00", 
+      "subtitle": "Dad Loves Sherry, the Boys Just Whine", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WEHD", 
+        "isDigital": true, 
+        "channelNumber": "759", 
+        "logoIndex": 65783, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 4, 
+      "episodic": true, 
+      "episodeNum": [
+        10
+      ], 
+      "contentId": "tivo:ct.181057", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.117361138.759.cable.2011-06-11-00-30-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-11 00:30:00", 
+      "subtitle": "Liar! Liar!", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WEHD", 
+        "isDigital": true, 
+        "channelNumber": "759", 
+        "logoIndex": 65783, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 10, 
+      "episodic": true, 
+      "episodeNum": [
+        9
+      ], 
+      "contentId": "tivo:ct.8046956", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-11-01-00-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-11 01:00:00", 
+      "subtitle": "Don't Go Breaking My Heart", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 4, 
+      "episodic": true, 
+      "episodeNum": [
+        11
+      ], 
+      "contentId": "tivo:ct.210641", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.117361138.759.cable.2011-06-11-01-00-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-11 01:00:00", 
+      "subtitle": "Three Days of the Condo", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WEHD", 
+        "isDigital": true, 
+        "channelNumber": "759", 
+        "logoIndex": 65783, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 10, 
+      "episodic": true, 
+      "episodeNum": [
+        10
+      ], 
+      "contentId": "tivo:ct.10039771", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-11-01-30-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-11 01:30:00", 
+      "subtitle": "We Two Kings", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "seasonNumber": 4, 
+      "episodic": true, 
+      "episodeNum": [
+        12
+      ], 
+      "contentId": "tivo:ct.39307", 
+      "price": "USD.0", 
+      "collectionId": "tivo:cl.16986", 
+      "offerId": "tivo:of.ctd.117361138.759.cable.2011-06-11-01-30-00.1800", 
+      "hdtv": false, 
+      "title": "Frasier", 
+      "startTime": "2011-06-11 01:30:00", 
+      "subtitle": "Death and the Dog", 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WEHD", 
+        "isDigital": true, 
+        "channelNumber": "759", 
+        "logoIndex": 65783, 
+        "type": "channel"
+      }
+    }
+  ]
+}

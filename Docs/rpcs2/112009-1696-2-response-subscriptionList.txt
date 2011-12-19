@@ -1,0 +1,74 @@
+MRPC/2 78 1361
+Raw Packet=MRPC/2 78 1361
+Content-Type: application/json
+IsFinal: true
+RpcId: 1696
+Type: response
+
+{
+  "type": "subscriptionList", 
+  "subscription": [
+    {
+      "maxRecordings": 5, 
+      "keepBehavior": "forever", 
+      "title": "The Paul Reiser Show", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "type": "channel", 
+          "name": "NBC Affiliate", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "bitrate": "1999634432", 
+          "channelId": "tivo:ch.9", 
+          "callSign": "WNBCDT", 
+          "isDigital": true, 
+          "stationId": "tivo:st.4190788", 
+          "channelNumber": "704", 
+          "logoIndex": 65556, 
+          "isBlocked": false, 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.165674477"
+      }, 
+      "showStatus": "firstRunOnly", 
+      "subscriptionId": "tivo:sb.239", 
+      "type": "subscription"
+    }, 
+    {
+      "maxRecordings": 5, 
+      "keepBehavior": "fifo", 
+      "title": "Adventure Time", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "type": "channel", 
+          "name": "Cartoon Network HD", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "bitrate": "101711872", 
+          "channelId": "tivo:ch.9", 
+          "callSign": "TOONHD", 
+          "isDigital": true, 
+          "stationId": "tivo:st.124376605", 
+          "channelNumber": "761", 
+          "logoIndex": 66277, 
+          "isBlocked": false, 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.161625498"
+      }, 
+      "showStatus": "rerunsAllowed", 
+      "subscriptionId": "tivo:sb.259", 
+      "type": "subscription"
+    }
+  ]
+}

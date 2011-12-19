@@ -1,0 +1,250 @@
+MRPC/2 78 6311
+Raw Packet=MRPC/2 78 6311
+Content-Type: application/json
+IsFinal: true
+RpcId: 1048
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WWORDT", 
+        "isDigital": true, 
+        "channelNumber": "709", 
+        "logoIndex": 66244, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Natural Advantage with Jane Seymour", 
+          "contentId": "tivo:ct.162098480", 
+          "collectionId": "tivo:cl.162098880", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-11-07-00-00.1800", 
+          "startTime": "2011-06-11 07:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Susan Lucci's Malibu Pilates", 
+          "contentId": "tivo:ct.127627668", 
+          "collectionId": "tivo:cl.127628279", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-11-07-30-00.1800", 
+          "startTime": "2011-06-11 07:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-11-08-00-00.1800", 
+          "startTime": "2011-06-11 08:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-11-08-30-00.1800", 
+          "startTime": "2011-06-11 08:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-11-09-00-00.1800", 
+          "startTime": "2011-06-11 09:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Oreck Platinum Pilot Vacuum", 
+          "contentId": "tivo:ct.176272264", 
+          "collectionId": "tivo:cl.176272571", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-11-09-30-00.1800", 
+          "startTime": "2011-06-11 09:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-11-10-00-00.1800", 
+          "startTime": "2011-06-11 10:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Cindy Crawford's Meaningful Beauty", 
+          "contentId": "tivo:ct.147779689", 
+          "collectionId": "tivo:cl.147780430", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-11-10-30-00.1800", 
+          "startTime": "2011-06-11 10:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Susan Lucci's Malibu Pilates", 
+          "contentId": "tivo:ct.127627668", 
+          "collectionId": "tivo:cl.127628279", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-11-11-00-00.1800", 
+          "startTime": "2011-06-11 11:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Say Goodbye to Bad Hair Days with WEN by Chaz Dean", 
+          "contentId": "tivo:ct.148495641", 
+          "collectionId": "tivo:cl.148496278", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-11-11-30-00.1800", 
+          "startTime": "2011-06-11 11:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-11-12-00-00.1800", 
+          "startTime": "2011-06-11 12:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Armando Montelongo", 
+          "contentId": "tivo:ct.154754522", 
+          "collectionId": "tivo:cl.154755161", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-11-12-30-00.1800", 
+          "startTime": "2011-06-11 12:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-11-13-00-00.1800", 
+          "startTime": "2011-06-11 13:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Cindy Crawford's Skin Secrets", 
+          "contentId": "tivo:ct.130211058", 
+          "collectionId": "tivo:cl.130211879", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-11-13-30-00.1800", 
+          "startTime": "2011-06-11 13:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-11-14-00-00.1800", 
+          "startTime": "2011-06-11 14:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Armando Montelongo", 
+          "contentId": "tivo:ct.154754522", 
+          "collectionId": "tivo:cl.154755161", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-11-14-30-00.1800", 
+          "startTime": "2011-06-11 14:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Sexy Gorgeous Legs", 
+          "contentId": "tivo:ct.163907412", 
+          "collectionId": "tivo:cl.163907961", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-11-15-00-00.1800", 
+          "startTime": "2011-06-11 15:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Best Bra Ever!", 
+          "contentId": "tivo:ct.171182915", 
+          "collectionId": "tivo:cl.171183379", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-11-15-30-00.1800", 
+          "startTime": "2011-06-11 15:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-11-16-00-00.1800", 
+          "startTime": "2011-06-11 16:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Thin in 30!", 
+          "contentId": "tivo:ct.180239772", 
+          "collectionId": "tivo:cl.180240144", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-11-16-30-00.1800", 
+          "startTime": "2011-06-11 16:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-11-17-00-00.1800", 
+          "startTime": "2011-06-11 17:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Armando Montelongo", 
+          "contentId": "tivo:ct.154754522", 
+          "collectionId": "tivo:cl.154755161", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-11-17-30-00.1800", 
+          "startTime": "2011-06-11 17:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Susan Lucci's Malibu Pilates", 
+          "contentId": "tivo:ct.127627668", 
+          "collectionId": "tivo:cl.127628279", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-11-18-00-00.1800", 
+          "startTime": "2011-06-11 18:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Summer Salads!", 
+          "contentId": "tivo:ct.183496483", 
+          "collectionId": "tivo:cl.183496953", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-11-18-30-00.1800", 
+          "startTime": "2011-06-11 18:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Garden State", 
+          "contentId": "tivo:ct.38512870", 
+          "collectionId": "tivo:cl.38513608", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-11-19-00-00.7200", 
+          "startTime": "2011-06-11 19:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

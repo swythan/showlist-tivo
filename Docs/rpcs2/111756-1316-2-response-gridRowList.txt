@@ -1,0 +1,178 @@
+MRPC/2 78 4314
+Raw Packet=MRPC/2 78 4314
+Content-Type: application/json
+IsFinal: true
+RpcId: 1316
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "SCIHD", 
+        "isDigital": true, 
+        "channelNumber": "775", 
+        "logoIndex": 65773, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Forensic Factor", 
+          "contentId": "tivo:ct.17546652", 
+          "collectionId": "tivo:cl.14849193", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-11-10-00-00.3600", 
+          "startTime": "2011-06-11 10:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Forensic Factor", 
+          "contentId": "tivo:ct.131085274", 
+          "collectionId": "tivo:cl.14849193", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-11-11-00-00.3600", 
+          "startTime": "2011-06-11 11:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Forensic Factor", 
+          "contentId": "tivo:ct.144864409", 
+          "collectionId": "tivo:cl.14849193", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-11-12-00-00.3600", 
+          "startTime": "2011-06-11 12:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "When Earth Erupts", 
+          "contentId": "tivo:ct.176903652", 
+          "collectionId": "tivo:cl.176582645", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-11-13-00-00.3600", 
+          "startTime": "2011-06-11 13:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "When Earth Erupts", 
+          "contentId": "tivo:ct.176581670", 
+          "collectionId": "tivo:cl.176582645", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-11-14-00-00.3600", 
+          "startTime": "2011-06-11 14:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "When Earth Erupts", 
+          "contentId": "tivo:ct.176903653", 
+          "collectionId": "tivo:cl.176582645", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-11-15-00-00.3600", 
+          "startTime": "2011-06-11 15:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "When Earth Erupts", 
+          "contentId": "tivo:ct.176643003", 
+          "collectionId": "tivo:cl.176582645", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-11-16-00-00.3600", 
+          "startTime": "2011-06-11 16:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "When Earth Erupts", 
+          "contentId": "tivo:ct.176581671", 
+          "collectionId": "tivo:cl.176582645", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-11-17-00-00.3600", 
+          "startTime": "2011-06-11 17:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.135520900", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-11-18-00-00.1800", 
+          "startTime": "2011-06-11 18:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.143132378", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-11-18-30-00.1800", 
+          "startTime": "2011-06-11 18:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.134151844", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-11-19-00-00.1800", 
+          "startTime": "2011-06-11 19:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.138122731", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-11-19-30-00.1800", 
+          "startTime": "2011-06-11 19:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.134151843", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-11-20-00-00.1800", 
+          "startTime": "2011-06-11 20:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.143132378", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-11-20-30-00.1800", 
+          "startTime": "2011-06-11 20:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.141522503", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-11-21-00-00.1800", 
+          "startTime": "2011-06-11 21:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.135441778", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-11-21-30-00.1800", 
+          "startTime": "2011-06-11 21:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Oddities", 
+          "contentId": "tivo:ct.178337388", 
+          "collectionId": "tivo:cl.172225058", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-11-22-00-00.1800", 
+          "startTime": "2011-06-11 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

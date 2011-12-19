@@ -1,0 +1,178 @@
+MRPC/2 78 4331
+Raw Packet=MRPC/2 78 4331
+Content-Type: application/json
+IsFinal: true
+RpcId: 1298
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "SCIHD", 
+        "isDigital": true, 
+        "channelNumber": "775", 
+        "logoIndex": 65773, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "The Hawking Paradox", 
+          "contentId": "tivo:ct.74210787", 
+          "collectionId": "tivo:cl.74211296", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Seeing Black Holes", 
+          "contentId": "tivo:ct.156582975", 
+          "collectionId": "tivo:cl.156583060", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-07-04-00-00.3600", 
+          "startTime": "2011-06-07 04:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "To See or Not to See", 
+          "contentId": "tivo:ct.185235734", 
+          "collectionId": "tivo:cl.185236652", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-07-05-00-00.3600", 
+          "startTime": "2011-06-07 05:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.91423415", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-07-06-00-00.1800", 
+          "startTime": "2011-06-07 06:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.79345549", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-07-06-30-00.1800", 
+          "startTime": "2011-06-07 06:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.179770431", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-07-07-00-00.1800", 
+          "startTime": "2011-06-07 07:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.179770433", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-07-07-30-00.1800", 
+          "startTime": "2011-06-07 07:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.179770428", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-07-08-00-00.1800", 
+          "startTime": "2011-06-07 08:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.179908809", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-07-08-30-00.1800", 
+          "startTime": "2011-06-07 08:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.180555917", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-07-09-00-00.1800", 
+          "startTime": "2011-06-07 09:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.181288535", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-07-09-30-00.1800", 
+          "startTime": "2011-06-07 09:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "When Dinosaurs Ruled", 
+          "contentId": "tivo:ct.773458", 
+          "collectionId": "tivo:cl.770752", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-07-10-00-00.3600", 
+          "startTime": "2011-06-07 10:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "When Dinosaurs Ruled China", 
+          "contentId": "tivo:ct.1601329", 
+          "collectionId": "tivo:cl.1601328", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-07-11-00-00.3600", 
+          "startTime": "2011-06-07 11:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "When Dinosaurs Ruled", 
+          "contentId": "tivo:ct.770754", 
+          "collectionId": "tivo:cl.770752", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-07-12-00-00.3600", 
+          "startTime": "2011-06-07 12:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Science of the Deep", 
+          "contentId": "tivo:ct.10076865", 
+          "collectionId": "tivo:cl.1772082", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-07-13-00-00.3600", 
+          "startTime": "2011-06-07 13:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Science of the Deep", 
+          "contentId": "tivo:ct.24373288", 
+          "collectionId": "tivo:cl.1772082", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-07-14-00-00.3600", 
+          "startTime": "2011-06-07 14:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Science of the Deep", 
+          "contentId": "tivo:ct.14174571", 
+          "collectionId": "tivo:cl.1772082", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-07-15-00-00.3600", 
+          "startTime": "2011-06-07 15:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

@@ -1,0 +1,32 @@
+MRPC/2 76 427
+Raw Packet=MRPC/2 76 427
+Content-Type: application/json
+IsFinal: true
+RpcId: 41
+Type: response
+
+{
+  "type": "offerList", 
+  "offer": [
+    {
+      "repeat": true, 
+      "subtitle": "Twisted Sitters", 
+      "episodic": true, 
+      "title": "The King of Queens", 
+      "cc": true, 
+      "offerId": "tivo:of.ctd.1577.8.cable.2011-06-06-22-00-00.1800", 
+      "hdtv": false, 
+      "startTime": "2011-06-06 22:00:00", 
+      "duration": 1800, 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "TBS", 
+        "isDigital": true, 
+        "channelNumber": "8", 
+        "logoIndex": 65540, 
+        "type": "channel"
+      }
+    }
+  ]
+}

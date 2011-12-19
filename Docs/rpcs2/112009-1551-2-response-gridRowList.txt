@@ -1,0 +1,168 @@
+MRPC/2 78 3855
+Raw Packet=MRPC/2 78 3855
+Content-Type: application/json
+IsFinal: true
+RpcId: 1551
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "55", 
+        "callSign": "WLNYMH", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-17-13-30-00.1800", 
+          "startTime": "2011-06-17 13:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Coach", 
+          "contentId": "tivo:ct.43604", 
+          "collectionId": "tivo:cl.18003", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-17-14-00-00.1800", 
+          "startTime": "2011-06-17 14:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-17-14-30-00.1800", 
+          "startTime": "2011-06-17 14:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Just Shoot Me", 
+          "contentId": "tivo:ct.12217232", 
+          "collectionId": "tivo:cl.20212", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-17-15-00-00.1800", 
+          "startTime": "2011-06-17 15:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-17-15-30-00.1800", 
+          "startTime": "2011-06-17 15:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-17-16-00-00.1800", 
+          "startTime": "2011-06-17 16:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "God Squad", 
+          "contentId": "tivo:ct.104246", 
+          "collectionId": "tivo:cl.104245", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-17-16-30-00.1800", 
+          "startTime": "2011-06-17 16:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Garden State", 
+          "contentId": "tivo:ct.38512870", 
+          "collectionId": "tivo:cl.38513608", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-17-17-00-00.7200", 
+          "startTime": "2011-06-17 17:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Cold Case Files", 
+          "contentId": "tivo:ct.35791253", 
+          "collectionId": "tivo:cl.6113467", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-17-19-00-00.3600", 
+          "startTime": "2011-06-17 19:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Matlock", 
+          "contentId": "tivo:ct.18495", 
+          "collectionId": "tivo:cl.18471", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-17-20-00-00.3600", 
+          "startTime": "2011-06-17 20:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Matlock", 
+          "contentId": "tivo:ct.61323", 
+          "collectionId": "tivo:cl.18471", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-17-21-00-00.3600", 
+          "startTime": "2011-06-17 21:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Dr. Phil", 
+          "contentId": "tivo:ct.6973194", 
+          "collectionId": "tivo:cl.6973193", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-17-22-00-00.3600", 
+          "startTime": "2011-06-17 22:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Frasier", 
+          "contentId": "tivo:ct.970783", 
+          "collectionId": "tivo:cl.16986", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-17-23-00-00.1800", 
+          "startTime": "2011-06-17 23:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Frasier", 
+          "contentId": "tivo:ct.403708", 
+          "collectionId": "tivo:cl.16986", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-17-23-30-00.1800", 
+          "startTime": "2011-06-17 23:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Ellen DeGeneres Show", 
+          "contentId": "tivo:ct.177685860", 
+          "collectionId": "tivo:cl.15252057", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-18-00-00-00.3600", 
+          "startTime": "2011-06-18 00:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Law & Order: Special Victims Unit", 
+          "contentId": "tivo:ct.5989294", 
+          "collectionId": "tivo:cl.880788", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-18-01-00-00.3600", 
+          "startTime": "2011-06-18 01:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

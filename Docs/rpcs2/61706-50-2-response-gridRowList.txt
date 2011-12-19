@@ -1,0 +1,253 @@
+MRPC/2 76 4799
+Raw Packet=MRPC/2 76 4799
+Content-Type: application/json
+IsFinal: true
+RpcId: 50
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": false, 
+        "channelNumber": "291", 
+        "callSign": "FNTHDDM", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "FEARNet HD On Demand", 
+          "contentId": "tivo:ct.117968074", 
+          "collectionId": "tivo:cl.117968788", 
+          "offerId": "tivo:of.ctd.117968913.291.cable.2011-06-06-22-00-00.14400", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 14400, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "292", 
+        "callSign": "FEARHD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "The Midnight Meat Train", 
+          "contentId": "tivo:ct.115054920", 
+          "collectionId": "tivo:cl.115056266", 
+          "offerId": "tivo:of.ctd.180901519.292.cable.2011-06-06-22-00-00.7200", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "ESPNCL", 
+        "isDigital": true, 
+        "channelNumber": "451", 
+        "logoIndex": 65762, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "College Basketball", 
+          "contentId": "tivo:ct.5915434", 
+          "collectionId": "tivo:cl.15802", 
+          "offerId": "tivo:of.ctd.2113.451.cable.2011-06-06-21-00-00.7200", 
+          "startTime": "2011-06-06 21:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "OUTHD2", 
+        "isDigital": true, 
+        "channelNumber": "480", 
+        "logoIndex": 66363, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Elk Chronicles", 
+          "contentId": "tivo:ct.170609200", 
+          "collectionId": "tivo:cl.130211853", 
+          "offerId": "tivo:of.ctd.52082181.480.cable.2011-06-06-22-00-00.1800", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Madfin Shark Series", 
+          "contentId": "tivo:ct.180440006", 
+          "collectionId": "tivo:cl.178902319", 
+          "offerId": "tivo:of.ctd.52082181.480.cable.2011-06-06-22-30-00.1800", 
+          "startTime": "2011-06-06 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": false, 
+        "channelNumber": "483", 
+        "callSign": "3DTV1", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "3D Events", 
+          "contentId": "tivo:ct.168131244", 
+          "collectionId": "tivo:cl.168131615", 
+          "offerId": "tivo:of.ctd.168131952.483.cable.2011-06-06-22-00-00.14400", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 14400, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": false, 
+        "channelNumber": "484", 
+        "callSign": "3DTV2", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "3D Events", 
+          "contentId": "tivo:ct.168131244", 
+          "collectionId": "tivo:cl.168131615", 
+          "offerId": "tivo:of.ctd.168131953.484.cable.2011-06-06-22-00-00.14400", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 14400, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": false, 
+        "channelNumber": "487", 
+        "callSign": "ESPNDHD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Jorge Ramos y Su Banda", 
+          "contentId": "tivo:ct.149987311", 
+          "collectionId": "tivo:cl.149987688", 
+          "offerId": "tivo:of.ctd.182530764.487.cable.2011-06-06-21-00-00.7200", 
+          "startTime": "2011-06-06 21:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": false, 
+        "channelNumber": "519", 
+        "callSign": "CTC", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Odnazhdy V Milicci", 
+          "contentId": "tivo:ct.177774092", 
+          "collectionId": "tivo:cl.177774928", 
+          "offerId": "tivo:of.ctd.177775512.519.cable.2011-06-06-21-45-00.1800", 
+          "startTime": "2011-06-06 21:45:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "6 Kadrov", 
+          "contentId": "tivo:ct.177774044", 
+          "collectionId": "tivo:cl.177774895", 
+          "offerId": "tivo:of.ctd.177775512.519.cable.2011-06-06-22-15-00.1800", 
+          "startTime": "2011-06-06 22:15:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "POLRT", 
+        "isDigital": false, 
+        "channelNumber": "557", 
+        "logoIndex": 66368, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Polskie Radio Program 3", 
+          "contentId": "tivo:ct.1480736", 
+          "collectionId": "tivo:cl.376932", 
+          "offerId": "tivo:of.ctd.377680.557.cable.2011-06-06-20-00-00.14400", 
+          "startTime": "2011-06-06 20:00:00", 
+          "duration": 14400, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "TVB1", 
+        "isDigital": true, 
+        "channelNumber": "581", 
+        "logoIndex": 66071, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Infomercial", 
+          "contentId": "tivo:ct.122569582", 
+          "collectionId": "tivo:cl.122570161", 
+          "offerId": "tivo:of.ctd.10065083.581.cable.2011-06-06-22-00-00.900", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 900, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Sweetness in the Salt", 
+          "contentId": "tivo:ct.181288717", 
+          "collectionId": "tivo:cl.157369653", 
+          "offerId": "tivo:of.ctd.10065083.581.cable.2011-06-06-22-15-00.3300", 
+          "startTime": "2011-06-06 22:15:00", 
+          "duration": 3300, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

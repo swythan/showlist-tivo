@@ -1,0 +1,30 @@
+MRPC/2 78 201
+Raw Packet=MRPC/2 78 201
+Content-Type: application/json
+IsFinal: false
+RpcId: 892
+Type: response
+
+{
+  "isBottom": false, 
+  "isTop": false, 
+  "objectIdAndType": [
+    "55419", 
+    "35662", 
+    "120769", 
+    "36432", 
+    "46006", 
+    "35665", 
+    "59708", 
+    "35648", 
+    "37169", 
+    "36231", 
+    "57822", 
+    "811914", 
+    "38264", 
+    "35739", 
+    "1", 
+    "0"
+  ], 
+  "type": "idSequence"
+}

@@ -1,0 +1,214 @@
+MRPC/2 78 5356
+Raw Packet=MRPC/2 78 5356
+Content-Type: application/json
+IsFinal: true
+RpcId: 1035
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WWORDT", 
+        "isDigital": true, 
+        "channelNumber": "709", 
+        "logoIndex": 66244, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "My 9 News", 
+          "contentId": "tivo:ct.11251445", 
+          "collectionId": "tivo:cl.11251713", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-07-03-00-00.2100", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 2100, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Tyler Perry's House of Payne", 
+          "contentId": "tivo:ct.155054916", 
+          "collectionId": "tivo:cl.96190305", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-07-03-35-00.1800", 
+          "startTime": "2011-06-07 03:35:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "My Name Is Earl", 
+          "contentId": "tivo:ct.145613682", 
+          "collectionId": "tivo:cl.55477855", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-07-04-05-00.1800", 
+          "startTime": "2011-06-07 04:05:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "South Park", 
+          "contentId": "tivo:ct.24055511", 
+          "collectionId": "tivo:cl.15340", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-07-04-35-00.1800", 
+          "startTime": "2011-06-07 04:35:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Law & Order: Special Victims Unit", 
+          "contentId": "tivo:ct.5152028", 
+          "collectionId": "tivo:cl.880788", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-07-05-05-00.3300", 
+          "startTime": "2011-06-07 05:05:00", 
+          "duration": 3300, 
+          "type": "offer"
+        }, 
+        {
+          "title": "6 Week Body Makeover Eat More, Exercise Less & Lose Weight Every Week", 
+          "contentId": "tivo:ct.156208132", 
+          "collectionId": "tivo:cl.156208756", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-07-06-00-00.1800", 
+          "startTime": "2011-06-07 06:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Susan Lucci's Malibu Pilates", 
+          "contentId": "tivo:ct.127627668", 
+          "collectionId": "tivo:cl.127628279", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-07-06-30-00.1800", 
+          "startTime": "2011-06-07 06:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Best Bra Ever!", 
+          "contentId": "tivo:ct.171182915", 
+          "collectionId": "tivo:cl.171183379", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-07-07-00-00.1800", 
+          "startTime": "2011-06-07 07:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-07-07-30-00.1800", 
+          "startTime": "2011-06-07 07:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-07-08-00-00.1800", 
+          "startTime": "2011-06-07 08:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Art of Making Money by Russ Dalbey", 
+          "contentId": "tivo:ct.126929492", 
+          "collectionId": "tivo:cl.126929770", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-07-08-30-00.1800", 
+          "startTime": "2011-06-07 08:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Susan Lucci's Malibu Pilates", 
+          "contentId": "tivo:ct.127627668", 
+          "collectionId": "tivo:cl.127628279", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-07-09-00-00.1800", 
+          "startTime": "2011-06-07 09:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-07-09-30-00.1800", 
+          "startTime": "2011-06-07 09:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Joseph Prince: Destined to Reign", 
+          "contentId": "tivo:ct.145245098", 
+          "collectionId": "tivo:cl.145245607", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-07-10-00-00.1800", 
+          "startTime": "2011-06-07 10:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Kenneth Copeland", 
+          "contentId": "tivo:ct.183495368", 
+          "collectionId": "tivo:cl.123876", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-07-10-30-00.1800", 
+          "startTime": "2011-06-07 10:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Animal Atlas", 
+          "contentId": "tivo:ct.178337220", 
+          "collectionId": "tivo:cl.28969511", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-07-11-00-00.1800", 
+          "startTime": "2011-06-07 11:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "America's Funniest Home Videos", 
+          "contentId": "tivo:ct.92293371", 
+          "collectionId": "tivo:cl.18329", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-07-11-30-00.3600", 
+          "startTime": "2011-06-07 11:30:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "That '70s Show", 
+          "contentId": "tivo:ct.11704611", 
+          "collectionId": "tivo:cl.17211", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-07-12-30-00.1800", 
+          "startTime": "2011-06-07 12:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The 700 Club", 
+          "contentId": "tivo:ct.111425", 
+          "collectionId": "tivo:cl.17914", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-07-13-00-00.3600", 
+          "startTime": "2011-06-07 13:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The People's Court", 
+          "contentId": "tivo:ct.179908773", 
+          "collectionId": "tivo:cl.57719", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-07-14-00-00.3600", 
+          "startTime": "2011-06-07 14:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Divorce Court", 
+          "contentId": "tivo:ct.174438176", 
+          "collectionId": "tivo:cl.787592", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-07-15-00-00.1800", 
+          "startTime": "2011-06-07 15:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

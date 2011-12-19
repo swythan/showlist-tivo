@@ -1,0 +1,11 @@
+MRPC/2 76 51
+Raw Packet=MRPC/2 76 51
+Content-Type: application/json
+IsFinal: true
+RpcId: 21
+Type: response
+
+{
+  "optStatus": "optIn", 
+  "type": "optStatusResponse"
+}

@@ -1,0 +1,243 @@
+MRPC/2 78 4465
+Raw Packet=MRPC/2 78 4465
+Content-Type: application/json
+IsFinal: true
+RpcId: 1514
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "184", 
+        "callSign": "ZEAL4", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.176904863.184.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.176904863.184.cable.2011-06-07-03-30-00.1800", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "185", 
+        "callSign": "ZEA5Y", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Coin Vault", 
+          "contentId": "tivo:ct.159569509", 
+          "collectionId": "tivo:cl.159570014", 
+          "offerId": "tivo:of.ctd.185445345.185.cable.2011-06-06-22-00-00.21600", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 21600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "186", 
+        "callSign": "LATV", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Chef 911", 
+          "contentId": "tivo:ct.181800644", 
+          "collectionId": "tivo:cl.181801026", 
+          "offerId": "tivo:of.ctd.94611966.186.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALO", 
+        "isDigital": false, 
+        "channelNumber": "188", 
+        "logoIndex": 66201, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Departures", 
+          "contentId": "tivo:ct.145020715", 
+          "collectionId": "tivo:cl.117081086", 
+          "offerId": "tivo:of.ctd.1725757.188.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "INSP", 
+        "isDigital": false, 
+        "channelNumber": "189", 
+        "logoIndex": 66325, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "The Hal Lindsey Report", 
+          "contentId": "tivo:ct.65480590", 
+          "collectionId": "tivo:cl.65481363", 
+          "offerId": "tivo:of.ctd.949.189.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "David Regan", 
+          "contentId": "tivo:ct.182836548", 
+          "collectionId": "tivo:cl.182837655", 
+          "offerId": "tivo:of.ctd.949.189.cable.2011-06-07-03-30-00.1800", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": false, 
+        "channelNumber": "267", 
+        "callSign": "FEARDM", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "FEARnet On Demand", 
+          "contentId": "tivo:ct.81580042", 
+          "collectionId": "tivo:cl.81580559", 
+          "offerId": "tivo:of.ctd.81580647.267.cable.2011-06-07-02-00-00.14400", 
+          "startTime": "2011-06-07 02:00:00", 
+          "duration": 14400, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": false, 
+        "channelNumber": "268", 
+        "callSign": "FEAR", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "30 Days of Night: Dark Days", 
+          "contentId": "tivo:ct.170731164", 
+          "collectionId": "tivo:cl.170732723", 
+          "offerId": "tivo:of.ctd.174720108.268.cable.2011-06-07-02-00-00.7200", 
+          "startTime": "2011-06-07 02:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "283", 
+        "callSign": "REELZHD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Assassins", 
+          "contentId": "tivo:ct.1527483", 
+          "collectionId": "tivo:cl.1527482", 
+          "offerId": "tivo:of.ctd.170289097.283.cable.2011-06-07-03-00-00.7200", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HMCHD", 
+        "isDigital": true, 
+        "channelNumber": "287", 
+        "logoIndex": 66200, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Matlock", 
+          "contentId": "tivo:ct.133119", 
+          "collectionId": "tivo:cl.18471", 
+          "offerId": "tivo:of.ctd.51466647.287.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "290", 
+        "callSign": "SUNDHD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "My So-Called Life", 
+          "contentId": "tivo:ct.21366", 
+          "collectionId": "tivo:cl.21365", 
+          "offerId": "tivo:of.ctd.177101278.290.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

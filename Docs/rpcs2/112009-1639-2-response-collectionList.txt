@@ -1,0 +1,518 @@
+MRPC/2 78 8640
+Raw Packet=MRPC/2 78 8640
+Content-Type: application/json
+IsFinal: true
+RpcId: 1639
+Type: response
+
+{
+  "type": "collectionList", 
+  "collection": [
+    {
+      "collectionType": "series", 
+      "episodic": true, 
+      "title": "Seinfeld", 
+      "image": [
+        {
+          "width": 139, 
+          "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/08/43/0843aa276c229d9c54c0d8a986e717bc.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 104
+        }, 
+        {
+          "width": 120, 
+          "imageUrl": "http://i.tivo.com/images-production/os/banner-120/08/43/0843aa276c229d9c54c0d8a986e717bc.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 90
+        }
+      ], 
+      "collectionId": "tivo:cl.16984", 
+      "credit": [
+        {
+          "last": "Seinfeld", 
+          "personId": "tivo:pn.1585", 
+          "characterName": "Jerry Seinfeld", 
+          "image": [
+            {
+              "width": 113, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/person-med/e1/88/e188294c975bd85ed280d5002022cda1.jpg", 
+              "type": "image", 
+              "imageType": "person", 
+              "height": 150
+            }
+          ], 
+          "role": "actor", 
+          "type": "credit", 
+          "first": "Jerry"
+        }, 
+        {
+          "last": "Louis-Dreyfus", 
+          "personId": "tivo:pn.1040", 
+          "characterName": "Elaine Benes", 
+          "image": [
+            {
+              "width": 113, 
+              "imageUrl": "http://i.tivo.com/images-production/hdui-person/b5/23/b523ae4c07bd515e90f8238fc664be0d.jpg", 
+              "type": "image", 
+              "imageType": "person", 
+              "height": 150
+            }
+          ], 
+          "role": "actor", 
+          "type": "credit", 
+          "first": "Julia"
+        }, 
+        {
+          "last": "Alexander", 
+          "personId": "tivo:pn.29864", 
+          "characterName": "George Costanza", 
+          "image": [
+            {
+              "width": 113, 
+              "imageUrl": "http://i.tivo.com/images-production/hdui-person/76/4a/764a7f2762a54b5836e4ce03e192239c.jpg", 
+              "type": "image", 
+              "imageType": "person", 
+              "height": 150
+            }
+          ], 
+          "role": "actor", 
+          "type": "credit", 
+          "first": "Jason"
+        }, 
+        {
+          "last": "Richards", 
+          "personId": "tivo:pn.45707", 
+          "characterName": "Cosmo Kramer", 
+          "image": [
+            {
+              "width": 113, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/person-med/f1/10/f110d43845cf446b411ddc5d232d4e45.jpg", 
+              "type": "image", 
+              "imageType": "person", 
+              "height": 150
+            }
+          ], 
+          "role": "actor", 
+          "type": "credit", 
+          "first": "Michael"
+        }, 
+        {
+          "last": "Knight", 
+          "personId": "tivo:pn.65627", 
+          "image": [
+            {
+              "width": 113, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/person-med/d9/25/d9252fd0804041f2cf7b07044213b8ea.jpg", 
+              "type": "image", 
+              "imageType": "person", 
+              "height": 150
+            }
+          ], 
+          "role": "actor", 
+          "type": "credit", 
+          "first": "Wayne"
+        }, 
+        {
+          "last": "Harris", 
+          "personId": "tivo:pn.77274", 
+          "image": [
+            {
+              "width": 113, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/person-med/42/73/4273f4bc374d41cf847369355d4eefb3.jpg", 
+              "type": "image", 
+              "imageType": "person", 
+              "height": 150
+            }
+          ], 
+          "role": "actor", 
+          "type": "credit", 
+          "first": "Estelle"
+        }, 
+        {
+          "last": "Stiller", 
+          "personId": "tivo:pn.31245", 
+          "image": [
+            {
+              "width": 113, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/person-med/df/29/df29f41fdda2280c033a2f3b977d4f59.jpg", 
+              "type": "image", 
+              "imageType": "person", 
+              "height": 150
+            }
+          ], 
+          "role": "actor", 
+          "type": "credit", 
+          "first": "Jerry"
+        }, 
+        {
+          "last": "O'Hurley", 
+          "personId": "tivo:pn.33263", 
+          "image": [
+            {
+              "width": 113, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/person-med/57/14/5714db2557ba082569e6912452b01017.jpg", 
+              "type": "image", 
+              "imageType": "person", 
+              "height": 150
+            }
+          ], 
+          "role": "actor", 
+          "type": "credit", 
+          "first": "John"
+        }, 
+        {
+          "personId": "tivo:pn.171863", 
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Martin", 
+          "first": "Barney"
+        }, 
+        {
+          "personId": "tivo:pn.67851", 
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Sheridan", 
+          "first": "Liz"
+        }, 
+        {
+          "personId": "tivo:pn.26076", 
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Swedberg", 
+          "first": "Heidi"
+        }, 
+        {
+          "last": "David", 
+          "personId": "tivo:pn.70047", 
+          "image": [
+            {
+              "width": 113, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/person-med/1f/31/1f317985fc0643e138b05578dad1048f.jpg", 
+              "type": "image", 
+              "imageType": "person", 
+              "height": 150
+            }
+          ], 
+          "role": "executiveProducer", 
+          "type": "credit", 
+          "first": "Larry"
+        }, 
+        {
+          "personId": "tivo:pn.271319", 
+          "role": "executiveProducer", 
+          "type": "credit", 
+          "last": "Shapiro", 
+          "first": "George"
+        }, 
+        {
+          "personId": "tivo:pn.271320", 
+          "role": "executiveProducer", 
+          "type": "credit", 
+          "last": "West", 
+          "first": "Howard"
+        }, 
+        {
+          "personId": "tivo:pn.201578", 
+          "role": "director", 
+          "type": "credit", 
+          "last": "Ackerman", 
+          "first": "Andy"
+        }, 
+        {
+          "last": "David", 
+          "personId": "tivo:pn.70047", 
+          "image": [
+            {
+              "width": 113, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/person-med/1f/31/1f317985fc0643e138b05578dad1048f.jpg", 
+              "type": "image", 
+              "imageType": "person", 
+              "height": 150
+            }
+          ], 
+          "role": "writer", 
+          "type": "credit", 
+          "first": "Larry"
+        }, 
+        {
+          "personId": "tivo:pn.295056", 
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Berg", 
+          "first": "Alec"
+        }, 
+        {
+          "personId": "tivo:pn.395174", 
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Mandel", 
+          "first": "Dave"
+        }, 
+        {
+          "personId": "tivo:pn.288156", 
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Schaffer", 
+          "first": "Jeff"
+        }, 
+        {
+          "personId": "tivo:pn.418279", 
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Ross", 
+          "first": "Kit"
+        }, 
+        {
+          "personId": "tivo:pn.298227", 
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Mehlman", 
+          "first": "Peter"
+        }, 
+        {
+          "personId": "tivo:pn.383689", 
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Kavet", 
+          "first": "Gregg"
+        }, 
+        {
+          "personId": "tivo:pn.416894", 
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Robin", 
+          "first": "Andy"
+        }, 
+        {
+          "personId": "tivo:pn.290996", 
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Koren", 
+          "first": "Steve"
+        }, 
+        {
+          "personId": "tivo:pn.257768", 
+          "role": "writer", 
+          "type": "credit", 
+          "last": "O'Keefe", 
+          "first": "Dan"
+        }, 
+        {
+          "last": "Feresten", 
+          "personId": "tivo:pn.364124", 
+          "image": [
+            {
+              "width": 113, 
+              "imageUrl": "http://i.tivo.com/images-production/hdui-person/b9/41/b941a85783814cf02f33b6f1ee935ec6.jpg", 
+              "type": "image", 
+              "imageType": "person", 
+              "height": 150
+            }
+          ], 
+          "role": "writer", 
+          "type": "credit", 
+          "first": "Spike"
+        }, 
+        {
+          "personId": "tivo:pn.190214", 
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Henry", 
+          "first": "Darin"
+        }, 
+        {
+          "personId": "tivo:pn.380549", 
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Jaffe", 
+          "first": "Marc"
+        }, 
+        {
+          "personId": "tivo:pn.218576", 
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Crittenden", 
+          "first": "Jennifer"
+        }, 
+        {
+          "personId": "tivo:pn.385076", 
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Kimball", 
+          "first": "Billy"
+        }, 
+        {
+          "personId": "tivo:pn.383159", 
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Kaplan", 
+          "first": "Bruce Eric"
+        }, 
+        {
+          "personId": "tivo:pn.288155", 
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Mandel", 
+          "first": "David"
+        }, 
+        {
+          "last": "Seinfeld", 
+          "personId": "tivo:pn.1585", 
+          "image": [
+            {
+              "width": 113, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/person-med/e1/88/e188294c975bd85ed280d5002022cda1.jpg", 
+              "type": "image", 
+              "imageType": "person", 
+              "height": 150
+            }
+          ], 
+          "role": "writer", 
+          "type": "credit", 
+          "first": "Jerry"
+        }, 
+        {
+          "personId": "tivo:pn.156839", 
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Franklyn", 
+          "first": "Jill"
+        }, 
+        {
+          "personId": "tivo:pn.422413", 
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Selman", 
+          "first": "Matt"
+        }, 
+        {
+          "personId": "tivo:pn.350459", 
+          "role": "director", 
+          "type": "credit", 
+          "last": "Cherones", 
+          "first": "Tom"
+        }, 
+        {
+          "personId": "tivo:pn.372346", 
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Gross", 
+          "first": "Marjorie"
+        }, 
+        {
+          "last": "Leifer", 
+          "personId": "tivo:pn.1005", 
+          "image": [
+            {
+              "width": 113, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/person-med/e1/89/e189d8a09b5e04912ccecd9f47e971f6.jpg", 
+              "type": "image", 
+              "imageType": "person", 
+              "height": 150
+            }
+          ], 
+          "role": "writer", 
+          "type": "credit", 
+          "first": "Carol"
+        }, 
+        {
+          "last": "Stoller", 
+          "personId": "tivo:pn.77276", 
+          "image": [
+            {
+              "width": 113, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/person-med/88/35/883507c3fa79a645239d3862766ee3f7.jpg", 
+              "type": "image", 
+              "imageType": "person", 
+              "height": 150
+            }
+          ], 
+          "role": "writer", 
+          "type": "credit", 
+          "first": "Fred"
+        }, 
+        {
+          "personId": "tivo:pn.310027", 
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Gammill", 
+          "first": "Tom"
+        }, 
+        {
+          "personId": "tivo:pn.310028", 
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Pross", 
+          "first": "Max"
+        }, 
+        {
+          "personId": "tivo:pn.372355", 
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Gross", 
+          "first": "Jonathan"
+        }, 
+        {
+          "personId": "tivo:pn.375187", 
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Hauge", 
+          "first": "Ron"
+        }, 
+        {
+          "personId": "tivo:pn.418750", 
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Rubin", 
+          "first": "Charlie"
+        }, 
+        {
+          "personId": "tivo:pn.385451", 
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Kirschbaum", 
+          "first": "Bruce"
+        }, 
+        {
+          "personId": "tivo:pn.383459", 
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Kass", 
+          "first": "Sam"
+        }, 
+        {
+          "personId": "tivo:pn.432653", 
+          "role": "director", 
+          "type": "credit", 
+          "last": "Trainor", 
+          "first": "David Owen"
+        }, 
+        {
+          "personId": "tivo:pn.235406", 
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Masters", 
+          "first": "Bill"
+        }, 
+        {
+          "personId": "tivo:pn.423230", 
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Shaw", 
+          "first": "Bob"
+        }, 
+        {
+          "personId": "tivo:pn.68182", 
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Cowan", 
+          "first": "Andy"
+        }
+      ], 
+      "type": "collection", 
+      "tvRating": "14"
+    }
+  ]
+}

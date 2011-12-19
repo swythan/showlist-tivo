@@ -1,0 +1,839 @@
+MRPC/2 78 11736
+Raw Packet=MRPC/2 78 11736
+Content-Type: application/json
+IsFinal: true
+RpcId: 1642
+Type: response
+
+{
+  "type": "collectionList", 
+  "collection": [
+    {
+      "collectionType": "series", 
+      "episodic": true, 
+      "title": "Seinfeld", 
+      "image": [
+        {
+          "width": 139, 
+          "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/08/43/0843aa276c229d9c54c0d8a986e717bc.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 104
+        }, 
+        {
+          "width": 120, 
+          "imageUrl": "http://i.tivo.com/images-production/os/banner-120/08/43/0843aa276c229d9c54c0d8a986e717bc.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 90
+        }
+      ], 
+      "collectionId": "tivo:cl.16984", 
+      "credit": [
+        {
+          "personId": "tivo:pn.1585", 
+          "type": "credit", 
+          "role": "actor"
+        }, 
+        {
+          "personId": "tivo:pn.1040", 
+          "type": "credit", 
+          "role": "actor"
+        }, 
+        {
+          "personId": "tivo:pn.29864", 
+          "type": "credit", 
+          "role": "actor"
+        }, 
+        {
+          "personId": "tivo:pn.45707", 
+          "type": "credit", 
+          "role": "actor"
+        }, 
+        {
+          "personId": "tivo:pn.65627", 
+          "type": "credit", 
+          "role": "actor"
+        }, 
+        {
+          "personId": "tivo:pn.77274", 
+          "type": "credit", 
+          "role": "actor"
+        }, 
+        {
+          "personId": "tivo:pn.31245", 
+          "type": "credit", 
+          "role": "actor"
+        }, 
+        {
+          "personId": "tivo:pn.33263", 
+          "type": "credit", 
+          "role": "actor"
+        }, 
+        {
+          "personId": "tivo:pn.171863", 
+          "type": "credit", 
+          "role": "actor"
+        }, 
+        {
+          "personId": "tivo:pn.67851", 
+          "type": "credit", 
+          "role": "actor"
+        }, 
+        {
+          "personId": "tivo:pn.26076", 
+          "type": "credit", 
+          "role": "actor"
+        }, 
+        {
+          "personId": "tivo:pn.70047", 
+          "type": "credit", 
+          "role": "executiveProducer"
+        }, 
+        {
+          "personId": "tivo:pn.271319", 
+          "type": "credit", 
+          "role": "executiveProducer"
+        }, 
+        {
+          "personId": "tivo:pn.271320", 
+          "type": "credit", 
+          "role": "executiveProducer"
+        }, 
+        {
+          "personId": "tivo:pn.201578", 
+          "type": "credit", 
+          "role": "director"
+        }, 
+        {
+          "personId": "tivo:pn.70047", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.295056", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.395174", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.288156", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.418279", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.298227", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.383689", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.416894", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.290996", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.257768", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.364124", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.190214", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.380549", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.218576", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.385076", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.383159", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.288155", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.1585", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.156839", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.422413", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.350459", 
+          "type": "credit", 
+          "role": "director"
+        }, 
+        {
+          "personId": "tivo:pn.372346", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.1005", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.77276", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.310027", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.310028", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.372355", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.375187", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.418750", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.385451", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.383459", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.432653", 
+          "type": "credit", 
+          "role": "director"
+        }, 
+        {
+          "personId": "tivo:pn.235406", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.423230", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.68182", 
+          "type": "credit", 
+          "role": "writer"
+        }
+      ], 
+      "type": "collection", 
+      "tvRating": "14"
+    }, 
+    {
+      "collectionType": "series", 
+      "episodic": true, 
+      "title": "Benson", 
+      "image": [
+        {
+          "width": 139, 
+          "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/d6/b4/d6b4b638661e0a2a819fa76e031eb148.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 104
+        }, 
+        {
+          "width": 120, 
+          "imageUrl": "http://i.tivo.com/images-production/os/banner-120/d6/b4/d6b4b638661e0a2a819fa76e031eb148.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 90
+        }
+      ], 
+      "collectionId": "tivo:cl.1073539", 
+      "credit": [
+        {
+          "personId": "tivo:pn.694", 
+          "type": "credit", 
+          "role": "actor"
+        }, 
+        {
+          "personId": "tivo:pn.106985", 
+          "type": "credit", 
+          "role": "actor"
+        }, 
+        {
+          "personId": "tivo:pn.27532", 
+          "type": "credit", 
+          "role": "actor"
+        }, 
+        {
+          "personId": "tivo:pn.370150", 
+          "type": "credit", 
+          "role": "actor"
+        }, 
+        {
+          "personId": "tivo:pn.168527", 
+          "type": "credit", 
+          "role": "actor"
+        }, 
+        {
+          "personId": "tivo:pn.53672", 
+          "type": "credit", 
+          "role": "actor"
+        }, 
+        {
+          "personId": "tivo:pn.168909", 
+          "type": "credit", 
+          "role": "actor"
+        }, 
+        {
+          "personId": "tivo:pn.1585", 
+          "type": "credit", 
+          "role": "actor"
+        }, 
+        {
+          "personId": "tivo:pn.84505", 
+          "type": "credit", 
+          "role": "actor"
+        }, 
+        {
+          "personId": "tivo:pn.159", 
+          "type": "credit", 
+          "role": "actor"
+        }, 
+        {
+          "personId": "tivo:pn.387776", 
+          "type": "credit", 
+          "role": "actor"
+        }, 
+        {
+          "personId": "tivo:pn.425341", 
+          "type": "credit", 
+          "role": "actor"
+        }, 
+        {
+          "personId": "tivo:pn.76650", 
+          "type": "credit", 
+          "role": "director"
+        }, 
+        {
+          "personId": "tivo:pn.185321", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.365885", 
+          "type": "credit", 
+          "role": "director"
+        }, 
+        {
+          "personId": "tivo:pn.366407", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.355551", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.209289", 
+          "type": "credit", 
+          "role": "director"
+        }, 
+        {
+          "personId": "tivo:pn.215272", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.311749", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.375022", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.30029", 
+          "type": "credit", 
+          "role": "director"
+        }, 
+        {
+          "personId": "tivo:pn.355551", 
+          "type": "credit", 
+          "role": "director"
+        }, 
+        {
+          "personId": "tivo:pn.437638", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.225976", 
+          "type": "credit", 
+          "role": "director"
+        }, 
+        {
+          "personId": "tivo:pn.143922", 
+          "type": "credit", 
+          "role": "director"
+        }, 
+        {
+          "personId": "tivo:pn.161065", 
+          "type": "credit", 
+          "role": "director"
+        }, 
+        {
+          "personId": "tivo:pn.403977", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.33350", 
+          "type": "credit", 
+          "role": "director"
+        }, 
+        {
+          "personId": "tivo:pn.426590", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.372383", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.415059", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.388735", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.415323", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.223694", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.224700", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.424161", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.384732", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.384735", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.81875", 
+          "type": "credit", 
+          "role": "director"
+        }, 
+        {
+          "personId": "tivo:pn.352447", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.338502", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.438295", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.425305", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.416292", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.398181", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.390957", 
+          "type": "credit", 
+          "role": "writer"
+        }, 
+        {
+          "personId": "tivo:pn.85625", 
+          "type": "credit", 
+          "role": "director"
+        }, 
+        {
+          "personId": "tivo:pn.190199", 
+          "type": "credit", 
+          "role": "director"
+        }, 
+        {
+          "personId": "tivo:pn.414096", 
+          "type": "credit", 
+          "role": "writer"
+        }
+      ], 
+      "type": "collection"
+    }, 
+    {
+      "collectionType": "series", 
+      "episodic": true, 
+      "title": "Live With Regis and Kelly", 
+      "image": [
+        {
+          "width": 139, 
+          "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/6d/b3/6db328cfdd5dee0f391e2bfb651f00b1.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 104
+        }, 
+        {
+          "width": 120, 
+          "imageUrl": "http://i.tivo.com/images-production/os/banner-120/6d/b3/6db328cfdd5dee0f391e2bfb651f00b1.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 90
+        }
+      ], 
+      "collectionId": "tivo:cl.3297351", 
+      "credit": [
+        {
+          "personId": "tivo:pn.1345", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.67455", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.165323", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.1918", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.199865", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.553961", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.75587", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.224283", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.505249", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.1640", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.517667", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.291019", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.618048", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.510934", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.497529", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.492405", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.39814", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.69332", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.299363", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.352200", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.171822", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.252250", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.302764", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.31226", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.735", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.291389", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.545688", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.525022", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.698", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.165886", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.504490", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.73305", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.151593", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.1585", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.74201", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.47832", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.525170", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.276446", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.172148", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.1063", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.208539", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.15323", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.1617", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.515343", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.1082", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.7993", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.1603", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.524155", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.69785", 
+          "type": "credit", 
+          "role": "host"
+        }, 
+        {
+          "personId": "tivo:pn.44824", 
+          "type": "credit", 
+          "role": "host"
+        }
+      ], 
+      "type": "collection", 
+      "tvRating": "pg"
+    }
+  ]
+}

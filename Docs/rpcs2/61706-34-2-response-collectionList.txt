@@ -1,0 +1,377 @@
+MRPC/2 76 5074
+Raw Packet=MRPC/2 76 5074
+Content-Type: application/json
+IsFinal: true
+RpcId: 34
+Type: response
+
+{
+  "type": "collectionList", 
+  "collection": [
+    {
+      "category": [
+        {
+          "image": [
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/Drama.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }, 
+            {
+              "width": 180, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/Drama.jpg", 
+              "type": "image", 
+              "imageType": "moviePoster", 
+              "height": 270
+            }
+          ], 
+          "displayRank": 0, 
+          "type": "category", 
+          "label": "Drama"
+        }, 
+        {
+          "displayRank": 1, 
+          "type": "category", 
+          "label": "TV Show"
+        }
+      ], 
+      "collectionType": "series", 
+      "description": "The Ingalls family struggles to survive in 1870s Minnesota.", 
+      "broadcastOfferGroupForCollectionId": [
+        {
+          "count": 27, 
+          "type": "offerGroup", 
+          "example": {
+            "contentId": "tivo:ct.127876", 
+            "type": "offer"
+          }
+        }
+      ], 
+      "collectionId": "tivo:cl.19284", 
+      "episodic": true, 
+      "image": [
+        {
+          "width": 139, 
+          "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/dd/a7/dda739d69d9893b079ee4479043e9dea.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 104
+        }, 
+        {
+          "width": 200, 
+          "imageUrl": "http://i.tivo.com/images-production/bravo/banner-lg/dd/a7/dda739d69d9893b079ee4479043e9dea.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 150
+        }
+      ], 
+      "title": "Little House on the Prairie", 
+      "credit": [
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Landon", 
+          "first": "Michael"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Grassle", 
+          "first": "Karen"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Gilbert", 
+          "first": "Melissa"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Anderson", 
+          "first": "Melissa"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Swenson", 
+          "first": "Karl"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Bull", 
+          "first": "Richard"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "MacGregor", 
+          "first": "Katherine"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Arngrim", 
+          "first": "Alison"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Gilbert", 
+          "first": "Jonathan"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Hagen", 
+          "first": "Kevin"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Greer", 
+          "first": "Dabbs"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Stewart", 
+          "first": "Charlotte"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "French", 
+          "first": "Victor"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Gehring", 
+          "first": "Ted"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Bartlett", 
+          "first": "Bonnie"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Olsen", 
+          "first": "Merlin"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Laborteaux", 
+          "first": "Patrick"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Parady", 
+          "first": "Hersha"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Laborteaux", 
+          "first": "Matthew"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Boomer", 
+          "first": "Linwood"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Barry", 
+          "first": "Don \"Red\""
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Lester", 
+          "first": "Ketty"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Butler", 
+          "first": "Dean"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Flippen", 
+          "first": "Lucy Lee"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Tracy", 
+          "first": "Steve"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Bateman", 
+          "first": "Jason"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Francis", 
+          "first": "Missy"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Balson", 
+          "first": "Allison"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Doherty", 
+          "first": "Shannen"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Ivar", 
+          "first": "Stan"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Roylance", 
+          "first": "Pamela"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Kennedy", 
+          "first": "Lindsay"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Friedman", 
+          "first": "David"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Landon", 
+          "first": "Leslie"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Greenbush", 
+          "first": "Lindsay"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Greenbush", 
+          "first": "Sidney"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Turnbaugh", 
+          "first": "Brenda"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Turnbaugh", 
+          "first": "Wendi"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Baker", 
+          "first": "Don \"Red\""
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Landon", 
+          "first": "Michael"
+        }, 
+        {
+          "role": "director", 
+          "type": "credit", 
+          "last": "Landon", 
+          "first": "Michael"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Abbott", 
+          "first": "Chris"
+        }, 
+        {
+          "role": "director", 
+          "type": "credit", 
+          "last": "French", 
+          "first": "Victor"
+        }, 
+        {
+          "role": "director", 
+          "type": "credit", 
+          "last": "Dexter", 
+          "first": "Maury"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Cooper", 
+          "first": "Paul W."
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Sandefur", 
+          "first": "B.W."
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Gutierrez", 
+          "first": "Vince R."
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Balluck", 
+          "first": "Don"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Jensen", 
+          "first": "Larry"
+        }, 
+        {
+          "role": "director", 
+          "type": "credit", 
+          "last": "Pevney", 
+          "first": "Joe"
+        }
+      ], 
+      "type": "collection", 
+      "tvRating": "pg"
+    }
+  ]
+}

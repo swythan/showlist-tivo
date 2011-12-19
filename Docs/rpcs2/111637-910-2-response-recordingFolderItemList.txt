@@ -1,0 +1,133 @@
+MRPC/2 77 2858
+Raw Packet=MRPC/2 77 2858
+Content-Type: application/json
+IsFinal: true
+RpcId: 910
+Type: response
+
+{
+  "recordingFolderItem": [
+    {
+      "childRecordingId": "tivo:rc.217929", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.161625498", 
+        "contentId": "tivo:ct.161650282", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "hdtv": true, 
+        "startTime": "2011-06-07 00:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "761", 
+          "callSign": "TOONHD", 
+          "type": "channel", 
+          "logoIndex": 66277
+        }
+      }, 
+      "title": "Adventure Time", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.217929", 
+      "startTime": "2011-06-07 00:00:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.217919", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.161625498", 
+        "contentId": "tivo:ct.168969362", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "hdtv": true, 
+        "startTime": "2011-06-06 20:30:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "761", 
+          "callSign": "TOONHD", 
+          "type": "channel", 
+          "logoIndex": 66277
+        }
+      }, 
+      "title": "\"The Duke; Donny\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.217919", 
+      "startTime": "2011-06-06 20:30:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.213049", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.161625498", 
+        "contentId": "tivo:ct.161650282", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "hdtv": true, 
+        "startTime": "2011-06-04 19:30:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "761", 
+          "callSign": "TOONHD", 
+          "type": "channel", 
+          "logoIndex": 66277
+        }
+      }, 
+      "title": "Adventure Time", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.213049", 
+      "startTime": "2011-06-04 19:30:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.213039", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.161625498", 
+        "contentId": "tivo:ct.161650282", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "hdtv": true, 
+        "startTime": "2011-06-04 19:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "761", 
+          "callSign": "TOONHD", 
+          "type": "channel", 
+          "logoIndex": 66277
+        }
+      }, 
+      "title": "Adventure Time", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.213039", 
+      "startTime": "2011-06-04 19:00:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.213029", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.161625498", 
+        "contentId": "tivo:ct.161650282", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "hdtv": true, 
+        "startTime": "2011-06-04 18:30:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "761", 
+          "callSign": "TOONHD", 
+          "type": "channel", 
+          "logoIndex": 66277
+        }
+      }, 
+      "recordingStatusType": "expiresSoon", 
+      "title": "Adventure Time", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.213029", 
+      "startTime": "2011-06-04 18:30:00", 
+      "type": "recordingFolderItem"
+    }
+  ], 
+  "type": "recordingFolderItemList"
+}

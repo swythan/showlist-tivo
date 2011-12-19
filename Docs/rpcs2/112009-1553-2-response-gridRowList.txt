@@ -1,0 +1,177 @@
+MRPC/2 78 4078
+Raw Packet=MRPC/2 78 4078
+Content-Type: application/json
+IsFinal: true
+RpcId: 1553
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "55", 
+        "callSign": "WLNYMH", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-18-14-30-00.1800", 
+          "startTime": "2011-06-18 14:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-18-15-00-00.1800", 
+          "startTime": "2011-06-18 15:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-18-15-30-00.1800", 
+          "startTime": "2011-06-18 15:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-18-16-00-00.1800", 
+          "startTime": "2011-06-18 16:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-18-16-30-00.1800", 
+          "startTime": "2011-06-18 16:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-18-17-00-00.3600", 
+          "startTime": "2011-06-18 17:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-18-18-00-00.1800", 
+          "startTime": "2011-06-18 18:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-18-18-30-00.1800", 
+          "startTime": "2011-06-18 18:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Cold Case Files", 
+          "contentId": "tivo:ct.77993222", 
+          "collectionId": "tivo:cl.6113467", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-18-19-00-00.3600", 
+          "startTime": "2011-06-18 19:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Matlock", 
+          "contentId": "tivo:ct.18516", 
+          "collectionId": "tivo:cl.18471", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-18-20-00-00.3600", 
+          "startTime": "2011-06-18 20:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "NUMB3RS", 
+          "contentId": "tivo:ct.79788921", 
+          "collectionId": "tivo:cl.38952563", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-18-21-00-00.3600", 
+          "startTime": "2011-06-18 21:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Bones", 
+          "contentId": "tivo:ct.155242559", 
+          "collectionId": "tivo:cl.55067183", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-18-22-00-00.3600", 
+          "startTime": "2011-06-18 22:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "House", 
+          "contentId": "tivo:ct.55802924", 
+          "collectionId": "tivo:cl.34115777", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-18-23-00-00.3600", 
+          "startTime": "2011-06-18 23:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Criminal Minds", 
+          "contentId": "tivo:ct.70055697", 
+          "collectionId": "tivo:cl.55803730", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-19-00-00-00.3600", 
+          "startTime": "2011-06-19 00:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Unit", 
+          "contentId": "tivo:ct.109670392", 
+          "collectionId": "tivo:cl.65645975", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-19-01-00-00.3600", 
+          "startTime": "2011-06-19 01:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Judge Judy", 
+          "contentId": "tivo:ct.95060045", 
+          "collectionId": "tivo:cl.18909", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-19-02-00-00.1800", 
+          "startTime": "2011-06-19 02:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Judge Judy", 
+          "contentId": "tivo:ct.96394142", 
+          "collectionId": "tivo:cl.18909", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-19-02-30-00.1800", 
+          "startTime": "2011-06-19 02:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

@@ -1,0 +1,58 @@
+MRPC/2 78 1175
+Raw Packet=MRPC/2 78 1175
+Content-Type: application/json
+IsFinal: true
+RpcId: 1252
+Type: response
+
+{
+  "recordingFolderItem": [
+    {
+      "childRecordingId": "tivo:rc.185599", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.16986", 
+        "contentId": "tivo:ct.145170", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-05-16 23:30:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "55", 
+          "callSign": "WLNYMH", 
+          "type": "channel"
+        }
+      }, 
+      "recordingStatusType": "keepForever", 
+      "title": "\"The Botched Language of Cranes\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.185599", 
+      "startTime": "2011-05-16 23:30:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.185589", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.16986", 
+        "contentId": "tivo:ct.34897", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-05-16 23:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "55", 
+          "callSign": "WLNYMH", 
+          "type": "channel"
+        }
+      }, 
+      "recordingStatusType": "keepForever", 
+      "title": "\"Party, Party\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.185589", 
+      "startTime": "2011-05-16 23:00:00", 
+      "type": "recordingFolderItem"
+    }
+  ], 
+  "type": "recordingFolderItemList"
+}

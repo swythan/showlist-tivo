@@ -1,0 +1,425 @@
+MRPC/2 76 8058
+Raw Packet=MRPC/2 76 8058
+Content-Type: application/json
+IsFinal: true
+RpcId: 30
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "TBS", 
+        "isDigital": true, 
+        "channelNumber": "8", 
+        "logoIndex": 65540, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "The King of Queens", 
+          "contentId": "tivo:ct.2861519", 
+          "collectionId": "tivo:cl.18987", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-06-22-00-00.1800", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The King of Queens", 
+          "contentId": "tivo:ct.57583", 
+          "collectionId": "tivo:cl.18987", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-06-22-30-00.1800", 
+          "startTime": "2011-06-06 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "FX", 
+        "isDigital": true, 
+        "channelNumber": "10", 
+        "logoIndex": 65737, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Zoolander", 
+          "contentId": "tivo:ct.4656756", 
+          "collectionId": "tivo:cl.4656755", 
+          "offerId": "tivo:of.ctd.1927.10.cable.2011-06-06-21-00-00.7200", 
+          "startTime": "2011-06-06 21:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WPIX", 
+        "isDigital": true, 
+        "channelNumber": "11", 
+        "logoIndex": 75537, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Family Guy", 
+          "contentId": "tivo:ct.137231220", 
+          "collectionId": "tivo:cl.299214", 
+          "offerId": "tivo:of.ctd.1498.11.cable.2011-06-06-22-00-00.1800", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Family Guy", 
+          "contentId": "tivo:ct.84754461", 
+          "collectionId": "tivo:cl.299214", 
+          "offerId": "tivo:of.ctd.1498.11.cable.2011-06-06-22-30-00.1800", 
+          "startTime": "2011-06-06 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WNET", 
+        "isDigital": true, 
+        "channelNumber": "13", 
+        "logoIndex": 65558, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "NJN News", 
+          "contentId": "tivo:ct.143049", 
+          "collectionId": "tivo:cl.143048", 
+          "offerId": "tivo:of.ctd.1439.13.cable.2011-06-06-22-00-00.1800", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Nightly Business Report", 
+          "contentId": "tivo:ct.179544876", 
+          "collectionId": "tivo:cl.19591", 
+          "offerId": "tivo:of.ctd.1439.13.cable.2011-06-06-22-30-00.1800", 
+          "startTime": "2011-06-06 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "MTV", 
+        "isDigital": true, 
+        "channelNumber": "20", 
+        "logoIndex": 65547, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "That '70s Show", 
+          "contentId": "tivo:ct.34684796", 
+          "collectionId": "tivo:cl.17211", 
+          "offerId": "tivo:of.ctd.928.20.cable.2011-06-06-22-00-00.1800", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "That '70s Show", 
+          "contentId": "tivo:ct.35228975", 
+          "collectionId": "tivo:cl.17211", 
+          "offerId": "tivo:of.ctd.928.20.cable.2011-06-06-22-30-00.1800", 
+          "startTime": "2011-06-06 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WLIW", 
+        "isDigital": true, 
+        "channelNumber": "21", 
+        "logoIndex": 65558, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "PBS NewsHour", 
+          "contentId": "tivo:ct.179545043", 
+          "collectionId": "tivo:cl.153905936", 
+          "offerId": "tivo:of.ctd.1371.21.cable.2011-06-06-22-00-00.3600", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "25", 
+        "callSign": "WNYE", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "BBC World News", 
+          "contentId": "tivo:ct.547100", 
+          "collectionId": "tivo:cl.547099", 
+          "offerId": "tivo:of.ctd.1465.25.cable.2011-06-06-22-00-00.1800", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Italian News", 
+          "contentId": "tivo:ct.256709", 
+          "collectionId": "tivo:cl.256708", 
+          "offerId": "tivo:of.ctd.1465.25.cable.2011-06-06-22-30-00.1800", 
+          "startTime": "2011-06-06 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "ABCF", 
+        "isDigital": true, 
+        "channelNumber": "38", 
+        "logoIndex": 65780, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "The Secret Life of the American Teenager", 
+          "contentId": "tivo:ct.180238945", 
+          "collectionId": "tivo:cl.128374487", 
+          "offerId": "tivo:of.ctd.346.38.cable.2011-06-06-22-00-00.3600", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "COMEDY", 
+        "isDigital": true, 
+        "channelNumber": "45", 
+        "logoIndex": 65579, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Scrubs", 
+          "contentId": "tivo:ct.16989109", 
+          "collectionId": "tivo:cl.3879910", 
+          "offerId": "tivo:of.ctd.379.45.cable.2011-06-06-21-56-00.1800", 
+          "startTime": "2011-06-06 21:56:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Scrubs", 
+          "contentId": "tivo:ct.16989108", 
+          "collectionId": "tivo:cl.3879910", 
+          "offerId": "tivo:of.ctd.379.45.cable.2011-06-06-22-26-00.1800", 
+          "startTime": "2011-06-06 22:26:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "55", 
+        "callSign": "WLNYMH", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Dr. Phil", 
+          "contentId": "tivo:ct.172223902", 
+          "collectionId": "tivo:cl.6973193", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-06-22-00-00.3600", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "LIFE", 
+        "isDigital": true, 
+        "channelNumber": "62", 
+        "logoIndex": 65573, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Held Hostage", 
+          "contentId": "tivo:ct.147427540", 
+          "collectionId": "tivo:cl.147428823", 
+          "offerId": "tivo:of.ctd.917.62.cable.2011-06-06-22-00-00.7200", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "TVLAND", 
+        "isDigital": true, 
+        "channelNumber": "85", 
+        "logoIndex": 65653, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Sanford & Son", 
+          "contentId": "tivo:ct.199620", 
+          "collectionId": "tivo:cl.30042", 
+          "offerId": "tivo:of.ctd.2273.85.cable.2011-06-06-21-43-00.1980", 
+          "startTime": "2011-06-06 21:43:00", 
+          "duration": 1980, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Sanford & Son", 
+          "contentId": "tivo:ct.133186", 
+          "collectionId": "tivo:cl.30042", 
+          "offerId": "tivo:of.ctd.2273.85.cable.2011-06-06-22-16-00.2040", 
+          "startTime": "2011-06-06 22:16:00", 
+          "duration": 2040, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "SUNDANC", 
+        "isDigital": true, 
+        "channelNumber": "101", 
+        "logoIndex": 65647, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "My So-Called Life", 
+          "contentId": "tivo:ct.65542", 
+          "collectionId": "tivo:cl.21365", 
+          "offerId": "tivo:of.ctd.2271.101.cable.2011-06-06-21-30-00.3900", 
+          "startTime": "2011-06-06 21:30:00", 
+          "duration": 3900, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "CHILLER", 
+        "isDigital": true, 
+        "channelNumber": "102", 
+        "logoIndex": 65597, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Harper's Island", 
+          "contentId": "tivo:ct.145641454", 
+          "collectionId": "tivo:cl.128156480", 
+          "offerId": "tivo:of.ctd.90796692.102.cable.2011-06-06-22-00-00.3600", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "CURRENT", 
+        "isDigital": true, 
+        "channelNumber": "103", 
+        "logoIndex": 66173, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Vanguard", 
+          "contentId": "tivo:ct.147567413", 
+          "collectionId": "tivo:cl.113579747", 
+          "offerId": "tivo:of.ctd.53755639.103.cable.2011-06-06-22-00-00.3600", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "SLEUTH", 
+        "isDigital": true, 
+        "channelNumber": "107", 
+        "logoIndex": 65786, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Walker, Texas Ranger", 
+          "contentId": "tivo:ct.6205098", 
+          "collectionId": "tivo:cl.18947", 
+          "offerId": "tivo:of.ctd.61770504.107.cable.2011-06-06-22-00-00.3600", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

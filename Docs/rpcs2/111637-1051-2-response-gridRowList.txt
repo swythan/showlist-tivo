@@ -1,0 +1,196 @@
+MRPC/2 78 4755
+Raw Packet=MRPC/2 78 4755
+Content-Type: application/json
+IsFinal: true
+RpcId: 1051
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WWORDT", 
+        "isDigital": true, 
+        "channelNumber": "709", 
+        "logoIndex": 66244, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Tyler Perry's House of Payne", 
+          "contentId": "tivo:ct.143967886", 
+          "collectionId": "tivo:cl.96190305", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-12-22-00-00.1800", 
+          "startTime": "2011-06-12 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Tyler Perry's Meet the Browns", 
+          "contentId": "tivo:ct.158751116", 
+          "collectionId": "tivo:cl.140542702", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-12-22-30-00.1800", 
+          "startTime": "2011-06-12 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Deadliest Catch", 
+          "contentId": "tivo:ct.47725469", 
+          "collectionId": "tivo:cl.45266952", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-12-23-00-00.3600", 
+          "startTime": "2011-06-12 23:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Closer", 
+          "contentId": "tivo:ct.154616950", 
+          "collectionId": "tivo:cl.49575179", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-13-00-00-00.3600", 
+          "startTime": "2011-06-13 00:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Closer", 
+          "contentId": "tivo:ct.155243023", 
+          "collectionId": "tivo:cl.49575179", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-13-01-00-00.3600", 
+          "startTime": "2011-06-13 01:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Bones", 
+          "contentId": "tivo:ct.110815317", 
+          "collectionId": "tivo:cl.55067183", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-13-02-00-00.3600", 
+          "startTime": "2011-06-13 02:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Unit", 
+          "contentId": "tivo:ct.108888911", 
+          "collectionId": "tivo:cl.65645975", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-13-03-00-00.3600", 
+          "startTime": "2011-06-13 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Unit", 
+          "contentId": "tivo:ct.68418235", 
+          "collectionId": "tivo:cl.65645975", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-13-04-00-00.3600", 
+          "startTime": "2011-06-13 04:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-13-05-00-00.1800", 
+          "startTime": "2011-06-13 05:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-13-05-30-00.1800", 
+          "startTime": "2011-06-13 05:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Quit Your Job!", 
+          "contentId": "tivo:ct.176643457", 
+          "collectionId": "tivo:cl.176644001", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-13-06-00-00.1800", 
+          "startTime": "2011-06-13 06:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-13-06-30-00.1800", 
+          "startTime": "2011-06-13 06:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Armando Montelongo", 
+          "contentId": "tivo:ct.154754522", 
+          "collectionId": "tivo:cl.154755161", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-13-07-00-00.1800", 
+          "startTime": "2011-06-13 07:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Susan Lucci's Malibu Pilates", 
+          "contentId": "tivo:ct.127627668", 
+          "collectionId": "tivo:cl.127628279", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-13-07-30-00.1800", 
+          "startTime": "2011-06-13 07:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-13-08-00-00.1800", 
+          "startTime": "2011-06-13 08:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-13-08-30-00.1800", 
+          "startTime": "2011-06-13 08:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-13-09-00-00.1800", 
+          "startTime": "2011-06-13 09:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-13-09-30-00.1800", 
+          "startTime": "2011-06-13 09:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Joseph Prince: Destined to Reign", 
+          "contentId": "tivo:ct.145245098", 
+          "collectionId": "tivo:cl.145245607", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-13-10-00-00.1800", 
+          "startTime": "2011-06-13 10:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

@@ -1,0 +1,24 @@
+MRPC/2 78 326
+Raw Packet=MRPC/2 78 326
+Content-Type: application/json
+IsFinal: false
+RpcId: 773
+Type: response
+
+{
+  "type": "whatsOnList", 
+  "whatsOn": [
+    {
+      "contentId": "tivo:ct.11251445", 
+      "channelIdentifier": {
+        "stationId": "tivo:st.7381307", 
+        "channelNumber": "709", 
+        "type": "channelIdentifier", 
+        "sourceType": "cable"
+      }, 
+      "type": "whatsOn", 
+      "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-07-03-00-00.2100", 
+      "collectionId": "tivo:cl.11251713"
+    }
+  ]
+}

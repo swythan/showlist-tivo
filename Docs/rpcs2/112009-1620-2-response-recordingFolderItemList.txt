@@ -1,0 +1,132 @@
+MRPC/2 78 3102
+Raw Packet=MRPC/2 78 3102
+Content-Type: application/json
+IsFinal: true
+RpcId: 1620
+Type: response
+
+{
+  "recordingFolderItem": [
+    {
+      "childRecordingId": "tivo:rc.240209", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.165674483", 
+        "contentId": "tivo:ct.167655425", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "hdtv": true, 
+        "startTime": "2011-06-07 03:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "703", 
+          "callSign": "TNTHD", 
+          "type": "channel", 
+          "logoIndex": 66395
+        }
+      }, 
+      "recordingStatusType": "inProgressRecording", 
+      "title": "Rizzoli & Isles: \"I Kissed a Girl\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.240209", 
+      "startTime": "2011-06-07 03:00:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.237289", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.16995", 
+        "contentId": "tivo:ct.103395", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-06-07 02:30:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "166", 
+          "callSign": "WPIXDT4", 
+          "type": "channel"
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "Married ... With Children: \"The Hood, the Bud and the Kelly\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.237289", 
+      "startTime": "2011-06-07 02:30:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.237279", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.16995", 
+        "contentId": "tivo:ct.179664", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-06-07 02:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "166", 
+          "callSign": "WPIXDT4", 
+          "type": "channel"
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "Married ... With Children: \"The Hood, the Bud and the Kelly\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.237279", 
+      "startTime": "2011-06-07 02:00:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.232959", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.52735471", 
+        "contentId": "tivo:ct.171765280", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-06-07 01:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "45", 
+          "callSign": "COMEDY", 
+          "type": "channel", 
+          "logoIndex": 65579
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "It's Always Sunny in Philadelphia: \"Dee Reynolds: Shaping America's Youth\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.232959", 
+      "startTime": "2011-06-07 01:00:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.239409", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.16984", 
+        "contentId": "tivo:ct.482056", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "hdtv": true, 
+        "startTime": "2011-06-06 23:30:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "708", 
+          "callSign": "TBSHD", 
+          "type": "channel", 
+          "logoIndex": 66392
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "Seinfeld: \"The Bottle Deposit\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.239409", 
+      "startTime": "2011-06-06 23:30:00", 
+      "type": "recordingFolderItem"
+    }
+  ], 
+  "type": "recordingFolderItemList"
+}

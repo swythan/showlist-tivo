@@ -1,0 +1,110 @@
+MRPC/2 77 2244
+Raw Packet=MRPC/2 77 2244
+Content-Type: application/json
+IsFinal: true
+RpcId: 974
+Type: response
+
+{
+  "recording": [
+    {
+      "mimeType": "video/mpg2", 
+      "subscriptionIdentifier": [
+        {
+          "subscriptionId": "tivo:sb.259", 
+          "subscriptionType": "seasonPass", 
+          "type": "subscriptionIdentifier"
+        }
+      ], 
+      "diskPartition": "user", 
+      "watchedTime": 0, 
+      "offerId": "tivo:of.ctd.124376605.761.cable.2011-06-14-00-00-00.900", 
+      "isEpisode": false, 
+      "desiredDeletion": "2011-06-16 00:00:00", 
+      "duration": 0, 
+      "scheduledEndTime": "2011-06-14 00:15:00", 
+      "quality": "best", 
+      "size": 0, 
+      "actualEndTime": "1970-01-01 00:00:00", 
+      "collectionId": "tivo:cl.161625498", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "cancellationReason": "unknown", 
+      "state": "scheduled", 
+      "requestedEndTime": "2011-06-14 00:15:00", 
+      "actualStartTime": "1970-01-01 00:00:00", 
+      "type": "recording", 
+      "channel": {
+        "isReceived": true, 
+        "type": "channel", 
+        "name": "Cartoon Network HD", 
+        "isFavorite": false, 
+        "isKidZone": false, 
+        "bitrate": "101711872", 
+        "channelId": "tivo:ch.9", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "callSign": "TOONHD", 
+        "isDigital": true, 
+        "stationId": "tivo:st.124376605", 
+        "channelNumber": "761", 
+        "logoIndex": 66277, 
+        "isBlocked": false, 
+        "sourceType": "cable", 
+        "isHidden": false, 
+        "levelOfDetail": "high"
+      }, 
+      "suggestionScore": 0, 
+      "collectionType": "series", 
+      "repeat": true, 
+      "contentType": "video", 
+      "description": "Two adventurers help bizarre characters in need of unique assistance.", 
+      "recordingId": "tivo:rc.230109", 
+      "deletionPolicy": "whenSpaceNeeded", 
+      "requestedStartPadding": 0, 
+      "hdtv": true, 
+      "startTime": "2011-06-14 00:00:00", 
+      "colorType": "color", 
+      "levelOfDetail": "high", 
+      "transportType": "stream", 
+      "requestedStartTime": "2011-06-14 00:00:00", 
+      "episodic": true, 
+      "contentId": "tivo:ct.161650282", 
+      "title": "Adventure Time", 
+      "scheduledStartTime": "2011-06-14 00:00:00", 
+      "originalAirdate": "2010-04-05", 
+      "credit": [
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Shada", 
+          "first": "Jeremy"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "DiMaggio", 
+          "first": "John"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Walch", 
+          "first": "Hynden"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Kenny", 
+          "first": "Tom"
+        }
+      ], 
+      "expectedDeletion": "2011-06-18 22:30:00", 
+      "requestedEndPadding": 0, 
+      "descriptionLanguage": "English", 
+      "tvRating": "pg", 
+      "cancellationTime": "1970-01-01 00:00:00"
+    }
+  ], 
+  "isBottom": false, 
+  "isTop": true, 
+  "type": "recordingList"
+}

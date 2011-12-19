@@ -1,0 +1,58 @@
+MRPC/2 78 1087
+Raw Packet=MRPC/2 78 1087
+Content-Type: application/json
+IsFinal: true
+RpcId: 1145
+Type: response
+
+{
+  "isBottom": true, 
+  "type": "offerGroupList", 
+  "isTop": true, 
+  "offerGroup": [
+    {
+      "count": 13, 
+      "type": "offerGroup", 
+      "example": {
+        "subtitle": "Kunoichi Women's 7: Part 1", 
+        "offerId": "tivo:of.ctd.141442738.692.cable.2011-06-10-16-30-00.1800", 
+        "isEpisode": true, 
+        "duration": 1800, 
+        "partnerContentId": "epgProvider:ct.EP8661740092", 
+        "noGiftCardPurchase": false, 
+        "collectionId": "tivo:cl.78987353", 
+        "partnerCollectionId": "epgProvider:cl.SH866174", 
+        "audioLanguage": [
+          "en"
+        ], 
+        "type": "offer", 
+        "channel": {
+          "isReceived": true, 
+          "name": "G4 HD", 
+          "channelId": "tivo:ch.11319", 
+          "callSign": "G4HD", 
+          "isDigital": true, 
+          "stationId": "tivo:st.141442738", 
+          "channelNumber": "692", 
+          "affiliate": "Satellite", 
+          "partnerStationId": "epgProvider:st.61816", 
+          "sourceType": "cable", 
+          "type": "channel", 
+          "levelOfDetail": "low"
+        }, 
+        "isAdult": false, 
+        "collectionType": "series", 
+        "repeat": true, 
+        "contentType": "video", 
+        "hdtv": false, 
+        "startTime": "2011-06-10 16:30:00", 
+        "levelOfDetail": "low", 
+        "transportType": "stream", 
+        "episodic": true, 
+        "contentId": "tivo:ct.120023090", 
+        "title": "Ninja Warrior"
+      }, 
+      "levelOfDetail": "low"
+    }
+  ]
+}

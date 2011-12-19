@@ -1,0 +1,151 @@
+MRPC/2 78 3720
+Raw Packet=MRPC/2 78 3720
+Content-Type: application/json
+IsFinal: true
+RpcId: 1321
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "SCIHD", 
+        "isDigital": true, 
+        "channelNumber": "775", 
+        "logoIndex": 65773, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "What is Reality?", 
+          "contentId": "tivo:ct.183381968", 
+          "collectionId": "tivo:cl.183382679", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-14-02-00-00.3600", 
+          "startTime": "2011-06-14 02:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Asteroids: the Good, the Bad and the Ugly", 
+          "contentId": "tivo:ct.176458518", 
+          "collectionId": "tivo:cl.176458938", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-14-03-00-00.3600", 
+          "startTime": "2011-06-14 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "What Happened Before the Big Bang?", 
+          "contentId": "tivo:ct.176958507", 
+          "collectionId": "tivo:cl.176959546", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-14-04-00-00.3600", 
+          "startTime": "2011-06-14 04:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "What is Reality?", 
+          "contentId": "tivo:ct.183381968", 
+          "collectionId": "tivo:cl.183382679", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-14-05-00-00.3600", 
+          "startTime": "2011-06-14 05:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.167085679", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-14-06-00-00.1800", 
+          "startTime": "2011-06-14 06:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.59148467", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-14-06-30-00.1800", 
+          "startTime": "2011-06-14 06:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Wonders of the Solar System", 
+          "contentId": "tivo:ct.168025222", 
+          "collectionId": "tivo:cl.167908217", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-14-07-00-00.3600", 
+          "startTime": "2011-06-14 07:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Wonders of the Solar System", 
+          "contentId": "tivo:ct.168025976", 
+          "collectionId": "tivo:cl.167908217", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-14-08-00-00.3600", 
+          "startTime": "2011-06-14 08:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Through the Wormhole with Morgan Freeman", 
+          "contentId": "tivo:ct.182993519", 
+          "collectionId": "tivo:cl.164291233", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-14-09-00-00.3600", 
+          "startTime": "2011-06-14 09:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Killer Whale: Killer Culture", 
+          "contentId": "tivo:ct.12531833", 
+          "collectionId": "tivo:cl.12532104", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-14-10-00-00.3600", 
+          "startTime": "2011-06-14 10:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Dive to Shark Volcano", 
+          "contentId": "tivo:ct.26774852", 
+          "collectionId": "tivo:cl.26775052", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-14-11-00-00.3600", 
+          "startTime": "2011-06-14 11:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Dive to the Bottom of the World", 
+          "contentId": "tivo:ct.152271254", 
+          "collectionId": "tivo:cl.152271948", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-14-12-00-00.3600", 
+          "startTime": "2011-06-14 12:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Survivorman", 
+          "contentId": "tivo:ct.142463820", 
+          "collectionId": "tivo:cl.30958211", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-14-13-00-00.3600", 
+          "startTime": "2011-06-14 13:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Survivorman", 
+          "contentId": "tivo:ct.140964125", 
+          "collectionId": "tivo:cl.30958211", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-14-14-00-00.3600", 
+          "startTime": "2011-06-14 14:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

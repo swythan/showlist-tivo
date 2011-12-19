@@ -1,0 +1,223 @@
+MRPC/2 78 5487
+Raw Packet=MRPC/2 78 5487
+Content-Type: application/json
+IsFinal: true
+RpcId: 1046
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WWORDT", 
+        "isDigital": true, 
+        "channelNumber": "709", 
+        "logoIndex": 66244, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-10-06-00-00.1800", 
+          "startTime": "2011-06-10 06:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Total Body Workout in Minutes", 
+          "contentId": "tivo:ct.153239361", 
+          "collectionId": "tivo:cl.153239977", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-10-06-30-00.1800", 
+          "startTime": "2011-06-10 06:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-10-07-00-00.1800", 
+          "startTime": "2011-06-10 07:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-10-07-30-00.1800", 
+          "startTime": "2011-06-10 07:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-10-08-00-00.1800", 
+          "startTime": "2011-06-10 08:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Armando Montelongo", 
+          "contentId": "tivo:ct.154754522", 
+          "collectionId": "tivo:cl.154755161", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-10-08-30-00.1800", 
+          "startTime": "2011-06-10 08:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Susan Lucci's Malibu Pilates", 
+          "contentId": "tivo:ct.127627668", 
+          "collectionId": "tivo:cl.127628279", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-10-09-00-00.1800", 
+          "startTime": "2011-06-10 09:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-10-09-30-00.1800", 
+          "startTime": "2011-06-10 09:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Joseph Prince: Destined to Reign", 
+          "contentId": "tivo:ct.145245098", 
+          "collectionId": "tivo:cl.145245607", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-10-10-00-00.1800", 
+          "startTime": "2011-06-10 10:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Kenneth Copeland", 
+          "contentId": "tivo:ct.183495371", 
+          "collectionId": "tivo:cl.123876", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-10-10-30-00.1800", 
+          "startTime": "2011-06-10 10:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Dog Tales", 
+          "contentId": "tivo:ct.165900919", 
+          "collectionId": "tivo:cl.103304466", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-10-11-00-00.1800", 
+          "startTime": "2011-06-10 11:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "America's Funniest Home Videos", 
+          "contentId": "tivo:ct.93510038", 
+          "collectionId": "tivo:cl.18329", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-10-11-30-00.3600", 
+          "startTime": "2011-06-10 11:30:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "That '70s Show", 
+          "contentId": "tivo:ct.12217253", 
+          "collectionId": "tivo:cl.17211", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-10-12-30-00.1800", 
+          "startTime": "2011-06-10 12:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The 700 Club", 
+          "contentId": "tivo:ct.111425", 
+          "collectionId": "tivo:cl.17914", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-10-13-00-00.3600", 
+          "startTime": "2011-06-10 13:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The People's Court", 
+          "contentId": "tivo:ct.180238826", 
+          "collectionId": "tivo:cl.57719", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-10-14-00-00.3600", 
+          "startTime": "2011-06-10 14:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Divorce Court", 
+          "contentId": "tivo:ct.172741383", 
+          "collectionId": "tivo:cl.787592", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-10-15-00-00.1800", 
+          "startTime": "2011-06-10 15:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Divorce Court", 
+          "contentId": "tivo:ct.181635526", 
+          "collectionId": "tivo:cl.787592", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-10-15-30-00.1800", 
+          "startTime": "2011-06-10 15:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Judge Alex", 
+          "contentId": "tivo:ct.175170606", 
+          "collectionId": "tivo:cl.54480793", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-10-16-00-00.1800", 
+          "startTime": "2011-06-10 16:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Judge Alex", 
+          "contentId": "tivo:ct.179770533", 
+          "collectionId": "tivo:cl.54480793", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-10-16-30-00.1800", 
+          "startTime": "2011-06-10 16:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Family Feud", 
+          "contentId": "tivo:ct.176271464", 
+          "collectionId": "tivo:cl.171034861", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-10-17-00-00.1800", 
+          "startTime": "2011-06-10 17:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Family Feud", 
+          "contentId": "tivo:ct.171034270", 
+          "collectionId": "tivo:cl.171034861", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-10-17-30-00.1800", 
+          "startTime": "2011-06-10 17:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Don't Forget the Lyrics!", 
+          "contentId": "tivo:ct.171147348", 
+          "collectionId": "tivo:cl.171148551", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-10-18-00-00.1800", 
+          "startTime": "2011-06-10 18:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

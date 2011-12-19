@@ -1,0 +1,247 @@
+MRPC/2 78 4609
+Raw Packet=MRPC/2 78 4609
+Content-Type: application/json
+IsFinal: true
+RpcId: 1279
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "692", 
+        "callSign": "G4HD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "E3 2011 Live", 
+          "contentId": "tivo:ct.183415749", 
+          "collectionId": "tivo:cl.183416496", 
+          "offerId": "tivo:of.ctd.141442738.692.cable.2011-06-07-02-00-00.7200", 
+          "startTime": "2011-06-07 02:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "693", 
+        "callSign": "GSNHD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Lingo", 
+          "contentId": "tivo:ct.183946046", 
+          "collectionId": "tivo:cl.183947177", 
+          "offerId": "tivo:of.ctd.172225172.693.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Drew Carey's Improv-A-Ganza", 
+          "contentId": "tivo:ct.179182081", 
+          "collectionId": "tivo:cl.179182978", 
+          "offerId": "tivo:of.ctd.172225172.693.cable.2011-06-07-03-30-00.1800", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "GRNHD", 
+        "isDigital": true, 
+        "channelNumber": "695", 
+        "logoIndex": 66164, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "UFOs Over Phoenix", 
+          "contentId": "tivo:ct.66359", 
+          "collectionId": "tivo:cl.66358", 
+          "offerId": "tivo:of.ctd.128374663.695.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "NGWILDH", 
+        "isDigital": true, 
+        "channelNumber": "696", 
+        "logoIndex": 66421, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Dangerous Encounters With Brady Barr", 
+          "contentId": "tivo:ct.174046402", 
+          "collectionId": "tivo:cl.107611384", 
+          "offerId": "tivo:of.ctd.163122372.696.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HIHD", 
+        "isDigital": true, 
+        "channelNumber": "697", 
+        "logoIndex": 65775, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Egypt: Engineering an Empire", 
+          "contentId": "tivo:ct.78051167", 
+          "collectionId": "tivo:cl.78051473", 
+          "offerId": "tivo:of.ctd.155645289.697.cable.2011-06-07-02-00-00.7200", 
+          "startTime": "2011-06-07 02:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "701", 
+        "callSign": "NY1HD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "News at Eleven", 
+          "contentId": "tivo:ct.86878996", 
+          "collectionId": "tivo:cl.86879401", 
+          "offerId": "tivo:of.ctd.125366946.701.cable.2011-06-07-03-00-00.2100", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 2100, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WCBSDT", 
+        "isDigital": true, 
+        "channelNumber": "702", 
+        "logoIndex": 65555, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "CBS 2 News at 11PM", 
+          "contentId": "tivo:ct.175288840", 
+          "collectionId": "tivo:cl.175289131", 
+          "offerId": "tivo:of.ctd.4501500.702.cable.2011-06-07-03-00-00.2100", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 2100, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "TNTHD", 
+        "isDigital": true, 
+        "channelNumber": "703", 
+        "logoIndex": 66395, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Rizzoli & Isles", 
+          "contentId": "tivo:ct.167655425", 
+          "collectionId": "tivo:cl.165674483", 
+          "offerId": "tivo:of.ctd.24418624.703.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WNBCDT", 
+        "isDigital": true, 
+        "channelNumber": "704", 
+        "logoIndex": 65556, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "4 NY News at 11", 
+          "contentId": "tivo:ct.144625468", 
+          "collectionId": "tivo:cl.144625840", 
+          "offerId": "tivo:of.ctd.4190788.704.cable.2011-06-07-03-00-00.2100", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 2100, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WNYWDT", 
+        "isDigital": true, 
+        "channelNumber": "705", 
+        "logoIndex": 65557, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "The Office", 
+          "contentId": "tivo:ct.111510664", 
+          "collectionId": "tivo:cl.43851575", 
+          "offerId": "tivo:of.ctd.5587434.705.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Simpsons", 
+          "contentId": "tivo:ct.143380515", 
+          "collectionId": "tivo:cl.16642", 
+          "offerId": "tivo:of.ctd.5587434.705.cable.2011-06-07-03-30-00.1800", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

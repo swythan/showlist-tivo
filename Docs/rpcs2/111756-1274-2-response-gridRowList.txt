@@ -1,0 +1,222 @@
+MRPC/2 78 5438
+Raw Packet=MRPC/2 78 5438
+Content-Type: application/json
+IsFinal: true
+RpcId: 1274
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "55", 
+        "callSign": "WLNYMH", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Inside Edition", 
+          "contentId": "tivo:ct.182146579", 
+          "collectionId": "tivo:cl.19205", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-08-03-34-00.1800", 
+          "startTime": "2011-06-08 03:34:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Matlock: The Hunting Party", 
+          "contentId": "tivo:ct.228679", 
+          "collectionId": "tivo:cl.228678", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-08-04-04-00.6960", 
+          "startTime": "2011-06-08 04:04:00", 
+          "duration": 6960, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Ahh Bra by Rhonda Shear: Discover Comfort! Discover Great Looks!", 
+          "contentId": "tivo:ct.167702337", 
+          "collectionId": "tivo:cl.167702720", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-08-06-00-00.1800", 
+          "startTime": "2011-06-08 06:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Improve Your Memory and Brain Power", 
+          "contentId": "tivo:ct.146399194", 
+          "collectionId": "tivo:cl.146399790", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-08-06-30-00.1800", 
+          "startTime": "2011-06-08 06:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Body Form Ahh Bra", 
+          "contentId": "tivo:ct.170524561", 
+          "collectionId": "tivo:cl.170524758", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-08-07-00-00.1800", 
+          "startTime": "2011-06-08 07:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-08-07-30-00.1800", 
+          "startTime": "2011-06-08 07:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-08-08-00-00.1800", 
+          "startTime": "2011-06-08 08:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-08-08-30-00.1800", 
+          "startTime": "2011-06-08 08:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "TV10/55 News", 
+          "contentId": "tivo:ct.795291", 
+          "collectionId": "tivo:cl.795290", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-08-09-00-00.1800", 
+          "startTime": "2011-06-08 09:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "First Business", 
+          "contentId": "tivo:ct.182146576", 
+          "collectionId": "tivo:cl.57145", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-08-09-30-00.1800", 
+          "startTime": "2011-06-08 09:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Sexy Gorgeous Legs", 
+          "contentId": "tivo:ct.163907412", 
+          "collectionId": "tivo:cl.163907961", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-08-10-00-00.1800", 
+          "startTime": "2011-06-08 10:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Peter Popoff", 
+          "contentId": "tivo:ct.14779", 
+          "collectionId": "tivo:cl.52330", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-08-10-30-00.1800", 
+          "startTime": "2011-06-08 10:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Joyce Meyer: Enjoying Everyday Life", 
+          "contentId": "tivo:ct.161221655", 
+          "collectionId": "tivo:cl.63852358", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-08-11-00-00.1800", 
+          "startTime": "2011-06-08 11:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Gospel Truth With Andrew Wommack", 
+          "contentId": "tivo:ct.63099028", 
+          "collectionId": "tivo:cl.63099347", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-08-11-30-00.1800", 
+          "startTime": "2011-06-08 11:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Know the Cause", 
+          "contentId": "tivo:ct.33436421", 
+          "collectionId": "tivo:cl.33436990", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-08-12-00-00.1800", 
+          "startTime": "2011-06-08 12:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Daily Mass", 
+          "contentId": "tivo:ct.140763", 
+          "collectionId": "tivo:cl.127863", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-08-12-30-00.1800", 
+          "startTime": "2011-06-08 12:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Curiosity Quest Goes Green", 
+          "contentId": "tivo:ct.144736378", 
+          "collectionId": "tivo:cl.123853850", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-08-13-00-00.1800", 
+          "startTime": "2011-06-08 13:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Bosley: Hair Loss Answers", 
+          "contentId": "tivo:ct.48003096", 
+          "collectionId": "tivo:cl.48003446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-08-13-30-00.1800", 
+          "startTime": "2011-06-08 13:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Coach", 
+          "contentId": "tivo:ct.43636", 
+          "collectionId": "tivo:cl.18003", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-08-14-00-00.1800", 
+          "startTime": "2011-06-08 14:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-08-14-30-00.1800", 
+          "startTime": "2011-06-08 14:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Just Shoot Me", 
+          "contentId": "tivo:ct.10437206", 
+          "collectionId": "tivo:cl.20212", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-08-15-00-00.1800", 
+          "startTime": "2011-06-08 15:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-08-15-30-00.1800", 
+          "startTime": "2011-06-08 15:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

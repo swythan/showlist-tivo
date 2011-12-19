@@ -1,0 +1,169 @@
+MRPC/2 78 4195
+Raw Packet=MRPC/2 78 4195
+Content-Type: application/json
+IsFinal: true
+RpcId: 1329
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "SCIHD", 
+        "isDigital": true, 
+        "channelNumber": "775", 
+        "logoIndex": 65773, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Wonders of the Solar System", 
+          "contentId": "tivo:ct.167908136", 
+          "collectionId": "tivo:cl.167908217", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-15-16-00-00.3600", 
+          "startTime": "2011-06-15 16:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Wonders of the Solar System", 
+          "contentId": "tivo:ct.168025222", 
+          "collectionId": "tivo:cl.167908217", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-15-17-00-00.3600", 
+          "startTime": "2011-06-15 17:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Wonders of the Solar System", 
+          "contentId": "tivo:ct.168025976", 
+          "collectionId": "tivo:cl.167908217", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-15-18-00-00.3600", 
+          "startTime": "2011-06-15 18:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Factory Made", 
+          "contentId": "tivo:ct.165900938", 
+          "collectionId": "tivo:cl.124937026", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-15-19-00-00.1800", 
+          "startTime": "2011-06-15 19:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Factory Made", 
+          "contentId": "tivo:ct.157674975", 
+          "collectionId": "tivo:cl.124937026", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-15-19-30-00.1800", 
+          "startTime": "2011-06-15 19:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "MythBusters", 
+          "contentId": "tivo:ct.35638434", 
+          "collectionId": "tivo:cl.10670781", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-15-20-00-00.3600", 
+          "startTime": "2011-06-15 20:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How Do They Do It?", 
+          "contentId": "tivo:ct.144331294", 
+          "collectionId": "tivo:cl.70360603", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-15-21-00-00.1800", 
+          "startTime": "2011-06-15 21:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How Do They Do It?", 
+          "contentId": "tivo:ct.138122771", 
+          "collectionId": "tivo:cl.70360603", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-15-21-30-00.1800", 
+          "startTime": "2011-06-15 21:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.66661123", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-15-22-00-00.1800", 
+          "startTime": "2011-06-15 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.83598798", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-15-22-30-00.1800", 
+          "startTime": "2011-06-15 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Planets", 
+          "contentId": "tivo:ct.947880", 
+          "collectionId": "tivo:cl.947878", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-15-23-00-00.3600", 
+          "startTime": "2011-06-15 23:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How the Universe Works", 
+          "contentId": "tivo:ct.174718704", 
+          "collectionId": "tivo:cl.162954163", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-16-00-00-00.3600", 
+          "startTime": "2011-06-16 00:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Through the Wormhole with Morgan Freeman", 
+          "contentId": "tivo:ct.182993519", 
+          "collectionId": "tivo:cl.164291233", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-16-01-00-00.3600", 
+          "startTime": "2011-06-16 01:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Through the Wormhole with Morgan Freeman", 
+          "contentId": "tivo:ct.183664352", 
+          "collectionId": "tivo:cl.164291233", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-16-02-00-00.3600", 
+          "startTime": "2011-06-16 02:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How the Universe Works", 
+          "contentId": "tivo:ct.174718704", 
+          "collectionId": "tivo:cl.162954163", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-16-03-00-00.3600", 
+          "startTime": "2011-06-16 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Through the Wormhole with Morgan Freeman", 
+          "contentId": "tivo:ct.182993519", 
+          "collectionId": "tivo:cl.164291233", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-16-04-00-00.3600", 
+          "startTime": "2011-06-16 04:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

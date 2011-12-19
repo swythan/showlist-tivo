@@ -1,0 +1,171 @@
+MRPC/2 78 2990
+Raw Packet=MRPC/2 78 2990
+Content-Type: application/json
+IsFinal: true
+RpcId: 1248
+Type: response
+
+{
+  "content": [
+    {
+      "collectionType": "series", 
+      "episodic": true, 
+      "collectionId": "tivo:cl.16986", 
+      "contentId": "tivo:ct.34897", 
+      "image": [
+        {
+          "width": 139, 
+          "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/af/cd/afcde58380c3f18f6efa639b0c3ec07b.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 104
+        }, 
+        {
+          "width": 120, 
+          "imageUrl": "http://i.tivo.com/images-production/os/banner-120/af/cd/afcde58380c3f18f6efa639b0c3ec07b.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 90
+        }
+      ], 
+      "title": "Frasier", 
+      "credit": [
+        {
+          "last": "Grammer", 
+          "personId": "tivo:pn.676", 
+          "image": [
+            {
+              "width": 113, 
+              "imageUrl": "http://i.tivo.com/images-production/hdui-person/00/37/0037d27ee351d406063bf003a0ca7c04.jpg", 
+              "type": "image", 
+              "imageType": "person", 
+              "height": 150
+            }
+          ], 
+          "role": "actor", 
+          "type": "credit", 
+          "first": "Kelsey"
+        }, 
+        {
+          "last": "Mahoney", 
+          "personId": "tivo:pn.33155", 
+          "image": [
+            {
+              "width": 113, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/person-med/bc/57/bc57dd6d8572edf13453e357536552a2.jpg", 
+              "type": "image", 
+              "imageType": "person", 
+              "height": 150
+            }
+          ], 
+          "role": "actor", 
+          "type": "credit", 
+          "first": "John"
+        }, 
+        {
+          "last": "Leeves", 
+          "personId": "tivo:pn.71516", 
+          "image": [
+            {
+              "width": 113, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/person-med/bd/4d/bd4d699cd54e78c6c2f696856b983945.jpg", 
+              "type": "image", 
+              "imageType": "person", 
+              "height": 150
+            }
+          ], 
+          "role": "actor", 
+          "type": "credit", 
+          "first": "Jane"
+        }, 
+        {
+          "last": "Pierce", 
+          "personId": "tivo:pn.1360", 
+          "image": [
+            {
+              "width": 113, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/person-med/e6/18/e6183529fc47d420aa3e37ee8b9026c0.jpg", 
+              "type": "image", 
+              "imageType": "person", 
+              "height": 150
+            }
+          ], 
+          "role": "actor", 
+          "type": "credit", 
+          "first": "David Hyde"
+        }, 
+        {
+          "last": "Gilpin", 
+          "personId": "tivo:pn.643", 
+          "image": [
+            {
+              "width": 113, 
+              "imageUrl": "http://i.tivo.com/images-production/hdui-person/ae/3d/ae3d1e4f1ae515a3876b56f7a97147cf.jpg", 
+              "type": "image", 
+              "imageType": "person", 
+              "height": 150
+            }
+          ], 
+          "role": "actor", 
+          "type": "credit", 
+          "first": "Peri"
+        }, 
+        {
+          "last": "Butler", 
+          "personId": "tivo:pn.83965", 
+          "image": [
+            {
+              "width": 113, 
+              "imageUrl": "http://i.tivo.com/images-production/hdui-person/6b/c6/6bc6ae69780ac3c0095b86752bed97ed.jpg", 
+              "type": "image", 
+              "imageType": "person", 
+              "height": 150
+            }
+          ], 
+          "role": "actor", 
+          "type": "credit", 
+          "first": "Dan"
+        }, 
+        {
+          "personId": "tivo:pn.79506", 
+          "role": "executiveProducer", 
+          "type": "credit", 
+          "last": "Angell", 
+          "first": "David"
+        }, 
+        {
+          "personId": "tivo:pn.348926", 
+          "role": "executiveProducer", 
+          "type": "credit", 
+          "last": "Casey", 
+          "first": "Peter"
+        }, 
+        {
+          "personId": "tivo:pn.219245", 
+          "role": "executiveProducer", 
+          "type": "credit", 
+          "last": "Lee", 
+          "first": "David"
+        }, 
+        {
+          "last": "Lloyd", 
+          "personId": "tivo:pn.1033", 
+          "image": [
+            {
+              "width": 113, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/person-med/1b/82/1b82e20ad0a73f6a352dd0e5abc49dbc.jpg", 
+              "type": "image", 
+              "imageType": "person", 
+              "height": 150
+            }
+          ], 
+          "role": "executiveProducer", 
+          "type": "credit", 
+          "first": "Christopher"
+        }
+      ], 
+      "type": "content"
+    }
+  ], 
+  "type": "contentList"
+}

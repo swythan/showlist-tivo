@@ -1,0 +1,760 @@
+MRPC/2 78 17781
+Raw Packet=MRPC/2 78 17781
+Content-Type: application/json
+IsFinal: true
+RpcId: 1122
+Type: response
+
+{
+  "mixMapping": [
+    {
+      "childMixId": "tivo:mx.11962431", 
+      "objectIdAndType": "444202709278945", 
+      "parentMixId": "tivo:mx.11962631", 
+      "displayRank": 1, 
+      "childMix": {
+        "subscribable": false, 
+        "leaf": true, 
+        "mixType": "browse", 
+        "collectionId": "tivo:cl.162636011", 
+        "root": false, 
+        "image": [
+          {
+            "width": 200, 
+            "imageUrl": "http://i.tivo.com/images-production/bravo/banner-lg/71/31/713139ef2df3a26b70ec1765ff0edc4d.jpg", 
+            "type": "image", 
+            "imageType": "candyBarIcon", 
+            "height": 150
+          }, 
+          {
+            "width": 119, 
+            "imageUrl": "http://i.tivo.com/images-production/bravo/banner-sm/ef/84/ef849467637eb53e2a460720bea363c7.jpg", 
+            "type": "image", 
+            "imageType": "gridIconTvShow", 
+            "height": 89
+          }, 
+          {
+            "width": 200, 
+            "imageUrl": "http://i.tivo.com/images-production/bravo/banner-lg/ef/84/ef849467637eb53e2a460720bea363c7.jpg", 
+            "type": "image", 
+            "imageType": "gridIconTvShow", 
+            "height": 150
+          }, 
+          {
+            "width": 139, 
+            "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/ef/84/ef849467637eb53e2a460720bea363c7.jpg", 
+            "type": "image", 
+            "imageType": "gridIconTvShow", 
+            "height": 104
+          }
+        ], 
+        "title": "MasterChef", 
+        "objectIdAndType": "442003686328383", 
+        "gridItemType": "tvShow", 
+        "partnerId": "tivo:pt.3066", 
+        "type": "mix", 
+        "hasContentLeafChildren": false, 
+        "leafObjectType": "collection", 
+        "mixId": "tivo:mx.11962431"
+      }, 
+      "mixMappingId": "tivo:mm.11657441", 
+      "type": "mixMapping"
+    }, 
+    {
+      "childMixId": "tivo:mx.11962441", 
+      "objectIdAndType": "444202709278955", 
+      "parentMixId": "tivo:mx.11962631", 
+      "displayRank": 2, 
+      "childMix": {
+        "subscribable": false, 
+        "leaf": true, 
+        "mixType": "browse", 
+        "collectionId": "tivo:cl.180357322", 
+        "root": false, 
+        "image": [
+          {
+            "width": 119, 
+            "imageUrl": "http://i.tivo.com/images-production/bravo/banner-sm/66/53/6653471c1a0b56b3eff3c8e711eec7e4.jpg", 
+            "type": "image", 
+            "imageType": "gridIconTvShow", 
+            "height": 89
+          }, 
+          {
+            "width": 200, 
+            "imageUrl": "http://i.tivo.com/images-production/bravo/banner-lg/66/53/6653471c1a0b56b3eff3c8e711eec7e4.jpg", 
+            "type": "image", 
+            "imageType": "candyBarIcon", 
+            "height": 150
+          }, 
+          {
+            "width": 200, 
+            "imageUrl": "http://i.tivo.com/images-production/hdui-showing/66/53/6653471c1a0b56b3eff3c8e711eec7e4.jpg", 
+            "type": "image", 
+            "imageType": "gridIconTvShow", 
+            "height": 150
+          }, 
+          {
+            "width": 139, 
+            "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/66/53/6653471c1a0b56b3eff3c8e711eec7e4.jpg", 
+            "type": "image", 
+            "imageType": "gridIconTvShow", 
+            "height": 104
+          }
+        ], 
+        "title": "My Yard Goes Disney", 
+        "objectIdAndType": "442003686328393", 
+        "gridItemType": "tvShow", 
+        "partnerId": "tivo:pt.3066", 
+        "type": "mix", 
+        "hasContentLeafChildren": false, 
+        "leafObjectType": "collection", 
+        "mixId": "tivo:mx.11962441"
+      }, 
+      "mixMappingId": "tivo:mm.11657451", 
+      "type": "mixMapping"
+    }, 
+    {
+      "childMixId": "tivo:mx.11962451", 
+      "objectIdAndType": "444202709278965", 
+      "parentMixId": "tivo:mx.11962631", 
+      "displayRank": 3, 
+      "childMix": {
+        "subscribable": false, 
+        "leaf": true, 
+        "mixType": "browse", 
+        "collectionId": "tivo:cl.180357567", 
+        "root": false, 
+        "image": [
+          {
+            "width": 200, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307054607325_1_SH01407292.jpg", 
+            "type": "image", 
+            "imageType": "candyBarIcon", 
+            "height": 150
+          }, 
+          {
+            "width": 200, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307054607325_2_SH01407292.jpg", 
+            "type": "image", 
+            "imageType": "gridIconTvShow", 
+            "height": 150
+          }
+        ], 
+        "title": "House Hunters on Vacation", 
+        "objectIdAndType": "442003686328403", 
+        "gridItemType": "tvShow", 
+        "partnerId": "tivo:pt.3066", 
+        "type": "mix", 
+        "hasContentLeafChildren": false, 
+        "leafObjectType": "collection", 
+        "mixId": "tivo:mx.11962451"
+      }, 
+      "mixMappingId": "tivo:mm.11657461", 
+      "type": "mixMapping"
+    }, 
+    {
+      "childMixId": "tivo:mx.11962461", 
+      "objectIdAndType": "444202709278975", 
+      "parentMixId": "tivo:mx.11962631", 
+      "displayRank": 4, 
+      "childMix": {
+        "subscribable": false, 
+        "leaf": true, 
+        "mixType": "browse", 
+        "collectionId": "tivo:cl.180357688", 
+        "root": false, 
+        "image": [
+          {
+            "width": 200, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307054608036_1_SH01407287.jpg", 
+            "type": "image", 
+            "imageType": "candyBarIcon", 
+            "height": 150
+          }, 
+          {
+            "width": 200, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307054608036_2_SH01407287.jpg", 
+            "type": "image", 
+            "imageType": "gridIconTvShow", 
+            "height": 150
+          }
+        ], 
+        "title": "HGTV'd", 
+        "objectIdAndType": "442003686328413", 
+        "gridItemType": "tvShow", 
+        "partnerId": "tivo:pt.3066", 
+        "type": "mix", 
+        "hasContentLeafChildren": false, 
+        "leafObjectType": "collection", 
+        "mixId": "tivo:mx.11962461"
+      }, 
+      "mixMappingId": "tivo:mm.11657471", 
+      "type": "mixMapping"
+    }, 
+    {
+      "childMixId": "tivo:mx.11962471", 
+      "objectIdAndType": "444202709278985", 
+      "parentMixId": "tivo:mx.11962631", 
+      "displayRank": 5, 
+      "childMix": {
+        "subscribable": false, 
+        "leaf": true, 
+        "mixType": "browse", 
+        "collectionId": "tivo:cl.176485605", 
+        "root": false, 
+        "image": [
+          {
+            "width": 200, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307054608750_1_SH01384566.jpg", 
+            "type": "image", 
+            "imageType": "candyBarIcon", 
+            "height": 150
+          }, 
+          {
+            "width": 200, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307054608750_2_SH01384566.jpg", 
+            "type": "image", 
+            "imageType": "gridIconTvShow", 
+            "height": 150
+          }
+        ], 
+        "title": "Switched at Birth", 
+        "objectIdAndType": "442003686328423", 
+        "gridItemType": "tvShow", 
+        "partnerId": "tivo:pt.3066", 
+        "type": "mix", 
+        "hasContentLeafChildren": false, 
+        "leafObjectType": "collection", 
+        "mixId": "tivo:mx.11962471"
+      }, 
+      "mixMappingId": "tivo:mm.11657481", 
+      "type": "mixMapping"
+    }, 
+    {
+      "childMixId": "tivo:mx.11962481", 
+      "objectIdAndType": "444202709278995", 
+      "parentMixId": "tivo:mx.11962631", 
+      "displayRank": 6, 
+      "childMix": {
+        "subscribable": false, 
+        "leaf": true, 
+        "mixType": "browse", 
+        "collectionId": "tivo:cl.183197236", 
+        "root": false, 
+        "image": [
+          {
+            "width": 200, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307054609539_1_SH01417962.jpg", 
+            "type": "image", 
+            "imageType": "candyBarIcon", 
+            "height": 150
+          }, 
+          {
+            "width": 200, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307054609539_2_SH01417962.jpg", 
+            "type": "image", 
+            "imageType": "gridIconTvShow", 
+            "height": 150
+          }
+        ], 
+        "title": "Unfaithful", 
+        "objectIdAndType": "442003686328433", 
+        "gridItemType": "tvShow", 
+        "partnerId": "tivo:pt.3066", 
+        "type": "mix", 
+        "hasContentLeafChildren": false, 
+        "leafObjectType": "collection", 
+        "mixId": "tivo:mx.11962481"
+      }, 
+      "mixMappingId": "tivo:mm.11657491", 
+      "type": "mixMapping"
+    }, 
+    {
+      "childMixId": "tivo:mx.11962491", 
+      "objectIdAndType": "444202709279005", 
+      "parentMixId": "tivo:mx.11962631", 
+      "displayRank": 7, 
+      "childMix": {
+        "subscribable": false, 
+        "leaf": true, 
+        "mixType": "browse", 
+        "collectionId": "tivo:cl.179182919", 
+        "root": false, 
+        "image": [
+          {
+            "width": 200, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307054610290_1_SH01401949.jpg", 
+            "type": "image", 
+            "imageType": "candyBarIcon", 
+            "height": 150
+          }, 
+          {
+            "width": 200, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307054610290_2_SH01401949.jpg", 
+            "type": "image", 
+            "imageType": "gridIconTvShow", 
+            "height": 150
+          }
+        ], 
+        "title": "The Dr. Laura Berman Show", 
+        "objectIdAndType": "442003686328443", 
+        "gridItemType": "tvShow", 
+        "partnerId": "tivo:pt.3066", 
+        "type": "mix", 
+        "hasContentLeafChildren": false, 
+        "leafObjectType": "collection", 
+        "mixId": "tivo:mx.11962491"
+      }, 
+      "mixMappingId": "tivo:mm.11657501", 
+      "type": "mixMapping"
+    }, 
+    {
+      "childMixId": "tivo:mx.11962501", 
+      "objectIdAndType": "444202709279015", 
+      "parentMixId": "tivo:mx.11962631", 
+      "displayRank": 8, 
+      "childMix": {
+        "subscribable": false, 
+        "leaf": true, 
+        "mixType": "browse", 
+        "collectionId": "tivo:cl.182837830", 
+        "contentId": "tivo:ct.182836551", 
+        "image": [
+          {
+            "width": 200, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307054611062_1_SH01416634.jpg", 
+            "type": "image", 
+            "imageType": "candyBarIcon", 
+            "height": 150
+          }, 
+          {
+            "width": 200, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307054611062_2_SH01416634.jpg", 
+            "type": "image", 
+            "imageType": "gridIconTvShow", 
+            "height": 150
+          }
+        ], 
+        "title": "Deadliest Catch: Greenhorns-Deadliest Catch: Greenhorns", 
+        "objectIdAndType": "442003686328453", 
+        "gridItemType": "tvShow", 
+        "partnerId": "tivo:pt.3066", 
+        "type": "mix", 
+        "hasContentLeafChildren": false, 
+        "root": false, 
+        "leafObjectType": "content", 
+        "mixId": "tivo:mx.11962501"
+      }, 
+      "mixMappingId": "tivo:mm.11657511", 
+      "type": "mixMapping"
+    }, 
+    {
+      "childMixId": "tivo:mx.11962511", 
+      "objectIdAndType": "444202709279025", 
+      "parentMixId": "tivo:mx.11962631", 
+      "displayRank": 9, 
+      "childMix": {
+        "subscribable": false, 
+        "leaf": true, 
+        "mixType": "browse", 
+        "collectionId": "tivo:cl.171884606", 
+        "root": false, 
+        "image": [
+          {
+            "width": 119, 
+            "imageUrl": "http://i.tivo.com/images-production/bravo/banner-sm/22/ca/22ca2d6c1edb7aa944746c750084368c.jpg", 
+            "type": "image", 
+            "imageType": "gridIconTvShow", 
+            "height": 89
+          }, 
+          {
+            "width": 200, 
+            "imageUrl": "http://i.tivo.com/images-production/bravo/banner-lg/22/ca/22ca2d6c1edb7aa944746c750084368c.jpg", 
+            "type": "image", 
+            "imageType": "candyBarIcon", 
+            "height": 150
+          }, 
+          {
+            "width": 200, 
+            "imageUrl": "http://i.tivo.com/images-production/hdui-showing/22/ca/22ca2d6c1edb7aa944746c750084368c.jpg", 
+            "type": "image", 
+            "imageType": "gridIconTvShow", 
+            "height": 150
+          }, 
+          {
+            "width": 139, 
+            "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/22/ca/22ca2d6c1edb7aa944746c750084368c.jpg", 
+            "type": "image", 
+            "imageType": "gridIconTvShow", 
+            "height": 104
+          }
+        ], 
+        "title": "Hook, Line & Dinner", 
+        "objectIdAndType": "442003686328463", 
+        "gridItemType": "tvShow", 
+        "partnerId": "tivo:pt.3066", 
+        "type": "mix", 
+        "hasContentLeafChildren": false, 
+        "leafObjectType": "collection", 
+        "mixId": "tivo:mx.11962511"
+      }, 
+      "mixMappingId": "tivo:mm.11657521", 
+      "type": "mixMapping"
+    }, 
+    {
+      "childMixId": "tivo:mx.11962521", 
+      "objectIdAndType": "444202709279035", 
+      "parentMixId": "tivo:mx.11962631", 
+      "displayRank": 10, 
+      "childMix": {
+        "subscribable": false, 
+        "leaf": true, 
+        "mixType": "browse", 
+        "collectionId": "tivo:cl.164291233", 
+        "root": false, 
+        "image": [
+          {
+            "width": 119, 
+            "imageUrl": "http://i.tivo.com/images-production/bravo/banner-sm/84/a2/84a2841177a4b898cebe0c5525dadc3c.jpg", 
+            "type": "image", 
+            "imageType": "gridIconTvShow", 
+            "height": 89
+          }, 
+          {
+            "width": 200, 
+            "imageUrl": "http://i.tivo.com/images-production/bravo/banner-lg/84/a2/84a2841177a4b898cebe0c5525dadc3c.jpg", 
+            "type": "image", 
+            "imageType": "candyBarIcon", 
+            "height": 150
+          }, 
+          {
+            "width": 200, 
+            "imageUrl": "http://i.tivo.com/images-production/hdui-showing/84/a2/84a2841177a4b898cebe0c5525dadc3c.jpg", 
+            "type": "image", 
+            "imageType": "gridIconTvShow", 
+            "height": 150
+          }, 
+          {
+            "width": 139, 
+            "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/84/a2/84a2841177a4b898cebe0c5525dadc3c.jpg", 
+            "type": "image", 
+            "imageType": "gridIconTvShow", 
+            "height": 104
+          }
+        ], 
+        "title": "Morgan Freeman's Through the Wormhole", 
+        "objectIdAndType": "442003686328473", 
+        "gridItemType": "tvShow", 
+        "partnerId": "tivo:pt.3066", 
+        "type": "mix", 
+        "hasContentLeafChildren": false, 
+        "leafObjectType": "collection", 
+        "mixId": "tivo:mx.11962521"
+      }, 
+      "mixMappingId": "tivo:mm.11657531", 
+      "type": "mixMapping"
+    }, 
+    {
+      "childMixId": "tivo:mx.11962561", 
+      "objectIdAndType": "444202709279075", 
+      "parentMixId": "tivo:mx.11962631", 
+      "displayRank": 14, 
+      "childMix": {
+        "subscribable": false, 
+        "leaf": true, 
+        "mixType": "browse", 
+        "collectionId": "tivo:cl.72499216", 
+        "root": false, 
+        "image": [
+          {
+            "width": 200, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307054612659_1_SH839593.jpg", 
+            "type": "image", 
+            "imageType": "candyBarIcon", 
+            "height": 150
+          }, 
+          {
+            "width": 200, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307054612659_2_SH839593.jpg", 
+            "type": "image", 
+            "imageType": "gridIconTvShow", 
+            "height": 150
+          }
+        ], 
+        "title": "The Dudesons", 
+        "objectIdAndType": "442003686328513", 
+        "gridItemType": "tvShow", 
+        "partnerId": "tivo:pt.3066", 
+        "type": "mix", 
+        "hasContentLeafChildren": false, 
+        "leafObjectType": "collection", 
+        "mixId": "tivo:mx.11962561"
+      }, 
+      "mixMappingId": "tivo:mm.11657571", 
+      "type": "mixMapping"
+    }, 
+    {
+      "childMixId": "tivo:mx.11962571", 
+      "objectIdAndType": "444202709279085", 
+      "parentMixId": "tivo:mx.11962631", 
+      "displayRank": 15, 
+      "childMix": {
+        "subscribable": false, 
+        "leaf": true, 
+        "mixType": "browse", 
+        "collectionId": "tivo:cl.89756716", 
+        "root": false, 
+        "image": [
+          {
+            "width": 119, 
+            "imageUrl": "http://i.tivo.com/images-production/bravo/banner-sm/c3/b7/c3b7b979ef30f9fd425426497855640a.jpg", 
+            "type": "image", 
+            "imageType": "gridIconTvShow", 
+            "height": 89
+          }, 
+          {
+            "width": 200, 
+            "imageUrl": "http://i.tivo.com/images-production/bravo/banner-lg/c3/b7/c3b7b979ef30f9fd425426497855640a.jpg", 
+            "type": "image", 
+            "imageType": "candyBarIcon", 
+            "height": 150
+          }, 
+          {
+            "width": 200, 
+            "imageUrl": "http://i.tivo.com/images-production/bravo/banner-lg/d8/b5/d8b5959d9d451fcd1f39af9754d0f638.jpg", 
+            "type": "image", 
+            "imageType": "gridIconTvShow", 
+            "height": 150
+          }, 
+          {
+            "width": 139, 
+            "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/c3/b7/c3b7b979ef30f9fd425426497855640a.jpg", 
+            "type": "image", 
+            "imageType": "gridIconTvShow", 
+            "height": 104
+          }
+        ], 
+        "title": "Color Splash", 
+        "objectIdAndType": "442003686328523", 
+        "gridItemType": "tvShow", 
+        "partnerId": "tivo:pt.3066", 
+        "type": "mix", 
+        "hasContentLeafChildren": false, 
+        "leafObjectType": "collection", 
+        "mixId": "tivo:mx.11962571"
+      }, 
+      "mixMappingId": "tivo:mm.11657581", 
+      "type": "mixMapping"
+    }, 
+    {
+      "childMixId": "tivo:mx.11962621", 
+      "objectIdAndType": "444202709279135", 
+      "parentMixId": "tivo:mx.11962631", 
+      "displayRank": 16, 
+      "childMix": {
+        "subscribable": false, 
+        "leaf": true, 
+        "mixType": "browse", 
+        "collectionId": "tivo:cl.180766869", 
+        "root": false, 
+        "image": [
+          {
+            "width": 200, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307054615933_1_SH01409744.jpg", 
+            "type": "image", 
+            "imageType": "candyBarIcon", 
+            "height": 150
+          }, 
+          {
+            "width": 200, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307054615933_2_SH01409744.jpg", 
+            "type": "image", 
+            "imageType": "gridIconTvShow", 
+            "height": 150
+          }
+        ], 
+        "title": "Shane Untamed", 
+        "objectIdAndType": "442003686328573", 
+        "gridItemType": "tvShow", 
+        "partnerId": "tivo:pt.3066", 
+        "type": "mix", 
+        "hasContentLeafChildren": false, 
+        "leafObjectType": "collection", 
+        "mixId": "tivo:mx.11962621"
+      }, 
+      "mixMappingId": "tivo:mm.11657631", 
+      "type": "mixMapping"
+    }, 
+    {
+      "childMixId": "tivo:mx.11962581", 
+      "objectIdAndType": "444202709279095", 
+      "parentMixId": "tivo:mx.11962631", 
+      "displayRank": 17, 
+      "childMix": {
+        "subscribable": false, 
+        "leaf": true, 
+        "mixType": "browse", 
+        "collectionId": "tivo:cl.182335538", 
+        "root": false, 
+        "image": [
+          {
+            "width": 200, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307054613548_1_SH01411821.jpg", 
+            "type": "image", 
+            "imageType": "candyBarIcon", 
+            "height": 150
+          }, 
+          {
+            "width": 200, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307054613548_2_SH01411821.jpg", 
+            "type": "image", 
+            "imageType": "gridIconTvShow", 
+            "height": 150
+          }
+        ], 
+        "title": "Finding Sarah", 
+        "objectIdAndType": "442003686328533", 
+        "gridItemType": "tvShow", 
+        "partnerId": "tivo:pt.3066", 
+        "type": "mix", 
+        "hasContentLeafChildren": false, 
+        "leafObjectType": "collection", 
+        "mixId": "tivo:mx.11962581"
+      }, 
+      "mixMappingId": "tivo:mm.11657591", 
+      "type": "mixMapping"
+    }, 
+    {
+      "childMixId": "tivo:mx.11962591", 
+      "objectIdAndType": "444202709279105", 
+      "parentMixId": "tivo:mx.11962631", 
+      "displayRank": 18, 
+      "childMix": {
+        "subscribable": false, 
+        "leaf": true, 
+        "mixType": "browse", 
+        "collectionId": "tivo:cl.179909711", 
+        "root": false, 
+        "image": [
+          {
+            "width": 119, 
+            "imageUrl": "http://i.tivo.com/images-production/bravo/banner-sm/e1/57/e157d91a3cdd37fe62fe9d74b3645390.jpg", 
+            "type": "image", 
+            "imageType": "gridIconTvShow", 
+            "height": 89
+          }, 
+          {
+            "width": 200, 
+            "imageUrl": "http://i.tivo.com/images-production/bravo/banner-lg/e1/57/e157d91a3cdd37fe62fe9d74b3645390.jpg", 
+            "type": "image", 
+            "imageType": "candyBarIcon", 
+            "height": 150
+          }, 
+          {
+            "width": 200, 
+            "imageUrl": "http://i.tivo.com/images-production/hdui-showing/e1/57/e157d91a3cdd37fe62fe9d74b3645390.jpg", 
+            "type": "image", 
+            "imageType": "gridIconTvShow", 
+            "height": 150
+          }, 
+          {
+            "width": 139, 
+            "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/e1/57/e157d91a3cdd37fe62fe9d74b3645390.jpg", 
+            "type": "image", 
+            "imageType": "gridIconTvShow", 
+            "height": 104
+          }
+        ], 
+        "title": "The Glee Project", 
+        "objectIdAndType": "442003686328543", 
+        "gridItemType": "tvShow", 
+        "partnerId": "tivo:pt.3066", 
+        "type": "mix", 
+        "hasContentLeafChildren": false, 
+        "leafObjectType": "collection", 
+        "mixId": "tivo:mx.11962591"
+      }, 
+      "mixMappingId": "tivo:mm.11657601", 
+      "type": "mixMapping"
+    }, 
+    {
+      "childMixId": "tivo:mx.11962601", 
+      "objectIdAndType": "444202709279115", 
+      "parentMixId": "tivo:mx.11962631", 
+      "displayRank": 20, 
+      "childMix": {
+        "subscribable": false, 
+        "leaf": true, 
+        "mixType": "browse", 
+        "collectionId": "tivo:cl.180901252", 
+        "root": false, 
+        "image": [
+          {
+            "width": 200, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307054614457_1_SH01410210.jpg", 
+            "type": "image", 
+            "imageType": "candyBarIcon", 
+            "height": 150
+          }, 
+          {
+            "width": 200, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307054614457_2_SH01410210.jpg", 
+            "type": "image", 
+            "imageType": "gridIconTvShow", 
+            "height": 150
+          }
+        ], 
+        "title": "Amsale Girls", 
+        "objectIdAndType": "442003686328553", 
+        "gridItemType": "tvShow", 
+        "partnerId": "tivo:pt.3066", 
+        "type": "mix", 
+        "hasContentLeafChildren": false, 
+        "leafObjectType": "collection", 
+        "mixId": "tivo:mx.11962601"
+      }, 
+      "mixMappingId": "tivo:mm.11657611", 
+      "type": "mixMapping"
+    }, 
+    {
+      "childMixId": "tivo:mx.11962611", 
+      "objectIdAndType": "444202709279125", 
+      "parentMixId": "tivo:mx.11962631", 
+      "displayRank": 21, 
+      "childMix": {
+        "subscribable": false, 
+        "leaf": true, 
+        "mixType": "browse", 
+        "collectionId": "tivo:cl.183947068", 
+        "root": false, 
+        "image": [
+          {
+            "width": 200, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307054615207_1_SH01420850.jpg", 
+            "type": "image", 
+            "imageType": "candyBarIcon", 
+            "height": 150
+          }, 
+          {
+            "width": 200, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307054615207_2_SH01420850.jpg", 
+            "type": "image", 
+            "imageType": "gridIconTvShow", 
+            "height": 150
+          }
+        ], 
+        "title": "The Protector", 
+        "objectIdAndType": "442003686328563", 
+        "gridItemType": "tvShow", 
+        "partnerId": "tivo:pt.3066", 
+        "type": "mix", 
+        "hasContentLeafChildren": false, 
+        "leafObjectType": "collection", 
+        "mixId": "tivo:mx.11962611"
+      }, 
+      "mixMappingId": "tivo:mm.11657621", 
+      "type": "mixMapping"
+    }
+  ], 
+  "type": "mixMappingList"
+}

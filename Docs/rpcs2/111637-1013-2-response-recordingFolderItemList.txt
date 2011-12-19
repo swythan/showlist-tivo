@@ -1,0 +1,130 @@
+MRPC/2 78 2896
+Raw Packet=MRPC/2 78 2896
+Content-Type: application/json
+IsFinal: true
+RpcId: 1013
+Type: response
+
+{
+  "recordingFolderItem": [
+    {
+      "childRecordingId": "tivo:rc.237239", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.16986", 
+        "contentId": "tivo:ct.64753", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-06-06 03:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "684", 
+          "callSign": "HALLHD", 
+          "type": "channel", 
+          "logoIndex": 65778
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "\"Three Dates and a Breakup\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.237239", 
+      "startTime": "2011-06-06 03:00:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.232329", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.16986", 
+        "contentId": "tivo:ct.213185", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-06-04 00:30:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "759", 
+          "callSign": "WEHD", 
+          "type": "channel", 
+          "logoIndex": 65783
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "\"You Can Go Home Again\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.232329", 
+      "startTime": "2011-06-04 00:30:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.232319", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.16986", 
+        "contentId": "tivo:ct.56656", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-06-04 00:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "759", 
+          "callSign": "WEHD", 
+          "type": "channel", 
+          "logoIndex": 65783
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "\"The Focus Group\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.232319", 
+      "startTime": "2011-06-04 00:00:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.210309", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.16986", 
+        "contentId": "tivo:ct.320844", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-06-02 23:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "55", 
+          "callSign": "WLNYMH", 
+          "type": "channel"
+        }
+      }, 
+      "recordingStatusType": "keepForever", 
+      "title": "\"Three Valentines\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.210309", 
+      "startTime": "2011-06-02 23:00:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.190129", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.16986", 
+        "contentId": "tivo:ct.181113", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-05-19 23:30:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "55", 
+          "callSign": "WLNYMH", 
+          "type": "channel"
+        }
+      }, 
+      "recordingStatusType": "keepForever", 
+      "title": "\"Retirement Is Murder\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.190129", 
+      "startTime": "2011-05-19 23:30:00", 
+      "type": "recordingFolderItem"
+    }
+  ], 
+  "type": "recordingFolderItemList"
+}

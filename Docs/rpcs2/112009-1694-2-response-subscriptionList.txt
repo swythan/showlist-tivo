@@ -1,0 +1,165 @@
+MRPC/2 78 3231
+Raw Packet=MRPC/2 78 3231
+Content-Type: application/json
+IsFinal: true
+RpcId: 1694
+Type: response
+
+{
+  "type": "subscriptionList", 
+  "subscription": [
+    {
+      "maxRecordings": 5, 
+      "keepBehavior": "fifo", 
+      "title": "Rules of Engagement", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "type": "channel", 
+          "name": "CBS Affiliate", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "bitrate": "0", 
+          "channelId": "tivo:ch.9", 
+          "callSign": "WCBSDT", 
+          "isDigital": true, 
+          "stationId": "tivo:st.4501500", 
+          "channelNumber": "702", 
+          "logoIndex": 65555, 
+          "isBlocked": false, 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.86427143"
+      }, 
+      "showStatus": "rerunsAllowed", 
+      "subscriptionId": "tivo:sb.99", 
+      "type": "subscription"
+    }, 
+    {
+      "maxRecordings": 5, 
+      "keepBehavior": "forever", 
+      "title": "NOVA", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "type": "channel", 
+          "name": "PBS Affiliate", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "bitrate": "0", 
+          "channelId": "tivo:ch.9", 
+          "callSign": "WNETDT", 
+          "isDigital": true, 
+          "stationId": "tivo:st.6322053", 
+          "channelNumber": "713", 
+          "logoIndex": 65558, 
+          "isBlocked": false, 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.17787"
+      }, 
+      "showStatus": "rerunsAllowed", 
+      "subscriptionId": "tivo:sb.119", 
+      "type": "subscription"
+    }, 
+    {
+      "maxRecordings": 3, 
+      "keepBehavior": "forever", 
+      "title": "Jeopardy!", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "type": "channel", 
+          "name": "ABC Affiliate", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "bitrate": "1060110336", 
+          "channelId": "tivo:ch.9", 
+          "callSign": "WABCDT", 
+          "isDigital": true, 
+          "stationId": "tivo:st.4190787", 
+          "channelNumber": "707", 
+          "logoIndex": 65554, 
+          "isBlocked": false, 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.55039"
+      }, 
+      "showStatus": "rerunsAllowed", 
+      "subscriptionId": "tivo:sb.129", 
+      "type": "subscription"
+    }, 
+    {
+      "maxRecordings": 3, 
+      "keepBehavior": "forever", 
+      "title": "Top Gear", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "type": "channel", 
+          "name": "BBC America HD", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "bitrate": "-2113929216", 
+          "channelId": "tivo:ch.9", 
+          "callSign": "BBCAHD", 
+          "isDigital": true, 
+          "stationId": "tivo:st.151168818", 
+          "channelNumber": "685", 
+          "logoIndex": 65725, 
+          "isBlocked": false, 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.863984"
+      }, 
+      "showStatus": "rerunsAllowed", 
+      "subscriptionId": "tivo:sb.139", 
+      "type": "subscription"
+    }, 
+    {
+      "maxRecordings": 10, 
+      "keepBehavior": "fifo", 
+      "title": "Portlandia", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "name": "Independent Film Channel HD", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "isBlocked": false, 
+          "channelId": "tivo:ch.9", 
+          "callSign": "IFCHD", 
+          "isDigital": false, 
+          "stationId": "tivo:st.119114326", 
+          "channelNumber": "781", 
+          "type": "channel", 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.174384122"
+      }, 
+      "showStatus": "rerunsAllowed", 
+      "subscriptionId": "tivo:sb.159", 
+      "type": "subscription"
+    }
+  ]
+}

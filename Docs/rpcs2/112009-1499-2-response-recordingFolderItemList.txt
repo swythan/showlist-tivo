@@ -1,0 +1,140 @@
+MRPC/2 78 3009
+Raw Packet=MRPC/2 78 3009
+Content-Type: application/json
+IsFinal: true
+RpcId: 1499
+Type: response
+
+{
+  "recordingFolderItem": [
+    {
+      "childRecordingId": "tivo:rc.212819", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.86427143", 
+        "contentId": "tivo:ct.172598248", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "hdtv": true, 
+        "startTime": "2011-06-03 00:30:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "702", 
+          "callSign": "WCBSDT", 
+          "type": "channel", 
+          "logoIndex": 65555
+        }
+      }, 
+      "title": "Rules of Engagement", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "folderItemCount": 2, 
+      "recordingFolderItemId": "tivo:rf.57822", 
+      "startTime": "2011-06-03 00:29:58", 
+      "type": "recordingFolderItem", 
+      "folderType": "series"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.225969", 
+      "recordingForChildRecordingId": {
+        "collectionId": "tivo:cl.124937169", 
+        "contentId": "tivo:ct.124935660", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "hdtv": true, 
+        "startTime": "2011-05-30 16:45:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "745", 
+          "callSign": "CCHD", 
+          "type": "channel", 
+          "logoIndex": 66171
+        }
+      }, 
+      "title": "Disaster Movie (2008)", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.225969", 
+      "startTime": "2011-05-30 16:45:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.195439", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.10327616", 
+        "contentId": "tivo:ct.179342005", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-05-22 19:30:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "165", 
+          "callSign": "WNJNDT", 
+          "type": "channel", 
+          "logoIndex": 65558
+        }
+      }, 
+      "title": "America's Test Kitchen From Cook's Illustrated", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "folderItemCount": 4, 
+      "recordingFolderItemId": "tivo:rf.38264", 
+      "startTime": "2011-05-22 19:29:58", 
+      "type": "recordingFolderItem", 
+      "folderType": "series"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.144299", 
+      "recordingForChildRecordingId": {
+        "episodic": true, 
+        "collectionId": "tivo:cl.17787", 
+        "contentId": "tivo:ct.176642509", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "hdtv": true, 
+        "startTime": "2011-04-21 01:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "713", 
+          "callSign": "WNETDT", 
+          "type": "channel", 
+          "logoIndex": 65558
+        }
+      }, 
+      "title": "NOVA", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "folderItemCount": 3, 
+      "recordingFolderItemId": "tivo:rf.35739", 
+      "startTime": "2011-04-21 00:59:59", 
+      "type": "recordingFolderItem", 
+      "folderType": "series"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.240209", 
+      "folderTransportType": [
+        "stream"
+      ], 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.165674483", 
+        "contentId": "tivo:ct.167655425", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "hdtv": true, 
+        "startTime": "2011-06-07 03:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "703", 
+          "callSign": "TNTHD", 
+          "type": "channel", 
+          "logoIndex": 66395
+        }
+      }, 
+      "title": "HD Recordings", 
+      "type": "recordingFolderItem", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "folderItemCount": 41, 
+      "recordingFolderItemId": "tivo:rf.1", 
+      "startTime": "1970-01-01 00:00:01", 
+      "folderInProgress": true, 
+      "folderType": "hd"
+    }
+  ], 
+  "type": "recordingFolderItemList"
+}

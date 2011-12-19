@@ -1,0 +1,133 @@
+MRPC/2 78 3078
+Raw Packet=MRPC/2 78 3078
+Content-Type: application/json
+IsFinal: true
+RpcId: 1063
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "FXHD", 
+        "isDigital": true, 
+        "channelNumber": "710", 
+        "logoIndex": 66198, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Live Free or Die Hard", 
+          "contentId": "tivo:ct.93967910", 
+          "collectionId": "tivo:cl.93979033", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-08-19-00-00.10800", 
+          "startTime": "2011-06-08 19:00:00", 
+          "duration": 10800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Two and a Half Men", 
+          "contentId": "tivo:ct.48339147", 
+          "collectionId": "tivo:cl.15566705", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-08-22-00-00.1800", 
+          "startTime": "2011-06-08 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Two and a Half Men", 
+          "contentId": "tivo:ct.48002896", 
+          "collectionId": "tivo:cl.15566705", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-08-22-30-00.1800", 
+          "startTime": "2011-06-08 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Two and a Half Men", 
+          "contentId": "tivo:ct.56406087", 
+          "collectionId": "tivo:cl.15566705", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-08-23-00-00.1800", 
+          "startTime": "2011-06-08 23:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Two and a Half Men", 
+          "contentId": "tivo:ct.57122748", 
+          "collectionId": "tivo:cl.15566705", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-08-23-30-00.1800", 
+          "startTime": "2011-06-08 23:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Taken", 
+          "contentId": "tivo:ct.117219335", 
+          "collectionId": "tivo:cl.117220548", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-09-00-00-00.7200", 
+          "startTime": "2011-06-09 00:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Blow", 
+          "contentId": "tivo:ct.3839327", 
+          "collectionId": "tivo:cl.3839326", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-09-02-00-00.9000", 
+          "startTime": "2011-06-09 02:00:00", 
+          "duration": 9000, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Rescue Me", 
+          "contentId": "tivo:ct.100422012", 
+          "collectionId": "tivo:cl.26429515", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-09-04-30-00.3600", 
+          "startTime": "2011-06-09 04:30:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Archer", 
+          "contentId": "tivo:ct.176343973", 
+          "collectionId": "tivo:cl.156755133", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-09-05-30-00.1800", 
+          "startTime": "2011-06-09 05:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Save With CarMD", 
+          "contentId": "tivo:ct.174243481", 
+          "collectionId": "tivo:cl.174243943", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-09-06-00-00.1800", 
+          "startTime": "2011-06-09 06:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-09-06-30-00.1800", 
+          "startTime": "2011-06-09 06:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-09-07-00-00.1800", 
+          "startTime": "2011-06-09 07:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

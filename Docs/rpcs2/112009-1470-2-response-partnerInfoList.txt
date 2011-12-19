@@ -1,0 +1,139 @@
+MRPC/2 78 2666
+Raw Packet=MRPC/2 78 2666
+Content-Type: application/json
+IsFinal: true
+RpcId: 1470
+Type: response
+
+{
+  "isBottom": true, 
+  "isTop": true, 
+  "partnerInfo": [
+    {
+      "displayName": "Amazon", 
+      "name": "Amazon", 
+      "uiDestinationId": "tivo:ud.1000181", 
+      "image": [
+        {
+          "imageUrl": "http://i.tivo.com/images-static/bravo/providers/Source_Amazon_icon_sm.png", 
+          "imageId": "tivo:im.ts.3023741", 
+          "width": 40, 
+          "partnerId": "tivo:pt.2990", 
+          "height": 40, 
+          "type": "image", 
+          "imageType": "partnerSourceLogo", 
+          "levelOfDetail": "high"
+        }, 
+        {
+          "imageUrl": "http://i.tivo.com/images-static/bravo/providers/Source_Amazon_icon_md.png", 
+          "imageId": "tivo:im.ts.3275241", 
+          "width": 50, 
+          "partnerId": "tivo:pt.2990", 
+          "height": 40, 
+          "type": "image", 
+          "imageType": "partnerSourceLogo", 
+          "levelOfDetail": "high"
+        }
+      ], 
+      "partnerId": "tivo:pt.2990", 
+      "partnerType": [
+        "paidCds"
+      ], 
+      "type": "partnerInfo", 
+      "levelOfDetail": "high"
+    }, 
+    {
+      "displayName": "Music Choice", 
+      "name": "MusicChoice", 
+      "uiDestinationId": "tivo:ud.1000261", 
+      "image": [
+        {
+          "imageUrl": "http://i.tivo.com/images-static/bravo/providers/Source_Musicchoice_icon_sm.png", 
+          "imageId": "tivo:im.ts.3023751", 
+          "width": 50, 
+          "partnerId": "tivo:pt.3049", 
+          "height": 40, 
+          "type": "image", 
+          "imageType": "partnerSourceLogo", 
+          "levelOfDetail": "high"
+        }
+      ], 
+      "partnerId": "tivo:pt.3049", 
+      "partnerType": [
+        "videoProvider"
+      ], 
+      "type": "partnerInfo", 
+      "levelOfDetail": "high"
+    }, 
+    {
+      "displayName": "Netflix", 
+      "name": "Netflix", 
+      "uiDestinationId": "tivo:ud.1000171", 
+      "image": [
+        {
+          "imageUrl": "http://i.tivo.com/images-static/bravo/providers/Source_Netflix_icon_sm.png", 
+          "imageId": "tivo:im.ts.3023721", 
+          "width": 50, 
+          "partnerId": "tivo:pt.3455", 
+          "height": 40, 
+          "type": "image", 
+          "imageType": "partnerSourceLogo", 
+          "levelOfDetail": "high"
+        }
+      ], 
+      "partnerId": "tivo:pt.3455", 
+      "partnerType": [
+        "videoProvider"
+      ], 
+      "type": "partnerInfo", 
+      "levelOfDetail": "high"
+    }, 
+    {
+      "displayName": "Blockbuster", 
+      "name": "BlockbusterUS", 
+      "uiDestinationId": "tivo:ud.1000211", 
+      "image": [
+        {
+          "imageUrl": "http://i.tivo.com/images-static/bravo/providers/Source_Blockbuster_icon_sm.png", 
+          "imageId": "tivo:im.ts.3023701", 
+          "width": 50, 
+          "partnerId": "tivo:pt.3603", 
+          "height": 40, 
+          "type": "image", 
+          "imageType": "partnerSourceLogo", 
+          "levelOfDetail": "high"
+        }
+      ], 
+      "partnerId": "tivo:pt.3603", 
+      "partnerType": [
+        "paidCds"
+      ], 
+      "type": "partnerInfo", 
+      "levelOfDetail": "high"
+    }, 
+    {
+      "displayName": "YouTube", 
+      "name": "YouTube", 
+      "uiDestinationId": "tivo:ud.1000251", 
+      "image": [
+        {
+          "imageUrl": "http://i.tivo.com/images-static/bravo/providers/Source_YouTube_icon_md.png", 
+          "imageId": "tivo:im.ts.3200121", 
+          "width": 50, 
+          "partnerId": "tivo:pt.3862", 
+          "height": 40, 
+          "type": "image", 
+          "imageType": "partnerSourceLogo", 
+          "levelOfDetail": "high"
+        }
+      ], 
+      "partnerId": "tivo:pt.3862", 
+      "partnerType": [
+        "videoProvider"
+      ], 
+      "type": "partnerInfo", 
+      "levelOfDetail": "high"
+    }
+  ], 
+  "type": "partnerInfoList"
+}

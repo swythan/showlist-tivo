@@ -1,0 +1,187 @@
+MRPC/2 76 4357
+Raw Packet=MRPC/2 76 4357
+Content-Type: application/json
+IsFinal: true
+RpcId: 69
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "TBS", 
+        "isDigital": true, 
+        "channelNumber": "8", 
+        "logoIndex": 65540, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "The King of Queens", 
+          "contentId": "tivo:ct.3297217", 
+          "collectionId": "tivo:cl.18987", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-13-22-00-00.1800", 
+          "startTime": "2011-06-13 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The King of Queens", 
+          "contentId": "tivo:ct.265911", 
+          "collectionId": "tivo:cl.18987", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-13-22-30-00.1800", 
+          "startTime": "2011-06-13 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Seinfeld", 
+          "contentId": "tivo:ct.237875", 
+          "collectionId": "tivo:cl.16984", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-13-23-00-00.1800", 
+          "startTime": "2011-06-13 23:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Seinfeld", 
+          "contentId": "tivo:ct.289367", 
+          "collectionId": "tivo:cl.16984", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-13-23-30-00.1800", 
+          "startTime": "2011-06-13 23:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Family Guy", 
+          "contentId": "tivo:ct.108599844", 
+          "collectionId": "tivo:cl.299214", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-14-00-00-00.1800", 
+          "startTime": "2011-06-14 00:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Family Guy", 
+          "contentId": "tivo:ct.4381391", 
+          "collectionId": "tivo:cl.299214", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-14-00-30-00.1800", 
+          "startTime": "2011-06-14 00:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Family Guy", 
+          "contentId": "tivo:ct.107987115", 
+          "collectionId": "tivo:cl.299214", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-14-01-00-00.1800", 
+          "startTime": "2011-06-14 01:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Family Guy", 
+          "contentId": "tivo:ct.107987123", 
+          "collectionId": "tivo:cl.299214", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-14-01-30-00.1800", 
+          "startTime": "2011-06-14 01:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Family Guy", 
+          "contentId": "tivo:ct.170347821", 
+          "collectionId": "tivo:cl.299214", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-14-02-00-00.1800", 
+          "startTime": "2011-06-14 02:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Family Guy", 
+          "contentId": "tivo:ct.170347822", 
+          "collectionId": "tivo:cl.299214", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-14-02-30-00.1800", 
+          "startTime": "2011-06-14 02:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Conan", 
+          "contentId": "tivo:ct.183256887", 
+          "collectionId": "tivo:cl.171093113", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-14-03-00-00.3600", 
+          "startTime": "2011-06-14 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Lopez Tonight", 
+          "contentId": "tivo:ct.183256819", 
+          "collectionId": "tivo:cl.153523795", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-14-04-00-00.3600", 
+          "startTime": "2011-06-14 04:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Conan", 
+          "contentId": "tivo:ct.183256887", 
+          "collectionId": "tivo:cl.171093113", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-14-05-00-00.3600", 
+          "startTime": "2011-06-14 05:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Lopez Tonight", 
+          "contentId": "tivo:ct.183256819", 
+          "collectionId": "tivo:cl.153523795", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-14-06-00-00.3600", 
+          "startTime": "2011-06-14 06:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "I Think I Love My Wife", 
+          "contentId": "tivo:ct.93966043", 
+          "collectionId": "tivo:cl.93983972", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-14-07-00-00.7200", 
+          "startTime": "2011-06-14 07:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Married ... With Children", 
+          "contentId": "tivo:ct.313482", 
+          "collectionId": "tivo:cl.16995", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-14-09-00-00.1800", 
+          "startTime": "2011-06-14 09:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Married ... With Children", 
+          "contentId": "tivo:ct.555735", 
+          "collectionId": "tivo:cl.16995", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-14-09-30-00.1800", 
+          "startTime": "2011-06-14 09:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Married ... With Children", 
+          "contentId": "tivo:ct.328703", 
+          "collectionId": "tivo:cl.16995", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-14-10-00-00.1800", 
+          "startTime": "2011-06-14 10:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

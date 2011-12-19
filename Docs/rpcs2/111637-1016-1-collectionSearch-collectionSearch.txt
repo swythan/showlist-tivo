@@ -1,0 +1,191 @@
+MRPC/2 246 2090
+Raw Packet=MRPC/2 246 2090
+Type:request
+RpcId:1016
+SchemaVersion:7
+Content-Type:application/json
+RequestType:collectionSearch
+ResponseCount:single
+BodyId:tsn:XXXXXXXXXXXXXXX
+X-ApplicationName:Quicksilver
+X-ApplicationVersion:1.2
+X-ApplicationSessionId:0x27c180
+
+{
+  "collectionId": [
+    "tivo:cl.16986"
+  ], 
+  "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+  "note": [
+    "userContentForCollectionId", 
+    "broadbandOfferGroupForCollectionId", 
+    "broadcastOfferGroupForCollectionId"
+  ], 
+  "filterUnavailable": false, 
+  "responseTemplate": [
+    {
+      "fieldName": [
+        "subscriptionType"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "subscriptionIdentifier"
+    }, 
+    {
+      "fieldName": [
+        "state", 
+        "recordingId", 
+        "subscriptionIdentifier"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "recording"
+    }, 
+    {
+      "fieldName": [
+        "partnerId", 
+        "contentId"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "offer"
+    }, 
+    {
+      "fieldName": [
+        "collection"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "collectionList"
+    }, 
+    {
+      "fieldName": [
+        "broadbandOfferGroupForCollectionId", 
+        "broadcastOfferGroupForCollectionId", 
+        "collectionId", 
+        "collectionType", 
+        "hdtv", 
+        "title", 
+        "movieYear", 
+        "episodic", 
+        "starRating", 
+        "description", 
+        "tvRating", 
+        "mpaaRating", 
+        "category", 
+        "credit", 
+        "userContentForCollectionId", 
+        "image"
+      ], 
+      "fieldInfo": [
+        {
+          "fieldName": [
+            "credit"
+          ], 
+          "maxArity": [
+            50
+          ], 
+          "type": "responseTemplateFieldInfo"
+        }, 
+        {
+          "fieldName": [
+            "category"
+          ], 
+          "maxArity": [
+            2
+          ], 
+          "type": "responseTemplateFieldInfo"
+        }
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "collection"
+    }, 
+    {
+      "fieldName": [
+        "example"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "offerGroup"
+    }, 
+    {
+      "fieldName": [
+        "first", 
+        "last", 
+        "role"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "credit"
+    }, 
+    {
+      "fieldName": [
+        "displayRank", 
+        "image"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "category"
+    }, 
+    {
+      "fieldName": [
+        "thumbsRating"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "userContent"
+    }, 
+    {
+      "fieldName": [
+        "channelNumber", 
+        "sourceType", 
+        "logoIndex", 
+        "callSign", 
+        "isDigital"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "channel"
+    }
+  ], 
+  "imageRuleset": [
+    {
+      "type": "imageRuleset", 
+      "name": "movie", 
+      "rule": [
+        {
+          "width": 133, 
+          "ruleType": "exactMatchDimension", 
+          "type": "imageRule", 
+          "imageType": [
+            "moviePoster"
+          ], 
+          "height": 200
+        }
+      ]
+    }, 
+    {
+      "type": "imageRuleset", 
+      "name": "tvLandscape", 
+      "rule": [
+        {
+          "width": 139, 
+          "ruleType": "exactMatchDimension", 
+          "type": "imageRule", 
+          "imageType": [
+            "showcaseBanner"
+          ], 
+          "height": 104
+        }
+      ]
+    }, 
+    {
+      "type": "imageRuleset", 
+      "name": "tvPortrait", 
+      "rule": [
+        {
+          "width": 200, 
+          "ruleType": "exactMatchDimension", 
+          "type": "imageRule", 
+          "imageType": [
+            "showcaseBanner"
+          ], 
+          "height": 150
+        }
+      ]
+    }
+  ], 
+  "type": "collectionSearch", 
+  "levelOfDetail": "high"
+}

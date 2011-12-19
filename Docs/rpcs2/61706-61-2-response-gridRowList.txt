@@ -1,0 +1,142 @@
+MRPC/2 76 3237
+Raw Packet=MRPC/2 76 3237
+Content-Type: application/json
+IsFinal: true
+RpcId: 61
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "TBS", 
+        "isDigital": true, 
+        "channelNumber": "8", 
+        "logoIndex": 65540, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Wedding Crashers", 
+          "contentId": "tivo:ct.63098843", 
+          "collectionId": "tivo:cl.63099352", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-11-16-55-00.9300", 
+          "startTime": "2011-06-11 16:55:00", 
+          "duration": 9300, 
+          "type": "offer"
+        }, 
+        {
+          "title": "According to Jim", 
+          "contentId": "tivo:ct.78855226", 
+          "collectionId": "tivo:cl.3858871", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-11-19-30-00.1800", 
+          "startTime": "2011-06-11 19:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Everybody Loves Raymond", 
+          "contentId": "tivo:ct.102201", 
+          "collectionId": "tivo:cl.18989", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-11-20-00-00.1800", 
+          "startTime": "2011-06-11 20:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Everybody Loves Raymond", 
+          "contentId": "tivo:ct.102201", 
+          "collectionId": "tivo:cl.18989", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-11-20-30-00.1800", 
+          "startTime": "2011-06-11 20:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Everybody Loves Raymond", 
+          "contentId": "tivo:ct.102201", 
+          "collectionId": "tivo:cl.18989", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-11-21-00-00.1800", 
+          "startTime": "2011-06-11 21:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Everybody Loves Raymond", 
+          "contentId": "tivo:ct.102201", 
+          "collectionId": "tivo:cl.18989", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-11-21-30-00.1800", 
+          "startTime": "2011-06-11 21:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Seinfeld", 
+          "contentId": "tivo:ct.289365", 
+          "collectionId": "tivo:cl.16984", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-11-22-00-00.1800", 
+          "startTime": "2011-06-11 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Seinfeld", 
+          "contentId": "tivo:ct.289366", 
+          "collectionId": "tivo:cl.16984", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-11-22-30-00.1800", 
+          "startTime": "2011-06-11 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The King of Queens", 
+          "contentId": "tivo:ct.3186189", 
+          "collectionId": "tivo:cl.18987", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-11-23-00-00.1800", 
+          "startTime": "2011-06-11 23:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The King of Queens", 
+          "contentId": "tivo:ct.3266955", 
+          "collectionId": "tivo:cl.18987", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-11-23-30-00.1800", 
+          "startTime": "2011-06-11 23:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "I Love You, Man", 
+          "contentId": "tivo:ct.114416661", 
+          "collectionId": "tivo:cl.114416818", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-12-00-00-00.7200", 
+          "startTime": "2011-06-12 00:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Replacements", 
+          "contentId": "tivo:ct.2272314", 
+          "collectionId": "tivo:cl.2272313", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-12-02-00-00.9000", 
+          "startTime": "2011-06-12 02:00:00", 
+          "duration": 9000, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The School of Rock", 
+          "contentId": "tivo:ct.22130580", 
+          "collectionId": "tivo:cl.22130897", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-12-04-30-00.9000", 
+          "startTime": "2011-06-12 04:30:00", 
+          "duration": 9000, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

@@ -1,0 +1,152 @@
+MRPC/2 78 4452
+Raw Packet=MRPC/2 78 4452
+Content-Type: application/json
+IsFinal: true
+RpcId: 1471
+Type: response
+
+{
+  "isBottom": true, 
+  "isTop": true, 
+  "uiDestinationInstance": [
+    {
+      "uiDestinationInstanceId": "tivo:di.1000191", 
+      "name": "Netflix", 
+      "instanceDescription": "Netflix/DG_hme_prod", 
+      "instanceName": "Netflix/DG_hme_prod", 
+      "uri": "x-tivo:hme:uuid:7edeb291-0db8-487f-b842-6b97bc71ad9a", 
+      "uiDestinationType": "hme", 
+      "uiDestinationId": "tivo:ud.1000171", 
+      "levelOfDetail": "low", 
+      "type": "uiDestinationInstance", 
+      "description": "Netflix HME app"
+    }, 
+    {
+      "serviceGroup": [
+        "DG_hme_prod"
+      ], 
+      "uiDestinationInstanceId": "tivo:di.1000201", 
+      "name": "Amazon", 
+      "instanceDescription": "Amazon/DG_hme_prod", 
+      "type": "uiDestinationInstance", 
+      "uri": "x-tivo:hme:uuid:35FE011C-3850-2228-FBC5-1B9EDBBE5863", 
+      "uiDestinationType": "hme", 
+      "uiDestinationId": "tivo:ud.1000181", 
+      "levelOfDetail": "low", 
+      "instanceName": "Amazon/DG_hme_prod", 
+      "description": "Amazon HME app"
+    }, 
+    {
+      "serviceGroup": [
+        "DG_hme_prod"
+      ], 
+      "uiDestinationInstanceId": "tivo:di.1000281", 
+      "name": "BLOCKBUSTER", 
+      "instanceDescription": "BlockbusterUS/DG_hme_prod", 
+      "type": "uiDestinationInstance", 
+      "uri": "x-tivo:hme:uuid:63ED0C3D-D49C-9602-C322-E0A3D3EA5A3D", 
+      "uiDestinationType": "hme", 
+      "uiDestinationId": "tivo:ud.1000211", 
+      "levelOfDetail": "low", 
+      "instanceName": "BlockbusterUS/DG_hme_prod", 
+      "description": "Blockbuster HME app"
+    }, 
+    {
+      "uiDestinationInstanceId": "tivo:di.1000341", 
+      "name": "Browse Web Videos (nonBravoSpecific)", 
+      "instanceDescription": "TiVoCast/Staging/DG_hme_prod", 
+      "instanceName": "Browse Web Videos", 
+      "uri": "x-tivo:hme:uuid:19452283-D00B-C411-595D-447ABF62F37C", 
+      "uiDestinationType": "hme", 
+      "uiDestinationId": "tivo:ud.1000541", 
+      "levelOfDetail": "low", 
+      "type": "uiDestinationInstance", 
+      "description": "TiVoCast/VideoOnDemand HME app"
+    }, 
+    {
+      "uiDestinationInstanceId": "tivo:di.1000351", 
+      "name": "YouTube", 
+      "instanceDescription": "YouTube/DG_hme_prod", 
+      "instanceName": "YouTube/DG_hme_prod", 
+      "uri": "x-tivo:hme:uuid:9AA364C9-CF8A-1E1D-B50F-CC65C40D4A96", 
+      "uiDestinationType": "hme", 
+      "uiDestinationId": "tivo:ud.1000251", 
+      "levelOfDetail": "low", 
+      "type": "uiDestinationInstance", 
+      "description": "YouTube HME app"
+    }, 
+    {
+      "uiDestinationInstanceId": "tivo:di.1000361", 
+      "name": "Music Choice", 
+      "instanceDescription": "MusicChoice/DG_hme_prod", 
+      "instanceName": "MusicChoice/DG_hme_prod", 
+      "uri": "x-tivo:hme:uuid:7FDF1BEB-AF92-B8B6-6269-FAE44C8F887D", 
+      "uiDestinationType": "hme", 
+      "uiDestinationId": "tivo:ud.1000261", 
+      "levelOfDetail": "low", 
+      "type": "uiDestinationInstance", 
+      "description": "Music Choice HME app"
+    }, 
+    {
+      "uiDestinationInstanceId": "tivo:di.1000371", 
+      "name": "Home Movies from One True Media", 
+      "instanceDescription": "OneTrueMedia/DG_hme_prod", 
+      "instanceName": "OneTrueMedia/DG_hme_prod", 
+      "uri": "x-tivo:hme:uuid:D1AF7BED-325E-5E6E-B087-72381C92D077", 
+      "uiDestinationType": "hme", 
+      "uiDestinationId": "tivo:ud.1000271", 
+      "levelOfDetail": "low", 
+      "type": "uiDestinationInstance", 
+      "description": "One True Media HME app"
+    }, 
+    {
+      "uiDestinationInstanceId": "tivo:di.1000431", 
+      "name": "Fandango", 
+      "instanceDescription": "Fandango HME app", 
+      "instanceName": "Fandango", 
+      "uri": "x-tivo:hme:uuid:B9DDBECF-BC6D-5E33-388A-4CF840068D79", 
+      "uiDestinationType": "hme", 
+      "uiDestinationId": "tivo:ud.1000331", 
+      "levelOfDetail": "low", 
+      "type": "uiDestinationInstance", 
+      "description": "Fandango HME app"
+    }, 
+    {
+      "uiDestinationInstanceId": "tivo:di.1000501", 
+      "name": "TiVoCast RSS Video Player", 
+      "instanceDescription": "TiVoCast RSS Video Player HME app", 
+      "instanceName": "TiVoCast RSS Video Player", 
+      "uri": "x-tivo:hme:uuid:863cb78f-efdd-4106-b572-51733983dc76", 
+      "uiDestinationType": "hme", 
+      "uiDestinationId": "tivo:ud.1000511", 
+      "levelOfDetail": "low", 
+      "type": "uiDestinationInstance", 
+      "description": "TiVoCast RSS Video Player HME app"
+    }, 
+    {
+      "uiDestinationInstanceId": "tivo:di.1000511", 
+      "name": "Browse Web Videos", 
+      "instanceDescription": "Browse Web Videos (bravo-specific)", 
+      "instanceName": "Browse Web Videos (bravo-specific)", 
+      "uri": "x-tivo:hme:uuid:6784571A-016C-8A46-DF2F-FD842D78006F", 
+      "uiDestinationType": "hme", 
+      "uiDestinationId": "tivo:ud.1000241", 
+      "levelOfDetail": "low", 
+      "type": "uiDestinationInstance", 
+      "description": "TiVoCast/VideoOnDemand HME app"
+    }, 
+    {
+      "uiDestinationInstanceId": "tivo:di.1000581", 
+      "name": "Swivel", 
+      "instanceDescription": "Swivel", 
+      "instanceName": "Swivel", 
+      "uri": "x-tivo:hme:uuid:2BD40EF7-D9D2-3CD4-0130-6C18855CE898", 
+      "uiDestinationType": "hme", 
+      "uiDestinationId": "tivo:ud.1000551", 
+      "levelOfDetail": "low", 
+      "type": "uiDestinationInstance", 
+      "description": "Swivel Search"
+    }
+  ], 
+  "type": "uiDestinationInstanceList"
+}

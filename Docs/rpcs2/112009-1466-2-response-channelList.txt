@@ -1,0 +1,1078 @@
+MRPC/2 78 17926
+Raw Packet=MRPC/2 78 17926
+Content-Type: application/json
+IsFinal: true
+RpcId: 1466
+Type: response
+
+{
+  "type": "channelList", 
+  "channel": [
+    {
+      "name": "Turner Broadcasting System", 
+      "callSign": "TBS", 
+      "channelNumber": "8", 
+      "logoIndex": 65540, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "FX", 
+      "callSign": "FX", 
+      "channelNumber": "10", 
+      "logoIndex": 65737, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "CW Affiliate", 
+      "callSign": "WPIX", 
+      "channelNumber": "11", 
+      "logoIndex": 75537, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "PBS Affiliate", 
+      "callSign": "WNET", 
+      "channelNumber": "13", 
+      "logoIndex": 65558, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "MTV - Music Television", 
+      "callSign": "MTV", 
+      "channelNumber": "20", 
+      "logoIndex": 65547, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "PBS Affiliate", 
+      "callSign": "WLIW", 
+      "channelNumber": "21", 
+      "logoIndex": 65558, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "25", 
+      "callSign": "WNYE", 
+      "type": "channel", 
+      "name": "Independent", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "ABC Family", 
+      "callSign": "ABCF", 
+      "channelNumber": "38", 
+      "logoIndex": 65780, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Comedy Central", 
+      "callSign": "COMEDY", 
+      "channelNumber": "45", 
+      "logoIndex": 65579, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "55", 
+      "callSign": "WLNYMH", 
+      "type": "channel", 
+      "name": "WLNY", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Lifetime", 
+      "callSign": "LIFE", 
+      "channelNumber": "62", 
+      "logoIndex": 65573, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "TV Land", 
+      "callSign": "TVLAND", 
+      "channelNumber": "85", 
+      "logoIndex": 65653, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Sundance Channel", 
+      "callSign": "SUNDANC", 
+      "channelNumber": "101", 
+      "logoIndex": 65647, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Chiller", 
+      "callSign": "CHILLER", 
+      "channelNumber": "102", 
+      "logoIndex": 65597, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Current TV", 
+      "callSign": "CURRENT", 
+      "channelNumber": "103", 
+      "logoIndex": 66173, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Sleuth", 
+      "callSign": "SLEUTH", 
+      "channelNumber": "107", 
+      "logoIndex": 65786, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Boomerang", 
+      "callSign": "BOOM", 
+      "channelNumber": "109", 
+      "logoIndex": 65753, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "The Military Channel", 
+      "callSign": "MILI", 
+      "channelNumber": "112", 
+      "logoIndex": 66135, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Discovery Fit and Health", 
+      "callSign": "DFH", 
+      "channelNumber": "116", 
+      "logoIndex": 66091, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "GSN", 
+      "callSign": "GSN", 
+      "channelNumber": "117", 
+      "logoIndex": 65580, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Lifetime Real Women", 
+      "callSign": "LRW", 
+      "channelNumber": "127", 
+      "logoIndex": 66149, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "MTV2: Music Television", 
+      "callSign": "MTV2", 
+      "channelNumber": "128", 
+      "logoIndex": 66156, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Nick Jr", 
+      "callSign": "NICJR", 
+      "channelNumber": "129", 
+      "logoIndex": 65768, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "VH1 Classic", 
+      "callSign": "VH1CL", 
+      "channelNumber": "136", 
+      "logoIndex": 65776, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Teen Nick", 
+      "callSign": "TNCK", 
+      "channelNumber": "137", 
+      "logoIndex": 66095, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Nicktoons Network", 
+      "callSign": "NIKTON", 
+      "channelNumber": "138", 
+      "logoIndex": 66093, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "AmericanLife TV Network", 
+      "callSign": "ALN", 
+      "channelNumber": "153", 
+      "logoIndex": 66166, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "156", 
+      "callSign": "BONTV", 
+      "type": "channel", 
+      "name": "Blue Ocean Network", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "PBS Affiliate", 
+      "callSign": "WNETDT2", 
+      "channelNumber": "160", 
+      "logoIndex": 65558, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "WGN America", 
+      "callSign": "WGNAMER", 
+      "channelNumber": "162", 
+      "logoIndex": 65667, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "PBS Affiliate", 
+      "callSign": "WLIWDT3", 
+      "channelNumber": "164", 
+      "logoIndex": 65558, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "PBS Affiliate", 
+      "callSign": "WNJNDT", 
+      "channelNumber": "165", 
+      "logoIndex": 65558, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "166", 
+      "callSign": "WPIXDT4", 
+      "type": "channel", 
+      "name": "Independent", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "PBS Affiliate", 
+      "callSign": "WLIWDT2", 
+      "channelNumber": "169", 
+      "logoIndex": 65558, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "182", 
+      "callSign": "ZEAL2", 
+      "type": "channel", 
+      "name": "ZEAL2", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "183", 
+      "callSign": "ZEAL3", 
+      "type": "channel", 
+      "name": "ZEAL3", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "184", 
+      "callSign": "ZEAL4", 
+      "type": "channel", 
+      "name": "ZEAL4", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "185", 
+      "callSign": "ZEA5Y", 
+      "type": "channel", 
+      "name": "ZEA5Y", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "186", 
+      "callSign": "LATV", 
+      "type": "channel", 
+      "name": "LATV Networks", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Halogen", 
+      "callSign": "HALO", 
+      "channelNumber": "188", 
+      "logoIndex": 66201, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "The Inspiration Network", 
+      "callSign": "INSP", 
+      "channelNumber": "189", 
+      "logoIndex": 66325, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "267", 
+      "callSign": "FEARDM", 
+      "type": "channel", 
+      "name": "FearNet On Demand", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "268", 
+      "callSign": "FEAR", 
+      "type": "channel", 
+      "name": "FEARnet", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "283", 
+      "callSign": "REELZHD", 
+      "type": "channel", 
+      "name": "ReelzChannel HD", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Hallmark Movie Channel HD", 
+      "callSign": "HMCHD", 
+      "channelNumber": "287", 
+      "logoIndex": 66200, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "290", 
+      "callSign": "SUNDHD", 
+      "type": "channel", 
+      "name": "Sundance Channel HD", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "291", 
+      "callSign": "FNTHDDM", 
+      "type": "channel", 
+      "name": "FEARNet HD on Demand", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "292", 
+      "callSign": "FEARHD", 
+      "type": "channel", 
+      "name": "FEARnet HD", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "ESPN Classic", 
+      "callSign": "ESPNCL", 
+      "channelNumber": "451", 
+      "logoIndex": 65762, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Outdoor Channel HD", 
+      "callSign": "OUTHD2", 
+      "channelNumber": "480", 
+      "logoIndex": 66363, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "483", 
+      "callSign": "3DTV1", 
+      "type": "channel", 
+      "name": "3D-TV1 Time Warner", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "484", 
+      "callSign": "3DTV2", 
+      "type": "channel", 
+      "name": "3D-TV2 Time Warner", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "487", 
+      "callSign": "ESPNDHD", 
+      "type": "channel", 
+      "name": "ESPN Deportes HD", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "519", 
+      "callSign": "CTC", 
+      "type": "channel", 
+      "name": "CTC", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Polskie Radio Trojka", 
+      "callSign": "POLRT", 
+      "channelNumber": "557", 
+      "logoIndex": 66368, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "TVB1", 
+      "callSign": "TVB1", 
+      "channelNumber": "581", 
+      "logoIndex": 66071, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "679", 
+      "callSign": "WGNHD", 
+      "type": "channel", 
+      "name": "WGN SAT HD", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Gospel Music Channel HD", 
+      "callSign": "GMCHD", 
+      "channelNumber": "680", 
+      "logoIndex": 66199, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "682", 
+      "callSign": "OWNHD", 
+      "type": "channel", 
+      "name": "Oprah Winfrey Network HD", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Hallmark Channel HD", 
+      "callSign": "HALLHD", 
+      "channelNumber": "684", 
+      "logoIndex": 65778, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "BBC America HD", 
+      "callSign": "BBCAHD", 
+      "channelNumber": "685", 
+      "logoIndex": 65725, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "686", 
+      "callSign": "CINHD", 
+      "type": "channel", 
+      "name": "Crime & Investigation Network HD", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Independent", 
+      "callSign": "WABCDT2", 
+      "channelNumber": "687", 
+      "logoIndex": 65554, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "688", 
+      "callSign": "DIYHD", 
+      "type": "channel", 
+      "name": "Do-It-Yourself Network HD", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Style HD", 
+      "callSign": "STYLEHD", 
+      "channelNumber": "689", 
+      "logoIndex": 66212, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Fuse HD", 
+      "callSign": "FUSEHD", 
+      "channelNumber": "691", 
+      "logoIndex": 66082, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "692", 
+      "callSign": "G4HD", 
+      "type": "channel", 
+      "name": "G4 HD", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "693", 
+      "callSign": "GSNHD", 
+      "type": "channel", 
+      "name": "GSN HD", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Planet Green HD", 
+      "callSign": "GRNHD", 
+      "channelNumber": "695", 
+      "logoIndex": 66164, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "National Geographic Wild HD", 
+      "callSign": "NGWILDH", 
+      "channelNumber": "696", 
+      "logoIndex": 66421, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "History International HD", 
+      "callSign": "HIHD", 
+      "channelNumber": "697", 
+      "logoIndex": 65775, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "701", 
+      "callSign": "NY1HD", 
+      "type": "channel", 
+      "name": "New York 1 News HD", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "CBS Affiliate", 
+      "callSign": "WCBSDT", 
+      "channelNumber": "702", 
+      "logoIndex": 65555, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "TNTHD (TNT-HD)", 
+      "callSign": "TNTHD", 
+      "channelNumber": "703", 
+      "logoIndex": 66395, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "NBC Affiliate", 
+      "callSign": "WNBCDT", 
+      "channelNumber": "704", 
+      "logoIndex": 65556, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Fox Affiliate", 
+      "callSign": "WNYWDT", 
+      "channelNumber": "705", 
+      "logoIndex": 65557, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Nickelodeon HD", 
+      "callSign": "NIKHD", 
+      "channelNumber": "706", 
+      "logoIndex": 66208, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "ABC Affiliate", 
+      "callSign": "WABCDT", 
+      "channelNumber": "707", 
+      "logoIndex": 65554, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "TBS HD", 
+      "callSign": "TBSHD", 
+      "channelNumber": "708", 
+      "logoIndex": 66392, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "MyNetworkTV", 
+      "callSign": "WWORDT", 
+      "channelNumber": "709", 
+      "logoIndex": 66244, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "FX HD", 
+      "callSign": "FXHD", 
+      "channelNumber": "710", 
+      "logoIndex": 66198, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "CW Affiliate", 
+      "callSign": "WPIXDT", 
+      "channelNumber": "711", 
+      "logoIndex": 75537, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "712", 
+      "callSign": "OXYGNHD", 
+      "type": "channel", 
+      "name": "Oxygen HD", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "PBS Affiliate", 
+      "callSign": "WNETDT", 
+      "channelNumber": "713", 
+      "logoIndex": 65558, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "USA Network HD", 
+      "callSign": "USAHD", 
+      "channelNumber": "716", 
+      "logoIndex": 66057, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Syfy HD", 
+      "callSign": "SYFYHD", 
+      "channelNumber": "717", 
+      "logoIndex": 66056, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Bravo HD", 
+      "callSign": "BRAVOHD", 
+      "channelNumber": "718", 
+      "logoIndex": 65607, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "VH1 HD", 
+      "callSign": "VH1HD", 
+      "channelNumber": "719", 
+      "logoIndex": 66221, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "MTV - Music Television HD", 
+      "callSign": "MTVHD", 
+      "channelNumber": "720", 
+      "logoIndex": 66205, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "722", 
+      "callSign": "HUBHD", 
+      "type": "channel", 
+      "name": "HUBHD", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Investigation Discovery HD", 
+      "callSign": "IDHD", 
+      "channelNumber": "723", 
+      "logoIndex": 66075, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "E! Entertainment Television HD", 
+      "callSign": "EHD", 
+      "channelNumber": "724", 
+      "logoIndex": 66175, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "730", 
+      "callSign": "BLOOMHD", 
+      "type": "channel", 
+      "name": "Bloom Business Television HD", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "ION Affiliate", 
+      "callSign": "WPXNDT", 
+      "channelNumber": "731", 
+      "logoIndex": 65763, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Universal HD", 
+      "callSign": "UHD", 
+      "channelNumber": "734", 
+      "logoIndex": 66133, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Spike TV HD", 
+      "callSign": "SPIKEHD", 
+      "channelNumber": "736", 
+      "logoIndex": 66211, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "ABC Family Channel HD", 
+      "callSign": "ABCFHD", 
+      "channelNumber": "738", 
+      "logoIndex": 66165, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "History HD", 
+      "callSign": "HSTRYHD", 
+      "channelNumber": "740", 
+      "logoIndex": 66202, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Comedy Central HD", 
+      "callSign": "CCHD", 
+      "channelNumber": "745", 
+      "logoIndex": 66171, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "A&E HD East", 
+      "callSign": "AETVHD", 
+      "channelNumber": "746", 
+      "logoIndex": 66155, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Disney Channel HD", 
+      "callSign": "DISNHD", 
+      "channelNumber": "749", 
+      "logoIndex": 66174, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Food HD", 
+      "callSign": "FOODHD", 
+      "channelNumber": "750", 
+      "logoIndex": 66258, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "751", 
+      "callSign": "COOKHD", 
+      "type": "channel", 
+      "name": "Cooking Channel HD", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "AMC HD", 
+      "callSign": "AMCHD", 
+      "channelNumber": "754", 
+      "logoIndex": 66261, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "WE tv HD", 
+      "callSign": "WEHD", 
+      "channelNumber": "759", 
+      "logoIndex": 65783, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Disney XD HD", 
+      "callSign": "DXDHD", 
+      "channelNumber": "760", 
+      "logoIndex": 65691, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Cartoon Network HD", 
+      "callSign": "TOONHD", 
+      "channelNumber": "761", 
+      "logoIndex": 66277, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Lifetime HD", 
+      "callSign": "LIFEHD", 
+      "channelNumber": "762", 
+      "logoIndex": 66262, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "The Biography Channel HD", 
+      "callSign": "BIOHD", 
+      "channelNumber": "763", 
+      "logoIndex": 66215, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "HGTV HD (HGHD)", 
+      "callSign": "HGTVD", 
+      "channelNumber": "764", 
+      "logoIndex": 66257, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "National Geographic HD", 
+      "callSign": "NGCHD", 
+      "channelNumber": "765", 
+      "logoIndex": 66256, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "The Discovery Channel HD", 
+      "callSign": "DSCHD", 
+      "channelNumber": "766", 
+      "logoIndex": 66079, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "HD Theater", 
+      "callSign": "HDT", 
+      "channelNumber": "767", 
+      "logoIndex": 66159, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Science Channel HD", 
+      "callSign": "SCIHD", 
+      "channelNumber": "775", 
+      "logoIndex": 65773, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "truTV HD", 
+      "callSign": "TRUTVHD", 
+      "channelNumber": "779", 
+      "logoIndex": 65565, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Lifetime Movie Network HD", 
+      "callSign": "LMNHD", 
+      "channelNumber": "780", 
+      "logoIndex": 66259, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "781", 
+      "callSign": "IFCHD", 
+      "type": "channel", 
+      "name": "Independent Film Channel HD", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Turner Classic Movies HD", 
+      "callSign": "TCMHD", 
+      "channelNumber": "782", 
+      "logoIndex": 65564, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "783", 
+      "callSign": "OVATNHD", 
+      "type": "channel", 
+      "name": "Ovation TV HD", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Animal Planet HD", 
+      "callSign": "APLHD", 
+      "channelNumber": "786", 
+      "logoIndex": 66160, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "The Travel Channel HD", 
+      "callSign": "TRAVHD", 
+      "channelNumber": "788", 
+      "logoIndex": 65719, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "790", 
+      "callSign": "TVONEHD", 
+      "type": "channel", 
+      "name": "TV ONE HD", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "PALLADIA", 
+      "callSign": "PLDHD", 
+      "channelNumber": "791", 
+      "logoIndex": 66365, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "794", 
+      "callSign": "WDDNGHD", 
+      "type": "channel", 
+      "name": "Wedding Central HD", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Time Warner Animal/Access", 
+      "callSign": "TWANIM", 
+      "channelNumber": "833", 
+      "logoIndex": 65666, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Nicktoons Network", 
+      "callSign": "NIKTON", 
+      "channelNumber": "846", 
+      "logoIndex": 66093, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "898", 
+      "callSign": "XHAW", 
+      "type": "channel", 
+      "name": "MX Independent", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "999", 
+      "callSign": "WARM60D", 
+      "type": "channel", 
+      "name": "Time Warner Manhattan- WARM60D", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "1024", 
+      "callSign": "SKOOLDM", 
+      "type": "channel", 
+      "name": "Sportskool On Demand", 
+      "sourceType": "cable"
+    }, 
+    {
+      "name": "Music Choice On Demand", 
+      "callSign": "MUSCDM", 
+      "channelNumber": "1028", 
+      "logoIndex": 65571, 
+      "type": "channel", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "1986", 
+      "callSign": "HISNADM", 
+      "type": "channel", 
+      "name": "Nature & Knowledge on Demand", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "1987", 
+      "callSign": "LFDM", 
+      "type": "channel", 
+      "name": "Lifestyles & Learning On Demand", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "1988", 
+      "callSign": "SPRTDM", 
+      "type": "channel", 
+      "name": "Sports On Demand", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "1989", 
+      "callSign": "CEDGDM", 
+      "type": "channel", 
+      "name": "Cutting Edge On Demand", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "1990", 
+      "callSign": "KDPREDM", 
+      "type": "channel", 
+      "name": "Kids/Pre-School On Demand", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "1991", 
+      "callSign": "KIDSDM", 
+      "type": "channel", 
+      "name": "KIDS (Kids Channel) On Demand", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "1992", 
+      "callSign": "MSCDM", 
+      "type": "channel", 
+      "name": "Music On Demand", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "1993", 
+      "callSign": "ENTDM", 
+      "type": "channel", 
+      "name": "Entertainment On Demand", 
+      "sourceType": "cable"
+    }, 
+    {
+      "channelNumber": "1994", 
+      "callSign": "PTIMEDM", 
+      "type": "channel", 
+      "name": "Primetime On Demand", 
+      "sourceType": "cable"
+    }
+  ]
+}

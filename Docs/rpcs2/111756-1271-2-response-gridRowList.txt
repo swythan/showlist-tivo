@@ -1,0 +1,159 @@
+MRPC/2 78 3714
+Raw Packet=MRPC/2 78 3714
+Content-Type: application/json
+IsFinal: true
+RpcId: 1271
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "55", 
+        "callSign": "WLNYMH", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Free Baby Bullet! Make Healthy Baby Food for Less Than 3 Dollars!", 
+          "contentId": "tivo:ct.173701573", 
+          "collectionId": "tivo:cl.173702292", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-07-15-30-00.1800", 
+          "startTime": "2011-06-07 15:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Sexy Faces", 
+          "contentId": "tivo:ct.178901814", 
+          "collectionId": "tivo:cl.178902443", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-07-16-00-00.1800", 
+          "startTime": "2011-06-07 16:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "God Squad", 
+          "contentId": "tivo:ct.104246", 
+          "collectionId": "tivo:cl.104245", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-07-16-30-00.1800", 
+          "startTime": "2011-06-07 16:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Oh, Heavenly Dog!", 
+          "contentId": "tivo:ct.63673", 
+          "collectionId": "tivo:cl.63672", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-07-17-00-00.7200", 
+          "startTime": "2011-06-07 17:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Cold Case Files", 
+          "contentId": "tivo:ct.10916498", 
+          "collectionId": "tivo:cl.6113467", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-07-19-00-00.3600", 
+          "startTime": "2011-06-07 19:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Oprah Winfrey Show", 
+          "contentId": "tivo:ct.170761450", 
+          "collectionId": "tivo:cl.18194", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-07-20-00-00.3600", 
+          "startTime": "2011-06-07 20:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Matlock", 
+          "contentId": "tivo:ct.25064", 
+          "collectionId": "tivo:cl.18471", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-07-21-00-00.3600", 
+          "startTime": "2011-06-07 21:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Dr. Phil", 
+          "contentId": "tivo:ct.172223903", 
+          "collectionId": "tivo:cl.6973193", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-07-22-00-00.3600", 
+          "startTime": "2011-06-07 22:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Frasier", 
+          "contentId": "tivo:ct.495281", 
+          "collectionId": "tivo:cl.16986", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-07-23-00-00.1800", 
+          "startTime": "2011-06-07 23:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Frasier", 
+          "contentId": "tivo:ct.36013", 
+          "collectionId": "tivo:cl.16986", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-07-23-30-00.1800", 
+          "startTime": "2011-06-07 23:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Ellen DeGeneres Show", 
+          "contentId": "tivo:ct.178822837", 
+          "collectionId": "tivo:cl.15252057", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-08-00-00-00.3600", 
+          "startTime": "2011-06-08 00:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Law & Order: Special Victims Unit", 
+          "contentId": "tivo:ct.5165332", 
+          "collectionId": "tivo:cl.880788", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-08-01-00-00.3600", 
+          "startTime": "2011-06-08 01:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Judge Judy", 
+          "contentId": "tivo:ct.184165270", 
+          "collectionId": "tivo:cl.18909", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-08-02-00-00.1800", 
+          "startTime": "2011-06-08 02:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Judge Judy", 
+          "contentId": "tivo:ct.152470306", 
+          "collectionId": "tivo:cl.18909", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-08-02-30-00.1800", 
+          "startTime": "2011-06-08 02:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "TV10/55 News at 11", 
+          "contentId": "tivo:ct.795289", 
+          "collectionId": "tivo:cl.795288", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-08-03-00-00.2040", 
+          "startTime": "2011-06-08 03:00:00", 
+          "duration": 2040, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

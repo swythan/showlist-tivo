@@ -1,0 +1,134 @@
+MRPC/2 78 3043
+Raw Packet=MRPC/2 78 3043
+Content-Type: application/json
+IsFinal: true
+RpcId: 1621
+Type: response
+
+{
+  "recordingFolderItem": [
+    {
+      "childRecordingId": "tivo:rc.232909", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.894882", 
+        "contentId": "tivo:ct.1051923", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-06-06 22:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "781", 
+          "callSign": "IFCHD", 
+          "type": "channel"
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "Freaks and Geeks: \"Tests and Breasts\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.232909", 
+      "startTime": "2011-06-06 22:00:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.237249", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.18068", 
+        "contentId": "tivo:ct.136099", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-06-06 21:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "162", 
+          "callSign": "WGNAMER", 
+          "type": "channel", 
+          "logoIndex": 65667
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "Cheers: \"Diane Meets Mom\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.237249", 
+      "startTime": "2011-06-06 21:00:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.232939", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.49575179", 
+        "contentId": "tivo:ct.97360728", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "hdtv": true, 
+        "startTime": "2011-06-06 18:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "703", 
+          "callSign": "TNTHD", 
+          "type": "channel", 
+          "logoIndex": 66395
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "The Closer: \"Homewrecker\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.232939", 
+      "startTime": "2011-06-06 18:00:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.235069", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.45266952", 
+        "contentId": "tivo:ct.127518416", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "hdtv": true, 
+        "startTime": "2011-06-06 16:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "766", 
+          "callSign": "DSCHD", 
+          "type": "channel", 
+          "logoIndex": 66079
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "Deadliest Catch: \"Mortal Men\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.235069", 
+      "startTime": "2011-06-06 16:00:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.232929", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.144126666", 
+        "contentId": "tivo:ct.166492934", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "hdtv": true, 
+        "startTime": "2011-06-06 15:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "736", 
+          "callSign": "SPIKEHD", 
+          "type": "channel", 
+          "logoIndex": 66211
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "Deadliest Warrior: \"Navy Seal vs. Israeli Commando\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.232929", 
+      "startTime": "2011-06-06 15:00:00", 
+      "type": "recordingFolderItem"
+    }
+  ], 
+  "type": "recordingFolderItemList"
+}

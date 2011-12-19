@@ -1,0 +1,169 @@
+MRPC/2 78 4024
+Raw Packet=MRPC/2 78 4024
+Content-Type: application/json
+IsFinal: true
+RpcId: 1065
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "FXHD", 
+        "isDigital": true, 
+        "channelNumber": "710", 
+        "logoIndex": 66198, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Next", 
+          "contentId": "tivo:ct.93967299", 
+          "collectionId": "tivo:cl.93992719", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-09-22-00-00.7200", 
+          "startTime": "2011-06-09 22:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Two and a Half Men", 
+          "contentId": "tivo:ct.154515947", 
+          "collectionId": "tivo:cl.15566705", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-10-00-00-00.1800", 
+          "startTime": "2011-06-10 00:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Two and a Half Men", 
+          "contentId": "tivo:ct.154934954", 
+          "collectionId": "tivo:cl.15566705", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-10-00-30-00.1800", 
+          "startTime": "2011-06-10 00:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Two and a Half Men", 
+          "contentId": "tivo:ct.155285429", 
+          "collectionId": "tivo:cl.15566705", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-10-01-00-00.1800", 
+          "startTime": "2011-06-10 01:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Two and a Half Men", 
+          "contentId": "tivo:ct.156075929", 
+          "collectionId": "tivo:cl.15566705", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-10-01-30-00.1800", 
+          "startTime": "2011-06-10 01:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Taken", 
+          "contentId": "tivo:ct.117219335", 
+          "collectionId": "tivo:cl.117220548", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-10-02-00-00.7200", 
+          "startTime": "2011-06-10 02:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Next", 
+          "contentId": "tivo:ct.93967299", 
+          "collectionId": "tivo:cl.93992719", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-10-04-00-00.7200", 
+          "startTime": "2011-06-10 04:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-10-06-00-00.1800", 
+          "startTime": "2011-06-10 06:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Get Hot!", 
+          "contentId": "tivo:ct.175906001", 
+          "collectionId": "tivo:cl.175906323", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-10-06-30-00.1800", 
+          "startTime": "2011-06-10 06:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-10-07-00-00.1800", 
+          "startTime": "2011-06-10 07:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-10-07-30-00.1800", 
+          "startTime": "2011-06-10 07:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-10-08-00-00.1800", 
+          "startTime": "2011-06-10 08:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-10-08-30-00.1800", 
+          "startTime": "2011-06-10 08:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Get Ripped in 90 Days!", 
+          "contentId": "tivo:ct.101407523", 
+          "collectionId": "tivo:cl.101408252", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-10-09-00-00.1800", 
+          "startTime": "2011-06-10 09:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-10-09-30-00.1800", 
+          "startTime": "2011-06-10 09:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Tracy Anderson", 
+          "contentId": "tivo:ct.175419293", 
+          "collectionId": "tivo:cl.175419787", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-10-10-00-00.1800", 
+          "startTime": "2011-06-10 10:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

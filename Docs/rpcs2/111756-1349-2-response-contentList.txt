@@ -1,0 +1,36 @@
+MRPC/2 78 594
+Raw Packet=MRPC/2 78 594
+Content-Type: application/json
+IsFinal: true
+RpcId: 1349
+Type: response
+
+{
+  "content": [
+    {
+      "collectionType": "special", 
+      "episodic": false, 
+      "title": "The Hawking Paradox", 
+      "contentId": "tivo:ct.74210787", 
+      "image": [
+        {
+          "width": 139, 
+          "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/7b/4f/7b4f2a0f4097556b44f6cbdd4436bf8f.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 104
+        }, 
+        {
+          "width": 120, 
+          "imageUrl": "http://i.tivo.com/images-production/os/banner-120/7b/4f/7b4f2a0f4097556b44f6cbdd4436bf8f.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 90
+        }
+      ], 
+      "collectionId": "tivo:cl.74211296", 
+      "type": "content"
+    }
+  ], 
+  "type": "contentList"
+}

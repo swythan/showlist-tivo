@@ -1,0 +1,37 @@
+MRPC/2 245 341
+Raw Packet=MRPC/2 245 341
+Type:request
+RpcId:1247
+SchemaVersion:7
+Content-Type:application/json
+RequestType:recordingSearch
+ResponseCount:single
+BodyId:tsn:XXXXXXXXXXXXXXX
+X-ApplicationName:Quicksilver
+X-ApplicationVersion:1.2
+X-ApplicationSessionId:0x27c180
+
+{
+  "recordingId": "tivo:rc.185589", 
+  "responseTemplate": [
+    {
+      "fieldName": [
+        "subscriptionType"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "subscriptionIdentifier"
+    }, 
+    {
+      "fieldName": [
+        "state", 
+        "recordingId", 
+        "subscriptionIdentifier"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "recording"
+    }
+  ], 
+  "type": "recordingSearch", 
+  "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+  "levelOfDetail": "low"
+}

@@ -1,0 +1,118 @@
+MRPC/2 78 2056
+Raw Packet=MRPC/2 78 2056
+Content-Type: application/json
+IsFinal: true
+RpcId: 1029
+Type: response
+
+{
+  "content": [
+    {
+      "category": [
+        {
+          "image": [
+            {
+              "width": 180, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/TalkShow.jpg", 
+              "type": "image", 
+              "imageType": "moviePoster", 
+              "height": 270
+            }, 
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/TalkShow.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }
+          ], 
+          "displayRank": 0, 
+          "type": "category", 
+          "label": "Talk Show"
+        }, 
+        {
+          "image": [
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/Comedy.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }, 
+            {
+              "width": 180, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/Comedy.jpg", 
+              "type": "image", 
+              "imageType": "moviePoster", 
+              "height": 270
+            }
+          ], 
+          "displayRank": 1, 
+          "type": "category", 
+          "label": "Comedy"
+        }
+      ], 
+      "userContentForCollectionId": {
+        "thumbsRating": 1, 
+        "type": "userContent", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX"
+      }, 
+      "collectionType": "series", 
+      "seasonNumber": 1, 
+      "description": "Rapper Ice-T; actor Breckin Meyer; Flogging Molly performs.", 
+      "episodic": true, 
+      "collectionId": "tivo:cl.171093113", 
+      "contentId": "tivo:ct.178823128", 
+      "image": [
+        {
+          "width": 139, 
+          "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/b0/27/b027cc94d6f6bd8f71559e6275e930df.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 104
+        }, 
+        {
+          "width": 200, 
+          "imageUrl": "http://i.tivo.com/images-production/hdui-showing/b0/27/b027cc94d6f6bd8f71559e6275e930df.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 150
+        }
+      ], 
+      "episodeNum": [
+        99
+      ], 
+      "originalAirYear": 2011, 
+      "credit": [
+        {
+          "type": "credit", 
+          "role": "guestStar", 
+          "first": "Ice-T"
+        }, 
+        {
+          "role": "guestStar", 
+          "type": "credit", 
+          "last": "Meyer", 
+          "first": "Breckin"
+        }, 
+        {
+          "role": "host", 
+          "type": "credit", 
+          "last": "O'Brien", 
+          "first": "Conan"
+        }, 
+        {
+          "role": "executiveProducer", 
+          "type": "credit", 
+          "last": "Ross", 
+          "first": "Jeff"
+        }
+      ], 
+      "title": "Conan", 
+      "subtitle": "Ice-T; Breckin Meyer; Flogging Molly", 
+      "type": "content", 
+      "tvRating": "14"
+    }
+  ], 
+  "type": "contentList"
+}

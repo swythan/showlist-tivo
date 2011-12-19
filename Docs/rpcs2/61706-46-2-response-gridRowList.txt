@@ -1,0 +1,318 @@
+MRPC/2 76 6446
+Raw Packet=MRPC/2 76 6446
+Content-Type: application/json
+IsFinal: true
+RpcId: 46
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "ALN", 
+        "isDigital": true, 
+        "channelNumber": "153", 
+        "logoIndex": 66166, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "The Beachcombers", 
+          "contentId": "tivo:ct.15416822", 
+          "collectionId": "tivo:cl.3890348", 
+          "offerId": "tivo:of.ctd.2450.153.cable.2011-06-06-22-00-00.1800", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Beachcombers", 
+          "contentId": "tivo:ct.15684840", 
+          "collectionId": "tivo:cl.3890348", 
+          "offerId": "tivo:of.ctd.2450.153.cable.2011-06-06-22-30-00.1800", 
+          "startTime": "2011-06-06 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "156", 
+        "callSign": "BONTV", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Media Watch", 
+          "contentId": "tivo:ct.173993", 
+          "collectionId": "tivo:cl.173992", 
+          "offerId": "tivo:of.ctd.164931568.156.cable.2011-06-06-21-30-00.2100", 
+          "startTime": "2011-06-06 21:30:00", 
+          "duration": 2100, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Trip Tips", 
+          "contentId": "tivo:ct.164931031", 
+          "collectionId": "tivo:cl.164931257", 
+          "offerId": "tivo:of.ctd.164931568.156.cable.2011-06-06-22-05-00.600", 
+          "startTime": "2011-06-06 22:05:00", 
+          "duration": 600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Destination", 
+          "contentId": "tivo:ct.430809", 
+          "collectionId": "tivo:cl.430808", 
+          "offerId": "tivo:of.ctd.164931568.156.cable.2011-06-06-22-15-00.900", 
+          "startTime": "2011-06-06 22:15:00", 
+          "duration": 900, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Beijing in Deep", 
+          "contentId": "tivo:ct.153239424", 
+          "collectionId": "tivo:cl.153239927", 
+          "offerId": "tivo:of.ctd.164931568.156.cable.2011-06-06-22-30-00.900", 
+          "startTime": "2011-06-06 22:30:00", 
+          "duration": 900, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WNETDT2", 
+        "isDigital": true, 
+        "channelNumber": "160", 
+        "logoIndex": 65558, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Maya & Miguel", 
+          "contentId": "tivo:ct.85241344", 
+          "collectionId": "tivo:cl.31219580", 
+          "offerId": "tivo:of.ctd.10420586.160.cable.2011-06-06-22-00-00.1800", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Cyberchase", 
+          "contentId": "tivo:ct.5068679", 
+          "collectionId": "tivo:cl.1585926", 
+          "offerId": "tivo:of.ctd.10420586.160.cable.2011-06-06-22-30-00.1800", 
+          "startTime": "2011-06-06 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WGNAMER", 
+        "isDigital": true, 
+        "channelNumber": "162", 
+        "logoIndex": 65667, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Dharma & Greg", 
+          "contentId": "tivo:ct.1340761", 
+          "collectionId": "tivo:cl.18293", 
+          "offerId": "tivo:of.ctd.2460.162.cable.2011-06-06-22-00-00.1800", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Dharma & Greg", 
+          "contentId": "tivo:ct.1340760", 
+          "collectionId": "tivo:cl.18293", 
+          "offerId": "tivo:of.ctd.2460.162.cable.2011-06-06-22-30-00.1800", 
+          "startTime": "2011-06-06 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WLIWDT3", 
+        "isDigital": true, 
+        "channelNumber": "164", 
+        "logoIndex": 65558, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Nature", 
+          "contentId": "tivo:ct.62493775", 
+          "collectionId": "tivo:cl.19674", 
+          "offerId": "tivo:of.ctd.33436997.164.cable.2011-06-06-22-00-00.3600", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WNJNDT", 
+        "isDigital": true, 
+        "channelNumber": "165", 
+        "logoIndex": 65558, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "NJN News", 
+          "contentId": "tivo:ct.33703127", 
+          "collectionId": "tivo:cl.33703665", 
+          "offerId": "tivo:of.ctd.10420306.165.cable.2011-06-06-22-00-00.1800", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "BBC World News America", 
+          "contentId": "tivo:ct.109269868", 
+          "collectionId": "tivo:cl.109270217", 
+          "offerId": "tivo:of.ctd.10420306.165.cable.2011-06-06-22-30-00.1800", 
+          "startTime": "2011-06-06 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "166", 
+        "callSign": "WPIXDT4", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Three's Company", 
+          "contentId": "tivo:ct.61396", 
+          "collectionId": "tivo:cl.16657", 
+          "offerId": "tivo:of.ctd.173647318.166.cable.2011-06-06-22-00-00.1800", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Three's Company", 
+          "contentId": "tivo:ct.61423", 
+          "collectionId": "tivo:cl.16657", 
+          "offerId": "tivo:of.ctd.173647318.166.cable.2011-06-06-22-30-00.1800", 
+          "startTime": "2011-06-06 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WLIWDT2", 
+        "isDigital": true, 
+        "channelNumber": "169", 
+        "logoIndex": 65558, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Martha's Sewing Room", 
+          "contentId": "tivo:ct.151955491", 
+          "collectionId": "tivo:cl.36376", 
+          "offerId": "tivo:of.ctd.33436995.169.cable.2011-06-06-22-00-00.1800", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "One Stroke Painting With Donna Dewberry", 
+          "contentId": "tivo:ct.43489049", 
+          "collectionId": "tivo:cl.3506381", 
+          "offerId": "tivo:of.ctd.33436995.169.cable.2011-06-06-22-30-00.1800", 
+          "startTime": "2011-06-06 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "182", 
+        "callSign": "ZEAL2", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "The Message of the Cross", 
+          "contentId": "tivo:ct.164290162", 
+          "collectionId": "tivo:cl.164291245", 
+          "offerId": "tivo:of.ctd.171373775.182.cable.2011-06-06-22-00-00.5400", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 5400, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "183", 
+        "callSign": "ZEAL3", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Paint Zoom", 
+          "contentId": "tivo:ct.178125641", 
+          "collectionId": "tivo:cl.178126162", 
+          "offerId": "tivo:of.ctd.171271039.183.cable.2011-06-06-22-00-00.1800", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "P90X The Answer Workout", 
+          "contentId": "tivo:ct.159169058", 
+          "collectionId": "tivo:cl.159169457", 
+          "offerId": "tivo:of.ctd.171271039.183.cable.2011-06-06-22-30-00.1800", 
+          "startTime": "2011-06-06 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

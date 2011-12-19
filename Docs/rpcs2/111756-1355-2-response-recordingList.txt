@@ -1,0 +1,27 @@
+MRPC/2 78 315
+Raw Packet=MRPC/2 78 315
+Content-Type: application/json
+IsFinal: true
+RpcId: 1355
+Type: response
+
+{
+  "recording": [
+    {
+      "subscriptionIdentifier": [
+        {
+          "subscriptionId": "tivo:sb.179", 
+          "subscriptionType": "seasonPass", 
+          "type": "subscriptionIdentifier"
+        }
+      ], 
+      "recordingId": "tivo:rc.185589", 
+      "state": "complete", 
+      "type": "recording", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX"
+    }
+  ], 
+  "isBottom": false, 
+  "isTop": true, 
+  "type": "recordingList"
+}

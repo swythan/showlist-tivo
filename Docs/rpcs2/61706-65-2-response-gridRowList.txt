@@ -1,0 +1,97 @@
+MRPC/2 76 2059
+Raw Packet=MRPC/2 76 2059
+Content-Type: application/json
+IsFinal: true
+RpcId: 65
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "TBS", 
+        "isDigital": true, 
+        "channelNumber": "8", 
+        "logoIndex": 65540, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Mr. 3000", 
+          "contentId": "tivo:ct.43258033", 
+          "collectionId": "tivo:cl.43258526", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-12-20-00-00.7200", 
+          "startTime": "2011-06-12 20:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "I Love You, Man", 
+          "contentId": "tivo:ct.114416661", 
+          "collectionId": "tivo:cl.114416818", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-12-22-00-00.7200", 
+          "startTime": "2011-06-12 22:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Men in Black II", 
+          "contentId": "tivo:ct.5316634", 
+          "collectionId": "tivo:cl.5316633", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-13-00-00-00.5580", 
+          "startTime": "2011-06-13 00:00:00", 
+          "duration": 5580, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Men in Black II", 
+          "contentId": "tivo:ct.5316634", 
+          "collectionId": "tivo:cl.5316633", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-13-01-33-00.6120", 
+          "startTime": "2011-06-13 01:33:00", 
+          "duration": 6120, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Memphis Beat", 
+          "contentId": "tivo:ct.167262192", 
+          "collectionId": "tivo:cl.164152816", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-13-03-15-00.3600", 
+          "startTime": "2011-06-13 03:15:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Memphis Beat", 
+          "contentId": "tivo:ct.167655419", 
+          "collectionId": "tivo:cl.164152816", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-13-04-15-00.3600", 
+          "startTime": "2011-06-13 04:15:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "American Wedding", 
+          "contentId": "tivo:ct.19202301", 
+          "collectionId": "tivo:cl.19202635", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-13-05-15-00.7200", 
+          "startTime": "2011-06-13 05:15:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Mr. 3000", 
+          "contentId": "tivo:ct.43258033", 
+          "collectionId": "tivo:cl.43258526", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-13-07-15-00.8100", 
+          "startTime": "2011-06-13 07:15:00", 
+          "duration": 8100, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

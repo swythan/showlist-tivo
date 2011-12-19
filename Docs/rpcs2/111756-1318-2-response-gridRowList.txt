@@ -1,0 +1,142 @@
+MRPC/2 78 3373
+Raw Packet=MRPC/2 78 3373
+Content-Type: application/json
+IsFinal: true
+RpcId: 1318
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "SCIHD", 
+        "isDigital": true, 
+        "channelNumber": "775", 
+        "logoIndex": 65773, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Blowdown", 
+          "contentId": "tivo:ct.171450580", 
+          "collectionId": "tivo:cl.171451209", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-12-11-00-00.3600", 
+          "startTime": "2011-06-12 11:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Blowdown", 
+          "contentId": "tivo:ct.171806868", 
+          "collectionId": "tivo:cl.171451209", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-12-12-00-00.3600", 
+          "startTime": "2011-06-12 12:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Meteorite Men", 
+          "contentId": "tivo:ct.173051871", 
+          "collectionId": "tivo:cl.145414086", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-12-13-00-00.3600", 
+          "startTime": "2011-06-12 13:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Meteorite Men", 
+          "contentId": "tivo:ct.171834448", 
+          "collectionId": "tivo:cl.145414086", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-12-14-00-00.3600", 
+          "startTime": "2011-06-12 14:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Meteorite Men", 
+          "contentId": "tivo:ct.171834449", 
+          "collectionId": "tivo:cl.145414086", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-12-15-00-00.3600", 
+          "startTime": "2011-06-12 15:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Meteorite Men", 
+          "contentId": "tivo:ct.172812817", 
+          "collectionId": "tivo:cl.145414086", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-12-16-00-00.3600", 
+          "startTime": "2011-06-12 16:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Meteorite Men", 
+          "contentId": "tivo:ct.171916419", 
+          "collectionId": "tivo:cl.145414086", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-12-17-00-00.3600", 
+          "startTime": "2011-06-12 17:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Meteorite Men", 
+          "contentId": "tivo:ct.172598708", 
+          "collectionId": "tivo:cl.145414086", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-12-18-00-00.3600", 
+          "startTime": "2011-06-12 18:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Meteorite Men", 
+          "contentId": "tivo:ct.172363501", 
+          "collectionId": "tivo:cl.145414086", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-12-19-00-00.3600", 
+          "startTime": "2011-06-12 19:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Meteorite Men", 
+          "contentId": "tivo:ct.172532928", 
+          "collectionId": "tivo:cl.145414086", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-12-20-00-00.3600", 
+          "startTime": "2011-06-12 20:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Wonders of the Solar System", 
+          "contentId": "tivo:ct.168241654", 
+          "collectionId": "tivo:cl.167908217", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-12-21-00-00.3600", 
+          "startTime": "2011-06-12 21:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Wonders of the Solar System", 
+          "contentId": "tivo:ct.168025977", 
+          "collectionId": "tivo:cl.167908217", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-12-22-00-00.3600", 
+          "startTime": "2011-06-12 22:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Wonders of the Solar System", 
+          "contentId": "tivo:ct.167908136", 
+          "collectionId": "tivo:cl.167908217", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-12-23-00-00.3600", 
+          "startTime": "2011-06-12 23:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

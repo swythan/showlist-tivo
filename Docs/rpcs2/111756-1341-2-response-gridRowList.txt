@@ -1,0 +1,151 @@
+MRPC/2 78 3560
+Raw Packet=MRPC/2 78 3560
+Content-Type: application/json
+IsFinal: true
+RpcId: 1341
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "SCIHD", 
+        "isDigital": true, 
+        "channelNumber": "775", 
+        "logoIndex": 65773, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Life on the Line", 
+          "contentId": "tivo:ct.184415481", 
+          "collectionId": "tivo:cl.183947043", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-19-09-00-00.1800", 
+          "startTime": "2011-06-19 09:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Life on the Line", 
+          "contentId": "tivo:ct.183945741", 
+          "collectionId": "tivo:cl.183947043", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-19-09-30-00.1800", 
+          "startTime": "2011-06-19 09:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Built From Disaster", 
+          "contentId": "tivo:ct.144331421", 
+          "collectionId": "tivo:cl.143412086", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-19-10-00-00.3600", 
+          "startTime": "2011-06-19 10:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Built From Disaster", 
+          "contentId": "tivo:ct.144331422", 
+          "collectionId": "tivo:cl.143412086", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-19-11-00-00.3600", 
+          "startTime": "2011-06-19 11:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Built From Disaster", 
+          "contentId": "tivo:ct.144379170", 
+          "collectionId": "tivo:cl.143412086", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-19-12-00-00.3600", 
+          "startTime": "2011-06-19 12:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Mantracker", 
+          "contentId": "tivo:ct.102502603", 
+          "collectionId": "tivo:cl.62114289", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-19-13-00-00.3600", 
+          "startTime": "2011-06-19 13:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Mantracker", 
+          "contentId": "tivo:ct.127853538", 
+          "collectionId": "tivo:cl.62114289", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-19-14-00-00.3600", 
+          "startTime": "2011-06-19 14:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Mantracker", 
+          "contentId": "tivo:ct.128623352", 
+          "collectionId": "tivo:cl.62114289", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-19-15-00-00.3600", 
+          "startTime": "2011-06-19 15:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Mantracker", 
+          "contentId": "tivo:ct.131085311", 
+          "collectionId": "tivo:cl.62114289", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-19-16-00-00.3600", 
+          "startTime": "2011-06-19 16:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Mantracker", 
+          "contentId": "tivo:ct.136258949", 
+          "collectionId": "tivo:cl.62114289", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-19-17-00-00.3600", 
+          "startTime": "2011-06-19 17:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Planets", 
+          "contentId": "tivo:ct.947880", 
+          "collectionId": "tivo:cl.947878", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-19-18-00-00.3600", 
+          "startTime": "2011-06-19 18:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Planets", 
+          "contentId": "tivo:ct.24732196", 
+          "collectionId": "tivo:cl.947878", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-19-19-00-00.3600", 
+          "startTime": "2011-06-19 19:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Planets", 
+          "contentId": "tivo:ct.25019096", 
+          "collectionId": "tivo:cl.947878", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-19-20-00-00.3600", 
+          "startTime": "2011-06-19 20:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Planets", 
+          "contentId": "tivo:ct.24461334", 
+          "collectionId": "tivo:cl.947878", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-19-21-00-00.3600", 
+          "startTime": "2011-06-19 21:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

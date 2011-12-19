@@ -1,0 +1,188 @@
+MRPC/2 247 1939
+Raw Packet=MRPC/2 247 1939
+Type:request
+RpcId:1634
+SchemaVersion:7
+Content-Type:application/json
+RequestType:unifiedItemSearch
+ResponseCount:single
+BodyId:tsn:XXXXXXXXXXXXXXX
+X-ApplicationName:Quicksilver
+X-ApplicationVersion:1.2
+X-ApplicationSessionId:0x27c180
+
+{
+  "orderBy": [
+    "relevance"
+  ], 
+  "count": 5, 
+  "levelOfDetail": "medium", 
+  "searchable": true, 
+  "keyword": "seinfe*", 
+  "includeUnifiedItemType": [
+    "collection", 
+    "person", 
+    "content"
+  ], 
+  "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+  "minEndTime": "2011-06-07 03:29:33", 
+  "numRelevantItems": 50, 
+  "responseTemplate": [
+    {
+      "fieldName": [
+        "image", 
+        "title", 
+        "collectionId", 
+        "collectionType", 
+        "movieYear", 
+        "starRating", 
+        "tvRating", 
+        "mpaaRating"
+      ], 
+      "fieldInfo": [
+        {
+          "fieldName": [
+            "category"
+          ], 
+          "maxArity": [
+            2
+          ], 
+          "type": "responseTemplateFieldInfo"
+        }
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "collection"
+    }, 
+    {
+      "fieldName": [
+        "image", 
+        "title", 
+        "subtitle", 
+        "collectionId", 
+        "collectionType", 
+        "contentId", 
+        "movieYear", 
+        "starRating", 
+        "tvRating", 
+        "mpaaRating"
+      ], 
+      "fieldInfo": [
+        {
+          "fieldName": [
+            "category"
+          ], 
+          "maxArity": [
+            2
+          ], 
+          "type": "responseTemplateFieldInfo"
+        }
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "content"
+    }, 
+    {
+      "fieldName": [
+        "displayRank", 
+        "image"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "category"
+    }, 
+    {
+      "fieldName": [
+        "first", 
+        "last", 
+        "image", 
+        "personId"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "person"
+    }, 
+    {
+      "fieldName": [
+        "unifiedItem"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "unifiedItemList"
+    }
+  ], 
+  "type": "unifiedItemSearch", 
+  "mergeOverridingCollections": true, 
+  "imageRuleset": [
+    {
+      "type": "imageRuleset", 
+      "name": "movie", 
+      "rule": [
+        {
+          "width": 100, 
+          "ruleType": "exactMatchDimension", 
+          "type": "imageRule", 
+          "imageType": [
+            "moviePoster"
+          ], 
+          "height": 150
+        }
+      ]
+    }, 
+    {
+      "type": "imageRuleset", 
+      "name": "tvLandscape", 
+      "rule": [
+        {
+          "width": 139, 
+          "ruleType": "exactMatchDimension", 
+          "type": "imageRule", 
+          "imageType": [
+            "showcaseBanner"
+          ], 
+          "height": 104
+        }
+      ]
+    }, 
+    {
+      "type": "imageRuleset", 
+      "name": "tvPortrait", 
+      "rule": [
+        {
+          "width": 120, 
+          "ruleType": "exactMatchDimension", 
+          "type": "imageRule", 
+          "imageType": [
+            "showcaseBanner"
+          ], 
+          "height": 90
+        }
+      ]
+    }, 
+    {
+      "type": "imageRuleset", 
+      "name": "personLandscape", 
+      "rule": [
+        {
+          "width": 104, 
+          "ruleType": "exactMatchDimension", 
+          "type": "imageRule", 
+          "imageType": [
+            "person"
+          ], 
+          "height": 78
+        }
+      ]
+    }, 
+    {
+      "type": "imageRuleset", 
+      "name": "personPortrait", 
+      "rule": [
+        {
+          "width": 113, 
+          "ruleType": "exactMatchDimension", 
+          "type": "imageRule", 
+          "imageType": [
+            "person"
+          ], 
+          "height": 150
+        }
+      ]
+    }
+  ]
+}

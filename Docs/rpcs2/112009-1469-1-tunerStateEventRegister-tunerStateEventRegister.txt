@@ -1,0 +1,16 @@
+MRPC/2 236 35
+Raw Packet=MRPC/2 236 35
+Type:request
+RpcId:1469
+SchemaVersion:7
+Content-Type:application/json
+RequestType:tunerStateEventRegister
+ResponseCount:multiple
+BodyId:
+X-ApplicationName:Quicksilver
+X-ApplicationVersion:1.2
+X-ApplicationSessionId:0x27c180
+
+{
+  "type": "tunerStateEventRegister"
+}

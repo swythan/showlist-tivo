@@ -1,0 +1,78 @@
+MRPC/2 255 836
+Raw Packet=MRPC/2 255 836
+Type:request
+RpcId:1479
+SchemaVersion:7
+Content-Type:application/json
+RequestType:recordingFolderItemSearch
+ResponseCount:single
+BodyId:tsn:XXXXXXXXXXXXXXX
+X-ApplicationName:Quicksilver
+X-ApplicationVersion:1.2
+X-ApplicationSessionId:0x27c180
+
+{
+  "orderBy": [
+    "startTime"
+  ], 
+  "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+  "objectIdAndType": [
+    "35665", 
+    "59708", 
+    "35648", 
+    "37169", 
+    "36231"
+  ], 
+  "note": [
+    "recordingForChildRecordingId"
+  ], 
+  "type": "recordingFolderItemSearch", 
+  "responseTemplate": [
+    {
+      "fieldName": [
+        "recordingFolderItem"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "recordingFolderItemList"
+    }, 
+    {
+      "fieldName": [
+        "folderInProgress", 
+        "folderTransportType", 
+        "folderType", 
+        "recordingFolderItemId", 
+        "recordingForChildRecordingId", 
+        "folderItemCount", 
+        "recordingStatusType", 
+        "startTime", 
+        "title", 
+        "transportType", 
+        "childRecordingId"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "recordingFolderItem"
+    }, 
+    {
+      "fieldName": [
+        "channel", 
+        "contentId", 
+        "collectionId", 
+        "hdtv", 
+        "episodic", 
+        "repeat", 
+        "startTime"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "recording"
+    }, 
+    {
+      "fieldName": [
+        "logoIndex", 
+        "callSign", 
+        "channelNumber"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "channel"
+    }
+  ]
+}
