@@ -9,6 +9,7 @@ using System.Security.Authentication;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using JsonFx.Json;
+using Tivo.Connect.Entities;
 
 namespace Tivo.Connect
 {
@@ -98,13 +99,34 @@ namespace Tivo.Connect
             throw new AuthenticationException(response.message as string);
         }
 
-        public IEnumerable<object> GetMyShowsList()
+        public IEnumerable<RecordingFolderItem> GetMyShowsList()
         {
             SendGetMyShowsRequest();
 
             dynamic results = ReadMessage();
 
-            return results.recordingFolderItem;
+            var items = results.recordingFolderItem as IEnumerable<object>;
+
+            return items.Select(item => RecordingFolderItem.Create(item));
+        }
+
+        public IEnumerable<RecordingFolderItem> GetFolderShowsList(Container parent)
+        {
+            SendGetFolderShowsRequest(parent.Id);
+
+            dynamic results = ReadMessage();
+
+            var items = results.recordingFolderItem as IEnumerable<object>;
+
+            return items.Select(item => RecordingFolderItem.Create(item));
+        }
+
+        public void PlayShow(IndividualShow show)
+        {
+            SendPlayShowRequest(show.Id);
+
+            dynamic results = ReadMessage();
+
         }
 
         private void SendRequest(string requestType, object body)
@@ -185,6 +207,40 @@ namespace Tivo.Connect
 
             SendRequest(body.type, body);
         }
+
+        private void SendGetFolderShowsRequest(string parentId)
+        {
+            var body = new
+            {
+                type = "recordingFolderItemSearch",
+                orderBy = new string[] { "startTime" },
+                bodyId = "",
+                parentRecordingFolderItemId = parentId,
+                //note = new string[] { "recordingForChildRecordingId" }
+
+            };
+
+            SendRequest(body.type, body);
+        }
+
+        private void SendPlayShowRequest(string showId)
+        {
+            var body = new
+            {
+                type = "uiNavigate",
+                uri = "x-tivo:classicui:playback",
+                parameters = new
+                {
+                    fUseTrioId = "true",
+                    recordingId = showId,
+                    fHideBannerOnEnter = "false"
+                }
+            };
+
+            SendRequest(body.type, body);
+        }
+
+
     }
 
 }

@@ -15,6 +15,7 @@ using Tivo.Connect;
 using System.ComponentModel;
 using Caliburn.Micro;
 using System.ComponentModel.Composition;
+using Tivo.Connect.Entities;
 
 namespace TivoTest
 {
@@ -22,13 +23,13 @@ namespace TivoTest
     public partial class MainViewModel : PropertyChangedBase
     {
         private TivoConnection connection;
-        private IEnumerable<object> shows;
+        private IEnumerable<RecordingFolderItem> shows;
 
         public MainViewModel()
         {
         }
 
-        public IEnumerable<object> Shows
+        public IEnumerable<RecordingFolderItem> Shows
         {
             get { return this.shows; }
             set
@@ -46,8 +47,8 @@ namespace TivoTest
             this.connection = new TivoConnection();
             try
             {
-                connection.Connect("192.168.0.16", "9837127953");
-                MessageBox.Show("Connection succeeeded!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                connection.Connect("192.168.0.18", "9837127953");
+                //MessageBox.Show("Connection succeeeded!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {
@@ -72,7 +73,7 @@ namespace TivoTest
             {
                 var shows = connection.GetMyShowsList();
                 this.Shows = shows;
-                MessageBox.Show("Request succeeeded!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                // MessageBox.Show("Request succeeeded!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {
@@ -80,6 +81,33 @@ namespace TivoTest
             }
         }
 
+        public void ActivateItem(RecordingFolderItem item)
+        {
+            var folder = item as Tivo.Connect.Entities.Container;
 
+            if (folder != null)
+            {
+                try
+                {
+                    var shows = connection.GetFolderShowsList(folder);
+                    this.Shows = shows;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(string.Format("Request Failed\n{0}", ex), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+
+            }
+            else
+            {
+                var show = item as Tivo.Connect.Entities.IndividualShow;
+
+                if (show != null)
+                {
+                    connection.PlayShow(show);
+                }
+            }
+        }
     }
 }

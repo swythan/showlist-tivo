@@ -5,6 +5,7 @@
     mc:Ignorable="d"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:cal="http://www.caliburnproject.org"
     d:DesignHeight="179"
     d:DesignWidth="405">
     <Grid>
@@ -32,23 +33,34 @@
                     AllowsColumnReorder="true">
 
                     <GridViewColumn
-                        DisplayMemberBinding="{Binding Path=collectionType}"
+                        DisplayMemberBinding="{Binding ItemType}"
                         Header="Collection Type"
                         Width="100" />
 
                     <GridViewColumn
-                        DisplayMemberBinding="{Binding title}"
+                        DisplayMemberBinding="{Binding Title}"
                         Header="Title"
                         Width="200" />
 
                     <GridViewColumn
-                        DisplayMemberBinding="{Binding Path=recordingFolderItemId}"
+                        DisplayMemberBinding="{Binding Id}"
                         Width="100"
                         Header="Item Id" />
 
                 </GridView>
 
             </ListView.View>
+            <ListView.ItemContainerStyle>
+                <Style
+                    TargetType="{x:Type ListViewItem}">
+                    <Setter
+                        Property="ToolTip"
+                        Value="{Binding JsonText }" />
+                    <Setter
+                        Property="cal:Message.Attach"
+                        Value="[Event MouseDoubleClick] = [Action ActivateItem($dataContext)]" />
+                </Style>
+            </ListView.ItemContainerStyle>
         </ListView>
     </Grid>
 </UserControl>
