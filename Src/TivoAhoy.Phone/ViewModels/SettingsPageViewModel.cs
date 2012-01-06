@@ -14,18 +14,53 @@ using Tivo.Connect;
 
 namespace TivoAhoy.Phone
 {
+    public class SettingsPageModelStorage : StorageHandler<SettingsPageViewModel>
+    {
+        public override void Configure()
+        {
+            this.Property(x => x.TivoIPAddress)
+                .InAppSettings();
+
+            this.Property(x => x.MediaAccessKey)
+                .InAppSettings();
+        }
+    }
+
     public class SettingsPageViewModel : PropertyChangedBase
     {
+        private string tivoIPAddress;
+        private string mediaAccessKey;
+
         public SettingsPageViewModel()
         {
-            this.TivoIPAddress = "192.168.0.18";
-            this.MediaAccessKey = "9837127953";
+        }
+
+        public string TivoIPAddress
+        {
+            get { return this.tivoIPAddress; }
+            set
+            {
+                if (this.tivoIPAddress == value)
+                    return;
+
+                this.tivoIPAddress = value;
+                NotifyOfPropertyChange(() => this.TivoIPAddress);
+            }
+        }
+
+        public string MediaAccessKey
+        {
+            get { return this.mediaAccessKey; }
+            set
+            {
+                if (this.mediaAccessKey == value)
+                    return;
+
+                this.mediaAccessKey = value;
+                NotifyOfPropertyChange(() => this.MediaAccessKey);
+            }
         }
         
-        public string TivoIPAddress { get; set; }
-        
-        public string MediaAccessKey { get; set; }
-
         public void TestConnection()
         {
             using (var connection = new TivoConnection())

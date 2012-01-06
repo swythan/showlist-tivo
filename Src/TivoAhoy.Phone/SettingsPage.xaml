@@ -68,7 +68,8 @@
                 HorizontalAlignment="Stretch"
                 Name="TivoIPAddress"
                 VerticalAlignment="Top"
-                Grid.Row="1" />
+                Grid.Row="1"
+                InputScope="Digits"/>
             <TextBlock
                 HorizontalAlignment="Left"
                 Text="TiVo MAK" 
@@ -77,7 +78,8 @@
                 HorizontalAlignment="Stretch"
                 Name="MediaAccessKey"
                 VerticalAlignment="Top"
-                Grid.Row="3" />
+                Grid.Row="3"
+                InputScope="Digits" />
             <Button
                 Content="Test Connection"
                 Grid.Row="4"

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Windows.Controls;
 using Caliburn.Micro;
 using Microsoft.Phone.Controls;
+using TivoAhoy.Phone.ViewModels;
 
 namespace TivoAhoy.Phone
 {
@@ -15,10 +16,13 @@ namespace TivoAhoy.Phone
         protected override void Configure()
         {
             container = new PhoneContainer(RootFrame);
+
             container.RegisterPhoneServices();
+            container.Singleton<SettingsPageViewModel>();
             container.PerRequest<MainPageViewModel>();
-            container.PerRequest<ItemViewModel>();
-            container.PerRequest<SettingsPageViewModel>();
+            container.PerRequest<IndividualShowViewModel>();
+            container.PerRequest<ShowContainerViewModel>();
+
         }
 
         protected override object GetInstance(Type service, string key)

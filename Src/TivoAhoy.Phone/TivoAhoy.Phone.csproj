@@ -87,9 +87,17 @@
     <Compile Include="SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\ItemViewModel.cs" />
+    <Compile Include="ViewModels\ShowContainerViewModel.cs" />
+    <Compile Include="ViewModels\IndividualShowViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
+    <Compile Include="ViewModels\RecordingFolderItemViewModel.cs" />
     <Compile Include="ViewModels\SettingsPageViewModel.cs" />
+    <Compile Include="Views\IndividualShowView.xaml.cs">
+      <DependentUpon>IndividualShowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShowContainerView.xaml.cs">
+      <DependentUpon>ShowContainerView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -104,12 +112,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\IndividualShowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ShowContainerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="appbar.folder.rest.png" />
+    <Content Include="appbar.refresh.rest.png" />
     <Content Include="ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
