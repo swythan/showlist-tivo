@@ -11,11 +11,11 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 
-namespace TivoAhoy.Phone
+namespace TivoAhoy.Phone.Views
 {
-    public partial class SettingsPage : PhoneApplicationPage
+    public partial class MainPage : PhoneApplicationPage
     {
-        public SettingsPage()
+        public MainPage()
         {
             InitializeComponent();
         }

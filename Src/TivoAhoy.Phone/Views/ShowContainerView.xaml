@@ -16,7 +16,7 @@
         <StackPanel
             Orientation="Horizontal">
             <Image
-                Source="/appbar.folder.rest.png" />
+                Source="/Images/appbar.folder.rest.png" />
             <TextBlock
                 Text="{Binding Title}"
                 TextWrapping="Wrap"

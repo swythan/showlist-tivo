@@ -1,5 +1,5 @@
 ﻿<phone:PhoneApplicationPage
-    x:Class="TivoAhoy.Phone.MainPage"
+    x:Class="TivoAhoy.Phone.Views.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
@@ -28,7 +28,7 @@
             Title="TIVO AHOY!">
             <controls:Pivot.Background>
                 <ImageBrush
-                    ImageSource="PanoramaBackground.png" />
+                    ImageSource="/Images/PanoramaBackground.png" />
             </controls:Pivot.Background>
 
             <!--Pivot item one-->
@@ -47,7 +47,7 @@
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
             <cal:AppBarButton
                 Text="Refresh"
-                IconUri="/appbar.refresh.rest.png"
+                IconUri="/Images/appbar.refresh.rest.png"
                 Message="RefreshShows" />
             <shell:ApplicationBar.MenuItems>
                 <cal:AppBarMenuItem

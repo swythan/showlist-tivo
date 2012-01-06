@@ -12,7 +12,7 @@ using Caliburn.Micro;
 using System.Net.Sockets;
 using Tivo.Connect;
 
-namespace TivoAhoy.Phone
+namespace TivoAhoy.Phone.ViewModels
 {
     public class SettingsPageModelStorage : StorageHandler<SettingsPageViewModel>
     {

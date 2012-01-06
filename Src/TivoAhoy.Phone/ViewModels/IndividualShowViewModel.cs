@@ -11,7 +11,7 @@ using System.Windows.Shapes;
 using Tivo.Connect.Entities;
 using TivoAhoy.Phone.ViewModels;
 
-namespace TivoAhoy.Phone
+namespace TivoAhoy.Phone.ViewModels
 {
     public class IndividualShowViewModel : RecordingFolderItemViewModel<IndividualShow>
     {

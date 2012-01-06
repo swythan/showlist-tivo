@@ -10,7 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace TivoAhoy.Phone
+namespace TivoAhoy.Phone.Views
 {
     public partial class IndividualShowView : UserControl
     {

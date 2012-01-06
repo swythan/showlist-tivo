@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using Tivo.Connect.Entities;
 using TivoAhoy.Phone.ViewModels;
 
-namespace TivoAhoy.Phone
+namespace TivoAhoy.Phone.ViewModels
 {
     public class MainPageViewModel : Screen
     {
