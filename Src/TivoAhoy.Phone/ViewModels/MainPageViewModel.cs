@@ -9,81 +9,61 @@ using TivoAhoy.Phone.ViewModels;
 
 namespace TivoAhoy.Phone.ViewModels
 {
-    public class MainPageViewModel : Screen
+    public class MainPageViewModel : Conductor<IScreen>.Collection.OneActive
     {
         private readonly INavigationService navigationService;
-        private readonly SettingsPageViewModel settingsModel;
 
-        public MainPageViewModel(INavigationService navigationService, SettingsPageViewModel settingsModel)
+        public MainPageViewModel(INavigationService navigationService, MyShowsViewModel myShowsViewModel)
         {
             this.navigationService = navigationService;
-            this.settingsModel = settingsModel;
 
-            this.MyShows = new BindableCollection<IRecordingFolderItemViewModel>();
+            myShowsViewModel.DisplayName = "my shows";
+            this.Items.Add(myShowsViewModel);
+
+            this.ActivateItem(myShowsViewModel);
         }
 
-        public ObservableCollection<IRecordingFolderItemViewModel> MyShows { get; private set; }
+        protected override void OnActivate()
+        {
+            base.OnActivate();
+            NotifyOfPropertyChange(() => this.CanRefreshList);
+        }
+
+        protected override void OnActivationProcessed(IScreen item, bool success)
+        {
+            base.OnActivationProcessed(item, success);
+            NotifyOfPropertyChange(() => this.CanRefreshList);
+        }
 
         public void ShowSettings()
         {
             navigationService.UriFor<SettingsPageViewModel>().Navigate();
         }
 
-        protected override void OnActivate()
-        {
-            base.OnActivate();
-            NotifyOfPropertyChange(() => this.CanRefreshShows);
-        }
-
-        public bool CanRefreshShows
+        public bool CanRefreshList
         {
             get
             {
-                if (string.IsNullOrWhiteSpace(this.settingsModel.TivoIPAddress))
-                    return false;
+                var myShows = this.ActiveItem as MyShowsViewModel;
 
-                if (string.IsNullOrWhiteSpace(this.settingsModel.MediaAccessKey))
-                    return false;
+                if (myShows != null)
+                {
+                    return myShows.CanRefreshShows;
+                }
 
-                return true;
+                return false;
             }
         }
 
-        public void RefreshShows()
+        public void RefreshList()
         {
-            this.MyShows.Clear();
+            var myShows = this.ActiveItem as MyShowsViewModel;
 
-            IEnumerable<RecordingFolderItem> shows;
-
-            using (var connection = new TivoConnection())
+            if (myShows != null)
             {
-                try
-                {
-                    connection.Connect(this.settingsModel.TivoIPAddress, this.settingsModel.MediaAccessKey);
-
-                    shows = connection.GetMyShowsList();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(string.Format("Connection Failed! :-(\n{0}", ex));
-                    return;
-                }
-
-                foreach (var recordingFolderItem in shows)
-                {
-                    var showContainer = recordingFolderItem as Container;
-                    if (showContainer != null)
-                    {
-                        this.MyShows.Add(new ShowContainerViewModel() { Source = showContainer });
-                    }
-
-                    var show = recordingFolderItem as IndividualShow;
-                    if (show != null)
-                    {
-                        this.MyShows.Add(new IndividualShowViewModel() { Source = show });
-                    }
-                }
+                myShows.RefreshShows();
             }
         }
+
     }
 }

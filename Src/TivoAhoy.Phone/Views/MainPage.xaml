@@ -25,20 +25,20 @@
 
         <!--Panorama control-->
         <controls:Pivot
-            Title="TIVO AHOY!">
+            Title="TIVO AHOY!"
+            x:Name="Items"
+            SelectedItem="{Binding ActiveItem, Mode=TwoWay}">
             <controls:Pivot.Background>
                 <ImageBrush
                     ImageSource="/Images/PanoramaBackground.png" />
             </controls:Pivot.Background>
 
-            <!--Pivot item one-->
-            <controls:PivotItem
-                Header="my shows">
-                <ListBox
-                    Margin="0,0,-12,0"
-                    x:Name="MyShows" />
-            </controls:PivotItem>
-
+            <controls:Pivot.HeaderTemplate>
+                <DataTemplate>
+                    <TextBlock
+                        Text="{Binding DisplayName}" />
+                </DataTemplate>
+            </controls:Pivot.HeaderTemplate>
         </controls:Pivot>
 
     </Grid>
@@ -48,7 +48,7 @@
             <cal:AppBarButton
                 Text="Refresh"
                 IconUri="/Images/appbar.refresh.rest.png"
-                Message="RefreshShows" />
+                Message="RefreshList" />
             <shell:ApplicationBar.MenuItems>
                 <cal:AppBarMenuItem
                     Message="ShowSettings"
