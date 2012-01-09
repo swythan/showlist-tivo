@@ -11,13 +11,13 @@ using System.Threading;
 
 namespace Tivo.Connect
 {
-    public abstract class TivoConnectionBase : IDisposable
+    public partial class TivoConnection : IDisposable
     {
         Stream sslStream = null;
         int sessionId;
         int rpcId = 0;
         
-        public TivoConnectionBase()
+        public TivoConnection()
         {
             sessionId = new Random().Next(0x26c000, 0x27dc20);
         }
@@ -27,11 +27,6 @@ namespace Tivo.Connect
             GC.SuppressFinalize(this);
             Dispose(true);
         }
-
-        protected virtual void Dispose(bool disposing)
-        {
-        }
-
 
         public void Connect(string serverAddress, string mediaAccessKey)
         {
@@ -71,8 +66,6 @@ namespace Tivo.Connect
                 throw new Exception("Network control not enabled");
             }
         }
-
-        protected abstract Stream ConnectNetworkStream(string serverAddress);
 
         public IEnumerable<RecordingFolderItem> GetMyShowsList()
         {

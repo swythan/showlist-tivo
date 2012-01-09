@@ -150,10 +150,6 @@
       <Project>{AFFFC8BC-3E92-4860-97EF-66C331874DDE}</Project>
       <Name>Tivo.Connect.Phone</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Tivo.Connect\Tivo.Connect.csproj">
-      <Project>{43D9BE1F-782F-4928-BB1C-C6C07015C437}</Project>
-      <Name>Tivo.Connect</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />

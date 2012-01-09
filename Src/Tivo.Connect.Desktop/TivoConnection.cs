@@ -11,14 +11,12 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace Tivo.Connect
 {
-    public class TivoConnection : TivoConnectionBase
+    public partial class TivoConnection
     {
         TcpClient client;
 
-        protected override void Dispose(bool disposing)
+        protected virtual void Dispose(bool disposing)
         {
-            base.Dispose(disposing);
-
             if (disposing)
             {
                 if (this.client != null)
@@ -31,7 +29,7 @@ namespace Tivo.Connect
             }
         }
 
-        protected override Stream ConnectNetworkStream(string serverAddress)
+        private Stream ConnectNetworkStream(string serverAddress)
         {
             if (this.client != null)
             {

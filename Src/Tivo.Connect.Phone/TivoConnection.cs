@@ -15,15 +15,13 @@ using Org.BouncyCastle.Crypto.Tls;
 
 namespace Tivo.Connect
 {
-    public class TivoConnection : TivoConnectionBase
+    public partial class TivoConnection 
     {
         TcpClient client;
         TlsProtocolHandler protocolHandler;
 
-        protected override void Dispose(bool disposing)
+        protected virtual void Dispose(bool disposing)
         {
-            base.Dispose(disposing);
-
             if (disposing)
             {
                 if (this.protocolHandler != null)
@@ -42,7 +40,7 @@ namespace Tivo.Connect
             }
         }
 
-        protected override Stream ConnectNetworkStream(string serverAddress)
+        private Stream ConnectNetworkStream(string serverAddress)
         {
             if (this.client != null)
             {

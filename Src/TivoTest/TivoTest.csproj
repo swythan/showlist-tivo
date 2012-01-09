@@ -121,10 +121,6 @@
       <Project>{1618809C-2129-4720-A49C-83D6F940CABC}</Project>
       <Name>Tivo.Connect.Desktop</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Tivo.Connect\Tivo.Connect.csproj">
-      <Project>{43D9BE1F-782F-4928-BB1C-C6C07015C437}</Project>
-      <Name>Tivo.Connect</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />

@@ -9,7 +9,7 @@
     <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Tivo.Connect.Phone</RootNamespace>
+    <RootNamespace>Tivo.Connect</RootNamespace>
     <AssemblyName>Tivo.Connect.Phone</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
@@ -47,6 +47,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="JsonFx, Version=2.0.1106.2610, Culture=neutral, PublicKeyToken=315052dd637f8a52, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\JsonFx.2.0.1106.2610\lib\sl40-wp\JsonFx.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Observable" />
     <Reference Include="System.Windows" />
     <Reference Include="system" />
     <Reference Include="System.Core" />
@@ -55,6 +60,18 @@
     <Reference Include="mscorlib.extensions" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Tivo.Connect.Common\Entities\Container.cs">
+      <Link>Entities\Container.cs</Link>
+    </Compile>
+    <Compile Include="..\Tivo.Connect.Common\Entities\IndividualShow.cs">
+      <Link>Entities\IndividualShow.cs</Link>
+    </Compile>
+    <Compile Include="..\Tivo.Connect.Common\Entities\RecordingFolderItem.cs">
+      <Link>Entities\RecordingFolderItem.cs</Link>
+    </Compile>
+    <Compile Include="..\Tivo.Connect.Common\TivoConnection.Common.cs">
+      <Link>TivoConnection.Common.cs</Link>
+    </Compile>
     <Compile Include="TivoConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sockets\NetworkStream.cs" />
@@ -68,10 +85,9 @@
       <Project>{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A0}</Project>
       <Name>crypto</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Tivo.Connect\Tivo.Connect.csproj">
-      <Project>{43D9BE1F-782F-4928-BB1C-C6C07015C437}</Project>
-      <Name>Tivo.Connect</Name>
-    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
