@@ -47,7 +47,7 @@ namespace TivoTest
             this.connection = new TivoConnection();
             try
             {
-                connection.Connect("192.168.0.18", "9837127953");
+                connection.Connect("192.168.0.7", "9837127953");
                 //MessageBox.Show("Connection succeeeded!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
@@ -71,7 +71,7 @@ namespace TivoTest
         {
             try
             {
-                var shows = connection.GetMyShowsList();
+                var shows = connection.GetMyShowsList().Take(10).ToList();
                 this.Shows = shows;
                 // MessageBox.Show("Request succeeeded!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             }

@@ -7,16 +7,19 @@ using System.Text;
 using JsonFx.Json;
 using Tivo.Connect.Entities;
 using JsonFx.Serialization;
+using System.Threading;
 
 namespace Tivo.Connect
 {
     public abstract class TivoConnectionBase : IDisposable
     {
         Stream sslStream = null;
-
+        int sessionId;
+        int rpcId = 0;
+        
         public TivoConnectionBase()
         {
-
+            sessionId = new Random().Next(0x26c000, 0x27dc20);
         }
 
         public void Dispose()
@@ -38,20 +41,35 @@ namespace Tivo.Connect
             SendAuthenticationRequest(mediaAccessKey);
 
             // Read auth response from the server.
-            var response = ReadMessage();
+            var authResponse = ReadMessage();
 
-            if (((string)response["type"]) != "bodyAuthenticateResponse")
+            if (((string)authResponse["type"]) != "bodyAuthenticateResponse")
             {
                 throw new FormatException("Expecting bodyAuthenticateResponse");
             }
 
-            if (((string)response["status"]) == "success")
+            if (((string)authResponse["status"]) != "success")
             {
-                Debug.WriteLine("Authentication successfull");
-                return;
+                throw new Exception(authResponse["message"] as string);
             }
 
-            throw new Exception(response["message"] as string);
+            Debug.WriteLine("Authentication successful");
+
+            // Chcek for network control enabled
+            SendOptStatusGetRequest();
+
+            // Read status response from the server.
+            var statusResponse = ReadMessage();
+
+            if (((string)statusResponse["type"]) != "optStatusResponse")
+            {
+                throw new FormatException("Expecting optStatusResponse");
+            }
+
+            if (((string)statusResponse["optStatus"]) != "optIn")
+            {
+                throw new Exception("Network control not enabled");
+            }
         }
 
         protected abstract Stream ConnectNetworkStream(string serverAddress);
@@ -62,9 +80,23 @@ namespace Tivo.Connect
 
             var results = ReadMessage();
 
-            var items = results["recordingFolderItem"] as IEnumerable<Dictionary<string, object>>;
+            var objectIds = (results["objectIdAndType"] as IEnumerable<string>).Select(id => int.Parse(id));
 
-            return items.Select(item => RecordingFolderItem.Create(item));
+            var groups = objectIds.Select((id, ix) => new { id, Page = ix / 5 }).GroupBy(x => x.Page, x => x.id);
+
+            foreach (var group in groups)
+            {
+                SendGetMyShowsItemDetailsRequest(group);
+
+                var detailsResults = ReadMessage();
+
+                var items = detailsResults["recordingFolderItem"] as IEnumerable<Dictionary<string, object>>;
+
+                foreach (var item in items)
+                {
+                    yield return RecordingFolderItem.Create(item);
+                }
+            }
         }
 
         public IEnumerable<RecordingFolderItem> GetFolderShowsList(Container parent)
@@ -90,7 +122,7 @@ namespace Tivo.Connect
         {
             var header = new StringBuilder();
             header.AppendLine("Type:request");
-            header.AppendLine("RpcId:20");
+            header.AppendLine(string.Format("RpcId:{0}", Interlocked.Increment(ref this.rpcId)));
             header.AppendLine("SchemaVersion:7");
             header.AppendLine("Content-Type:application/json");
             header.AppendLine("RequestType:" + requestType);
@@ -98,7 +130,7 @@ namespace Tivo.Connect
             header.AppendLine("BodyId:");
             header.AppendLine("X-ApplicationName:Quicksilver");
             header.AppendLine("X-ApplicationVersion:1.2");
-            header.AppendLine("X-ApplicationSessionId:0x27dc20");
+            header.AppendLine(string.Format("X-ApplicationSessionId:0x{0:x}", this.sessionId));
             header.AppendLine();
 
             var writer = new JsonWriter();
@@ -127,7 +159,7 @@ namespace Tivo.Connect
             var headerChars = new char[headerBytes];
             reader.ReadBlock(headerChars, 0, headerBytes);
 
-            //var header = new String(headerChars);
+            var header = new string(headerChars);
 
             var bodyChars = new char[bodyBytes];
             reader.ReadBlock(bodyChars, 0, bodyBytes);
@@ -153,6 +185,16 @@ namespace Tivo.Connect
             SendRequest((string)body["type"], body);
         }
 
+        private void SendOptStatusGetRequest()
+        {
+            var body = new Dictionary<string, object>()
+            { 
+                { "type", "optStatusGet" }
+            };
+
+            SendRequest((string)body["type"], body);
+        }
+
         private void SendGetMyShowsRequest()
         {
             var body = new Dictionary<string, object>
@@ -160,8 +202,23 @@ namespace Tivo.Connect
                 { "type", "recordingFolderItemSearch" },
                 { "orderBy", new string[] { "startTime" } },
                 { "bodyId", "" },
+                { "format", "idSequence" },
                 //objectIdAndType = new string[] { "0" },
                 //note = new string[] { "recordingForChildRecordingId" }
+            };
+
+            SendRequest((string)body["type"], body);
+        }
+
+        private void SendGetMyShowsItemDetailsRequest(IEnumerable<int> itemIds)
+        {
+            var body = new Dictionary<string, object>
+            {
+                { "type", "recordingFolderItemSearch" },
+                { "orderBy", new string[] { "startTime" } },
+                { "bodyId", "" },
+                { "objectIdAndType", itemIds.ToArray() },
+                { "note", new string[] { "recordingForChildRecordingId" } }
             };
 
             SendRequest((string)body["type"], body);

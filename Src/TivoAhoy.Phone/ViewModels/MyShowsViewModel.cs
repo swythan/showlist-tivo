@@ -1,17 +1,10 @@
 ﻿using System;
-using System.Net;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Ink;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-using Caliburn.Micro;
 using System.Collections.Generic;
-using Tivo.Connect.Entities;
+using System.Linq;
+using System.Windows;
+using Caliburn.Micro;
 using Tivo.Connect;
+using Tivo.Connect.Entities;
 
 namespace TivoAhoy.Phone.ViewModels
 {
@@ -50,6 +43,8 @@ namespace TivoAhoy.Phone.ViewModels
 
         private void FetchShows(Container parent)
         {
+            this.MyShows.Clear();
+
             IEnumerable<RecordingFolderItem> shows;
 
             using (var connection = new TivoConnection())
@@ -66,6 +61,12 @@ namespace TivoAhoy.Phone.ViewModels
                     {
                         shows = connection.GetFolderShowsList(parent);
                     }
+
+                    foreach (var show in shows)
+                    {
+                        this.MyShows.Add(CreateItemViewModel(show));
+                    }
+
                 }
                 catch (Exception ex)
                 {
@@ -73,28 +74,29 @@ namespace TivoAhoy.Phone.ViewModels
                     return;
                 }
             }
-
-            PopulateShowList(shows);
         }
 
-        private void PopulateShowList(IEnumerable<RecordingFolderItem> shows)
+        private static IRecordingFolderItemViewModel CreateItemViewModel(RecordingFolderItem recordingFolderItem)
         {
-            this.MyShows.Clear();
-
-            foreach (var recordingFolderItem in shows)
+            var showContainer = recordingFolderItem as Container;
+            if (showContainer != null)
             {
-                var showContainer = recordingFolderItem as Container;
-                if (showContainer != null)
+                return new ShowContainerViewModel()
                 {
-                    this.MyShows.Add(new ShowContainerViewModel() { Source = showContainer });
-                }
-
-                var show = recordingFolderItem as IndividualShow;
-                if (show != null)
-                {
-                    this.MyShows.Add(new IndividualShowViewModel() { Source = show });
-                }
+                    Source = showContainer
+                };
             }
+
+            var show = recordingFolderItem as IndividualShow;
+            if (show != null)
+            {
+                return new IndividualShowViewModel()
+                {
+                    Source = show
+                };
+            }
+
+            return null;
         }
 
         public void ActivateItem(object item)
