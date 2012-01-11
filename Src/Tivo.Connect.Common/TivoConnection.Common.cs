@@ -52,10 +52,9 @@ namespace Tivo.Connect
 
             this.receiveSubject = new Subject<Tuple<int, IDictionary<string, object>>>();
             this.receiveCancellationTokenSource = new CancellationTokenSource();
-            this.receiveTask = Task.Factory.StartNew(RpcReceiveThreadProc, this.receiveCancellationTokenSource.Token, TaskCreationOptions.LongRunning, TaskScheduler.Default);
 
             // Send authentication message to the TiVo. 
-            return SendAuthenticationRequest(mediaAccessKey)
+            var result = SendAuthenticationRequest(mediaAccessKey)
                 .SelectMany(authResponse =>
                     {
                         if (((string)authResponse["type"]) != "bodyAuthenticateResponse")
@@ -87,6 +86,12 @@ namespace Tivo.Connect
 
                         return Unit.Default;
                     });
+
+            // Start listening on the socket *after* the first send operation.
+            // This stops errors occuring on WP7
+            this.receiveTask = Task.Factory.StartNew(RpcReceiveThreadProc, this.receiveCancellationTokenSource.Token, TaskCreationOptions.LongRunning, TaskScheduler.Default);
+
+            return result;
         }
 
         private void RpcReceiveThreadProc()
