@@ -5,6 +5,8 @@ using System.Windows;
 using Caliburn.Micro;
 using Tivo.Connect;
 using Tivo.Connect.Entities;
+using System.Reactive;
+using System.Reactive.Linq;
 
 namespace TivoAhoy.Phone.ViewModels
 {
@@ -45,35 +47,18 @@ namespace TivoAhoy.Phone.ViewModels
         {
             this.MyShows.Clear();
 
-            IEnumerable<RecordingFolderItem> shows;
+            var connection = new TivoConnection();
 
-            using (var connection = new TivoConnection())
-            {
-                try
-                {
-                    connection.Connect(this.settingsModel.TivoIPAddress, this.settingsModel.MediaAccessKey);
-
-                    if (parent == null)
+            connection.Connect(this.settingsModel.TivoIPAddress, this.settingsModel.MediaAccessKey)
+                .SelectMany(_ => connection.GetMyShowsList(parent))
+                .ObserveOnDispatcher()
+                .Subscribe(show => this.MyShows.Add(CreateItemViewModel(show)),
+                    ex =>
                     {
-                        shows = connection.GetMyShowsList();
-                    }
-                    else
-                    {
-                        shows = connection.GetFolderShowsList(parent);
-                    }
-
-                    foreach (var show in shows)
-                    {
-                        this.MyShows.Add(CreateItemViewModel(show));
-                    }
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(string.Format("Connection Failed! :-(\n{0}", ex));
-                    return;
-                }
-            }
+                        MessageBox.Show(string.Format("Connection Failed! :-(\n{0}", ex));
+                        connection.Dispose();
+                    },
+                    () => connection.Dispose());
         }
 
         private static IRecordingFolderItemViewModel CreateItemViewModel(RecordingFolderItem recordingFolderItem)

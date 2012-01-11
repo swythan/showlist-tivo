@@ -8,7 +8,7 @@ namespace Tivo.Connect.Entities
 {
     public class RecordingFolderItem
     {
-        public static RecordingFolderItem Create(Dictionary<string, object> jsonSource)
+        public static RecordingFolderItem Create(IDictionary<string, object> jsonSource)
         {
             if (((string)jsonSource["childRecordingId"]).Split('.')[1] == ((string)jsonSource["recordingFolderItemId"]).Split('.')[1])
             {
@@ -18,9 +18,9 @@ namespace Tivo.Connect.Entities
             return new Container(jsonSource);
         }
 
-        private readonly Dictionary<string, object> jsonSource;
+        private readonly IDictionary<string, object> jsonSource;
 
-        public RecordingFolderItem(string id, Dictionary<string, object> jsonSource)
+        public RecordingFolderItem(string id, IDictionary<string, object> jsonSource)
         {
             this.jsonSource = jsonSource;
 

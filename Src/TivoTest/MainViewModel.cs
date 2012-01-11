@@ -16,6 +16,8 @@ using System.ComponentModel;
 using Caliburn.Micro;
 using System.ComponentModel.Composition;
 using Tivo.Connect.Entities;
+using System.Reactive.Linq;
+using System.Reactive.Threading;
 
 namespace TivoTest
 {
@@ -23,13 +25,14 @@ namespace TivoTest
     public partial class MainViewModel : PropertyChangedBase
     {
         private TivoConnection connection;
-        private IEnumerable<RecordingFolderItem> shows;
+        private BindableCollection<RecordingFolderItem> shows;
 
         public MainViewModel()
         {
+            shows = new BindableCollection<RecordingFolderItem>();
         }
 
-        public IEnumerable<RecordingFolderItem> Shows
+        public BindableCollection<RecordingFolderItem> Shows
         {
             get { return this.shows; }
             set
@@ -44,19 +47,24 @@ namespace TivoTest
 
         public void Connect()
         {
-            this.connection = new TivoConnection();
+            var localConnection = new TivoConnection();
             try
             {
-                connection.Connect("192.168.0.7", "9837127953");
-                //MessageBox.Show("Connection succeeeded!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                localConnection.Connect("192.168.0.7", "9837127953")
+                    .Subscribe(
+                        _ => this.connection = localConnection,
+                        ex =>
+                        {
+                            MessageBox.Show(string.Format("Connection Failed\n{0}", ex), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            localConnection.Dispose();
+                        },
+                        () => NotifyOfPropertyChange(() => CanFetchMyShowsList));
             }
             catch (Exception ex)
             {
                 MessageBox.Show(string.Format("Connection Failed\n{0}", ex), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                this.connection = null;
             }
 
-            NotifyOfPropertyChange(() => CanFetchMyShowsList);
         }
 
         public bool CanFetchMyShowsList
@@ -71,9 +79,10 @@ namespace TivoTest
         {
             try
             {
-                var shows = connection.GetMyShowsList().Take(10).ToList();
-                this.Shows = shows;
-                // MessageBox.Show("Request succeeeded!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                shows.Clear();
+
+                connection.GetMyShowsList(null)
+                    .Subscribe(item => this.Shows.Add(item), () => MessageBox.Show("Shows updated!", "Success", MessageBoxButton.OK, MessageBoxImage.Information));
             }
             catch (Exception ex)
             {
@@ -89,8 +98,10 @@ namespace TivoTest
             {
                 try
                 {
-                    var shows = connection.GetFolderShowsList(folder);
-                    this.Shows = shows;
+                    shows.Clear();
+
+                    connection.GetMyShowsList(folder)
+                        .Subscribe(child => this.Shows.Add(child), () => MessageBox.Show("Shows updated!", "Success", MessageBoxButton.OK, MessageBoxImage.Information));
                 }
                 catch (Exception ex)
                 {

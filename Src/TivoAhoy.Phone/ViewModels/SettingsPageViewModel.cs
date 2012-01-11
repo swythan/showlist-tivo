@@ -11,6 +11,7 @@ using System.Windows.Shapes;
 using Caliburn.Micro;
 using System.Net.Sockets;
 using Tivo.Connect;
+using System.Reactive.Linq;
 
 namespace TivoAhoy.Phone.ViewModels
 {
@@ -60,22 +61,22 @@ namespace TivoAhoy.Phone.ViewModels
                 NotifyOfPropertyChange(() => this.MediaAccessKey);
             }
         }
-        
+
         public void TestConnection()
         {
-            using (var connection = new TivoConnection())
-            {
-                try
-                {
-                    connection.Connect(this.TivoIPAddress, this.MediaAccessKey);
+            var connection = new TivoConnection();
 
-                    MessageBox.Show("Connection Succeeded!");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(string.Format("Connection Failed! :-(\n{0}", ex));
-                }
-            }
+            connection.Connect(this.TivoIPAddress, this.MediaAccessKey)
+                .ObserveOnDispatcher()
+                .Subscribe(
+                    _ => MessageBox.Show("Connection Succeeded!"),
+                    ex =>
+                    {
+                        MessageBox.Show(string.Format("Connection Failed! :-(\n{0}", ex));
+                        connection.Dispose();
+                    },
+                    () => connection.Dispose());
+
         }
     }
 }

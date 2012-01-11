@@ -20,7 +20,7 @@ namespace Tivo.Connect
         TcpClient client;
         TlsProtocolHandler protocolHandler;
 
-        protected virtual void Dispose(bool disposing)
+        protected virtual void DisposeSpecialized(bool disposing)
         {
             if (disposing)
             {

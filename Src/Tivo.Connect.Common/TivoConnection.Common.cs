@@ -8,6 +8,11 @@ using JsonFx.Json;
 using Tivo.Connect.Entities;
 using JsonFx.Serialization;
 using System.Threading;
+using System.Reactive.Linq;
+using System.Reactive.Subjects;
+using System.Threading.Tasks;
+using System.Collections.Concurrent;
+using System.Reactive;
 
 namespace Tivo.Connect
 {
@@ -16,7 +21,11 @@ namespace Tivo.Connect
         Stream sslStream = null;
         int sessionId;
         int rpcId = 0;
-        
+
+        private Task receiveTask;
+        private Subject<Tuple<int, IDictionary<string, object>>> receiveSubject;
+        private CancellationTokenSource receiveCancellationTokenSource;
+
         public TivoConnection()
         {
             sessionId = new Random().Next(0x26c000, 0x27dc20);
@@ -28,94 +37,113 @@ namespace Tivo.Connect
             Dispose(true);
         }
 
-        public void Connect(string serverAddress, string mediaAccessKey)
+        private void Dispose(bool disposing)
+        {
+            DisposeSpecialized(disposing);
+            if (disposing)
+            {
+                receiveCancellationTokenSource.Cancel();
+            }
+        }
+
+        public IObservable<Unit> Connect(string serverAddress, string mediaAccessKey)
         {
             this.sslStream = ConnectNetworkStream(serverAddress);
 
+            this.receiveSubject = new Subject<Tuple<int, IDictionary<string, object>>>();
+            this.receiveCancellationTokenSource = new CancellationTokenSource();
+            this.receiveTask = Task.Factory.StartNew(RpcReceiveThreadProc, this.receiveCancellationTokenSource.Token, TaskCreationOptions.LongRunning, TaskScheduler.Default);
+
             // Send authentication message to the TiVo. 
-            SendAuthenticationRequest(mediaAccessKey);
+            return SendAuthenticationRequest(mediaAccessKey)
+                .SelectMany(authResponse =>
+                    {
+                        if (((string)authResponse["type"]) != "bodyAuthenticateResponse")
+                        {
+                            throw new FormatException("Expecting bodyAuthenticateResponse");
+                        }
 
-            // Read auth response from the server.
-            var authResponse = ReadMessage();
+                        if (((string)authResponse["status"]) != "success")
+                        {
+                            throw new Exception(authResponse["message"] as string);
+                        }
 
-            if (((string)authResponse["type"]) != "bodyAuthenticateResponse")
-            {
-                throw new FormatException("Expecting bodyAuthenticateResponse");
-            }
+                        Debug.WriteLine("Authentication successful");
 
-            if (((string)authResponse["status"]) != "success")
-            {
-                throw new Exception(authResponse["message"] as string);
-            }
+                        // Now check that network control is enabled
+                        return SendOptStatusGetRequest();
+                    })
+                .Select(statusResponse =>
+                    {
+                        if (((string)statusResponse["type"]) != "optStatusResponse")
+                        {
+                            throw new FormatException("Expecting optStatusResponse");
+                        }
 
-            Debug.WriteLine("Authentication successful");
+                        if (((string)statusResponse["optStatus"]) != "optIn")
+                        {
+                            throw new Exception("Network control not enabled");
+                        }
 
-            // Chcek for network control enabled
-            SendOptStatusGetRequest();
-
-            // Read status response from the server.
-            var statusResponse = ReadMessage();
-
-            if (((string)statusResponse["type"]) != "optStatusResponse")
-            {
-                throw new FormatException("Expecting optStatusResponse");
-            }
-
-            if (((string)statusResponse["optStatus"]) != "optIn")
-            {
-                throw new Exception("Network control not enabled");
-            }
+                        return Unit.Default;
+                    });
         }
 
-        public IEnumerable<RecordingFolderItem> GetMyShowsList()
+        private void RpcReceiveThreadProc()
         {
-            SendGetMyShowsRequest();
-
-            var results = ReadMessage();
-
-            var objectIds = (results["objectIdAndType"] as IEnumerable<string>).Select(id => int.Parse(id));
-
-            var groups = objectIds.Select((id, ix) => new { id, Page = ix / 5 }).GroupBy(x => x.Page, x => x.id);
-
-            foreach (var group in groups)
+            try
             {
-                SendGetMyShowsItemDetailsRequest(group);
-
-                var detailsResults = ReadMessage();
-
-                var items = detailsResults["recordingFolderItem"] as IEnumerable<Dictionary<string, object>>;
-
-                foreach (var item in items)
+                while (true)
                 {
-                    yield return RecordingFolderItem.Create(item);
+                    this.receiveSubject.OnNext(ReadMessage());
+
+                    if (this.receiveCancellationTokenSource.IsCancellationRequested)
+                    {
+                        this.receiveSubject.OnCompleted();
+                        return;
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                this.receiveSubject.OnError(ex);
+            }
         }
 
-        public IEnumerable<RecordingFolderItem> GetFolderShowsList(Container parent)
+
+        public IObservable<RecordingFolderItem> GetMyShowsList(Container parent)
         {
-            SendGetFolderShowsRequest(parent.Id);
+            var parentId = parent != null ? parent.Id : null;
 
-            var results = ReadMessage();
+            return SendGetFolderShowsRequest(parentId)
+                .SelectMany(results =>
+                    {
+                        var objectIds = (results["objectIdAndType"] as IEnumerable<string>).Select(id => long.Parse(id));
 
-            var items = results["recordingFolderItem"] as IEnumerable<Dictionary<string, object>>;
+                        var groups = objectIds.Select((id, ix) => new { id, Page = ix / 5 }).GroupBy(x => x.Page, x => x.id);
 
-            return items.Select(item => RecordingFolderItem.Create(item));
+                        return groups
+                            .Select(group => SendGetMyShowsItemDetailsRequest(group)
+                                .Select(detailsResults => ((IEnumerable<IDictionary<string, object>>)detailsResults["recordingFolderItem"]).ToObservable())
+                                .Concat())
+                            .Concat()
+                            .Select(detailItem => RecordingFolderItem.Create(detailItem));
+                    });
         }
 
-        public void PlayShow(IndividualShow show)
+        public IObservable<Unit> PlayShow(IndividualShow show)
         {
-            SendPlayShowRequest(show.Id);
-
-            dynamic results = ReadMessage();
-
+            // TODO : Handle failure
+            return SendPlayShowRequest(show.Id).Select(result => Unit.Default);
         }
 
-        private void SendRequest(string requestType, object body)
+        private IObservable<IDictionary<string, object>> SendRequest(string requestType, object body)
         {
+            var requestRpcId = Interlocked.Increment(ref this.rpcId);
+
             var header = new StringBuilder();
             header.AppendLine("Type:request");
-            header.AppendLine(string.Format("RpcId:{0}", Interlocked.Increment(ref this.rpcId)));
+            header.AppendLine(string.Format("RpcId:{0}", requestRpcId));
             header.AppendLine("SchemaVersion:7");
             header.AppendLine("Content-Type:application/json");
             header.AppendLine("RequestType:" + requestType);
@@ -138,9 +166,14 @@ namespace Tivo.Connect
             var messageBytes = Encoding.UTF8.GetBytes(messageString);
             this.sslStream.Write(messageBytes, 0, messageBytes.Length);
             this.sslStream.Flush();
+
+            return this.receiveSubject
+                .Where(message => message.Item1 == requestRpcId)
+                .Select(message => message.Item2)
+                .Take(1);
         }
 
-        private Dictionary<string, object> ReadMessage()
+        private Tuple<int, IDictionary<string, object>> ReadMessage()
         {
             StreamReader reader = new StreamReader(this.sslStream, Encoding.UTF8);
             var preamble = reader.ReadLine();
@@ -153,15 +186,38 @@ namespace Tivo.Connect
             reader.ReadBlock(headerChars, 0, headerBytes);
 
             var header = new string(headerChars);
+            var headerReader = new StringReader(header);
+
+            int rpcId = 0;
+            while (true)
+            {
+                var line = headerReader.ReadLine();
+                if (line == null)
+                    break;
+
+                if (line.StartsWith("RpcId", StringComparison.OrdinalIgnoreCase))
+                {
+                    var tokens = line.Split(':');
+                    if (tokens.Length > 1)
+                    {
+                        if (int.TryParse(tokens[1], out rpcId))
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
 
             var bodyChars = new char[bodyBytes];
             reader.ReadBlock(bodyChars, 0, bodyBytes);
 
             var jsonReader = new JsonReader();
-            return jsonReader.Read<Dictionary<string, object>>(new string(bodyChars));
+            IDictionary<string, object> body = jsonReader.Read<Dictionary<string, object>>(new string(bodyChars));
+
+            return Tuple.Create(rpcId, body);
         }
 
-        private void SendAuthenticationRequest(string mediaAccessKey)
+        private IObservable<IDictionary<string, object>> SendAuthenticationRequest(string mediaAccessKey)
         {
             var body = new Dictionary<string, object>()
             { 
@@ -175,20 +231,20 @@ namespace Tivo.Connect
                 }
             };
 
-            SendRequest((string)body["type"], body);
+            return SendRequest((string)body["type"], body);
         }
 
-        private void SendOptStatusGetRequest()
+        private IObservable<IDictionary<string, object>> SendOptStatusGetRequest()
         {
             var body = new Dictionary<string, object>()
             { 
                 { "type", "optStatusGet" }
             };
 
-            SendRequest((string)body["type"], body);
+            return SendRequest((string)body["type"], body);
         }
 
-        private void SendGetMyShowsRequest()
+        private IObservable<IDictionary<string, object>> SendGetFolderShowsRequest(string parentId)
         {
             var body = new Dictionary<string, object>
             {
@@ -196,14 +252,17 @@ namespace Tivo.Connect
                 { "orderBy", new string[] { "startTime" } },
                 { "bodyId", "" },
                 { "format", "idSequence" },
-                //objectIdAndType = new string[] { "0" },
-                //note = new string[] { "recordingForChildRecordingId" }
             };
 
-            SendRequest((string)body["type"], body);
+            if (!string.IsNullOrWhiteSpace(parentId))
+            {
+                body["parentRecordingFolderItemId"] = parentId;
+            }
+
+            return SendRequest((string)body["type"], body);
         }
 
-        private void SendGetMyShowsItemDetailsRequest(IEnumerable<int> itemIds)
+        private IObservable<IDictionary<string, object>> SendGetMyShowsItemDetailsRequest(IEnumerable<long> itemIds)
         {
             var body = new Dictionary<string, object>
             {
@@ -214,25 +273,10 @@ namespace Tivo.Connect
                 { "note", new string[] { "recordingForChildRecordingId" } }
             };
 
-            SendRequest((string)body["type"], body);
+            return SendRequest((string)body["type"], body);
         }
 
-        private void SendGetFolderShowsRequest(string parentId)
-        {
-            var body = new Dictionary<string, object>
-            {
-                { "type", "recordingFolderItemSearch" },
-                { "orderBy", new string[] { "startTime" } },
-                { "bodyId", "" },
-                { "parentRecordingFolderItemId", parentId },
-                //note = new string[] { "recordingForChildRecordingId" }
-
-            };
-
-            SendRequest((string)body["type"], body);
-        }
-
-        private void SendPlayShowRequest(string showId)
+        private IObservable<IDictionary<string, object>> SendPlayShowRequest(string showId)
         {
             var body = new
             {
@@ -246,7 +290,7 @@ namespace Tivo.Connect
                 }
             };
 
-            SendRequest(body.type, body);
+            return SendRequest(body.type, body);
         }
 
 
