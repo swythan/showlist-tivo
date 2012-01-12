@@ -16,6 +16,13 @@ namespace Tivo.Connect.Entities
             base.SetupFromRecordingFolderItemJson(jsonSource);
 
             this.Id = (string)jsonSource["recordingFolderItemId"];
+
+            if (jsonSource.ContainsKey("folderItemCount"))
+            {
+                this.FolderItemCount = (int)jsonSource["folderItemCount"];
+            }
         }
+
+        public int FolderItemCount { get; set; }
     }
 }

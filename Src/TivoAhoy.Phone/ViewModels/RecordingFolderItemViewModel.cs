@@ -19,7 +19,7 @@ namespace TivoAhoy.Phone.ViewModels
         string Id { get; }
     }
 
-    public class RecordingFolderItemViewModel<T> : PropertyChangedBase, IRecordingFolderItemViewModel where T : RecordingFolderItem
+    public abstract class RecordingFolderItemViewModel<T> : PropertyChangedBase, IRecordingFolderItemViewModel where T : RecordingFolderItem
     {
         private T source;
 
@@ -56,6 +56,6 @@ namespace TivoAhoy.Phone.ViewModels
             get { return this.Source.Id; }
         }
 
-
+        public abstract bool IsSingleShow { get; }
     }
 }

@@ -6,15 +6,17 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"
     Orientation="Portrait"
     mc:Ignorable="d"
-    d:DesignHeight="768"
+    d:DesignHeight="800"
     d:DesignWidth="480"
-    shell:SystemTray.IsVisible="True">
+    shell:SystemTray.IsVisible="False"
+    toolkit:TiltEffect.IsTiltEnabled="True">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid
@@ -39,7 +41,7 @@
             <TextBlock
                 x:Name="PageTitle"
                 Text="Settings"
-                Margin="9,-7,0,0"
+                Margin="12,-7,0,0"
                 Style="{StaticResource PhoneTextTitle1Style}" />
         </StackPanel>
 
@@ -63,7 +65,8 @@
             </Grid.RowDefinitions>
             <TextBlock
                 HorizontalAlignment="Left"
-                Text="TiVo IP Address" />
+                Text="TiVo IP Address"
+                Style="{StaticResource PhoneTextNormalStyle}" />
             <TextBox
                 HorizontalAlignment="Stretch"
                 Name="TivoIPAddress"
@@ -72,7 +75,8 @@
                 InputScope="Digits"/>
             <TextBlock
                 HorizontalAlignment="Left"
-                Text="TiVo MAK" 
+                Text="TiVo MAK"
+                Style="{StaticResource PhoneTextNormalStyle}"
                 Grid.Row="2"/>
             <TextBox
                 HorizontalAlignment="Stretch"

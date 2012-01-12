@@ -4,23 +4,145 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     d:DesignHeight="480" d:DesignWidth="480">
     
-    <Grid x:Name="LayoutRoot" Margin="0,0,-12,0">
+    <Grid x:Name="LayoutRoot" Margin="12,0,12,0">
         <ListBox
-            x:Name="MyShows">
+            x:Name="MyShows"
+            Margin="12,0,0,0">
             <ListBox.ItemContainerStyle>
                 <Style
                     TargetType="ListBoxItem">
                     <Setter
-                        Property="cal:Message.Attach"
-                        Value="[Event Tap] = [Action ActivateItem($dataContext)]" />
+                        Property="HorizontalContentAlignment"
+                        Value="Stretch" />
                 </Style>
             </ListBox.ItemContainerStyle>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <toolkit:ExpanderView
+                        Margin="0,0,0,8"
+                        Header="{Binding}"
+                        NonExpandableHeader="{Binding}"
+                        Expander="{Binding}"
+                        ItemsSource="{Binding Shows}"
+                        IsNonExpandable="{Binding IsSingleShow}"
+                        cal:Message.Attach="[Event Expanded] = [Action GetChildShows]">
+
+
+                        <!-- 
+                        The HeaderTemplate describes the header for an expandable item.
+                        In this case it's the series/show title.
+                        -->
+                        <toolkit:ExpanderView.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock
+                                    Text="{Binding Title}"
+                                    Foreground="{StaticResource PhoneForegroundBrush}"
+                                    FontSize="{StaticResource PhoneFontSizeExtraLarge}"
+                                    FontFamily="{StaticResource PhoneFontFamilySemiLight}" />
+                            </DataTemplate>
+                        </toolkit:ExpanderView.HeaderTemplate>
+
+                        <!-- 
+                        The ExpanderTemplate describes the template to the right of the line 
+                        which represents the first sub-item in the expander view.
+                        In this case its the number of id & number of shows.
+                        -->
+                        <toolkit:ExpanderView.ExpanderTemplate>
+                            <DataTemplate>
+                                <TextBlock
+                                    LineHeight="25"
+                                    LineStackingStrategy="BlockLineHeight"
+                                    TextWrapping="Wrap">
+                                    <Run
+                                        Text="{Binding ContentInfo}"
+                                        Foreground="{StaticResource PhoneSubtleBrush}"
+                                        FontSize="{StaticResource PhoneFontSizeNormal}"
+                                        FontFamily="{StaticResource PhoneFontFamilySemiBold}" />
+                                    <LineBreak />
+                                    <Run
+                                        Text="{Binding Id}"
+                                        Foreground="{StaticResource PhoneSubtleBrush}"
+                                        FontSize="{StaticResource PhoneFontSizeNormal}"
+                                        FontFamily="{StaticResource PhoneFontFamilyNormal}" />
+                                </TextBlock>
+                            </DataTemplate>
+                        </toolkit:ExpanderView.ExpanderTemplate>
+
+                        <!-- 
+                        The ItemTemplate describes the template for all items once the expansion
+                        has occured. 
+                        In this case it's the template for all the individual shows in a series.
+                        -->
+                        <toolkit:ExpanderView.ItemTemplate>
+                            <DataTemplate>
+                                <ListBoxItem
+                                    toolkit:TiltEffect.IsTiltEnabled="True">
+                                    <StackPanel>
+                                        <TextBlock
+                                            Text="{Binding Title}"
+                                            Margin="0,8,0,-4"
+                                            Foreground="{StaticResource PhoneForegroundBrush}"
+                                            FontSize="{StaticResource PhoneFontSizeExtraLarge}"
+                                            FontFamily="{StaticResource PhoneFontFamilySemiLight}" />
+                                        <!--<TextBlock
+                                            Text="{Binding Body}"
+                                            TextWrapping="Wrap"
+                                            Margin="0,0,0,-2"
+                                            Foreground="{StaticResource PhoneAccentBrush}"
+                                            FontSize="{StaticResource PhoneFontSizeNormal}"
+                                            FontFamily="{StaticResource PhoneFontFamilyNormal}" />-->
+                                    </StackPanel>
+                                </ListBoxItem>
+                            </DataTemplate>
+                        </toolkit:ExpanderView.ItemTemplate>
+
+                        <!-- 
+                        The NonExpandableHeaderTemplate describes the non-expandable case.
+                        In this case it's the template for all the individual shows not in a series.
+                        -->
+                        <toolkit:ExpanderView.NonExpandableHeaderTemplate>
+                            <DataTemplate>
+                                <StackPanel
+                                    toolkit:TiltEffect.IsTiltEnabled="True">
+                                    <TextBlock
+                                        Text="{Binding Title}"
+                                        Margin="0,8,0,-4"
+                                        Foreground="{StaticResource PhoneForegroundBrush}"
+                                        FontSize="{StaticResource PhoneFontSizeExtraLarge}"
+                                        FontFamily="{StaticResource PhoneFontFamilySemiLight}" />
+                                    <!--<TextBlock
+                                        Text="{Binding LastMessageReceived.Subject}"
+                                        TextWrapping="Wrap"
+                                        Margin="0,0,0,-2"
+                                        Foreground="{StaticResource PhoneAccentBrush}"
+                                        FontSize="{StaticResource PhoneFontSizeNormal}"
+                                        FontFamily="{StaticResource PhoneFontFamilySemiBold}" />
+                                    <TextBlock
+                                        Text="{Binding LastMessageReceived.Body}"
+                                        TextWrapping="Wrap"
+                                        Margin="0,0,0,-2"
+                                        Foreground="{StaticResource PhoneSubtleBrush}"
+                                        FontSize="{StaticResource PhoneFontSizeNormal}"
+                                        FontFamily="{StaticResource PhoneFontFamilyNormal}" />-->
+                                </StackPanel>
+                            </DataTemplate>
+                        </toolkit:ExpanderView.NonExpandableHeaderTemplate>
+                    </toolkit:ExpanderView>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+
         </ListBox>
     </Grid>
 </UserControl>

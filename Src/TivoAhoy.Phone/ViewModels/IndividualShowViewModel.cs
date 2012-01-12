@@ -15,6 +15,9 @@ namespace TivoAhoy.Phone.ViewModels
 {
     public class IndividualShowViewModel : RecordingFolderItemViewModel<IndividualShow>
     {
-
+        public override bool IsSingleShow
+        {
+            get { return true; }
+        }
     }
 }

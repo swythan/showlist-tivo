@@ -47,6 +47,7 @@ namespace TivoAhoy.Phone
 
             Database = _engine.SterlingDatabase.RegisterDatabase<TivoInfoCacheDatabase>(new IsolatedStorageDriver());
 
+            Database.Purge();
             //TRIGGERS HERE ETC...
         }
 

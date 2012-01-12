@@ -15,10 +15,20 @@ namespace TivoAhoy.Phone.ViewModels
         private readonly ISterlingInstance sterlingInstance;
         private readonly SettingsPageViewModel settingsModel;
 
-        public MyShowsViewModel(ISterlingInstance sterlingInstance, SettingsPageViewModel settingsModel)
+        private readonly Func<IndividualShowViewModel> showViewModelFactory;
+        private readonly Func<ShowContainerViewModel> showContainerViewModelFactory;
+
+        public MyShowsViewModel(
+            ISterlingInstance sterlingInstance, 
+            SettingsPageViewModel settingsModel, 
+            Func<IndividualShowViewModel> showViewModelFactory,
+            Func<ShowContainerViewModel> showContainerViewModelFactory)
         {
             this.sterlingInstance = sterlingInstance;
             this.settingsModel = settingsModel;
+
+            this.showViewModelFactory = showViewModelFactory;
+            this.showContainerViewModelFactory = showContainerViewModelFactory;
 
             this.MyShows = new BindableCollection<IRecordingFolderItemViewModel>();
         }
@@ -62,24 +72,24 @@ namespace TivoAhoy.Phone.ViewModels
                     () => connection.Dispose());
         }
 
-        private static IRecordingFolderItemViewModel CreateItemViewModel(RecordingFolderItem recordingFolderItem)
+        private IRecordingFolderItemViewModel CreateItemViewModel(RecordingFolderItem recordingFolderItem)
         {
             var showContainer = recordingFolderItem as Container;
             if (showContainer != null)
             {
-                return new ShowContainerViewModel()
-                {
-                    Source = showContainer
-                };
+                var result = this.showContainerViewModelFactory();
+                result.Source = showContainer;
+
+                return result;
             }
 
             var show = recordingFolderItem as IndividualShow;
             if (show != null)
             {
-                return new IndividualShowViewModel()
-                {
-                    Source = show
-                };
+                var result = this.showViewModelFactory();
+                result.Source = show;
+
+                return result; 
             }
 
             return null;
@@ -87,12 +97,12 @@ namespace TivoAhoy.Phone.ViewModels
 
         public void ActivateItem(object item)
         {
-            var showContainer = item as ShowContainerViewModel;
+            //var showContainer = item as ShowContainerViewModel;
 
-            if (showContainer != null)
-            {
-                FetchShows(showContainer.Source);
-            }
+            //if (showContainer != null)
+            //{
+            //    FetchShows(showContainer.Source);
+            //}
         }
     }
 }
