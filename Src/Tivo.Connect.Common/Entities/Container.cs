@@ -7,10 +7,15 @@ namespace Tivo.Connect.Entities
 {
     public class Container : RecordingFolderItem
     {
-        public Container(IDictionary<string, object> jsonSource)
-            : base((string)jsonSource["recordingFolderItemId"], jsonSource)
+        public Container()
         {
+        }
 
+        protected override void SetupFromRecordingFolderItemJson(IDictionary<string, object> jsonSource)
+        {
+            base.SetupFromRecordingFolderItemJson(jsonSource);
+
+            this.Id = (string)jsonSource["recordingFolderItemId"];
         }
     }
 }

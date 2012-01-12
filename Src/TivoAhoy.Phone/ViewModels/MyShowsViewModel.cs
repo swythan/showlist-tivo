@@ -12,14 +12,15 @@ namespace TivoAhoy.Phone.ViewModels
 {
     public class MyShowsViewModel : Screen
     {
+        private readonly ISterlingInstance sterlingInstance;
         private readonly SettingsPageViewModel settingsModel;
 
-        public MyShowsViewModel(SettingsPageViewModel settingsModel)
+        public MyShowsViewModel(ISterlingInstance sterlingInstance, SettingsPageViewModel settingsModel)
         {
+            this.sterlingInstance = sterlingInstance;
             this.settingsModel = settingsModel;
 
             this.MyShows = new BindableCollection<IRecordingFolderItemViewModel>();
-
         }
 
         public BindableCollection<IRecordingFolderItemViewModel> MyShows { get; private set; }
@@ -47,7 +48,7 @@ namespace TivoAhoy.Phone.ViewModels
         {
             this.MyShows.Clear();
 
-            var connection = new TivoConnection();
+            var connection = new TivoConnection(sterlingInstance.Database);
 
             connection.Connect(this.settingsModel.TivoIPAddress, this.settingsModel.MediaAccessKey)
                 .SelectMany(_ => connection.GetMyShowsList(parent))

@@ -25,11 +25,16 @@ namespace TivoTest
     public partial class MainViewModel : PropertyChangedBase
     {
         private TivoConnection connection;
+        private ISterlingInstance sterlingInstance;
+
         private BindableCollection<RecordingFolderItem> shows;
 
-        public MainViewModel()
+        [ImportingConstructor]
+        public MainViewModel(ISterlingInstance sterlingInstance)
         {
-            shows = new BindableCollection<RecordingFolderItem>();
+            this.sterlingInstance = sterlingInstance;
+
+            this.shows = new BindableCollection<RecordingFolderItem>();
         }
 
         public BindableCollection<RecordingFolderItem> Shows
@@ -47,7 +52,7 @@ namespace TivoTest
 
         public void Connect()
         {
-            var localConnection = new TivoConnection();
+            var localConnection = new TivoConnection(this.sterlingInstance.Database);
             try
             {
                 localConnection.Connect("192.168.0.7", "9837127953")

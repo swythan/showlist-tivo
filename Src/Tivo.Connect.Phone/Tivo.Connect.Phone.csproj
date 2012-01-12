@@ -55,8 +55,8 @@
     <Reference Include="System.Reactive">
       <HintPath>..\packages\Rx-Main.1.0.11226\lib\SL3-WP\System.Reactive.dll</HintPath>
     </Reference>
-    <Reference Include="System.Threading.Tasks.WP71">
-      <HintPath>..\packages\System.Threading.Tasks.2.1.2\lib\sl4-wp71\System.Threading.Tasks.WP71.dll</HintPath>
+    <Reference Include="System.Threading.Tasks.WP7">
+      <HintPath>..\..\Bin\System.Threading.Tasks.WP7.dll</HintPath>
     </Reference>
     <Reference Include="System.Windows" />
     <Reference Include="system" />
@@ -64,6 +64,13 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Net" />
     <Reference Include="mscorlib.extensions" />
+    <Reference Include="Wintellect.Sterling.WindowsPhone, Version=1.5.4393.40645, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\Wintellect.Sterling.WindowsPhone.dll</HintPath>
+    </Reference>
+    <Reference Include="Wintellect.Sterling.WindowsPhone.IsolatedStorage, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\Bin\Wintellect.Sterling.WindowsPhone.IsolatedStorage.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\Tivo.Connect.Common\Entities\Container.cs">
@@ -77,6 +84,9 @@
     </Compile>
     <Compile Include="..\Tivo.Connect.Common\TivoConnection.Common.cs">
       <Link>TivoConnection.Common.cs</Link>
+    </Compile>
+    <Compile Include="..\Tivo.Connect.Common\TivoInfoCacheDatabase.cs">
+      <Link>TivoInfoCacheDatabase.cs</Link>
     </Compile>
     <Compile Include="TivoConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

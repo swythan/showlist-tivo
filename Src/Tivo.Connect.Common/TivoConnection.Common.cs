@@ -13,14 +13,19 @@ using System.Reactive.Subjects;
 using System.Threading.Tasks;
 using System.Collections.Concurrent;
 using System.Reactive;
+using Wintellect.Sterling.Keys;
+using Wintellect.Sterling;
 
 namespace Tivo.Connect
 {
     public partial class TivoConnection : IDisposable
     {
-        Stream sslStream = null;
-        int sessionId;
-        int rpcId = 0;
+        private ISterlingDatabaseInstance cacheDb;
+
+        private readonly int sessionId;
+        
+        private Stream sslStream = null;
+        private int lastRpcId = 0;
 
         private Task receiveTask;
         private Subject<Tuple<int, IDictionary<string, object>>> receiveSubject;
@@ -29,6 +34,12 @@ namespace Tivo.Connect
         public TivoConnection()
         {
             sessionId = new Random().Next(0x26c000, 0x27dc20);
+        }
+
+        public TivoConnection(ISterlingDatabaseInstance cacheDb)
+            : this()
+        {
+            this.cacheDb = cacheDb;
         }
 
         public void Dispose()
@@ -123,17 +134,58 @@ namespace Tivo.Connect
             return SendGetFolderShowsRequest(parentId)
                 .SelectMany(results =>
                     {
-                        var objectIds = (results["objectIdAndType"] as IEnumerable<string>).Select(id => long.Parse(id));
+                        var objectIds = (results["objectIdAndType"] as IEnumerable<string>)
+                            .Select(id => long.Parse(id));
 
-                        var groups = objectIds.Select((id, ix) => new { id, Page = ix / 5 }).GroupBy(x => x.Page, x => x.id);
-
-                        return groups
-                            .Select(group => SendGetMyShowsItemDetailsRequest(group)
-                                .Select(detailsResults => ((IEnumerable<IDictionary<string, object>>)detailsResults["recordingFolderItem"]).ToObservable())
-                                .Concat())
-                            .Concat()
-                            .Select(detailItem => RecordingFolderItem.Create(detailItem));
+                        return GetRecordingFolderItems(objectIds, 5);
                     });
+        }
+
+        private IObservable<RecordingFolderItem> GetRecordingFolderItems(IEnumerable<long> objectIds, int pageSize)
+        {
+            var groups = objectIds
+                .Select((id, ix) => new { Id = id, Page = ix / pageSize })
+                .GroupBy(x => x.Page, x => x.Id);
+
+            return groups
+                .Select(group => GetRecordingFolderItems(group))
+                .Concat();
+        }
+
+        private IObservable<RecordingFolderItem> GetRecordingFolderItems(IEnumerable<long> objectIds)
+        {
+            var itemsInCache = Enumerable.Empty<RecordingFolderItem>();
+
+            if (this.cacheDb != null)
+            {
+                var showsInCache = objectIds
+                    .Join(this.cacheDb.Query<IndividualShow, long>(), id => id, tk => tk.Key, (id, tk) => tk.LazyValue.Value as RecordingFolderItem);
+                
+                var containersInCache = objectIds
+                    .Join(this.cacheDb.Query<Container, long>(), id => id, tk => tk.Key, (id, tk) => tk.LazyValue.Value as RecordingFolderItem);
+
+                itemsInCache = objectIds
+                    .Join(showsInCache.Concat(containersInCache), id => id, item => item.ObjectId, (id, item) => item);
+            }
+
+            if (objectIds.Except(itemsInCache.Select(item => item.ObjectId)).Any())
+            {
+                var result = SendGetMyShowsItemDetailsRequest(objectIds)
+                    .Select(detailsResults => ((IEnumerable<IDictionary<string, object>>)detailsResults["recordingFolderItem"]).ToObservable())
+                    .Concat()
+                    .Select(detailItem => RecordingFolderItem.Create(detailItem));
+
+                if (cacheDb != null)
+                {
+                    result.Subscribe(item => this.cacheDb.Save(item.GetType(), item), () => this.cacheDb.Flush());
+                }
+
+                return result;
+            }
+            else
+            {
+                return itemsInCache.ToObservable();
+            }
         }
 
         public IObservable<Unit> PlayShow(IndividualShow show)
@@ -144,7 +196,7 @@ namespace Tivo.Connect
 
         private IObservable<IDictionary<string, object>> SendRequest(string requestType, object body)
         {
-            var requestRpcId = Interlocked.Increment(ref this.rpcId);
+            var requestRpcId = Interlocked.Increment(ref this.lastRpcId);
 
             var header = new StringBuilder();
             header.AppendLine("Type:request");

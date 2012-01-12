@@ -69,14 +69,24 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Wintellect.Sterling.Server, Version=1.5.4173.19703, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sterling.1.5.0.0\lib\net40\Wintellect.Sterling.Server.dll</HintPath>
+      <Aliases>global</Aliases>
+    </Reference>
+    <Reference Include="Wintellect.Sterling.Server.FileSystem">
+      <HintPath>..\packages\Sterling.1.5.0.0\lib\net40\Wintellect.Sterling.Server.FileSystem.dll</HintPath>
+      <Aliases>global</Aliases>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ISterlingInstance.cs" />
     <Compile Include="MainViewModel.cs" />
     <Compile Include="ShellViewModel.cs" />
+    <Compile Include="SterlingService.cs" />
     <Page Include="MainView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

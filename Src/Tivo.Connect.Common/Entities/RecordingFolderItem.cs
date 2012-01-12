@@ -10,33 +10,50 @@ namespace Tivo.Connect.Entities
     {
         public static RecordingFolderItem Create(IDictionary<string, object> jsonSource)
         {
+            RecordingFolderItem result = null;
+
             if (((string)jsonSource["childRecordingId"]).Split('.')[1] == ((string)jsonSource["recordingFolderItemId"]).Split('.')[1])
             {
-                return new IndividualShow(jsonSource);
+                result = new IndividualShow();
+            }
+            else
+            { 
+                result =  new Container();
             }
 
-            return new Container(jsonSource);
+            result.SetupFromRecordingFolderItemJson(jsonSource);
+
+            return result;
         }
 
-        private readonly IDictionary<string, object> jsonSource;
+        private IDictionary<string, object> jsonSource;
 
-        public RecordingFolderItem(string id, IDictionary<string, object> jsonSource)
+        public RecordingFolderItem()
+        {
+
+        }
+
+        protected virtual void SetupFromRecordingFolderItemJson(IDictionary<string, object> jsonSource)
         {
             this.jsonSource = jsonSource;
 
-            this.Id = id;
+            this.ObjectId = long.Parse(jsonSource["objectIdAndType"] as string);
             this.ItemType = jsonSource["collectionType"] as string;
             this.Title = jsonSource["title"] as string;
         }
 
-        public string Id { get; private set; }
-        public string ItemType { get; private set; }
-        public string Title { get; private set; }
+        public long ObjectId { get; set; }
+        public string Id { get; set; }
+        public string ItemType { get; set; }
+        public string Title { get; set; }
 
         public string JsonText
         {
             get
             {
+                if (this.jsonSource == null)
+                    return string.Empty;
+
                 var writer = new JsonWriter();
                 writer.Settings.PrettyPrint = true;
 

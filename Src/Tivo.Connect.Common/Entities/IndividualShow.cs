@@ -7,10 +7,15 @@ namespace Tivo.Connect.Entities
 {
     public class IndividualShow : RecordingFolderItem
     {
-        public IndividualShow(IDictionary<string, object> jsonSource)
-            : base((string)jsonSource["childRecordingId"], jsonSource)
-        {
+        public IndividualShow()
+        { 
+        }
 
+        protected override void SetupFromRecordingFolderItemJson(IDictionary<string, object> jsonSource)
+        {
+            base.SetupFromRecordingFolderItemJson(jsonSource);
+
+            this.Id = (string)jsonSource["childRecordingId"];
         }
     }
 }

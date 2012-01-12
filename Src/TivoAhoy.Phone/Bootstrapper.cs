@@ -11,13 +11,18 @@ namespace TivoAhoy.Phone
 {
     public class Bootstrapper : PhoneBootstrapper
     {
-        PhoneContainer container;
+        private PhoneContainer container;
+        private SterlingService sterlingService;
 
         protected override void Configure()
         {
             container = new PhoneContainer(RootFrame);
 
             container.RegisterPhoneServices();
+            
+            sterlingService = new SterlingService();
+            container.Instance<ISterlingInstance>(sterlingService);
+          
             container.Singleton<SettingsPageViewModel>();
             container.PerRequest<MainPageViewModel>();
             container.PerRequest<MyShowsViewModel>();
@@ -39,6 +44,30 @@ namespace TivoAhoy.Phone
         protected override void BuildUp(object instance)
         {
             container.BuildUp(instance);
+        }
+
+        protected override void OnLaunch(object sender, Microsoft.Phone.Shell.LaunchingEventArgs e)
+        {
+            this.sterlingService.Activate();
+            base.OnLaunch(sender, e);
+        }
+
+        protected override void OnClose(object sender, Microsoft.Phone.Shell.ClosingEventArgs e)
+        {
+            base.OnClose(sender, e);
+            this.sterlingService.Deactivate();
+        }
+
+        protected override void OnActivate(object sender, Microsoft.Phone.Shell.ActivatedEventArgs e)
+        {
+            this.sterlingService.Activate();
+            base.OnActivate(sender, e);
+        }
+
+        protected override void OnDeactivate(object sender, Microsoft.Phone.Shell.DeactivatedEventArgs e)
+        {
+            base.OnDeactivate(sender, e);
+            this.sterlingService.Deactivate();
         }
     }
 }

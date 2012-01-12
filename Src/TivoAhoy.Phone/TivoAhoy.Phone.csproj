@@ -81,12 +81,20 @@
       <HintPath>..\..\Bin\System.Windows.Interactivity.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml" />
+    <Reference Include="Wintellect.Sterling.WindowsPhone">
+      <HintPath>..\packages\SterlingPhone.1.5.0.1\lib\SL3-WP\Wintellect.Sterling.WindowsPhone.dll</HintPath>
+    </Reference>
+    <Reference Include="Wintellect.Sterling.WindowsPhone.IsolatedStorage">
+      <HintPath>..\packages\SterlingPhone.1.5.0.1\lib\SL3-WP\Wintellect.Sterling.WindowsPhone.IsolatedStorage.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="ISterlingInstance.cs" />
+    <Compile Include="SterlingService.cs" />
     <Compile Include="ViewModels\MyShowsViewModel.cs" />
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
