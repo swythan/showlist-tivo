@@ -20,7 +20,7 @@ namespace Org.BouncyCastle.Security
     /// </remarks>
     public sealed class DigestUtilities
     {
-		private enum DigestAlgorithm {
+		internal enum DigestAlgorithm {
 			GOST3411,
 			MD2, MD4, MD5,
 			RIPEMD128, RIPEMD160, RIPEMD256, RIPEMD320,

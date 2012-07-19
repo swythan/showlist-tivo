@@ -18,7 +18,7 @@ namespace Org.BouncyCastle.Security
 	/// </remarks>
 	public sealed class WrapperUtilities
 	{
-		private enum WrapAlgorithm { AESWRAP, CAMELLIAWRAP, DESEDEWRAP, RC2WRAP, SEEDWRAP,
+		internal enum WrapAlgorithm { AESWRAP, CAMELLIAWRAP, DESEDEWRAP, RC2WRAP, SEEDWRAP,
 			DESEDERFC3211WRAP, AESRFC3211WRAP, CAMELLIARFC3211WRAP };
 
 		private WrapperUtilities()

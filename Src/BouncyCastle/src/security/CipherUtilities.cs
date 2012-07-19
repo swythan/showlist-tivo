@@ -27,7 +27,7 @@ namespace Org.BouncyCastle.Security
 	/// </remarks>
 	public sealed class CipherUtilities
 	{
-		private enum CipherAlgorithm {
+		internal enum CipherAlgorithm {
 			AES,
 			ARC4,
 			BLOWFISH,
@@ -61,8 +61,8 @@ namespace Org.BouncyCastle.Security
 			XTEA,
 		};
 		
-		private enum CipherMode { ECB, NONE, CBC, CCM, CFB, CTR, CTS, EAX, GCM, GOFB, OFB, OPENPGPCFB, SIC };
-		private enum CipherPadding
+		internal enum CipherMode { ECB, NONE, CBC, CCM, CFB, CTR, CTS, EAX, GCM, GOFB, OFB, OPENPGPCFB, SIC };
+		internal enum CipherPadding
 		{
 			NOPADDING,
 			RAW,
