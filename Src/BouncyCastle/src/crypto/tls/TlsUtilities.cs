@@ -274,11 +274,11 @@ namespace Org.BouncyCastle.Crypto.Tls
 				if (ext != null)
 				{
 					DerBitString ku = KeyUsage.GetInstance(ext);
-					int bits = ku.GetBytes()[0];
-					if ((bits & keyUsageBits) != keyUsageBits)
-					{
-						throw new TlsFatalAlert(AlertDescription.certificate_unknown);
-					}
+                    //int bits = ku.GetBytes()[0];
+                    //if ((bits & keyUsageBits) != keyUsageBits)
+                    //{
+                    //    throw new TlsFatalAlert(AlertDescription.certificate_unknown);
+                    //}
 				}
 			}
 		}
