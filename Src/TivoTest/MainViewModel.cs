@@ -121,7 +121,7 @@ namespace TivoTest
 
                 if (show != null)
                 {
-                    connection.PlayShow(show);
+                    connection.PlayShow(show.Id);
                 }
             }
         }

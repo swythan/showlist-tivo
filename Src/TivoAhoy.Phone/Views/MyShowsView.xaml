@@ -38,8 +38,7 @@
                         ItemsSource="{Binding Shows}"
                         IsNonExpandable="{Binding IsSingleShow}"
                         cal:Message.Attach="[Event Expanded] = [Action GetChildShows]">
-
-
+                        
                         <!-- 
                         The HeaderTemplate describes the header for an expandable item.
                         In this case it's the series/show title.
@@ -88,7 +87,8 @@
                         <toolkit:ExpanderView.ItemTemplate>
                             <DataTemplate>
                                 <ListBoxItem
-                                    toolkit:TiltEffect.IsTiltEnabled="True">
+                                    toolkit:TiltEffect.IsTiltEnabled="True"
+                                    cal:Message.Attach="[Event Tap] = [Action DisplayShowDetails]">
                                     <StackPanel>
                                         <TextBlock
                                             Text="{Binding Title}"
@@ -115,7 +115,8 @@
                         <toolkit:ExpanderView.NonExpandableHeaderTemplate>
                             <DataTemplate>
                                 <StackPanel
-                                    toolkit:TiltEffect.IsTiltEnabled="True">
+                                    toolkit:TiltEffect.IsTiltEnabled="True"
+                                    cal:Message.Attach="[Event Tap] = [Action DisplayShowDetails]">
                                     <TextBlock
                                         Text="{Binding Title}"
                                         Margin="0,8,0,-4"

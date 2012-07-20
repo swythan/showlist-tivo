@@ -31,6 +31,8 @@ namespace Tivo.Connect
         private Subject<Tuple<int, IDictionary<string, object>>> receiveSubject;
         private CancellationTokenSource receiveCancellationTokenSource;
 
+        private string capturedTsn;
+
         public TivoConnection()
         {
             sessionId = new Random().Next(0x26c000, 0x27dc20);
@@ -59,6 +61,8 @@ namespace Tivo.Connect
 
         public IObservable<Unit> Connect(string serverAddress, string mediaAccessKey)
         {
+            this.capturedTsn = string.Empty;
+
             this.sslStream = ConnectNetworkStream(serverAddress);
 
             this.receiveSubject = new Subject<Tuple<int, IDictionary<string, object>>>();
@@ -141,6 +145,15 @@ namespace Tivo.Connect
                     });
         }
 
+        public IObservable<IDictionary<string, object>> GetShowContentDetails(string contentId)
+        {
+            var result = SendGetContentDetailsRequest(contentId)
+                .Select(detailsResults => ((IEnumerable<IDictionary<string, object>>)detailsResults["content"]).ToObservable())
+                .Concat();
+
+            return result;
+        }
+
         private IObservable<RecordingFolderItem> GetRecordingFolderItems(IEnumerable<long> objectIds, int pageSize)
         {
             var groups = objectIds
@@ -188,10 +201,10 @@ namespace Tivo.Connect
             }
         }
 
-        public IObservable<Unit> PlayShow(IndividualShow show)
+        public IObservable<Unit> PlayShow(string recordingId)
         {
             // TODO : Handle failure
-            return SendPlayShowRequest(show.Id).Select(result => Unit.Default);
+            return SendPlayShowRequest(recordingId).Select(result => Unit.Default);
         }
 
         private IObservable<IDictionary<string, object>> SendRequest(string requestType, object body)
@@ -205,7 +218,7 @@ namespace Tivo.Connect
             header.AppendLine("Content-Type:application/json");
             header.AppendLine("RequestType:" + requestType);
             header.AppendLine("ResponseCount:single");
-            header.AppendLine("BodyId:");
+            header.AppendLine(string.Format("BodyId:{0}", this.capturedTsn));
             header.AppendLine("X-ApplicationName:Quicksilver");
             header.AppendLine("X-ApplicationVersion:1.2");
             header.AppendLine(string.Format("X-ApplicationSessionId:0x{0:x}", this.sessionId));
@@ -269,7 +282,8 @@ namespace Tivo.Connect
             reader.ReadBlock(bodyChars, 0, bodyBytes);
 
             var jsonReader = new JsonReader();
-            IDictionary<string, object> body = jsonReader.Read<Dictionary<string, object>>(new string(bodyChars));
+            string bodyJsonString = new string(bodyChars);
+            IDictionary<string, object> body = jsonReader.Read<Dictionary<string, object>>(bodyJsonString);
 
             return Tuple.Create(rpcId, body);
         }
@@ -307,7 +321,7 @@ namespace Tivo.Connect
             {
                 { "type", "recordingFolderItemSearch" },
                 { "orderBy", new string[] { "startTime" } },
-                { "bodyId", "" },
+                { "bodyId", this.capturedTsn },
                 { "format", "idSequence" },
             };
 
@@ -325,7 +339,7 @@ namespace Tivo.Connect
             {
                 { "type", "recordingFolderItemSearch" },
                 { "orderBy", new string[] { "startTime" } },
-                { "bodyId", "" },
+                { "bodyId", this.capturedTsn },
                 { "objectIdAndType", itemIds.ToArray() },
                 { "note", new string[] { "recordingForChildRecordingId" } }
             };
@@ -333,21 +347,54 @@ namespace Tivo.Connect
             return SendRequest((string)body["type"], body);
         }
 
-        private IObservable<IDictionary<string, object>> SendPlayShowRequest(string showId)
+        private IObservable<IDictionary<string, object>> SendGetContentDetailsRequest(string contentId)
         {
-            var body = new
+//            {
+//  "contentId": ["tivo:ct.306278"],
+//  "filterUnavailableContent": false,
+//  "bodyId": "tsn:XXXXXXXXXXXXXXX",
+//  "note": [
+//    "userContentForCollectionId",
+//    "broadbandOfferGroupForContentId",
+//    "recordingForContentId"
+//  ],
+//  "responseTemplate": [...see “Response Template”...],
+//  "imageRuleset": [...see “Image Ruleset”...],
+//  "type": "contentSearch",
+//  "levelOfDetail": "high"
+//}
+            var body = new Dictionary<string, object>
             {
-                type = "uiNavigate",
-                uri = "x-tivo:classicui:playback",
-                parameters = new
-                {
-                    fUseTrioId = "true",
-                    recordingId = showId,
-                    fHideBannerOnEnter = "false"
-                }
+                { "contentId", new string[] { contentId } },
+                { "filterUnavailableContent", false },
+                { "bodyId", this.capturedTsn },
+//                { "note", new string[] { "userContentForCollectionId", "broadbandOfferGroupForContentId", "recordingForContentId" } },
+                { "note", new string[] { "recordingForContentId" } },
+                { "type", "contentSearch" },
+                { "levelOfDetail", "high" },
             };
 
-            return SendRequest(body.type, body);
+            return SendRequest((string)body["type"], body);
+        }
+
+        private IObservable<IDictionary<string, object>> SendPlayShowRequest(string showId)
+        {
+            var body = 
+                new Dictionary<string, object>
+                { 
+                    { "type", "uiNavigate" },
+                    { "uri", "x-tivo:classicui:playback" },
+                    { "parameters", 
+                        new Dictionary<string, object> 
+                        {
+                            { "fUseTrioId", true },
+                            { "recordingId", showId },
+                            { "fHideBannerOnEnter", false }
+                        }
+                    }
+                };
+
+            return SendRequest((string)body["type"], body);
         }
 
 

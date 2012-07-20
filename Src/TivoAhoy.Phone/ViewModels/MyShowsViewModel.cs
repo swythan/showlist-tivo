@@ -103,6 +103,6 @@ namespace TivoAhoy.Phone.ViewModels
             //{
             //    FetchShows(showContainer.Source);
             //}
-        }
+        }        
     }
 }

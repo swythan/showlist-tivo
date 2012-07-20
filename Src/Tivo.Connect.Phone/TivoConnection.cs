@@ -58,7 +58,9 @@ namespace Tivo.Connect
 
             try
             {
-                this.protocolHandler.Connect( new TivoTlsClient() );
+                TivoTlsClient tivoTlsClient = new TivoTlsClient(CaptureTsnFromServerCert);
+
+                this.protocolHandler.Connect(tivoTlsClient);
             }
             catch (IOException e)
             {
@@ -76,5 +78,10 @@ namespace Tivo.Connect
             return protocolHandler.Stream;
         }
 
+        private void CaptureTsnFromServerCert(string tsnFromCert)
+        {
+            string rawTsn = string.Join("", tsnFromCert.Split('-'));
+            this.capturedTsn = string.Format("tsn:{0}", rawTsn);
+        }
     }
 }

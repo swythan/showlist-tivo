@@ -19,20 +19,32 @@ namespace Tivo.Connect
 {
     internal class TivoTlsClient : DefaultTlsClient
     {
+        private readonly Action<string> captureTsn;
+
+        public TivoTlsClient(Action<string> captureTsn)
+        {
+            this.captureTsn = captureTsn;
+        }
+
         class TivoTlsAuthentication : TlsAuthentication
         {
             private readonly TlsClientContext context;
-            
-            public TivoTlsAuthentication(TlsClientContext context)
+            private readonly Action<string> captureTsn;
+
+            public TivoTlsAuthentication(TlsClientContext context, Action<string> captureTsn)
             {
                 this.context = context;
-            }
-            
-            public void NotifyServerCertificate(Certificate serverCertificate)
-            {
-                
+                this.captureTsn = captureTsn;
             }
 
+            public void NotifyServerCertificate(Certificate serverCertificate)
+            {
+                X509CertificateStructure firstCert = serverCertificate.GetCerts()[0];
+                X509Name subject = firstCert.Subject;
+
+                this.captureTsn((string)subject.GetValueList()[0]);
+            }
+            
             public TlsCredentials GetClientCredentials(CertificateRequest certificateRequest)
             {
                 // Load PKCS12 certificate store from resources
@@ -58,7 +70,7 @@ namespace Tivo.Connect
 
         public override TlsAuthentication GetAuthentication()
         {
-            return new TivoTlsAuthentication(this.context);
+            return new TivoTlsAuthentication(this.context, this.captureTsn);
         }
     }
 }
