@@ -30,11 +30,6 @@
             Title="TIVO AHOY!"
             x:Name="Items"
             SelectedItem="{Binding ActiveItem, Mode=TwoWay}">
-            <controls:Pivot.Background>
-                <ImageBrush
-                    ImageSource="/Images/PanoramaBackground.png" />
-            </controls:Pivot.Background>
-
             <controls:Pivot.HeaderTemplate>
                 <DataTemplate>
                     <TextBlock
