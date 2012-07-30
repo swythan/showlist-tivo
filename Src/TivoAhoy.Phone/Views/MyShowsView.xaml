@@ -69,12 +69,14 @@
                                         Foreground="{StaticResource PhoneSubtleBrush}"
                                         FontSize="{StaticResource PhoneFontSizeNormal}"
                                         FontFamily="{StaticResource PhoneFontFamilySemiBold}" />
+                                    <!--
                                     <LineBreak />
                                     <Run
                                         Text="{Binding Id}"
                                         Foreground="{StaticResource PhoneSubtleBrush}"
                                         FontSize="{StaticResource PhoneFontSizeNormal}"
                                         FontFamily="{StaticResource PhoneFontFamilyNormal}" />
+                                    -->
                                 </TextBlock>
                             </DataTemplate>
                         </toolkit:ExpanderView.ExpanderTemplate>
