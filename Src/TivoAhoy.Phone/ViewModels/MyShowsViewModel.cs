@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Net;
+using System.Reactive.Linq;
 using System.Windows;
 using Caliburn.Micro;
 using Tivo.Connect;
 using Tivo.Connect.Entities;
-using System.Reactive;
-using System.Reactive.Linq;
-using System.Net;
 
 namespace TivoAhoy.Phone.ViewModels
 {
@@ -69,7 +66,7 @@ namespace TivoAhoy.Phone.ViewModels
                 .Subscribe(show => this.MyShows.Add(CreateItemViewModel(show)),
                     ex =>
                     {
-                        MessageBox.Show(string.Format("Connection Failed! :-(\n{0}", ex));
+                        MessageBox.Show(string.Format("Connection Failed :\n{0}", ex.Message));
                         connection.Dispose();
                     },
                     () => connection.Dispose());

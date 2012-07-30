@@ -1,18 +1,10 @@
 ﻿using System;
-using System.Net;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Ink;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-using System.Net.Sockets;
 using System.Diagnostics;
 using System.IO;
+using System.Net;
+using System.Net.Sockets;
+using System.Reactive.Linq;
 using Org.BouncyCastle.Crypto.Tls;
-using System.Threading;
 
 namespace Tivo.Connect
 {
@@ -41,81 +33,53 @@ namespace Tivo.Connect
             }
         }
 
-        private Stream ConnectNetworkStream(IPAddress serverAddress)
+        private IObservable<Stream> ConnectNetworkStream(IPAddress serverAddress)
         {
             if (this.client != null)
             {
                 throw new InvalidOperationException("Cannot open the same connection twice.");
             }
 
-
             // Create a TCP/IP connection to the TiVo.
-            try
-            {
-                var endpoint = new IPEndPoint(serverAddress, 1413);
+            return ObservableSocket.Connect(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp, serverAddress, 1413)
+                .ObserveOnDispatcher()
+                .Select(
+                    socket =>
+                    {
+                        Debug.WriteLine("Client connected.");
 
-                var connectedEvent = new AutoResetEvent(false);
-                var e = new SocketAsyncEventArgs();
-                e.RemoteEndPoint = endpoint;
-                e.Completed += (sender, args) => connectedEvent.Set();
+                        this.client = socket;
 
-                if (Socket.ConnectAsync(SocketType.Stream, ProtocolType.Tcp, e))
-                {
-                    // Completed synchronously
-                }
+                        try
+                        {
+                            // Create an SSL stream that will close the client's stream.
+                            var tivoTlsClient = new TivoTlsClient(CaptureTsnFromServerCert);
 
-                connectedEvent.WaitOne();
-                this.client = e.ConnectSocket;
+                            this.protocolHandler = new TlsProtocolHandler(new NetworkStream(socket));
+                            this.protocolHandler.Connect(tivoTlsClient);
+                        }
+                        catch (IOException e)
+                        {
+                            Debug.WriteLine("Authentication failed - closing the connection.");
 
-                if (e.SocketError != SocketError.Success)
-                {
-                    throw new SocketException((int)e.SocketError);
-                }
-            }
-            catch (SocketException ex)
-            {
-                Debug.WriteLine("Failed to make TCP connection : {0}", ex);
+                            Debug.WriteLine("Exception: {0}", e.Message);
+                            if (e.InnerException != null)
+                            {
+                                Debug.WriteLine("Inner exception: {0}", e.InnerException.Message);
+                            }
 
-                if (client != null)
-                {
-                    client.Dispose();
-                    client = null;
-                }
+                            this.client.Dispose();
+                            this.client = null;
 
-                throw;
-            }
+                            this.protocolHandler.Close();
+                            this.protocolHandler = null;
 
-            Debug.WriteLine("Client connected.");
+                            throw;
+                        }
 
-            // Create an SSL stream that will close the client's stream.
-            this.protocolHandler = new TlsProtocolHandler(new NetworkStream(this.client));
+                        return protocolHandler.Stream;
+                    });
 
-            try
-            {
-                TivoTlsClient tivoTlsClient = new TivoTlsClient(CaptureTsnFromServerCert);
-
-                this.protocolHandler.Connect(tivoTlsClient);
-            }
-            catch (IOException e)
-            {
-                Debug.WriteLine("Exception: {0}", e.Message);
-                if (e.InnerException != null)
-                {
-                    Debug.WriteLine("Inner exception: {0}", e.InnerException.Message);
-                }
-                
-                Debug.WriteLine("Authentication failed - closing the connection.");
-                
-                this.client.Dispose();
-                this.client = null;
-
-                this.protocolHandler.Close();
-                this.protocolHandler = null;
-
-                throw;
-            }
-
-            return protocolHandler.Stream;
         }
 
         private void CaptureTsnFromServerCert(string tsnFromCert)

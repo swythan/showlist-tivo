@@ -1,19 +1,9 @@
 ﻿using System;
-using System.Net;
+using System.Collections.Generic;
+using System.Reactive.Linq;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Ink;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
 using Caliburn.Micro;
 using Tivo.Connect;
-using System.Reactive;
-using System.Reactive.Linq;
-using Tivo.Connect.Entities;
-using System.Collections.Generic;
 
 namespace TivoAhoy.Phone.ViewModels
 {
@@ -36,7 +26,8 @@ namespace TivoAhoy.Phone.ViewModels
         {
             get
             {
-                if (this.ShowDetails == null)
+                if (this.ShowDetails == null ||
+                    !this.ShowDetails.ContainsKey("title"))
                 {
                     return string.Empty;
                 }
@@ -49,7 +40,8 @@ namespace TivoAhoy.Phone.ViewModels
         {
             get
             {
-                if (this.ShowDetails == null)
+                if (this.ShowDetails == null ||
+                    !this.ShowDetails.ContainsKey("subtitle"))
                 {
                     return string.Empty;
                 }
@@ -62,7 +54,8 @@ namespace TivoAhoy.Phone.ViewModels
         {
             get
             {
-                if (this.ShowDetails == null)
+                if (this.ShowDetails == null ||
+                    !this.ShowDetails.ContainsKey("description"))
                 {
                     return string.Empty;
                 }
@@ -106,7 +99,7 @@ namespace TivoAhoy.Phone.ViewModels
                 .Subscribe(show => this.ShowDetails = show,
                     ex =>
                     {
-                        MessageBox.Show(string.Format("Connection Failed! :-(\n{0}", ex));
+                        MessageBox.Show(string.Format("Connection Failed :\n{0}", ex.Message));
                         connection.Dispose();
                     },
                     () => connection.Dispose());
@@ -119,10 +112,10 @@ namespace TivoAhoy.Phone.ViewModels
             connection.Connect(this.settingsModel.ParsedIPAddress, this.settingsModel.MediaAccessKey)
                 .SelectMany(_ => connection.PlayShow(this.ShowRecordingID))
                 .ObserveOnDispatcher()
-                .Subscribe(show => MessageBox.Show("Command sent!"),
+                .Subscribe(show => MessageBox.Show("Play command sent"),
                     ex =>
                     {
-                        MessageBox.Show(string.Format("Connection Failed! :-(\n{0}", ex));
+                        MessageBox.Show(string.Format("Connection Failed :\n{0}", ex.Message));
                         connection.Dispose();
                     },
                     () => connection.Dispose());

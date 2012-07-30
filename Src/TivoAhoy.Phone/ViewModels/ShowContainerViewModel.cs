@@ -1,9 +1,9 @@
-﻿using Caliburn.Micro;
-using Tivo.Connect.Entities;
-using Tivo.Connect;
-using System.Windows;
-using System;
+﻿using System;
 using System.Reactive.Linq;
+using System.Windows;
+using Caliburn.Micro;
+using Tivo.Connect;
+using Tivo.Connect.Entities;
 
 namespace TivoAhoy.Phone.ViewModels
 {
@@ -76,7 +76,7 @@ namespace TivoAhoy.Phone.ViewModels
                     },
                     ex =>
                     {
-                        MessageBox.Show(string.Format("Connection Failed! :-(\n{0}", ex));
+                        MessageBox.Show(string.Format("Connection Failed :\n{0}", ex.Message));
                         connection.Dispose();
                     },
                     () => connection.Dispose());

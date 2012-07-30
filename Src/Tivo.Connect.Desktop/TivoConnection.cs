@@ -4,6 +4,7 @@ using System.IO;
 using System.Net;
 using System.Net.Security;
 using System.Net.Sockets;
+using System.Reactive.Linq;
 using System.Security.Authentication;
 using System.Security.Cryptography.X509Certificates;
 
@@ -27,7 +28,7 @@ namespace Tivo.Connect
             }
         }
 
-        private Stream ConnectNetworkStream(IPAddress serverAddress)
+        private IObservable<Stream> ConnectNetworkStream(IPAddress serverAddress)
         {
             if (this.client != null)
             {
@@ -61,7 +62,7 @@ namespace Tivo.Connect
                 throw;
             }
 
-            return stream;
+            return Observable.Return(stream);
         }
 
         // The following method is invoked by the RemoteCertificateValidationDelegate.

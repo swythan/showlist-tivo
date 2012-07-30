@@ -1,17 +1,9 @@
 ﻿using System;
 using System.Net;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Ink;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-using Caliburn.Micro;
-using System.Net.Sockets;
-using Tivo.Connect;
 using System.Reactive.Linq;
+using System.Windows;
+using Caliburn.Micro;
+using Tivo.Connect;
 
 namespace TivoAhoy.Phone.ViewModels
 {
@@ -93,7 +85,7 @@ namespace TivoAhoy.Phone.ViewModels
                     _ => MessageBox.Show("Connection Succeeded!"),
                     ex =>
                     {
-                        MessageBox.Show(string.Format("Connection Failed! :-(\n{0}", ex));
+                        MessageBox.Show(string.Format("Connection Failed :\n{0}", ex.Message));
                         connection.Dispose();
                     },
                     () => connection.Dispose());

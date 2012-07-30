@@ -53,7 +53,11 @@ namespace Tivo.Connect
             DisposeSpecialized(disposing);
             if (disposing)
             {
-                receiveCancellationTokenSource.Cancel();
+                if (receiveCancellationTokenSource != null)
+                {
+                    receiveCancellationTokenSource.Cancel();
+                    receiveCancellationTokenSource = null;
+                }
             }
         }
 
@@ -61,14 +65,26 @@ namespace Tivo.Connect
         {
             this.capturedTsn = string.Empty;
 
-            this.sslStream = ConnectNetworkStream(serverAddress);
+            return ConnectNetworkStream(serverAddress)
+                .SelectMany(
+                    stream =>
+                    {
+                        this.sslStream = stream;
 
-            this.receiveSubject = new Subject<Tuple<int, IDictionary<string, object>>>();
-            this.receiveCancellationTokenSource = new CancellationTokenSource();
+                        this.receiveSubject = new Subject<Tuple<int, IDictionary<string, object>>>();
+                        this.receiveCancellationTokenSource = new CancellationTokenSource();
 
-            // Send authentication message to the TiVo. 
-            var result = SendAuthenticationRequest(mediaAccessKey)
-                .SelectMany(authResponse =>
+                        // Send authentication message to the TiVo. 
+                        var result = SendAuthenticationRequest(mediaAccessKey);
+
+                        // Start listening on the socket *after* the first send operation.
+                        // This stops errors occuring on WP7
+                        this.receiveTask = Task.Factory.StartNew(RpcReceiveThreadProc, this.receiveCancellationTokenSource.Token, TaskCreationOptions.LongRunning, TaskScheduler.Default);
+
+                        return result;
+                    })
+                .SelectMany(
+                    authResponse =>
                     {
                         if (((string)authResponse["type"]) != "bodyAuthenticateResponse")
                         {
@@ -85,7 +101,8 @@ namespace Tivo.Connect
                         // Now check that network control is enabled
                         return SendOptStatusGetRequest();
                     })
-                .Select(statusResponse =>
+                .Select(
+                    statusResponse =>
                     {
                         if (((string)statusResponse["type"]) != "optStatusResponse")
                         {
@@ -98,13 +115,7 @@ namespace Tivo.Connect
                         }
 
                         return Unit.Default;
-                    });
-
-            // Start listening on the socket *after* the first send operation.
-            // This stops errors occuring on WP7
-            this.receiveTask = Task.Factory.StartNew(RpcReceiveThreadProc, this.receiveCancellationTokenSource.Token, TaskCreationOptions.LongRunning, TaskScheduler.Default);
-
-            return result;
+                    }); 
         }
 
         private void RpcReceiveThreadProc()
