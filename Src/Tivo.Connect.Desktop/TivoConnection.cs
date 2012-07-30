@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Net.Sockets;
 using System.Diagnostics;
-using System.Net.Security;
-using System.Security.Authentication;
 using System.IO;
+using System.Net;
+using System.Net.Security;
+using System.Net.Sockets;
+using System.Security.Authentication;
 using System.Security.Cryptography.X509Certificates;
 
 namespace Tivo.Connect
@@ -29,7 +27,7 @@ namespace Tivo.Connect
             }
         }
 
-        private Stream ConnectNetworkStream(string serverAddress)
+        private Stream ConnectNetworkStream(IPAddress serverAddress)
         {
             if (this.client != null)
             {
@@ -38,7 +36,7 @@ namespace Tivo.Connect
 
 
             // Create a TCP/IP connection to the TiVo.
-            this.client = new TcpClient(serverAddress, 1413);
+            this.client = new TcpClient(new IPEndPoint(serverAddress, 1413));
 
             Debug.WriteLine("Client connected.");
 
@@ -48,7 +46,7 @@ namespace Tivo.Connect
             // The server name must match the name on the server certificate.
             try
             {
-                stream.AuthenticateAsClient(serverAddress);
+                stream.AuthenticateAsClient(serverAddress.ToString());
             }
             catch (AuthenticationException e)
             {

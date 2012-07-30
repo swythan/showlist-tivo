@@ -3,17 +3,15 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
-using JsonFx.Json;
-using Tivo.Connect.Entities;
-using JsonFx.Serialization;
-using System.Threading;
+using System.Net;
+using System.Reactive;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
+using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
-using System.Collections.Concurrent;
-using System.Reactive;
-using Wintellect.Sterling.Keys;
+using JsonFx.Json;
+using Tivo.Connect.Entities;
 using Wintellect.Sterling;
 
 namespace Tivo.Connect
@@ -59,7 +57,7 @@ namespace Tivo.Connect
             }
         }
 
-        public IObservable<Unit> Connect(string serverAddress, string mediaAccessKey)
+        public IObservable<Unit> Connect(IPAddress serverAddress, string mediaAccessKey)
         {
             this.capturedTsn = string.Empty;
 

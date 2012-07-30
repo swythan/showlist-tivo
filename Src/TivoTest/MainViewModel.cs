@@ -18,6 +18,7 @@ using System.ComponentModel.Composition;
 using Tivo.Connect.Entities;
 using System.Reactive.Linq;
 using System.Reactive.Threading;
+using System.Net;
 
 namespace TivoTest
 {
@@ -55,7 +56,7 @@ namespace TivoTest
             var localConnection = new TivoConnection(this.sterlingInstance.Database);
             try
             {
-                localConnection.Connect("192.168.0.7", "9837127953")
+                localConnection.Connect(IPAddress.Parse("192.168.0.100"), "9837127953")
                     .Subscribe(
                         _ => this.connection = localConnection,
                         ex =>

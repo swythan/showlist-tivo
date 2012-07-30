@@ -12,12 +12,13 @@ using System.Net.Sockets;
 using System.Diagnostics;
 using System.IO;
 using Org.BouncyCastle.Crypto.Tls;
+using System.Threading;
 
 namespace Tivo.Connect
 {
     public partial class TivoConnection 
     {
-        TcpClient client;
+        Socket client;
         TlsProtocolHandler protocolHandler;
 
         protected virtual void DisposeSpecialized(bool disposing)
@@ -40,7 +41,7 @@ namespace Tivo.Connect
             }
         }
 
-        private Stream ConnectNetworkStream(string serverAddress)
+        private Stream ConnectNetworkStream(IPAddress serverAddress)
         {
             if (this.client != null)
             {
@@ -49,12 +50,45 @@ namespace Tivo.Connect
 
 
             // Create a TCP/IP connection to the TiVo.
-            this.client = new TcpClient(serverAddress, 1413);
+            try
+            {
+                var endpoint = new IPEndPoint(serverAddress, 1413);
+
+                var connectedEvent = new AutoResetEvent(false);
+                var e = new SocketAsyncEventArgs();
+                e.RemoteEndPoint = endpoint;
+                e.Completed += (sender, args) => connectedEvent.Set();
+
+                if (Socket.ConnectAsync(SocketType.Stream, ProtocolType.Tcp, e))
+                {
+                    // Completed synchronously
+                }
+
+                connectedEvent.WaitOne();
+                this.client = e.ConnectSocket;
+
+                if (e.SocketError != SocketError.Success)
+                {
+                    throw new SocketException((int)e.SocketError);
+                }
+            }
+            catch (SocketException ex)
+            {
+                Debug.WriteLine("Failed to make TCP connection : {0}", ex);
+
+                if (client != null)
+                {
+                    client.Dispose();
+                    client = null;
+                }
+
+                throw;
+            }
 
             Debug.WriteLine("Client connected.");
 
             // Create an SSL stream that will close the client's stream.
-            this.protocolHandler = new TlsProtocolHandler(this.client.GetStream());
+            this.protocolHandler = new TlsProtocolHandler(new NetworkStream(this.client));
 
             try
             {
@@ -69,8 +103,14 @@ namespace Tivo.Connect
                 {
                     Debug.WriteLine("Inner exception: {0}", e.InnerException.Message);
                 }
+                
                 Debug.WriteLine("Authentication failed - closing the connection.");
-                client.Dispose();
+                
+                this.client.Dispose();
+                this.client = null;
+
+                this.protocolHandler.Close();
+                this.protocolHandler = null;
 
                 throw;
             }

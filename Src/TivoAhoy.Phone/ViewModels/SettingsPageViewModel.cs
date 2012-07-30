@@ -62,11 +62,32 @@ namespace TivoAhoy.Phone.ViewModels
             }
         }
 
+        public IPAddress ParsedIPAddress
+        {
+            get
+            {
+                IPAddress ipAddress;
+                if (IPAddress.TryParse(this.TivoIPAddress, out ipAddress))
+                {
+                    return ipAddress;
+                }
+
+                return IPAddress.None;
+            }
+        }
+
         public void TestConnection()
         {
             var connection = new TivoConnection();
 
-            connection.Connect(this.TivoIPAddress, this.MediaAccessKey)
+            IPAddress ipAddress;
+            if (!IPAddress.TryParse(this.TivoIPAddress, out ipAddress))
+            {
+                MessageBox.Show("Please enter a valid IP address");
+                return;
+            }
+
+            connection.Connect(ipAddress, this.MediaAccessKey)
                 .ObserveOnDispatcher()
                 .Subscribe(
                     _ => MessageBox.Show("Connection Succeeded!"),

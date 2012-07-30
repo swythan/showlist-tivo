@@ -65,7 +65,7 @@ namespace TivoAhoy.Phone.ViewModels
 
             var connection = new TivoConnection(sterlingInstance.Database);
 
-            connection.Connect(this.settingsModel.TivoIPAddress, this.settingsModel.MediaAccessKey)
+            connection.Connect(this.settingsModel.ParsedIPAddress, this.settingsModel.MediaAccessKey)
                 .SelectMany(_ => connection.GetMyShowsList(this.Source))
                 .ObserveOnDispatcher()
                 .Subscribe(

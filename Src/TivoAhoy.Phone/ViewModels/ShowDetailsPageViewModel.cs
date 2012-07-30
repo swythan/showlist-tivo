@@ -100,7 +100,7 @@ namespace TivoAhoy.Phone.ViewModels
         {
             var connection = new TivoConnection(sterlingInstance.Database);
 
-            connection.Connect(this.settingsModel.TivoIPAddress, this.settingsModel.MediaAccessKey)
+            connection.Connect(this.settingsModel.ParsedIPAddress, this.settingsModel.MediaAccessKey)
                 .SelectMany(_ => connection.GetShowContentDetails(this.ShowContentID))
                 .ObserveOnDispatcher()
                 .Subscribe(show => this.ShowDetails = show,
@@ -116,7 +116,7 @@ namespace TivoAhoy.Phone.ViewModels
         {
             var connection = new TivoConnection(sterlingInstance.Database);
 
-            connection.Connect(this.settingsModel.TivoIPAddress, this.settingsModel.MediaAccessKey)
+            connection.Connect(this.settingsModel.ParsedIPAddress, this.settingsModel.MediaAccessKey)
                 .SelectMany(_ => connection.PlayShow(this.ShowRecordingID))
                 .ObserveOnDispatcher()
                 .Subscribe(show => MessageBox.Show("Command sent!"),

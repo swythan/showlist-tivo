@@ -7,6 +7,7 @@ using Tivo.Connect;
 using Tivo.Connect.Entities;
 using System.Reactive;
 using System.Reactive.Linq;
+using System.Net;
 
 namespace TivoAhoy.Phone.ViewModels
 {
@@ -60,7 +61,9 @@ namespace TivoAhoy.Phone.ViewModels
 
             var connection = new TivoConnection(sterlingInstance.Database);
 
-            connection.Connect(this.settingsModel.TivoIPAddress, this.settingsModel.MediaAccessKey)
+            var ipAddress = IPAddress.Parse(this.settingsModel.TivoIPAddress);
+
+            connection.Connect(ipAddress, this.settingsModel.MediaAccessKey)
                 .SelectMany(_ => connection.GetMyShowsList(parent))
                 .ObserveOnDispatcher()
                 .Subscribe(show => this.MyShows.Add(CreateItemViewModel(show)),
