@@ -58,10 +58,13 @@
                 <RowDefinition
                     Height="Auto" />
                 <RowDefinition
-                    Height="Auto" />                <RowDefinition
                     Height="Auto" />
                 <RowDefinition
                     Height="330*" />
+                <RowDefinition
+                    Height="Auto" />
+                <RowDefinition
+                    Height="Auto" />
             </Grid.RowDefinitions>
             <TextBlock
                 HorizontalAlignment="Left"
@@ -84,10 +87,13 @@
                 VerticalAlignment="Top"
                 Grid.Row="3"
                 InputScope="Digits" />
+            <toolkit:PerformanceProgressBar
+                x:Name="IsTestInProgress"
+                Grid.Row="5" />
             <Button
                 Content="Test Connection"
-                Grid.Row="4"
-                HorizontalAlignment="Center"
+                Grid.Row="6"
+                HorizontalAlignment="Stretch"
                 x:Name="TestConnection"
                 VerticalAlignment="Top" />
         </Grid>

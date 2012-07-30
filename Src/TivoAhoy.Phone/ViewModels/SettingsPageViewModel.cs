@@ -23,6 +23,7 @@ namespace TivoAhoy.Phone.ViewModels
     {
         private string tivoIPAddress;
         private string mediaAccessKey;
+        private bool isTestInProgress;
 
         public SettingsPageViewModel()
         {
@@ -38,6 +39,7 @@ namespace TivoAhoy.Phone.ViewModels
 
                 this.tivoIPAddress = value;
                 NotifyOfPropertyChange(() => this.TivoIPAddress);
+                NotifyOfPropertyChange(() => this.CanTestConnection);
             }
         }
 
@@ -51,6 +53,21 @@ namespace TivoAhoy.Phone.ViewModels
 
                 this.mediaAccessKey = value;
                 NotifyOfPropertyChange(() => this.MediaAccessKey);
+                NotifyOfPropertyChange(() => this.CanTestConnection);
+            }
+        }
+
+        public bool IsTestInProgress
+        {
+            get { return this.isTestInProgress; }
+            set
+            {
+                if (this.isTestInProgress == value)
+                    return;
+
+                this.isTestInProgress = value;
+                NotifyOfPropertyChange(() => this.IsTestInProgress);
+                NotifyOfPropertyChange(() => this.CanTestConnection);
             }
         }
 
@@ -67,6 +84,26 @@ namespace TivoAhoy.Phone.ViewModels
                 return IPAddress.None;
             }
         }
+        
+        public bool CanTestConnection
+        {
+            get
+            {
+
+                if (this.MediaAccessKey.Length != 10)
+                    return false;
+                
+                long makAsLong;
+                if (!long.TryParse(this.MediaAccessKey, out makAsLong))
+                    return false;
+                
+                IPAddress ipAddress;
+                if (!IPAddress.TryParse(this.TivoIPAddress, out ipAddress))
+                    return false;
+
+                return !this.IsTestInProgress;
+            }
+        }
 
         public void TestConnection()
         {
@@ -79,17 +116,19 @@ namespace TivoAhoy.Phone.ViewModels
                 return;
             }
 
+            this.IsTestInProgress = true;
+
             connection.Connect(ipAddress, this.MediaAccessKey)
+                .Finally(
+                    () => 
+                    {
+                        connection.Dispose();
+                        this.IsTestInProgress = false;
+                    }) 
                 .ObserveOnDispatcher()
                 .Subscribe(
                     _ => MessageBox.Show("Connection Succeeded!"),
-                    ex =>
-                    {
-                        MessageBox.Show(string.Format("Connection Failed :\n{0}", ex.Message));
-                        connection.Dispose();
-                    },
-                    () => connection.Dispose());
-
+                    ex => MessageBox.Show(string.Format("Connection Failed :\n{0}", ex.Message)));
         }
     }
 }
