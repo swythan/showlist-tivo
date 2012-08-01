@@ -90,7 +90,8 @@ namespace TivoAhoy.Phone.ViewModels
             get
             {
 
-                if (this.MediaAccessKey.Length != 10)
+                if (this.MediaAccessKey == null ||
+                    this.MediaAccessKey.Length != 10)
                     return false;
                 
                 long makAsLong;
