@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using JsonFx.Json;
 
 namespace Tivo.Connect.Entities
 {
-    public class RecordingFolderItem
+    public class RecordingFolderItem : INotifyPropertyChanged
     {
         public static RecordingFolderItem Create(IDictionary<string, object> jsonSource)
         {
@@ -31,6 +29,17 @@ namespace Tivo.Connect.Entities
         public RecordingFolderItem()
         {
 
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            var handler = this.PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
 
         protected virtual void SetupFromRecordingFolderItemJson(IDictionary<string, object> jsonSource)

@@ -55,7 +55,14 @@ namespace TivoAhoy.Phone.ViewModels
         {
             get
             {
-                return string.Format("{0} shows", this.Source.FolderItemCount);
+                if (string.Equals(this.Source.FolderType, "series", StringComparison.OrdinalIgnoreCase))
+                {
+                    return string.Format("{0} episodes", this.Source.FolderItemCount);
+                }
+                else
+                {
+                    return string.Format("{0} shows", this.Source.FolderItemCount);              
+                }
             }
         }
 
