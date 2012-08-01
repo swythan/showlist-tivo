@@ -88,6 +88,9 @@
     <Compile Include="..\Tivo.Connect.Common\Entities\RecordingFolderItem.cs">
       <Link>Entities\RecordingFolderItem.cs</Link>
     </Compile>
+    <Compile Include="..\Tivo.Connect.Common\Entities\ShowDetails.cs">
+      <Link>Entities\ShowDetails.cs</Link>
+    </Compile>
     <Compile Include="..\Tivo.Connect.Common\TivoConnection.Common.cs">
       <Link>TivoConnection.Common.cs</Link>
     </Compile>

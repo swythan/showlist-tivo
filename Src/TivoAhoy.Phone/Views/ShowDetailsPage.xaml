@@ -6,13 +6,21 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converters="clr-namespace:TivoAhoy.Phone.Converters"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
-    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    mc:Ignorable="d" 
+    d:DesignHeight="768" 
+    d:DesignWidth="480"
     shell:SystemTray.IsVisible="True">
 
+    <UserControl.Resources>
+        <converters:BooleanToVisibilityConverter
+            x:Key="boolToVisConverter" />
+    </UserControl.Resources>
+    
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <Grid.RowDefinitions>
@@ -23,7 +31,7 @@
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
             <TextBlock x:Name="ApplicationTitle" Text="TIVO AHOY" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock x:Name="PageTitle" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock x:Name="Show_Title" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
@@ -32,22 +40,56 @@
                 <RowDefinition
                     Height="Auto" />
                 <RowDefinition
+                    Height="Auto" />
+                <RowDefinition
+                    Height="Auto" />
+                <RowDefinition
+                    Height="12" />
+                <RowDefinition
                     Height="*" />
                 <RowDefinition
                     Height="Auto" />
             </Grid.RowDefinitions>
             <TextBlock
-                x:Name="EpisodeTitle"
+                x:Name="Show_Subtitle"
                 Style="{StaticResource PhoneTextTitle2Style}" />
-            <TextBlock
-                x:Name="Description"
-                TextWrapping="Wrap"
+            <StackPanel
+                Orientation="Horizontal"
                 Grid.Row="1"
+                Visibility="{Binding HasEpisodeNumbers, Converter={StaticResource boolToVisConverter}}">
+                <TextBlock
+                    Text="Season: "
+                    Style="{StaticResource PhoneTextNormalStyle}" />
+                <TextBlock
+                    x:Name="Show_SeasonNumber"
+                    Style="{StaticResource PhoneTextNormalStyle}" />
+                <TextBlock
+                    Text="Episode: "
+                    Style="{StaticResource PhoneTextNormalStyle}" />
+                <TextBlock
+                    x:Name="Show_EpisodeNumber"
+                    Style="{StaticResource PhoneTextNormalStyle}" />
+            </StackPanel>
+            <StackPanel
+                Orientation="Horizontal"
+                Grid.Row="2"
+                Visibility="{Binding HasOriginalAirDate, Converter={StaticResource boolToVisConverter}}">
+                <TextBlock
+                    Text="First aired: "
+                    Style="{StaticResource PhoneTextNormalStyle}" />
+                <TextBlock
+                    Text="{Binding Show.OriginalAirDate, StringFormat=d, ConverterCulture={StaticResource DefaultCulture}}"
+                    Style="{StaticResource PhoneTextNormalStyle}" />
+            </StackPanel>            
+            <TextBlock
+                x:Name="Show_Description"
+                TextWrapping="Wrap"
+                Grid.Row="4"
                 Style="{StaticResource PhoneTextNormalStyle}" />
             <Button
                 x:Name="PlayShow"
                 Content="Play" 
-                Grid.Row="2"/>
+                Grid.Row="5"/>
         </Grid>
     </Grid>
  

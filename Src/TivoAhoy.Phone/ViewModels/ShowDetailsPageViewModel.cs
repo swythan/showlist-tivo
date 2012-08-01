@@ -4,6 +4,8 @@ using System.Reactive.Linq;
 using System.Windows;
 using Caliburn.Micro;
 using Tivo.Connect;
+using Tivo.Connect.Entities;
+using System.Diagnostics;
 
 namespace TivoAhoy.Phone.ViewModels
 {
@@ -12,7 +14,7 @@ namespace TivoAhoy.Phone.ViewModels
         private readonly ISterlingInstance sterlingInstance;
         private readonly SettingsPageViewModel settingsModel;
 
-        private IDictionary<string, object> showDetails;
+        private ShowDetails showDetails;
 
         public ShowDetailsPageViewModel(
             ISterlingInstance sterlingInstance, 
@@ -22,62 +24,50 @@ namespace TivoAhoy.Phone.ViewModels
             this.settingsModel = settingsModel;
         }
 
-        public string PageTitle
-        {
-            get
-            {
-                if (this.ShowDetails == null ||
-                    !this.ShowDetails.ContainsKey("title"))
-                {
-                    return string.Empty;
-                }
-
-                return (string)this.ShowDetails["title"];
-            }
-        }
-
-        public string EpisodeTitle
-        {
-            get
-            {
-                if (this.ShowDetails == null ||
-                    !this.ShowDetails.ContainsKey("subtitle"))
-                {
-                    return string.Empty;
-                }
-
-                return (string)this.ShowDetails["subtitle"];
-            }
-        }
-
-        public string Description
-        {
-            get
-            {
-                if (this.ShowDetails == null ||
-                    !this.ShowDetails.ContainsKey("description"))
-                {
-                    return string.Empty;
-                }
-
-                return (string)this.ShowDetails["description"];
-            }
-        }
-
         public string ShowContentID { get; set; }
         public string ShowRecordingID { get; set; }
 
-        public IDictionary<string, object> ShowDetails 
+        public bool HasEpisodeNumbers
+        {
+            get
+            {
+                return
+                    this.Show != null &&
+                    this.Show.EpisodeNumber != null &&
+                    this.Show.SeasonNumber != null;
+            }
+        }
+
+        public bool HasOriginalAirDate
+        {
+            get
+            {
+                return
+                    this.Show != null &&
+                    this.Show.OriginalAirDate != default(DateTime);
+            }
+        }
+
+        public ShowDetails Show 
         {
             get { return this.showDetails; }
             set
             {
                 this.showDetails = value;
 
-                NotifyOfPropertyChange(() => this.ShowDetails);
-                NotifyOfPropertyChange(() => this.PageTitle);
-                NotifyOfPropertyChange(() => this.EpisodeTitle);
-                NotifyOfPropertyChange(() => this.Description);
+                ////var json = value.JsonText;
+                ////Debug.WriteLine("Show details fetched:");
+
+                ////foreach (var line in json.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.None))
+                ////{
+                ////    Debug.WriteLine(line);
+                ////}
+
+                Debug.WriteLine(string.Empty);
+
+                NotifyOfPropertyChange(() => this.Show);
+                NotifyOfPropertyChange(() => this.HasEpisodeNumbers);
+                NotifyOfPropertyChange(() => this.HasOriginalAirDate);
                 NotifyOfPropertyChange(() => this.CanPlayShow);
             }
         }
@@ -96,7 +86,7 @@ namespace TivoAhoy.Phone.ViewModels
             connection.Connect(this.settingsModel.ParsedIPAddress, this.settingsModel.MediaAccessKey)
                 .SelectMany(_ => connection.GetShowContentDetails(this.ShowContentID))
                 .ObserveOnDispatcher()
-                .Subscribe(show => this.ShowDetails = show,
+                .Subscribe(show => this.Show = show,
                     ex =>
                     {
                         MessageBox.Show(string.Format("Connection Failed :\n{0}", ex.Message));

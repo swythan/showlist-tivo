@@ -154,11 +154,12 @@ namespace Tivo.Connect
                     });
         }
 
-        public IObservable<IDictionary<string, object>> GetShowContentDetails(string contentId)
+        public IObservable<ShowDetails> GetShowContentDetails(string contentId)
         {
             var result = SendGetContentDetailsRequest(contentId)
                 .Select(detailsResults => ((IEnumerable<IDictionary<string, object>>)detailsResults["content"]).ToObservable())
-                .Concat();
+                .Concat()
+                .Select(x => new ShowDetails(x));
 
             return result;
         }
