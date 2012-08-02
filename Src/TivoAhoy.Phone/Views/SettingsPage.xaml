@@ -41,7 +41,7 @@
             Margin="12,17,0,28">
             <TextBlock
                 x:Name="ApplicationTitle"
-                Text="Tivo Ahoy!"
+                Text="SHOW LIST"
                 Style="{StaticResource PhoneTextNormalStyle}" />
             <TextBlock
                 x:Name="PageTitle"

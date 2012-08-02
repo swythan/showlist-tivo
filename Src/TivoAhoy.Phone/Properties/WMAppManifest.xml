@@ -1,19 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2009/deployment" AppPlatformVersion="7.1">
-  <App xmlns="" ProductID="{0056bd0c-d7a2-4f93-9f1f-8ee5bbef8c76}" Title="Tivo Ahoy!" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="TivoAhoy.Phone author" Description="Sample description" Publisher="TivoAhoy.Phone">
+  <App xmlns="" ProductID="{0056bd0c-d7a2-4f93-9f1f-8ee5bbef8c76}" Title="Show List for TiVo®" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="TivoAhoy.Phone author" Description="Sample description" Publisher="TivoAhoy.Phone">
     <IconPath IsRelative="true" IsResource="false">ApplicationIcon.png</IconPath>
     <Capabilities>
-      <Capability Name="ID_CAP_GAMERSERVICES" />
-      <Capability Name="ID_CAP_IDENTITY_DEVICE" />
-      <Capability Name="ID_CAP_IDENTITY_USER" />
-      <Capability Name="ID_CAP_LOCATION" />
-      <Capability Name="ID_CAP_MEDIALIB" />
-      <Capability Name="ID_CAP_MICROPHONE" />
       <Capability Name="ID_CAP_NETWORKING" />
-      <Capability Name="ID_CAP_PHONEDIALER" />
-      <Capability Name="ID_CAP_PUSH_NOTIFICATION" />
-      <Capability Name="ID_CAP_SENSORS" />
-      <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
     </Capabilities>
     <Tasks>
       <DefaultTask Name="_default" NavigationPage="Views/MainPage.xaml" />
@@ -23,7 +13,7 @@
         <TemplateType5>
           <BackgroundImageURI IsRelative="true" IsResource="false">Background.png</BackgroundImageURI>
           <Count>0</Count>
-          <Title>Tivo Ahoy!</Title>
+          <Title>Show List for TiVo®</Title>
         </TemplateType5>
       </PrimaryToken>
     </Tokens>

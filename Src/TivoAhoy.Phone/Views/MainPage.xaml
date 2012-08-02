@@ -32,7 +32,7 @@
         
         <!--Panorama control-->
         <controls:Pivot
-            Title="TIVO AHOY!"
+            Title="SHOW LIST"
             x:Name="Items"
             SelectedItem="{Binding ActiveItem, Mode=TwoWay}">
             <controls:Pivot.HeaderTemplate>
