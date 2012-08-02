@@ -1,0 +1,169 @@
+MRPC/2 78 4118
+Raw Packet=MRPC/2 78 4118
+Content-Type: application/json
+IsFinal: true
+RpcId: 1045
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WWORDT", 
+        "isDigital": true, 
+        "channelNumber": "709", 
+        "logoIndex": 66244, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Family Feud", 
+          "contentId": "tivo:ct.176271461", 
+          "collectionId": "tivo:cl.171034861", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-09-17-00-00.1800", 
+          "startTime": "2011-06-09 17:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Family Feud", 
+          "contentId": "tivo:ct.171034268", 
+          "collectionId": "tivo:cl.171034861", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-09-17-30-00.1800", 
+          "startTime": "2011-06-09 17:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Don't Forget the Lyrics!", 
+          "contentId": "tivo:ct.172014330", 
+          "collectionId": "tivo:cl.171148551", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-09-18-00-00.1800", 
+          "startTime": "2011-06-09 18:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Don't Forget the Lyrics!", 
+          "contentId": "tivo:ct.172533146", 
+          "collectionId": "tivo:cl.171148551", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-09-18-30-00.1800", 
+          "startTime": "2011-06-09 18:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "My Wife and Kids", 
+          "contentId": "tivo:ct.39181924", 
+          "collectionId": "tivo:cl.3501280", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-09-19-00-00.1800", 
+          "startTime": "2011-06-09 19:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Everybody Hates Chris", 
+          "contentId": "tivo:ct.108976939", 
+          "collectionId": "tivo:cl.55681269", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-09-19-30-00.1800", 
+          "startTime": "2011-06-09 19:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Tyler Perry's House of Payne", 
+          "contentId": "tivo:ct.158661408", 
+          "collectionId": "tivo:cl.96190305", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-09-20-00-00.1800", 
+          "startTime": "2011-06-09 20:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Tyler Perry's Meet the Browns", 
+          "contentId": "tivo:ct.158276693", 
+          "collectionId": "tivo:cl.140542702", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-09-20-30-00.1800", 
+          "startTime": "2011-06-09 20:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Wendy Williams Show", 
+          "contentId": "tivo:ct.171337806", 
+          "collectionId": "tivo:cl.127854640", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-09-21-00-00.3600", 
+          "startTime": "2011-06-09 21:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How I Met Your Mother", 
+          "contentId": "tivo:ct.144127035", 
+          "collectionId": "tivo:cl.55419269", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-09-22-00-00.1800", 
+          "startTime": "2011-06-09 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How I Met Your Mother", 
+          "contentId": "tivo:ct.78854854", 
+          "collectionId": "tivo:cl.55419269", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-09-22-30-00.1800", 
+          "startTime": "2011-06-09 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "MLB Baseball", 
+          "contentId": "tivo:ct.182460474", 
+          "collectionId": "tivo:cl.10753967", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-09-23-00-00.10800", 
+          "startTime": "2011-06-09 23:00:00", 
+          "duration": 10800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "My 9 News", 
+          "contentId": "tivo:ct.11251445", 
+          "collectionId": "tivo:cl.11251713", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-10-02-00-00.3600", 
+          "startTime": "2011-06-10 02:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Without a Trace", 
+          "contentId": "tivo:ct.68418039", 
+          "collectionId": "tivo:cl.7234167", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-10-03-00-00.3600", 
+          "startTime": "2011-06-10 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Without a Trace", 
+          "contentId": "tivo:ct.69250458", 
+          "collectionId": "tivo:cl.7234167", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-10-04-00-00.3600", 
+          "startTime": "2011-06-10 04:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Law & Order: Special Victims Unit", 
+          "contentId": "tivo:ct.5345622", 
+          "collectionId": "tivo:cl.880788", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-10-05-00-00.3600", 
+          "startTime": "2011-06-10 05:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

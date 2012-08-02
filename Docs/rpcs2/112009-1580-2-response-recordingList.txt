@@ -1,0 +1,111 @@
+MRPC/2 78 2278
+Raw Packet=MRPC/2 78 2278
+Content-Type: application/json
+IsFinal: true
+RpcId: 1580
+Type: response
+
+{
+  "recording": [
+    {
+      "mimeType": "video/mpg2", 
+      "subscriptionIdentifier": [
+        {
+          "subscriptionId": "tivo:sb.259", 
+          "subscriptionType": "seasonPass", 
+          "type": "subscriptionIdentifier"
+        }
+      ], 
+      "subtitle": "Storytelling; Slow Love", 
+      "diskPartition": "user", 
+      "watchedTime": 0, 
+      "offerId": "tivo:of.ctd.124376605.761.cable.2011-06-13-20-30-00.1800", 
+      "isEpisode": true, 
+      "desiredDeletion": "2011-06-15 20:30:00", 
+      "duration": 0, 
+      "scheduledEndTime": "2011-06-13 21:00:00", 
+      "quality": "best", 
+      "size": 0, 
+      "actualEndTime": "1970-01-01 00:00:00", 
+      "collectionId": "tivo:cl.161625498", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "cancellationReason": "unknown", 
+      "state": "scheduled", 
+      "requestedEndTime": "2011-06-13 21:00:00", 
+      "actualStartTime": "1970-01-01 00:00:00", 
+      "type": "recording", 
+      "channel": {
+        "isReceived": true, 
+        "type": "channel", 
+        "name": "Cartoon Network HD", 
+        "isFavorite": false, 
+        "isKidZone": false, 
+        "bitrate": "101711872", 
+        "channelId": "tivo:ch.9", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "callSign": "TOONHD", 
+        "isDigital": true, 
+        "stationId": "tivo:st.124376605", 
+        "channelNumber": "761", 
+        "logoIndex": 66277, 
+        "isBlocked": false, 
+        "sourceType": "cable", 
+        "isHidden": false, 
+        "levelOfDetail": "high"
+      }, 
+      "suggestionScore": 0, 
+      "collectionType": "series", 
+      "repeat": true, 
+      "contentType": "video", 
+      "description": "Finn and Jake try to help a snail named Snorlock to find a mate.", 
+      "recordingId": "tivo:rc.228399", 
+      "deletionPolicy": "whenSpaceNeeded", 
+      "requestedStartPadding": 0, 
+      "hdtv": true, 
+      "startTime": "2011-06-13 20:30:00", 
+      "colorType": "color", 
+      "levelOfDetail": "high", 
+      "transportType": "stream", 
+      "requestedStartTime": "2011-06-13 20:30:00", 
+      "episodic": true, 
+      "contentId": "tivo:ct.173645952", 
+      "title": "Adventure Time", 
+      "scheduledStartTime": "2011-06-13 20:30:00", 
+      "originalAirdate": "2010-12-06", 
+      "credit": [
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Shada", 
+          "first": "Jeremy"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "DiMaggio", 
+          "first": "John"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Walch", 
+          "first": "Hynden"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Kenny", 
+          "first": "Tom"
+        }
+      ], 
+      "expectedDeletion": "2011-06-18 22:00:00", 
+      "requestedEndPadding": 0, 
+      "descriptionLanguage": "English", 
+      "tvRating": "pg", 
+      "cancellationTime": "1970-01-01 00:00:00"
+    }
+  ], 
+  "isBottom": false, 
+  "isTop": true, 
+  "type": "recordingList"
+}

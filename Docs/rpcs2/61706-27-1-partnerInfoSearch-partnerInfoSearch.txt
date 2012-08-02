@@ -1,0 +1,19 @@
+MRPC/2 245 98
+Raw Packet=MRPC/2 245 98
+Type:request
+RpcId:27
+SchemaVersion:7
+Content-Type:application/json
+RequestType:partnerInfoSearch
+ResponseCount:single
+BodyId:tsn:XXXXXXXXXXXXXXX
+X-ApplicationName:Quicksilver
+X-ApplicationVersion:1.2
+X-ApplicationSessionId:0x27dc20
+
+{
+  "noLimit": true, 
+  "type": "partnerInfoSearch", 
+  "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+  "levelOfDetail": "high"
+}

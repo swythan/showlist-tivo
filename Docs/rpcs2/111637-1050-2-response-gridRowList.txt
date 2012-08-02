@@ -1,0 +1,196 @@
+MRPC/2 78 4850
+Raw Packet=MRPC/2 78 4850
+Content-Type: application/json
+IsFinal: true
+RpcId: 1050
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WWORDT", 
+        "isDigital": true, 
+        "channelNumber": "709", 
+        "logoIndex": 66244, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-12-09-30-00.1800", 
+          "startTime": "2011-06-12 09:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Cindy Crawford's Meaningful Beauty", 
+          "contentId": "tivo:ct.147779689", 
+          "collectionId": "tivo:cl.147780430", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-12-10-00-00.1800", 
+          "startTime": "2011-06-12 10:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-12-10-30-00.1800", 
+          "startTime": "2011-06-12 10:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Susan Lucci's Malibu Pilates", 
+          "contentId": "tivo:ct.127627668", 
+          "collectionId": "tivo:cl.127628279", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-12-11-00-00.1800", 
+          "startTime": "2011-06-12 11:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-12-11-30-00.1800", 
+          "startTime": "2011-06-12 11:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Armando Montelongo", 
+          "contentId": "tivo:ct.154754522", 
+          "collectionId": "tivo:cl.154755161", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-12-12-00-00.1800", 
+          "startTime": "2011-06-12 12:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Cindy Crawford's Meaningful Beauty", 
+          "contentId": "tivo:ct.147779689", 
+          "collectionId": "tivo:cl.147780430", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-12-12-30-00.1800", 
+          "startTime": "2011-06-12 12:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Sexy Gorgeous Legs", 
+          "contentId": "tivo:ct.163907412", 
+          "collectionId": "tivo:cl.163907961", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-12-13-00-00.1800", 
+          "startTime": "2011-06-12 13:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Cindy Crawford's Meaningful Beauty", 
+          "contentId": "tivo:ct.147779689", 
+          "collectionId": "tivo:cl.147780430", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-12-13-30-00.1800", 
+          "startTime": "2011-06-12 13:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Thin in 30!", 
+          "contentId": "tivo:ct.180239772", 
+          "collectionId": "tivo:cl.180240144", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-12-14-00-00.1800", 
+          "startTime": "2011-06-12 14:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Natural Advantage with Jane Seymour", 
+          "contentId": "tivo:ct.162098480", 
+          "collectionId": "tivo:cl.162098880", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-12-14-30-00.1800", 
+          "startTime": "2011-06-12 14:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-12-15-00-00.1800", 
+          "startTime": "2011-06-12 15:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Swap TV", 
+          "contentId": "tivo:ct.160493459", 
+          "collectionId": "tivo:cl.4028923", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-12-15-30-00.1800", 
+          "startTime": "2011-06-12 15:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "New Jersey Now", 
+          "contentId": "tivo:ct.90257007", 
+          "collectionId": "tivo:cl.90257520", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-12-16-00-00.1800", 
+          "startTime": "2011-06-12 16:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-12-16-30-00.1800", 
+          "startTime": "2011-06-12 16:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "National Puerto Rican Day Parade", 
+          "contentId": "tivo:ct.71958911", 
+          "collectionId": "tivo:cl.71959240", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-12-17-00-00.7200", 
+          "startTime": "2011-06-12 17:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Zoom", 
+          "contentId": "tivo:ct.92162125", 
+          "collectionId": "tivo:cl.92162275", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-12-19-00-00.7200", 
+          "startTime": "2011-06-12 19:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Tyler Perry's House of Payne", 
+          "contentId": "tivo:ct.143967885", 
+          "collectionId": "tivo:cl.96190305", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-12-21-00-00.1800", 
+          "startTime": "2011-06-12 21:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Everybody Hates Chris", 
+          "contentId": "tivo:ct.80467536", 
+          "collectionId": "tivo:cl.55681269", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-12-21-30-00.1800", 
+          "startTime": "2011-06-12 21:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

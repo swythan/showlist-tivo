@@ -1,0 +1,169 @@
+MRPC/2 78 4176
+Raw Packet=MRPC/2 78 4176
+Content-Type: application/json
+IsFinal: true
+RpcId: 1328
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "SCIHD", 
+        "isDigital": true, 
+        "channelNumber": "775", 
+        "logoIndex": 65773, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "How Do They Do It?", 
+          "contentId": "tivo:ct.183664215", 
+          "collectionId": "tivo:cl.70360603", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-15-03-30-00.1800", 
+          "startTime": "2011-06-15 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.179770431", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-15-04-00-00.1800", 
+          "startTime": "2011-06-15 04:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.179770433", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-15-04-30-00.1800", 
+          "startTime": "2011-06-15 04:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Life on the Line", 
+          "contentId": "tivo:ct.183945742", 
+          "collectionId": "tivo:cl.183947043", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-15-05-00-00.1800", 
+          "startTime": "2011-06-15 05:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Life on the Line", 
+          "contentId": "tivo:ct.183945740", 
+          "collectionId": "tivo:cl.183947043", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-15-05-30-00.1800", 
+          "startTime": "2011-06-15 05:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.63280321", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-15-06-00-00.1800", 
+          "startTime": "2011-06-15 06:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.65132404", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-15-06-30-00.1800", 
+          "startTime": "2011-06-15 06:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Asteroids: the Good, the Bad and the Ugly", 
+          "contentId": "tivo:ct.176458518", 
+          "collectionId": "tivo:cl.176458938", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-15-07-00-00.3600", 
+          "startTime": "2011-06-15 07:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "What Happened Before the Big Bang?", 
+          "contentId": "tivo:ct.176958507", 
+          "collectionId": "tivo:cl.176959546", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-15-08-00-00.3600", 
+          "startTime": "2011-06-15 08:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "What is Reality?", 
+          "contentId": "tivo:ct.183381968", 
+          "collectionId": "tivo:cl.183382679", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-15-09-00-00.3600", 
+          "startTime": "2011-06-15 09:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Search for Alien Planets", 
+          "contentId": "tivo:ct.1508410", 
+          "collectionId": "tivo:cl.1508409", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-15-10-00-00.3600", 
+          "startTime": "2011-06-15 10:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Tank on the Moon", 
+          "contentId": "tivo:ct.112707654", 
+          "collectionId": "tivo:cl.112708681", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-15-11-00-00.3600", 
+          "startTime": "2011-06-15 11:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Master of the Universe", 
+          "contentId": "tivo:ct.135445265", 
+          "collectionId": "tivo:cl.135488836", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-15-12-00-00.3600", 
+          "startTime": "2011-06-15 12:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Master of the Universe", 
+          "contentId": "tivo:ct.135521085", 
+          "collectionId": "tivo:cl.135488836", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-15-13-00-00.3600", 
+          "startTime": "2011-06-15 13:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Wonders of the Solar System", 
+          "contentId": "tivo:ct.168241654", 
+          "collectionId": "tivo:cl.167908217", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-15-14-00-00.3600", 
+          "startTime": "2011-06-15 14:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Wonders of the Solar System", 
+          "contentId": "tivo:ct.168025977", 
+          "collectionId": "tivo:cl.167908217", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-15-15-00-00.3600", 
+          "startTime": "2011-06-15 15:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

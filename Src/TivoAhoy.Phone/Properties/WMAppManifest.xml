@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Deployment xmlns="http://schemas.microsoft.com/windowsphone/2009/deployment" AppPlatformVersion="7.1">
+  <App xmlns="" ProductID="{0056bd0c-d7a2-4f93-9f1f-8ee5bbef8c76}" Title="Show List for TiVo®" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="TivoAhoy.Phone author" Description="Sample description" Publisher="TivoAhoy.Phone">
+    <IconPath IsRelative="true" IsResource="false">Application_IconImage_62x62.png</IconPath>
+    <Capabilities>
+      <Capability Name="ID_CAP_NETWORKING" />
+    </Capabilities>
+    <Tasks>
+      <DefaultTask Name="_default" NavigationPage="Views/MainPage.xaml" />
+    </Tasks>
+    <Tokens>
+      <PrimaryToken TokenID="WP7AppToken" TaskName="_default">
+        <TemplateType5>
+          <BackgroundImageURI IsRelative="true" IsResource="false">Application_TileImage_173x173.png</BackgroundImageURI>
+          <Count>0</Count>
+          <Title>Show List</Title>
+        </TemplateType5>
+      </PrimaryToken>
+    </Tokens>
+  </App>
+</Deployment>

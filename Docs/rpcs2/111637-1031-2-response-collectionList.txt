@@ -1,0 +1,154 @@
+MRPC/2 78 2444
+Raw Packet=MRPC/2 78 2444
+Content-Type: application/json
+IsFinal: true
+RpcId: 1031
+Type: response
+
+{
+  "type": "collectionList", 
+  "collection": [
+    {
+      "category": [
+        {
+          "image": [
+            {
+              "width": 180, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/TalkShow.jpg", 
+              "type": "image", 
+              "imageType": "moviePoster", 
+              "height": 270
+            }, 
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/TalkShow.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }
+          ], 
+          "displayRank": 0, 
+          "type": "category", 
+          "label": "Talk Show"
+        }, 
+        {
+          "image": [
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/Comedy.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }, 
+            {
+              "width": 180, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/Comedy.jpg", 
+              "type": "image", 
+              "imageType": "moviePoster", 
+              "height": 270
+            }
+          ], 
+          "displayRank": 1, 
+          "type": "category", 
+          "label": "Comedy"
+        }
+      ], 
+      "userContentForCollectionId": {
+        "thumbsRating": 1, 
+        "type": "userContent", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX"
+      }, 
+      "collectionType": "series", 
+      "description": "Celebrity guests, music acts and comics.", 
+      "broadcastOfferGroupForCollectionId": [
+        {
+          "count": 16, 
+          "type": "offerGroup", 
+          "example": {
+            "contentId": "tivo:ct.178823128", 
+            "type": "offer"
+          }
+        }, 
+        {
+          "count": 16, 
+          "type": "offerGroup", 
+          "example": {
+            "contentId": "tivo:ct.178823128", 
+            "type": "offer"
+          }
+        }
+      ], 
+      "collectionId": "tivo:cl.171093113", 
+      "episodic": true, 
+      "image": [
+        {
+          "width": 139, 
+          "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/b0/27/b027cc94d6f6bd8f71559e6275e930df.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 104
+        }, 
+        {
+          "width": 200, 
+          "imageUrl": "http://i.tivo.com/images-production/hdui-showing/b0/27/b027cc94d6f6bd8f71559e6275e930df.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 150
+        }
+      ], 
+      "title": "Conan", 
+      "credit": [
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Monteith", 
+          "first": "Cory"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Merchant", 
+          "first": "Stephen"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Perry", 
+          "first": "Matthew"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Sorrentino", 
+          "first": "Mike"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Aldean", 
+          "first": "Jason"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Buck", 
+          "first": "Joe"
+        }, 
+        {
+          "role": "host", 
+          "type": "credit", 
+          "last": "O'Brien", 
+          "first": "Conan"
+        }, 
+        {
+          "role": "executiveProducer", 
+          "type": "credit", 
+          "last": "Ross", 
+          "first": "Jeff"
+        }
+      ], 
+      "type": "collection", 
+      "tvRating": "14"
+    }
+  ]
+}

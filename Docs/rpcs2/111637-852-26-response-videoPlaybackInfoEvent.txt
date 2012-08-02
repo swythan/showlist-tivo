@@ -1,0 +1,15 @@
+MRPC/2 78 135
+Raw Packet=MRPC/2 78 135
+Content-Type: application/json
+IsFinal: false
+RpcId: 852
+Type: response
+
+{
+  "begin": "0", 
+  "end": "20270", 
+  "type": "videoPlaybackInfoEvent", 
+  "virtualPosition": "1307416421158", 
+  "position": "14898", 
+  "speed": 100
+}

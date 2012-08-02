@@ -1,0 +1,79 @@
+MRPC/2 78 1647
+Raw Packet=MRPC/2 78 1647
+Content-Type: application/json
+IsFinal: true
+RpcId: 1068
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "FXHD", 
+        "isDigital": true, 
+        "channelNumber": "710", 
+        "logoIndex": 66198, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "American History X", 
+          "contentId": "tivo:ct.516140", 
+          "collectionId": "tivo:cl.516139", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-11-13-00-00.9000", 
+          "startTime": "2011-06-11 13:00:00", 
+          "duration": 9000, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Score", 
+          "contentId": "tivo:ct.3840450", 
+          "collectionId": "tivo:cl.3840449", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-11-15-30-00.9000", 
+          "startTime": "2011-06-11 15:30:00", 
+          "duration": 9000, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Double Jeopardy", 
+          "contentId": "tivo:ct.1542755", 
+          "collectionId": "tivo:cl.1542754", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-11-18-00-00.7200", 
+          "startTime": "2011-06-11 18:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Wild Hogs", 
+          "contentId": "tivo:ct.93966281", 
+          "collectionId": "tivo:cl.94042842", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-11-20-00-00.7200", 
+          "startTime": "2011-06-11 20:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Live Free or Die Hard", 
+          "contentId": "tivo:ct.93967910", 
+          "collectionId": "tivo:cl.93979033", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-11-22-00-00.10800", 
+          "startTime": "2011-06-11 22:00:00", 
+          "duration": 10800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Two and a Half Men", 
+          "contentId": "tivo:ct.56748623", 
+          "collectionId": "tivo:cl.15566705", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-12-01-00-00.1800", 
+          "startTime": "2011-06-12 01:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

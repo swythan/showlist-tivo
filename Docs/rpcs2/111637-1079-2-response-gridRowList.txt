@@ -1,0 +1,169 @@
+MRPC/2 78 4057
+Raw Packet=MRPC/2 78 4057
+Content-Type: application/json
+IsFinal: true
+RpcId: 1079
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "FXHD", 
+        "isDigital": true, 
+        "channelNumber": "710", 
+        "logoIndex": 66198, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Two and a Half Men", 
+          "contentId": "tivo:ct.59663616", 
+          "collectionId": "tivo:cl.15566705", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-14-22-00-00.1800", 
+          "startTime": "2011-06-14 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Two and a Half Men", 
+          "contentId": "tivo:ct.60637946", 
+          "collectionId": "tivo:cl.15566705", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-14-22-30-00.1800", 
+          "startTime": "2011-06-14 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Two and a Half Men", 
+          "contentId": "tivo:ct.62336979", 
+          "collectionId": "tivo:cl.15566705", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-14-23-00-00.1800", 
+          "startTime": "2011-06-14 23:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Two and a Half Men", 
+          "contentId": "tivo:ct.62760114", 
+          "collectionId": "tivo:cl.15566705", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-14-23-30-00.1800", 
+          "startTime": "2011-06-14 23:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Day the Earth Stood Still", 
+          "contentId": "tivo:ct.115240758", 
+          "collectionId": "tivo:cl.115242046", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-15-00-00-00.9000", 
+          "startTime": "2011-06-15 00:00:00", 
+          "duration": 9000, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Day the Earth Stood Still", 
+          "contentId": "tivo:ct.115240758", 
+          "collectionId": "tivo:cl.115242046", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-15-02-30-00.9000", 
+          "startTime": "2011-06-15 02:30:00", 
+          "duration": 9000, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Rescue Me", 
+          "contentId": "tivo:ct.100565135", 
+          "collectionId": "tivo:cl.26429515", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-15-05-00-00.3600", 
+          "startTime": "2011-06-15 05:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-15-06-00-00.1800", 
+          "startTime": "2011-06-15 06:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-15-06-30-00.1800", 
+          "startTime": "2011-06-15 06:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-15-07-00-00.1800", 
+          "startTime": "2011-06-15 07:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-15-07-30-00.1800", 
+          "startTime": "2011-06-15 07:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-15-08-00-00.1800", 
+          "startTime": "2011-06-15 08:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-15-08-30-00.1800", 
+          "startTime": "2011-06-15 08:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-15-09-00-00.1800", 
+          "startTime": "2011-06-15 09:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-15-09-30-00.1800", 
+          "startTime": "2011-06-15 09:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-15-10-00-00.1800", 
+          "startTime": "2011-06-15 10:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

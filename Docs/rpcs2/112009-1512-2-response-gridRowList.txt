@@ -1,0 +1,300 @@
+MRPC/2 78 5971
+Raw Packet=MRPC/2 78 5971
+Content-Type: application/json
+IsFinal: true
+RpcId: 1512
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "ALN", 
+        "isDigital": true, 
+        "channelNumber": "153", 
+        "logoIndex": 66166, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "The Ray Lucia Show", 
+          "contentId": "tivo:ct.15088409", 
+          "collectionId": "tivo:cl.15088674", 
+          "offerId": "tivo:of.ctd.2450.153.cable.2011-06-07-02-30-00.7200", 
+          "startTime": "2011-06-07 02:30:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "156", 
+        "callSign": "BONTV", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Easy China", 
+          "contentId": "tivo:ct.153239402", 
+          "collectionId": "tivo:cl.153239943", 
+          "offerId": "tivo:of.ctd.164931568.156.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Beyond the Headlines", 
+          "contentId": "tivo:ct.23659881", 
+          "collectionId": "tivo:cl.23660180", 
+          "offerId": "tivo:of.ctd.164931568.156.cable.2011-06-07-03-30-00.900", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 900, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WNETDT2", 
+        "isDigital": true, 
+        "channelNumber": "160", 
+        "logoIndex": 65558, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Sid the Science Kid", 
+          "contentId": "tivo:ct.169731792", 
+          "collectionId": "tivo:cl.131086820", 
+          "offerId": "tivo:of.ctd.10420586.160.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "WordWorld", 
+          "contentId": "tivo:ct.151010351", 
+          "collectionId": "tivo:cl.103468488", 
+          "offerId": "tivo:of.ctd.10420586.160.cable.2011-06-07-03-30-00.1800", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WGNAMER", 
+        "isDigital": true, 
+        "channelNumber": "162", 
+        "logoIndex": 65667, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Scrubs", 
+          "contentId": "tivo:ct.141683331", 
+          "collectionId": "tivo:cl.3879910", 
+          "offerId": "tivo:of.ctd.2460.162.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Scrubs", 
+          "contentId": "tivo:ct.141683332", 
+          "collectionId": "tivo:cl.3879910", 
+          "offerId": "tivo:of.ctd.2460.162.cable.2011-06-07-03-30-00.1800", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WLIWDT3", 
+        "isDigital": true, 
+        "channelNumber": "164", 
+        "logoIndex": 65558, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Nightly Business Report", 
+          "contentId": "tivo:ct.179544876", 
+          "collectionId": "tivo:cl.19591", 
+          "offerId": "tivo:of.ctd.33436997.164.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Journal", 
+          "contentId": "tivo:ct.17352", 
+          "collectionId": "tivo:cl.56757", 
+          "offerId": "tivo:of.ctd.33436997.164.cable.2011-06-07-03-30-00.1800", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WNJNDT", 
+        "isDigital": true, 
+        "channelNumber": "165", 
+        "logoIndex": 65558, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "NJN News", 
+          "contentId": "tivo:ct.33703127", 
+          "collectionId": "tivo:cl.33703665", 
+          "offerId": "tivo:of.ctd.10420306.165.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Caucus New Jersey", 
+          "contentId": "tivo:ct.143094", 
+          "collectionId": "tivo:cl.143083", 
+          "offerId": "tivo:of.ctd.10420306.165.cable.2011-06-07-03-30-00.1800", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "166", 
+        "callSign": "WPIXDT4", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Mad About You", 
+          "contentId": "tivo:ct.64751", 
+          "collectionId": "tivo:cl.16982", 
+          "offerId": "tivo:of.ctd.173647318.166.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Mad About You", 
+          "contentId": "tivo:ct.64767", 
+          "collectionId": "tivo:cl.16982", 
+          "offerId": "tivo:of.ctd.173647318.166.cable.2011-06-07-03-30-00.1800", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WLIWDT2", 
+        "isDigital": true, 
+        "channelNumber": "169", 
+        "logoIndex": 65558, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Hometime", 
+          "contentId": "tivo:ct.169785416", 
+          "collectionId": "tivo:cl.19642", 
+          "offerId": "tivo:of.ctd.33436995.169.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Around the House With Matt and Shari", 
+          "contentId": "tivo:ct.172363722", 
+          "collectionId": "tivo:cl.172364893", 
+          "offerId": "tivo:of.ctd.33436995.169.cable.2011-06-07-03-30-00.1800", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "182", 
+        "callSign": "ZEAL2", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Donnie Swaggart", 
+          "contentId": "tivo:ct.164290171", 
+          "collectionId": "tivo:cl.164290899", 
+          "offerId": "tivo:of.ctd.171373775.182.cable.2011-06-07-02-00-00.7200", 
+          "startTime": "2011-06-07 02:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "183", 
+        "callSign": "ZEAL3", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Hip Hop Abs It Works!", 
+          "contentId": "tivo:ct.167042594", 
+          "collectionId": "tivo:cl.167043270", 
+          "offerId": "tivo:of.ctd.171271039.183.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Erase The Years", 
+          "contentId": "tivo:ct.160229308", 
+          "collectionId": "tivo:cl.160229918", 
+          "offerId": "tivo:of.ctd.171271039.183.cable.2011-06-07-03-30-00.1800", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

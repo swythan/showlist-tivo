@@ -1,0 +1,267 @@
+MRPC/2 76 5093
+Raw Packet=MRPC/2 76 5093
+Content-Type: application/json
+IsFinal: true
+RpcId: 60
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "ABCFHD", 
+        "isDigital": true, 
+        "channelNumber": "738", 
+        "logoIndex": 66165, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "The Secret Life of the American Teenager", 
+          "contentId": "tivo:ct.180238945", 
+          "collectionId": "tivo:cl.128374487", 
+          "offerId": "tivo:of.ctd.121168819.738.cable.2011-06-06-22-00-00.3600", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HSTRYHD", 
+        "isDigital": true, 
+        "channelNumber": "740", 
+        "logoIndex": 66202, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "American Pickers", 
+          "contentId": "tivo:ct.160229206", 
+          "collectionId": "tivo:cl.156268864", 
+          "offerId": "tivo:of.ctd.106639932.740.cable.2011-06-06-22-00-00.3600", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "CCHD", 
+        "isDigital": true, 
+        "channelNumber": "745", 
+        "logoIndex": 66171, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Scrubs", 
+          "contentId": "tivo:ct.16989109", 
+          "collectionId": "tivo:cl.3879910", 
+          "offerId": "tivo:of.ctd.142627412.745.cable.2011-06-06-21-56-00.1800", 
+          "startTime": "2011-06-06 21:56:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Scrubs", 
+          "contentId": "tivo:ct.16989108", 
+          "collectionId": "tivo:cl.3879910", 
+          "offerId": "tivo:of.ctd.142627412.745.cable.2011-06-06-22-26-00.1800", 
+          "startTime": "2011-06-06 22:26:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "AETVHD", 
+        "isDigital": true, 
+        "channelNumber": "746", 
+        "logoIndex": 66155, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "The First 48", 
+          "contentId": "tivo:ct.129981185", 
+          "collectionId": "tivo:cl.24342358", 
+          "offerId": "tivo:of.ctd.75763224.746.cable.2011-06-06-22-00-00.3600", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "DISNHD", 
+        "isDigital": true, 
+        "channelNumber": "749", 
+        "logoIndex": 66174, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Phineas and Ferb", 
+          "contentId": "tivo:ct.158857057", 
+          "collectionId": "tivo:cl.103468226", 
+          "offerId": "tivo:of.ctd.121781104.749.cable.2011-06-06-22-00-00.1800", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Good Luck Charlie", 
+          "contentId": "tivo:ct.168883122", 
+          "collectionId": "tivo:cl.161511005", 
+          "offerId": "tivo:of.ctd.121781104.749.cable.2011-06-06-22-30-00.1800", 
+          "startTime": "2011-06-06 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "FOODHD", 
+        "isDigital": true, 
+        "channelNumber": "750", 
+        "logoIndex": 66258, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Paula's Best Dishes", 
+          "contentId": "tivo:ct.181288190", 
+          "collectionId": "tivo:cl.125698835", 
+          "offerId": "tivo:of.ctd.73409074.750.cable.2011-06-06-22-00-00.1800", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "30-Minute Meals", 
+          "contentId": "tivo:ct.181288148", 
+          "collectionId": "tivo:cl.4209399", 
+          "offerId": "tivo:of.ctd.73409074.750.cable.2011-06-06-22-30-00.1800", 
+          "startTime": "2011-06-06 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "751", 
+        "callSign": "COOKHD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Jamie at Home", 
+          "contentId": "tivo:ct.125697426", 
+          "collectionId": "tivo:cl.92181319", 
+          "offerId": "tivo:of.ctd.168366747.751.cable.2011-06-06-22-00-00.1800", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Chuck's Day Off", 
+          "contentId": "tivo:ct.144888763", 
+          "collectionId": "tivo:cl.137336730", 
+          "offerId": "tivo:of.ctd.168366747.751.cable.2011-06-06-22-30-00.1800", 
+          "startTime": "2011-06-06 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "AMCHD", 
+        "isDigital": true, 
+        "channelNumber": "754", 
+        "logoIndex": 66261, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Batman", 
+          "contentId": "tivo:ct.184774", 
+          "collectionId": "tivo:cl.184773", 
+          "offerId": "tivo:of.ctd.118123242.754.cable.2011-06-06-21-00-00.10800", 
+          "startTime": "2011-06-06 21:00:00", 
+          "duration": 10800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WEHD", 
+        "isDigital": true, 
+        "channelNumber": "759", 
+        "logoIndex": 65783, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Charmed", 
+          "contentId": "tivo:ct.1099279", 
+          "collectionId": "tivo:cl.19368", 
+          "offerId": "tivo:of.ctd.117361138.759.cable.2011-06-06-22-00-00.3600", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "DXDHD", 
+        "isDigital": true, 
+        "channelNumber": "760", 
+        "logoIndex": 65691, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Spy Kids", 
+          "contentId": "tivo:ct.3839255", 
+          "collectionId": "tivo:cl.3839254", 
+          "offerId": "tivo:of.ctd.124146498.760.cable.2011-06-06-21-00-00.6900", 
+          "startTime": "2011-06-06 21:00:00", 
+          "duration": 6900, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

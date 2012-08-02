@@ -1,0 +1,151 @@
+MRPC/2 78 3671
+Raw Packet=MRPC/2 78 3671
+Content-Type: application/json
+IsFinal: true
+RpcId: 1309
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "SCIHD", 
+        "isDigital": true, 
+        "channelNumber": "775", 
+        "logoIndex": 65773, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Through the Wormhole with Morgan Freeman", 
+          "contentId": "tivo:ct.165353403", 
+          "collectionId": "tivo:cl.164291233", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-10-08-00-00.3600", 
+          "startTime": "2011-06-10 08:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Through the Wormhole with Morgan Freeman", 
+          "contentId": "tivo:ct.182993519", 
+          "collectionId": "tivo:cl.164291233", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-10-09-00-00.3600", 
+          "startTime": "2011-06-10 09:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Egypt's Mystery Chamber", 
+          "contentId": "tivo:ct.144379216", 
+          "collectionId": "tivo:cl.144380168", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-10-10-00-00.3600", 
+          "startTime": "2011-06-10 10:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "When Rome Ruled Egypt", 
+          "contentId": "tivo:ct.129496065", 
+          "collectionId": "tivo:cl.129496360", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-10-11-00-00.3600", 
+          "startTime": "2011-06-10 11:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Quest for the Lost Pharaoh", 
+          "contentId": "tivo:ct.12196803", 
+          "collectionId": "tivo:cl.12196927", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-10-12-00-00.3600", 
+          "startTime": "2011-06-10 12:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Big, Bigger, Biggest", 
+          "contentId": "tivo:ct.154973502", 
+          "collectionId": "tivo:cl.121287867", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-10-13-00-00.3600", 
+          "startTime": "2011-06-10 13:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Big, Bigger, Biggest", 
+          "contentId": "tivo:ct.156286882", 
+          "collectionId": "tivo:cl.121287867", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-10-14-00-00.3600", 
+          "startTime": "2011-06-10 14:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Big, Bigger, Biggest", 
+          "contentId": "tivo:ct.156595240", 
+          "collectionId": "tivo:cl.121287867", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-10-15-00-00.3600", 
+          "startTime": "2011-06-10 15:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Detonators", 
+          "contentId": "tivo:ct.2070338", 
+          "collectionId": "tivo:cl.2070336", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-10-16-00-00.3600", 
+          "startTime": "2011-06-10 16:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Detonators", 
+          "contentId": "tivo:ct.2070337", 
+          "collectionId": "tivo:cl.2070336", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-10-17-00-00.3600", 
+          "startTime": "2011-06-10 17:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Detonators", 
+          "contentId": "tivo:ct.2070339", 
+          "collectionId": "tivo:cl.2070336", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-10-18-00-00.3600", 
+          "startTime": "2011-06-10 18:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Factory Made", 
+          "contentId": "tivo:ct.174360591", 
+          "collectionId": "tivo:cl.124937026", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-10-19-00-00.1800", 
+          "startTime": "2011-06-10 19:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Factory Made", 
+          "contentId": "tivo:ct.164091469", 
+          "collectionId": "tivo:cl.124937026", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-10-19-30-00.1800", 
+          "startTime": "2011-06-10 19:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "MythBusters", 
+          "contentId": "tivo:ct.48339132", 
+          "collectionId": "tivo:cl.10670781", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-10-20-00-00.3600", 
+          "startTime": "2011-06-10 20:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

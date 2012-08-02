@@ -1,0 +1,32 @@
+MRPC/2 243 232
+Raw Packet=MRPC/2 243 232
+Type:request
+RpcId:1466
+SchemaVersion:7
+Content-Type:application/json
+RequestType:channelSearch
+ResponseCount:single
+BodyId:tsn:XXXXXXXXXXXXXXX
+X-ApplicationName:Quicksilver
+X-ApplicationVersion:1.2
+X-ApplicationSessionId:0x27c180
+
+{
+  "noLimit": true, 
+  "isReceived": true, 
+  "type": "channelSearch", 
+  "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+  "responseTemplate": [
+    {
+      "fieldName": [
+        "channelNumber", 
+        "sourceType", 
+        "logoIndex", 
+        "callSign", 
+        "name"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "channel"
+    }
+  ]
+}

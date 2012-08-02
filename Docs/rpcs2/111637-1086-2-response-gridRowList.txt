@@ -1,0 +1,124 @@
+MRPC/2 78 2853
+Raw Packet=MRPC/2 78 2853
+Content-Type: application/json
+IsFinal: true
+RpcId: 1086
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "FXHD", 
+        "isDigital": true, 
+        "channelNumber": "710", 
+        "logoIndex": 66198, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Death Race", 
+          "contentId": "tivo:ct.115240749", 
+          "collectionId": "tivo:cl.115242314", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-18-18-00-00.9000", 
+          "startTime": "2011-06-18 18:00:00", 
+          "duration": 9000, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Wanted", 
+          "contentId": "tivo:ct.106969564", 
+          "collectionId": "tivo:cl.106970110", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-18-20-30-00.9000", 
+          "startTime": "2011-06-18 20:30:00", 
+          "duration": 9000, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Taken", 
+          "contentId": "tivo:ct.117219335", 
+          "collectionId": "tivo:cl.117220548", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-18-23-00-00.7200", 
+          "startTime": "2011-06-18 23:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Two and a Half Men", 
+          "contentId": "tivo:ct.66164226", 
+          "collectionId": "tivo:cl.15566705", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-19-01-00-00.1800", 
+          "startTime": "2011-06-19 01:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Two and a Half Men", 
+          "contentId": "tivo:ct.66267133", 
+          "collectionId": "tivo:cl.15566705", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-19-01-30-00.1800", 
+          "startTime": "2011-06-19 01:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Two and a Half Men", 
+          "contentId": "tivo:ct.66267132", 
+          "collectionId": "tivo:cl.15566705", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-19-02-00-00.1800", 
+          "startTime": "2011-06-19 02:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Two and a Half Men", 
+          "contentId": "tivo:ct.68418079", 
+          "collectionId": "tivo:cl.15566705", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-19-02-30-00.1800", 
+          "startTime": "2011-06-19 02:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Sons of Anarchy", 
+          "contentId": "tivo:ct.137644864", 
+          "collectionId": "tivo:cl.132594088", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-19-03-00-00.3600", 
+          "startTime": "2011-06-19 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Sons of Anarchy", 
+          "contentId": "tivo:ct.137644865", 
+          "collectionId": "tivo:cl.132594088", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-19-04-00-00.3600", 
+          "startTime": "2011-06-19 04:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Sons of Anarchy", 
+          "contentId": "tivo:ct.137644866", 
+          "collectionId": "tivo:cl.132594088", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-19-05-00-00.3600", 
+          "startTime": "2011-06-19 05:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-19-06-00-00.1800", 
+          "startTime": "2011-06-19 06:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

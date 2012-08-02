@@ -1,0 +1,88 @@
+MRPC/2 78 1713
+Raw Packet=MRPC/2 78 1713
+Content-Type: application/json
+IsFinal: false
+RpcId: 779
+Type: response
+
+{
+  "state": [
+    {
+      "type": "tunerState", 
+      "tunerId": "foreground", 
+      "channel": {
+        "isReceived": true, 
+        "name": "MyNetworkTV", 
+        "isKidZone": false, 
+        "isBlocked": false, 
+        "channelId": "tivo:ch.5119", 
+        "callSign": "WWORDT", 
+        "isDigital": true, 
+        "stationId": "tivo:st.7381307", 
+        "channelNumber": "709", 
+        "logoIndex": 66244, 
+        "type": "channel", 
+        "sourceType": "cable", 
+        "bitrate": "1913651200", 
+        "levelOfDetail": "low"
+      }, 
+      "offer": {
+        "collectionType": "series", 
+        "contentType": "video", 
+        "description": "Blackmon, Martin, Salzberg, Puente.", 
+        "episodic": false, 
+        "collectionId": "tivo:cl.11251713", 
+        "contentId": "tivo:ct.11251445", 
+        "title": "My 9 News", 
+        "transportType": "stream", 
+        "originalAirdate": "1999-08-29", 
+        "hdtv": false, 
+        "startTime": "2011-06-07 03:00:00", 
+        "duration": 2100, 
+        "type": "offer", 
+        "levelOfDetail": "low"
+      }
+    }, 
+    {
+      "type": "tunerState", 
+      "tunerId": "background", 
+      "channel": {
+        "isReceived": true, 
+        "name": "TNTHD (TNT-HD)", 
+        "isKidZone": false, 
+        "isBlocked": false, 
+        "channelId": "tivo:ch.249", 
+        "callSign": "TNTHD", 
+        "isDigital": true, 
+        "stationId": "tivo:st.24418624", 
+        "channelNumber": "703", 
+        "logoIndex": 66395, 
+        "type": "channel", 
+        "sourceType": "cable", 
+        "bitrate": "-834666496", 
+        "levelOfDetail": "low"
+      }, 
+      "offer": {
+        "collectionType": "series", 
+        "contentType": "video", 
+        "description": "Jane and Maura investigate a suspected hate crime; Maura sets up Jane with a yoga instructor.", 
+        "episodic": true, 
+        "collectionId": "tivo:cl.165674483", 
+        "contentId": "tivo:ct.167655425", 
+        "episodeNum": [
+          105
+        ], 
+        "transportType": "stream", 
+        "originalAirdate": "2010-08-16", 
+        "hdtv": true, 
+        "title": "Rizzoli & Isles", 
+        "startTime": "2011-06-07 03:00:00", 
+        "duration": 3600, 
+        "subtitle": "I Kissed a Girl", 
+        "type": "offer", 
+        "levelOfDetail": "low"
+      }
+    }
+  ], 
+  "type": "tunerStateEvent"
+}

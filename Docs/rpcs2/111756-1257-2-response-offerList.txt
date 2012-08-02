@@ -1,0 +1,44 @@
+MRPC/2 78 633
+Raw Packet=MRPC/2 78 633
+Content-Type: application/json
+IsFinal: true
+RpcId: 1257
+Type: response
+
+{
+  "type": "offerList", 
+  "offer": [
+    {
+      "episodic": false, 
+      "title": "Blade", 
+      "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-07-16-00-00.9000", 
+      "hdtv": true, 
+      "recordingForOfferId": [
+        {
+          "subscriptionIdentifier": [
+            {
+              "subscriptionId": "tivo:sb.309", 
+              "subscriptionType": "singleOffer", 
+              "type": "subscriptionIdentifier"
+            }
+          ], 
+          "recordingId": "tivo:rc.240219", 
+          "state": "scheduled", 
+          "type": "recording", 
+          "bodyId": "tsn:XXXXXXXXXXXXXXX"
+        }
+      ], 
+      "startTime": "2011-06-07 16:00:00", 
+      "duration": 9000, 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "FXHD", 
+        "isDigital": true, 
+        "channelNumber": "710", 
+        "logoIndex": 66198, 
+        "type": "channel"
+      }
+    }
+  ]
+}

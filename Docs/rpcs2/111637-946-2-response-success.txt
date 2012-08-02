@@ -1,0 +1,10 @@
+MRPC/2 77 19
+Raw Packet=MRPC/2 77 19
+Content-Type: application/json
+IsFinal: true
+RpcId: 946
+Type: response
+
+{
+  "type": "success"
+}

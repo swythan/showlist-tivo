@@ -1,0 +1,75 @@
+MRPC/2 246 814
+Raw Packet=MRPC/2 246 814
+Type:request
+RpcId:1123
+SchemaVersion:7
+Content-Type:application/json
+RequestType:mixMappingSearch
+ResponseCount:single
+BodyId:tsn:XXXXXXXXXXXXXXX
+X-ApplicationName:Quicksilver
+X-ApplicationVersion:1.2
+X-ApplicationSessionId:0x27c180
+
+{
+  "orderBy": [
+    "displayRank"
+  ], 
+  "count": 50, 
+  "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+  "note": [
+    "bodyThumbsForMixId", 
+    "childMixForMixId", 
+    "searchRequestSummaryForSearchRequestId"
+  ], 
+  "parentMixId": [
+    "tivo:mx.11958221"
+  ], 
+  "responseTemplate": [
+    {
+      "fieldName": [
+        "mixMapping"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "mixMappingList"
+    }, 
+    {
+      "fieldName": [
+        "childMix", 
+        "childMixId", 
+        "mixMappingId", 
+        "objectIdAndType"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "mixMapping"
+    }, 
+    {
+      "fieldName": [
+        "gridItemType", 
+        "image", 
+        "leaf", 
+        "leafObjectType", 
+        "mixId", 
+        "mixType", 
+        "objectId", 
+        "objectIdAndType", 
+        "searchRequestSummaryForSearchRequestId", 
+        "title", 
+        "contentId", 
+        "collectionId", 
+        "hasContentLeafChildren"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "mix"
+    }, 
+    {
+      "fieldName": [
+        "returnType"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "searchRequestSummary"
+    }
+  ], 
+  "type": "mixMappingSearch", 
+  "levelOfDetail": "high"
+}

@@ -1,0 +1,12 @@
+MRPC/2 76 61
+Raw Packet=MRPC/2 76 61
+Content-Type: application/json
+IsFinal: true
+RpcId: 43
+Type: response
+
+{
+  "isBottom": true, 
+  "isTop": true, 
+  "type": "subscriptionList"
+}

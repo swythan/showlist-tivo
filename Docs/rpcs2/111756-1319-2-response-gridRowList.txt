@@ -1,0 +1,169 @@
+MRPC/2 78 4225
+Raw Packet=MRPC/2 78 4225
+Content-Type: application/json
+IsFinal: true
+RpcId: 1319
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "SCIHD", 
+        "isDigital": true, 
+        "channelNumber": "775", 
+        "logoIndex": 65773, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Wonders of the Solar System", 
+          "contentId": "tivo:ct.168025222", 
+          "collectionId": "tivo:cl.167908217", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-13-00-00-00.3600", 
+          "startTime": "2011-06-13 00:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Wonders of the Solar System", 
+          "contentId": "tivo:ct.168025976", 
+          "collectionId": "tivo:cl.167908217", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-13-01-00-00.3600", 
+          "startTime": "2011-06-13 01:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Through the Wormhole with Morgan Freeman", 
+          "contentId": "tivo:ct.182993519", 
+          "collectionId": "tivo:cl.164291233", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-13-02-00-00.3600", 
+          "startTime": "2011-06-13 02:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Wonders of the Solar System", 
+          "contentId": "tivo:ct.168025222", 
+          "collectionId": "tivo:cl.167908217", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-13-03-00-00.3600", 
+          "startTime": "2011-06-13 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Wonders of the Solar System", 
+          "contentId": "tivo:ct.168025976", 
+          "collectionId": "tivo:cl.167908217", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-13-04-00-00.3600", 
+          "startTime": "2011-06-13 04:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Through the Wormhole with Morgan Freeman", 
+          "contentId": "tivo:ct.182993519", 
+          "collectionId": "tivo:cl.164291233", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-13-05-00-00.3600", 
+          "startTime": "2011-06-13 05:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Wonders of the Solar System", 
+          "contentId": "tivo:ct.168025977", 
+          "collectionId": "tivo:cl.167908217", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-13-06-00-00.3600", 
+          "startTime": "2011-06-13 06:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Oddities", 
+          "contentId": "tivo:ct.180121811", 
+          "collectionId": "tivo:cl.172225058", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-13-07-00-00.1800", 
+          "startTime": "2011-06-13 07:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Oddities", 
+          "contentId": "tivo:ct.181403816", 
+          "collectionId": "tivo:cl.172225058", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-13-07-30-00.1800", 
+          "startTime": "2011-06-13 07:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Oddities", 
+          "contentId": "tivo:ct.178646405", 
+          "collectionId": "tivo:cl.172225058", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-13-08-00-00.1800", 
+          "startTime": "2011-06-13 08:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Oddities", 
+          "contentId": "tivo:ct.179572379", 
+          "collectionId": "tivo:cl.172225058", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-13-08-30-00.1800", 
+          "startTime": "2011-06-13 08:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Oddities", 
+          "contentId": "tivo:ct.183381786", 
+          "collectionId": "tivo:cl.172225058", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-13-09-00-00.1800", 
+          "startTime": "2011-06-13 09:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Oddities", 
+          "contentId": "tivo:ct.182764161", 
+          "collectionId": "tivo:cl.172225058", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-13-09-30-00.1800", 
+          "startTime": "2011-06-13 09:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Human Body: Pushing the Limits", 
+          "contentId": "tivo:ct.118719464", 
+          "collectionId": "tivo:cl.118720362", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-13-10-00-00.3600", 
+          "startTime": "2011-06-13 10:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Human Body: Pushing the Limits", 
+          "contentId": "tivo:ct.118719463", 
+          "collectionId": "tivo:cl.118720362", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-13-11-00-00.3600", 
+          "startTime": "2011-06-13 11:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Foolproof Equations for a Perfect Life", 
+          "contentId": "tivo:ct.125984855", 
+          "collectionId": "tivo:cl.125985869", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-13-12-00-00.3600", 
+          "startTime": "2011-06-13 12:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

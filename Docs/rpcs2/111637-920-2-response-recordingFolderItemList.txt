@@ -1,0 +1,42 @@
+MRPC/2 77 719
+Raw Packet=MRPC/2 77 719
+Content-Type: application/json
+IsFinal: true
+RpcId: 920
+Type: response
+
+{
+  "recordingFolderItem": [
+    {
+      "childRecordingId": "tivo:rc.240209", 
+      "folderTransportType": [
+        "stream"
+      ], 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.165674483", 
+        "contentId": "tivo:ct.167655425", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "hdtv": true, 
+        "startTime": "2011-06-07 03:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "703", 
+          "callSign": "TNTHD", 
+          "type": "channel", 
+          "logoIndex": 66395
+        }
+      }, 
+      "title": "TiVo Suggestions", 
+      "type": "recordingFolderItem", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "folderItemCount": 49, 
+      "recordingFolderItemId": "tivo:rf.0", 
+      "startTime": "1970-01-01 00:00:00", 
+      "folderInProgress": true, 
+      "folderType": "suggestion"
+    }
+  ], 
+  "type": "recordingFolderItemList"
+}

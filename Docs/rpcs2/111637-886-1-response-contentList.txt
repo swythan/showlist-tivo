@@ -1,0 +1,36 @@
+MRPC/2 77 582
+Raw Packet=MRPC/2 77 582
+Content-Type: application/json
+IsFinal: true
+RpcId: 886
+Type: response
+
+{
+  "content": [
+    {
+      "collectionType": "series", 
+      "episodic": true, 
+      "title": "My 9 News", 
+      "contentId": "tivo:ct.11251445", 
+      "image": [
+        {
+          "width": 139, 
+          "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/8c/74/8c7477113cb016412e45b864509f033e.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 104
+        }, 
+        {
+          "width": 120, 
+          "imageUrl": "http://i.tivo.com/images-production/os/banner-120/8c/74/8c7477113cb016412e45b864509f033e.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 90
+        }
+      ], 
+      "collectionId": "tivo:cl.11251713", 
+      "type": "content"
+    }
+  ], 
+  "type": "contentList"
+}

@@ -1,0 +1,208 @@
+MRPC/2 77 3208
+Raw Packet=MRPC/2 77 3208
+Content-Type: application/json
+IsFinal: true
+RpcId: 988
+Type: response
+
+{
+  "content": [
+    {
+      "category": [
+        {
+          "image": [
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/Sitcom.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }, 
+            {
+              "width": 180, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/Sitcom.jpg", 
+              "type": "image", 
+              "imageType": "moviePoster", 
+              "height": 270
+            }
+          ], 
+          "displayRank": 0, 
+          "type": "category", 
+          "label": "Sitcom"
+        }, 
+        {
+          "displayRank": 1, 
+          "type": "category", 
+          "label": "TV Show"
+        }
+      ], 
+      "userContentForCollectionId": {
+        "thumbsRating": 3, 
+        "type": "userContent", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX"
+      }, 
+      "collectionType": "series", 
+      "seasonNumber": 7, 
+      "description": "Jerry's mechanic (Brad Garrett) steals his car; Kramer and Newman plan to return used bottles to Michigan.", 
+      "episodic": true, 
+      "collectionId": "tivo:cl.16984", 
+      "contentId": "tivo:ct.361127", 
+      "image": [
+        {
+          "width": 139, 
+          "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/08/43/0843aa276c229d9c54c0d8a986e717bc.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 104
+        }, 
+        {
+          "width": 200, 
+          "imageUrl": "http://i.tivo.com/images-production/hdui-showing/08/43/0843aa276c229d9c54c0d8a986e717bc.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 150
+        }
+      ], 
+      "episodeNum": [
+        21
+      ], 
+      "originalAirYear": 1996, 
+      "credit": [
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Seinfeld", 
+          "first": "Jerry"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Louis-Dreyfus", 
+          "first": "Julia"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Alexander", 
+          "first": "Jason"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Richards", 
+          "first": "Michael"
+        }, 
+        {
+          "role": "guestStar", 
+          "type": "credit", 
+          "last": "Knight", 
+          "first": "Wayne"
+        }, 
+        {
+          "role": "guestStar", 
+          "type": "credit", 
+          "last": "O'Hurley", 
+          "first": "John"
+        }, 
+        {
+          "role": "guestStar", 
+          "type": "credit", 
+          "last": "Garrett", 
+          "first": "Brad"
+        }, 
+        {
+          "role": "guestStar", 
+          "type": "credit", 
+          "last": "Strong", 
+          "first": "Brenda"
+        }, 
+        {
+          "role": "guestStar", 
+          "type": "credit", 
+          "last": "Kerr", 
+          "first": "Patrick"
+        }, 
+        {
+          "role": "guestStar", 
+          "type": "credit", 
+          "last": "Jason", 
+          "first": "Harvey"
+        }, 
+        {
+          "role": "guestStar", 
+          "type": "credit", 
+          "last": "Polson", 
+          "first": "Larry"
+        }, 
+        {
+          "role": "guestStar", 
+          "type": "credit", 
+          "last": "Herd", 
+          "first": "Richard"
+        }, 
+        {
+          "role": "executiveProducer", 
+          "type": "credit", 
+          "last": "David", 
+          "first": "Larry"
+        }, 
+        {
+          "role": "executiveProducer", 
+          "type": "credit", 
+          "last": "Shapiro", 
+          "first": "George"
+        }, 
+        {
+          "role": "executiveProducer", 
+          "type": "credit", 
+          "last": "West", 
+          "first": "Howard"
+        }, 
+        {
+          "role": "director", 
+          "type": "credit", 
+          "last": "Ackerman", 
+          "first": "Andy"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Kavet", 
+          "first": "Gregg"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Robin", 
+          "first": "Andy"
+        }
+      ], 
+      "recordingForContentId": [
+        {
+          "subscriptionIdentifier": [
+            {
+              "subscriptionId": "tivo:sb.19", 
+              "subscriptionType": "suggestions", 
+              "type": "subscriptionIdentifier"
+            }
+          ], 
+          "recordingId": "tivo:rc.239399", 
+          "state": "complete", 
+          "type": "recording", 
+          "bodyId": "tsn:XXXXXXXXXXXXXXX"
+        }, 
+        {
+          "recordingId": "tivo:rc.240159", 
+          "state": "cancelled", 
+          "type": "recording", 
+          "bodyId": "tsn:XXXXXXXXXXXXXXX"
+        }
+      ], 
+      "title": "Seinfeld", 
+      "subtitle": "The Bottle Deposit", 
+      "type": "content", 
+      "tvRating": "14"
+    }
+  ], 
+  "type": "contentList"
+}

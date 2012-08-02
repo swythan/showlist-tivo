@@ -1,0 +1,162 @@
+MRPC/2 78 3232
+Raw Packet=MRPC/2 78 3232
+Content-Type: application/json
+IsFinal: true
+RpcId: 1693
+Type: response
+
+{
+  "type": "subscriptionList", 
+  "subscription": [
+    {
+      "maxRecordings": 3, 
+      "keepBehavior": "forever", 
+      "title": "Good Eats", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "name": "Food HD", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "isBlocked": false, 
+          "channelId": "tivo:ch.9", 
+          "callSign": "FOODHD", 
+          "isDigital": false, 
+          "stationId": "tivo:st.73409074", 
+          "channelNumber": "750", 
+          "logoIndex": 66258, 
+          "type": "channel", 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.638072"
+      }, 
+      "showStatus": "firstRunOnly", 
+      "subscriptionId": "tivo:sb.15000321", 
+      "type": "subscription"
+    }, 
+    {
+      "maxRecordings": 10, 
+      "keepBehavior": "forever", 
+      "title": "Head Rush", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "name": "Science Channel HD", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "isBlocked": false, 
+          "channelId": "tivo:ch.9", 
+          "callSign": "SCIHD", 
+          "isDigital": false, 
+          "stationId": "tivo:st.107213907", 
+          "channelNumber": "775", 
+          "logoIndex": 65773, 
+          "type": "channel", 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.169070050"
+      }, 
+      "showStatus": "firstRunOnly", 
+      "subscriptionId": "tivo:sb.15000281", 
+      "type": "subscription"
+    }, 
+    {
+      "maxRecordings": 3, 
+      "keepBehavior": "forever", 
+      "title": "Dirty Jobs", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "name": "The Discovery Channel HD", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "isBlocked": false, 
+          "channelId": "tivo:ch.9", 
+          "callSign": "DSCHD", 
+          "isDigital": false, 
+          "stationId": "tivo:st.107213906", 
+          "channelNumber": "766", 
+          "logoIndex": 66079, 
+          "type": "channel", 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.16681652"
+      }, 
+      "showStatus": "firstRunOnly", 
+      "subscriptionId": "tivo:sb.15000131", 
+      "type": "subscription"
+    }, 
+    {
+      "maxRecordings": 5, 
+      "keepBehavior": "fifo", 
+      "title": "America's Test Kitchen From Cook's Illustrated", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "name": "PBS Affiliate", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "isBlocked": false, 
+          "channelId": "tivo:ch.9", 
+          "callSign": "WNJNDT", 
+          "isDigital": false, 
+          "stationId": "tivo:st.10420306", 
+          "channelNumber": "165", 
+          "logoIndex": 65558, 
+          "type": "channel", 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.10327616"
+      }, 
+      "showStatus": "rerunsAllowed", 
+      "subscriptionId": "tivo:sb.15000221", 
+      "type": "subscription"
+    }, 
+    {
+      "maxRecordings": 3, 
+      "keepBehavior": "forever", 
+      "title": "The Simpsons", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "name": "Fox Affiliate", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "isBlocked": false, 
+          "channelId": "tivo:ch.9", 
+          "callSign": "WNYWDT", 
+          "isDigital": false, 
+          "stationId": "tivo:st.5587434", 
+          "channelNumber": "705", 
+          "logoIndex": 65557, 
+          "type": "channel", 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.16642"
+      }, 
+      "showStatus": "firstRunOnly", 
+      "subscriptionId": "tivo:sb.15000261", 
+      "type": "subscription"
+    }
+  ]
+}

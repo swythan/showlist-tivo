@@ -1,0 +1,36 @@
+MRPC/2 78 587
+Raw Packet=MRPC/2 78 587
+Content-Type: application/json
+IsFinal: true
+RpcId: 1143
+Type: response
+
+{
+  "content": [
+    {
+      "collectionType": "series", 
+      "episodic": true, 
+      "title": "Ninja Warrior", 
+      "contentId": "tivo:ct.157498211", 
+      "image": [
+        {
+          "width": 139, 
+          "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/6f/d0/6fd01667da842059c2fcee39b0b33be1.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 104
+        }, 
+        {
+          "width": 120, 
+          "imageUrl": "http://i.tivo.com/images-production/os/banner-120/6f/d0/6fd01667da842059c2fcee39b0b33be1.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 90
+        }
+      ], 
+      "collectionId": "tivo:cl.78987353", 
+      "type": "content"
+    }
+  ], 
+  "type": "contentList"
+}

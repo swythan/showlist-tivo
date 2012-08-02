@@ -1,0 +1,12 @@
+MRPC/2 78 58
+Raw Packet=MRPC/2 78 58
+Content-Type: application/json
+IsFinal: true
+RpcId: 1538
+Type: response
+
+{
+  "isBottom": true, 
+  "isTop": true, 
+  "type": "recordingList"
+}

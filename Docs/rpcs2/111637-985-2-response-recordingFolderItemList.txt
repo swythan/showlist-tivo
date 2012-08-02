@@ -1,0 +1,132 @@
+MRPC/2 77 2888
+Raw Packet=MRPC/2 77 2888
+Content-Type: application/json
+IsFinal: true
+RpcId: 985
+Type: response
+
+{
+  "recordingFolderItem": [
+    {
+      "childRecordingId": "tivo:rc.210339", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.16984", 
+        "contentId": "tivo:ct.458082", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-06-02 03:30:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "11", 
+          "callSign": "WPIX", 
+          "type": "channel", 
+          "logoIndex": 75537
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "\"The Secretary\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.210339", 
+      "startTime": "2011-06-02 03:30:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.210329", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.16984", 
+        "contentId": "tivo:ct.313566", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-06-02 03:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "11", 
+          "callSign": "WPIX", 
+          "type": "channel", 
+          "logoIndex": 75537
+        }
+      }, 
+      "recordingStatusType": "keepForever", 
+      "title": "\"The Pilot\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.210329", 
+      "startTime": "2011-06-02 03:00:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.194319", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.16984", 
+        "contentId": "tivo:ct.308023", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-05-21 03:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "11", 
+          "callSign": "WPIX", 
+          "type": "channel", 
+          "logoIndex": 75537
+        }
+      }, 
+      "recordingStatusType": "keepForever", 
+      "title": "\"The Contest\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.194319", 
+      "startTime": "2011-05-21 03:00:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.192129", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.16984", 
+        "contentId": "tivo:ct.118554", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-05-20 03:30:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "11", 
+          "callSign": "WPIX", 
+          "type": "channel", 
+          "logoIndex": 75537
+        }
+      }, 
+      "recordingStatusType": "keepForever", 
+      "title": "\"The Hamptons\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.192129", 
+      "startTime": "2011-05-20 03:30:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.192119", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.16984", 
+        "contentId": "tivo:ct.348126", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-05-20 03:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "11", 
+          "callSign": "WPIX", 
+          "type": "channel", 
+          "logoIndex": 75537
+        }
+      }, 
+      "recordingStatusType": "keepForever", 
+      "title": "\"The Watch\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.192119", 
+      "startTime": "2011-05-20 03:00:00", 
+      "type": "recordingFolderItem"
+    }
+  ], 
+  "type": "recordingFolderItemList"
+}

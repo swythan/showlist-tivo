@@ -1,0 +1,1154 @@
+MRPC/2 78 26005
+Raw Packet=MRPC/2 78 26005
+Content-Type: application/json
+IsFinal: true
+RpcId: 1640
+Type: response
+
+{
+  "type": "collectionList", 
+  "collection": [
+    {
+      "category": [
+        {
+          "image": [
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/Sitcom.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }, 
+            {
+              "width": 180, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/Sitcom.jpg", 
+              "type": "image", 
+              "imageType": "moviePoster", 
+              "height": 270
+            }
+          ], 
+          "displayRank": 0, 
+          "type": "category", 
+          "label": "Sitcom"
+        }, 
+        {
+          "displayRank": 1, 
+          "type": "category", 
+          "label": "TV Show"
+        }
+      ], 
+      "collectionType": "series", 
+      "title": "Seinfeld", 
+      "image": [
+        {
+          "width": 139, 
+          "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/08/43/0843aa276c229d9c54c0d8a986e717bc.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 104
+        }, 
+        {
+          "width": 120, 
+          "imageUrl": "http://i.tivo.com/images-production/os/banner-120/08/43/0843aa276c229d9c54c0d8a986e717bc.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 90
+        }
+      ], 
+      "collectionId": "tivo:cl.16984", 
+      "correlatedCollectionForCollectionId": [
+        {
+          "category": [
+            {
+              "image": [
+                {
+                  "width": 360, 
+                  "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/Sitcom.jpg", 
+                  "type": "image", 
+                  "imageType": "showcaseBanner", 
+                  "height": 270
+                }, 
+                {
+                  "width": 180, 
+                  "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/Sitcom.jpg", 
+                  "type": "image", 
+                  "imageType": "moviePoster", 
+                  "height": 270
+                }
+              ], 
+              "displayRank": 0, 
+              "type": "category", 
+              "label": "Sitcom"
+            }, 
+            {
+              "displayRank": 1, 
+              "type": "category", 
+              "label": "TV Show"
+            }
+          ], 
+          "collectionType": "series", 
+          "title": "The Office", 
+          "image": [
+            {
+              "width": 100, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-100/6e/27/6e27b7bfe080a104337d8e901e3534ed.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 75
+            }, 
+            {
+              "width": 240, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-240/6e/27/6e27b7bfe080a104337d8e901e3534ed.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 180
+            }, 
+            {
+              "width": 119, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/banner-sm/6e/27/6e27b7bfe080a104337d8e901e3534ed.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 89
+            }, 
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-270/6e/27/6e27b7bfe080a104337d8e901e3534ed.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }, 
+            {
+              "width": 200, 
+              "imageUrl": "http://i.tivo.com/images-production/hdui-showing/6e/27/6e27b7bfe080a104337d8e901e3534ed.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 150
+            }, 
+            {
+              "width": 200, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/banner-lg/6e/27/6e27b7bfe080a104337d8e901e3534ed.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 150
+            }, 
+            {
+              "width": 120, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-120/6e/27/6e27b7bfe080a104337d8e901e3534ed.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 90
+            }, 
+            {
+              "width": 139, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/6e/27/6e27b7bfe080a104337d8e901e3534ed.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 104
+            }
+          ], 
+          "collectionId": "tivo:cl.43851575", 
+          "type": "collection"
+        }, 
+        {
+          "category": [
+            {
+              "image": [
+                {
+                  "width": 360, 
+                  "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/Sitcom.jpg", 
+                  "type": "image", 
+                  "imageType": "showcaseBanner", 
+                  "height": 270
+                }, 
+                {
+                  "width": 180, 
+                  "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/Sitcom.jpg", 
+                  "type": "image", 
+                  "imageType": "moviePoster", 
+                  "height": 270
+                }
+              ], 
+              "displayRank": 0, 
+              "type": "category", 
+              "label": "Sitcom"
+            }, 
+            {
+              "displayRank": 1, 
+              "type": "category", 
+              "label": "TV Show"
+            }
+          ], 
+          "collectionType": "series", 
+          "title": "Friends", 
+          "image": [
+            {
+              "width": 240, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-240/79/cf/79cf17d6aa02e5708a3a78ecf621eb26.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 180
+            }, 
+            {
+              "width": 100, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-100/79/cf/79cf17d6aa02e5708a3a78ecf621eb26.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 75
+            }, 
+            {
+              "width": 139, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/79/cf/79cf17d6aa02e5708a3a78ecf621eb26.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 104
+            }, 
+            {
+              "width": 119, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/banner-sm/79/cf/79cf17d6aa02e5708a3a78ecf621eb26.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 89
+            }, 
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-270/79/cf/79cf17d6aa02e5708a3a78ecf621eb26.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }, 
+            {
+              "width": 120, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-120/79/cf/79cf17d6aa02e5708a3a78ecf621eb26.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 90
+            }, 
+            {
+              "width": 200, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/banner-lg/79/cf/79cf17d6aa02e5708a3a78ecf621eb26.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 150
+            }, 
+            {
+              "width": 200, 
+              "imageUrl": "http://i.tivo.com/images-production/hdui-showing/79/cf/79cf17d6aa02e5708a3a78ecf621eb26.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 150
+            }
+          ], 
+          "collectionId": "tivo:cl.16645", 
+          "type": "collection"
+        }, 
+        {
+          "category": [
+            {
+              "displayRank": 0, 
+              "type": "category", 
+              "label": "Animated"
+            }, 
+            {
+              "image": [
+                {
+                  "width": 360, 
+                  "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/Sitcom.jpg", 
+                  "type": "image", 
+                  "imageType": "showcaseBanner", 
+                  "height": 270
+                }, 
+                {
+                  "width": 180, 
+                  "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/Sitcom.jpg", 
+                  "type": "image", 
+                  "imageType": "moviePoster", 
+                  "height": 270
+                }
+              ], 
+              "displayRank": 1, 
+              "type": "category", 
+              "label": "Sitcom"
+            }
+          ], 
+          "collectionType": "series", 
+          "title": "The Simpsons", 
+          "image": [
+            {
+              "width": 100, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-100/8b/fd/8bfdc0c1d594f440fdb9fcb4a1266def.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 75
+            }, 
+            {
+              "width": 119, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/banner-sm/8b/fd/8bfdc0c1d594f440fdb9fcb4a1266def.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 89
+            }, 
+            {
+              "width": 139, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/8b/fd/8bfdc0c1d594f440fdb9fcb4a1266def.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 104
+            }, 
+            {
+              "width": 200, 
+              "imageUrl": "http://i.tivo.com/images-production/hdui-showing/8b/fd/8bfdc0c1d594f440fdb9fcb4a1266def.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 150
+            }, 
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-270/8b/fd/8bfdc0c1d594f440fdb9fcb4a1266def.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }, 
+            {
+              "width": 200, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/banner-lg/8b/fd/8bfdc0c1d594f440fdb9fcb4a1266def.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 150
+            }, 
+            {
+              "width": 120, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-120/8b/fd/8bfdc0c1d594f440fdb9fcb4a1266def.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 90
+            }, 
+            {
+              "width": 240, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-240/8b/fd/8bfdc0c1d594f440fdb9fcb4a1266def.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 180
+            }
+          ], 
+          "collectionId": "tivo:cl.16642", 
+          "type": "collection"
+        }, 
+        {
+          "category": [
+            {
+              "image": [
+                {
+                  "width": 360, 
+                  "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/Comedy.jpg", 
+                  "type": "image", 
+                  "imageType": "showcaseBanner", 
+                  "height": 270
+                }, 
+                {
+                  "width": 180, 
+                  "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/Comedy.jpg", 
+                  "type": "image", 
+                  "imageType": "moviePoster", 
+                  "height": 270
+                }
+              ], 
+              "displayRank": 0, 
+              "type": "category", 
+              "label": "Comedy"
+            }, 
+            {
+              "displayRank": 1, 
+              "type": "category", 
+              "label": "TV Show"
+            }
+          ], 
+          "collectionType": "series", 
+          "title": "Curb Your Enthusiasm", 
+          "image": [
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-270/74/0c/740c3b718f2ed2f7aab7b3bc1c2ece70.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }, 
+            {
+              "width": 139, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/74/0c/740c3b718f2ed2f7aab7b3bc1c2ece70.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 104
+            }, 
+            {
+              "width": 119, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/banner-sm/74/0c/740c3b718f2ed2f7aab7b3bc1c2ece70.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 89
+            }, 
+            {
+              "width": 200, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/banner-lg/74/0c/740c3b718f2ed2f7aab7b3bc1c2ece70.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 150
+            }, 
+            {
+              "width": 100, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-100/74/0c/740c3b718f2ed2f7aab7b3bc1c2ece70.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 75
+            }, 
+            {
+              "width": 120, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-120/74/0c/740c3b718f2ed2f7aab7b3bc1c2ece70.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 90
+            }, 
+            {
+              "width": 200, 
+              "imageUrl": "http://i.tivo.com/images-production/hdui-showing/74/0c/740c3b718f2ed2f7aab7b3bc1c2ece70.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 150
+            }, 
+            {
+              "width": 240, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-240/74/0c/740c3b718f2ed2f7aab7b3bc1c2ece70.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 180
+            }
+          ], 
+          "collectionId": "tivo:cl.2568927", 
+          "type": "collection"
+        }, 
+        {
+          "category": [
+            {
+              "image": [
+                {
+                  "width": 360, 
+                  "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/Comedy.jpg", 
+                  "type": "image", 
+                  "imageType": "showcaseBanner", 
+                  "height": 270
+                }, 
+                {
+                  "width": 180, 
+                  "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/Comedy.jpg", 
+                  "type": "image", 
+                  "imageType": "moviePoster", 
+                  "height": 270
+                }
+              ], 
+              "displayRank": 0, 
+              "type": "category", 
+              "label": "Comedy"
+            }, 
+            {
+              "displayRank": 1, 
+              "type": "category", 
+              "label": "TV Show"
+            }
+          ], 
+          "collectionType": "series", 
+          "title": "Saturday Night Live", 
+          "image": [
+            {
+              "width": 200, 
+              "imageUrl": "http://i.tivo.com/images-production/hdui-showing/28/72/28724377ce087a649ccadc9d61043ef9.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 150
+            }, 
+            {
+              "width": 119, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/banner-sm/28/72/28724377ce087a649ccadc9d61043ef9.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 89
+            }, 
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-270/28/72/28724377ce087a649ccadc9d61043ef9.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }, 
+            {
+              "width": 120, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-120/28/72/28724377ce087a649ccadc9d61043ef9.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 90
+            }, 
+            {
+              "width": 100, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-100/28/72/28724377ce087a649ccadc9d61043ef9.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 75
+            }, 
+            {
+              "width": 139, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/28/72/28724377ce087a649ccadc9d61043ef9.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 104
+            }, 
+            {
+              "width": 240, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-240/28/72/28724377ce087a649ccadc9d61043ef9.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 180
+            }, 
+            {
+              "width": 200, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/banner-lg/28/72/28724377ce087a649ccadc9d61043ef9.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 150
+            }
+          ], 
+          "collectionId": "tivo:cl.20047", 
+          "type": "collection"
+        }, 
+        {
+          "category": [
+            {
+              "image": [
+                {
+                  "width": 360, 
+                  "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/Sitcom.jpg", 
+                  "type": "image", 
+                  "imageType": "showcaseBanner", 
+                  "height": 270
+                }, 
+                {
+                  "width": 180, 
+                  "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/Sitcom.jpg", 
+                  "type": "image", 
+                  "imageType": "moviePoster", 
+                  "height": 270
+                }
+              ], 
+              "displayRank": 0, 
+              "type": "category", 
+              "label": "Sitcom"
+            }, 
+            {
+              "displayRank": 1, 
+              "type": "category", 
+              "label": "TV Show"
+            }
+          ], 
+          "collectionType": "series", 
+          "title": "30 Rock", 
+          "image": [
+            {
+              "width": 100, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-100/b4/88/b48894534eb9fe89b0f5497a621c7ce1.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 75
+            }, 
+            {
+              "width": 139, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/b4/88/b48894534eb9fe89b0f5497a621c7ce1.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 104
+            }, 
+            {
+              "width": 200, 
+              "imageUrl": "http://i.tivo.com/images-production/hdui-showing/b4/88/b48894534eb9fe89b0f5497a621c7ce1.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 150
+            }, 
+            {
+              "width": 119, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/banner-sm/b4/88/b48894534eb9fe89b0f5497a621c7ce1.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 89
+            }, 
+            {
+              "width": 200, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/banner-lg/b4/88/b48894534eb9fe89b0f5497a621c7ce1.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 150
+            }, 
+            {
+              "width": 120, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-120/b4/88/b48894534eb9fe89b0f5497a621c7ce1.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 90
+            }, 
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-270/b4/88/b48894534eb9fe89b0f5497a621c7ce1.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }, 
+            {
+              "width": 240, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-240/b4/88/b48894534eb9fe89b0f5497a621c7ce1.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 180
+            }
+          ], 
+          "collectionId": "tivo:cl.78241342", 
+          "type": "collection"
+        }, 
+        {
+          "category": [
+            {
+              "image": [
+                {
+                  "width": 360, 
+                  "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/Sitcom.jpg", 
+                  "type": "image", 
+                  "imageType": "showcaseBanner", 
+                  "height": 270
+                }, 
+                {
+                  "width": 180, 
+                  "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/Sitcom.jpg", 
+                  "type": "image", 
+                  "imageType": "moviePoster", 
+                  "height": 270
+                }
+              ], 
+              "displayRank": 0, 
+              "type": "category", 
+              "label": "Sitcom"
+            }, 
+            {
+              "displayRank": 1, 
+              "type": "category", 
+              "label": "TV Show"
+            }
+          ], 
+          "collectionType": "series", 
+          "title": "Everybody Loves Raymond", 
+          "image": [
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-270/17/19/1719b0840fda40666fcaed99841cc380.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }, 
+            {
+              "width": 139, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/17/19/1719b0840fda40666fcaed99841cc380.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 104
+            }, 
+            {
+              "width": 240, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-240/17/19/1719b0840fda40666fcaed99841cc380.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 180
+            }, 
+            {
+              "width": 100, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-100/17/19/1719b0840fda40666fcaed99841cc380.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 75
+            }, 
+            {
+              "width": 200, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/banner-lg/17/19/1719b0840fda40666fcaed99841cc380.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 150
+            }, 
+            {
+              "width": 119, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/banner-sm/17/19/1719b0840fda40666fcaed99841cc380.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 89
+            }, 
+            {
+              "width": 200, 
+              "imageUrl": "http://i.tivo.com/images-production/hdui-showing/17/19/1719b0840fda40666fcaed99841cc380.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 150
+            }, 
+            {
+              "width": 120, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-120/17/19/1719b0840fda40666fcaed99841cc380.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 90
+            }
+          ], 
+          "collectionId": "tivo:cl.18989", 
+          "type": "collection"
+        }, 
+        {
+          "category": [
+            {
+              "image": [
+                {
+                  "width": 360, 
+                  "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/Sitcom.jpg", 
+                  "type": "image", 
+                  "imageType": "showcaseBanner", 
+                  "height": 270
+                }, 
+                {
+                  "width": 180, 
+                  "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/Sitcom.jpg", 
+                  "type": "image", 
+                  "imageType": "moviePoster", 
+                  "height": 270
+                }
+              ], 
+              "displayRank": 0, 
+              "type": "category", 
+              "label": "Sitcom"
+            }, 
+            {
+              "displayRank": 1, 
+              "type": "category", 
+              "label": "TV Show"
+            }
+          ], 
+          "collectionType": "series", 
+          "title": "The King of Queens", 
+          "image": [
+            {
+              "width": 200, 
+              "imageUrl": "http://i.tivo.com/images-production/hdui-showing/08/20/0820493678c361c5a544ed8c556f00dc.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 150
+            }, 
+            {
+              "width": 200, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/banner-lg/08/20/0820493678c361c5a544ed8c556f00dc.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 150
+            }, 
+            {
+              "width": 120, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-120/08/20/0820493678c361c5a544ed8c556f00dc.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 90
+            }, 
+            {
+              "width": 139, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/08/20/0820493678c361c5a544ed8c556f00dc.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 104
+            }, 
+            {
+              "width": 240, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-240/08/20/0820493678c361c5a544ed8c556f00dc.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 180
+            }, 
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-270/08/20/0820493678c361c5a544ed8c556f00dc.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }, 
+            {
+              "width": 119, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/banner-sm/08/20/0820493678c361c5a544ed8c556f00dc.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 89
+            }, 
+            {
+              "width": 100, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-100/08/20/0820493678c361c5a544ed8c556f00dc.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 75
+            }
+          ], 
+          "collectionId": "tivo:cl.18987", 
+          "type": "collection"
+        }, 
+        {
+          "category": [
+            {
+              "image": [
+                {
+                  "width": 360, 
+                  "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/Drama.jpg", 
+                  "type": "image", 
+                  "imageType": "showcaseBanner", 
+                  "height": 270
+                }, 
+                {
+                  "width": 180, 
+                  "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/Drama.jpg", 
+                  "type": "image", 
+                  "imageType": "moviePoster", 
+                  "height": 270
+                }
+              ], 
+              "displayRank": 0, 
+              "type": "category", 
+              "label": "Drama"
+            }, 
+            {
+              "displayRank": 1, 
+              "type": "category", 
+              "label": "TV Show"
+            }
+          ], 
+          "collectionType": "series", 
+          "title": "The Sopranos", 
+          "image": [
+            {
+              "width": 100, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-100/84/90/849041e559bff452f41df1aa572d7562.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 75
+            }, 
+            {
+              "width": 139, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/84/90/849041e559bff452f41df1aa572d7562.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 104
+            }, 
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-270/84/90/849041e559bff452f41df1aa572d7562.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }, 
+            {
+              "width": 200, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/banner-lg/84/90/849041e559bff452f41df1aa572d7562.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 150
+            }, 
+            {
+              "width": 120, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-120/84/90/849041e559bff452f41df1aa572d7562.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 90
+            }, 
+            {
+              "width": 119, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/banner-sm/84/90/849041e559bff452f41df1aa572d7562.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 89
+            }, 
+            {
+              "width": 200, 
+              "imageUrl": "http://i.tivo.com/images-production/hdui-showing/84/90/849041e559bff452f41df1aa572d7562.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 150
+            }, 
+            {
+              "width": 240, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-240/84/90/849041e559bff452f41df1aa572d7562.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 180
+            }
+          ], 
+          "collectionId": "tivo:cl.249991", 
+          "type": "collection"
+        }, 
+        {
+          "category": [
+            {
+              "image": [
+                {
+                  "width": 360, 
+                  "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/Sitcom.jpg", 
+                  "type": "image", 
+                  "imageType": "showcaseBanner", 
+                  "height": 270
+                }, 
+                {
+                  "width": 180, 
+                  "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/Sitcom.jpg", 
+                  "type": "image", 
+                  "imageType": "moviePoster", 
+                  "height": 270
+                }
+              ], 
+              "displayRank": 0, 
+              "type": "category", 
+              "label": "Sitcom"
+            }, 
+            {
+              "displayRank": 1, 
+              "type": "category", 
+              "label": "TV Show"
+            }
+          ], 
+          "collectionType": "series", 
+          "title": "Cheers", 
+          "image": [
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-270/44/e6/44e6a5fd29d1a8cee28570fe7b60ce84.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }, 
+            {
+              "width": 200, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/banner-lg/44/e6/44e6a5fd29d1a8cee28570fe7b60ce84.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 150
+            }, 
+            {
+              "width": 100, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-100/44/e6/44e6a5fd29d1a8cee28570fe7b60ce84.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 75
+            }, 
+            {
+              "width": 120, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-120/44/e6/44e6a5fd29d1a8cee28570fe7b60ce84.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 90
+            }, 
+            {
+              "width": 119, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/banner-sm/44/e6/44e6a5fd29d1a8cee28570fe7b60ce84.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 89
+            }, 
+            {
+              "width": 240, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-240/44/e6/44e6a5fd29d1a8cee28570fe7b60ce84.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 180
+            }, 
+            {
+              "width": 139, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/44/e6/44e6a5fd29d1a8cee28570fe7b60ce84.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 104
+            }, 
+            {
+              "width": 200, 
+              "imageUrl": "http://i.tivo.com/images-production/hdui-showing/44/e6/44e6a5fd29d1a8cee28570fe7b60ce84.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 150
+            }
+          ], 
+          "collectionId": "tivo:cl.18068", 
+          "type": "collection"
+        }, 
+        {
+          "category": [
+            {
+              "image": [
+                {
+                  "width": 360, 
+                  "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/Comedy.jpg", 
+                  "type": "image", 
+                  "imageType": "showcaseBanner", 
+                  "height": 270
+                }, 
+                {
+                  "width": 180, 
+                  "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/Comedy.jpg", 
+                  "type": "image", 
+                  "imageType": "moviePoster", 
+                  "height": 270
+                }
+              ], 
+              "displayRank": 0, 
+              "type": "category", 
+              "label": "Comedy"
+            }, 
+            {
+              "displayRank": 1, 
+              "type": "category", 
+              "label": "Comedy"
+            }
+          ], 
+          "collectionType": "movie", 
+          "title": "Tommy Boy", 
+          "image": [
+            {
+              "width": 180, 
+              "imageUrl": "http://i.tivo.com/images-production/os/movies-180/7b/e5/7be5fe65685ef6d43e4a22689848d0bd.jpg", 
+              "type": "image", 
+              "imageType": "moviePoster", 
+              "height": 270
+            }, 
+            {
+              "width": 133, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/movies-lg/7b/e5/7be5fe65685ef6d43e4a22689848d0bd.jpg", 
+              "type": "image", 
+              "imageType": "moviePoster", 
+              "height": 200
+            }, 
+            {
+              "width": 100, 
+              "imageUrl": "http://i.tivo.com/images-production/hdui-movies/7b/e5/7be5fe65685ef6d43e4a22689848d0bd.jpg", 
+              "type": "image", 
+              "imageType": "moviePoster", 
+              "height": 150
+            }, 
+            {
+              "width": 288, 
+              "imageUrl": "http://i.tivo.com/images-production/os/movies-288/7b/e5/7be5fe65685ef6d43e4a22689848d0bd.jpg", 
+              "type": "image", 
+              "imageType": "moviePoster", 
+              "height": 432
+            }, 
+            {
+              "width": 50, 
+              "imageUrl": "http://i.tivo.com/images-production/os/movies-50/7b/e5/7be5fe65685ef6d43e4a22689848d0bd.jpg", 
+              "type": "image", 
+              "imageType": "moviePoster", 
+              "height": 75
+            }, 
+            {
+              "width": 100, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/movies-med/7b/e5/7be5fe65685ef6d43e4a22689848d0bd.jpg", 
+              "type": "image", 
+              "imageType": "moviePoster", 
+              "height": 150
+            }
+          ], 
+          "collectionId": "tivo:cl.174781", 
+          "type": "collection"
+        }, 
+        {
+          "category": [
+            {
+              "image": [
+                {
+                  "width": 360, 
+                  "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/Sitcom.jpg", 
+                  "type": "image", 
+                  "imageType": "showcaseBanner", 
+                  "height": 270
+                }, 
+                {
+                  "width": 180, 
+                  "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/Sitcom.jpg", 
+                  "type": "image", 
+                  "imageType": "moviePoster", 
+                  "height": 270
+                }
+              ], 
+              "displayRank": 0, 
+              "type": "category", 
+              "label": "Sitcom"
+            }, 
+            {
+              "displayRank": 1, 
+              "type": "category", 
+              "label": "TV Show"
+            }
+          ], 
+          "collectionType": "series", 
+          "title": "Scrubs", 
+          "image": [
+            {
+              "width": 240, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-240/a1/9b/a19bece57b2f5503d3e0e99924f932e7.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 180
+            }, 
+            {
+              "width": 119, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/banner-sm/a1/9b/a19bece57b2f5503d3e0e99924f932e7.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 89
+            }, 
+            {
+              "width": 120, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-120/a1/9b/a19bece57b2f5503d3e0e99924f932e7.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 90
+            }, 
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-270/a1/9b/a19bece57b2f5503d3e0e99924f932e7.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }, 
+            {
+              "width": 139, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/a1/9b/a19bece57b2f5503d3e0e99924f932e7.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 104
+            }, 
+            {
+              "width": 100, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-100/a1/9b/a19bece57b2f5503d3e0e99924f932e7.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 75
+            }, 
+            {
+              "width": 200, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/banner-lg/a1/9b/a19bece57b2f5503d3e0e99924f932e7.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 150
+            }, 
+            {
+              "width": 200, 
+              "imageUrl": "http://i.tivo.com/images-production/hdui-showing/a1/9b/a19bece57b2f5503d3e0e99924f932e7.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 150
+            }
+          ], 
+          "collectionId": "tivo:cl.3879910", 
+          "type": "collection"
+        }
+      ], 
+      "type": "collection"
+    }
+  ]
+}

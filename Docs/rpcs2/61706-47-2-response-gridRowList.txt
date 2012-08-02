@@ -1,0 +1,187 @@
+MRPC/2 76 4361
+Raw Packet=MRPC/2 76 4361
+Content-Type: application/json
+IsFinal: true
+RpcId: 47
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "TBS", 
+        "isDigital": true, 
+        "channelNumber": "8", 
+        "logoIndex": 65540, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Seinfeld", 
+          "contentId": "tivo:ct.232347", 
+          "collectionId": "tivo:cl.16984", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-07-23-00-00.1800", 
+          "startTime": "2011-06-07 23:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Seinfeld", 
+          "contentId": "tivo:ct.289363", 
+          "collectionId": "tivo:cl.16984", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-07-23-30-00.1800", 
+          "startTime": "2011-06-07 23:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Office", 
+          "contentId": "tivo:ct.163776603", 
+          "collectionId": "tivo:cl.43851575", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-08-00-00-00.1800", 
+          "startTime": "2011-06-08 00:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Office", 
+          "contentId": "tivo:ct.164211935", 
+          "collectionId": "tivo:cl.43851575", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-08-00-30-00.1800", 
+          "startTime": "2011-06-08 00:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Office", 
+          "contentId": "tivo:ct.164447520", 
+          "collectionId": "tivo:cl.43851575", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-08-01-00-00.1800", 
+          "startTime": "2011-06-08 01:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Office", 
+          "contentId": "tivo:ct.44499518", 
+          "collectionId": "tivo:cl.43851575", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-08-01-30-00.1800", 
+          "startTime": "2011-06-08 01:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Office", 
+          "contentId": "tivo:ct.45211727", 
+          "collectionId": "tivo:cl.43851575", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-08-02-00-00.1800", 
+          "startTime": "2011-06-08 02:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Office", 
+          "contentId": "tivo:ct.45528448", 
+          "collectionId": "tivo:cl.43851575", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-08-02-30-00.1800", 
+          "startTime": "2011-06-08 02:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Conan", 
+          "contentId": "tivo:ct.183256884", 
+          "collectionId": "tivo:cl.171093113", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-08-03-00-00.3600", 
+          "startTime": "2011-06-08 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Lopez Tonight", 
+          "contentId": "tivo:ct.183256816", 
+          "collectionId": "tivo:cl.153523795", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-08-04-00-00.3600", 
+          "startTime": "2011-06-08 04:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Conan", 
+          "contentId": "tivo:ct.183256884", 
+          "collectionId": "tivo:cl.171093113", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-08-05-00-00.3600", 
+          "startTime": "2011-06-08 05:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Lopez Tonight", 
+          "contentId": "tivo:ct.183256816", 
+          "collectionId": "tivo:cl.153523795", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-08-06-00-00.3600", 
+          "startTime": "2011-06-08 06:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Into the Blue", 
+          "contentId": "tivo:ct.63468509", 
+          "collectionId": "tivo:cl.63469137", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-08-07-00-00.7200", 
+          "startTime": "2011-06-08 07:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Married ... With Children", 
+          "contentId": "tivo:ct.518053", 
+          "collectionId": "tivo:cl.16995", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-08-09-00-00.1800", 
+          "startTime": "2011-06-08 09:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Married ... With Children", 
+          "contentId": "tivo:ct.486965", 
+          "collectionId": "tivo:cl.16995", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-08-09-30-00.1800", 
+          "startTime": "2011-06-08 09:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Married ... With Children", 
+          "contentId": "tivo:ct.488922", 
+          "collectionId": "tivo:cl.16995", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-08-10-00-00.1800", 
+          "startTime": "2011-06-08 10:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Married ... With Children", 
+          "contentId": "tivo:ct.17177", 
+          "collectionId": "tivo:cl.16995", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-08-10-30-00.1800", 
+          "startTime": "2011-06-08 10:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Home Improvement", 
+          "contentId": "tivo:ct.18367", 
+          "collectionId": "tivo:cl.17998", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-08-11-00-00.1800", 
+          "startTime": "2011-06-08 11:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

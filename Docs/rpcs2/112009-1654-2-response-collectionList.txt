@@ -1,0 +1,73 @@
+MRPC/2 78 1187
+Raw Packet=MRPC/2 78 1187
+Content-Type: application/json
+IsFinal: true
+RpcId: 1654
+Type: response
+
+{
+  "type": "collectionList", 
+  "collection": [
+    {
+      "category": [
+        {
+          "image": [
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/News.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }, 
+            {
+              "width": 180, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/News.jpg", 
+              "type": "image", 
+              "imageType": "moviePoster", 
+              "height": 270
+            }
+          ], 
+          "displayRank": 0, 
+          "type": "category", 
+          "label": "News"
+        }, 
+        {
+          "displayRank": 1, 
+          "type": "category", 
+          "label": "TV Show"
+        }
+      ], 
+      "collectionType": "series", 
+      "broadcastOfferGroupForCollectionId": [
+        {
+          "count": 10, 
+          "type": "offerGroup", 
+          "example": {
+            "contentId": "tivo:ct.795289", 
+            "type": "offer"
+          }
+        }
+      ], 
+      "episodic": true, 
+      "collectionId": "tivo:cl.795288", 
+      "image": [
+        {
+          "width": 139, 
+          "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/e1/0b/e10ba6056733b823d51d296d012cd0b2.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 104
+        }, 
+        {
+          "width": 200, 
+          "imageUrl": "http://i.tivo.com/images-production/hdui-showing/e1/0b/e10ba6056733b823d51d296d012cd0b2.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 150
+        }
+      ], 
+      "title": "TV10/55 News at 11", 
+      "type": "collection"
+    }
+  ]
+}

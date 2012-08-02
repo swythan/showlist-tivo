@@ -1,0 +1,204 @@
+MRPC/2 78 4842
+Raw Packet=MRPC/2 78 4842
+Content-Type: application/json
+IsFinal: true
+RpcId: 1541
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "55", 
+        "callSign": "WLNYMH", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "First Business", 
+          "contentId": "tivo:ct.183495418", 
+          "collectionId": "tivo:cl.57145", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-13-09-30-00.1800", 
+          "startTime": "2011-06-13 09:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Vic Caroleo Inspirational", 
+          "contentId": "tivo:ct.179342996", 
+          "collectionId": "tivo:cl.179343499", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-13-10-00-00.1800", 
+          "startTime": "2011-06-13 10:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Van Nest Assembly", 
+          "contentId": "tivo:ct.12595070", 
+          "collectionId": "tivo:cl.12595308", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-13-10-30-00.1800", 
+          "startTime": "2011-06-13 10:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Joyce Meyer: Enjoying Everyday Life", 
+          "contentId": "tivo:ct.164030305", 
+          "collectionId": "tivo:cl.63852358", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-13-11-00-00.1800", 
+          "startTime": "2011-06-13 11:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Gospel Truth With Andrew Wommack", 
+          "contentId": "tivo:ct.63099028", 
+          "collectionId": "tivo:cl.63099347", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-13-11-30-00.1800", 
+          "startTime": "2011-06-13 11:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Know the Cause", 
+          "contentId": "tivo:ct.33436421", 
+          "collectionId": "tivo:cl.33436990", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-13-12-00-00.1800", 
+          "startTime": "2011-06-13 12:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Daily Mass", 
+          "contentId": "tivo:ct.140763", 
+          "collectionId": "tivo:cl.127863", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-13-12-30-00.1800", 
+          "startTime": "2011-06-13 12:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Animal Atlas", 
+          "contentId": "tivo:ct.178337220", 
+          "collectionId": "tivo:cl.28969511", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-13-13-00-00.1800", 
+          "startTime": "2011-06-13 13:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-13-13-30-00.1800", 
+          "startTime": "2011-06-13 13:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Coach", 
+          "contentId": "tivo:ct.120469", 
+          "collectionId": "tivo:cl.18003", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-13-14-00-00.1800", 
+          "startTime": "2011-06-13 14:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-13-14-30-00.1800", 
+          "startTime": "2011-06-13 14:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Just Shoot Me", 
+          "contentId": "tivo:ct.17331806", 
+          "collectionId": "tivo:cl.20212", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-13-15-00-00.1800", 
+          "startTime": "2011-06-13 15:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-13-15-30-00.1800", 
+          "startTime": "2011-06-13 15:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-13-16-00-00.1800", 
+          "startTime": "2011-06-13 16:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "God Squad", 
+          "contentId": "tivo:ct.104246", 
+          "collectionId": "tivo:cl.104245", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-13-16-30-00.1800", 
+          "startTime": "2011-06-13 16:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "McMillan and Wife", 
+          "contentId": "tivo:ct.206929", 
+          "collectionId": "tivo:cl.14617", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-13-17-00-00.5400", 
+          "startTime": "2011-06-13 17:00:00", 
+          "duration": 5400, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-13-18-30-00.1800", 
+          "startTime": "2011-06-13 18:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Cold Case Files", 
+          "contentId": "tivo:ct.77993222", 
+          "collectionId": "tivo:cl.6113467", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-13-19-00-00.3600", 
+          "startTime": "2011-06-13 19:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Matlock", 
+          "contentId": "tivo:ct.37972", 
+          "collectionId": "tivo:cl.18471", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-13-20-00-00.3600", 
+          "startTime": "2011-06-13 20:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Matlock", 
+          "contentId": "tivo:ct.63652", 
+          "collectionId": "tivo:cl.18471", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-13-21-00-00.3600", 
+          "startTime": "2011-06-13 21:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

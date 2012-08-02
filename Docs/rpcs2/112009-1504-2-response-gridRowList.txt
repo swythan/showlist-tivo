@@ -1,0 +1,304 @@
+MRPC/2 78 6115
+Raw Packet=MRPC/2 78 6115
+Content-Type: application/json
+IsFinal: true
+RpcId: 1504
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "BOOM", 
+        "isDigital": true, 
+        "channelNumber": "109", 
+        "logoIndex": 65753, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Thundarr the Barbarian", 
+          "contentId": "tivo:ct.11636598", 
+          "collectionId": "tivo:cl.1667611", 
+          "offerId": "tivo:of.ctd.1667980.109.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Sealab 2020", 
+          "contentId": "tivo:ct.1938652", 
+          "collectionId": "tivo:cl.218536", 
+          "offerId": "tivo:of.ctd.1667980.109.cable.2011-06-07-03-30-00.1800", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "MILI", 
+        "isDigital": true, 
+        "channelNumber": "112", 
+        "logoIndex": 66135, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Greatest Tank Battles", 
+          "contentId": "tivo:ct.165553581", 
+          "collectionId": "tivo:cl.157307239", 
+          "offerId": "tivo:of.ctd.2551.112.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "DFH", 
+        "isDigital": true, 
+        "channelNumber": "116", 
+        "logoIndex": 66091, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "My Strange Addiction", 
+          "contentId": "tivo:ct.174018181", 
+          "collectionId": "tivo:cl.173971276", 
+          "offerId": "tivo:of.ctd.2274.116.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "My Strange Addiction", 
+          "contentId": "tivo:ct.174778367", 
+          "collectionId": "tivo:cl.173971276", 
+          "offerId": "tivo:of.ctd.2274.116.cable.2011-06-07-03-30-00.1800", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "GSN", 
+        "isDigital": true, 
+        "channelNumber": "117", 
+        "logoIndex": 65580, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Lingo", 
+          "contentId": "tivo:ct.183946046", 
+          "collectionId": "tivo:cl.183947177", 
+          "offerId": "tivo:of.ctd.1982.117.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Drew Carey's Improv-A-Ganza", 
+          "contentId": "tivo:ct.179182081", 
+          "collectionId": "tivo:cl.179182978", 
+          "offerId": "tivo:of.ctd.1982.117.cable.2011-06-07-03-30-00.1800", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "LRW", 
+        "isDigital": true, 
+        "channelNumber": "127", 
+        "logoIndex": 66149, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Airline", 
+          "contentId": "tivo:ct.47185651", 
+          "collectionId": "tivo:cl.18560207", 
+          "offerId": "tivo:of.ctd.5802096.127.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Airline", 
+          "contentId": "tivo:ct.47631034", 
+          "collectionId": "tivo:cl.18560207", 
+          "offerId": "tivo:of.ctd.5802096.127.cable.2011-06-07-03-30-00.1800", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "MTV2", 
+        "isDigital": true, 
+        "channelNumber": "128", 
+        "logoIndex": 66156, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "The Wayans Bros.", 
+          "contentId": "tivo:ct.1121116", 
+          "collectionId": "tivo:cl.19386", 
+          "offerId": "tivo:of.ctd.2323.128.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Wayans Bros.", 
+          "contentId": "tivo:ct.1126290", 
+          "collectionId": "tivo:cl.19386", 
+          "offerId": "tivo:of.ctd.2323.128.cable.2011-06-07-03-30-00.1800", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "NICJR", 
+        "isDigital": true, 
+        "channelNumber": "129", 
+        "logoIndex": 65768, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "The Upside Down Show", 
+          "contentId": "tivo:ct.79214437", 
+          "collectionId": "tivo:cl.76505554", 
+          "offerId": "tivo:of.ctd.346796.129.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Upside Down Show", 
+          "contentId": "tivo:ct.79214439", 
+          "collectionId": "tivo:cl.76505554", 
+          "offerId": "tivo:of.ctd.346796.129.cable.2011-06-07-03-30-00.1800", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "VH1CL", 
+        "isDigital": true, 
+        "channelNumber": "136", 
+        "logoIndex": 65776, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "That Metal Show", 
+          "contentId": "tivo:ct.179342553", 
+          "collectionId": "tivo:cl.140196858", 
+          "offerId": "tivo:of.ctd.1781315.136.cable.2011-06-07-02-30-00.3600", 
+          "startTime": "2011-06-07 02:30:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Let's Spend the Night Together: Confessions of Rock's Greatest Groupies", 
+          "contentId": "tivo:ct.173013502", 
+          "collectionId": "tivo:cl.173014361", 
+          "offerId": "tivo:of.ctd.1781315.136.cable.2011-06-07-03-30-00.5400", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 5400, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "TNCK", 
+        "isDigital": true, 
+        "channelNumber": "137", 
+        "logoIndex": 66095, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Buffy the Vampire Slayer", 
+          "contentId": "tivo:ct.2333018", 
+          "collectionId": "tivo:cl.19345", 
+          "offerId": "tivo:of.ctd.115871932.137.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "NIKTON", 
+        "isDigital": true, 
+        "channelNumber": "138", 
+        "logoIndex": 66093, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Power Rangers Samurai", 
+          "contentId": "tivo:ct.175353861", 
+          "collectionId": "tivo:cl.175354947", 
+          "offerId": "tivo:of.ctd.6146038.138.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Power Rangers Samurai", 
+          "contentId": "tivo:ct.175934264", 
+          "collectionId": "tivo:cl.175354947", 
+          "offerId": "tivo:of.ctd.6146038.138.cable.2011-06-07-03-30-00.1800", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

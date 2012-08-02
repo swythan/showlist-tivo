@@ -1,0 +1,231 @@
+MRPC/2 78 5674
+Raw Packet=MRPC/2 78 5674
+Content-Type: application/json
+IsFinal: true
+RpcId: 1521
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "55", 
+        "callSign": "WLNYMH", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "The Ahh Bra by Rhonda Shear: Discover Comfort! Discover Great Looks!", 
+          "contentId": "tivo:ct.167702337", 
+          "collectionId": "tivo:cl.167702720", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-10-06-00-00.1800", 
+          "startTime": "2011-06-10 06:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Armando Montelongo", 
+          "contentId": "tivo:ct.154754522", 
+          "collectionId": "tivo:cl.154755161", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-10-06-30-00.1800", 
+          "startTime": "2011-06-10 06:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-10-07-00-00.1800", 
+          "startTime": "2011-06-10 07:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-10-07-30-00.1800", 
+          "startTime": "2011-06-10 07:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Free Magic Bullet: Buy the Original Magic Bullet and Get 1 Free", 
+          "contentId": "tivo:ct.128549470", 
+          "collectionId": "tivo:cl.128549833", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-10-08-00-00.1800", 
+          "startTime": "2011-06-10 08:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Abortion: Have We Gone Too Far?", 
+          "contentId": "tivo:ct.5160125", 
+          "collectionId": "tivo:cl.5160124", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-10-08-30-00.1800", 
+          "startTime": "2011-06-10 08:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "TV10/55 News", 
+          "contentId": "tivo:ct.795291", 
+          "collectionId": "tivo:cl.795290", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-10-09-00-00.1800", 
+          "startTime": "2011-06-10 09:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "First Business", 
+          "contentId": "tivo:ct.182146578", 
+          "collectionId": "tivo:cl.57145", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-10-09-30-00.1800", 
+          "startTime": "2011-06-10 09:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Live It Up", 
+          "contentId": "tivo:ct.144889281", 
+          "collectionId": "tivo:cl.144889793", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-10-10-00-00.1800", 
+          "startTime": "2011-06-10 10:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-10-10-30-00.1800", 
+          "startTime": "2011-06-10 10:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Joyce Meyer: Enjoying Everyday Life", 
+          "contentId": "tivo:ct.161221657", 
+          "collectionId": "tivo:cl.63852358", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-10-11-00-00.1800", 
+          "startTime": "2011-06-10 11:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Gospel Truth With Andrew Wommack", 
+          "contentId": "tivo:ct.63099028", 
+          "collectionId": "tivo:cl.63099347", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-10-11-30-00.1800", 
+          "startTime": "2011-06-10 11:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Know the Cause", 
+          "contentId": "tivo:ct.33436421", 
+          "collectionId": "tivo:cl.33436990", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-10-12-00-00.1800", 
+          "startTime": "2011-06-10 12:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Daily Mass", 
+          "contentId": "tivo:ct.140763", 
+          "collectionId": "tivo:cl.127863", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-10-12-30-00.1800", 
+          "startTime": "2011-06-10 12:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Animal Rescue", 
+          "contentId": "tivo:ct.171033666", 
+          "collectionId": "tivo:cl.20262", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-10-13-00-00.1800", 
+          "startTime": "2011-06-10 13:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-10-13-30-00.1800", 
+          "startTime": "2011-06-10 13:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Coach", 
+          "contentId": "tivo:ct.43681", 
+          "collectionId": "tivo:cl.18003", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-10-14-00-00.1800", 
+          "startTime": "2011-06-10 14:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-10-14-30-00.1800", 
+          "startTime": "2011-06-10 14:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Just Shoot Me", 
+          "contentId": "tivo:ct.7960152", 
+          "collectionId": "tivo:cl.20212", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-10-15-00-00.1800", 
+          "startTime": "2011-06-10 15:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Sexy Faces", 
+          "contentId": "tivo:ct.178901814", 
+          "collectionId": "tivo:cl.178902443", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-10-15-30-00.1800", 
+          "startTime": "2011-06-10 15:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-10-16-00-00.1800", 
+          "startTime": "2011-06-10 16:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "God Squad", 
+          "contentId": "tivo:ct.104246", 
+          "collectionId": "tivo:cl.104245", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-10-16-30-00.1800", 
+          "startTime": "2011-06-10 16:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "There Goes the Neighborhood", 
+          "contentId": "tivo:ct.15484", 
+          "collectionId": "tivo:cl.221690", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-10-17-00-00.7200", 
+          "startTime": "2011-06-10 17:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

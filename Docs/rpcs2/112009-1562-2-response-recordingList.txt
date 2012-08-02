@@ -1,0 +1,230 @@
+MRPC/2 78 4444
+Raw Packet=MRPC/2 78 4444
+Content-Type: application/json
+IsFinal: true
+RpcId: 1562
+Type: response
+
+{
+  "recording": [
+    {
+      "subscriptionIdentifier": [
+        {
+          "subscriptionId": "tivo:sb.159", 
+          "subscriptionType": "seasonPass", 
+          "type": "subscriptionIdentifier"
+        }
+      ], 
+      "repeat": true, 
+      "episodic": true, 
+      "collectionId": "tivo:cl.174384122", 
+      "contentId": "tivo:ct.175615103", 
+      "title": "Portlandia", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "state": "scheduled", 
+      "startTime": "2011-06-12 18:30:00", 
+      "recordingId": "tivo:rc.228239", 
+      "type": "recording", 
+      "channel": {
+        "isDigital": false, 
+        "channelNumber": "781", 
+        "callSign": "IFCHD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }
+    }, 
+    {
+      "subscriptionIdentifier": [
+        {
+          "subscriptionId": "tivo:sb.15000051", 
+          "subscriptionType": "seasonPass", 
+          "type": "subscriptionIdentifier"
+        }
+      ], 
+      "episodic": true, 
+      "collectionId": "tivo:cl.120732185", 
+      "contentId": "tivo:ct.180765704", 
+      "title": "In Plain Sight", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "hdtv": true, 
+      "state": "scheduled", 
+      "startTime": "2011-06-13 02:00:00", 
+      "recordingId": "tivo:rc.227899", 
+      "type": "recording", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "USAHD", 
+        "isDigital": false, 
+        "channelNumber": "716", 
+        "logoIndex": 66057, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "subscriptionIdentifier": [
+        {
+          "subscriptionId": "tivo:sb.259", 
+          "subscriptionType": "seasonPass", 
+          "type": "subscriptionIdentifier"
+        }
+      ], 
+      "repeat": true, 
+      "episodic": true, 
+      "collectionId": "tivo:cl.161625498", 
+      "contentId": "tivo:ct.173645952", 
+      "title": "Adventure Time", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "hdtv": true, 
+      "state": "scheduled", 
+      "startTime": "2011-06-13 20:30:00", 
+      "recordingId": "tivo:rc.228399", 
+      "type": "recording", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "TOONHD", 
+        "isDigital": true, 
+        "channelNumber": "761", 
+        "logoIndex": 66277, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "subscriptionIdentifier": [
+        {
+          "subscriptionId": "tivo:sb.259", 
+          "subscriptionType": "seasonPass", 
+          "type": "subscriptionIdentifier"
+        }
+      ], 
+      "repeat": true, 
+      "episodic": true, 
+      "collectionId": "tivo:cl.161625498", 
+      "contentId": "tivo:ct.161650282", 
+      "title": "Adventure Time", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "hdtv": true, 
+      "state": "scheduled", 
+      "startTime": "2011-06-14 00:00:00", 
+      "recordingId": "tivo:rc.230109", 
+      "type": "recording", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "TOONHD", 
+        "isDigital": true, 
+        "channelNumber": "761", 
+        "logoIndex": 66277, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "subscriptionIdentifier": [
+        {
+          "subscriptionId": "tivo:sb.119", 
+          "subscriptionType": "seasonPass", 
+          "type": "subscriptionIdentifier"
+        }
+      ], 
+      "repeat": true, 
+      "episodic": true, 
+      "collectionId": "tivo:cl.17787", 
+      "contentId": "tivo:ct.137138477", 
+      "title": "NOVA", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "state": "scheduled", 
+      "startTime": "2011-06-14 07:00:00", 
+      "recordingId": "tivo:rc.229909", 
+      "type": "recording", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WNETDT", 
+        "isDigital": true, 
+        "channelNumber": "713", 
+        "logoIndex": 65558, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "subscriptionIdentifier": [
+        {
+          "subscriptionId": "tivo:sb.15000311", 
+          "subscriptionType": "seasonPass", 
+          "type": "subscriptionIdentifier"
+        }
+      ], 
+      "episodic": true, 
+      "collectionId": "tivo:cl.150777031", 
+      "contentId": "tivo:ct.182551374", 
+      "title": "White Collar", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "hdtv": true, 
+      "state": "scheduled", 
+      "startTime": "2011-06-15 01:00:00", 
+      "recordingId": "tivo:rc.234809", 
+      "type": "recording", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "USAHD", 
+        "isDigital": false, 
+        "channelNumber": "716", 
+        "logoIndex": 66057, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "subscriptionIdentifier": [
+        {
+          "subscriptionId": "tivo:sb.15000251", 
+          "subscriptionType": "seasonPass", 
+          "type": "subscriptionIdentifier"
+        }
+      ], 
+      "episodic": true, 
+      "collectionId": "tivo:cl.165898848", 
+      "contentId": "tivo:ct.183415682", 
+      "title": "Covert Affairs", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "hdtv": true, 
+      "state": "scheduled", 
+      "startTime": "2011-06-15 02:00:00", 
+      "recordingId": "tivo:rc.234829", 
+      "type": "recording", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "USAHD", 
+        "isDigital": false, 
+        "channelNumber": "716", 
+        "logoIndex": 66057, 
+        "type": "channel"
+      }
+    }, 
+    {
+      "subscriptionIdentifier": [
+        {
+          "subscriptionId": "tivo:sb.259", 
+          "subscriptionType": "seasonPass", 
+          "type": "subscriptionIdentifier"
+        }
+      ], 
+      "repeat": true, 
+      "episodic": true, 
+      "collectionId": "tivo:cl.161625498", 
+      "contentId": "tivo:ct.162829381", 
+      "title": "Adventure Time", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "hdtv": true, 
+      "state": "scheduled", 
+      "startTime": "2011-06-15 20:30:00", 
+      "recordingId": "tivo:rc.235049", 
+      "type": "recording", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "TOONHD", 
+        "isDigital": true, 
+        "channelNumber": "761", 
+        "logoIndex": 66277, 
+        "type": "channel"
+      }
+    }
+  ], 
+  "type": "recordingList"
+}

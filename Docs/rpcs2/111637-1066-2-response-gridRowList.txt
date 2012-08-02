@@ -1,0 +1,124 @@
+MRPC/2 78 2912
+Raw Packet=MRPC/2 78 2912
+Content-Type: application/json
+IsFinal: true
+RpcId: 1066
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "FXHD", 
+        "isDigital": true, 
+        "channelNumber": "710", 
+        "logoIndex": 66198, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Show Acne Who's Boss. Be PROACTIV", 
+          "contentId": "tivo:ct.168365385", 
+          "collectionId": "tivo:cl.168365896", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-10-10-30-00.1800", 
+          "startTime": "2011-06-10 10:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Malcolm in the Middle", 
+          "contentId": "tivo:ct.48145448", 
+          "collectionId": "tivo:cl.1298999", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-10-11-00-00.1800", 
+          "startTime": "2011-06-10 11:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Malcolm in the Middle", 
+          "contentId": "tivo:ct.47819720", 
+          "collectionId": "tivo:cl.1298999", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-10-11-30-00.1800", 
+          "startTime": "2011-06-10 11:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Shaft", 
+          "contentId": "tivo:ct.2028149", 
+          "collectionId": "tivo:cl.2028148", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-10-12-00-00.7200", 
+          "startTime": "2011-06-10 12:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The X-Files: I Want to Believe", 
+          "contentId": "tivo:ct.113226209", 
+          "collectionId": "tivo:cl.113226582", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-10-14-00-00.9000", 
+          "startTime": "2011-06-10 14:00:00", 
+          "duration": 9000, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Along Came a Spider", 
+          "contentId": "tivo:ct.3839425", 
+          "collectionId": "tivo:cl.3839424", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-10-16-30-00.7200", 
+          "startTime": "2011-06-10 16:30:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Malcolm in the Middle", 
+          "contentId": "tivo:ct.46541849", 
+          "collectionId": "tivo:cl.1298999", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-10-18-30-00.1800", 
+          "startTime": "2011-06-10 18:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Malcolm in the Middle", 
+          "contentId": "tivo:ct.56272377", 
+          "collectionId": "tivo:cl.1298999", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-10-19-00-00.1800", 
+          "startTime": "2011-06-10 19:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "American History X", 
+          "contentId": "tivo:ct.516140", 
+          "collectionId": "tivo:cl.516139", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-10-19-30-00.9000", 
+          "startTime": "2011-06-10 19:30:00", 
+          "duration": 9000, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Two and a Half Men", 
+          "contentId": "tivo:ct.154515947", 
+          "collectionId": "tivo:cl.15566705", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-10-22-00-00.1800", 
+          "startTime": "2011-06-10 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Two and a Half Men", 
+          "contentId": "tivo:ct.154934954", 
+          "collectionId": "tivo:cl.15566705", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-10-22-30-00.1800", 
+          "startTime": "2011-06-10 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

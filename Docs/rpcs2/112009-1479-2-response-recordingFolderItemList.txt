@@ -1,0 +1,137 @@
+MRPC/2 78 2922
+Raw Packet=MRPC/2 78 2922
+Content-Type: application/json
+IsFinal: true
+RpcId: 1479
+Type: response
+
+{
+  "recordingFolderItem": [
+    {
+      "childRecordingId": "tivo:rc.237239", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.16986", 
+        "contentId": "tivo:ct.64753", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-06-06 03:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "684", 
+          "callSign": "HALLHD", 
+          "type": "channel", 
+          "logoIndex": 65778
+        }
+      }, 
+      "title": "Frasier", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "folderItemCount": 12, 
+      "recordingFolderItemId": "tivo:rf.35665", 
+      "startTime": "2011-06-06 02:59:59", 
+      "type": "recordingFolderItem", 
+      "folderType": "series"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.217279", 
+      "recordingForChildRecordingId": {
+        "episodic": true, 
+        "collectionId": "tivo:cl.120732185", 
+        "contentId": "tivo:ct.180765703", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "hdtv": true, 
+        "startTime": "2011-06-06 02:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "716", 
+          "callSign": "USAHD", 
+          "type": "channel", 
+          "logoIndex": 66057
+        }
+      }, 
+      "recordingStatusType": "keepForever", 
+      "title": "In Plain Sight", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.217279", 
+      "startTime": "2011-06-06 02:00:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.217779", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.16645", 
+        "contentId": "tivo:ct.16965", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-06-06 00:30:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "11", 
+          "callSign": "WPIX", 
+          "type": "channel", 
+          "logoIndex": 75537
+        }
+      }, 
+      "title": "Friends", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "folderItemCount": 14, 
+      "recordingFolderItemId": "tivo:rf.35648", 
+      "startTime": "2011-06-06 00:29:58", 
+      "type": "recordingFolderItem", 
+      "folderType": "series"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.217439", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.863984", 
+        "contentId": "tivo:ct.68687170", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "hdtv": true, 
+        "startTime": "2011-06-05 10:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "685", 
+          "callSign": "BBCAHD", 
+          "type": "channel", 
+          "logoIndex": 65725
+        }
+      }, 
+      "title": "Top Gear", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "folderItemCount": 3, 
+      "recordingFolderItemId": "tivo:rf.37169", 
+      "startTime": "2011-06-05 09:59:58", 
+      "type": "recordingFolderItem", 
+      "folderType": "series"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.212829", 
+      "recordingForChildRecordingId": {
+        "episodic": true, 
+        "collectionId": "tivo:cl.55039", 
+        "contentId": "tivo:ct.181501243", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "hdtv": true, 
+        "startTime": "2011-06-03 23:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "707", 
+          "callSign": "WABCDT", 
+          "type": "channel", 
+          "logoIndex": 65554
+        }
+      }, 
+      "title": "Jeopardy!", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "folderItemCount": 3, 
+      "recordingFolderItemId": "tivo:rf.36231", 
+      "startTime": "2011-06-03 22:59:58", 
+      "type": "recordingFolderItem", 
+      "folderType": "series"
+    }
+  ], 
+  "type": "recordingFolderItemList"
+}

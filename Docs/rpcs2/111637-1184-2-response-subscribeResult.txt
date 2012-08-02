@@ -1,0 +1,15 @@
+MRPC/2 78 135
+Raw Packet=MRPC/2 78 135
+Content-Type: application/json
+IsFinal: true
+RpcId: 1184
+Type: response
+
+{
+  "type": "subscribeResult", 
+  "subscription": {
+    "subscriptionId": "tivo:sb.319", 
+    "type": "subscription", 
+    "bodyId": "tsn:XXXXXXXXXXXXXXX"
+  }
+}

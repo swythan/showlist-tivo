@@ -1,0 +1,133 @@
+MRPC/2 78 3129
+Raw Packet=MRPC/2 78 3129
+Content-Type: application/json
+IsFinal: true
+RpcId: 1084
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "FXHD", 
+        "isDigital": true, 
+        "channelNumber": "710", 
+        "logoIndex": 66198, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Epic Movie", 
+          "contentId": "tivo:ct.93966986", 
+          "collectionId": "tivo:cl.94011708", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-17-14-00-00.7200", 
+          "startTime": "2011-06-17 14:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Meet the Spartans", 
+          "contentId": "tivo:ct.113226226", 
+          "collectionId": "tivo:cl.113226603", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-17-16-00-00.7200", 
+          "startTime": "2011-06-17 16:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Bernie Mac Show", 
+          "contentId": "tivo:ct.58829306", 
+          "collectionId": "tivo:cl.3890499", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-17-18-00-00.1800", 
+          "startTime": "2011-06-17 18:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Bernie Mac Show", 
+          "contentId": "tivo:ct.59233237", 
+          "collectionId": "tivo:cl.3890499", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-17-18-30-00.1800", 
+          "startTime": "2011-06-17 18:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Malcolm in the Middle", 
+          "contentId": "tivo:ct.63537684", 
+          "collectionId": "tivo:cl.1298999", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-17-19-00-00.1800", 
+          "startTime": "2011-06-17 19:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Definitely, Maybe", 
+          "contentId": "tivo:ct.98437392", 
+          "collectionId": "tivo:cl.98439626", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-17-19-30-00.9000", 
+          "startTime": "2011-06-17 19:30:00", 
+          "duration": 9000, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Two and a Half Men", 
+          "contentId": "tivo:ct.156207798", 
+          "collectionId": "tivo:cl.15566705", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-17-22-00-00.1800", 
+          "startTime": "2011-06-17 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Two and a Half Men", 
+          "contentId": "tivo:ct.157461345", 
+          "collectionId": "tivo:cl.15566705", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-17-22-30-00.1800", 
+          "startTime": "2011-06-17 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Two and a Half Men", 
+          "contentId": "tivo:ct.157606145", 
+          "collectionId": "tivo:cl.15566705", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-17-23-00-00.1800", 
+          "startTime": "2011-06-17 23:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Two and a Half Men", 
+          "contentId": "tivo:ct.158661332", 
+          "collectionId": "tivo:cl.15566705", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-17-23-30-00.1800", 
+          "startTime": "2011-06-17 23:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Behind Enemy Lines", 
+          "contentId": "tivo:ct.5053517", 
+          "collectionId": "tivo:cl.5053516", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-18-00-00-00.7200", 
+          "startTime": "2011-06-18 00:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Behind Enemy Lines", 
+          "contentId": "tivo:ct.5053517", 
+          "collectionId": "tivo:cl.5053516", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-18-02-00-00.7200", 
+          "startTime": "2011-06-18 02:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

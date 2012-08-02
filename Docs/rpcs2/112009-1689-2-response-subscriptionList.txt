@@ -1,0 +1,162 @@
+MRPC/2 78 3192
+Raw Packet=MRPC/2 78 3192
+Content-Type: application/json
+IsFinal: true
+RpcId: 1689
+Type: response
+
+{
+  "type": "subscriptionList", 
+  "subscription": [
+    {
+      "maxRecordings": 5, 
+      "keepBehavior": "forever", 
+      "title": "Chuck", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "name": "NBC Affiliate", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "isBlocked": false, 
+          "channelId": "tivo:ch.9", 
+          "callSign": "WNBCDT", 
+          "isDigital": false, 
+          "stationId": "tivo:st.4190788", 
+          "channelNumber": "704", 
+          "logoIndex": 65556, 
+          "type": "channel", 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.97362092"
+      }, 
+      "showStatus": "firstRunOnly", 
+      "subscriptionId": "tivo:sb.15000191", 
+      "type": "subscription"
+    }, 
+    {
+      "maxRecordings": 5, 
+      "keepBehavior": "forever", 
+      "title": "No Ordinary Family", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "name": "ABC Affiliate", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "isBlocked": false, 
+          "channelId": "tivo:ch.9", 
+          "callSign": "WABCDT", 
+          "isDigital": false, 
+          "stationId": "tivo:st.4190787", 
+          "channelNumber": "707", 
+          "logoIndex": 65554, 
+          "type": "channel", 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.165675827"
+      }, 
+      "showStatus": "firstRunOnly", 
+      "subscriptionId": "tivo:sb.15000331", 
+      "type": "subscription"
+    }, 
+    {
+      "maxRecordings": 5, 
+      "keepBehavior": "forever", 
+      "title": "Outsourced", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "name": "NBC Affiliate", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "isBlocked": false, 
+          "channelId": "tivo:ch.9", 
+          "callSign": "WNBCDT", 
+          "isDigital": false, 
+          "stationId": "tivo:st.4190788", 
+          "channelNumber": "704", 
+          "logoIndex": 65556, 
+          "type": "channel", 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.165288903"
+      }, 
+      "showStatus": "firstRunOnly", 
+      "subscriptionId": "tivo:sb.15000151", 
+      "type": "subscription"
+    }, 
+    {
+      "maxRecordings": 3, 
+      "keepBehavior": "forever", 
+      "title": "Psych", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "name": "USA Network HD", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "isBlocked": false, 
+          "channelId": "tivo:ch.9", 
+          "callSign": "USAHD", 
+          "isDigital": false, 
+          "stationId": "tivo:st.109673805", 
+          "channelNumber": "716", 
+          "logoIndex": 66057, 
+          "type": "channel", 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.72523623"
+      }, 
+      "showStatus": "firstRunOnly", 
+      "subscriptionId": "tivo:sb.15000021", 
+      "type": "subscription"
+    }, 
+    {
+      "maxRecordings": 3, 
+      "keepBehavior": "forever", 
+      "title": "Burn Notice", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "name": "USA Network HD", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "isBlocked": false, 
+          "channelId": "tivo:ch.9", 
+          "callSign": "USAHD", 
+          "isDigital": false, 
+          "stationId": "tivo:st.109673805", 
+          "channelNumber": "716", 
+          "logoIndex": 66057, 
+          "type": "channel", 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.98595863"
+      }, 
+      "showStatus": "firstRunOnly", 
+      "subscriptionId": "tivo:sb.15000211", 
+      "type": "subscription"
+    }
+  ]
+}

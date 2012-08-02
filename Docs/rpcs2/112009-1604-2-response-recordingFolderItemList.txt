@@ -1,0 +1,128 @@
+MRPC/2 78 2910
+Raw Packet=MRPC/2 78 2910
+Content-Type: application/json
+IsFinal: true
+RpcId: 1604
+Type: response
+
+{
+  "recordingFolderItem": [
+    {
+      "childRecordingId": "tivo:rc.233089", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.45266952", 
+        "contentId": "tivo:ct.47725469", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-06-05 03:30:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "709", 
+          "callSign": "WWORDT", 
+          "type": "channel", 
+          "logoIndex": 66244
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "Deadliest Catch: \"Man Overboard\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.233089", 
+      "startTime": "2011-06-05 03:30:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.232389", 
+      "recordingForChildRecordingId": {
+        "collectionId": "tivo:cl.232822", 
+        "contentId": "tivo:ct.232823", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-06-05 02:30:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "103", 
+          "callSign": "CURRENT", 
+          "type": "channel", 
+          "logoIndex": 66173
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "Dazed and Confused (1993)", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.232389", 
+      "startTime": "2011-06-05 02:30:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.233109", 
+      "recordingForChildRecordingId": {
+        "collectionId": "tivo:cl.1849039", 
+        "contentId": "tivo:ct.1849040", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-06-04 23:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "710", 
+          "callSign": "FXHD", 
+          "type": "channel", 
+          "logoIndex": 66198
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "X-Men (2000)", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.233109", 
+      "startTime": "2011-06-04 23:00:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.232269", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.16984", 
+        "contentId": "tivo:ct.309328", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "hdtv": true, 
+        "startTime": "2011-06-04 22:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "708", 
+          "callSign": "TBSHD", 
+          "type": "channel", 
+          "logoIndex": 66392
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "Seinfeld: \"The Bubble Boy\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.232269", 
+      "startTime": "2011-06-04 22:00:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.230189", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.55067183", 
+        "contentId": "tivo:ct.152815812", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-06-04 22:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "55", 
+          "callSign": "WLNYMH", 
+          "type": "channel"
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "Bones: \"The Beautiful Day in the Neighborhood\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.230189", 
+      "startTime": "2011-06-04 22:00:00", 
+      "type": "recordingFolderItem"
+    }
+  ], 
+  "type": "recordingFolderItemList"
+}

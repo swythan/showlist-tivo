@@ -1,0 +1,268 @@
+MRPC/2 76 5129
+Raw Packet=MRPC/2 76 5129
+Content-Type: application/json
+IsFinal: true
+RpcId: 62
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "TOONHD", 
+        "isDigital": true, 
+        "channelNumber": "761", 
+        "logoIndex": 66277, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "The Looney Tunes Show", 
+          "contentId": "tivo:ct.181635885", 
+          "collectionId": "tivo:cl.181502583", 
+          "offerId": "tivo:of.ctd.124376605.761.cable.2011-06-06-22-00-00.1800", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Johnny Test", 
+          "contentId": "tivo:ct.172053084", 
+          "collectionId": "tivo:cl.56155830", 
+          "offerId": "tivo:of.ctd.124376605.761.cable.2011-06-06-22-30-00.1800", 
+          "startTime": "2011-06-06 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "LIFEHD", 
+        "isDigital": true, 
+        "channelNumber": "762", 
+        "logoIndex": 66262, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Held Hostage", 
+          "contentId": "tivo:ct.147427540", 
+          "collectionId": "tivo:cl.147428823", 
+          "offerId": "tivo:of.ctd.125203636.762.cable.2011-06-06-22-00-00.7200", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "BIOHD", 
+        "isDigital": true, 
+        "channelNumber": "763", 
+        "logoIndex": 66215, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "I Survived", 
+          "contentId": "tivo:ct.125697488", 
+          "collectionId": "tivo:cl.119815174", 
+          "offerId": "tivo:of.ctd.114977823.763.cable.2011-06-06-22-00-00.3600", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HGTVD", 
+        "isDigital": true, 
+        "channelNumber": "764", 
+        "logoIndex": 66257, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "House Hunters", 
+          "contentId": "tivo:ct.157177795", 
+          "collectionId": "tivo:cl.918060", 
+          "offerId": "tivo:of.ctd.66692689.764.cable.2011-06-06-22-00-00.1800", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "House Hunters", 
+          "contentId": "tivo:ct.158610844", 
+          "collectionId": "tivo:cl.918060", 
+          "offerId": "tivo:of.ctd.66692689.764.cable.2011-06-06-22-30-00.1800", 
+          "startTime": "2011-06-06 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "NGCHD", 
+        "isDigital": true, 
+        "channelNumber": "765", 
+        "logoIndex": 66256, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Supercarrier: USS Ronald Reagan", 
+          "contentId": "tivo:ct.112322153", 
+          "collectionId": "tivo:cl.112322923", 
+          "offerId": "tivo:of.ctd.66458709.765.cable.2011-06-06-22-00-00.3600", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "DSCHD", 
+        "isDigital": true, 
+        "channelNumber": "766", 
+        "logoIndex": 66079, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "American Chopper: Senior vs. Junior", 
+          "contentId": "tivo:ct.181098428", 
+          "collectionId": "tivo:cl.168086252", 
+          "offerId": "tivo:of.ctd.107213906.766.cable.2011-06-06-22-00-00.3600", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HDT", 
+        "isDigital": true, 
+        "channelNumber": "767", 
+        "logoIndex": 66159, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Inside West Coast Customs", 
+          "contentId": "tivo:ct.176457669", 
+          "collectionId": "tivo:cl.175562643", 
+          "offerId": "tivo:of.ctd.6698707.767.cable.2011-06-06-22-00-00.3600", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "SCIHD", 
+        "isDigital": true, 
+        "channelNumber": "775", 
+        "logoIndex": 65773, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.91423415", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-06-22-00-00.1800", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.79345549", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-06-22-30-00.1800", 
+          "startTime": "2011-06-06 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "TRUTVHD", 
+        "isDigital": true, 
+        "channelNumber": "779", 
+        "logoIndex": 65565, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Cops", 
+          "contentId": "tivo:ct.76504434", 
+          "collectionId": "tivo:cl.17034", 
+          "offerId": "tivo:of.ctd.149189260.779.cable.2011-06-06-22-00-00.1800", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Cops", 
+          "contentId": "tivo:ct.81446993", 
+          "collectionId": "tivo:cl.17034", 
+          "offerId": "tivo:of.ctd.149189260.779.cable.2011-06-06-22-30-00.1800", 
+          "startTime": "2011-06-06 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "LMNHD", 
+        "isDigital": true, 
+        "channelNumber": "780", 
+        "logoIndex": 66259, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Odd Girl Out", 
+          "contentId": "tivo:ct.44561497", 
+          "collectionId": "tivo:cl.44561951", 
+          "offerId": "tivo:of.ctd.95147925.780.cable.2011-06-06-22-00-00.7200", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

@@ -1,0 +1,145 @@
+MRPC/2 246 1432
+Raw Packet=MRPC/2 246 1432
+Type:request
+RpcId:1639
+SchemaVersion:7
+Content-Type:application/json
+RequestType:collectionSearch
+ResponseCount:single
+BodyId:tsn:XXXXXXXXXXXXXXX
+X-ApplicationName:Quicksilver
+X-ApplicationVersion:1.2
+X-ApplicationSessionId:0x27c180
+
+{
+  "collectionId": [
+    "tivo:cl.16984"
+  ], 
+  "imageRuleset": [
+    {
+      "type": "imageRuleset", 
+      "name": "movie", 
+      "rule": [
+        {
+          "width": 100, 
+          "ruleType": "exactMatchDimension", 
+          "type": "imageRule", 
+          "imageType": [
+            "moviePoster"
+          ], 
+          "height": 150
+        }
+      ]
+    }, 
+    {
+      "type": "imageRuleset", 
+      "name": "tvLandscape", 
+      "rule": [
+        {
+          "width": 139, 
+          "ruleType": "exactMatchDimension", 
+          "type": "imageRule", 
+          "imageType": [
+            "showcaseBanner"
+          ], 
+          "height": 104
+        }
+      ]
+    }, 
+    {
+      "type": "imageRuleset", 
+      "name": "tvPortrait", 
+      "rule": [
+        {
+          "width": 120, 
+          "ruleType": "exactMatchDimension", 
+          "type": "imageRule", 
+          "imageType": [
+            "showcaseBanner"
+          ], 
+          "height": 90
+        }
+      ]
+    }, 
+    {
+      "type": "imageRuleset", 
+      "name": "personLandscape", 
+      "rule": [
+        {
+          "width": 104, 
+          "ruleType": "exactMatchDimension", 
+          "type": "imageRule", 
+          "imageType": [
+            "person"
+          ], 
+          "height": 78
+        }
+      ]
+    }, 
+    {
+      "type": "imageRuleset", 
+      "name": "personPortrait", 
+      "rule": [
+        {
+          "width": 113, 
+          "ruleType": "exactMatchDimension", 
+          "type": "imageRule", 
+          "imageType": [
+            "person"
+          ], 
+          "height": 150
+        }
+      ]
+    }
+  ], 
+  "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+  "filterUnavailable": false, 
+  "levelOfDetail": "high", 
+  "type": "collectionSearch", 
+  "responseTemplate": [
+    {
+      "fieldName": [
+        "collection"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "collectionList"
+    }, 
+    {
+      "fieldName": [
+        "image", 
+        "title", 
+        "collectionId", 
+        "collectionType", 
+        "episodic", 
+        "mpaaRating", 
+        "tvRating", 
+        "starRating"
+      ], 
+      "fieldInfo": [
+        {
+          "fieldName": [
+            "credit"
+          ], 
+          "maxArity": [
+            50
+          ], 
+          "type": "responseTemplateFieldInfo"
+        }
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "collection"
+    }, 
+    {
+      "fieldName": [
+        "first", 
+        "last", 
+        "role", 
+        "image", 
+        "personId", 
+        "characterName"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "credit"
+    }
+  ]
+}

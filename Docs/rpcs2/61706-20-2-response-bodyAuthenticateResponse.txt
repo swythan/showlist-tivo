@@ -1,0 +1,12 @@
+MRPC/2 76 97
+Raw Packet=MRPC/2 76 97
+Content-Type: application/json
+IsFinal: true
+RpcId: 20
+Type: response
+
+{
+  "status": "success", 
+  "message": "Authentication successful", 
+  "type": "bodyAuthenticateResponse"
+}

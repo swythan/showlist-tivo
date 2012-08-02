@@ -1,0 +1,31 @@
+MRPC/2 239 260
+Raw Packet=MRPC/2 239 260
+Type:request
+RpcId:1643
+SchemaVersion:7
+Content-Type:application/json
+RequestType:subscribe
+ResponseCount:single
+BodyId:tsn:XXXXXXXXXXXXXXX
+X-ApplicationName:Quicksilver
+X-ApplicationVersion:1.2
+X-ApplicationSessionId:0x27c180
+
+{
+  "recordingQuality": "best", 
+  "maxRecordings": 5, 
+  "keepBehavior": "fifo", 
+  "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+  "autoRecord": false, 
+  "idSetSource": {
+    "type": "wishListSource", 
+    "keywordOp": [
+      "required"
+    ], 
+    "keyword": [
+      "Jerry Seinfeld"
+    ]
+  }, 
+  "showStatus": "rerunsAllowed", 
+  "type": "subscribe"
+}

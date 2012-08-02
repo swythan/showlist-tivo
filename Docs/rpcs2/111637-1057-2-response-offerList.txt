@@ -1,0 +1,29 @@
+MRPC/2 78 378
+Raw Packet=MRPC/2 78 378
+Content-Type: application/json
+IsFinal: true
+RpcId: 1057
+Type: response
+
+{
+  "type": "offerList", 
+  "offer": [
+    {
+      "episodic": false, 
+      "title": "The Simpsons Movie", 
+      "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-07-02-30-00.9000", 
+      "hdtv": true, 
+      "startTime": "2011-06-07 02:30:00", 
+      "duration": 9000, 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "FXHD", 
+        "isDigital": true, 
+        "channelNumber": "710", 
+        "logoIndex": 66198, 
+        "type": "channel"
+      }
+    }
+  ]
+}

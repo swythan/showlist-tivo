@@ -1,0 +1,75 @@
+MRPC/2 78 1236
+Raw Packet=MRPC/2 78 1236
+Content-Type: application/json
+IsFinal: true
+RpcId: 1542
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": false, 
+        "channelNumber": "1992", 
+        "callSign": "MSCDM", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Music On Demand", 
+          "contentId": "tivo:ct.7457563", 
+          "collectionId": "tivo:cl.7457562", 
+          "offerId": "tivo:of.ctd.7456261.1992.cable.2011-06-07-02-00-00.14400", 
+          "startTime": "2011-06-07 02:00:00", 
+          "duration": 14400, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": false, 
+        "channelNumber": "1993", 
+        "callSign": "ENTDM", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Entertainment On Demand", 
+          "contentId": "tivo:ct.7682519", 
+          "collectionId": "tivo:cl.7682518", 
+          "offerId": "tivo:of.ctd.7681461.1993.cable.2011-06-07-02-00-00.14400", 
+          "startTime": "2011-06-07 02:00:00", 
+          "duration": 14400, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": false, 
+        "channelNumber": "1994", 
+        "callSign": "PTIMEDM", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Primetime On Demand", 
+          "contentId": "tivo:ct.142978199", 
+          "collectionId": "tivo:cl.142978873", 
+          "offerId": "tivo:of.ctd.142978916.1994.cable.2011-06-07-02-00-00.14400", 
+          "startTime": "2011-06-07 02:00:00", 
+          "duration": 14400, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

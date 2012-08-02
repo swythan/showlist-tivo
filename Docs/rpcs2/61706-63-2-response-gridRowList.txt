@@ -1,0 +1,88 @@
+MRPC/2 76 1831
+Raw Packet=MRPC/2 76 1831
+Content-Type: application/json
+IsFinal: true
+RpcId: 63
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "TBS", 
+        "isDigital": true, 
+        "channelNumber": "8", 
+        "logoIndex": 65540, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Scream 2", 
+          "contentId": "tivo:ct.24594", 
+          "collectionId": "tivo:cl.204527", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-12-07-00-00.9000", 
+          "startTime": "2011-06-12 07:00:00", 
+          "duration": 9000, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Married ... With Children", 
+          "contentId": "tivo:ct.527711", 
+          "collectionId": "tivo:cl.16995", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-12-09-30-00.1800", 
+          "startTime": "2011-06-12 09:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Yes, Dear", 
+          "contentId": "tivo:ct.24055596", 
+          "collectionId": "tivo:cl.2511458", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-12-10-00-00.1800", 
+          "startTime": "2011-06-12 10:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "American Wedding", 
+          "contentId": "tivo:ct.19202301", 
+          "collectionId": "tivo:cl.19202635", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-12-10-30-00.6300", 
+          "startTime": "2011-06-12 10:30:00", 
+          "duration": 6300, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The School of Rock", 
+          "contentId": "tivo:ct.22130580", 
+          "collectionId": "tivo:cl.22130897", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-12-12-15-00.8100", 
+          "startTime": "2011-06-12 12:15:00", 
+          "duration": 8100, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Replacements", 
+          "contentId": "tivo:ct.2272314", 
+          "collectionId": "tivo:cl.2272313", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-12-14-30-00.9000", 
+          "startTime": "2011-06-12 14:30:00", 
+          "duration": 9000, 
+          "type": "offer"
+        }, 
+        {
+          "title": "MLB Baseball", 
+          "contentId": "tivo:ct.182688277", 
+          "collectionId": "tivo:cl.10753967", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-12-17-00-00.10800", 
+          "startTime": "2011-06-12 17:00:00", 
+          "duration": 10800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

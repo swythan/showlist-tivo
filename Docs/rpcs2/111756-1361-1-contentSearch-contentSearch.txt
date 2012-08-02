@@ -1,0 +1,143 @@
+MRPC/2 243 1399
+Raw Packet=MRPC/2 243 1399
+Type:request
+RpcId:1361
+SchemaVersion:7
+Content-Type:application/json
+RequestType:contentSearch
+ResponseCount:single
+BodyId:tsn:XXXXXXXXXXXXXXX
+X-ApplicationName:Quicksilver
+X-ApplicationVersion:1.2
+X-ApplicationSessionId:0x27c180
+
+{
+  "contentId": [
+    "tivo:ct.34897"
+  ], 
+  "filterUnavailableContent": false, 
+  "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+  "responseTemplate": [
+    {
+      "fieldName": [
+        "content"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "contentList"
+    }, 
+    {
+      "fieldName": [
+        "image", 
+        "title", 
+        "collectionId", 
+        "collectionType", 
+        "contentId", 
+        "episodic"
+      ], 
+      "fieldInfo": [
+        {
+          "fieldName": [
+            "credit"
+          ], 
+          "maxArity": [
+            50
+          ], 
+          "type": "responseTemplateFieldInfo"
+        }
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "content"
+    }, 
+    {
+      "fieldName": [
+        "first", 
+        "last", 
+        "role", 
+        "image", 
+        "personId", 
+        "characterName"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "credit"
+    }
+  ], 
+  "imageRuleset": [
+    {
+      "type": "imageRuleset", 
+      "name": "movie", 
+      "rule": [
+        {
+          "width": 100, 
+          "ruleType": "exactMatchDimension", 
+          "type": "imageRule", 
+          "imageType": [
+            "moviePoster"
+          ], 
+          "height": 150
+        }
+      ]
+    }, 
+    {
+      "type": "imageRuleset", 
+      "name": "tvLandscape", 
+      "rule": [
+        {
+          "width": 139, 
+          "ruleType": "exactMatchDimension", 
+          "type": "imageRule", 
+          "imageType": [
+            "showcaseBanner"
+          ], 
+          "height": 104
+        }
+      ]
+    }, 
+    {
+      "type": "imageRuleset", 
+      "name": "tvPortrait", 
+      "rule": [
+        {
+          "width": 120, 
+          "ruleType": "exactMatchDimension", 
+          "type": "imageRule", 
+          "imageType": [
+            "showcaseBanner"
+          ], 
+          "height": 90
+        }
+      ]
+    }, 
+    {
+      "type": "imageRuleset", 
+      "name": "personLandscape", 
+      "rule": [
+        {
+          "width": 104, 
+          "ruleType": "exactMatchDimension", 
+          "type": "imageRule", 
+          "imageType": [
+            "person"
+          ], 
+          "height": 78
+        }
+      ]
+    }, 
+    {
+      "type": "imageRuleset", 
+      "name": "personPortrait", 
+      "rule": [
+        {
+          "width": 113, 
+          "ruleType": "exactMatchDimension", 
+          "type": "imageRule", 
+          "imageType": [
+            "person"
+          ], 
+          "height": 150
+        }
+      ]
+    }
+  ], 
+  "type": "contentSearch", 
+  "levelOfDetail": "high"
+}

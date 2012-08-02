@@ -1,0 +1,267 @@
+MRPC/2 78 5079
+Raw Packet=MRPC/2 78 5079
+Content-Type: application/json
+IsFinal: true
+RpcId: 1523
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "NIKHD", 
+        "isDigital": true, 
+        "channelNumber": "706", 
+        "logoIndex": 66208, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "That '70s Show", 
+          "contentId": "tivo:ct.341910", 
+          "collectionId": "tivo:cl.17211", 
+          "offerId": "tivo:of.ctd.118898599.706.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "That '70s Show", 
+          "contentId": "tivo:ct.308418", 
+          "collectionId": "tivo:cl.17211", 
+          "offerId": "tivo:of.ctd.118898599.706.cable.2011-06-07-03-30-00.1800", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WABCDT", 
+        "isDigital": true, 
+        "channelNumber": "707", 
+        "logoIndex": 65554, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Eyewitness News", 
+          "contentId": "tivo:ct.184824994", 
+          "collectionId": "tivo:cl.184825652", 
+          "offerId": "tivo:of.ctd.4190787.707.cable.2011-06-07-03-00-00.2100", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 2100, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "TBSHD", 
+        "isDigital": true, 
+        "channelNumber": "708", 
+        "logoIndex": 66392, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Conan", 
+          "contentId": "tivo:ct.178823128", 
+          "collectionId": "tivo:cl.171093113", 
+          "offerId": "tivo:of.ctd.109917497.708.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WWORDT", 
+        "isDigital": true, 
+        "channelNumber": "709", 
+        "logoIndex": 66244, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "My 9 News", 
+          "contentId": "tivo:ct.11251445", 
+          "collectionId": "tivo:cl.11251713", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-07-03-00-00.2100", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 2100, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "FXHD", 
+        "isDigital": true, 
+        "channelNumber": "710", 
+        "logoIndex": 66198, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "The Simpsons Movie", 
+          "contentId": "tivo:ct.99134316", 
+          "collectionId": "tivo:cl.99136229", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-07-02-30-00.9000", 
+          "startTime": "2011-06-07 02:30:00", 
+          "duration": 9000, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WPIXDT", 
+        "isDigital": true, 
+        "channelNumber": "711", 
+        "logoIndex": 75537, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Seinfeld", 
+          "contentId": "tivo:ct.402055", 
+          "collectionId": "tivo:cl.16984", 
+          "offerId": "tivo:of.ctd.10420174.711.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Seinfeld", 
+          "contentId": "tivo:ct.56634", 
+          "collectionId": "tivo:cl.16984", 
+          "offerId": "tivo:of.ctd.10420174.711.cable.2011-06-07-03-30-00.1800", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "712", 
+        "callSign": "OXYGNHD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "The World According to Paris", 
+          "contentId": "tivo:ct.182460152", 
+          "collectionId": "tivo:cl.179909761", 
+          "offerId": "tivo:of.ctd.175616077.712.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WNETDT", 
+        "isDigital": true, 
+        "channelNumber": "713", 
+        "logoIndex": 65558, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Great Performances", 
+          "contentId": "tivo:ct.180139443", 
+          "collectionId": "tivo:cl.17397", 
+          "offerId": "tivo:of.ctd.6322053.713.cable.2011-06-07-01-30-00.9000", 
+          "startTime": "2011-06-07 01:30:00", 
+          "duration": 9000, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "USAHD", 
+        "isDigital": true, 
+        "channelNumber": "716", 
+        "logoIndex": 66057, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "WWE Monday Night RAW", 
+          "contentId": "tivo:ct.180238796", 
+          "collectionId": "tivo:cl.24374", 
+          "offerId": "tivo:of.ctd.109673805.716.cable.2011-06-07-01-05-00.7200", 
+          "startTime": "2011-06-07 01:05:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "WWE Tough Enough", 
+          "contentId": "tivo:ct.185030731", 
+          "collectionId": "tivo:cl.3879979", 
+          "offerId": "tivo:of.ctd.109673805.716.cable.2011-06-07-03-05-00.3900", 
+          "startTime": "2011-06-07 03:05:00", 
+          "duration": 3900, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "SYFYHD", 
+        "isDigital": true, 
+        "channelNumber": "717", 
+        "logoIndex": 66056, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Sanctuary", 
+          "contentId": "tivo:ct.182688013", 
+          "collectionId": "tivo:cl.135109330", 
+          "offerId": "tivo:of.ctd.111008803.717.cable.2011-06-07-02-00-00.3660", 
+          "startTime": "2011-06-07 02:00:00", 
+          "duration": 3660, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Star Trek: The Next Generation", 
+          "contentId": "tivo:ct.160847", 
+          "collectionId": "tivo:cl.16652", 
+          "offerId": "tivo:of.ctd.111008803.717.cable.2011-06-07-03-01-00.3600", 
+          "startTime": "2011-06-07 03:01:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

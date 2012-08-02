@@ -1,0 +1,187 @@
+MRPC/2 78 4643
+Raw Packet=MRPC/2 78 4643
+Content-Type: application/json
+IsFinal: true
+RpcId: 1308
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "SCIHD", 
+        "isDigital": true, 
+        "channelNumber": "775", 
+        "logoIndex": 65773, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Factory Made", 
+          "contentId": "tivo:ct.165891855", 
+          "collectionId": "tivo:cl.124937026", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-09-19-00-00.1800", 
+          "startTime": "2011-06-09 19:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Factory Made", 
+          "contentId": "tivo:ct.153238711", 
+          "collectionId": "tivo:cl.124937026", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-09-19-30-00.1800", 
+          "startTime": "2011-06-09 19:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "MythBusters", 
+          "contentId": "tivo:ct.26614609", 
+          "collectionId": "tivo:cl.10670781", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-09-20-00-00.3600", 
+          "startTime": "2011-06-09 20:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How Do They Do It?", 
+          "contentId": "tivo:ct.153363364", 
+          "collectionId": "tivo:cl.70360603", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-09-21-00-00.1800", 
+          "startTime": "2011-06-09 21:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How Do They Do It?", 
+          "contentId": "tivo:ct.148946565", 
+          "collectionId": "tivo:cl.70360603", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-09-21-30-00.1800", 
+          "startTime": "2011-06-09 21:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.56806806", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-09-22-00-00.1800", 
+          "startTime": "2011-06-09 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.63377332", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-09-22-30-00.1800", 
+          "startTime": "2011-06-09 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.143161153", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-09-23-00-00.1800", 
+          "startTime": "2011-06-09 23:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.142576661", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-09-23-30-00.1800", 
+          "startTime": "2011-06-09 23:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Unearthing Ancient Secrets", 
+          "contentId": "tivo:ct.145770837", 
+          "collectionId": "tivo:cl.141247106", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-10-00-00-00.3600", 
+          "startTime": "2011-06-10 00:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Unearthing Ancient Secrets", 
+          "contentId": "tivo:ct.142576948", 
+          "collectionId": "tivo:cl.141247106", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-10-01-00-00.3600", 
+          "startTime": "2011-06-10 01:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Unearthing Ancient Secrets", 
+          "contentId": "tivo:ct.141247065", 
+          "collectionId": "tivo:cl.141247106", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-10-02-00-00.3600", 
+          "startTime": "2011-06-10 02:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Unearthing Ancient Secrets", 
+          "contentId": "tivo:ct.145770837", 
+          "collectionId": "tivo:cl.141247106", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-10-03-00-00.3600", 
+          "startTime": "2011-06-10 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Unearthing Ancient Secrets", 
+          "contentId": "tivo:ct.142576948", 
+          "collectionId": "tivo:cl.141247106", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-10-04-00-00.3600", 
+          "startTime": "2011-06-10 04:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Unearthing Ancient Secrets", 
+          "contentId": "tivo:ct.141247065", 
+          "collectionId": "tivo:cl.141247106", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-10-05-00-00.3600", 
+          "startTime": "2011-06-10 05:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.56806806", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-10-06-00-00.1800", 
+          "startTime": "2011-06-10 06:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.63377332", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-10-06-30-00.1800", 
+          "startTime": "2011-06-10 06:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Through the Wormhole with Morgan Freeman", 
+          "contentId": "tivo:ct.167701947", 
+          "collectionId": "tivo:cl.164291233", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-10-07-00-00.3600", 
+          "startTime": "2011-06-10 07:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

@@ -1,0 +1,222 @@
+MRPC/2 78 5337
+Raw Packet=MRPC/2 78 5337
+Content-Type: application/json
+IsFinal: true
+RpcId: 1552
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "55", 
+        "callSign": "WLNYMH", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Judge Judy", 
+          "contentId": "tivo:ct.18911", 
+          "collectionId": "tivo:cl.18909", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-18-02-00-00.1800", 
+          "startTime": "2011-06-18 02:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Judge Judy", 
+          "contentId": "tivo:ct.18911", 
+          "collectionId": "tivo:cl.18909", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-18-02-30-00.1800", 
+          "startTime": "2011-06-18 02:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "TV10/55 News at 11", 
+          "contentId": "tivo:ct.795289", 
+          "collectionId": "tivo:cl.795288", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-18-03-00-00.2040", 
+          "startTime": "2011-06-18 03:00:00", 
+          "duration": 2040, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Inside Edition", 
+          "contentId": "tivo:ct.183495429", 
+          "collectionId": "tivo:cl.19205", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-18-03-34-00.1800", 
+          "startTime": "2011-06-18 03:34:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Object of My Affection", 
+          "contentId": "tivo:ct.56100", 
+          "collectionId": "tivo:cl.56099", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-18-04-04-00.6960", 
+          "startTime": "2011-06-18 04:04:00", 
+          "duration": 6960, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-18-06-00-00.1800", 
+          "startTime": "2011-06-18 06:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Armando Montelongo", 
+          "contentId": "tivo:ct.154754522", 
+          "collectionId": "tivo:cl.154755161", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-18-06-30-00.1800", 
+          "startTime": "2011-06-18 06:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-18-07-00-00.1800", 
+          "startTime": "2011-06-18 07:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Hair Loss News: More Hair in as Little as 4 to 6 Weeks", 
+          "contentId": "tivo:ct.184633909", 
+          "collectionId": "tivo:cl.184634567", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-18-07-30-00.1800", 
+          "startTime": "2011-06-18 07:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-18-08-00-00.1800", 
+          "startTime": "2011-06-18 08:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Sexy Gorgeous Legs", 
+          "contentId": "tivo:ct.163907412", 
+          "collectionId": "tivo:cl.163907961", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-18-08-30-00.1800", 
+          "startTime": "2011-06-18 08:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "TV10/55 News", 
+          "contentId": "tivo:ct.795291", 
+          "collectionId": "tivo:cl.795290", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-18-09-00-00.1800", 
+          "startTime": "2011-06-18 09:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-18-09-30-00.1800", 
+          "startTime": "2011-06-18 09:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-18-10-00-00.1800", 
+          "startTime": "2011-06-18 10:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-18-10-30-00.1800", 
+          "startTime": "2011-06-18 10:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Teen Kids News", 
+          "contentId": "tivo:ct.184415189", 
+          "collectionId": "tivo:cl.15230657", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-18-11-00-00.1800", 
+          "startTime": "2011-06-18 11:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-18-11-30-00.1800", 
+          "startTime": "2011-06-18 11:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Best Bra Ever!", 
+          "contentId": "tivo:ct.171182915", 
+          "collectionId": "tivo:cl.171183379", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-18-12-00-00.1800", 
+          "startTime": "2011-06-18 12:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-18-12-30-00.1800", 
+          "startTime": "2011-06-18 12:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-18-13-00-00.1800", 
+          "startTime": "2011-06-18 13:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-18-13-30-00.1800", 
+          "startTime": "2011-06-18 13:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Armando Montelongo", 
+          "contentId": "tivo:ct.154754522", 
+          "collectionId": "tivo:cl.154755161", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-18-14-00-00.1800", 
+          "startTime": "2011-06-18 14:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

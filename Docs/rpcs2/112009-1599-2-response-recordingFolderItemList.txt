@@ -1,0 +1,133 @@
+MRPC/2 78 3033
+Raw Packet=MRPC/2 78 3033
+Content-Type: application/json
+IsFinal: true
+RpcId: 1599
+Type: response
+
+{
+  "recordingFolderItem": [
+    {
+      "childRecordingId": "tivo:rc.217779", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.16645", 
+        "contentId": "tivo:ct.16965", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-06-06 00:30:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "11", 
+          "callSign": "WPIX", 
+          "type": "channel", 
+          "logoIndex": 75537
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "Friends: \"The One With Rachel's New Dress\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.217779", 
+      "startTime": "2011-06-06 00:30:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.217769", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.16645", 
+        "contentId": "tivo:ct.16943", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-06-06 00:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "11", 
+          "callSign": "WPIX", 
+          "type": "channel", 
+          "logoIndex": 75537
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "Friends: \"The One With the Free Porn\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.217769", 
+      "startTime": "2011-06-06 00:00:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.232369", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.55067183", 
+        "contentId": "tivo:ct.110313550", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-06-05 22:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "55", 
+          "callSign": "WLNYMH", 
+          "type": "channel"
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "Bones: \"The Secret in the Soil\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.232369", 
+      "startTime": "2011-06-05 22:00:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.217069", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.10670781", 
+        "contentId": "tivo:ct.155745126", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "hdtv": true, 
+        "startTime": "2011-06-05 17:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "766", 
+          "callSign": "DSCHD", 
+          "type": "channel", 
+          "logoIndex": 66079
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "MythBusters: \"Unarmed and Unharmed\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.217069", 
+      "startTime": "2011-06-05 17:00:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.217059", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.10670781", 
+        "contentId": "tivo:ct.145523530", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "hdtv": true, 
+        "startTime": "2011-06-05 16:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "766", 
+          "callSign": "DSCHD", 
+          "type": "channel", 
+          "logoIndex": 66079
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "MythBusters: \"Banana Slip, Double Dip\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.217059", 
+      "startTime": "2011-06-05 16:00:00", 
+      "type": "recordingFolderItem"
+    }
+  ], 
+  "type": "recordingFolderItemList"
+}

@@ -1,0 +1,251 @@
+MRPC/2 78 3747
+Raw Packet=MRPC/2 78 3747
+Content-Type: application/json
+IsFinal: true
+RpcId: 1195
+Type: response
+
+{
+  "type": "collectionList", 
+  "collection": [
+    {
+      "category": [
+        {
+          "image": [
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/Horror.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }, 
+            {
+              "width": 180, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/Horror.jpg", 
+              "type": "image", 
+              "imageType": "moviePoster", 
+              "height": 270
+            }
+          ], 
+          "displayRank": 0, 
+          "type": "category", 
+          "label": "Horror"
+        }, 
+        {
+          "image": [
+            {
+              "width": 180, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/ActionAdventure.jpg", 
+              "type": "image", 
+              "imageType": "moviePoster", 
+              "height": 270
+            }, 
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/ActionAdventure.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }
+          ], 
+          "displayRank": 1, 
+          "type": "category", 
+          "label": "Action Adventure"
+        }
+      ], 
+      "userContentForCollectionId": {
+        "thumbsRating": 1, 
+        "type": "userContent", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX"
+      }, 
+      "collectionType": "movie", 
+      "description": "A man with vampire blood and his mortal partner hunt a rebel vampire and his coterie of undead.", 
+      "broadcastOfferGroupForCollectionId": [
+        {
+          "count": 2, 
+          "type": "offerGroup", 
+          "example": {
+            "contentId": "tivo:ct.306278", 
+            "type": "offer"
+          }
+        }, 
+        {
+          "count": 2, 
+          "type": "offerGroup", 
+          "example": {
+            "contentId": "tivo:ct.306278", 
+            "type": "offer"
+          }
+        }
+      ], 
+      "collectionId": "tivo:cl.306277", 
+      "episodic": false, 
+      "image": [
+        {
+          "width": 133, 
+          "imageUrl": "http://i.tivo.com/images-production/bravo/movies-lg/2d/5c/2d5cf3724bec8f38f43dd5f51ddc77ce.jpg", 
+          "type": "image", 
+          "imageType": "moviePoster", 
+          "height": 200
+        }
+      ], 
+      "title": "Blade", 
+      "starRating": "two", 
+      "credit": [
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Snipes", 
+          "first": "Wesley"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Dorff", 
+          "first": "Stephen"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Kristofferson", 
+          "first": "Kris"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Wright", 
+          "first": "N'Bushe"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Logue", 
+          "first": "Donal"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Kier", 
+          "first": "Udo"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Jover", 
+          "first": "Arly"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Lords", 
+          "first": "Traci"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Walls", 
+          "first": "Kevin Patrick"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Guinee", 
+          "first": "Tim"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Lathan", 
+          "first": "Sanaa"
+        }, 
+        {
+          "role": "director", 
+          "type": "credit", 
+          "last": "Norrington", 
+          "first": "Stephen"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Goyer", 
+          "first": "David"
+        }, 
+        {
+          "role": "executiveProducer", 
+          "type": "credit", 
+          "last": "Arad", 
+          "first": "Avi"
+        }, 
+        {
+          "role": "executiveProducer", 
+          "type": "credit", 
+          "last": "Calamari", 
+          "first": "Joseph"
+        }, 
+        {
+          "role": "producer", 
+          "type": "credit", 
+          "last": "Engelman", 
+          "first": "Robert"
+        }, 
+        {
+          "role": "producer", 
+          "type": "credit", 
+          "last": "Frankfurt", 
+          "first": "Peter"
+        }, 
+        {
+          "role": "executiveProducer", 
+          "type": "credit", 
+          "last": "Harris", 
+          "first": "Lynn"
+        }, 
+        {
+          "role": "executiveProducer", 
+          "type": "credit", 
+          "last": "Lee", 
+          "first": "Stan"
+        }, 
+        {
+          "role": "producer", 
+          "type": "credit", 
+          "last": "Snipes", 
+          "first": "Wesley"
+        }
+      ], 
+      "movieYear": 1998, 
+      "mpaaRating": "r", 
+      "type": "collection", 
+      "tvRating": "ma", 
+      "broadbandOfferGroupForCollectionId": [
+        {
+          "count": 1, 
+          "type": "offerGroup", 
+          "example": {
+            "contentId": "tivo:ct.ts.63867611", 
+            "partnerId": "tivo:pt.2990", 
+            "type": "offer"
+          }
+        }, 
+        {
+          "count": 1, 
+          "type": "offerGroup", 
+          "example": {
+            "contentId": "tivo:ct.ts.30896491", 
+            "partnerId": "tivo:pt.2990", 
+            "type": "offer"
+          }
+        }, 
+        {
+          "count": 1, 
+          "type": "offerGroup", 
+          "example": {
+            "contentId": "tivo:ct.ts.30896491", 
+            "partnerId": "tivo:pt.2990", 
+            "type": "offer"
+          }
+        }
+      ]
+    }
+  ]
+}

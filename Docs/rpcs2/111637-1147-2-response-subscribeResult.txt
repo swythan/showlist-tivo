@@ -1,0 +1,50 @@
+MRPC/2 78 876
+Raw Packet=MRPC/2 78 876
+Content-Type: application/json
+IsFinal: true
+RpcId: 1147
+Type: response
+
+{
+  "type": "subscribeResult", 
+  "subscription": {
+    "recordingQuality": "high", 
+    "priority": 470, 
+    "maxRecordings": 10, 
+    "endTimePadding": 0, 
+    "showStatus": "firstRunOnly", 
+    "idSetSource": {
+      "type": "seasonPassSource", 
+      "channel": {
+        "isReceived": true, 
+        "name": "G4 HD", 
+        "isFavorite": false, 
+        "isKidZone": false, 
+        "isBlocked": false, 
+        "channelId": "tivo:ch.9", 
+        "callSign": "G4HD", 
+        "isDigital": false, 
+        "stationId": "tivo:st.141442738", 
+        "channelNumber": "692", 
+        "logoIndex": 66418, 
+        "type": "channel", 
+        "sourceType": "cable", 
+        "isHidden": false, 
+        "levelOfDetail": "high"
+      }, 
+      "collectionId": "tivo:cl.78987353"
+    }, 
+    "startTimePadding": 0, 
+    "keepBehavior": "forever", 
+    "hdOnly": false, 
+    "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+    "autoRecord": true, 
+    "bodyGeneratesCandidates": true, 
+    "isForKids": false, 
+    "title": "", 
+    "subscriptionId": "tivo:sb.15000041", 
+    "levelOfDetail": "high", 
+    "type": "subscription", 
+    "isAdult": false
+  }
+}

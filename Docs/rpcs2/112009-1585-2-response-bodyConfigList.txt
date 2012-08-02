@@ -1,0 +1,60 @@
+MRPC/2 78 967
+Raw Packet=MRPC/2 78 967
+Content-Type: application/json
+IsFinal: true
+RpcId: 1585
+Type: response
+
+{
+  "type": "bodyConfigList", 
+  "bodyConfig": [
+    {
+      "secondsFromGmt": -18000, 
+      "userDiskUsed": 114769920, 
+      "state": "active", 
+      "localTimeOffset": [
+        {
+          "stopTime": "2009-11-01 02:00:00", 
+          "type": "localTimeOffset", 
+          "name": "GMT-5", 
+          "startTime": "2009-03-08 02:00:00", 
+          "offset": -14400
+        }, 
+        {
+          "stopTime": "2010-11-07 02:00:00", 
+          "type": "localTimeOffset", 
+          "name": "GMT-5", 
+          "startTime": "2010-03-14 02:00:00", 
+          "offset": -14400
+        }, 
+        {
+          "stopTime": "2011-11-06 02:00:00", 
+          "type": "localTimeOffset", 
+          "name": "GMT-5", 
+          "startTime": "2011-03-13 02:00:00", 
+          "offset": -18000
+        }
+      ], 
+      "hasScheduler": true, 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "capabilities": {
+        "type": "bodyCapabilities", 
+        "features": [
+          "middlemind", 
+          "promptToExtendLive", 
+          "overlapProtection"
+        ]
+      }, 
+      "softwareVersion": "14.8.U2-01-3-746", 
+      "recordingSettings": {
+        "clipOverlapping": true, 
+        "promptToExtendLive": true, 
+        "type": "recordingSettings"
+      }, 
+      "parentalControlsState": "off", 
+      "observesDaylightSaving": true, 
+      "type": "bodyConfig", 
+      "userDiskSize": 279707344
+    }
+  ]
+}

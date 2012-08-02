@@ -1,0 +1,255 @@
+MRPC/2 78 4827
+Raw Packet=MRPC/2 78 4827
+Content-Type: application/json
+IsFinal: true
+RpcId: 1288
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "781", 
+        "callSign": "IFCHD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Chopper", 
+          "contentId": "tivo:ct.3839435", 
+          "collectionId": "tivo:cl.3839434", 
+          "offerId": "tivo:of.ctd.119114326.781.cable.2011-06-07-02-05-00.7200", 
+          "startTime": "2011-06-07 02:05:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "TCMHD", 
+        "isDigital": true, 
+        "channelNumber": "782", 
+        "logoIndex": 65564, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Operation Mad Ball", 
+          "contentId": "tivo:ct.444317", 
+          "collectionId": "tivo:cl.444316", 
+          "offerId": "tivo:of.ctd.148496436.782.cable.2011-06-07-02-15-00.7200", 
+          "startTime": "2011-06-07 02:15:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "783", 
+        "callSign": "OVATNHD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Topsy-Turvy", 
+          "contentId": "tivo:ct.2080651", 
+          "collectionId": "tivo:cl.2080650", 
+          "offerId": "tivo:of.ctd.172225173.783.cable.2011-06-07-00-00-00.12600", 
+          "startTime": "2011-06-07 00:00:00", 
+          "duration": 12600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Topsy-Turvy", 
+          "contentId": "tivo:ct.2080651", 
+          "collectionId": "tivo:cl.2080650", 
+          "offerId": "tivo:of.ctd.172225173.783.cable.2011-06-07-03-30-00.12600", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 12600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "APLHD", 
+        "isDigital": true, 
+        "channelNumber": "786", 
+        "logoIndex": 66160, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Whale Wars: Road to the Showdown", 
+          "contentId": "tivo:ct.182104800", 
+          "collectionId": "tivo:cl.182105163", 
+          "offerId": "tivo:of.ctd.107213909.786.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "TRAVHD", 
+        "isDigital": true, 
+        "channelNumber": "788", 
+        "logoIndex": 65719, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Anthony Bourdain: No Reservations", 
+          "contentId": "tivo:ct.118897222", 
+          "collectionId": "tivo:cl.61672390", 
+          "offerId": "tivo:of.ctd.117692296.788.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "790", 
+        "callSign": "TVONEHD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Martin", 
+          "contentId": "tivo:ct.251154", 
+          "collectionId": "tivo:cl.19250", 
+          "offerId": "tivo:of.ctd.141442739.790.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Martin", 
+          "contentId": "tivo:ct.251155", 
+          "collectionId": "tivo:cl.19250", 
+          "offerId": "tivo:of.ctd.141442739.790.cable.2011-06-07-03-30-00.1800", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "PLDHD", 
+        "isDigital": true, 
+        "channelNumber": "791", 
+        "logoIndex": 66365, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Sonisphere 2010", 
+          "contentId": "tivo:ct.177539984", 
+          "collectionId": "tivo:cl.177541081", 
+          "offerId": "tivo:of.ctd.62943155.791.cable.2011-06-07-02-00-00.7200", 
+          "startTime": "2011-06-07 02:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": false, 
+        "channelNumber": "794", 
+        "callSign": "WDDNGHD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Bridezillas", 
+          "contentId": "tivo:ct.72931546", 
+          "collectionId": "tivo:cl.49076928", 
+          "offerId": "tivo:of.ctd.177925979.794.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "TWANIM", 
+        "isDigital": true, 
+        "channelNumber": "833", 
+        "logoIndex": 65666, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Whale Wars: Road to the Showdown", 
+          "contentId": "tivo:ct.182104800", 
+          "collectionId": "tivo:cl.182105163", 
+          "offerId": "tivo:of.ctd.5136335.833.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "NIKTON", 
+        "isDigital": true, 
+        "channelNumber": "846", 
+        "logoIndex": 66093, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Power Rangers Samurai", 
+          "contentId": "tivo:ct.175353861", 
+          "collectionId": "tivo:cl.175354947", 
+          "offerId": "tivo:of.ctd.6146038.846.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Power Rangers Samurai", 
+          "contentId": "tivo:ct.175934264", 
+          "collectionId": "tivo:cl.175354947", 
+          "offerId": "tivo:of.ctd.6146038.846.cable.2011-06-07-03-30-00.1800", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

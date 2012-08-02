@@ -1,0 +1,45 @@
+MRPC/2 239 614
+Raw Packet=MRPC/2 239 614
+Type:request
+RpcId:1146
+SchemaVersion:7
+Content-Type:application/json
+RequestType:subscribe
+ResponseCount:single
+BodyId:tsn:XXXXXXXXXXXXXXX
+X-ApplicationName:Quicksilver
+X-ApplicationVersion:1.2
+X-ApplicationSessionId:0x27c180
+
+{
+  "recordingQuality": "high", 
+  "showStatus": "firstRunOnly", 
+  "endTimePadding": 0, 
+  "startTimePadding": 0, 
+  "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+  "idSetSource": {
+    "type": "seasonPassSource", 
+    "channel": {
+      "isReceived": true, 
+      "callSign": "G4HD", 
+      "sourceType": "cable", 
+      "isFavorite": false, 
+      "isKidZone": false, 
+      "isHidden": false, 
+      "channelId": "tivo:ch.9", 
+      "name": "G4 HD", 
+      "isDigital": false, 
+      "stationId": "tivo:st.141442738", 
+      "channelNumber": "692", 
+      "logoIndex": 66418, 
+      "isBlocked": false, 
+      "type": "channel", 
+      "levelOfDetail": "medium"
+    }, 
+    "collectionId": "tivo:cl.78987353"
+  }, 
+  "maxRecordings": 10, 
+  "subscriptionId": "tivo:sb.15000041", 
+  "type": "subscribe", 
+  "keepBehavior": "forever"
+}

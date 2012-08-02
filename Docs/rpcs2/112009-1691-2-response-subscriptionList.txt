@@ -1,0 +1,162 @@
+MRPC/2 78 3196
+Raw Packet=MRPC/2 78 3196
+Content-Type: application/json
+IsFinal: true
+RpcId: 1691
+Type: response
+
+{
+  "type": "subscriptionList", 
+  "subscription": [
+    {
+      "maxRecordings": 3, 
+      "keepBehavior": "forever", 
+      "title": "House", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "name": "Fox Affiliate", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "isBlocked": false, 
+          "channelId": "tivo:ch.9", 
+          "callSign": "WNYWDT", 
+          "isDigital": false, 
+          "stationId": "tivo:st.5587434", 
+          "channelNumber": "705", 
+          "logoIndex": 65557, 
+          "type": "channel", 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.34115777"
+      }, 
+      "showStatus": "firstRunOnly", 
+      "subscriptionId": "tivo:sb.15000161", 
+      "type": "subscription"
+    }, 
+    {
+      "maxRecordings": 3, 
+      "keepBehavior": "forever", 
+      "title": "In Plain Sight", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "name": "USA Network HD", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "isBlocked": false, 
+          "channelId": "tivo:ch.9", 
+          "callSign": "USAHD", 
+          "isDigital": false, 
+          "stationId": "tivo:st.109673805", 
+          "channelNumber": "716", 
+          "logoIndex": 66057, 
+          "type": "channel", 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.120732185"
+      }, 
+      "showStatus": "firstRunOnly", 
+      "subscriptionId": "tivo:sb.15000051", 
+      "type": "subscription"
+    }, 
+    {
+      "maxRecordings": 10, 
+      "keepBehavior": "forever", 
+      "title": "Ninja Warrior", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "name": "G4 HD", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "isBlocked": false, 
+          "channelId": "tivo:ch.9", 
+          "callSign": "G4HD", 
+          "isDigital": false, 
+          "stationId": "tivo:st.141442738", 
+          "channelNumber": "692", 
+          "logoIndex": 66418, 
+          "type": "channel", 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.78987353"
+      }, 
+      "showStatus": "firstRunOnly", 
+      "subscriptionId": "tivo:sb.15000041", 
+      "type": "subscription"
+    }, 
+    {
+      "maxRecordings": 5, 
+      "keepBehavior": "forever", 
+      "title": "Cougar Town", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "name": "ABC Affiliate", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "isBlocked": false, 
+          "channelId": "tivo:ch.9", 
+          "callSign": "WABCDT", 
+          "isDigital": false, 
+          "stationId": "tivo:st.4190787", 
+          "channelNumber": "707", 
+          "logoIndex": 65554, 
+          "type": "channel", 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.147252515"
+      }, 
+      "showStatus": "firstRunOnly", 
+      "subscriptionId": "tivo:sb.15000071", 
+      "type": "subscription"
+    }, 
+    {
+      "maxRecordings": 5, 
+      "keepBehavior": "forever", 
+      "title": "The Big Bang Theory", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "name": "CBS Affiliate", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "isBlocked": false, 
+          "channelId": "tivo:ch.9", 
+          "callSign": "WCBSDT", 
+          "isDigital": false, 
+          "stationId": "tivo:st.4501500", 
+          "channelNumber": "702", 
+          "logoIndex": 65555, 
+          "type": "channel", 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.97522875"
+      }, 
+      "showStatus": "firstRunOnly", 
+      "subscriptionId": "tivo:sb.15000141", 
+      "type": "subscription"
+    }
+  ]
+}

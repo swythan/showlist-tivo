@@ -1,0 +1,196 @@
+MRPC/2 78 4803
+Raw Packet=MRPC/2 78 4803
+Content-Type: application/json
+IsFinal: true
+RpcId: 1076
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "FXHD", 
+        "isDigital": true, 
+        "channelNumber": "710", 
+        "logoIndex": 66198, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Two and a Half Men", 
+          "contentId": "tivo:ct.56748623", 
+          "collectionId": "tivo:cl.15566705", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-13-04-00-00.1800", 
+          "startTime": "2011-06-13 04:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Two and a Half Men", 
+          "contentId": "tivo:ct.57958189", 
+          "collectionId": "tivo:cl.15566705", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-13-04-30-00.1800", 
+          "startTime": "2011-06-13 04:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Two and a Half Men", 
+          "contentId": "tivo:ct.59081006", 
+          "collectionId": "tivo:cl.15566705", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-13-05-00-00.1800", 
+          "startTime": "2011-06-13 05:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Two and a Half Men", 
+          "contentId": "tivo:ct.59530910", 
+          "collectionId": "tivo:cl.15566705", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-13-05-30-00.1800", 
+          "startTime": "2011-06-13 05:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-13-06-00-00.1800", 
+          "startTime": "2011-06-13 06:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-13-06-30-00.1800", 
+          "startTime": "2011-06-13 06:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-13-07-00-00.1800", 
+          "startTime": "2011-06-13 07:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-13-07-30-00.1800", 
+          "startTime": "2011-06-13 07:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Midnight Special Legendary Live Rock Concerts", 
+          "contentId": "tivo:ct.162098481", 
+          "collectionId": "tivo:cl.162099110", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-13-08-00-00.1800", 
+          "startTime": "2011-06-13 08:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-13-08-30-00.1800", 
+          "startTime": "2011-06-13 08:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-13-09-00-00.1800", 
+          "startTime": "2011-06-13 09:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-13-09-30-00.1800", 
+          "startTime": "2011-06-13 09:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-13-10-00-00.1800", 
+          "startTime": "2011-06-13 10:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-13-10-30-00.1800", 
+          "startTime": "2011-06-13 10:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Malcolm in the Middle", 
+          "contentId": "tivo:ct.56891588", 
+          "collectionId": "tivo:cl.1298999", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-13-11-00-00.1800", 
+          "startTime": "2011-06-13 11:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Malcolm in the Middle", 
+          "contentId": "tivo:ct.57698956", 
+          "collectionId": "tivo:cl.1298999", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-13-11-30-00.1800", 
+          "startTime": "2011-06-13 11:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Lost Souls", 
+          "contentId": "tivo:ct.1734039", 
+          "collectionId": "tivo:cl.1734038", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-13-12-00-00.7200", 
+          "startTime": "2011-06-13 12:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "An Unfinished Life", 
+          "contentId": "tivo:ct.70347296", 
+          "collectionId": "tivo:cl.70347815", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-13-14-00-00.7200", 
+          "startTime": "2011-06-13 14:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Talented Mr. Ripley", 
+          "contentId": "tivo:ct.2288994", 
+          "collectionId": "tivo:cl.2288993", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-13-16-00-00.10800", 
+          "startTime": "2011-06-13 16:00:00", 
+          "duration": 10800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

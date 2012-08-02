@@ -1,0 +1,51 @@
+MRPC/2 78 895
+Raw Packet=MRPC/2 78 895
+Content-Type: application/json
+IsFinal: true
+RpcId: 1100
+Type: response
+
+{
+  "isBottom": true, 
+  "subscription": [
+    {
+      "recordingQuality": "high", 
+      "maxRecordings": 5, 
+      "keepBehavior": "forever", 
+      "folderingRules": "seriesOnly", 
+      "startTimePadding": 0, 
+      "title": "White Collar", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "priority": 2511, 
+      "bodyGeneratesCandidates": true, 
+      "showStatus": "firstRunOnly", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "name": "USA Network HD", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "isBlocked": false, 
+          "channelId": "tivo:ch.9", 
+          "callSign": "USAHD", 
+          "isDigital": false, 
+          "stationId": "tivo:st.109673805", 
+          "channelNumber": "716", 
+          "logoIndex": 66057, 
+          "type": "channel", 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.150777031"
+      }, 
+      "subscriptionId": "tivo:sb.15000311", 
+      "levelOfDetail": "medium", 
+      "type": "subscription", 
+      "endTimePadding": 0
+    }
+  ], 
+  "isTop": true, 
+  "type": "subscriptionList"
+}

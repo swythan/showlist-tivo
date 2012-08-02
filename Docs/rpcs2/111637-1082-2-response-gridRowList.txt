@@ -1,0 +1,79 @@
+MRPC/2 78 1659
+Raw Packet=MRPC/2 78 1659
+Content-Type: application/json
+IsFinal: true
+RpcId: 1082
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "FXHD", 
+        "isDigital": true, 
+        "channelNumber": "710", 
+        "logoIndex": 66198, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Malcolm in the Middle", 
+          "contentId": "tivo:ct.61856411", 
+          "collectionId": "tivo:cl.1298999", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-16-11-30-00.1800", 
+          "startTime": "2011-06-16 11:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Miracle", 
+          "contentId": "tivo:ct.25539229", 
+          "collectionId": "tivo:cl.25539531", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-16-12-00-00.10800", 
+          "startTime": "2011-06-16 12:00:00", 
+          "duration": 10800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Slumdog Millionaire", 
+          "contentId": "tivo:ct.123475867", 
+          "collectionId": "tivo:cl.123477055", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-16-15-00-00.9000", 
+          "startTime": "2011-06-16 15:00:00", 
+          "duration": 9000, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Bernie Mac Show", 
+          "contentId": "tivo:ct.58483320", 
+          "collectionId": "tivo:cl.3890499", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-16-17-30-00.1800", 
+          "startTime": "2011-06-16 17:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Superman Returns", 
+          "contentId": "tivo:ct.84221350", 
+          "collectionId": "tivo:cl.84221470", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-16-18-00-00.10800", 
+          "startTime": "2011-06-16 18:00:00", 
+          "duration": 10800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Iron Man", 
+          "contentId": "tivo:ct.98177378", 
+          "collectionId": "tivo:cl.98178664", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-16-21-00-00.10800", 
+          "startTime": "2011-06-16 21:00:00", 
+          "duration": 10800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

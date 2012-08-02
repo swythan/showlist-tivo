@@ -1,0 +1,142 @@
+MRPC/2 78 3394
+Raw Packet=MRPC/2 78 3394
+Content-Type: application/json
+IsFinal: true
+RpcId: 1337
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "SCIHD", 
+        "isDigital": true, 
+        "channelNumber": "775", 
+        "logoIndex": 65773, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.109916448", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-17-06-30-00.1800", 
+          "startTime": "2011-06-17 06:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How the Universe Works", 
+          "contentId": "tivo:ct.174718704", 
+          "collectionId": "tivo:cl.162954163", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-17-07-00-00.3600", 
+          "startTime": "2011-06-17 07:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Through the Wormhole with Morgan Freeman", 
+          "contentId": "tivo:ct.182993519", 
+          "collectionId": "tivo:cl.164291233", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-17-08-00-00.3600", 
+          "startTime": "2011-06-17 08:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Through the Wormhole with Morgan Freeman", 
+          "contentId": "tivo:ct.183664352", 
+          "collectionId": "tivo:cl.164291233", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-17-09-00-00.3600", 
+          "startTime": "2011-06-17 09:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Blowdown", 
+          "contentId": "tivo:ct.177484331", 
+          "collectionId": "tivo:cl.171451209", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-17-10-00-00.3600", 
+          "startTime": "2011-06-17 10:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Blowdown", 
+          "contentId": "tivo:ct.171450580", 
+          "collectionId": "tivo:cl.171451209", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-17-11-00-00.3600", 
+          "startTime": "2011-06-17 11:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Blowdown", 
+          "contentId": "tivo:ct.171806868", 
+          "collectionId": "tivo:cl.171451209", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-17-12-00-00.3600", 
+          "startTime": "2011-06-17 12:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Build It Bigger", 
+          "contentId": "tivo:ct.146354958", 
+          "collectionId": "tivo:cl.95878266", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-17-13-00-00.3600", 
+          "startTime": "2011-06-17 13:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Build It Bigger", 
+          "contentId": "tivo:ct.144692919", 
+          "collectionId": "tivo:cl.95878266", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-17-14-00-00.3600", 
+          "startTime": "2011-06-17 14:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Build It Bigger", 
+          "contentId": "tivo:ct.145412870", 
+          "collectionId": "tivo:cl.95878266", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-17-15-00-00.3600", 
+          "startTime": "2011-06-17 15:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Build It Bigger", 
+          "contentId": "tivo:ct.183664235", 
+          "collectionId": "tivo:cl.95878266", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-17-16-00-00.3600", 
+          "startTime": "2011-06-17 16:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Build It Bigger", 
+          "contentId": "tivo:ct.146354342", 
+          "collectionId": "tivo:cl.95878266", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-17-17-00-00.3600", 
+          "startTime": "2011-06-17 17:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Build It Bigger", 
+          "contentId": "tivo:ct.145412871", 
+          "collectionId": "tivo:cl.95878266", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-17-18-00-00.3600", 
+          "startTime": "2011-06-17 18:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

@@ -1,0 +1,158 @@
+MRPC/2 78 2838
+Raw Packet=MRPC/2 78 2838
+Content-Type: application/json
+IsFinal: true
+RpcId: 1131
+Type: response
+
+{
+  "unifiedItem": [
+    {
+      "category": [
+        {
+          "displayRank": 0, 
+          "type": "category", 
+          "label": "TV Shows & Extras"
+        }, 
+        {
+          "displayRank": 1, 
+          "type": "category", 
+          "label": "TiVoCast"
+        }
+      ], 
+      "collectionType": "webVideo", 
+      "title": "Ninja Warrior", 
+      "type": "collection", 
+      "collectionId": "tivo:cl.ts.3902411"
+    }, 
+    {
+      "category": [
+        {
+          "image": [
+            {
+              "width": 180, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/GameShow.jpg", 
+              "type": "image", 
+              "imageType": "moviePoster", 
+              "height": 270
+            }, 
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/GameShow.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }
+          ], 
+          "displayRank": 0, 
+          "type": "category", 
+          "label": "Game Show"
+        }, 
+        {
+          "displayRank": 1, 
+          "type": "category", 
+          "label": "TV Show"
+        }
+      ], 
+      "collectionType": "series", 
+      "title": "Ninja Warrior", 
+      "image": [
+        {
+          "width": 139, 
+          "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/6f/d0/6fd01667da842059c2fcee39b0b33be1.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 104
+        }, 
+        {
+          "width": 120, 
+          "imageUrl": "http://i.tivo.com/images-production/os/banner-120/6f/d0/6fd01667da842059c2fcee39b0b33be1.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 90
+        }
+      ], 
+      "collectionId": "tivo:cl.78987353", 
+      "type": "collection", 
+      "tvRating": "pg"
+    }, 
+    {
+      "collectionType": "webVideo", 
+      "title": "Ninja Warrior Video Podcast", 
+      "type": "collection", 
+      "collectionId": "tivo:cl.ts.68354301"
+    }, 
+    {
+      "category": [
+        {
+          "image": [
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/Gymnastics.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }, 
+            {
+              "width": 180, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/Gymnastics.jpg", 
+              "type": "image", 
+              "imageType": "moviePoster", 
+              "height": 270
+            }
+          ], 
+          "displayRank": 0, 
+          "type": "category", 
+          "label": "Gymnastics"
+        }, 
+        {
+          "displayRank": 1, 
+          "type": "category", 
+          "label": "Sports"
+        }
+      ], 
+      "collectionType": "series", 
+      "title": "American Ninja Warrior", 
+      "image": [
+        {
+          "width": 139, 
+          "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/58/1b/581b1ee03d8da27f9f98ea4faae690cd.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 104
+        }, 
+        {
+          "width": 120, 
+          "imageUrl": "http://i.tivo.com/images-production/os/banner-120/58/1b/581b1ee03d8da27f9f98ea4faae690cd.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 90
+        }
+      ], 
+      "collectionId": "tivo:cl.156056142", 
+      "type": "collection", 
+      "tvRating": "14"
+    }, 
+    {
+      "category": [
+        {
+          "displayRank": 0, 
+          "type": "category", 
+          "label": "TV Shows & Extras"
+        }, 
+        {
+          "displayRank": 1, 
+          "type": "category", 
+          "label": "TiVoCast"
+        }
+      ], 
+      "collectionType": "webVideo", 
+      "subtitle": "Ninja Warrior: 2nd Ninja Warrior Winner", 
+      "title": "Ninja Warrior", 
+      "contentId": "tivo:ct.ts.31538921", 
+      "collectionId": "tivo:cl.ts.3902411", 
+      "type": "content"
+    }
+  ], 
+  "type": "unifiedItemList"
+}

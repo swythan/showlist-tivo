@@ -1,0 +1,10 @@
+MRPC/2 77 21
+Raw Packet=MRPC/2 77 21
+Content-Type: application/json
+IsFinal: true
+RpcId: 982
+Type: response
+
+{
+  "type": "offerList"
+}

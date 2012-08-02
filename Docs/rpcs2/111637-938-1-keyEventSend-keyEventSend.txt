@@ -1,0 +1,18 @@
+MRPC/2 222 51
+Raw Packet=MRPC/2 222 51
+Type:request
+RpcId:938
+SchemaVersion:7
+Content-Type:application/json
+RequestType:keyEventSend
+ResponseCount:single
+BodyId:
+X-ApplicationName:Quicksilver
+X-ApplicationVersion:1.2
+X-ApplicationSessionId:0x27c180
+
+{
+  "type": "keyEventSend", 
+  "event": "ascii", 
+  "value": 97
+}

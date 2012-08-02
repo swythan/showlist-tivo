@@ -1,0 +1,17 @@
+MRPC/2 234 51
+Raw Packet=MRPC/2 234 51
+Type:request
+RpcId:935
+SchemaVersion:7
+Content-Type:application/json
+RequestType:videoPlaybackPositionSet
+ResponseCount:single
+BodyId:
+X-ApplicationName:Quicksilver
+X-ApplicationVersion:1.2
+X-ApplicationSessionId:0x27c180
+
+{
+  "type": "videoPlaybackPositionSet", 
+  "offset": 11656
+}

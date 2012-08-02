@@ -1,0 +1,169 @@
+MRPC/2 78 4269
+Raw Packet=MRPC/2 78 4269
+Content-Type: application/json
+IsFinal: true
+RpcId: 1306
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "SCIHD", 
+        "isDigital": true, 
+        "channelNumber": "775", 
+        "logoIndex": 65773, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "How the Universe Works", 
+          "contentId": "tivo:ct.163054154", 
+          "collectionId": "tivo:cl.162954163", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-08-17-00-00.3600", 
+          "startTime": "2011-06-08 17:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How the Universe Works", 
+          "contentId": "tivo:ct.163621906", 
+          "collectionId": "tivo:cl.162954163", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-08-18-00-00.3600", 
+          "startTime": "2011-06-08 18:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Factory Made", 
+          "contentId": "tivo:ct.162829349", 
+          "collectionId": "tivo:cl.124937026", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-08-19-00-00.1800", 
+          "startTime": "2011-06-08 19:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Factory Made", 
+          "contentId": "tivo:ct.156997875", 
+          "collectionId": "tivo:cl.124937026", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-08-19-30-00.1800", 
+          "startTime": "2011-06-08 19:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "MythBusters", 
+          "contentId": "tivo:ct.16681264", 
+          "collectionId": "tivo:cl.10670781", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-08-20-00-00.3600", 
+          "startTime": "2011-06-08 20:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How Do They Do It?", 
+          "contentId": "tivo:ct.152270966", 
+          "collectionId": "tivo:cl.70360603", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-08-21-00-00.1800", 
+          "startTime": "2011-06-08 21:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How Do They Do It?", 
+          "contentId": "tivo:ct.153739335", 
+          "collectionId": "tivo:cl.70360603", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-08-21-30-00.1800", 
+          "startTime": "2011-06-08 21:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.86820765", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-08-22-00-00.1800", 
+          "startTime": "2011-06-08 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.67453165", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-08-22-30-00.1800", 
+          "startTime": "2011-06-08 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Through the Wormhole with Morgan Freeman", 
+          "contentId": "tivo:ct.166109718", 
+          "collectionId": "tivo:cl.164291233", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-08-23-00-00.3600", 
+          "startTime": "2011-06-08 23:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Through the Wormhole with Morgan Freeman", 
+          "contentId": "tivo:ct.167701947", 
+          "collectionId": "tivo:cl.164291233", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-09-00-00-00.3600", 
+          "startTime": "2011-06-09 00:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Through the Wormhole with Morgan Freeman", 
+          "contentId": "tivo:ct.165353403", 
+          "collectionId": "tivo:cl.164291233", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-09-01-00-00.3600", 
+          "startTime": "2011-06-09 01:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Through the Wormhole with Morgan Freeman", 
+          "contentId": "tivo:ct.182993519", 
+          "collectionId": "tivo:cl.164291233", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-09-02-00-00.3600", 
+          "startTime": "2011-06-09 02:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Through the Wormhole with Morgan Freeman", 
+          "contentId": "tivo:ct.167701947", 
+          "collectionId": "tivo:cl.164291233", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-09-03-00-00.3600", 
+          "startTime": "2011-06-09 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Through the Wormhole with Morgan Freeman", 
+          "contentId": "tivo:ct.165353403", 
+          "collectionId": "tivo:cl.164291233", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-09-04-00-00.3600", 
+          "startTime": "2011-06-09 04:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Through the Wormhole with Morgan Freeman", 
+          "contentId": "tivo:ct.182993519", 
+          "collectionId": "tivo:cl.164291233", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-09-05-00-00.3600", 
+          "startTime": "2011-06-09 05:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

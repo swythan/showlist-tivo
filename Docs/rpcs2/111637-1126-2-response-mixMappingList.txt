@@ -1,0 +1,628 @@
+MRPC/2 78 14884
+Raw Packet=MRPC/2 78 14884
+Content-Type: application/json
+IsFinal: true
+RpcId: 1126
+Type: response
+
+{
+  "mixMapping": [
+    {
+      "childMixId": "tivo:mx.11146121", 
+      "objectIdAndType": "444202708537135", 
+      "parentMixId": "tivo:mx.11119261", 
+      "displayRank": 5, 
+      "childMix": {
+        "subscribable": true, 
+        "leaf": false, 
+        "mixType": "browse", 
+        "title": "2011 Winners", 
+        "root": false, 
+        "image": [
+          {
+            "width": 201, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039934413_1_201x86goldenglobeswinners.png", 
+            "type": "image", 
+            "imageType": "gridIconMix", 
+            "height": 86
+          }, 
+          {
+            "width": 159, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039934413_2_159x68goldenglobeswinners.png", 
+            "type": "image", 
+            "imageType": "gridIconMix", 
+            "height": 68
+          }, 
+          {
+            "width": 150, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039934413_3_150x150goldenglobeswinners.png", 
+            "type": "image", 
+            "imageType": "candyBarIcon", 
+            "height": 150
+          }
+        ], 
+        "objectIdAndType": "442003685512073", 
+        "gridItemType": "mix", 
+        "partnerId": "tivo:pt.3066", 
+        "type": "mix", 
+        "hasContentLeafChildren": true, 
+        "mixId": "tivo:mx.11146121"
+      }, 
+      "mixMappingId": "tivo:mm.10915631", 
+      "type": "mixMapping"
+    }, 
+    {
+      "childMixId": "tivo:mx.11112311", 
+      "objectIdAndType": "444202708511585", 
+      "parentMixId": "tivo:mx.11119261", 
+      "displayRank": 10, 
+      "childMix": {
+        "subscribable": true, 
+        "leaf": false, 
+        "mixType": "browse", 
+        "title": "Best Motion Picture - Drama", 
+        "root": false, 
+        "image": [
+          {
+            "width": 201, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039655998_1_201x86goldenglobespicturedrama.png", 
+            "type": "image", 
+            "imageType": "gridIconMix", 
+            "height": 86
+          }, 
+          {
+            "width": 159, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039655998_2_159x68goldenglobespicturedrama.png", 
+            "type": "image", 
+            "imageType": "gridIconMix", 
+            "height": 68
+          }, 
+          {
+            "width": 150, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039655998_3_150x150goldenglobespicturedrama.png", 
+            "type": "image", 
+            "imageType": "candyBarIcon", 
+            "height": 150
+          }
+        ], 
+        "objectIdAndType": "442003685478263", 
+        "gridItemType": "mix", 
+        "partnerId": "tivo:pt.3066", 
+        "type": "mix", 
+        "hasContentLeafChildren": true, 
+        "mixId": "tivo:mx.11112311"
+      }, 
+      "mixMappingId": "tivo:mm.10890081", 
+      "type": "mixMapping"
+    }, 
+    {
+      "childMixId": "tivo:mx.11112841", 
+      "objectIdAndType": "444202708511595", 
+      "parentMixId": "tivo:mx.11119261", 
+      "displayRank": 15, 
+      "childMix": {
+        "subscribable": true, 
+        "leaf": false, 
+        "mixType": "browse", 
+        "title": "Best Motion Picture - Comedy Or Musical", 
+        "root": false, 
+        "image": [
+          {
+            "width": 201, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039673782_1_201x86goldenglobespicturecomedy.png", 
+            "type": "image", 
+            "imageType": "gridIconMix", 
+            "height": 86
+          }, 
+          {
+            "width": 159, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039673782_2_159x68goldenglobespicturecomedy.png", 
+            "type": "image", 
+            "imageType": "gridIconMix", 
+            "height": 68
+          }, 
+          {
+            "width": 150, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039673782_3_150x150goldenglobespicturecomedy.png", 
+            "type": "image", 
+            "imageType": "candyBarIcon", 
+            "height": 150
+          }
+        ], 
+        "objectIdAndType": "442003685478793", 
+        "gridItemType": "mix", 
+        "partnerId": "tivo:pt.3066", 
+        "type": "mix", 
+        "hasContentLeafChildren": true, 
+        "mixId": "tivo:mx.11112841"
+      }, 
+      "mixMappingId": "tivo:mm.10890091", 
+      "type": "mixMapping"
+    }, 
+    {
+      "childMixId": "tivo:mx.11113521", 
+      "objectIdAndType": "444202708511605", 
+      "parentMixId": "tivo:mx.11119261", 
+      "displayRank": 20, 
+      "childMix": {
+        "subscribable": true, 
+        "leaf": false, 
+        "mixType": "browse", 
+        "title": "Best Director - Motion Picture", 
+        "root": false, 
+        "image": [
+          {
+            "width": 201, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039695764_1_201x86goldenglobespicturedirector.png", 
+            "type": "image", 
+            "imageType": "gridIconMix", 
+            "height": 86
+          }, 
+          {
+            "width": 159, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039695764_2_159x68goldenglobespicturedirector.png", 
+            "type": "image", 
+            "imageType": "gridIconMix", 
+            "height": 68
+          }, 
+          {
+            "width": 150, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039695764_3_150x150goldenglobespicturedirector.png", 
+            "type": "image", 
+            "imageType": "candyBarIcon", 
+            "height": 150
+          }
+        ], 
+        "objectIdAndType": "442003685479473", 
+        "gridItemType": "mix", 
+        "partnerId": "tivo:pt.3066", 
+        "type": "mix", 
+        "hasContentLeafChildren": true, 
+        "mixId": "tivo:mx.11113521"
+      }, 
+      "mixMappingId": "tivo:mm.10890101", 
+      "type": "mixMapping"
+    }, 
+    {
+      "childMixId": "tivo:mx.11113571", 
+      "objectIdAndType": "444202708511615", 
+      "parentMixId": "tivo:mx.11119261", 
+      "displayRank": 25, 
+      "childMix": {
+        "subscribable": true, 
+        "leaf": false, 
+        "mixType": "browse", 
+        "title": "Best Animated Feature Film", 
+        "root": false, 
+        "image": [
+          {
+            "width": 201, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039700610_1_201x86goldenglobespictureanimated.png", 
+            "type": "image", 
+            "imageType": "gridIconMix", 
+            "height": 86
+          }, 
+          {
+            "width": 159, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039700610_2_159x68goldenglobespictureanimated.png", 
+            "type": "image", 
+            "imageType": "gridIconMix", 
+            "height": 68
+          }, 
+          {
+            "width": 150, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039700610_3_150x150goldenglobespictureanimated.png", 
+            "type": "image", 
+            "imageType": "candyBarIcon", 
+            "height": 150
+          }
+        ], 
+        "objectIdAndType": "442003685479523", 
+        "gridItemType": "mix", 
+        "partnerId": "tivo:pt.3066", 
+        "type": "mix", 
+        "hasContentLeafChildren": true, 
+        "mixId": "tivo:mx.11113571"
+      }, 
+      "mixMappingId": "tivo:mm.10890111", 
+      "type": "mixMapping"
+    }, 
+    {
+      "childMixId": "tivo:mx.11114591", 
+      "objectIdAndType": "444202708511625", 
+      "parentMixId": "tivo:mx.11119261", 
+      "displayRank": 30, 
+      "childMix": {
+        "subscribable": true, 
+        "leaf": false, 
+        "mixType": "browse", 
+        "title": "Best Actress - Motion Picture", 
+        "root": false, 
+        "image": [
+          {
+            "width": 201, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039735123_1_201x86goldenglobespictureactress.png", 
+            "type": "image", 
+            "imageType": "gridIconMix", 
+            "height": 86
+          }, 
+          {
+            "width": 159, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039735123_2_159x68goldenglobespictureactress.png", 
+            "type": "image", 
+            "imageType": "gridIconMix", 
+            "height": 68
+          }, 
+          {
+            "width": 150, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039735123_3_150x150goldenglobespictureactress.png", 
+            "type": "image", 
+            "imageType": "candyBarIcon", 
+            "height": 150
+          }
+        ], 
+        "objectIdAndType": "442003685480543", 
+        "gridItemType": "mix", 
+        "partnerId": "tivo:pt.3066", 
+        "type": "mix", 
+        "hasContentLeafChildren": true, 
+        "mixId": "tivo:mx.11114591"
+      }, 
+      "mixMappingId": "tivo:mm.10890121", 
+      "type": "mixMapping"
+    }, 
+    {
+      "childMixId": "tivo:mx.11115821", 
+      "objectIdAndType": "444202708511635", 
+      "parentMixId": "tivo:mx.11119261", 
+      "displayRank": 35, 
+      "childMix": {
+        "subscribable": true, 
+        "leaf": false, 
+        "mixType": "browse", 
+        "title": "Best Actor - Motion Picture", 
+        "root": false, 
+        "image": [
+          {
+            "width": 201, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039780401_1_201x86goldenglobespictureactor.png", 
+            "type": "image", 
+            "imageType": "gridIconMix", 
+            "height": 86
+          }, 
+          {
+            "width": 159, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039780401_2_159x68goldenglobespictureactor.png", 
+            "type": "image", 
+            "imageType": "gridIconMix", 
+            "height": 68
+          }, 
+          {
+            "width": 150, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039780401_3_150x150goldenglobespictureactor.png", 
+            "type": "image", 
+            "imageType": "candyBarIcon", 
+            "height": 150
+          }
+        ], 
+        "objectIdAndType": "442003685481773", 
+        "gridItemType": "mix", 
+        "partnerId": "tivo:pt.3066", 
+        "type": "mix", 
+        "hasContentLeafChildren": true, 
+        "mixId": "tivo:mx.11115821"
+      }, 
+      "mixMappingId": "tivo:mm.10890131", 
+      "type": "mixMapping"
+    }, 
+    {
+      "childMixId": "tivo:mx.11116521", 
+      "objectIdAndType": "444202708511645", 
+      "parentMixId": "tivo:mx.11119261", 
+      "displayRank": 40, 
+      "childMix": {
+        "subscribable": true, 
+        "leaf": false, 
+        "mixType": "browse", 
+        "title": "Best Supporting Actor - Motion Picture", 
+        "root": false, 
+        "image": [
+          {
+            "width": 201, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039806085_1_201x86goldenglobespictureactorsupp.png", 
+            "type": "image", 
+            "imageType": "gridIconMix", 
+            "height": 86
+          }, 
+          {
+            "width": 159, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039806085_2_159x68goldenglobespictureactorsupp.png", 
+            "type": "image", 
+            "imageType": "gridIconMix", 
+            "height": 68
+          }, 
+          {
+            "width": 150, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039806101_3_150x150goldenglobespictureactorsupp.png", 
+            "type": "image", 
+            "imageType": "candyBarIcon", 
+            "height": 150
+          }
+        ], 
+        "objectIdAndType": "442003685482473", 
+        "gridItemType": "mix", 
+        "partnerId": "tivo:pt.3066", 
+        "type": "mix", 
+        "hasContentLeafChildren": true, 
+        "mixId": "tivo:mx.11116521"
+      }, 
+      "mixMappingId": "tivo:mm.10890141", 
+      "type": "mixMapping"
+    }, 
+    {
+      "childMixId": "tivo:mx.11117201", 
+      "objectIdAndType": "444202708511655", 
+      "parentMixId": "tivo:mx.11119261", 
+      "displayRank": 45, 
+      "childMix": {
+        "subscribable": true, 
+        "leaf": false, 
+        "mixType": "browse", 
+        "title": "Best Supporting Actress - Motion Picture", 
+        "root": false, 
+        "image": [
+          {
+            "width": 201, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039829369_1_201x86goldenglobespictureactresssupp.png", 
+            "type": "image", 
+            "imageType": "gridIconMix", 
+            "height": 86
+          }, 
+          {
+            "width": 159, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039829369_2_159x68goldenglobespictureactresssupp.png", 
+            "type": "image", 
+            "imageType": "gridIconMix", 
+            "height": 68
+          }, 
+          {
+            "width": 150, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039829369_3_150x150goldenglobespictureactresssupp.png", 
+            "type": "image", 
+            "imageType": "candyBarIcon", 
+            "height": 150
+          }
+        ], 
+        "objectIdAndType": "442003685483153", 
+        "gridItemType": "mix", 
+        "partnerId": "tivo:pt.3066", 
+        "type": "mix", 
+        "hasContentLeafChildren": true, 
+        "mixId": "tivo:mx.11117201"
+      }, 
+      "mixMappingId": "tivo:mm.10890151", 
+      "type": "mixMapping"
+    }, 
+    {
+      "childMixId": "tivo:mx.11117551", 
+      "objectIdAndType": "444202708511665", 
+      "parentMixId": "tivo:mx.11119261", 
+      "displayRank": 50, 
+      "childMix": {
+        "subscribable": true, 
+        "leaf": false, 
+        "mixType": "browse", 
+        "title": "Best TV Series - Drama", 
+        "root": false, 
+        "image": [
+          {
+            "width": 201, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039845463_1_201x86goldenglobestvdrama.png", 
+            "type": "image", 
+            "imageType": "gridIconMix", 
+            "height": 86
+          }, 
+          {
+            "width": 159, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039845463_2_159x68goldenglobestvdrama.png", 
+            "type": "image", 
+            "imageType": "gridIconMix", 
+            "height": 68
+          }, 
+          {
+            "width": 150, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039845463_3_150x150goldenglobestvdrama.png", 
+            "type": "image", 
+            "imageType": "candyBarIcon", 
+            "height": 150
+          }
+        ], 
+        "objectIdAndType": "442003685483503", 
+        "gridItemType": "mix", 
+        "partnerId": "tivo:pt.3066", 
+        "type": "mix", 
+        "hasContentLeafChildren": true, 
+        "mixId": "tivo:mx.11117551"
+      }, 
+      "mixMappingId": "tivo:mm.10890161", 
+      "type": "mixMapping"
+    }, 
+    {
+      "childMixId": "tivo:mx.11117841", 
+      "objectIdAndType": "444202708511675", 
+      "parentMixId": "tivo:mx.11119261", 
+      "displayRank": 55, 
+      "childMix": {
+        "subscribable": true, 
+        "leaf": false, 
+        "mixType": "browse", 
+        "title": "Best TV Series - Comedy", 
+        "root": false, 
+        "image": [
+          {
+            "width": 159, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039862154_1_159x68goldenglobestvcomedy.png", 
+            "type": "image", 
+            "imageType": "gridIconMix", 
+            "height": 68
+          }, 
+          {
+            "width": 159, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039862154_2_159x68goldenglobestvcomedy.png", 
+            "type": "image", 
+            "imageType": "gridIconMix", 
+            "height": 68
+          }, 
+          {
+            "width": 150, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039862154_3_150x150goldenglobestvcomedy.png", 
+            "type": "image", 
+            "imageType": "candyBarIcon", 
+            "height": 150
+          }
+        ], 
+        "objectIdAndType": "442003685483793", 
+        "gridItemType": "mix", 
+        "partnerId": "tivo:pt.3066", 
+        "type": "mix", 
+        "hasContentLeafChildren": true, 
+        "mixId": "tivo:mx.11117841"
+      }, 
+      "mixMappingId": "tivo:mm.10890171", 
+      "type": "mixMapping"
+    }, 
+    {
+      "childMixId": "tivo:mx.11118581", 
+      "objectIdAndType": "444202708511685", 
+      "parentMixId": "tivo:mx.11119261", 
+      "displayRank": 60, 
+      "childMix": {
+        "subscribable": true, 
+        "leaf": false, 
+        "mixType": "browse", 
+        "title": "Best Actress in a TV Series", 
+        "root": false, 
+        "image": [
+          {
+            "width": 159, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039891616_1_159x68goldenglobestvactress.png", 
+            "type": "image", 
+            "imageType": "gridIconMix", 
+            "height": 68
+          }, 
+          {
+            "width": 159, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039891616_2_159x68goldenglobestvactress.png", 
+            "type": "image", 
+            "imageType": "gridIconMix", 
+            "height": 68
+          }, 
+          {
+            "width": 150, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039891616_3_150x150goldenglobestvactress.png", 
+            "type": "image", 
+            "imageType": "candyBarIcon", 
+            "height": 150
+          }
+        ], 
+        "objectIdAndType": "442003685484533", 
+        "gridItemType": "mix", 
+        "partnerId": "tivo:pt.3066", 
+        "type": "mix", 
+        "hasContentLeafChildren": true, 
+        "mixId": "tivo:mx.11118581"
+      }, 
+      "mixMappingId": "tivo:mm.10890181", 
+      "type": "mixMapping"
+    }, 
+    {
+      "childMixId": "tivo:mx.11119251", 
+      "objectIdAndType": "444202708511695", 
+      "parentMixId": "tivo:mx.11119261", 
+      "displayRank": 65, 
+      "childMix": {
+        "subscribable": true, 
+        "leaf": false, 
+        "mixType": "browse", 
+        "title": "Best Actor in a TV Series", 
+        "root": false, 
+        "image": [
+          {
+            "width": 201, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039924976_1_201x86goldenglobestvactor.png", 
+            "type": "image", 
+            "imageType": "gridIconMix", 
+            "height": 86
+          }, 
+          {
+            "width": 159, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039924976_2_159x68goldenglobestvactor.png", 
+            "type": "image", 
+            "imageType": "gridIconMix", 
+            "height": 68
+          }, 
+          {
+            "width": 150, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039924976_3_150x150goldenglobestvactor.png", 
+            "type": "image", 
+            "imageType": "candyBarIcon", 
+            "height": 150
+          }
+        ], 
+        "objectIdAndType": "442003685485203", 
+        "gridItemType": "mix", 
+        "partnerId": "tivo:pt.3066", 
+        "type": "mix", 
+        "hasContentLeafChildren": true, 
+        "mixId": "tivo:mx.11119251"
+      }, 
+      "mixMappingId": "tivo:mm.10890191", 
+      "type": "mixMapping"
+    }, 
+    {
+      "childMixId": "tivo:mx.11150861", 
+      "objectIdAndType": "444202708541715", 
+      "parentMixId": "tivo:mx.11119261", 
+      "displayRank": 70, 
+      "childMix": {
+        "subscribable": true, 
+        "leaf": false, 
+        "mixType": "browse", 
+        "title": "Best TV Movie/Miniseries", 
+        "root": false, 
+        "image": [
+          {
+            "width": 201, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039947939_1_201x86goldenglobestvminiseries.png", 
+            "type": "image", 
+            "imageType": "gridIconMix", 
+            "height": 86
+          }, 
+          {
+            "width": 159, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039947940_2_159x68goldenglobestvminiseries.png", 
+            "type": "image", 
+            "imageType": "gridIconMix", 
+            "height": 68
+          }, 
+          {
+            "width": 150, 
+            "imageUrl": "http://tivo-0.vo.llnwd.net/d1/masprod/HD/images/1307039947940_3_150x150goldenglobestvminiseries.png", 
+            "type": "image", 
+            "imageType": "candyBarIcon", 
+            "height": 150
+          }
+        ], 
+        "objectIdAndType": "442003685516813", 
+        "gridItemType": "mix", 
+        "partnerId": "tivo:pt.3066", 
+        "type": "mix", 
+        "hasContentLeafChildren": true, 
+        "mixId": "tivo:mx.11150861"
+      }, 
+      "mixMappingId": "tivo:mm.10920211", 
+      "type": "mixMapping"
+    }
+  ], 
+  "type": "mixMappingList"
+}

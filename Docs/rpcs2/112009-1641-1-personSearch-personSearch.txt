@@ -1,0 +1,40 @@
+MRPC/2 223 270
+Raw Packet=MRPC/2 223 270
+Type:request
+RpcId:1641
+SchemaVersion:7
+Content-Type:application/json
+RequestType:personSearch
+ResponseCount:single
+BodyId:
+X-ApplicationName:Quicksilver
+X-ApplicationVersion:1.2
+X-ApplicationSessionId:0x27c180
+
+{
+  "personId": [
+    "tivo:pn.1585"
+  ], 
+  "note": [
+    "roleForPersonId"
+  ], 
+  "imageRuleset": [
+    {
+      "type": "imageRuleset", 
+      "name": "person", 
+      "rule": [
+        {
+          "width": 150, 
+          "ruleType": "exactMatchDimension", 
+          "type": "imageRule", 
+          "imageType": [
+            "person"
+          ], 
+          "height": 200
+        }
+      ]
+    }
+  ], 
+  "type": "personSearch", 
+  "levelOfDetail": "high"
+}

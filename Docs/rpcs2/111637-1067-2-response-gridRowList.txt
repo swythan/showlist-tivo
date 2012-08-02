@@ -1,0 +1,169 @@
+MRPC/2 78 4106
+Raw Packet=MRPC/2 78 4106
+Content-Type: application/json
+IsFinal: true
+RpcId: 1067
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "FXHD", 
+        "isDigital": true, 
+        "channelNumber": "710", 
+        "logoIndex": 66198, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Two and a Half Men", 
+          "contentId": "tivo:ct.155285429", 
+          "collectionId": "tivo:cl.15566705", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-10-23-00-00.1800", 
+          "startTime": "2011-06-10 23:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Two and a Half Men", 
+          "contentId": "tivo:ct.156075929", 
+          "collectionId": "tivo:cl.15566705", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-10-23-30-00.1800", 
+          "startTime": "2011-06-10 23:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Doubt", 
+          "contentId": "tivo:ct.127020029", 
+          "collectionId": "tivo:cl.127020947", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-11-00-00-00.7200", 
+          "startTime": "2011-06-11 00:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Doubt", 
+          "contentId": "tivo:ct.127020029", 
+          "collectionId": "tivo:cl.127020947", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-11-02-00-00.7200", 
+          "startTime": "2011-06-11 02:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Shaft", 
+          "contentId": "tivo:ct.2028149", 
+          "collectionId": "tivo:cl.2028148", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-11-04-00-00.7200", 
+          "startTime": "2011-06-11 04:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-11-06-00-00.1800", 
+          "startTime": "2011-06-11 06:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-11-06-30-00.1800", 
+          "startTime": "2011-06-11 06:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-11-07-00-00.1800", 
+          "startTime": "2011-06-11 07:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Get Ripped in 90 Days!", 
+          "contentId": "tivo:ct.101407523", 
+          "collectionId": "tivo:cl.101408252", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-11-07-30-00.1800", 
+          "startTime": "2011-06-11 07:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Midnight Special Legendary Live Rock Concerts", 
+          "contentId": "tivo:ct.162098481", 
+          "collectionId": "tivo:cl.162099110", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-11-08-00-00.1800", 
+          "startTime": "2011-06-11 08:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Sexy in Minutes!", 
+          "contentId": "tivo:ct.178044634", 
+          "collectionId": "tivo:cl.178045408", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-11-08-30-00.1800", 
+          "startTime": "2011-06-11 08:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Oreck ProShield Plus Air Purifier", 
+          "contentId": "tivo:ct.176539306", 
+          "collectionId": "tivo:cl.176539975", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-11-09-00-00.1800", 
+          "startTime": "2011-06-11 09:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Body Form Ahh Bra", 
+          "contentId": "tivo:ct.170524561", 
+          "collectionId": "tivo:cl.170524758", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-11-09-30-00.1800", 
+          "startTime": "2011-06-11 09:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-11-10-00-00.1800", 
+          "startTime": "2011-06-11 10:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Get Ripped in 90 Days!", 
+          "contentId": "tivo:ct.101407523", 
+          "collectionId": "tivo:cl.101408252", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-11-10-30-00.1800", 
+          "startTime": "2011-06-11 10:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Along Came a Spider", 
+          "contentId": "tivo:ct.3839425", 
+          "collectionId": "tivo:cl.3839424", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-11-11-00-00.7200", 
+          "startTime": "2011-06-11 11:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

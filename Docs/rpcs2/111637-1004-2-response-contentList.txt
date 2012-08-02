@@ -1,0 +1,166 @@
+MRPC/2 78 2588
+Raw Packet=MRPC/2 78 2588
+Content-Type: application/json
+IsFinal: true
+RpcId: 1004
+Type: response
+
+{
+  "content": [
+    {
+      "category": [
+        {
+          "image": [
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/Sitcom.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }, 
+            {
+              "width": 180, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/Sitcom.jpg", 
+              "type": "image", 
+              "imageType": "moviePoster", 
+              "height": 270
+            }
+          ], 
+          "displayRank": 0, 
+          "type": "category", 
+          "label": "Sitcom"
+        }, 
+        {
+          "displayRank": 1, 
+          "type": "category", 
+          "label": "TV Show"
+        }
+      ], 
+      "userContentForCollectionId": {
+        "thumbsRating": 3, 
+        "type": "userContent", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX"
+      }, 
+      "collectionType": "series", 
+      "seasonNumber": 5, 
+      "description": "A kitchen fire makes George confront his cowardliness; guests Melanie Chartoff, Dom Irrera.", 
+      "episodic": true, 
+      "collectionId": "tivo:cl.16984", 
+      "contentId": "tivo:ct.97584", 
+      "image": [
+        {
+          "width": 139, 
+          "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/08/43/0843aa276c229d9c54c0d8a986e717bc.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 104
+        }, 
+        {
+          "width": 200, 
+          "imageUrl": "http://i.tivo.com/images-production/hdui-showing/08/43/0843aa276c229d9c54c0d8a986e717bc.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 150
+        }
+      ], 
+      "episodeNum": [
+        20
+      ], 
+      "originalAirYear": 1994, 
+      "credit": [
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Seinfeld", 
+          "first": "Jerry"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Alexander", 
+          "first": "Jason"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Richards", 
+          "first": "Michael"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Louis-Dreyfus", 
+          "first": "Julia"
+        }, 
+        {
+          "role": "guestStar", 
+          "type": "credit", 
+          "last": "Cox", 
+          "first": "Veanne"
+        }, 
+        {
+          "role": "guestStar", 
+          "type": "credit", 
+          "last": "Chartoff", 
+          "first": "Melanie"
+        }, 
+        {
+          "role": "guestStar", 
+          "type": "credit", 
+          "last": "Hoover", 
+          "first": "Grant"
+        }, 
+        {
+          "role": "guestStar", 
+          "type": "credit", 
+          "last": "Irrera", 
+          "first": "Dom"
+        }, 
+        {
+          "role": "guestStar", 
+          "type": "credit", 
+          "last": "Pescia", 
+          "first": "Lisa"
+        }, 
+        {
+          "role": "guestStar", 
+          "type": "credit", 
+          "last": "Kasten", 
+          "first": "Hiram"
+        }, 
+        {
+          "role": "director", 
+          "type": "credit", 
+          "last": "Cherones", 
+          "first": "Tom"
+        }, 
+        {
+          "role": "writer", 
+          "type": "credit", 
+          "last": "Charles", 
+          "first": "Larry"
+        }
+      ], 
+      "recordingForContentId": [
+        {
+          "subscriptionIdentifier": [
+            {
+              "subscriptionId": "tivo:sb.189", 
+              "subscriptionType": "seasonPass", 
+              "type": "subscriptionIdentifier"
+            }
+          ], 
+          "recordingId": "tivo:rc.181969", 
+          "state": "complete", 
+          "type": "recording", 
+          "bodyId": "tsn:XXXXXXXXXXXXXXX"
+        }
+      ], 
+      "title": "Seinfeld", 
+      "subtitle": "The Fire", 
+      "type": "content", 
+      "tvRating": "14"
+    }
+  ], 
+  "type": "contentList"
+}

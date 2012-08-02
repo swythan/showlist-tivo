@@ -1,0 +1,19 @@
+MRPC/2 255 111
+Raw Packet=MRPC/2 255 111
+Type:request
+RpcId:28
+SchemaVersion:7
+Content-Type:application/json
+RequestType:uiDestinationInstanceSearch
+ResponseCount:single
+BodyId:tsn:XXXXXXXXXXXXXXX
+X-ApplicationName:Quicksilver
+X-ApplicationVersion:1.2
+X-ApplicationSessionId:0x27dc20
+
+{
+  "noLimit": true, 
+  "uiDestinationType": "hme", 
+  "type": "uiDestinationInstanceSearch", 
+  "bodyId": "tsn:XXXXXXXXXXXXXXX"
+}

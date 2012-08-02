@@ -1,0 +1,28 @@
+MRPC/2 78 362
+Raw Packet=MRPC/2 78 362
+Content-Type: application/json
+IsFinal: true
+RpcId: 1119
+Type: response
+
+{
+  "isBottom": true, 
+  "type": "mixList", 
+  "isTop": true, 
+  "mix": [
+    {
+      "rootTitle": "bravoBrowse", 
+      "leaf": false, 
+      "mixType": "browse", 
+      "title": "Bravo Browse Root Mix", 
+      "recordPolicy": "recordAll", 
+      "objectIdAndType": "442003683622983", 
+      "subscribable": false, 
+      "partnerId": "tivo:pt.2870", 
+      "type": "mix", 
+      "root": true, 
+      "mixId": "tivo:mx.9257031", 
+      "levelOfDetail": "low"
+    }
+  ]
+}

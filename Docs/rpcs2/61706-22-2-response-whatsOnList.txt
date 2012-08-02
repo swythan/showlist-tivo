@@ -1,0 +1,24 @@
+MRPC/2 77 325
+Raw Packet=MRPC/2 77 325
+Content-Type: application/json
+IsFinal: false
+RpcId: 22
+Type: response
+
+{
+  "type": "whatsOnList", 
+  "whatsOn": [
+    {
+      "contentId": "tivo:ct.127876", 
+      "channelIdentifier": {
+        "stationId": "tivo:st.159169748", 
+        "channelNumber": "684", 
+        "type": "channelIdentifier", 
+        "sourceType": "cable"
+      }, 
+      "type": "whatsOn", 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-06-22-00-00.3600", 
+      "collectionId": "tivo:cl.19284"
+    }
+  ]
+}

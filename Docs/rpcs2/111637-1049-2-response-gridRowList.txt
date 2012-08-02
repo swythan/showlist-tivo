@@ -1,0 +1,214 @@
+MRPC/2 78 5266
+Raw Packet=MRPC/2 78 5266
+Content-Type: application/json
+IsFinal: true
+RpcId: 1049
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WWORDT", 
+        "isDigital": true, 
+        "channelNumber": "709", 
+        "logoIndex": 66244, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "That '70s Show", 
+          "contentId": "tivo:ct.3415164", 
+          "collectionId": "tivo:cl.17211", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-11-21-00-00.1800", 
+          "startTime": "2011-06-11 21:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "That '70s Show", 
+          "contentId": "tivo:ct.3494728", 
+          "collectionId": "tivo:cl.17211", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-11-21-30-00.1800", 
+          "startTime": "2011-06-11 21:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The King of Queens", 
+          "contentId": "tivo:ct.61263899", 
+          "collectionId": "tivo:cl.18987", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-11-22-00-00.1800", 
+          "startTime": "2011-06-11 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The King of Queens", 
+          "contentId": "tivo:ct.66164069", 
+          "collectionId": "tivo:cl.18987", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-11-22-30-00.1800", 
+          "startTime": "2011-06-11 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How I Met Your Mother", 
+          "contentId": "tivo:ct.164254561", 
+          "collectionId": "tivo:cl.55419269", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-11-23-00-00.1800", 
+          "startTime": "2011-06-11 23:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How I Met Your Mother", 
+          "contentId": "tivo:ct.164091224", 
+          "collectionId": "tivo:cl.55419269", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-11-23-30-00.1800", 
+          "startTime": "2011-06-11 23:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "House", 
+          "contentId": "tivo:ct.47725395", 
+          "collectionId": "tivo:cl.34115777", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-12-00-00-00.3600", 
+          "startTime": "2011-06-12 00:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "House", 
+          "contentId": "tivo:ct.48145627", 
+          "collectionId": "tivo:cl.34115777", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-12-01-00-00.3600", 
+          "startTime": "2011-06-12 01:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Bones", 
+          "contentId": "tivo:ct.153128833", 
+          "collectionId": "tivo:cl.55067183", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-12-02-00-00.3600", 
+          "startTime": "2011-06-12 02:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Giants Access Blue", 
+          "contentId": "tivo:ct.105888503", 
+          "collectionId": "tivo:cl.105888775", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-12-03-00-00.1800", 
+          "startTime": "2011-06-12 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Deadliest Catch", 
+          "contentId": "tivo:ct.48145703", 
+          "collectionId": "tivo:cl.45266952", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-12-03-30-00.3600", 
+          "startTime": "2011-06-12 03:30:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Natural Advantage with Jane Seymour", 
+          "contentId": "tivo:ct.162098480", 
+          "collectionId": "tivo:cl.162098880", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-12-04-30-00.1800", 
+          "startTime": "2011-06-12 04:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Armando Montelongo", 
+          "contentId": "tivo:ct.154754522", 
+          "collectionId": "tivo:cl.154755161", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-12-05-00-00.1800", 
+          "startTime": "2011-06-12 05:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-12-05-30-00.1800", 
+          "startTime": "2011-06-12 05:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Best Bra Ever!", 
+          "contentId": "tivo:ct.171182915", 
+          "collectionId": "tivo:cl.171183379", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-12-06-00-00.1800", 
+          "startTime": "2011-06-12 06:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Susan Lucci's Malibu Pilates", 
+          "contentId": "tivo:ct.127627668", 
+          "collectionId": "tivo:cl.127628279", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-12-06-30-00.1800", 
+          "startTime": "2011-06-12 06:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Susan Lucci's Malibu Pilates", 
+          "contentId": "tivo:ct.127627668", 
+          "collectionId": "tivo:cl.127628279", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-12-07-00-00.1800", 
+          "startTime": "2011-06-12 07:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Armando Montelongo", 
+          "contentId": "tivo:ct.154754522", 
+          "collectionId": "tivo:cl.154755161", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-12-07-30-00.1800", 
+          "startTime": "2011-06-12 07:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-12-08-00-00.1800", 
+          "startTime": "2011-06-12 08:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Stop Memory Loss", 
+          "contentId": "tivo:ct.151493895", 
+          "collectionId": "tivo:cl.151494357", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-12-08-30-00.1800", 
+          "startTime": "2011-06-12 08:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Heroes Among Us", 
+          "contentId": "tivo:ct.124376717", 
+          "collectionId": "tivo:cl.124376740", 
+          "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-12-09-00-00.1800", 
+          "startTime": "2011-06-12 09:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

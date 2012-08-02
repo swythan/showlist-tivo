@@ -1,0 +1,226 @@
+MRPC/2 78 4526
+Raw Packet=MRPC/2 78 4526
+Content-Type: application/json
+IsFinal: true
+RpcId: 1120
+Type: response
+
+{
+  "mixMapping": [
+    {
+      "childMixId": "tivo:mx.9257041", 
+      "objectIdAndType": "444202706703775", 
+      "parentMixId": "tivo:mx.9257031", 
+      "displayRank": 1, 
+      "childMix": {
+        "subscribable": false, 
+        "leaf": false, 
+        "mixType": "browse", 
+        "title": "Top picks", 
+        "root": false, 
+        "image": [
+          {
+            "width": 50, 
+            "imageUrl": "http://i.tivo.com/images-static/bravo/browse/top_toppicks_50x46.png", 
+            "type": "image", 
+            "imageType": "gridIconMix", 
+            "height": 46
+          }
+        ], 
+        "objectIdAndType": "442003683622993", 
+        "partnerId": "tivo:pt.2870", 
+        "type": "mix", 
+        "hasContentLeafChildren": true, 
+        "mixId": "tivo:mx.9257041"
+      }, 
+      "mixMappingId": "tivo:mm.9082271", 
+      "type": "mixMapping"
+    }, 
+    {
+      "childMixId": "tivo:mx.9257051", 
+      "objectIdAndType": "444202706703785", 
+      "parentMixId": "tivo:mx.9257031", 
+      "displayRank": 2, 
+      "childMix": {
+        "subscribable": false, 
+        "leaf": false, 
+        "mixType": "browse", 
+        "title": "My favorites", 
+        "root": false, 
+        "objectIdAndType": "442003683623003", 
+        "partnerId": "tivo:pt.2870", 
+        "type": "mix", 
+        "hasContentLeafChildren": false, 
+        "mixId": "tivo:mx.9257051"
+      }, 
+      "mixMappingId": "tivo:mm.9082281", 
+      "type": "mixMapping"
+    }, 
+    {
+      "childMixId": "tivo:mx.9257061", 
+      "objectIdAndType": "444202706703795", 
+      "parentMixId": "tivo:mx.9257031", 
+      "displayRank": 3, 
+      "childMix": {
+        "subscribable": false, 
+        "leaf": false, 
+        "mixType": "browse", 
+        "title": "Collections", 
+        "root": false, 
+        "image": [
+          {
+            "width": 50, 
+            "imageUrl": "http://i.tivo.com/images-static/bravo/browse/top_collections_50x46.png", 
+            "type": "image", 
+            "imageType": "gridIconMix", 
+            "height": 46
+          }
+        ], 
+        "objectIdAndType": "442003683623013", 
+        "partnerId": "tivo:pt.2870", 
+        "type": "mix", 
+        "hasContentLeafChildren": false, 
+        "mixId": "tivo:mx.9257061"
+      }, 
+      "mixMappingId": "tivo:mm.9082291", 
+      "type": "mixMapping"
+    }, 
+    {
+      "childMixId": "tivo:mx.9257071", 
+      "objectIdAndType": "444202706703805", 
+      "parentMixId": "tivo:mx.9257031", 
+      "displayRank": 4, 
+      "childMix": {
+        "subscribable": false, 
+        "leaf": false, 
+        "mixType": "browse", 
+        "title": "Movies", 
+        "root": false, 
+        "image": [
+          {
+            "width": 50, 
+            "imageUrl": "http://i.tivo.com/images-static/bravo/browse/top_movies_50x46.png", 
+            "type": "image", 
+            "imageType": "gridIconMix", 
+            "height": 46
+          }
+        ], 
+        "objectIdAndType": "442003683623023", 
+        "partnerId": "tivo:pt.2870", 
+        "type": "mix", 
+        "hasContentLeafChildren": false, 
+        "mixId": "tivo:mx.9257071"
+      }, 
+      "mixMappingId": "tivo:mm.9082301", 
+      "type": "mixMapping"
+    }, 
+    {
+      "childMixId": "tivo:mx.9257081", 
+      "objectIdAndType": "444202706703815", 
+      "parentMixId": "tivo:mx.9257031", 
+      "displayRank": 5, 
+      "childMix": {
+        "subscribable": false, 
+        "leaf": false, 
+        "mixType": "browse", 
+        "title": "TV", 
+        "root": false, 
+        "image": [
+          {
+            "width": 50, 
+            "imageUrl": "http://i.tivo.com/images-static/bravo/browse/top_tv_50x46.png", 
+            "type": "image", 
+            "imageType": "gridIconMix", 
+            "height": 46
+          }
+        ], 
+        "objectIdAndType": "442003683623033", 
+        "partnerId": "tivo:pt.2870", 
+        "type": "mix", 
+        "hasContentLeafChildren": false, 
+        "mixId": "tivo:mx.9257081"
+      }, 
+      "mixMappingId": "tivo:mm.9082311", 
+      "type": "mixMapping"
+    }, 
+    {
+      "childMixId": "tivo:mx.9257101", 
+      "objectIdAndType": "444202706703845", 
+      "parentMixId": "tivo:mx.9257031", 
+      "displayRank": 6, 
+      "childMix": {
+        "subscribable": false, 
+        "leaf": false, 
+        "mixType": "browse", 
+        "title": "Sports", 
+        "root": false, 
+        "image": [
+          {
+            "width": 50, 
+            "imageUrl": "http://i.tivo.com/images-static/bravo/browse/top_sports_50x46.png", 
+            "type": "image", 
+            "imageType": "gridIconMix", 
+            "height": 46
+          }
+        ], 
+        "objectIdAndType": "442003683623053", 
+        "partnerId": "tivo:pt.2870", 
+        "type": "mix", 
+        "hasContentLeafChildren": false, 
+        "mixId": "tivo:mx.9257101"
+      }, 
+      "mixMappingId": "tivo:mm.9082341", 
+      "type": "mixMapping"
+    }, 
+    {
+      "childMixId": "tivo:mx.9257091", 
+      "objectIdAndType": "444202706703825", 
+      "parentMixId": "tivo:mx.9257031", 
+      "displayRank": 8, 
+      "childMix": {
+        "subscribable": false, 
+        "leaf": false, 
+        "mixType": "browse", 
+        "title": "Available from...", 
+        "root": false, 
+        "objectIdAndType": "442003683623043", 
+        "partnerId": "tivo:pt.2870", 
+        "type": "mix", 
+        "hasContentLeafChildren": false, 
+        "mixId": "tivo:mx.9257091"
+      }, 
+      "mixMappingId": "tivo:mm.9082321", 
+      "type": "mixMapping"
+    }, 
+    {
+      "childMixId": "tivo:mx.9257111", 
+      "objectIdAndType": "444202706703855", 
+      "parentMixId": "tivo:mx.9257031", 
+      "displayRank": 9, 
+      "childMix": {
+        "subscribable": false, 
+        "leaf": false, 
+        "mixType": "browse", 
+        "title": "Categories", 
+        "root": false, 
+        "image": [
+          {
+            "width": 50, 
+            "imageUrl": "http://i.tivo.com/images-static/bravo/browse/top_categories_50x46.png", 
+            "type": "image", 
+            "imageType": "gridIconMix", 
+            "height": 46
+          }
+        ], 
+        "objectIdAndType": "442003683623063", 
+        "partnerId": "tivo:pt.2870", 
+        "type": "mix", 
+        "hasContentLeafChildren": false, 
+        "mixId": "tivo:mx.9257111"
+      }, 
+      "mixMappingId": "tivo:mm.9082351", 
+      "type": "mixMapping"
+    }
+  ], 
+  "type": "mixMappingList"
+}

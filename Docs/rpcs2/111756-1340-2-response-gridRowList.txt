@@ -1,0 +1,214 @@
+MRPC/2 78 5325
+Raw Packet=MRPC/2 78 5325
+Content-Type: application/json
+IsFinal: true
+RpcId: 1340
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "SCIHD", 
+        "isDigital": true, 
+        "channelNumber": "775", 
+        "logoIndex": 65773, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "How Do They Do It?", 
+          "contentId": "tivo:ct.167875498", 
+          "collectionId": "tivo:cl.70360603", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-18-20-30-00.1800", 
+          "startTime": "2011-06-18 20:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How Do They Do It?", 
+          "contentId": "tivo:ct.178258829", 
+          "collectionId": "tivo:cl.70360603", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-18-21-00-00.1800", 
+          "startTime": "2011-06-18 21:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How Do They Do It?", 
+          "contentId": "tivo:ct.178178724", 
+          "collectionId": "tivo:cl.70360603", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-18-21-30-00.1800", 
+          "startTime": "2011-06-18 21:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How Do They Do It?", 
+          "contentId": "tivo:ct.168025058", 
+          "collectionId": "tivo:cl.70360603", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-18-22-00-00.1800", 
+          "startTime": "2011-06-18 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How Do They Do It?", 
+          "contentId": "tivo:ct.178209063", 
+          "collectionId": "tivo:cl.70360603", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-18-22-30-00.1800", 
+          "startTime": "2011-06-18 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How Do They Do It?", 
+          "contentId": "tivo:ct.178209061", 
+          "collectionId": "tivo:cl.70360603", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-18-23-00-00.1800", 
+          "startTime": "2011-06-18 23:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How Do They Do It?", 
+          "contentId": "tivo:ct.167099414", 
+          "collectionId": "tivo:cl.70360603", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-18-23-30-00.1800", 
+          "startTime": "2011-06-18 23:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Killer Robots: Robogames 2011", 
+          "contentId": "tivo:ct.182146874", 
+          "collectionId": "tivo:cl.182146930", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-19-00-00-00.3600", 
+          "startTime": "2011-06-19 00:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Oddities", 
+          "contentId": "tivo:ct.180121811", 
+          "collectionId": "tivo:cl.172225058", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-19-01-00-00.1800", 
+          "startTime": "2011-06-19 01:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Oddities", 
+          "contentId": "tivo:ct.180709137", 
+          "collectionId": "tivo:cl.172225058", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-19-01-30-00.1800", 
+          "startTime": "2011-06-19 01:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Build It Bigger", 
+          "contentId": "tivo:ct.179908908", 
+          "collectionId": "tivo:cl.95878266", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-19-02-00-00.3600", 
+          "startTime": "2011-06-19 02:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Killer Robots: Robogames 2011", 
+          "contentId": "tivo:ct.182146874", 
+          "collectionId": "tivo:cl.182146930", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-19-03-00-00.3600", 
+          "startTime": "2011-06-19 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Oddities", 
+          "contentId": "tivo:ct.180121811", 
+          "collectionId": "tivo:cl.172225058", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-19-04-00-00.1800", 
+          "startTime": "2011-06-19 04:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Oddities", 
+          "contentId": "tivo:ct.180709137", 
+          "collectionId": "tivo:cl.172225058", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-19-04-30-00.1800", 
+          "startTime": "2011-06-19 04:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Build It Bigger", 
+          "contentId": "tivo:ct.179908908", 
+          "collectionId": "tivo:cl.95878266", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-19-05-00-00.3600", 
+          "startTime": "2011-06-19 05:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How Do They Do It?", 
+          "contentId": "tivo:ct.168025058", 
+          "collectionId": "tivo:cl.70360603", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-19-06-00-00.1800", 
+          "startTime": "2011-06-19 06:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How Do They Do It?", 
+          "contentId": "tivo:ct.178209063", 
+          "collectionId": "tivo:cl.70360603", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-19-06-30-00.1800", 
+          "startTime": "2011-06-19 06:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How Do They Do It?", 
+          "contentId": "tivo:ct.183945286", 
+          "collectionId": "tivo:cl.70360603", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-19-07-00-00.1800", 
+          "startTime": "2011-06-19 07:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How Do They Do It?", 
+          "contentId": "tivo:ct.183664216", 
+          "collectionId": "tivo:cl.70360603", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-19-07-30-00.1800", 
+          "startTime": "2011-06-19 07:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.184165295", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-19-08-00-00.1800", 
+          "startTime": "2011-06-19 08:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.183256649", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-19-08-30-00.1800", 
+          "startTime": "2011-06-19 08:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

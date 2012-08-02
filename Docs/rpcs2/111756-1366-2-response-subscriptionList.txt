@@ -1,0 +1,51 @@
+MRPC/2 78 872
+Raw Packet=MRPC/2 78 872
+Content-Type: application/json
+IsFinal: true
+RpcId: 1366
+Type: response
+
+{
+  "isBottom": true, 
+  "subscription": [
+    {
+      "recordingQuality": "best", 
+      "maxRecordings": 10, 
+      "keepBehavior": "forever", 
+      "folderingRules": "seriesOnly", 
+      "startTimePadding": 0, 
+      "title": "Frasier", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "priority": 410, 
+      "bodyGeneratesCandidates": true, 
+      "showStatus": "rerunsAllowed", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "type": "channel", 
+          "name": "WLNY", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "bitrate": "-1040187392", 
+          "channelId": "tivo:ch.9", 
+          "callSign": "WLNYMH", 
+          "isDigital": true, 
+          "stationId": "tivo:st.1369", 
+          "channelNumber": "55", 
+          "isBlocked": false, 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.16986"
+      }, 
+      "subscriptionId": "tivo:sb.179", 
+      "levelOfDetail": "medium", 
+      "type": "subscription", 
+      "endTimePadding": 0
+    }
+  ], 
+  "isTop": true, 
+  "type": "subscriptionList"
+}

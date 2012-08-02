@@ -1,0 +1,250 @@
+MRPC/2 76 6044
+Raw Packet=MRPC/2 76 6044
+Content-Type: application/json
+IsFinal: true
+RpcId: 73
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "TBS", 
+        "isDigital": true, 
+        "channelNumber": "8", 
+        "logoIndex": 65540, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Home Improvement", 
+          "contentId": "tivo:ct.361035", 
+          "collectionId": "tivo:cl.17998", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-15-11-30-00.1800", 
+          "startTime": "2011-06-15 11:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Saved by the Bell", 
+          "contentId": "tivo:ct.61367", 
+          "collectionId": "tivo:cl.24794", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-15-12-00-00.1800", 
+          "startTime": "2011-06-15 12:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Saved by the Bell", 
+          "contentId": "tivo:ct.135761", 
+          "collectionId": "tivo:cl.24794", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-15-12-30-00.1800", 
+          "startTime": "2011-06-15 12:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Yes, Dear", 
+          "contentId": "tivo:ct.43850757", 
+          "collectionId": "tivo:cl.2511458", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-15-13-00-00.1800", 
+          "startTime": "2011-06-15 13:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Yes, Dear", 
+          "contentId": "tivo:ct.44561185", 
+          "collectionId": "tivo:cl.2511458", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-15-13-30-00.1800", 
+          "startTime": "2011-06-15 13:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Fresh Prince of Bel-Air", 
+          "contentId": "tivo:ct.145436", 
+          "collectionId": "tivo:cl.18406", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-15-14-00-00.1800", 
+          "startTime": "2011-06-15 14:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Fresh Prince of Bel-Air", 
+          "contentId": "tivo:ct.135472", 
+          "collectionId": "tivo:cl.18406", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-15-14-30-00.1800", 
+          "startTime": "2011-06-15 14:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Fresh Prince of Bel-Air", 
+          "contentId": "tivo:ct.145442", 
+          "collectionId": "tivo:cl.18406", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-15-15-00-00.1800", 
+          "startTime": "2011-06-15 15:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Tyler Perry's House of Payne", 
+          "contentId": "tivo:ct.117007367", 
+          "collectionId": "tivo:cl.96190305", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-15-15-30-00.1800", 
+          "startTime": "2011-06-15 15:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Tyler Perry's House of Payne", 
+          "contentId": "tivo:ct.119377102", 
+          "collectionId": "tivo:cl.96190305", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-15-16-00-00.1800", 
+          "startTime": "2011-06-15 16:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Tyler Perry's Meet the Browns", 
+          "contentId": "tivo:ct.145367520", 
+          "collectionId": "tivo:cl.140542702", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-15-16-30-00.1800", 
+          "startTime": "2011-06-15 16:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "American Dad", 
+          "contentId": "tivo:ct.117153449", 
+          "collectionId": "tivo:cl.39603560", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-15-17-00-00.1800", 
+          "startTime": "2011-06-15 17:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "My Name Is Earl", 
+          "contentId": "tivo:ct.57297738", 
+          "collectionId": "tivo:cl.55477855", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-15-17-30-00.1800", 
+          "startTime": "2011-06-15 17:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Everybody Loves Raymond", 
+          "contentId": "tivo:ct.102201", 
+          "collectionId": "tivo:cl.18989", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-15-18-00-00.1800", 
+          "startTime": "2011-06-15 18:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "According to Jim", 
+          "contentId": "tivo:ct.10948280", 
+          "collectionId": "tivo:cl.3858871", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-15-18-30-00.1800", 
+          "startTime": "2011-06-15 18:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "According to Jim", 
+          "contentId": "tivo:ct.11056103", 
+          "collectionId": "tivo:cl.3858871", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-15-19-00-00.1800", 
+          "startTime": "2011-06-15 19:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Office", 
+          "contentId": "tivo:ct.145268445", 
+          "collectionId": "tivo:cl.43851575", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-15-19-30-00.1800", 
+          "startTime": "2011-06-15 19:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Friends", 
+          "contentId": "tivo:ct.1678310", 
+          "collectionId": "tivo:cl.16645", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-15-20-00-00.1800", 
+          "startTime": "2011-06-15 20:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Friends", 
+          "contentId": "tivo:ct.35916", 
+          "collectionId": "tivo:cl.16645", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-15-20-30-00.1800", 
+          "startTime": "2011-06-15 20:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Everybody Loves Raymond", 
+          "contentId": "tivo:ct.102201", 
+          "collectionId": "tivo:cl.18989", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-15-21-00-00.1800", 
+          "startTime": "2011-06-15 21:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Everybody Loves Raymond", 
+          "contentId": "tivo:ct.102201", 
+          "collectionId": "tivo:cl.18989", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-15-21-30-00.1800", 
+          "startTime": "2011-06-15 21:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The King of Queens", 
+          "contentId": "tivo:ct.3608070", 
+          "collectionId": "tivo:cl.18987", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-15-22-00-00.1800", 
+          "startTime": "2011-06-15 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The King of Queens", 
+          "contentId": "tivo:ct.329126", 
+          "collectionId": "tivo:cl.18987", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-15-22-30-00.1800", 
+          "startTime": "2011-06-15 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Seinfeld", 
+          "contentId": "tivo:ct.240309", 
+          "collectionId": "tivo:cl.16984", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-15-23-00-00.1800", 
+          "startTime": "2011-06-15 23:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Seinfeld", 
+          "contentId": "tivo:ct.289368", 
+          "collectionId": "tivo:cl.16984", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-15-23-30-00.1800", 
+          "startTime": "2011-06-15 23:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

@@ -1,0 +1,416 @@
+MRPC/2 78 7888
+Raw Packet=MRPC/2 78 7888
+Content-Type: application/json
+IsFinal: true
+RpcId: 1501
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "TBS", 
+        "isDigital": true, 
+        "channelNumber": "8", 
+        "logoIndex": 65540, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Conan", 
+          "contentId": "tivo:ct.178823128", 
+          "collectionId": "tivo:cl.171093113", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "FX", 
+        "isDigital": true, 
+        "channelNumber": "10", 
+        "logoIndex": 65737, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "The Simpsons Movie", 
+          "contentId": "tivo:ct.99134316", 
+          "collectionId": "tivo:cl.99136229", 
+          "offerId": "tivo:of.ctd.1927.10.cable.2011-06-07-02-30-00.9000", 
+          "startTime": "2011-06-07 02:30:00", 
+          "duration": 9000, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WPIX", 
+        "isDigital": true, 
+        "channelNumber": "11", 
+        "logoIndex": 75537, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Seinfeld", 
+          "contentId": "tivo:ct.402055", 
+          "collectionId": "tivo:cl.16984", 
+          "offerId": "tivo:of.ctd.1498.11.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Seinfeld", 
+          "contentId": "tivo:ct.56634", 
+          "collectionId": "tivo:cl.16984", 
+          "offerId": "tivo:of.ctd.1498.11.cable.2011-06-07-03-30-00.1800", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WNET", 
+        "isDigital": true, 
+        "channelNumber": "13", 
+        "logoIndex": 65558, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Great Performances", 
+          "contentId": "tivo:ct.180139443", 
+          "collectionId": "tivo:cl.17397", 
+          "offerId": "tivo:of.ctd.1439.13.cable.2011-06-07-01-30-00.9000", 
+          "startTime": "2011-06-07 01:30:00", 
+          "duration": 9000, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "MTV", 
+        "isDigital": true, 
+        "channelNumber": "20", 
+        "logoIndex": 65547, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Teen Wolf", 
+          "contentId": "tivo:ct.182529809", 
+          "collectionId": "tivo:cl.182530648", 
+          "offerId": "tivo:of.ctd.928.20.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WLIW", 
+        "isDigital": true, 
+        "channelNumber": "21", 
+        "logoIndex": 65558, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "BBC World News", 
+          "contentId": "tivo:ct.547100", 
+          "collectionId": "tivo:cl.547099", 
+          "offerId": "tivo:of.ctd.1371.21.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Out of Ireland", 
+          "contentId": "tivo:ct.19135", 
+          "collectionId": "tivo:cl.57689", 
+          "offerId": "tivo:of.ctd.1371.21.cable.2011-06-07-03-30-00.1800", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "25", 
+        "callSign": "WNYE", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Polsat News", 
+          "contentId": "tivo:ct.163776878", 
+          "collectionId": "tivo:cl.163777394", 
+          "offerId": "tivo:of.ctd.1465.25.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Jazz Master Class", 
+          "contentId": "tivo:ct.171270215", 
+          "collectionId": "tivo:cl.171270979", 
+          "offerId": "tivo:of.ctd.1465.25.cable.2011-06-07-03-30-00.3600", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "ABCF", 
+        "isDigital": true, 
+        "channelNumber": "38", 
+        "logoIndex": 65780, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "The 700 Club", 
+          "contentId": "tivo:ct.111425", 
+          "collectionId": "tivo:cl.17914", 
+          "offerId": "tivo:of.ctd.346.38.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "COMEDY", 
+        "isDigital": true, 
+        "channelNumber": "45", 
+        "logoIndex": 65579, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "The Daily Show With Jon Stewart", 
+          "contentId": "tivo:ct.180572065", 
+          "collectionId": "tivo:cl.252203", 
+          "offerId": "tivo:of.ctd.379.45.cable.2011-06-07-03-00-00.1860", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1860, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "55", 
+        "callSign": "WLNYMH", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "TV10/55 News at 11", 
+          "contentId": "tivo:ct.795289", 
+          "collectionId": "tivo:cl.795288", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-07-03-00-00.2040", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 2040, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "LIFE", 
+        "isDigital": true, 
+        "channelNumber": "62", 
+        "logoIndex": 65573, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "How I Met Your Mother", 
+          "contentId": "tivo:ct.124636429", 
+          "collectionId": "tivo:cl.55419269", 
+          "offerId": "tivo:of.ctd.917.62.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How I Met Your Mother", 
+          "contentId": "tivo:ct.125202547", 
+          "collectionId": "tivo:cl.55419269", 
+          "offerId": "tivo:of.ctd.917.62.cable.2011-06-07-03-30-00.1800", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "TVLAND", 
+        "isDigital": true, 
+        "channelNumber": "85", 
+        "logoIndex": 65653, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Everybody Loves Raymond", 
+          "contentId": "tivo:ct.31306587", 
+          "collectionId": "tivo:cl.18989", 
+          "offerId": "tivo:of.ctd.2273.85.cable.2011-06-07-02-33-00.1860", 
+          "startTime": "2011-06-07 02:33:00", 
+          "duration": 1860, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Nanny", 
+          "contentId": "tivo:ct.212795", 
+          "collectionId": "tivo:cl.17083", 
+          "offerId": "tivo:of.ctd.2273.85.cable.2011-06-07-03-04-00.1860", 
+          "startTime": "2011-06-07 03:04:00", 
+          "duration": 1860, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "SUNDANC", 
+        "isDigital": true, 
+        "channelNumber": "101", 
+        "logoIndex": 65647, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "My So-Called Life", 
+          "contentId": "tivo:ct.21366", 
+          "collectionId": "tivo:cl.21365", 
+          "offerId": "tivo:of.ctd.2271.101.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "CHILLER", 
+        "isDigital": true, 
+        "channelNumber": "102", 
+        "logoIndex": 65597, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Harper's Island", 
+          "contentId": "tivo:ct.145967481", 
+          "collectionId": "tivo:cl.128156480", 
+          "offerId": "tivo:of.ctd.90796692.102.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "CURRENT", 
+        "isDigital": true, 
+        "channelNumber": "103", 
+        "logoIndex": 66173, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "4th and Forever", 
+          "contentId": "tivo:ct.183381839", 
+          "collectionId": "tivo:cl.182837577", 
+          "offerId": "tivo:of.ctd.53755639.103.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "4th and Forever", 
+          "contentId": "tivo:ct.183381836", 
+          "collectionId": "tivo:cl.182837577", 
+          "offerId": "tivo:of.ctd.53755639.103.cable.2011-06-07-03-30-00.1800", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "SLEUTH", 
+        "isDigital": true, 
+        "channelNumber": "107", 
+        "logoIndex": 65786, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Law & Order: Criminal Intent", 
+          "contentId": "tivo:ct.146015908", 
+          "collectionId": "tivo:cl.3879922", 
+          "offerId": "tivo:of.ctd.61770504.107.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

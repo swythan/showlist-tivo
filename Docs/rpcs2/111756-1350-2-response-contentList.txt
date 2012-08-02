@@ -1,0 +1,109 @@
+MRPC/2 78 2238
+Raw Packet=MRPC/2 78 2238
+Content-Type: application/json
+IsFinal: true
+RpcId: 1350
+Type: response
+
+{
+  "content": [
+    {
+      "correlatedCollectionForCollectionId": [
+        {
+          "category": [
+            {
+              "image": [
+                {
+                  "width": 360, 
+                  "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/Science.jpg", 
+                  "type": "image", 
+                  "imageType": "showcaseBanner", 
+                  "height": 270
+                }, 
+                {
+                  "width": 180, 
+                  "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/Science.jpg", 
+                  "type": "image", 
+                  "imageType": "moviePoster", 
+                  "height": 270
+                }
+              ], 
+              "displayRank": 0, 
+              "type": "category", 
+              "label": "Science"
+            }, 
+            {
+              "displayRank": 1, 
+              "type": "category", 
+              "label": "Science and Nature"
+            }
+          ], 
+          "collectionType": "special", 
+          "title": "Master of the Universe", 
+          "image": [
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-270/f0/a0/f0a078fd2be0a23636157b90afcf797a.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }, 
+            {
+              "width": 119, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/banner-sm/f0/a0/f0a078fd2be0a23636157b90afcf797a.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 89
+            }, 
+            {
+              "width": 100, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-100/f0/a0/f0a078fd2be0a23636157b90afcf797a.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 75
+            }, 
+            {
+              "width": 139, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/f0/a0/f0a078fd2be0a23636157b90afcf797a.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 104
+            }, 
+            {
+              "width": 120, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-120/f0/a0/f0a078fd2be0a23636157b90afcf797a.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 90
+            }, 
+            {
+              "width": 200, 
+              "imageUrl": "http://i.tivo.com/images-production/hdui-showing/f0/a0/f0a078fd2be0a23636157b90afcf797a.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 150
+            }, 
+            {
+              "width": 200, 
+              "imageUrl": "http://i.tivo.com/images-production/bravo/banner-lg/f0/a0/f0a078fd2be0a23636157b90afcf797a.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 150
+            }, 
+            {
+              "width": 240, 
+              "imageUrl": "http://i.tivo.com/images-production/os/banner-240/f0/a0/f0a078fd2be0a23636157b90afcf797a.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 180
+            }
+          ], 
+          "collectionId": "tivo:cl.135488836", 
+          "type": "collection"
+        }
+      ], 
+      "type": "content"
+    }
+  ], 
+  "type": "contentList"
+}

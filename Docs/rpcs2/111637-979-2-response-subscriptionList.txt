@@ -1,0 +1,52 @@
+MRPC/2 77 898
+Raw Packet=MRPC/2 77 898
+Content-Type: application/json
+IsFinal: true
+RpcId: 979
+Type: response
+
+{
+  "isBottom": true, 
+  "subscription": [
+    {
+      "recordingQuality": "best", 
+      "maxRecordings": 10, 
+      "keepBehavior": "forever", 
+      "folderingRules": "seriesOnly", 
+      "startTimePadding": 0, 
+      "title": "Seinfeld", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "priority": 5009, 
+      "bodyGeneratesCandidates": true, 
+      "showStatus": "rerunsAllowed", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "type": "channel", 
+          "name": "CW Affiliate", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "bitrate": "997195776", 
+          "channelId": "tivo:ch.9", 
+          "callSign": "WPIX", 
+          "isDigital": true, 
+          "stationId": "tivo:st.1498", 
+          "channelNumber": "11", 
+          "logoIndex": 75537, 
+          "isBlocked": false, 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.16984"
+      }, 
+      "subscriptionId": "tivo:sb.189", 
+      "levelOfDetail": "medium", 
+      "type": "subscription", 
+      "endTimePadding": 0
+    }
+  ], 
+  "isTop": true, 
+  "type": "subscriptionList"
+}

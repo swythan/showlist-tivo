@@ -1,0 +1,52 @@
+MRPC/2 78 909
+Raw Packet=MRPC/2 78 909
+Content-Type: application/json
+IsFinal: true
+RpcId: 1342
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "SCIHD", 
+        "isDigital": true, 
+        "channelNumber": "775", 
+        "logoIndex": 65773, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "The Planets", 
+          "contentId": "tivo:ct.947879", 
+          "collectionId": "tivo:cl.947878", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-19-22-00-00.3600", 
+          "startTime": "2011-06-19 22:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Planets", 
+          "contentId": "tivo:ct.1000490", 
+          "collectionId": "tivo:cl.947878", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-19-23-00-00.3600", 
+          "startTime": "2011-06-19 23:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Planets", 
+          "contentId": "tivo:ct.1025947", 
+          "collectionId": "tivo:cl.947878", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-20-00-00-00.3600", 
+          "startTime": "2011-06-20 00:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

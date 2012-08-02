@@ -1,0 +1,10 @@
+MRPC/2 78 24
+Raw Packet=MRPC/2 78 24
+Content-Type: application/json
+IsFinal: true
+RpcId: 1556
+Type: response
+
+{
+  "type": "gridRowList"
+}

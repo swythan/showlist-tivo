@@ -1,0 +1,32 @@
+MRPC/2 76 445
+Raw Packet=MRPC/2 76 445
+Content-Type: application/json
+IsFinal: true
+RpcId: 33
+Type: response
+
+{
+  "type": "offerList", 
+  "offer": [
+    {
+      "repeat": true, 
+      "subtitle": "The Handyman", 
+      "episodic": true, 
+      "title": "Little House on the Prairie", 
+      "cc": true, 
+      "offerId": "tivo:of.ctd.159169748.684.cable.2011-06-06-22-00-00.3600", 
+      "hdtv": false, 
+      "startTime": "2011-06-06 22:00:00", 
+      "duration": 3600, 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel"
+      }
+    }
+  ]
+}

@@ -1,0 +1,258 @@
+MRPC/2 78 4863
+Raw Packet=MRPC/2 78 4863
+Content-Type: application/json
+IsFinal: true
+RpcId: 1529
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "ABCFHD", 
+        "isDigital": true, 
+        "channelNumber": "738", 
+        "logoIndex": 66165, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "The 700 Club", 
+          "contentId": "tivo:ct.111425", 
+          "collectionId": "tivo:cl.17914", 
+          "offerId": "tivo:of.ctd.121168819.738.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HSTRYHD", 
+        "isDigital": true, 
+        "channelNumber": "740", 
+        "logoIndex": 66202, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "American Pickers", 
+          "contentId": "tivo:ct.182529679", 
+          "collectionId": "tivo:cl.156268864", 
+          "offerId": "tivo:of.ctd.106639932.740.cable.2011-06-07-03-00-00.3660", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3660, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "CCHD", 
+        "isDigital": true, 
+        "channelNumber": "745", 
+        "logoIndex": 66171, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "The Daily Show With Jon Stewart", 
+          "contentId": "tivo:ct.180572065", 
+          "collectionId": "tivo:cl.252203", 
+          "offerId": "tivo:of.ctd.142627412.745.cable.2011-06-07-03-00-00.1860", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1860, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "AETVHD", 
+        "isDigital": true, 
+        "channelNumber": "746", 
+        "logoIndex": 66155, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "The Glades", 
+          "contentId": "tivo:ct.182836379", 
+          "collectionId": "tivo:cl.166893898", 
+          "offerId": "tivo:of.ctd.75763224.746.cable.2011-06-07-03-00-00.3660", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3660, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "DISNHD", 
+        "isDigital": true, 
+        "channelNumber": "749", 
+        "logoIndex": 66174, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Wizards of Waverly Place", 
+          "contentId": "tivo:ct.171806626", 
+          "collectionId": "tivo:cl.107732942", 
+          "offerId": "tivo:of.ctd.121781104.749.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Wizards of Waverly Place", 
+          "contentId": "tivo:ct.171806627", 
+          "collectionId": "tivo:cl.107732942", 
+          "offerId": "tivo:of.ctd.121781104.749.cable.2011-06-07-03-30-00.1800", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "FOODHD", 
+        "isDigital": true, 
+        "channelNumber": "750", 
+        "logoIndex": 66258, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Challenge", 
+          "contentId": "tivo:ct.181288177", 
+          "collectionId": "tivo:cl.82728656", 
+          "offerId": "tivo:of.ctd.73409074.750.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "751", 
+        "callSign": "COOKHD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Iron Chef", 
+          "contentId": "tivo:ct.4832366", 
+          "collectionId": "tivo:cl.643810", 
+          "offerId": "tivo:of.ctd.168366747.751.cable.2011-06-07-03-00-00.3600", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "AMCHD", 
+        "isDigital": true, 
+        "channelNumber": "754", 
+        "logoIndex": 66261, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "True Lies", 
+          "contentId": "tivo:ct.382000", 
+          "collectionId": "tivo:cl.381999", 
+          "offerId": "tivo:of.ctd.118123242.754.cable.2011-06-07-03-00-00.10800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 10800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WEHD", 
+        "isDigital": true, 
+        "channelNumber": "759", 
+        "logoIndex": 65783, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "The Golden Girls", 
+          "contentId": "tivo:ct.20961", 
+          "collectionId": "tivo:cl.20944", 
+          "offerId": "tivo:of.ctd.117361138.759.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Golden Girls", 
+          "contentId": "tivo:ct.41030", 
+          "collectionId": "tivo:cl.20944", 
+          "offerId": "tivo:of.ctd.117361138.759.cable.2011-06-07-03-30-00.1800", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "DXDHD", 
+        "isDigital": true, 
+        "channelNumber": "760", 
+        "logoIndex": 65691, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Pair of Kings", 
+          "contentId": "tivo:ct.180239031", 
+          "collectionId": "tivo:cl.169727336", 
+          "offerId": "tivo:of.ctd.124146498.760.cable.2011-06-07-03-00-00.1800", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Phineas and Ferb", 
+          "contentId": "tivo:ct.143076582", 
+          "collectionId": "tivo:cl.103468226", 
+          "offerId": "tivo:of.ctd.124146498.760.cable.2011-06-07-03-30-00.1800", 
+          "startTime": "2011-06-07 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

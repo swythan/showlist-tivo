@@ -1,0 +1,30 @@
+MRPC/2 78 381
+Raw Packet=MRPC/2 78 381
+Content-Type: application/json
+IsFinal: true
+RpcId: 1037
+Type: response
+
+{
+  "type": "offerList", 
+  "offer": [
+    {
+      "episodic": true, 
+      "title": "My 9 News", 
+      "cc": true, 
+      "offerId": "tivo:of.ctd.7381307.709.cable.2011-06-07-03-00-00.2100", 
+      "hdtv": false, 
+      "startTime": "2011-06-07 03:00:00", 
+      "duration": 2100, 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WWORDT", 
+        "isDigital": true, 
+        "channelNumber": "709", 
+        "logoIndex": 66244, 
+        "type": "channel"
+      }
+    }
+  ]
+}

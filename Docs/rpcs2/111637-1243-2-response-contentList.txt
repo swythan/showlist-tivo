@@ -1,0 +1,154 @@
+MRPC/2 78 2546
+Raw Packet=MRPC/2 78 2546
+Content-Type: application/json
+IsFinal: true
+RpcId: 1243
+Type: response
+
+{
+  "content": [
+    {
+      "category": [
+        {
+          "image": [
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/Sitcom.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }, 
+            {
+              "width": 180, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/Sitcom.jpg", 
+              "type": "image", 
+              "imageType": "moviePoster", 
+              "height": 270
+            }
+          ], 
+          "displayRank": 0, 
+          "type": "category", 
+          "label": "Sitcom"
+        }, 
+        {
+          "displayRank": 1, 
+          "type": "category", 
+          "label": "TV Show"
+        }
+      ], 
+      "userContentForCollectionId": {
+        "thumbsRating": 3, 
+        "type": "userContent", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX"
+      }, 
+      "collectionType": "series", 
+      "seasonNumber": 5, 
+      "description": "Frasier (Kelsey Grammer) keeps missing his dates with a charming new lady (guest star Lisa Waltz); Niles (David Hyde Pierce) finally meets a woman (guest star Marcia Mitzman Gaven).", 
+      "episodic": true, 
+      "collectionId": "tivo:cl.16986", 
+      "contentId": "tivo:ct.34897", 
+      "image": [
+        {
+          "width": 139, 
+          "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/af/cd/afcde58380c3f18f6efa639b0c3ec07b.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 104
+        }, 
+        {
+          "width": 200, 
+          "imageUrl": "http://i.tivo.com/images-production/bravo/banner-lg/af/cd/afcde58380c3f18f6efa639b0c3ec07b.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 150
+        }
+      ], 
+      "episodeNum": [
+        23
+      ], 
+      "originalAirYear": 1998, 
+      "credit": [
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Grammer", 
+          "first": "Kelsey"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Mahoney", 
+          "first": "John"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Leeves", 
+          "first": "Jane"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Pierce", 
+          "first": "David Hyde"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Gilpin", 
+          "first": "Peri"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Butler", 
+          "first": "Dan"
+        }, 
+        {
+          "role": "executiveProducer", 
+          "type": "credit", 
+          "last": "Angell", 
+          "first": "David"
+        }, 
+        {
+          "role": "executiveProducer", 
+          "type": "credit", 
+          "last": "Casey", 
+          "first": "Peter"
+        }, 
+        {
+          "role": "executiveProducer", 
+          "type": "credit", 
+          "last": "Lee", 
+          "first": "David"
+        }, 
+        {
+          "role": "executiveProducer", 
+          "type": "credit", 
+          "last": "Lloyd", 
+          "first": "Christopher"
+        }
+      ], 
+      "recordingForContentId": [
+        {
+          "subscriptionIdentifier": [
+            {
+              "subscriptionId": "tivo:sb.179", 
+              "subscriptionType": "seasonPass", 
+              "type": "subscriptionIdentifier"
+            }
+          ], 
+          "recordingId": "tivo:rc.185589", 
+          "state": "complete", 
+          "type": "recording", 
+          "bodyId": "tsn:XXXXXXXXXXXXXXX"
+        }
+      ], 
+      "title": "Frasier", 
+      "subtitle": "Party, Party", 
+      "type": "content", 
+      "tvRating": "pg"
+    }
+  ], 
+  "type": "contentList"
+}

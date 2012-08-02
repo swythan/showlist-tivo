@@ -1,0 +1,151 @@
+MRPC/2 78 3534
+Raw Packet=MRPC/2 78 3534
+Content-Type: application/json
+IsFinal: true
+RpcId: 1087
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "FXHD", 
+        "isDigital": true, 
+        "channelNumber": "710", 
+        "logoIndex": 66198, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-19-06-30-00.1800", 
+          "startTime": "2011-06-19 06:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-19-07-00-00.1800", 
+          "startTime": "2011-06-19 07:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-19-07-30-00.1800", 
+          "startTime": "2011-06-19 07:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-19-08-00-00.1800", 
+          "startTime": "2011-06-19 08:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-19-08-30-00.1800", 
+          "startTime": "2011-06-19 08:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-19-09-00-00.1800", 
+          "startTime": "2011-06-19 09:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-19-09-30-00.1800", 
+          "startTime": "2011-06-19 09:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-19-10-00-00.1800", 
+          "startTime": "2011-06-19 10:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-19-10-30-00.1800", 
+          "startTime": "2011-06-19 10:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Bernie Mac Show", 
+          "contentId": "tivo:ct.60013075", 
+          "collectionId": "tivo:cl.3890499", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-19-11-00-00.1800", 
+          "startTime": "2011-06-19 11:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Simpsons Movie", 
+          "contentId": "tivo:ct.99134316", 
+          "collectionId": "tivo:cl.99136229", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-19-11-30-00.9000", 
+          "startTime": "2011-06-19 11:30:00", 
+          "duration": 9000, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Transporter 2", 
+          "contentId": "tivo:ct.62113226", 
+          "collectionId": "tivo:cl.62114245", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-19-14-00-00.7200", 
+          "startTime": "2011-06-19 14:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Death Race", 
+          "contentId": "tivo:ct.115240749", 
+          "collectionId": "tivo:cl.115242314", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-19-16-00-00.9000", 
+          "startTime": "2011-06-19 16:00:00", 
+          "duration": 9000, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Wanted", 
+          "contentId": "tivo:ct.106969564", 
+          "collectionId": "tivo:cl.106970110", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-19-18-30-00.9000", 
+          "startTime": "2011-06-19 18:30:00", 
+          "duration": 9000, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

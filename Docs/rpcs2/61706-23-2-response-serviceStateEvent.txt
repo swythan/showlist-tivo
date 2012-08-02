@@ -1,0 +1,15 @@
+MRPC/2 77 163
+Raw Packet=MRPC/2 77 163
+Content-Type: application/json
+IsFinal: false
+RpcId: 23
+Type: response
+
+{
+  "type": "serviceStateEvent", 
+  "hardDriveFunctional": true, 
+  "easModeEnabled": false, 
+  "serviceEnabled": true, 
+  "mindAvailability": "available", 
+  "mindAvailable": true
+}

@@ -1,0 +1,30 @@
+MRPC/2 78 389
+Raw Packet=MRPC/2 78 389
+Content-Type: application/json
+IsFinal: true
+RpcId: 1582
+Type: response
+
+{
+  "type": "offerList", 
+  "offer": [
+    {
+      "repeat": true, 
+      "episodic": true, 
+      "title": "Adventure Time", 
+      "offerId": "tivo:of.ctd.124376605.761.cable.2011-06-14-00-00-00.900", 
+      "hdtv": true, 
+      "startTime": "2011-06-14 00:00:00", 
+      "duration": 900, 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "TOONHD", 
+        "isDigital": true, 
+        "channelNumber": "761", 
+        "logoIndex": 66277, 
+        "type": "channel"
+      }
+    }
+  ]
+}

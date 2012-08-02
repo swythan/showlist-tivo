@@ -1,0 +1,32 @@
+MRPC/2 78 436
+Raw Packet=MRPC/2 78 436
+Content-Type: application/json
+IsFinal: true
+RpcId: 1015
+Type: response
+
+{
+  "type": "offerList", 
+  "offer": [
+    {
+      "repeat": true, 
+      "subtitle": "Three Dates and a Breakup", 
+      "episodic": true, 
+      "title": "Frasier", 
+      "cc": true, 
+      "offerId": "tivo:of.ctd.117361138.759.cable.2011-06-18-00-00-00.1800", 
+      "hdtv": false, 
+      "startTime": "2011-06-18 00:00:00", 
+      "duration": 1800, 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "WEHD", 
+        "isDigital": true, 
+        "channelNumber": "759", 
+        "logoIndex": 65783, 
+        "type": "channel"
+      }
+    }
+  ]
+}

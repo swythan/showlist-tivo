@@ -1,0 +1,285 @@
+MRPC/2 78 6125
+Raw Packet=MRPC/2 78 6125
+Content-Type: application/json
+IsFinal: true
+RpcId: 1183
+Type: response
+
+{
+  "type": "offerList", 
+  "offer": [
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "subtitle": "Kunoichi Women's 7: Part 1", 
+      "episodic": true, 
+      "collectionId": "tivo:cl.78987353", 
+      "contentId": "tivo:ct.120023090", 
+      "price": "USD.0", 
+      "title": "Ninja Warrior", 
+      "offerId": "tivo:of.ctd.141442738.692.cable.2011-06-10-16-30-00.1800", 
+      "hdtv": false, 
+      "startTime": "2011-06-10 16:30:00", 
+      "type": "offer", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "692", 
+        "callSign": "G4HD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "subtitle": "Kunoichi Women's 7: Part 2", 
+      "episodic": true, 
+      "collectionId": "tivo:cl.78987353", 
+      "contentId": "tivo:ct.120023091", 
+      "price": "USD.0", 
+      "title": "Ninja Warrior", 
+      "offerId": "tivo:of.ctd.141442738.692.cable.2011-06-10-17-00-00.1800", 
+      "hdtv": false, 
+      "startTime": "2011-06-10 17:00:00", 
+      "type": "offer", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "692", 
+        "callSign": "G4HD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "subtitle": "Kunoichi Women's 7: Part 3", 
+      "episodic": true, 
+      "collectionId": "tivo:cl.78987353", 
+      "contentId": "tivo:ct.120023092", 
+      "price": "USD.0", 
+      "title": "Ninja Warrior", 
+      "offerId": "tivo:of.ctd.141442738.692.cable.2011-06-10-17-30-00.1800", 
+      "hdtv": false, 
+      "startTime": "2011-06-10 17:30:00", 
+      "type": "offer", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "692", 
+        "callSign": "G4HD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "subtitle": "Kunoichi Women's 7: Part 4", 
+      "episodic": true, 
+      "collectionId": "tivo:cl.78987353", 
+      "contentId": "tivo:ct.120023093", 
+      "price": "USD.0", 
+      "title": "Ninja Warrior", 
+      "offerId": "tivo:of.ctd.141442738.692.cable.2011-06-10-18-00-00.1800", 
+      "hdtv": false, 
+      "startTime": "2011-06-10 18:00:00", 
+      "type": "offer", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "692", 
+        "callSign": "G4HD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "subtitle": "Kunoichi 8 Part 1", 
+      "episodic": true, 
+      "collectionId": "tivo:cl.78987353", 
+      "contentId": "tivo:ct.157498211", 
+      "price": "USD.0", 
+      "title": "Ninja Warrior", 
+      "offerId": "tivo:of.ctd.141442738.692.cable.2011-06-10-18-30-00.1800", 
+      "hdtv": true, 
+      "startTime": "2011-06-10 18:30:00", 
+      "type": "offer", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "692", 
+        "callSign": "G4HD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "subtitle": "Kunoichi 8 Part 2", 
+      "episodic": true, 
+      "collectionId": "tivo:cl.78987353", 
+      "contentId": "tivo:ct.157498212", 
+      "price": "USD.0", 
+      "title": "Ninja Warrior", 
+      "offerId": "tivo:of.ctd.141442738.692.cable.2011-06-10-19-00-00.1800", 
+      "hdtv": true, 
+      "startTime": "2011-06-10 19:00:00", 
+      "type": "offer", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "692", 
+        "callSign": "G4HD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "subtitle": "Kunoichi 8 Part 3", 
+      "episodic": true, 
+      "collectionId": "tivo:cl.78987353", 
+      "contentId": "tivo:ct.157498213", 
+      "price": "USD.0", 
+      "title": "Ninja Warrior", 
+      "offerId": "tivo:of.ctd.141442738.692.cable.2011-06-10-19-30-00.1800", 
+      "hdtv": true, 
+      "startTime": "2011-06-10 19:30:00", 
+      "type": "offer", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "692", 
+        "callSign": "G4HD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "subtitle": "Kunoichi 8 Part 4", 
+      "episodic": true, 
+      "collectionId": "tivo:cl.78987353", 
+      "contentId": "tivo:ct.157498214", 
+      "price": "USD.0", 
+      "title": "Ninja Warrior", 
+      "offerId": "tivo:of.ctd.141442738.692.cable.2011-06-10-20-00-00.1800", 
+      "hdtv": true, 
+      "startTime": "2011-06-10 20:00:00", 
+      "type": "offer", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "692", 
+        "callSign": "G4HD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "subtitle": "Satsuke 20: Part 1", 
+      "episodic": true, 
+      "collectionId": "tivo:cl.78987353", 
+      "contentId": "tivo:ct.125468474", 
+      "price": "USD.0", 
+      "title": "Ninja Warrior", 
+      "offerId": "tivo:of.ctd.141442738.692.cable.2011-06-13-18-00-00.1800", 
+      "hdtv": false, 
+      "startTime": "2011-06-13 18:00:00", 
+      "type": "offer", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "692", 
+        "callSign": "G4HD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "subtitle": "Satsuke 20: Part 2", 
+      "episodic": true, 
+      "collectionId": "tivo:cl.78987353", 
+      "contentId": "tivo:ct.125468475", 
+      "price": "USD.0", 
+      "title": "Ninja Warrior", 
+      "offerId": "tivo:of.ctd.141442738.692.cable.2011-06-13-18-30-00.1800", 
+      "hdtv": false, 
+      "startTime": "2011-06-13 18:30:00", 
+      "type": "offer", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "692", 
+        "callSign": "G4HD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "subtitle": "Sasuke 19: Part 1", 
+      "episodic": true, 
+      "collectionId": "tivo:cl.78987353", 
+      "contentId": "tivo:ct.112733484", 
+      "price": "USD.0", 
+      "title": "Ninja Warrior", 
+      "offerId": "tivo:of.ctd.141442738.692.cable.2011-06-15-03-30-00.1800", 
+      "hdtv": false, 
+      "startTime": "2011-06-15 03:30:00", 
+      "type": "offer", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "692", 
+        "callSign": "G4HD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "subtitle": "Sasuke 19: Part 2", 
+      "episodic": true, 
+      "collectionId": "tivo:cl.78987353", 
+      "contentId": "tivo:ct.112733485", 
+      "price": "USD.0", 
+      "title": "Ninja Warrior", 
+      "offerId": "tivo:of.ctd.141442738.692.cable.2011-06-15-04-00-00.1800", 
+      "hdtv": false, 
+      "startTime": "2011-06-15 04:00:00", 
+      "type": "offer", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "692", 
+        "callSign": "G4HD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }
+    }, 
+    {
+      "transportType": "stream", 
+      "repeat": true, 
+      "subtitle": "Sasuke 19: Part 3", 
+      "episodic": true, 
+      "collectionId": "tivo:cl.78987353", 
+      "contentId": "tivo:ct.112733486", 
+      "price": "USD.0", 
+      "title": "Ninja Warrior", 
+      "offerId": "tivo:of.ctd.141442738.692.cable.2011-06-15-04-30-00.1800", 
+      "hdtv": false, 
+      "startTime": "2011-06-15 04:30:00", 
+      "type": "offer", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "692", 
+        "callSign": "G4HD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }
+    }
+  ]
+}

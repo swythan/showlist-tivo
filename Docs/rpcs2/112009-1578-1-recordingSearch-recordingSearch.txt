@@ -1,0 +1,76 @@
+MRPC/2 245 797
+Raw Packet=MRPC/2 245 797
+Type:request
+RpcId:1578
+SchemaVersion:7
+Content-Type:application/json
+RequestType:recordingSearch
+ResponseCount:single
+BodyId:tsn:XXXXXXXXXXXXXXX
+X-ApplicationName:Quicksilver
+X-ApplicationVersion:1.2
+X-ApplicationSessionId:0x27c180
+
+{
+  "state": [
+    "inProgress", 
+    "scheduled"
+  ], 
+  "type": "recordingSearch", 
+  "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+  "objectIdAndType": [
+    "509073884534290", 
+    "509073884534295", 
+    "509073884534261", 
+    "509073884534315", 
+    "509073884538711", 
+    "509073884546351", 
+    "509073884546353", 
+    "509073884546375", 
+    "509073884551108"
+  ], 
+  "responseTemplate": [
+    {
+      "fieldName": [
+        "recording"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "recordingList"
+    }, 
+    {
+      "fieldName": [
+        "subscriptionType"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "subscriptionIdentifier"
+    }, 
+    {
+      "fieldName": [
+        "channel", 
+        "contentId", 
+        "collectionId", 
+        "title", 
+        "startTime", 
+        "state", 
+        "subscriptionIdentifier", 
+        "hdtv", 
+        "repeat", 
+        "episodic", 
+        "recordingId"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "recording"
+    }, 
+    {
+      "fieldName": [
+        "channelNumber", 
+        "sourceType", 
+        "logoIndex", 
+        "callSign", 
+        "isDigital"
+      ], 
+      "type": "responseTemplate", 
+      "typeName": "channel"
+    }
+  ]
+}

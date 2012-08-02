@@ -1,0 +1,29 @@
+MRPC/2 78 365
+Raw Packet=MRPC/2 78 365
+Content-Type: application/json
+IsFinal: true
+RpcId: 1267
+Type: response
+
+{
+  "type": "offerList", 
+  "offer": [
+    {
+      "episodic": true, 
+      "title": "TV10/55 News at 11", 
+      "cc": true, 
+      "offerId": "tivo:of.ctd.1369.55.cable.2011-06-07-03-00-00.2040", 
+      "hdtv": false, 
+      "startTime": "2011-06-07 03:00:00", 
+      "duration": 2040, 
+      "type": "offer", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "55", 
+        "callSign": "WLNYMH", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }
+    }
+  ]
+}

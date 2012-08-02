@@ -1,0 +1,19 @@
+MRPC/2 248 120
+Raw Packet=MRPC/2 248 120
+Type:request
+RpcId:1190
+SchemaVersion:7
+Content-Type:application/json
+RequestType:subscriptionSearch
+ResponseCount:single
+BodyId:tsn:XXXXXXXXXXXXXXX
+X-ApplicationName:Quicksilver
+X-ApplicationVersion:1.2
+X-ApplicationSessionId:0x27c180
+
+{
+  "levelOfDetail": "medium", 
+  "type": "subscriptionSearch", 
+  "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+  "collectionId": "tivo:cl.11251713"
+}

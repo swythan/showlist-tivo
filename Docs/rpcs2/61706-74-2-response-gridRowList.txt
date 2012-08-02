@@ -1,0 +1,187 @@
+MRPC/2 76 4498
+Raw Packet=MRPC/2 76 4498
+Content-Type: application/json
+IsFinal: true
+RpcId: 74
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "TBS", 
+        "isDigital": true, 
+        "channelNumber": "8", 
+        "logoIndex": 65540, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Tyler Perry's Meet the Browns", 
+          "contentId": "tivo:ct.165892229", 
+          "collectionId": "tivo:cl.140542702", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-16-00-00-00.1800", 
+          "startTime": "2011-06-16 00:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Tyler Perry's Meet the Browns", 
+          "contentId": "tivo:ct.164246334", 
+          "collectionId": "tivo:cl.140542702", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-16-00-30-00.1800", 
+          "startTime": "2011-06-16 00:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Tyler Perry's House of Payne", 
+          "contentId": "tivo:ct.158951097", 
+          "collectionId": "tivo:cl.96190305", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-16-01-00-00.1800", 
+          "startTime": "2011-06-16 01:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Tyler Perry's House of Payne", 
+          "contentId": "tivo:ct.158951098", 
+          "collectionId": "tivo:cl.96190305", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-16-01-30-00.1800", 
+          "startTime": "2011-06-16 01:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Tyler Perry's House of Payne", 
+          "contentId": "tivo:ct.177226762", 
+          "collectionId": "tivo:cl.96190305", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-16-02-00-00.1800", 
+          "startTime": "2011-06-16 02:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Tyler Perry's House of Payne", 
+          "contentId": "tivo:ct.177226760", 
+          "collectionId": "tivo:cl.96190305", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-16-02-30-00.1800", 
+          "startTime": "2011-06-16 02:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Conan", 
+          "contentId": "tivo:ct.183256889", 
+          "collectionId": "tivo:cl.171093113", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-16-03-00-00.3600", 
+          "startTime": "2011-06-16 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Lopez Tonight", 
+          "contentId": "tivo:ct.183256821", 
+          "collectionId": "tivo:cl.153523795", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-16-04-00-00.3600", 
+          "startTime": "2011-06-16 04:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Conan", 
+          "contentId": "tivo:ct.183256889", 
+          "collectionId": "tivo:cl.171093113", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-16-05-00-00.3600", 
+          "startTime": "2011-06-16 05:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Lopez Tonight", 
+          "contentId": "tivo:ct.183256821", 
+          "collectionId": "tivo:cl.153523795", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-16-06-00-00.3600", 
+          "startTime": "2011-06-16 06:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Pink Panther", 
+          "contentId": "tivo:ct.63468507", 
+          "collectionId": "tivo:cl.63469290", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-16-07-00-00.7200", 
+          "startTime": "2011-06-16 07:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Married ... With Children", 
+          "contentId": "tivo:ct.572335", 
+          "collectionId": "tivo:cl.16995", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-16-09-00-00.1800", 
+          "startTime": "2011-06-16 09:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Married ... With Children", 
+          "contentId": "tivo:ct.600525", 
+          "collectionId": "tivo:cl.16995", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-16-09-30-00.1800", 
+          "startTime": "2011-06-16 09:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Married ... With Children", 
+          "contentId": "tivo:ct.237878", 
+          "collectionId": "tivo:cl.16995", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-16-10-00-00.1800", 
+          "startTime": "2011-06-16 10:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Married ... With Children", 
+          "contentId": "tivo:ct.316504", 
+          "collectionId": "tivo:cl.16995", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-16-10-30-00.1800", 
+          "startTime": "2011-06-16 10:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Home Improvement", 
+          "contentId": "tivo:ct.389506", 
+          "collectionId": "tivo:cl.17998", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-16-11-00-00.1800", 
+          "startTime": "2011-06-16 11:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Home Improvement", 
+          "contentId": "tivo:ct.416202", 
+          "collectionId": "tivo:cl.17998", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-16-11-30-00.1800", 
+          "startTime": "2011-06-16 11:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Saved by the Bell", 
+          "contentId": "tivo:ct.135775", 
+          "collectionId": "tivo:cl.24794", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-16-12-00-00.1800", 
+          "startTime": "2011-06-16 12:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

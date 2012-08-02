@@ -1,0 +1,195 @@
+MRPC/2 78 4599
+Raw Packet=MRPC/2 78 4599
+Content-Type: application/json
+IsFinal: true
+RpcId: 1546
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "55", 
+        "callSign": "WLNYMH", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Frasier", 
+          "contentId": "tivo:ct.917584", 
+          "collectionId": "tivo:cl.16986", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-14-23-00-00.1800", 
+          "startTime": "2011-06-14 23:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Frasier", 
+          "contentId": "tivo:ct.217176", 
+          "collectionId": "tivo:cl.16986", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-14-23-30-00.1800", 
+          "startTime": "2011-06-14 23:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Ellen DeGeneres Show", 
+          "contentId": "tivo:ct.179682654", 
+          "collectionId": "tivo:cl.15252057", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-15-00-00-00.3600", 
+          "startTime": "2011-06-15 00:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Law & Order: Special Victims Unit", 
+          "contentId": "tivo:ct.5738653", 
+          "collectionId": "tivo:cl.880788", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-15-01-00-00.3600", 
+          "startTime": "2011-06-15 01:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Judge Judy", 
+          "contentId": "tivo:ct.18911", 
+          "collectionId": "tivo:cl.18909", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-15-02-00-00.1800", 
+          "startTime": "2011-06-15 02:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Judge Judy", 
+          "contentId": "tivo:ct.18911", 
+          "collectionId": "tivo:cl.18909", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-15-02-30-00.1800", 
+          "startTime": "2011-06-15 02:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "TV10/55 News at 11", 
+          "contentId": "tivo:ct.795289", 
+          "collectionId": "tivo:cl.795288", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-15-03-00-00.2040", 
+          "startTime": "2011-06-15 03:00:00", 
+          "duration": 2040, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Inside Edition", 
+          "contentId": "tivo:ct.183495427", 
+          "collectionId": "tivo:cl.19205", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-15-03-34-00.1800", 
+          "startTime": "2011-06-15 03:34:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Big Fish", 
+          "contentId": "tivo:ct.23659840", 
+          "collectionId": "tivo:cl.23660145", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-15-04-04-00.8760", 
+          "startTime": "2011-06-15 04:04:00", 
+          "duration": 8760, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-15-06-30-00.1800", 
+          "startTime": "2011-06-15 06:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-15-07-00-00.1800", 
+          "startTime": "2011-06-15 07:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-15-07-30-00.1800", 
+          "startTime": "2011-06-15 07:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-15-08-00-00.1800", 
+          "startTime": "2011-06-15 08:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-15-08-30-00.1800", 
+          "startTime": "2011-06-15 08:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "TV10/55 News", 
+          "contentId": "tivo:ct.795291", 
+          "collectionId": "tivo:cl.795290", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-15-09-00-00.1800", 
+          "startTime": "2011-06-15 09:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "First Business", 
+          "contentId": "tivo:ct.183495420", 
+          "collectionId": "tivo:cl.57145", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-15-09-30-00.1800", 
+          "startTime": "2011-06-15 09:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Stop Memory Loss", 
+          "contentId": "tivo:ct.151493895", 
+          "collectionId": "tivo:cl.151494357", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-15-10-00-00.1800", 
+          "startTime": "2011-06-15 10:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Peter Popoff", 
+          "contentId": "tivo:ct.14779", 
+          "collectionId": "tivo:cl.52330", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-15-10-30-00.1800", 
+          "startTime": "2011-06-15 10:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Joyce Meyer: Enjoying Everyday Life", 
+          "contentId": "tivo:ct.164091302", 
+          "collectionId": "tivo:cl.63852358", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-15-11-00-00.1800", 
+          "startTime": "2011-06-15 11:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

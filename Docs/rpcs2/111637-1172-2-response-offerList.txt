@@ -1,0 +1,30 @@
+MRPC/2 78 401
+Raw Packet=MRPC/2 78 401
+Content-Type: application/json
+IsFinal: true
+RpcId: 1172
+Type: response
+
+{
+  "type": "offerList", 
+  "offer": [
+    {
+      "repeat": true, 
+      "subtitle": "Kunoichi 8 Part 1", 
+      "episodic": true, 
+      "title": "Ninja Warrior", 
+      "offerId": "tivo:of.ctd.141442738.692.cable.2011-06-10-18-30-00.1800", 
+      "hdtv": true, 
+      "startTime": "2011-06-10 18:30:00", 
+      "duration": 1800, 
+      "type": "offer", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "692", 
+        "callSign": "G4HD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+MRPC/2 77 1901
+Raw Packet=MRPC/2 77 1901
+Content-Type: application/json
+IsFinal: false
+RpcId: 26
+Type: response
+
+{
+  "state": [
+    {
+      "type": "tunerState", 
+      "tunerId": "foreground", 
+      "channel": {
+        "isReceived": true, 
+        "name": "Hallmark Channel HD", 
+        "isKidZone": false, 
+        "isBlocked": false, 
+        "channelId": "tivo:ch.11369", 
+        "callSign": "HALLHD", 
+        "isDigital": true, 
+        "stationId": "tivo:st.159169748", 
+        "channelNumber": "684", 
+        "logoIndex": 65778, 
+        "type": "channel", 
+        "sourceType": "cable", 
+        "bitrate": "1040187392", 
+        "levelOfDetail": "low"
+      }, 
+      "offer": {
+        "collectionType": "series", 
+        "contentType": "video", 
+        "description": "Gossip flies about Caroline and a man (Gil Gerard) building her kitchen in exchange for room and board.", 
+        "episodic": true, 
+        "collectionId": "tivo:cl.19284", 
+        "contentId": "tivo:ct.127876", 
+        "episodeNum": [
+          4004
+        ], 
+        "transportType": "stream", 
+        "originalAirdate": "1977-10-03", 
+        "hdtv": false, 
+        "title": "Little House on the Prairie", 
+        "startTime": "2011-06-06 22:00:00", 
+        "duration": 3600, 
+        "subtitle": "The Handyman", 
+        "type": "offer", 
+        "levelOfDetail": "low"
+      }
+    }, 
+    {
+      "type": "tunerState", 
+      "tunerId": "background", 
+      "channel": {
+        "isReceived": true, 
+        "name": "Independent Film Channel HD", 
+        "isKidZone": false, 
+        "isBlocked": false, 
+        "channelId": "tivo:ch.11149", 
+        "callSign": "IFCHD", 
+        "isDigital": true, 
+        "stationId": "tivo:st.119114326", 
+        "channelNumber": "781", 
+        "type": "channel", 
+        "sourceType": "cable", 
+        "bitrate": "1210056704", 
+        "levelOfDetail": "low"
+      }, 
+      "offer": {
+        "collectionType": "series", 
+        "contentType": "video", 
+        "description": "Lindsay inadvertently gets involved in a cheating scandal when Daniel steals a copy of a final exam; Sam, Neal and Bill turn to a stag film to learn more about women.", 
+        "episodic": true, 
+        "collectionId": "tivo:cl.894882", 
+        "contentId": "tivo:ct.1051923", 
+        "title": "Freaks and Geeks", 
+        "transportType": "stream", 
+        "originalAirdate": "1999-11-06", 
+        "hdtv": false, 
+        "startTime": "2011-06-06 22:00:00", 
+        "duration": 3600, 
+        "subtitle": "Tests and Breasts", 
+        "type": "offer", 
+        "levelOfDetail": "low"
+      }
+    }
+  ], 
+  "type": "tunerStateEvent"
+}

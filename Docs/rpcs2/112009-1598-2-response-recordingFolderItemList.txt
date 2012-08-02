@@ -1,0 +1,133 @@
+MRPC/2 78 3073
+Raw Packet=MRPC/2 78 3073
+Content-Type: application/json
+IsFinal: true
+RpcId: 1598
+Type: response
+
+{
+  "recordingFolderItem": [
+    {
+      "childRecordingId": "tivo:rc.232929", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.144126666", 
+        "contentId": "tivo:ct.166492934", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "hdtv": true, 
+        "startTime": "2011-06-06 15:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "736", 
+          "callSign": "SPIKEHD", 
+          "type": "channel", 
+          "logoIndex": 66211
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "Deadliest Warrior: \"Navy Seal vs. Israeli Commando\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.232929", 
+      "startTime": "2011-06-06 15:00:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.232919", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.144126666", 
+        "contentId": "tivo:ct.162433696", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "hdtv": true, 
+        "startTime": "2011-06-06 14:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "736", 
+          "callSign": "SPIKEHD", 
+          "type": "channel", 
+          "logoIndex": 66211
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "Deadliest Warrior: \"Persian Immortal vs. Celt\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.232919", 
+      "startTime": "2011-06-06 14:00:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.232349", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.894882", 
+        "contentId": "tivo:ct.1157415", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-06-06 04:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "781", 
+          "callSign": "IFCHD", 
+          "type": "channel"
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "Freaks and Geeks: \"Kim Kelly Is My Friend\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.232349", 
+      "startTime": "2011-06-06 04:00:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.237239", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.16986", 
+        "contentId": "tivo:ct.64753", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-06-06 03:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "684", 
+          "callSign": "HALLHD", 
+          "type": "channel", 
+          "logoIndex": 65778
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "Frasier: \"Three Dates and a Breakup\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.237239", 
+      "startTime": "2011-06-06 03:00:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.234069", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.6236036", 
+        "contentId": "tivo:ct.115808485", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-06-06 03:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "162", 
+          "callSign": "WGNAMER", 
+          "type": "channel", 
+          "logoIndex": 65667
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "Monk: \"Mr. Monk Goes to the Bank\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.234069", 
+      "startTime": "2011-06-06 03:00:00", 
+      "type": "recordingFolderItem"
+    }
+  ], 
+  "type": "recordingFolderItemList"
+}

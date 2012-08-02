@@ -1,0 +1,241 @@
+MRPC/2 78 5914
+Raw Packet=MRPC/2 78 5914
+Content-Type: application/json
+IsFinal: true
+RpcId: 1317
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "SCIHD", 
+        "isDigital": true, 
+        "channelNumber": "775", 
+        "logoIndex": 65773, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Oddities", 
+          "contentId": "tivo:ct.178924635", 
+          "collectionId": "tivo:cl.172225058", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-11-22-30-00.1800", 
+          "startTime": "2011-06-11 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Oddities", 
+          "contentId": "tivo:ct.180709137", 
+          "collectionId": "tivo:cl.172225058", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-11-23-00-00.1800", 
+          "startTime": "2011-06-11 23:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Oddities", 
+          "contentId": "tivo:ct.182146734", 
+          "collectionId": "tivo:cl.172225058", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-11-23-30-00.1800", 
+          "startTime": "2011-06-11 23:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Oddities", 
+          "contentId": "tivo:ct.180121811", 
+          "collectionId": "tivo:cl.172225058", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-12-00-00-00.1800", 
+          "startTime": "2011-06-12 00:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Oddities", 
+          "contentId": "tivo:ct.181403816", 
+          "collectionId": "tivo:cl.172225058", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-12-00-30-00.1800", 
+          "startTime": "2011-06-12 00:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Oddities", 
+          "contentId": "tivo:ct.178646405", 
+          "collectionId": "tivo:cl.172225058", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-12-01-00-00.1800", 
+          "startTime": "2011-06-12 01:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Oddities", 
+          "contentId": "tivo:ct.179572379", 
+          "collectionId": "tivo:cl.172225058", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-12-01-30-00.1800", 
+          "startTime": "2011-06-12 01:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Oddities", 
+          "contentId": "tivo:ct.183381786", 
+          "collectionId": "tivo:cl.172225058", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-12-02-00-00.1800", 
+          "startTime": "2011-06-12 02:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Oddities", 
+          "contentId": "tivo:ct.182764161", 
+          "collectionId": "tivo:cl.172225058", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-12-02-30-00.1800", 
+          "startTime": "2011-06-12 02:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Oddities", 
+          "contentId": "tivo:ct.180121811", 
+          "collectionId": "tivo:cl.172225058", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-12-03-00-00.1800", 
+          "startTime": "2011-06-12 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Oddities", 
+          "contentId": "tivo:ct.181403816", 
+          "collectionId": "tivo:cl.172225058", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-12-03-30-00.1800", 
+          "startTime": "2011-06-12 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Oddities", 
+          "contentId": "tivo:ct.178646405", 
+          "collectionId": "tivo:cl.172225058", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-12-04-00-00.1800", 
+          "startTime": "2011-06-12 04:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Oddities", 
+          "contentId": "tivo:ct.179572379", 
+          "collectionId": "tivo:cl.172225058", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-12-04-30-00.1800", 
+          "startTime": "2011-06-12 04:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Oddities", 
+          "contentId": "tivo:ct.183381786", 
+          "collectionId": "tivo:cl.172225058", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-12-05-00-00.1800", 
+          "startTime": "2011-06-12 05:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Oddities", 
+          "contentId": "tivo:ct.182764161", 
+          "collectionId": "tivo:cl.172225058", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-12-05-30-00.1800", 
+          "startTime": "2011-06-12 05:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Oddities", 
+          "contentId": "tivo:ct.178337388", 
+          "collectionId": "tivo:cl.172225058", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-12-06-00-00.1800", 
+          "startTime": "2011-06-12 06:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Oddities", 
+          "contentId": "tivo:ct.178924635", 
+          "collectionId": "tivo:cl.172225058", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-12-06-30-00.1800", 
+          "startTime": "2011-06-12 06:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How Do They Do It?", 
+          "contentId": "tivo:ct.183664216", 
+          "collectionId": "tivo:cl.70360603", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-12-07-00-00.1800", 
+          "startTime": "2011-06-12 07:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How Do They Do It?", 
+          "contentId": "tivo:ct.183664215", 
+          "collectionId": "tivo:cl.70360603", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-12-07-30-00.1800", 
+          "startTime": "2011-06-12 07:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.183256649", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-12-08-00-00.1800", 
+          "startTime": "2011-06-12 08:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.182529469", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-12-08-30-00.1800", 
+          "startTime": "2011-06-12 08:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Life on the Line", 
+          "contentId": "tivo:ct.183945742", 
+          "collectionId": "tivo:cl.183947043", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-12-09-00-00.1800", 
+          "startTime": "2011-06-12 09:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Life on the Line", 
+          "contentId": "tivo:ct.183945740", 
+          "collectionId": "tivo:cl.183947043", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-12-09-30-00.1800", 
+          "startTime": "2011-06-12 09:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Blowdown", 
+          "contentId": "tivo:ct.177484331", 
+          "collectionId": "tivo:cl.171451209", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-12-10-00-00.3600", 
+          "startTime": "2011-06-12 10:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

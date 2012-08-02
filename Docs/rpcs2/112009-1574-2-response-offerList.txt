@@ -1,0 +1,31 @@
+MRPC/2 78 430
+Raw Packet=MRPC/2 78 430
+Content-Type: application/json
+IsFinal: true
+RpcId: 1574
+Type: response
+
+{
+  "type": "offerList", 
+  "offer": [
+    {
+      "repeat": true, 
+      "subtitle": "Storytelling; Slow Love", 
+      "episodic": true, 
+      "title": "Adventure Time", 
+      "offerId": "tivo:of.ctd.124376605.761.cable.2011-06-13-20-30-00.1800", 
+      "hdtv": true, 
+      "startTime": "2011-06-13 20:30:00", 
+      "duration": 1800, 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "TOONHD", 
+        "isDigital": true, 
+        "channelNumber": "761", 
+        "logoIndex": 66277, 
+        "type": "channel"
+      }
+    }
+  ]
+}

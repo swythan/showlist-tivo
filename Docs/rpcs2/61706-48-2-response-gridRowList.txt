@@ -1,0 +1,252 @@
+MRPC/2 76 4718
+Raw Packet=MRPC/2 76 4718
+Content-Type: application/json
+IsFinal: true
+RpcId: 48
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "184", 
+        "callSign": "ZEAL4", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.176904863.184.cable.2011-06-06-22-00-00.1800", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.176904863.184.cable.2011-06-06-22-30-00.1800", 
+          "startTime": "2011-06-06 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "185", 
+        "callSign": "ZEA5Y", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Coin Vault", 
+          "contentId": "tivo:ct.159569509", 
+          "collectionId": "tivo:cl.159570014", 
+          "offerId": "tivo:of.ctd.185445345.185.cable.2011-06-06-22-00-00.21600", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 21600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "186", 
+        "callSign": "LATV", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Mex 2 the Max", 
+          "contentId": "tivo:ct.161009194", 
+          "collectionId": "tivo:cl.161009691", 
+          "offerId": "tivo:of.ctd.94611966.186.cable.2011-06-06-22-00-00.1800", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "La Corte del Pueblo", 
+          "contentId": "tivo:ct.161090004", 
+          "collectionId": "tivo:cl.161090515", 
+          "offerId": "tivo:of.ctd.94611966.186.cable.2011-06-06-22-30-00.1800", 
+          "startTime": "2011-06-06 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HALO", 
+        "isDigital": false, 
+        "channelNumber": "188", 
+        "logoIndex": 66201, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Departures", 
+          "contentId": "tivo:ct.144409088", 
+          "collectionId": "tivo:cl.117081086", 
+          "offerId": "tivo:of.ctd.1725757.188.cable.2011-06-06-22-00-00.3600", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "INSP", 
+        "isDigital": false, 
+        "channelNumber": "189", 
+        "logoIndex": 66325, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Highway to Heaven", 
+          "contentId": "tivo:ct.356818", 
+          "collectionId": "tivo:cl.18698", 
+          "offerId": "tivo:of.ctd.949.189.cable.2011-06-06-22-00-00.3600", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": false, 
+        "channelNumber": "267", 
+        "callSign": "FEARDM", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "FEARnet On Demand", 
+          "contentId": "tivo:ct.81580042", 
+          "collectionId": "tivo:cl.81580559", 
+          "offerId": "tivo:of.ctd.81580647.267.cable.2011-06-06-22-00-00.14400", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 14400, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": false, 
+        "channelNumber": "268", 
+        "callSign": "FEAR", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "The Midnight Meat Train", 
+          "contentId": "tivo:ct.115054920", 
+          "collectionId": "tivo:cl.115056266", 
+          "offerId": "tivo:of.ctd.174720108.268.cable.2011-06-06-22-00-00.7200", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "283", 
+        "callSign": "REELZHD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Becker", 
+          "contentId": "tivo:ct.992837", 
+          "collectionId": "tivo:cl.18991", 
+          "offerId": "tivo:of.ctd.170289097.283.cable.2011-06-06-22-00-00.1800", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Becker", 
+          "contentId": "tivo:ct.3608083", 
+          "collectionId": "tivo:cl.18991", 
+          "offerId": "tivo:of.ctd.170289097.283.cable.2011-06-06-22-30-00.1800", 
+          "startTime": "2011-06-06 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "HMCHD", 
+        "isDigital": true, 
+        "channelNumber": "287", 
+        "logoIndex": 66200, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Riding the Bus With My Sister", 
+          "contentId": "tivo:ct.46624205", 
+          "collectionId": "tivo:cl.46624669", 
+          "offerId": "tivo:of.ctd.51466647.287.cable.2011-06-06-22-00-00.7200", 
+          "startTime": "2011-06-06 22:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "290", 
+        "callSign": "SUNDHD", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "My So-Called Life", 
+          "contentId": "tivo:ct.65542", 
+          "collectionId": "tivo:cl.21365", 
+          "offerId": "tivo:of.ctd.177101278.290.cable.2011-06-06-21-30-00.3900", 
+          "startTime": "2011-06-06 21:30:00", 
+          "duration": 3900, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

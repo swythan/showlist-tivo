@@ -1,0 +1,160 @@
+MRPC/2 78 3827
+Raw Packet=MRPC/2 78 3827
+Content-Type: application/json
+IsFinal: true
+RpcId: 1081
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "FXHD", 
+        "isDigital": true, 
+        "channelNumber": "710", 
+        "logoIndex": 66198, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Two and a Half Men", 
+          "contentId": "tivo:ct.64219516", 
+          "collectionId": "tivo:cl.15566705", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-15-23-00-00.1800", 
+          "startTime": "2011-06-15 23:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Two and a Half Men", 
+          "contentId": "tivo:ct.64722645", 
+          "collectionId": "tivo:cl.15566705", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-15-23-30-00.1800", 
+          "startTime": "2011-06-15 23:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Iron Man", 
+          "contentId": "tivo:ct.98177378", 
+          "collectionId": "tivo:cl.98178664", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-16-00-00-00.10800", 
+          "startTime": "2011-06-16 00:00:00", 
+          "duration": 10800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Superman Returns", 
+          "contentId": "tivo:ct.84221350", 
+          "collectionId": "tivo:cl.84221470", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-16-03-00-00.10800", 
+          "startTime": "2011-06-16 03:00:00", 
+          "duration": 10800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-16-06-00-00.1800", 
+          "startTime": "2011-06-16 06:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Hair Loss News: More Hair in as Little as 4 to 6 Weeks", 
+          "contentId": "tivo:ct.184633909", 
+          "collectionId": "tivo:cl.184634567", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-16-06-30-00.1800", 
+          "startTime": "2011-06-16 06:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-16-07-00-00.1800", 
+          "startTime": "2011-06-16 07:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-16-07-30-00.1800", 
+          "startTime": "2011-06-16 07:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-16-08-00-00.1800", 
+          "startTime": "2011-06-16 08:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-16-08-30-00.1800", 
+          "startTime": "2011-06-16 08:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-16-09-00-00.1800", 
+          "startTime": "2011-06-16 09:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-16-09-30-00.1800", 
+          "startTime": "2011-06-16 09:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-16-10-00-00.1800", 
+          "startTime": "2011-06-16 10:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-16-10-30-00.1800", 
+          "startTime": "2011-06-16 10:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Malcolm in the Middle", 
+          "contentId": "tivo:ct.60739513", 
+          "collectionId": "tivo:cl.1298999", 
+          "offerId": "tivo:of.ctd.111008801.710.cable.2011-06-16-11-00-00.1800", 
+          "startTime": "2011-06-16 11:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

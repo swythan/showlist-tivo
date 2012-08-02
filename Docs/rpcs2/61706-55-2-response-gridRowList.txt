@@ -1,0 +1,187 @@
+MRPC/2 76 4433
+Raw Packet=MRPC/2 76 4433
+Content-Type: application/json
+IsFinal: true
+RpcId: 55
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "TBS", 
+        "isDigital": true, 
+        "channelNumber": "8", 
+        "logoIndex": 65540, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Family Guy", 
+          "contentId": "tivo:ct.77346814", 
+          "collectionId": "tivo:cl.299214", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-10-02-00-00.1800", 
+          "startTime": "2011-06-10 02:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Family Guy", 
+          "contentId": "tivo:ct.160805827", 
+          "collectionId": "tivo:cl.299214", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-10-02-30-00.1800", 
+          "startTime": "2011-06-10 02:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Conan", 
+          "contentId": "tivo:ct.183256886", 
+          "collectionId": "tivo:cl.171093113", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-10-03-00-00.3600", 
+          "startTime": "2011-06-10 03:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Lopez Tonight", 
+          "contentId": "tivo:ct.183256818", 
+          "collectionId": "tivo:cl.153523795", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-10-04-00-00.3600", 
+          "startTime": "2011-06-10 04:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Conan", 
+          "contentId": "tivo:ct.183256886", 
+          "collectionId": "tivo:cl.171093113", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-10-05-00-00.3600", 
+          "startTime": "2011-06-10 05:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Lopez Tonight", 
+          "contentId": "tivo:ct.183256818", 
+          "collectionId": "tivo:cl.153523795", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-10-06-00-00.3600", 
+          "startTime": "2011-06-10 06:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "I Know What You Did Last Summer", 
+          "contentId": "tivo:ct.16063", 
+          "collectionId": "tivo:cl.55393", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-10-07-00-00.7200", 
+          "startTime": "2011-06-10 07:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Married ... With Children", 
+          "contentId": "tivo:ct.495142", 
+          "collectionId": "tivo:cl.16995", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-10-09-00-00.1800", 
+          "startTime": "2011-06-10 09:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Married ... With Children", 
+          "contentId": "tivo:ct.307948", 
+          "collectionId": "tivo:cl.16995", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-10-09-30-00.1800", 
+          "startTime": "2011-06-10 09:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Married ... With Children", 
+          "contentId": "tivo:ct.501343", 
+          "collectionId": "tivo:cl.16995", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-10-10-00-00.1800", 
+          "startTime": "2011-06-10 10:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Married ... With Children", 
+          "contentId": "tivo:ct.642635", 
+          "collectionId": "tivo:cl.16995", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-10-10-30-00.1800", 
+          "startTime": "2011-06-10 10:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Home Improvement", 
+          "contentId": "tivo:ct.212715", 
+          "collectionId": "tivo:cl.17998", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-10-11-00-00.1800", 
+          "startTime": "2011-06-10 11:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Home Improvement", 
+          "contentId": "tivo:ct.246334", 
+          "collectionId": "tivo:cl.17998", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-10-11-30-00.1800", 
+          "startTime": "2011-06-10 11:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Saved by the Bell: The College Years", 
+          "contentId": "tivo:ct.105338", 
+          "collectionId": "tivo:cl.37828", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-10-12-00-00.1800", 
+          "startTime": "2011-06-10 12:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Saved by the Bell: The College Years", 
+          "contentId": "tivo:ct.105342", 
+          "collectionId": "tivo:cl.37828", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-10-12-30-00.1800", 
+          "startTime": "2011-06-10 12:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Yes, Dear", 
+          "contentId": "tivo:ct.20904197", 
+          "collectionId": "tivo:cl.2511458", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-10-13-00-00.1800", 
+          "startTime": "2011-06-10 13:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Yes, Dear", 
+          "contentId": "tivo:ct.23234759", 
+          "collectionId": "tivo:cl.2511458", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-10-13-30-00.1800", 
+          "startTime": "2011-06-10 13:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Fresh Prince of Bel-Air", 
+          "contentId": "tivo:ct.64794", 
+          "collectionId": "tivo:cl.18406", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-10-14-00-00.1800", 
+          "startTime": "2011-06-10 14:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

@@ -1,0 +1,31 @@
+MRPC/2 78 412
+Raw Packet=MRPC/2 78 412
+Content-Type: application/json
+IsFinal: true
+RpcId: 1558
+Type: response
+
+{
+  "type": "offerList", 
+  "offer": [
+    {
+      "subtitle": "Fixing a Flat", 
+      "episodic": true, 
+      "title": "MythBusters", 
+      "cc": true, 
+      "offerId": "tivo:of.ctd.107213906.766.cable.2011-06-09-01-00-00.3600", 
+      "hdtv": true, 
+      "startTime": "2011-06-09 01:00:00", 
+      "duration": 3600, 
+      "type": "offer", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "DSCHD", 
+        "isDigital": true, 
+        "channelNumber": "766", 
+        "logoIndex": 66079, 
+        "type": "channel"
+      }
+    }
+  ]
+}

@@ -1,0 +1,202 @@
+MRPC/2 78 3689
+Raw Packet=MRPC/2 78 3689
+Content-Type: application/json
+IsFinal: true
+RpcId: 1290
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "898", 
+        "callSign": "XHAW", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Las Noches del F\u00fatbol", 
+          "contentId": "tivo:ct.33082360", 
+          "collectionId": "tivo:cl.33082722", 
+          "offerId": "tivo:of.ctd.89266820.898.cable.2011-06-07-03-00-00.6300", 
+          "startTime": "2011-06-07 03:00:00", 
+          "duration": 6300, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": false, 
+        "channelNumber": "1024", 
+        "callSign": "SKOOLDM", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Sportskool On Demand", 
+          "contentId": "tivo:ct.62197532", 
+          "collectionId": "tivo:cl.62197927", 
+          "offerId": "tivo:of.ctd.62198204.1024.cable.2011-06-07-02-00-00.14400", 
+          "startTime": "2011-06-07 02:00:00", 
+          "duration": 14400, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "MUSCDM", 
+        "isDigital": false, 
+        "channelNumber": "1028", 
+        "logoIndex": 65571, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Music Choice On Demand", 
+          "contentId": "tivo:ct.77231516", 
+          "collectionId": "tivo:cl.77232084", 
+          "offerId": "tivo:of.ctd.77232109.1028.cable.2011-06-07-02-00-00.14400", 
+          "startTime": "2011-06-07 02:00:00", 
+          "duration": 14400, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": false, 
+        "channelNumber": "1986", 
+        "callSign": "HISNADM", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Nature & Knowledge on Demand", 
+          "contentId": "tivo:ct.182334613", 
+          "collectionId": "tivo:cl.182335490", 
+          "offerId": "tivo:of.ctd.167909973.1986.cable.2011-06-07-02-00-00.14400", 
+          "startTime": "2011-06-07 02:00:00", 
+          "duration": 14400, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": false, 
+        "channelNumber": "1987", 
+        "callSign": "LFDM", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Lifestyles & Learning On Demand", 
+          "contentId": "tivo:ct.66358792", 
+          "collectionId": "tivo:cl.66359410", 
+          "offerId": "tivo:of.ctd.66359573.1987.cable.2011-06-07-02-00-00.14400", 
+          "startTime": "2011-06-07 02:00:00", 
+          "duration": 14400, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": false, 
+        "channelNumber": "1988", 
+        "callSign": "SPRTDM", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Sports On Demand", 
+          "contentId": "tivo:ct.7934075", 
+          "collectionId": "tivo:cl.7934074", 
+          "offerId": "tivo:of.ctd.7933493.1988.cable.2011-06-07-02-00-00.14400", 
+          "startTime": "2011-06-07 02:00:00", 
+          "duration": 14400, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": false, 
+        "channelNumber": "1989", 
+        "callSign": "CEDGDM", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Cutting Edge On Demand", 
+          "contentId": "tivo:ct.54149552", 
+          "collectionId": "tivo:cl.54150077", 
+          "offerId": "tivo:of.ctd.54150126.1989.cable.2011-06-07-02-00-00.14400", 
+          "startTime": "2011-06-07 02:00:00", 
+          "duration": 14400, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": false, 
+        "channelNumber": "1990", 
+        "callSign": "KDPREDM", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Kids/Pre-School On Demand", 
+          "contentId": "tivo:ct.89261071", 
+          "collectionId": "tivo:cl.89264521", 
+          "offerId": "tivo:of.ctd.89266757.1990.cable.2011-06-07-02-00-00.14400", 
+          "startTime": "2011-06-07 02:00:00", 
+          "duration": 14400, 
+          "type": "offer"
+        }
+      ]
+    }, 
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": false, 
+        "channelNumber": "1991", 
+        "callSign": "KIDSDM", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Kids On Demand", 
+          "contentId": "tivo:ct.29186600", 
+          "collectionId": "tivo:cl.29186885", 
+          "offerId": "tivo:of.ctd.16049952.1991.cable.2011-06-07-02-00-00.14400", 
+          "startTime": "2011-06-07 02:00:00", 
+          "duration": 14400, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

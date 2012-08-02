@@ -1,0 +1,132 @@
+MRPC/2 78 3020
+Raw Packet=MRPC/2 78 3020
+Content-Type: application/json
+IsFinal: true
+RpcId: 1607
+Type: response
+
+{
+  "recordingFolderItem": [
+    {
+      "childRecordingId": "tivo:rc.232309", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.64484", 
+        "contentId": "tivo:ct.64413322", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-06-03 16:30:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "745", 
+          "callSign": "CCHD", 
+          "type": "channel", 
+          "logoIndex": 66171
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "Comedy Central Presents: \"Ty Barnett\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.232309", 
+      "startTime": "2011-06-03 16:30:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.230229", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.52735471", 
+        "contentId": "tivo:ct.135642746", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-06-03 05:30:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "45", 
+          "callSign": "COMEDY", 
+          "type": "channel", 
+          "logoIndex": 65579
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "It's Always Sunny in Philadelphia: \"The Gang Solves the Gas Crisis\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.230229", 
+      "startTime": "2011-06-03 05:30:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.227449", 
+      "recordingForChildRecordingId": {
+        "collectionId": "tivo:cl.52915", 
+        "contentId": "tivo:ct.32688", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "startTime": "2011-06-03 01:00:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "719", 
+          "callSign": "VH1HD", 
+          "type": "channel", 
+          "logoIndex": 66221
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "Ferris Bueller's Day Off (1986)", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.227449", 
+      "startTime": "2011-06-03 01:00:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.212609", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.78241342", 
+        "contentId": "tivo:ct.170958736", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "hdtv": true, 
+        "startTime": "2011-06-03 00:30:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "704", 
+          "callSign": "WNBCDT", 
+          "type": "channel", 
+          "logoIndex": 65556
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "30 Rock: \"Let's Stay Together\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.212609", 
+      "startTime": "2011-06-03 00:30:00", 
+      "type": "recordingFolderItem"
+    }, 
+    {
+      "childRecordingId": "tivo:rc.232259", 
+      "recordingForChildRecordingId": {
+        "repeat": true, 
+        "episodic": true, 
+        "collectionId": "tivo:cl.16984", 
+        "contentId": "tivo:ct.284149", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+        "hdtv": true, 
+        "startTime": "2011-06-02 23:30:00", 
+        "type": "recording", 
+        "channel": {
+          "channelNumber": "708", 
+          "callSign": "TBSHD", 
+          "type": "channel", 
+          "logoIndex": 66392
+        }
+      }, 
+      "recordingStatusType": "suggestion", 
+      "title": "Seinfeld: \"The Trip\"", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "recordingFolderItemId": "tivo:rf.232259", 
+      "startTime": "2011-06-02 23:30:00", 
+      "type": "recordingFolderItem"
+    }
+  ], 
+  "type": "recordingFolderItemList"
+}

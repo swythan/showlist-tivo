@@ -1,0 +1,25 @@
+MRPC/2 243 187
+Raw Packet=MRPC/2 243 187
+Type:request
+RpcId:36
+SchemaVersion:7
+Content-Type:application/json
+RequestType:recordingSearch
+ResponseCount:single
+BodyId:tsn:XXXXXXXXXXXXXXX
+X-ApplicationName:Quicksilver
+X-ApplicationVersion:1.2
+X-ApplicationSessionId:0x27dc20
+
+{
+  "state": [
+    "inProgress", 
+    "scheduled"
+  ], 
+  "type": "recordingSearch", 
+  "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+  "offerId": [
+    "tivo:of.ctd.159169748.684.cable.2011-06-06-22-00-00.3600"
+  ], 
+  "levelOfDetail": "high"
+}

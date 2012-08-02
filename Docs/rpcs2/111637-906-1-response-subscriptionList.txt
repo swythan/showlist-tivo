@@ -1,0 +1,52 @@
+MRPC/2 77 918
+Raw Packet=MRPC/2 77 918
+Content-Type: application/json
+IsFinal: true
+RpcId: 906
+Type: response
+
+{
+  "isBottom": true, 
+  "subscription": [
+    {
+      "recordingQuality": "best", 
+      "maxRecordings": 5, 
+      "keepBehavior": "fifo", 
+      "folderingRules": "seriesOnly", 
+      "startTimePadding": 0, 
+      "title": "Adventure Time", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "priority": 5013, 
+      "bodyGeneratesCandidates": true, 
+      "showStatus": "rerunsAllowed", 
+      "idSetSource": {
+        "type": "seasonPassSource", 
+        "channel": {
+          "isReceived": true, 
+          "type": "channel", 
+          "name": "Cartoon Network HD", 
+          "isFavorite": false, 
+          "isKidZone": false, 
+          "bitrate": "101711872", 
+          "channelId": "tivo:ch.9", 
+          "callSign": "TOONHD", 
+          "isDigital": true, 
+          "stationId": "tivo:st.124376605", 
+          "channelNumber": "761", 
+          "logoIndex": 66277, 
+          "isBlocked": false, 
+          "sourceType": "cable", 
+          "isHidden": false, 
+          "levelOfDetail": "medium"
+        }, 
+        "collectionId": "tivo:cl.161625498"
+      }, 
+      "subscriptionId": "tivo:sb.259", 
+      "levelOfDetail": "medium", 
+      "type": "subscription", 
+      "endTimePadding": 0
+    }
+  ], 
+  "isTop": true, 
+  "type": "subscriptionList"
+}

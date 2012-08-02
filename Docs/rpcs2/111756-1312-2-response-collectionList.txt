@@ -1,0 +1,59 @@
+MRPC/2 78 938
+Raw Packet=MRPC/2 78 938
+Content-Type: application/json
+IsFinal: true
+RpcId: 1312
+Type: response
+
+{
+  "type": "collectionList", 
+  "collection": [
+    {
+      "category": [
+        {
+          "displayRank": 0, 
+          "type": "category", 
+          "label": "Special"
+        }, 
+        {
+          "image": [
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/Documentary.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }, 
+            {
+              "width": 180, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/Documentary.jpg", 
+              "type": "image", 
+              "imageType": "moviePoster", 
+              "height": 270
+            }
+          ], 
+          "displayRank": 1, 
+          "type": "category", 
+          "label": "Documentary"
+        }
+      ], 
+      "collectionType": "special", 
+      "description": "Research into the inner workings of human's senses opens up a new world.", 
+      "episodic": false, 
+      "collectionId": "tivo:cl.185236652", 
+      "title": "To See or Not to See", 
+      "type": "collection", 
+      "tvRating": "g", 
+      "broadcastOfferGroupForCollectionId": [
+        {
+          "count": 2, 
+          "type": "offerGroup", 
+          "example": {
+            "contentId": "tivo:ct.185235734", 
+            "type": "offer"
+          }
+        }
+      ]
+    }
+  ]
+}

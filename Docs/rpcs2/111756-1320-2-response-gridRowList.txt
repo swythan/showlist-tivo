@@ -1,0 +1,169 @@
+MRPC/2 78 4108
+Raw Packet=MRPC/2 78 4108
+Content-Type: application/json
+IsFinal: true
+RpcId: 1320
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "SCIHD", 
+        "isDigital": true, 
+        "channelNumber": "775", 
+        "logoIndex": 65773, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Forensic Factor", 
+          "contentId": "tivo:ct.93738034", 
+          "collectionId": "tivo:cl.14849193", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-13-13-00-00.3600", 
+          "startTime": "2011-06-13 13:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Forensic Factor", 
+          "contentId": "tivo:ct.168195023", 
+          "collectionId": "tivo:cl.14849193", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-13-14-00-00.3600", 
+          "startTime": "2011-06-13 14:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Forensic Factor", 
+          "contentId": "tivo:ct.37059099", 
+          "collectionId": "tivo:cl.14849193", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-13-15-00-00.3600", 
+          "startTime": "2011-06-13 15:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Forensic Factor", 
+          "contentId": "tivo:ct.52520437", 
+          "collectionId": "tivo:cl.14849193", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-13-16-00-00.3600", 
+          "startTime": "2011-06-13 16:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Forensic Factor", 
+          "contentId": "tivo:ct.17756715", 
+          "collectionId": "tivo:cl.14849193", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-13-17-00-00.3600", 
+          "startTime": "2011-06-13 17:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Forensic Factor", 
+          "contentId": "tivo:ct.149815168", 
+          "collectionId": "tivo:cl.14849193", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-13-18-00-00.3600", 
+          "startTime": "2011-06-13 18:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Factory Made", 
+          "contentId": "tivo:ct.161725523", 
+          "collectionId": "tivo:cl.124937026", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-13-19-00-00.1800", 
+          "startTime": "2011-06-13 19:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Factory Made", 
+          "contentId": "tivo:ct.157674985", 
+          "collectionId": "tivo:cl.124937026", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-13-19-30-00.1800", 
+          "startTime": "2011-06-13 19:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "MythBusters", 
+          "contentId": "tivo:ct.51151123", 
+          "collectionId": "tivo:cl.10670781", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-13-20-00-00.3600", 
+          "startTime": "2011-06-13 20:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How Do They Do It?", 
+          "contentId": "tivo:ct.152342589", 
+          "collectionId": "tivo:cl.70360603", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-13-21-00-00.1800", 
+          "startTime": "2011-06-13 21:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How Do They Do It?", 
+          "contentId": "tivo:ct.143623304", 
+          "collectionId": "tivo:cl.70360603", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-13-21-30-00.1800", 
+          "startTime": "2011-06-13 21:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.167085679", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-13-22-00-00.1800", 
+          "startTime": "2011-06-13 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.59148467", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-13-22-30-00.1800", 
+          "startTime": "2011-06-13 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Planets", 
+          "contentId": "tivo:ct.24461334", 
+          "collectionId": "tivo:cl.947878", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-13-23-00-00.3600", 
+          "startTime": "2011-06-13 23:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Asteroids: the Good, the Bad and the Ugly", 
+          "contentId": "tivo:ct.176458518", 
+          "collectionId": "tivo:cl.176458938", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-14-00-00-00.3600", 
+          "startTime": "2011-06-14 00:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "What Happened Before the Big Bang?", 
+          "contentId": "tivo:ct.176958507", 
+          "collectionId": "tivo:cl.176959546", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-14-01-00-00.3600", 
+          "startTime": "2011-06-14 01:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

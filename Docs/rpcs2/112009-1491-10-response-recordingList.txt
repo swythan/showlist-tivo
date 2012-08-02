@@ -1,0 +1,24 @@
+MRPC/2 79 354
+Raw Packet=MRPC/2 79 354
+Content-Type: application/json
+IsFinal: false
+RpcId: 1491
+Type: response
+
+{
+  "recording": [
+    {
+      "actualEndTime": "2011-05-16 23:30:00", 
+      "state": "complete", 
+      "recordingId": "tivo:rc.185589", 
+      "bodyId": "tsn:XXXXXXXXXXXXXXX", 
+      "scheduledStartTime": "2011-05-16 23:00:00", 
+      "actualStartTime": "2011-05-16 22:59:59", 
+      "scheduledEndTime": "2011-05-16 23:30:00", 
+      "type": "recording"
+    }
+  ], 
+  "isBottom": false, 
+  "isTop": true, 
+  "type": "recordingList"
+}

@@ -1,0 +1,201 @@
+MRPC/2 78 3459
+Raw Packet=MRPC/2 78 3459
+Content-Type: application/json
+IsFinal: true
+RpcId: 1097
+Type: response
+
+{
+  "content": [
+    {
+      "category": [
+        {
+          "image": [
+            {
+              "width": 180, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/CrimeDrama.jpg", 
+              "type": "image", 
+              "imageType": "moviePoster", 
+              "height": 270
+            }, 
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/CrimeDrama.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }
+          ], 
+          "displayRank": 0, 
+          "type": "category", 
+          "label": "Crime Drama"
+        }, 
+        {
+          "displayRank": 1, 
+          "type": "category", 
+          "label": "TV Show"
+        }
+      ], 
+      "userContentForCollectionId": {
+        "thumbsRating": 2, 
+        "type": "userContent", 
+        "bodyId": "tsn:XXXXXXXXXXXXXXX"
+      }, 
+      "collectionType": "series", 
+      "seasonNumber": 3, 
+      "description": "A notorious thief returns to retrieve his stash; Peter and Neal must put differences aside.", 
+      "episodic": true, 
+      "collectionId": "tivo:cl.150777031", 
+      "contentId": "tivo:ct.182551373", 
+      "image": [
+        {
+          "width": 139, 
+          "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/c3/1d/c31d6f201d84a9894178437ed5d8dd18.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 104
+        }, 
+        {
+          "width": 200, 
+          "imageUrl": "http://i.tivo.com/images-production/hdui-showing/c3/1d/c31d6f201d84a9894178437ed5d8dd18.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 150
+        }
+      ], 
+      "episodeNum": [
+        1
+      ], 
+      "originalAirYear": 2011, 
+      "credit": [
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Bomer", 
+          "first": "Matt"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "DeKay", 
+          "first": "Tim"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Thiessen", 
+          "first": "Tiffani"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Garson", 
+          "first": "Willie"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Thomason", 
+          "first": "Marsha"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Atkins", 
+          "first": "Sharif"
+        }, 
+        {
+          "role": "executiveProducer", 
+          "type": "credit", 
+          "last": "Eastin", 
+          "first": "Jeff"
+        }
+      ], 
+      "recordingForContentId": [
+        {
+          "subscriptionIdentifier": [
+            {
+              "subscriptionId": "tivo:sb.15000311", 
+              "subscriptionType": "seasonPass", 
+              "type": "subscriptionIdentifier"
+            }
+          ], 
+          "recordingId": "tivo:rc.220419", 
+          "state": "scheduled", 
+          "type": "recording", 
+          "bodyId": "tsn:XXXXXXXXXXXXXXX"
+        }, 
+        {
+          "subscriptionIdentifier": [
+            {
+              "subscriptionId": "tivo:sb.15000311", 
+              "subscriptionType": "seasonPass", 
+              "type": "subscriptionIdentifier"
+            }
+          ], 
+          "recordingId": "tivo:rc.220429", 
+          "state": "cancelled", 
+          "type": "recording", 
+          "bodyId": "tsn:XXXXXXXXXXXXXXX"
+        }, 
+        {
+          "subscriptionIdentifier": [
+            {
+              "subscriptionId": "tivo:sb.15000311", 
+              "subscriptionType": "seasonPass", 
+              "type": "subscriptionIdentifier"
+            }
+          ], 
+          "recordingId": "tivo:rc.221749", 
+          "state": "cancelled", 
+          "type": "recording", 
+          "bodyId": "tsn:XXXXXXXXXXXXXXX"
+        }, 
+        {
+          "subscriptionIdentifier": [
+            {
+              "subscriptionId": "tivo:sb.15000311", 
+              "subscriptionType": "seasonPass", 
+              "type": "subscriptionIdentifier"
+            }
+          ], 
+          "recordingId": "tivo:rc.225779", 
+          "state": "cancelled", 
+          "type": "recording", 
+          "bodyId": "tsn:XXXXXXXXXXXXXXX"
+        }, 
+        {
+          "subscriptionIdentifier": [
+            {
+              "subscriptionId": "tivo:sb.15000311", 
+              "subscriptionType": "seasonPass", 
+              "type": "subscriptionIdentifier"
+            }
+          ], 
+          "recordingId": "tivo:rc.227889", 
+          "state": "cancelled", 
+          "type": "recording", 
+          "bodyId": "tsn:XXXXXXXXXXXXXXX"
+        }, 
+        {
+          "subscriptionIdentifier": [
+            {
+              "subscriptionId": "tivo:sb.15000311", 
+              "subscriptionType": "seasonPass", 
+              "type": "subscriptionIdentifier"
+            }
+          ], 
+          "recordingId": "tivo:rc.229829", 
+          "state": "cancelled", 
+          "type": "recording", 
+          "bodyId": "tsn:XXXXXXXXXXXXXXX"
+        }
+      ], 
+      "title": "White Collar", 
+      "subtitle": "On Guard", 
+      "type": "content", 
+      "tvRating": "pg"
+    }
+  ], 
+  "type": "contentList"
+}

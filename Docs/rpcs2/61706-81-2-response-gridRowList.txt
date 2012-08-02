@@ -1,0 +1,52 @@
+MRPC/2 76 890
+Raw Packet=MRPC/2 76 890
+Content-Type: application/json
+IsFinal: true
+RpcId: 81
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "TBS", 
+        "isDigital": true, 
+        "channelNumber": "8", 
+        "logoIndex": 65540, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Home Improvement", 
+          "contentId": "tivo:ct.510911", 
+          "collectionId": "tivo:cl.17998", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-19-20-30-00.1800", 
+          "startTime": "2011-06-19 20:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "RV", 
+          "contentId": "tivo:ct.76964497", 
+          "collectionId": "tivo:cl.76965005", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-19-21-00-00.7200", 
+          "startTime": "2011-06-19 21:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Meet the Fockers", 
+          "contentId": "tivo:ct.48053242", 
+          "collectionId": "tivo:cl.48053653", 
+          "offerId": "tivo:of.ctd.1577.8.cable.2011-06-19-23-00-00.7200", 
+          "startTime": "2011-06-19 23:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

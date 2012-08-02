@@ -1,0 +1,168 @@
+MRPC/2 78 3859
+Raw Packet=MRPC/2 78 3859
+Content-Type: application/json
+IsFinal: true
+RpcId: 1530
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "isDigital": true, 
+        "channelNumber": "55", 
+        "callSign": "WLNYMH", 
+        "type": "channel", 
+        "sourceType": "cable"
+      }, 
+      "offer": [
+        {
+          "title": "Matlock", 
+          "contentId": "tivo:ct.37945", 
+          "collectionId": "tivo:cl.18471", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-11-20-00-00.3600", 
+          "startTime": "2011-06-11 20:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "NUMB3RS", 
+          "contentId": "tivo:ct.65541582", 
+          "collectionId": "tivo:cl.38952563", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-11-21-00-00.3600", 
+          "startTime": "2011-06-11 21:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Bones", 
+          "contentId": "tivo:ct.153128833", 
+          "collectionId": "tivo:cl.55067183", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-11-22-00-00.3600", 
+          "startTime": "2011-06-11 22:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "House", 
+          "contentId": "tivo:ct.47725395", 
+          "collectionId": "tivo:cl.34115777", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-11-23-00-00.3600", 
+          "startTime": "2011-06-11 23:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Criminal Minds", 
+          "contentId": "tivo:ct.69673983", 
+          "collectionId": "tivo:cl.55803730", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-12-00-00-00.3600", 
+          "startTime": "2011-06-12 00:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "The Unit", 
+          "contentId": "tivo:ct.108888911", 
+          "collectionId": "tivo:cl.65645975", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-12-01-00-00.3600", 
+          "startTime": "2011-06-12 01:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Judge Judy", 
+          "contentId": "tivo:ct.95060043", 
+          "collectionId": "tivo:cl.18909", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-12-02-00-00.1800", 
+          "startTime": "2011-06-12 02:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Judge Judy", 
+          "contentId": "tivo:ct.95060044", 
+          "collectionId": "tivo:cl.18909", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-12-02-30-00.1800", 
+          "startTime": "2011-06-12 02:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-12-03-00-00.1800", 
+          "startTime": "2011-06-12 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-12-03-30-00.1800", 
+          "startTime": "2011-06-12 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Stanley & Iris", 
+          "contentId": "tivo:ct.145434", 
+          "collectionId": "tivo:cl.145433", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-12-04-00-00.7200", 
+          "startTime": "2011-06-12 04:00:00", 
+          "duration": 7200, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-12-06-00-00.1800", 
+          "startTime": "2011-06-12 06:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-12-06-30-00.1800", 
+          "startTime": "2011-06-12 06:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-12-07-00-00.1800", 
+          "startTime": "2011-06-12 07:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Paid Programming", 
+          "contentId": "tivo:ct.14746", 
+          "collectionId": "tivo:cl.51446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-12-07-30-00.1800", 
+          "startTime": "2011-06-12 07:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Bosley: Hair Loss Answers", 
+          "contentId": "tivo:ct.48003096", 
+          "collectionId": "tivo:cl.48003446", 
+          "offerId": "tivo:of.ctd.1369.55.cable.2011-06-12-08-00-00.1800", 
+          "startTime": "2011-06-12 08:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

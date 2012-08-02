@@ -1,0 +1,49 @@
+MRPC/2 78 754
+Raw Packet=MRPC/2 78 754
+Content-Type: application/json
+IsFinal: true
+RpcId: 1641
+Type: response
+
+{
+  "isBottom": true, 
+  "type": "personList", 
+  "isTop": true, 
+  "person": [
+    {
+      "birthPlace": "Brooklyn, New York", 
+      "last": "Seinfeld", 
+      "personId": "tivo:pn.1585", 
+      "type": "person", 
+      "imageUrl": "http://www3.tivo.com/images/onprod/e1/88/e188294c975bd85ed280d5002022cda1.jpg", 
+      "birthDate": "1954-04-29", 
+      "sex": "male", 
+      "roleForPersonId": [
+        "actor", 
+        "director", 
+        "executiveProducer", 
+        "host", 
+        "producer", 
+        "writer", 
+        "voice"
+      ], 
+      "levelOfDetail": "high", 
+      "nameId": "tivo:nm.1585", 
+      "image": [
+        {
+          "imageUrl": "http://i.tivo.com/images-production/bravo/person-lg/e1/88/e188294c975bd85ed280d5002022cda1.jpg", 
+          "rulesetName": [
+            "person"
+          ], 
+          "imageId": "tivo:im.632712982", 
+          "width": 150, 
+          "height": 200, 
+          "type": "image", 
+          "imageType": "person", 
+          "levelOfDetail": "high"
+        }
+      ], 
+      "first": "Jerry"
+    }
+  ]
+}

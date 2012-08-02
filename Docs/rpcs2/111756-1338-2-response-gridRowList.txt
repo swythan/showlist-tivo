@@ -1,0 +1,241 @@
+MRPC/2 78 6019
+Raw Packet=MRPC/2 78 6019
+Content-Type: application/json
+IsFinal: true
+RpcId: 1338
+Type: response
+
+{
+  "gridRow": [
+    {
+      "type": "gridRow", 
+      "channel": {
+        "sourceType": "cable", 
+        "callSign": "SCIHD", 
+        "isDigital": true, 
+        "channelNumber": "775", 
+        "logoIndex": 65773, 
+        "type": "channel"
+      }, 
+      "offer": [
+        {
+          "title": "Factory Made", 
+          "contentId": "tivo:ct.157674984", 
+          "collectionId": "tivo:cl.124937026", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-17-19-00-00.1800", 
+          "startTime": "2011-06-17 19:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Factory Made", 
+          "contentId": "tivo:ct.163054004", 
+          "collectionId": "tivo:cl.124937026", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-17-19-30-00.1800", 
+          "startTime": "2011-06-17 19:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "MythBusters", 
+          "contentId": "tivo:ct.32203325", 
+          "collectionId": "tivo:cl.10670781", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-17-20-00-00.3600", 
+          "startTime": "2011-06-17 20:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How Do They Do It?", 
+          "contentId": "tivo:ct.143826757", 
+          "collectionId": "tivo:cl.70360603", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-17-21-00-00.1800", 
+          "startTime": "2011-06-17 21:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How Do They Do It?", 
+          "contentId": "tivo:ct.144100781", 
+          "collectionId": "tivo:cl.70360603", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-17-21-30-00.1800", 
+          "startTime": "2011-06-17 21:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.107900406", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-17-22-00-00.1800", 
+          "startTime": "2011-06-17 22:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.117079755", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-17-22-30-00.1800", 
+          "startTime": "2011-06-17 22:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.134151846", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-17-23-00-00.1800", 
+          "startTime": "2011-06-17 23:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.138122729", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-17-23-30-00.1800", 
+          "startTime": "2011-06-17 23:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How Do They Do It?", 
+          "contentId": "tivo:ct.183945286", 
+          "collectionId": "tivo:cl.70360603", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-18-00-00-00.1800", 
+          "startTime": "2011-06-18 00:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How Do They Do It?", 
+          "contentId": "tivo:ct.183664216", 
+          "collectionId": "tivo:cl.70360603", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-18-00-30-00.1800", 
+          "startTime": "2011-06-18 00:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.184165295", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-18-01-00-00.1800", 
+          "startTime": "2011-06-18 01:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.183256649", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-18-01-30-00.1800", 
+          "startTime": "2011-06-18 01:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Life on the Line", 
+          "contentId": "tivo:ct.184415481", 
+          "collectionId": "tivo:cl.183947043", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-18-02-00-00.1800", 
+          "startTime": "2011-06-18 02:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Life on the Line", 
+          "contentId": "tivo:ct.183945741", 
+          "collectionId": "tivo:cl.183947043", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-18-02-30-00.1800", 
+          "startTime": "2011-06-18 02:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How Do They Do It?", 
+          "contentId": "tivo:ct.183945286", 
+          "collectionId": "tivo:cl.70360603", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-18-03-00-00.1800", 
+          "startTime": "2011-06-18 03:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How Do They Do It?", 
+          "contentId": "tivo:ct.183664216", 
+          "collectionId": "tivo:cl.70360603", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-18-03-30-00.1800", 
+          "startTime": "2011-06-18 03:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.184165295", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-18-04-00-00.1800", 
+          "startTime": "2011-06-18 04:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.183256649", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-18-04-30-00.1800", 
+          "startTime": "2011-06-18 04:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Life on the Line", 
+          "contentId": "tivo:ct.184415481", 
+          "collectionId": "tivo:cl.183947043", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-18-05-00-00.1800", 
+          "startTime": "2011-06-18 05:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "Life on the Line", 
+          "contentId": "tivo:ct.183945741", 
+          "collectionId": "tivo:cl.183947043", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-18-05-30-00.1800", 
+          "startTime": "2011-06-18 05:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.107900406", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-18-06-00-00.1800", 
+          "startTime": "2011-06-18 06:00:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "How It's Made", 
+          "contentId": "tivo:ct.117079755", 
+          "collectionId": "tivo:cl.13806490", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-18-06-30-00.1800", 
+          "startTime": "2011-06-18 06:30:00", 
+          "duration": 1800, 
+          "type": "offer"
+        }, 
+        {
+          "title": "What the Ancients Knew", 
+          "contentId": "tivo:ct.69177719", 
+          "collectionId": "tivo:cl.42785481", 
+          "offerId": "tivo:of.ctd.107213907.775.cable.2011-06-18-07-00-00.3600", 
+          "startTime": "2011-06-18 07:00:00", 
+          "duration": 3600, 
+          "type": "offer"
+        }
+      ]
+    }
+  ], 
+  "type": "gridRowList"
+}

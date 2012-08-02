@@ -1,0 +1,160 @@
+MRPC/2 78 2496
+Raw Packet=MRPC/2 78 2496
+Content-Type: application/json
+IsFinal: true
+RpcId: 1593
+Type: response
+
+{
+  "content": [
+    {
+      "category": [
+        {
+          "image": [
+            {
+              "width": 180, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/moviePoster/CrimeDrama.jpg", 
+              "type": "image", 
+              "imageType": "moviePoster", 
+              "height": 270
+            }, 
+            {
+              "width": 360, 
+              "imageUrl": "http://i.tivo.com/images-static/bravo/genre-backgrounds/showcaseBanner/CrimeDrama.jpg", 
+              "type": "image", 
+              "imageType": "showcaseBanner", 
+              "height": 270
+            }
+          ], 
+          "displayRank": 0, 
+          "type": "category", 
+          "label": "Crime Drama"
+        }, 
+        {
+          "displayRank": 1, 
+          "type": "category", 
+          "label": "TV Show"
+        }
+      ], 
+      "collectionType": "series", 
+      "tvRating": "14", 
+      "seasonNumber": 1, 
+      "description": "Jane and Maura investigate a suspected hate crime; Maura sets up Jane with a yoga instructor.", 
+      "episodic": true, 
+      "collectionId": "tivo:cl.165674483", 
+      "contentId": "tivo:ct.167655425", 
+      "broadbandOfferGroupForContentId": [
+        {
+          "count": 1, 
+          "type": "offerGroup", 
+          "example": {
+            "contentId": "tivo:ct.ts.70597611", 
+            "partnerId": "tivo:pt.2990", 
+            "type": "offer"
+          }
+        }, 
+        {
+          "count": 1, 
+          "type": "offerGroup", 
+          "example": {
+            "contentId": "tivo:ct.ts.70597621", 
+            "partnerId": "tivo:pt.2990", 
+            "type": "offer"
+          }
+        }
+      ], 
+      "episodeNum": [
+        6
+      ], 
+      "originalAirYear": 2010, 
+      "credit": [
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Harmon", 
+          "first": "Angie"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Alexander", 
+          "first": "Sasha"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Bracco", 
+          "first": "Lorraine"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Young", 
+          "first": "Lee Thompson"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "McGill", 
+          "first": "Bruce"
+        }, 
+        {
+          "role": "actor", 
+          "type": "credit", 
+          "last": "Bridges", 
+          "first": "Jordan"
+        }, 
+        {
+          "role": "guestStar", 
+          "type": "credit", 
+          "last": "Strong", 
+          "first": "Brenda"
+        }, 
+        {
+          "role": "guestStar", 
+          "type": "credit", 
+          "last": "Sabato Jr.", 
+          "first": "Antonio"
+        }, 
+        {
+          "role": "executiveProducer", 
+          "type": "credit", 
+          "last": "Tamaro", 
+          "first": "Janet"
+        }, 
+        {
+          "role": "executiveProducer", 
+          "type": "credit", 
+          "last": "Haber", 
+          "first": "Bill"
+        }, 
+        {
+          "role": "executiveProducer", 
+          "type": "credit", 
+          "last": "Fields", 
+          "first": "Joel"
+        }
+      ], 
+      "title": "Rizzoli & Isles", 
+      "subtitle": "I Kissed a Girl", 
+      "type": "content", 
+      "image": [
+        {
+          "width": 139, 
+          "imageUrl": "http://i.tivo.com/images-production/bravo/banner-med/c2/bd/c2bde8ab91686be7eb30b31391d0c052.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 104
+        }, 
+        {
+          "width": 200, 
+          "imageUrl": "http://i.tivo.com/images-production/bravo/banner-lg/c2/bd/c2bde8ab91686be7eb30b31391d0c052.jpg", 
+          "type": "image", 
+          "imageType": "showcaseBanner", 
+          "height": 150
+        }
+      ]
+    }
+  ], 
+  "type": "contentList"
+}
