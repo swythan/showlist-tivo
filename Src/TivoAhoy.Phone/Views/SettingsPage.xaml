@@ -71,7 +71,7 @@
             </Grid.RowDefinitions>
             <TextBlock
                 HorizontalAlignment="Left"
-                Text="TiVo IP Address"
+                Text="IP Address"
                 Style="{StaticResource PhoneTextNormalStyle}" />
             <TextBox
                 HorizontalAlignment="Stretch"
@@ -81,7 +81,7 @@
                 InputScope="Digits"/>
             <TextBlock
                 HorizontalAlignment="Left"
-                Text="TiVo MAK"
+                Text="Media Access Key"
                 Style="{StaticResource PhoneTextNormalStyle}"
                 Grid.Row="2"/>
             <TextBox
@@ -90,6 +90,29 @@
                 VerticalAlignment="Top"
                 Grid.Row="3"
                 InputScope="Digits" />
+            <TextBlock
+                Grid.Row="4"
+                TextWrapping="Wrap"
+                Style="{StaticResource PhoneTextSmallStyle}">
+                <Run>
+                To enable this app to work you must first connect your TiVo DVR to your home network.    </Run>
+                <LineBreak />
+                <Run>You must then enable "Network Remote Control" by going to:
+                </Run>
+                <LineBreak />
+                <Run>Help &amp; Settings > Settings > Network Remote Control</Run>
+                <LineBreak/>
+                <LineBreak />
+                <Run>Your IP Address can be found by going to:
+                </Run>
+                <LineBreak />
+                <Run>Help &amp; Settings > Settings > Network</Run>
+                <LineBreak />
+                <LineBreak />
+                <Run>Your Media Access Key is a 10 digit number that can be found by going to:                </Run>
+                <LineBreak />
+                <Run>Help &amp; Settings > System Info > Media Access Key</Run>
+            </TextBlock>
             <Button
                 Content="Test Connection"
                 Grid.Row="5"

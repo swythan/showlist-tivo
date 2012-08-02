@@ -5,12 +5,16 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:converters="clr-namespace:TivoAhoy.Phone.Converters"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     d:DesignHeight="480" d:DesignWidth="480">
     <UserControl.Resources>
+        <converters:BooleanToVisibilityConverter
+            x:Key="boolToVisConverter" />
+
         <Style
             x:Key="CustomExpanderViewStyle"
             TargetType="toolkit:ExpanderView">
@@ -292,7 +296,7 @@
     <Grid x:Name="LayoutRoot" Margin="12,0,12,0">
         <ListBox
             x:Name="MyShows"
-            Margin="12,0,0,0">
+            Margin="0,0,0,0">
             <ListBox.ItemContainerStyle>
                 <Style
                     TargetType="ListBoxItem">
@@ -328,9 +332,7 @@
                                     Background="Black">
                                     <TextBlock
                                         Text="{Binding Title}"
-                                        Foreground="{StaticResource PhoneForegroundBrush}"
-                                        FontSize="{StaticResource PhoneFontSizeExtraLarge}"
-                                        FontFamily="{StaticResource PhoneFontFamilySemiLight}" />
+                                        Style="{StaticResource PhoneTextLargeStyle}" />
                                 </Border>
                             </DataTemplate>
                         </toolkit:ExpanderView.HeaderTemplate>
@@ -343,23 +345,11 @@
                         <toolkit:ExpanderView.ExpanderTemplate>
                             <DataTemplate>
                                 <TextBlock
+                                    Text="{Binding ContentInfo}"
                                     LineHeight="25"
                                     LineStackingStrategy="BlockLineHeight"
-                                    TextWrapping="Wrap">
-                                    <Run
-                                        Text="{Binding ContentInfo}"
-                                        Foreground="{StaticResource PhoneSubtleBrush}"
-                                        FontSize="{StaticResource PhoneFontSizeNormal}"
-                                        FontFamily="{StaticResource PhoneFontFamilySemiBold}" />
-                                    <!--
-                                    <LineBreak />
-                                    <Run
-                                        Text="{Binding Id}"
-                                        Foreground="{StaticResource PhoneSubtleBrush}"
-                                        FontSize="{StaticResource PhoneFontSizeNormal}"
-                                        FontFamily="{StaticResource PhoneFontFamilyNormal}" />
-                                    -->
-                                </TextBlock>
+                                    TextWrapping="Wrap"
+                                    Style="{StaticResource PhoneTextAccentStyle}" />
                             </DataTemplate>
                         </toolkit:ExpanderView.ExpanderTemplate>
 
@@ -376,17 +366,7 @@
                                     <StackPanel>
                                         <TextBlock
                                             Text="{Binding Title}"
-                                            Margin="0,8,0,-4"
-                                            Foreground="{StaticResource PhoneForegroundBrush}"
-                                            FontSize="{StaticResource PhoneFontSizeExtraLarge}"
-                                            FontFamily="{StaticResource PhoneFontFamilySemiLight}" />
-                                        <!--<TextBlock
-                                            Text="{Binding Body}"
-                                            TextWrapping="Wrap"
-                                            Margin="0,0,0,-2"
-                                            Foreground="{StaticResource PhoneAccentBrush}"
-                                            FontSize="{StaticResource PhoneFontSizeNormal}"
-                                            FontFamily="{StaticResource PhoneFontFamilyNormal}" />-->
+                                            Style="{StaticResource PhoneTextLargeStyle}" />
                                     </StackPanel>
                                 </ListBoxItem>
                             </DataTemplate>
@@ -403,10 +383,7 @@
                                     cal:Message.Attach="[Event Tap] = [Action DisplayShowDetails]">
                                     <TextBlock
                                         Text="{Binding Title}"
-                                        Margin="0,8,0,-4"
-                                        Foreground="{StaticResource PhoneForegroundBrush}"
-                                        FontSize="{StaticResource PhoneFontSizeExtraLarge}"
-                                        FontFamily="{StaticResource PhoneFontFamilySemiLight}" />
+                                        Style="{StaticResource PhoneTextLargeStyle}" />
                                     <!--<TextBlock
                                         Text="{Binding LastMessageReceived.Subject}"
                                         TextWrapping="Wrap"
@@ -429,5 +406,12 @@
             </ListBox.ItemTemplate>
 
         </ListBox>
+        <TextBlock
+            Visibility="{Binding ShowSettingsPrompt, Converter={StaticResource boolToVisConverter}}"
+            Style="{StaticResource PhoneTextSubtleStyle}"
+            TextWrapping="Wrap"
+            VerticalAlignment="Center">
+            Valid connection details for your TiVo® DVR have not been entered. Please use the Settings option below to enter them.
+        </TextBlock>
     </Grid>
 </UserControl>

@@ -35,6 +35,13 @@ namespace TivoAhoy.Phone.ViewModels
             this.MyShows = new BindableCollection<IRecordingFolderItemViewModel>();
         }
 
+        protected override void OnActivate()
+        {
+            base.OnActivate();
+            NotifyOfPropertyChange(() => this.CanRefreshShows);
+            NotifyOfPropertyChange(() => this.ShowSettingsPrompt);
+        }
+
         private void OnOperationStarted()
         {
             this.eventAggregator.Publish(new TivoOperationStarted());
@@ -51,13 +58,15 @@ namespace TivoAhoy.Phone.ViewModels
         {
             get
             {
-                if (string.IsNullOrWhiteSpace(this.settingsModel.TivoIPAddress))
-                    return false;
+                return this.settingsModel.SettingsAppearValid;
+            }
+        }
 
-                if (string.IsNullOrWhiteSpace(this.settingsModel.MediaAccessKey))
-                    return false;
-
-                return true;
+        public bool ShowSettingsPrompt
+        {
+            get
+            {
+                return !this.settingsModel.SettingsAppearValid;
             }
         }
 

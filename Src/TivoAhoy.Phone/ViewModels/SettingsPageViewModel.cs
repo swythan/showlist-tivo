@@ -41,6 +41,7 @@ namespace TivoAhoy.Phone.ViewModels
                 this.tivoIPAddress = value;
                 NotifyOfPropertyChange(() => this.TivoIPAddress);
                 NotifyOfPropertyChange(() => this.CanTestConnection);
+                NotifyOfPropertyChange(() => this.SettingsAppearValid);
             }
         }
 
@@ -55,6 +56,7 @@ namespace TivoAhoy.Phone.ViewModels
                 this.mediaAccessKey = value;
                 NotifyOfPropertyChange(() => this.MediaAccessKey);
                 NotifyOfPropertyChange(() => this.CanTestConnection);
+                NotifyOfPropertyChange(() => this.SettingsAppearValid);
             }
         }
 
@@ -95,19 +97,27 @@ namespace TivoAhoy.Phone.ViewModels
         {
             get
             {
+                return this.SettingsAppearValid && !this.IsTestInProgress;
+            }
+        }
+
+        public bool SettingsAppearValid
+        {
+            get
+            {
                 if (this.MediaAccessKey == null ||
                     this.MediaAccessKey.Length != 10)
                     return false;
-                
+
                 long makAsLong;
                 if (!long.TryParse(this.MediaAccessKey, out makAsLong))
                     return false;
-                
+
                 IPAddress ipAddress;
                 if (!IPAddress.TryParse(this.TivoIPAddress, out ipAddress))
                     return false;
 
-                return !this.IsTestInProgress;
+                return true;
             }
         }
 
