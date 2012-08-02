@@ -5,11 +5,13 @@ using System.Windows;
 using Caliburn.Micro;
 using Tivo.Connect;
 using Tivo.Connect.Entities;
+using TivoAhoy.Phone.Events;
 
 namespace TivoAhoy.Phone.ViewModels
 {
     public class MyShowsViewModel : Screen
     {
+        private readonly IEventAggregator eventAggregator;
         private readonly ISterlingInstance sterlingInstance;
         private readonly SettingsPageViewModel settingsModel;
 
@@ -17,6 +19,7 @@ namespace TivoAhoy.Phone.ViewModels
         private readonly Func<ShowContainerViewModel> showContainerViewModelFactory;
 
         public MyShowsViewModel(
+            IEventAggregator eventAggregator,
             ISterlingInstance sterlingInstance, 
             SettingsPageViewModel settingsModel, 
             Func<IndividualShowViewModel> showViewModelFactory,
@@ -24,11 +27,22 @@ namespace TivoAhoy.Phone.ViewModels
         {
             this.sterlingInstance = sterlingInstance;
             this.settingsModel = settingsModel;
+            this.eventAggregator = eventAggregator;
 
             this.showViewModelFactory = showViewModelFactory;
             this.showContainerViewModelFactory = showContainerViewModelFactory;
 
             this.MyShows = new BindableCollection<IRecordingFolderItemViewModel>();
+        }
+
+        private void OnOperationStarted()
+        {
+            this.eventAggregator.Publish(new TivoOperationStarted());
+        }
+
+        private void OnOperationFinished()
+        {
+            this.eventAggregator.Publish(new TivoOperationFinished());            
         }
 
         public BindableCollection<IRecordingFolderItemViewModel> MyShows { get; private set; }
@@ -60,16 +74,20 @@ namespace TivoAhoy.Phone.ViewModels
 
             var ipAddress = IPAddress.Parse(this.settingsModel.TivoIPAddress);
 
+            OnOperationStarted();
+
             connection.Connect(ipAddress, this.settingsModel.MediaAccessKey)
                 .SelectMany(_ => connection.GetMyShowsList(parent))
-                .ObserveOnDispatcher()
-                .Subscribe(show => this.MyShows.Add(CreateItemViewModel(show)),
-                    ex =>
+                .Finally(
+                    () => 
                     {
-                        MessageBox.Show(string.Format("Connection Failed :\n{0}", ex.Message));
                         connection.Dispose();
-                    },
-                    () => connection.Dispose());
+                        OnOperationFinished();
+                    }) 
+                .ObserveOnDispatcher()
+                .Subscribe(
+                    show => this.MyShows.Add(CreateItemViewModel(show)),
+                    ex => MessageBox.Show(string.Format("Connection Failed :\n{0}", ex.Message)));
         }
 
         private IRecordingFolderItemViewModel CreateItemViewModel(RecordingFolderItem recordingFolderItem)

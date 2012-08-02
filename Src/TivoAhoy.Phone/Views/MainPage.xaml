@@ -24,7 +24,12 @@
     <Grid
         x:Name="LayoutRoot"
         Background="Transparent">
-
+        
+        <toolkit:PerformanceProgressBar
+            x:Name="IsOperationInProgress"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Stretch" />
+        
         <!--Panorama control-->
         <controls:Pivot
             Title="TIVO AHOY!"

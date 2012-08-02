@@ -97,6 +97,8 @@
     </Compile>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Events\TivoOperationFinished.cs" />
+    <Compile Include="Events\TivoOperationStarted.cs" />
     <Compile Include="ISterlingInstance.cs" />
     <Compile Include="SterlingService.cs" />
     <Compile Include="ViewModels\MyShowsViewModel.cs" />

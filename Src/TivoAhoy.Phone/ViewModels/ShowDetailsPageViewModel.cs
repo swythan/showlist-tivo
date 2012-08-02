@@ -1,27 +1,50 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Diagnostics;
 using System.Reactive.Linq;
 using System.Windows;
 using Caliburn.Micro;
 using Tivo.Connect;
 using Tivo.Connect.Entities;
-using System.Diagnostics;
+using TivoAhoy.Phone.Events;
 
 namespace TivoAhoy.Phone.ViewModels
 {
     public class ShowDetailsPageViewModel : Screen
     {
+        private readonly IEventAggregator eventAggregator;
         private readonly ISterlingInstance sterlingInstance;
         private readonly SettingsPageViewModel settingsModel;
 
         private ShowDetails showDetails;
+        private bool isOperationInProgress;
 
         public ShowDetailsPageViewModel(
+            IEventAggregator eventAggregator,
             ISterlingInstance sterlingInstance, 
             SettingsPageViewModel settingsModel)
         {
+            this.eventAggregator = eventAggregator;
             this.sterlingInstance = sterlingInstance;
             this.settingsModel = settingsModel;
+        }
+        
+        public bool IsOperationInProgress
+        {
+            get { return this.isOperationInProgress; }
+        }
+
+        private void OnOperationStarted()
+        {
+            this.isOperationInProgress = true;
+            NotifyOfPropertyChange(() => this.IsOperationInProgress);
+            NotifyOfPropertyChange(() => this.CanPlayShow);
+        }
+
+        private void OnOperationFinished()
+        {
+            this.isOperationInProgress = false;
+            NotifyOfPropertyChange(() => this.IsOperationInProgress);
+            NotifyOfPropertyChange(() => this.CanPlayShow);
         }
 
         public string ShowContentID { get; set; }
@@ -83,40 +106,45 @@ namespace TivoAhoy.Phone.ViewModels
         {
             var connection = new TivoConnection(sterlingInstance.Database);
 
+            OnOperationStarted();
             connection.Connect(this.settingsModel.ParsedIPAddress, this.settingsModel.MediaAccessKey)
                 .SelectMany(_ => connection.GetShowContentDetails(this.ShowContentID))
-                .ObserveOnDispatcher()
-                .Subscribe(show => this.Show = show,
-                    ex =>
+                .Finally(
+                    () => 
                     {
-                        MessageBox.Show(string.Format("Connection Failed :\n{0}", ex.Message));
                         connection.Dispose();
-                    },
-                    () => connection.Dispose());
+                        OnOperationFinished();
+                    })
+                .ObserveOnDispatcher()
+                .Subscribe(
+                    show => this.Show = show,
+                    ex => MessageBox.Show(string.Format("Failed to retrieve details:\n{0}", ex.Message)));
         }
 
         public void PlayShow()
         {
             var connection = new TivoConnection(sterlingInstance.Database);
 
+            OnOperationStarted();
             connection.Connect(this.settingsModel.ParsedIPAddress, this.settingsModel.MediaAccessKey)
                 .SelectMany(_ => connection.PlayShow(this.ShowRecordingID))
-                .ObserveOnDispatcher()
-                .Subscribe(show => MessageBox.Show("Play command sent"),
-                    ex =>
+                .Finally(
+                    () =>
                     {
-                        MessageBox.Show(string.Format("Connection Failed :\n{0}", ex.Message));
                         connection.Dispose();
-                    },
-                    () => connection.Dispose());
-
+                        OnOperationFinished();
+                    })
+                .ObserveOnDispatcher()
+                .Subscribe(
+                    show => { },
+                    ex => MessageBox.Show(string.Format("Play command failed:\n{0}", ex.Message)));
         }
 
         public bool CanPlayShow
         {
             get
             {
-                return this.ShowRecordingID != null;
+                return this.ShowRecordingID != null && !this.IsOperationInProgress;
             }
         }
 

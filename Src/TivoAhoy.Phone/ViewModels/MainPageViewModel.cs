@@ -1,21 +1,26 @@
-﻿using System.Collections.ObjectModel;
-using Caliburn.Micro;
-using System;
-using Tivo.Connect;
-using System.Windows;
-using System.Collections.Generic;
-using Tivo.Connect.Entities;
-using TivoAhoy.Phone.ViewModels;
-
-namespace TivoAhoy.Phone.ViewModels
+﻿namespace TivoAhoy.Phone.ViewModels
 {
-    public class MainPageViewModel : Conductor<IScreen>.Collection.OneActive
+    using System.Threading;
+    using Caliburn.Micro;
+    using TivoAhoy.Phone.Events;  
+
+    public class MainPageViewModel : 
+        Conductor<IScreen>.Collection.OneActive,
+        IHandle<TivoOperationStarted>,
+        IHandle<TivoOperationFinished>
     {
         private readonly INavigationService navigationService;
+        
+        private int operationsInProgress = 0;
 
-        public MainPageViewModel(INavigationService navigationService, MyShowsViewModel myShowsViewModel)
+        public MainPageViewModel(
+            IEventAggregator eventAggregator,
+            INavigationService navigationService, 
+            MyShowsViewModel myShowsViewModel)
         {
             this.navigationService = navigationService;
+
+            eventAggregator.Subscribe(this);
 
             myShowsViewModel.DisplayName = "my shows";
             this.Items.Add(myShowsViewModel);
@@ -65,5 +70,24 @@ namespace TivoAhoy.Phone.ViewModels
             }
         }
 
+        public bool IsOperationInProgress
+        {
+            get
+            {
+                return this.operationsInProgress > 0;
+            }
+        }
+
+        public void Handle(TivoOperationStarted message)
+        {
+            Interlocked.Increment(ref this.operationsInProgress);
+            NotifyOfPropertyChange(() => this.IsOperationInProgress);
+        }
+
+        public void Handle(TivoOperationFinished message)
+        {
+            Interlocked.Decrement(ref this.operationsInProgress);
+            NotifyOfPropertyChange(() => this.IsOperationInProgress);
+        }
     }
 }

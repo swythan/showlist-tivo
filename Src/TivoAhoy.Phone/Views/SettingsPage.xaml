@@ -29,6 +29,11 @@
                 Height="*" />
         </Grid.RowDefinitions>
 
+        <toolkit:PerformanceProgressBar
+            x:Name="IsTestInProgress"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Stretch" />
+
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel
             x:Name="TitlePanel"
@@ -63,8 +68,6 @@
                     Height="330*" />
                 <RowDefinition
                     Height="Auto" />
-                <RowDefinition
-                    Height="Auto" />
             </Grid.RowDefinitions>
             <TextBlock
                 HorizontalAlignment="Left"
@@ -87,12 +90,9 @@
                 VerticalAlignment="Top"
                 Grid.Row="3"
                 InputScope="Digits" />
-            <toolkit:PerformanceProgressBar
-                x:Name="IsTestInProgress"
-                Grid.Row="5" />
             <Button
                 Content="Test Connection"
-                Grid.Row="6"
+                Grid.Row="5"
                 HorizontalAlignment="Stretch"
                 x:Name="TestConnection"
                 VerticalAlignment="Top" />

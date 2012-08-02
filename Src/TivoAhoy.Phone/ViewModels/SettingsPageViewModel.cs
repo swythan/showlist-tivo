@@ -4,6 +4,7 @@ using System.Reactive.Linq;
 using System.Windows;
 using Caliburn.Micro;
 using Tivo.Connect;
+using TivoAhoy.Phone.Events;
 
 namespace TivoAhoy.Phone.ViewModels
 {
@@ -60,15 +61,20 @@ namespace TivoAhoy.Phone.ViewModels
         public bool IsTestInProgress
         {
             get { return this.isTestInProgress; }
-            set
-            {
-                if (this.isTestInProgress == value)
-                    return;
+        }
 
-                this.isTestInProgress = value;
-                NotifyOfPropertyChange(() => this.IsTestInProgress);
-                NotifyOfPropertyChange(() => this.CanTestConnection);
-            }
+        private void OnOperationStarted()
+        {
+            this.isTestInProgress = true;
+            NotifyOfPropertyChange(() => this.IsTestInProgress);
+            NotifyOfPropertyChange(() => this.CanTestConnection);
+        }
+
+        private void OnOperationFinished()
+        {
+            this.isTestInProgress = false;
+            NotifyOfPropertyChange(() => this.IsTestInProgress);
+            NotifyOfPropertyChange(() => this.CanTestConnection);
         }
 
         public IPAddress ParsedIPAddress
@@ -89,7 +95,6 @@ namespace TivoAhoy.Phone.ViewModels
         {
             get
             {
-
                 if (this.MediaAccessKey == null ||
                     this.MediaAccessKey.Length != 10)
                     return false;
@@ -117,14 +122,13 @@ namespace TivoAhoy.Phone.ViewModels
                 return;
             }
 
-            this.IsTestInProgress = true;
-
+            OnOperationStarted();
             connection.Connect(ipAddress, this.MediaAccessKey)
                 .Finally(
                     () => 
                     {
                         connection.Dispose();
-                        this.IsTestInProgress = false;
+                        OnOperationFinished();
                     }) 
                 .ObserveOnDispatcher()
                 .Subscribe(

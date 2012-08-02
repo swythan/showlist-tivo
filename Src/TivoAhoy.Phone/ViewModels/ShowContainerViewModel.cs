@@ -4,24 +4,29 @@ using System.Windows;
 using Caliburn.Micro;
 using Tivo.Connect;
 using Tivo.Connect.Entities;
+using TivoAhoy.Phone.Events;
 
 namespace TivoAhoy.Phone.ViewModels
 {
     public class ShowContainerViewModel : RecordingFolderItemViewModel<Container>
     {
+        private readonly IEventAggregator eventAggregator;
         private readonly ISterlingInstance sterlingInstance;
         private readonly SettingsPageViewModel settingsModel;
 
         private readonly Func<IndividualShowViewModel> showViewModelFactory;
         private readonly Func<ShowContainerViewModel> showContainerViewModelFactory;
 
+        private BindableCollection<IRecordingFolderItemViewModel> shows;
 
         public ShowContainerViewModel(
+            IEventAggregator eventAggregator,
             ISterlingInstance sterlingInstance,
             SettingsPageViewModel settingsModel,
             Func<IndividualShowViewModel> showViewModelFactory,
             Func<ShowContainerViewModel> showContainerViewModelFactory)
         {
+            this.eventAggregator = eventAggregator;
             this.sterlingInstance = sterlingInstance;
             this.settingsModel = settingsModel;
 
@@ -31,12 +36,21 @@ namespace TivoAhoy.Phone.ViewModels
             this.shows = new BindableCollection<IRecordingFolderItemViewModel>();
         }
 
+        private void OnOperationStarted()
+        {
+            this.eventAggregator.Publish(new TivoOperationStarted());
+        }
+
+        private void OnOperationFinished()
+        {
+            this.eventAggregator.Publish(new TivoOperationFinished());
+        }
+
         public override bool IsSingleShow
         {
             get { return false; }
         }
 
-        private BindableCollection<IRecordingFolderItemViewModel> shows;
         public BindableCollection<IRecordingFolderItemViewModel> Shows
         {
             get { return shows; }
@@ -49,8 +63,7 @@ namespace TivoAhoy.Phone.ViewModels
                 NotifyOfPropertyChange(() => this.Shows);
             }
         }
-
-                
+                        
         public string ContentInfo
         {
             get
@@ -72,8 +85,16 @@ namespace TivoAhoy.Phone.ViewModels
 
             var connection = new TivoConnection(sterlingInstance.Database);
 
+            OnOperationStarted();
+
             connection.Connect(this.settingsModel.ParsedIPAddress, this.settingsModel.MediaAccessKey)
                 .SelectMany(_ => connection.GetMyShowsList(this.Source))
+                .Finally(
+                    () =>
+                    {
+                        connection.Dispose();
+                        OnOperationFinished();
+                    })
                 .ObserveOnDispatcher()
                 .Subscribe(
                     show =>
@@ -81,12 +102,7 @@ namespace TivoAhoy.Phone.ViewModels
                         this.Shows.Add(CreateItemViewModel(show));
                         NotifyOfPropertyChange(() => this.ContentInfo);
                     },
-                    ex =>
-                    {
-                        MessageBox.Show(string.Format("Connection Failed :\n{0}", ex.Message));
-                        connection.Dispose();
-                    },
-                    () => connection.Dispose());
+                    ex => MessageBox.Show(string.Format("Connection Failed :\n{0}", ex.Message)));
         }
 
         private IRecordingFolderItemViewModel CreateItemViewModel(RecordingFolderItem recordingFolderItem)
