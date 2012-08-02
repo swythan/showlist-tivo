@@ -1,5 +1,6 @@
 ﻿namespace TivoAhoy.Phone.ViewModels
 {
+    using System;
     using System.Threading;
     using Caliburn.Micro;
     using TivoAhoy.Phone.Events;  
@@ -68,6 +69,11 @@
             {
                 myShows.RefreshShows();
             }
+        }
+
+        public void ShowAbout()
+        {
+            this.navigationService.Navigate(new Uri("/YourLastAboutDialog;component/AboutPage.xaml", UriKind.Relative));
         }
 
         public bool IsOperationInProgress

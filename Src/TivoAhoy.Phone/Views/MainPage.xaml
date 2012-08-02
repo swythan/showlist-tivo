@@ -54,7 +54,10 @@
             <shell:ApplicationBar.MenuItems>
                 <cal:AppBarMenuItem
                     Message="ShowSettings"
-                    Text="Settings" />
+                    Text="settings" />
+                <cal:AppBarMenuItem
+                    Text="about"
+                    Message="ShowAbout" />
             </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>

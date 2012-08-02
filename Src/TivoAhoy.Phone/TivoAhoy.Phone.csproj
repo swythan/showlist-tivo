@@ -90,6 +90,9 @@
     <Reference Include="Wintellect.Sterling.WindowsPhone.IsolatedStorage">
       <HintPath>..\packages\SterlingPhone.1.5.0.1\lib\SL3-WP\Wintellect.Sterling.WindowsPhone.IsolatedStorage.dll</HintPath>
     </Reference>
+    <Reference Include="YourLastAboutDialog">
+      <HintPath>..\packages\YLAD.2.0.0\lib\sl40-wp71\YourLastAboutDialog.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -129,6 +132,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Content Include="Content\About\AboutStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Content>
     <Page Include="Views\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -154,6 +161,7 @@
     <None Include="Properties\WMAppManifest.xml" />
     <Resource Include="Application_IconImage_62x62.png" />
     <Resource Include="Application_TileImage_173x173.png" />
+    <Content Include="Content\About\Data.xml" />
     <Content Include="tivo.p12" />
   </ItemGroup>
   <ItemGroup>
