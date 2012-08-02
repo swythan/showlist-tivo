@@ -329,7 +329,7 @@
                         <toolkit:ExpanderView.HeaderTemplate>
                             <DataTemplate>
                                 <Border
-                                    Background="Black">
+                                    Background="{StaticResource PhoneBackgroundBrush}">
                                     <TextBlock
                                         Text="{Binding Title}"
                                         Style="{StaticResource PhoneTextLargeStyle}" />
@@ -367,6 +367,9 @@
                                         <TextBlock
                                             Text="{Binding Title}"
                                             Style="{StaticResource PhoneTextLargeStyle}" />
+                                        <TextBlock
+                                            Text="{Binding Source.StartTime, StringFormat=g, ConverterCulture={StaticResource DefaultCulture}}"
+                                            Style="{StaticResource PhoneTextSubtleStyle}" />
                                     </StackPanel>
                                 </ListBoxItem>
                             </DataTemplate>
@@ -384,6 +387,9 @@
                                     <TextBlock
                                         Text="{Binding Title}"
                                         Style="{StaticResource PhoneTextLargeStyle}" />
+                                    <TextBlock
+                                        Text="{Binding Source.StartTime, StringFormat=g, ConverterCulture={StaticResource DefaultCulture}}"
+                                        Style="{StaticResource PhoneTextSubtleStyle}" />
                                     <!--<TextBlock
                                         Text="{Binding LastMessageReceived.Subject}"
                                         TextWrapping="Wrap"
