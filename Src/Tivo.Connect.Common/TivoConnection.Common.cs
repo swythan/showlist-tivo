@@ -88,7 +88,17 @@ namespace Tivo.Connect
                     {
                         if (((string)authResponse["type"]) != "bodyAuthenticateResponse")
                         {
-                            throw new FormatException("Expecting bodyAuthenticateResponse");
+                            if (((string)authResponse["type"]) == "error")
+                            {
+                                throw new Exception(
+                                    string.Format("Authentication failed with error.\n Error code: {0}\nError text:{1}",
+                                        authResponse["code"],
+                                        authResponse["text"]));
+                            }
+                            else
+                            {
+                                throw new FormatException("Expecting bodyAuthenticateResponse");
+                            }
                         }
 
                         if (((string)authResponse["status"]) != "success")
@@ -219,18 +229,22 @@ namespace Tivo.Connect
 
         private IObservable<IDictionary<string, object>> SendRequest(string requestType, object body)
         {
-            var requestRpcId = Interlocked.Increment(ref this.lastRpcId);
+            int requestRpcId = Interlocked.Increment(ref this.lastRpcId);
+
+            int schemaVersion = 7;
+            int appMajorVersion = 1;
+            int appMinorVersion = 2;
 
             var header = new StringBuilder();
             header.AppendLine("Type:request");
             header.AppendLine(string.Format("RpcId:{0}", requestRpcId));
-            header.AppendLine("SchemaVersion:7");
+            header.AppendLine(string.Format("SchemaVersion:{0}", schemaVersion));
             header.AppendLine("Content-Type:application/json");
             header.AppendLine("RequestType:" + requestType);
             header.AppendLine("ResponseCount:single");
             header.AppendLine(string.Format("BodyId:{0}", this.capturedTsn));
             header.AppendLine("X-ApplicationName:Quicksilver");
-            header.AppendLine("X-ApplicationVersion:1.2");
+            header.AppendLine(string.Format("X-ApplicationVersion:{0}.{1}", appMajorVersion, appMinorVersion));
             header.AppendLine(string.Format("X-ApplicationSessionId:0x{0:x}", this.sessionId));
             header.AppendLine();
 
@@ -308,7 +322,7 @@ namespace Tivo.Connect
                     {
                         { "type", "makCredential" },
                         { "key" , mediaAccessKey }
-                    }
+                    }                
                 }
             };
 
