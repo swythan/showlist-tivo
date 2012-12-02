@@ -37,9 +37,12 @@ namespace Tivo.Connect
             public TlsCredentials GetClientCredentials(CertificateRequest certificateRequest)
             {
                 // Load PKCS12 certificate store from resources
-                var keyStreamInfo = System.Windows.Application.GetResourceStream(new Uri("tivo.p12", UriKind.Relative));
-                var keyStore = new Pkcs12Store(keyStreamInfo.Stream, "mpE7Qy8cSqdf".ToCharArray());
-                    
+                //var keyStreamInfo = System.Windows.Application.GetResourceStream(new Uri("tivo.p12", UriKind.Relative));
+                //var keyStore = new Pkcs12Store(keyStreamInfo.Stream, "mpE7Qy8cSqdf".ToCharArray());
+
+                var keyStreamInfo = System.Windows.Application.GetResourceStream(new Uri("tivo_vm.p12", UriKind.Relative));
+                var keyStore = new Pkcs12Store(keyStreamInfo.Stream, "R2N48DSKr2Cm".ToCharArray());
+
                 // Convert keys into structures needed for Certificate constructor
                 var aliases = keyStore.Aliases.OfType<string>();
 

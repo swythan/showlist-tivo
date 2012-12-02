@@ -159,10 +159,11 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\WMAppManifest.xml" />
+    <Content Include="tivo_vm.p12" />
     <Resource Include="Application_IconImage_62x62.png" />
     <Resource Include="Application_TileImage_173x173.png" />
     <Content Include="Content\About\Data.xml" />
-    <Content Include="tivo.p12" />
+    <Content Include="tivo_us.p12" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\appbar.folder.rest.png" />

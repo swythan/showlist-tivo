@@ -37,7 +37,7 @@ namespace Tivo.Connect
 
 
             // Create a TCP/IP connection to the TiVo.
-            this.client = new TcpClient(new IPEndPoint(serverAddress, 1413));
+            this.client = new TcpClient(serverAddress.ToString(), 1413);
 
             Debug.WriteLine("Client connected.");
 
@@ -47,7 +47,14 @@ namespace Tivo.Connect
             // The server name must match the name on the server certificate.
             try
             {
-                stream.AuthenticateAsClient(serverAddress.ToString());
+                //                var clientCert = new X509Certificate(@"C:\source\SwythanTivoProject\Dev\Src\TivoAhoy.Phone\tivo_us.p12", "mpE7Qy8cSqdf");
+                var clientCert = new X509Certificate(@"C:\source\SwythanTivoProject\Dev\Src\TivoAhoy.Phone\tivo_vm.p12", "R2N48DSKr2Cm");
+                var clientCertCollection = new X509CertificateCollection()
+                {
+                    clientCert
+                };
+
+                stream.AuthenticateAsClient(serverAddress.ToString(), clientCertCollection, SslProtocols.Default, false);
             }
             catch (AuthenticationException e)
             {
