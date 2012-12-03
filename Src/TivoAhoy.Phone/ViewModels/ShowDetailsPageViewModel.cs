@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Linq;
 using System.Reactive.Linq;
 using System.Windows;
 using Caliburn.Micro;
@@ -71,6 +72,33 @@ namespace TivoAhoy.Phone.ViewModels
             }
         }
 
+        public Uri MainImage
+        {
+            get
+            {
+                if (this.Show == null ||
+                    this.Show.Images == null)
+                {
+                    return null;
+                }
+
+                var widthCutoff = 400;
+
+                var imagesWithWidth = this.Show.Images.Where(x => x.Width != null);
+                var largeImages = imagesWithWidth.Where(x => x.Width >= widthCutoff).OrderBy(x => x.Width);
+                var smallImages = imagesWithWidth.Where(x => x.Width < widthCutoff).OrderByDescending(x => x.Width);
+
+                var bestImage = largeImages.Concat(smallImages).Concat(this.Show.Images.Except(imagesWithWidth)).FirstOrDefault();
+
+                if (bestImage == null)
+                {
+                    return null;
+                }
+
+                return bestImage.ImageUrl;
+            }
+        }
+
         public ShowDetails Show 
         {
             get { return this.showDetails; }
@@ -78,17 +106,18 @@ namespace TivoAhoy.Phone.ViewModels
             {
                 this.showDetails = value;
 
-                ////var json = value.JsonText;
-                ////Debug.WriteLine("Show details fetched:");
+                var json = value.JsonText;
+                Debug.WriteLine("Show details fetched:");
 
-                ////foreach (var line in json.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.None))
-                ////{
-                ////    Debug.WriteLine(line);
-                ////}
+                foreach (var line in json.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.None))
+                {
+                    Debug.WriteLine(line);
+                }
 
                 Debug.WriteLine(string.Empty);
 
                 NotifyOfPropertyChange(() => this.Show);
+                NotifyOfPropertyChange(() => this.MainImage);
                 NotifyOfPropertyChange(() => this.HasEpisodeNumbers);
                 NotifyOfPropertyChange(() => this.HasOriginalAirDate);
                 NotifyOfPropertyChange(() => this.CanPlayShow);

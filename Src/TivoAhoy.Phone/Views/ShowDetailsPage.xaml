@@ -51,18 +51,26 @@
                 <RowDefinition
                     Height="Auto" />
                 <RowDefinition
+                    Height="Auto" />
+                <RowDefinition
                     Height="12" />
                 <RowDefinition
                     Height="*" />
                 <RowDefinition
                     Height="Auto" />
             </Grid.RowDefinitions>
+            <Image
+                x:Name="MainImage"
+                Grid.Row="0"
+                Stretch="Uniform"
+                Margin="{StaticResource PhoneHorizontalMargin}"/>
             <TextBlock
                 x:Name="Show_Subtitle"
+                Grid.Row="1"
                 Style="{StaticResource PhoneTextTitle2Style}" />
             <StackPanel
                 Orientation="Horizontal"
-                Grid.Row="1"
+                Grid.Row="2"
                 Visibility="{Binding HasEpisodeNumbers, Converter={StaticResource boolToVisConverter}}">
                 <TextBlock
                     Text="Season: "
@@ -79,7 +87,7 @@
             </StackPanel>
             <StackPanel
                 Orientation="Horizontal"
-                Grid.Row="2"
+                Grid.Row="3"
                 Visibility="{Binding HasOriginalAirDate, Converter={StaticResource boolToVisConverter}}">
                 <TextBlock
                     Text="First aired: "
@@ -91,12 +99,12 @@
             <TextBlock
                 x:Name="Show_Description"
                 TextWrapping="Wrap"
-                Grid.Row="4"
+                Grid.Row="5"
                 Style="{StaticResource PhoneTextNormalStyle}" />
             <Button
                 x:Name="PlayShow"
                 Content="Play" 
-                Grid.Row="5"/>
+                Grid.Row="6"/>
         </Grid>
     </Grid>
  

@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
-using JsonFx.Json;
-using System.Diagnostics;
+﻿using JsonFx.Json;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Globalization;
+using System.Linq;
 
 namespace Tivo.Connect.Entities
 {
@@ -33,6 +34,8 @@ namespace Tivo.Connect.Entities
         public int? EpisodeNumber { get; set; }
         public DateTime OriginalAirDate { get; set; }
         public string Description { get; set; }
+
+        public IEnumerable<ImageInfo> Images { get; set; }
 
         private void SetupFromJson(IDictionary<string, object> jsonSource)
         {
@@ -80,6 +83,15 @@ namespace Tivo.Connect.Entities
                     Debug.WriteLine(
                         "Failed to parse originalAirDate: {0}", 
                         this.jsonSource["originalAirdate"]);
+                }
+            }
+
+            if (this.jsonSource.ContainsKey("image"))
+            {
+                var images = jsonSource["image"] as IEnumerable<IDictionary<string, object>>;
+                if (images != null)
+                {
+                    this.Images = images.Select(x => new ImageInfo(x)).ToList();
                 }
             }
         }
