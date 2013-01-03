@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using System.Text;
 
-#if SILVERLIGHT
+#if SILVERLIGHT || PORTABLE
 using System.Collections.Generic;
 #else
 using System.Collections;
@@ -35,14 +35,14 @@ namespace Org.BouncyCastle.Utilities
 
         internal static int CompareIgnoreCase(string a, string b)
         {
-#if SILVERLIGHT
-            return String.Compare(a, b, StringComparison.InvariantCultureIgnoreCase);
+#if (SILVERLIGHT || PORTABLE)
+            return String.Compare(a, b, StringComparison.OrdinalIgnoreCase);
 #else
             return String.Compare(a, b, true);
 #endif
         }
 
-#if NETCF_1_0 || NETCF_2_0 || SILVERLIGHT
+#if NETCF_1_0 || NETCF_2_0 || SILVERLIGHT || PORTABLE
 		internal static string GetEnvironmentVariable(
 			string variable)
 		{
@@ -86,7 +86,7 @@ namespace Org.BouncyCastle.Utilities
 		}
 #endif
 
-#if SILVERLIGHT
+#if SILVERLIGHT || PORTABLE
         internal static System.Collections.IList CreateArrayList()
         {
             return new List<object>();

@@ -70,7 +70,7 @@ namespace Org.BouncyCastle.Asn1.X509
 			}
 		}
 
-#if !SILVERLIGHT
+#if !(SILVERLIGHT || PORTABLE)
         [Obsolete]
         public ExtendedKeyUsage(
             ArrayList usages)
@@ -100,7 +100,7 @@ namespace Org.BouncyCastle.Asn1.X509
             return usageTable[keyPurposeId] != null;
         }
 
-#if !SILVERLIGHT
+#if !(SILVERLIGHT || PORTABLE)
         [Obsolete("Use 'GetAllUsages'")]
         public ArrayList GetUsages()
         {

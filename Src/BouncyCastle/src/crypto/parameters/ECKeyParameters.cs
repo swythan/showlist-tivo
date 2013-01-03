@@ -101,7 +101,7 @@ namespace Org.BouncyCastle.Crypto.Parameters
 		private string VerifyAlgorithmName(
 			string algorithm)
 		{
-			string upper = algorithm.ToUpper(CultureInfo.InvariantCulture);
+			string upper = algorithm.ToUpperInvariant();
 
 			switch (upper)
 			{

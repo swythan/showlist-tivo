@@ -139,6 +139,7 @@ namespace Org.BouncyCastle.Bcpg.OpenPgp
 			return new WrappedGeneratorStream(this, pkOut);
 		}
 
+#if !PORTABLE
 		/// <summary>
 		/// <p>
 		/// Open a literal data packet for the passed in <c>FileInfo</c> object, returning
@@ -160,6 +161,7 @@ namespace Org.BouncyCastle.Bcpg.OpenPgp
         {
 			return Open(outStr, format, file.Name, file.Length, file.LastWriteTime);
         }
+#endif
 
 		/// <summary>
 		/// Close the literal data packet - this is equivalent to calling Close()

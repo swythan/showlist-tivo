@@ -97,7 +97,7 @@ namespace Org.BouncyCastle.Crypto.Tls
 			{
 				cOut.Write(message, offset, len);
 				cOut.Flush();
-				ciphertext = writeCipher.EncodePlaintext(type, buffer.GetBuffer(), 0, (int)buffer.Position);
+				ciphertext = writeCipher.EncodePlaintext(type, buffer.ToArray(), 0, (int)buffer.Position);
 				buffer.SetLength(0);
 			}
 
@@ -128,7 +128,7 @@ namespace Org.BouncyCastle.Crypto.Tls
 			IOException e = null;
 			try
 			{
-				inStr.Close();
+                inStr.Dispose();
 			}
 			catch (IOException ex)
 			{
@@ -138,7 +138,7 @@ namespace Org.BouncyCastle.Crypto.Tls
 			try
 			{
 				// NB: This is harmless if outStr == inStr
-				outStr.Close();
+                outStr.Dispose();
 			}
 			catch (IOException ex)
 			{

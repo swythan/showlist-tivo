@@ -47,7 +47,7 @@ namespace Org.BouncyCastle.Asn1.Nist
 		public static X9ECParameters GetByName(
 			string name)
 		{
-			DerObjectIdentifier oid = (DerObjectIdentifier) objIds[name.ToUpper(CultureInfo.InvariantCulture)];
+			DerObjectIdentifier oid = (DerObjectIdentifier) objIds[name.ToUpperInvariant()];
 
 			if (oid != null)
 			{
@@ -78,7 +78,7 @@ namespace Org.BouncyCastle.Asn1.Nist
 		public static DerObjectIdentifier GetOid(
 			string name)
 		{
-			return (DerObjectIdentifier) objIds[name.ToUpper(CultureInfo.InvariantCulture)];
+			return (DerObjectIdentifier) objIds[name.ToUpperInvariant()];
 		}
 
 		/**

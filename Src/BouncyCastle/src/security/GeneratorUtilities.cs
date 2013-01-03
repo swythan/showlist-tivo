@@ -232,14 +232,14 @@ namespace Org.BouncyCastle.Security
 		internal static string GetCanonicalKeyGeneratorAlgorithm(
 			string algorithm)
 		{
-			return (string) kgAlgorithms[algorithm.ToUpper(CultureInfo.InvariantCulture)];
+			return (string) kgAlgorithms[algorithm.ToUpperInvariant()];
 		}
 
 		// TODO Consider making this public
 		internal static string GetCanonicalKeyPairGeneratorAlgorithm(
 			string algorithm)
 		{
-			return (string) kpgAlgorithms[algorithm.ToUpper(CultureInfo.InvariantCulture)];
+			return (string) kpgAlgorithms[algorithm.ToUpperInvariant()];
 		}
 
 		public static CipherKeyGenerator GetKeyGenerator(

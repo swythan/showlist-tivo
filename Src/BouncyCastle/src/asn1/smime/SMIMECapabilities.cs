@@ -65,7 +65,7 @@ namespace Org.BouncyCastle.Asn1.Smime
             capabilities = seq;
         }
 
-#if !SILVERLIGHT
+#if !(SILVERLIGHT || PORTABLE)
         [Obsolete("Use 'GetCapabilitiesForOid' instead")]
         public ArrayList GetCapabilities(
             DerObjectIdentifier capability)

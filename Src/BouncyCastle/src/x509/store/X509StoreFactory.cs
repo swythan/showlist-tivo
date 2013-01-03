@@ -17,7 +17,7 @@ namespace Org.BouncyCastle.X509.Store
 			if (type == null)
 				throw new ArgumentNullException("type");
 
-			string[] parts = type.ToUpper(CultureInfo.InvariantCulture).Split('/');
+			string[] parts = type.ToUpperInvariant().Split('/');
 
 			if (parts.Length < 2)
 				throw new ArgumentException("type");

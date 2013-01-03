@@ -8,10 +8,10 @@ using Org.BouncyCastle.Utilities;
 
 namespace Org.BouncyCastle.Math
 {
-#if !(NETCF_1_0 || NETCF_2_0 || SILVERLIGHT)
+#if !(NETCF_1_0 || NETCF_2_0 || SILVERLIGHT || PORTABLE)
 	[Serializable]
 #endif
-	public class BigInteger
+    public class BigInteger
 	{
 		// The primes b/w 2 and ~2^10
 		/*

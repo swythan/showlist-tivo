@@ -95,7 +95,7 @@ namespace Org.BouncyCastle.Security
 			if (mechanism == null)
 				throw new System.ArgumentNullException("mechanism");
 
-			mechanism = mechanism.ToUpper(CultureInfo.InvariantCulture);
+			mechanism = mechanism.ToUpperInvariant();
 			string aliased = (string) algorithms[mechanism];
 
 			if (aliased != null)
@@ -118,7 +118,7 @@ namespace Org.BouncyCastle.Security
         public static IDigest GetDigest(
 			string algorithm)
         {
-			string upper = algorithm.ToUpper(CultureInfo.InvariantCulture);
+			string upper = algorithm.ToUpperInvariant();
             string mechanism = (string) algorithms[upper];
 
 			if (mechanism == null)
