@@ -73,6 +73,28 @@ namespace TivoTest
 
         }
 
+        public void ConnectAwayMode()
+        {
+            var localConnection = new TivoConnection(this.sterlingInstance.Database);
+            try
+            {
+                localConnection.ConnectAway(@"james.chaldecott@virginmedia.com", @"lambBh00na")
+                    .Subscribe(
+                        _ => this.connection = localConnection,
+                        ex =>
+                        {
+                            MessageBox.Show(string.Format("Connection Failed\n{0}", ex), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            localConnection.Dispose();
+                        },
+                        () => NotifyOfPropertyChange(() => CanFetchMyShowsList));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(string.Format("Connection Failed\n{0}", ex), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+        }
+
         public bool CanFetchMyShowsList
         {
             get

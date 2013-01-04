@@ -18,7 +18,7 @@
                 Height="*" />
         </Grid.RowDefinitions>
         <Button
-            x:Name="Connect"
+            x:Name="ConnectAwayMode"
             Content="Connect" />
         <Button
             x:Name="FetchMyShowsList"

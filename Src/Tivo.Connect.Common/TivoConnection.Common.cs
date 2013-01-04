@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Sockets;
 using System.Reactive;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
@@ -11,17 +12,21 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using JsonFx.Json;
+using Org.BouncyCastle.Crypto.Tls;
 using Tivo.Connect.Entities;
 using Wintellect.Sterling;
 
 namespace Tivo.Connect
 {
-    public partial class TivoConnection : IDisposable
+    public class TivoConnection : IDisposable
     {
         private ISterlingDatabaseInstance cacheDb;
 
         private readonly int sessionId;
-        
+
+        private Socket client;
+        private TlsProtocolHandler protocolHandler;
+
         private Stream sslStream = null;
         private int lastRpcId = 0;
 
@@ -50,9 +55,22 @@ namespace Tivo.Connect
 
         private void Dispose(bool disposing)
         {
-            DisposeSpecialized(disposing);
             if (disposing)
             {
+                if (this.protocolHandler != null)
+                {
+                    this.protocolHandler.Close();
+                    this.protocolHandler = null;
+                }
+
+                if (this.client != null)
+                {
+                    this.client.Dispose();
+                    Debug.WriteLine("Client closed.");
+
+                    this.client = null;
+                }
+                
                 if (receiveCancellationTokenSource != null)
                 {
                     receiveCancellationTokenSource.Cancel();
@@ -65,7 +83,7 @@ namespace Tivo.Connect
         {
             this.capturedTsn = string.Empty;
 
-            return ConnectNetworkStream(serverAddress)
+            return ConnectNetworkStream(new IPEndPoint(serverAddress, 1413))
                 .SelectMany(
                     stream =>
                     {
@@ -75,7 +93,7 @@ namespace Tivo.Connect
                         this.receiveCancellationTokenSource = new CancellationTokenSource();
 
                         // Send authentication message to the TiVo. 
-                        var result = SendAuthenticationRequest(mediaAccessKey);
+                        var result = SendMakAuthenticationRequest(mediaAccessKey);
 
                         // Start listening on the socket *after* the first send operation.
                         // This stops errors occuring on WP7
@@ -125,7 +143,128 @@ namespace Tivo.Connect
                         }
 
                         return Unit.Default;
-                    }); 
+                    });
+        }
+
+        public IObservable<Unit> ConnectAway(string username, string password)
+        {
+            this.capturedTsn = string.Empty;
+
+            return ConnectNetworkStream(new DnsEndPoint(@"secure-tivo-api.virginmedia.com", 443))
+                .SelectMany(
+                    stream =>
+                    {
+                        this.sslStream = stream;
+
+                        this.receiveSubject = new Subject<Tuple<int, IDictionary<string, object>>>();
+                        this.receiveCancellationTokenSource = new CancellationTokenSource();
+
+                        // Send authentication message to the TiVo. 
+                        var result = SendUernameAndPasswordAuthenticationRequest(username, password);
+
+                        // Start listening on the socket *after* the first send operation.
+                        // This stops errors occuring on WP7
+                        this.receiveTask = Task.Factory.StartNew(RpcReceiveThreadProc, this.receiveCancellationTokenSource.Token, TaskCreationOptions.LongRunning, TaskScheduler.Default);
+
+                        return result;
+                    })
+                .Select(
+                    authResponse =>
+                    {
+                        if (((string)authResponse["type"]) != "bodyAuthenticateResponse")
+                        {
+                            if (((string)authResponse["type"]) == "error")
+                            {
+                                throw new Exception(
+                                    string.Format("Authentication failed with error.\n Error code: {0}\nError text:{1}",
+                                        authResponse["code"],
+                                        authResponse["text"]));
+                            }
+                            else
+                            {
+                                throw new FormatException("Expecting bodyAuthenticateResponse");
+                            }
+                        }
+
+                        if (((string)authResponse["status"]) != "success")
+                        {
+                            throw new Exception(authResponse["message"] as string);
+                        }
+
+                        Debug.WriteLine("Authentication successful");
+
+                        if (string.IsNullOrEmpty(this.capturedTsn))
+                        {
+                            var deviceIds = authResponse["deviceId"] as IDictionary<string, object>[];
+
+                            if (deviceIds == null)
+                            {
+                                throw new Exception("No TiVo devices associated with account");
+                            }
+                            
+                            // TODO : Select which TiVO
+                            this.capturedTsn = (string)deviceIds[0]["id"];
+                        }
+
+                        return Unit.Default;
+                    });
+        }
+
+        private IObservable<Stream> ConnectNetworkStream(EndPoint remoteEndPoint)
+        {
+            if (this.client != null)
+            {
+                throw new InvalidOperationException("Cannot open the same connection twice.");
+            }
+
+            // Create a TCP/IP connection to the TiVo.
+            return ObservableSocket.Connect(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp, remoteEndPoint)
+                .ObserveOnDispatcher()
+                .Select(
+                    socket =>
+                    {
+                        Debug.WriteLine("Client connected.");
+
+                        this.client = socket;
+
+                        try
+                        {
+                            // Create an SSL stream that will close the client's stream.
+                            var tivoTlsClient = new TivoTlsClient(CaptureTsnFromServerCert);
+
+                            this.protocolHandler = new TlsProtocolHandler(new NetworkStream(socket));
+                            this.protocolHandler.Connect(tivoTlsClient);
+                        }
+                        catch (IOException e)
+                        {
+                            Debug.WriteLine("Authentication failed - closing the connection.");
+
+                            Debug.WriteLine("Exception: {0}", e.Message);
+                            if (e.InnerException != null)
+                            {
+                                Debug.WriteLine("Inner exception: {0}", e.InnerException.Message);
+                            }
+
+                            this.client.Dispose();
+                            this.client = null;
+
+                            this.protocolHandler.Close();
+                            this.protocolHandler = null;
+
+                            throw;
+                        }
+
+                        return protocolHandler.Stream;
+                    });
+        }
+
+        private void CaptureTsnFromServerCert(string tsnFromCert)
+        {
+            if (tsnFromCert.Contains("-"))
+            {
+                string rawTsn = string.Join("", tsnFromCert.Split('-'));
+                this.capturedTsn = string.Format("tsn:{0}", rawTsn);
+            }
         }
 
         private void RpcReceiveThreadProc()
@@ -148,7 +287,6 @@ namespace Tivo.Connect
                 this.receiveSubject.OnError(ex);
             }
         }
-
 
         public IObservable<RecordingFolderItem> GetMyShowsList(Container parent)
         {
@@ -242,7 +380,12 @@ namespace Tivo.Connect
             header.AppendLine("Content-Type:application/json");
             header.AppendLine("RequestType:" + requestType);
             header.AppendLine("ResponseCount:single");
-            header.AppendLine(string.Format("BodyId:{0}", this.capturedTsn));
+            
+            if (!string.IsNullOrEmpty(this.capturedTsn))
+            {
+                header.AppendLine(string.Format("BodyId:{0}", this.capturedTsn));
+            }
+            
             header.AppendLine("X-ApplicationName:Quicksilver");
             header.AppendLine(string.Format("X-ApplicationVersion:{0}.{1}", appMajorVersion, appMinorVersion));
             header.AppendLine(string.Format("X-ApplicationSessionId:0x{0:x}", this.sessionId));
@@ -312,7 +455,7 @@ namespace Tivo.Connect
             return Tuple.Create(rpcId, body);
         }
 
-        private IObservable<IDictionary<string, object>> SendAuthenticationRequest(string mediaAccessKey)
+        private IObservable<IDictionary<string, object>> SendMakAuthenticationRequest(string mediaAccessKey)
         {
             var body = new Dictionary<string, object>()
             { 
@@ -322,6 +465,25 @@ namespace Tivo.Connect
                     {
                         { "type", "makCredential" },
                         { "key" , mediaAccessKey }
+                    }                
+                }
+            };
+
+            return SendRequest((string)body["type"], body);
+        }
+
+        private IObservable<IDictionary<string, object>> SendUernameAndPasswordAuthenticationRequest(string username, string password)
+        {
+            var body = new Dictionary<string, object>()
+            { 
+                { "type", "bodyAuthenticate" },
+                { "credential",  
+                    new Dictionary<string, object>
+                    {
+                        { "domain", "virgin" },
+                        { "type", "usernameAndPasswordCredential" },
+                        { "username", username },
+                        { "password", password }
                     }                
                 }
             };
@@ -420,8 +582,5 @@ namespace Tivo.Connect
 
             return SendRequest((string)body["type"], body);
         }
-
-
     }
-
 }

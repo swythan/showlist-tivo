@@ -47,19 +47,27 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="JsonFx, Version=2.0.1106.2610, Culture=neutral, PublicKeyToken=315052dd637f8a52, processorArchitecture=MSIL">
+    <Reference Include="JsonFx, Version=2.0.1209.2802, Culture=neutral, PublicKeyToken=315052dd637f8a52, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\JsonFx.2.0.1106.2610\lib\sl40-wp\JsonFx.dll</HintPath>
+      <HintPath>..\packages\JsonFx.2.0.1209.2802\lib\sl40-wp\JsonFx.dll</HintPath>
     </Reference>
-    <Reference Include="Rxx">
-      <HintPath>..\packages\Rxx.1.3.4451.33754\lib\sl4-wp71\Rxx.dll</HintPath>
-    </Reference>
+    <Reference Include="Microsoft.Phone" />
     <Reference Include="System.Observable" />
-    <Reference Include="System.Reactive">
-      <HintPath>..\packages\Rx-Main.1.0.11226\lib\SL3-WP\System.Reactive.dll</HintPath>
+    <Reference Include="System.Reactive.Core">
+      <HintPath>..\packages\Rx-Core.2.0.21114\lib\SL4-WindowsPhone71\System.Reactive.Core.dll</HintPath>
     </Reference>
-    <Reference Include="System.Reactive.Windows.Threading">
-      <HintPath>..\packages\Rx-Silverlight.1.0.11226\lib\SL3-WP\System.Reactive.Windows.Threading.dll</HintPath>
+    <Reference Include="System.Reactive.Interfaces">
+      <HintPath>..\packages\Rx-Interfaces.2.0.21114\lib\SL4-WindowsPhone71\System.Reactive.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Linq">
+      <HintPath>..\packages\Rx-Linq.2.0.21114\lib\SL4-WindowsPhone71\System.Reactive.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.PlatformServices">
+      <HintPath>..\packages\Rx-PlatformServices.2.0.21114\lib\SL4-WindowsPhone71\System.Reactive.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Windows.Threading, Version=2.0.20823.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Rx-Xaml.2.0.21114\lib\SL4-WindowsPhone71\System.Reactive.Windows.Threading.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading.Tasks.WP7">
       <HintPath>..\..\Bin\System.Threading.Tasks.WP7.dll</HintPath>
@@ -94,18 +102,25 @@
     <Compile Include="..\Tivo.Connect.Common\Entities\ShowDetails.cs">
       <Link>Entities\ShowDetails.cs</Link>
     </Compile>
+    <Compile Include="..\Tivo.Connect.Common\ObservableSocket.cs">
+      <Link>ObservableSocket.cs</Link>
+    </Compile>
+    <Compile Include="..\Tivo.Connect.Common\SocketAsyncEventArgsExtensions.cs">
+      <Link>SocketAsyncEventArgsExtensions.cs</Link>
+    </Compile>
     <Compile Include="..\Tivo.Connect.Common\TivoConnection.Common.cs">
       <Link>TivoConnection.Common.cs</Link>
     </Compile>
     <Compile Include="..\Tivo.Connect.Common\TivoInfoCacheDatabase.cs">
       <Link>TivoInfoCacheDatabase.cs</Link>
     </Compile>
-    <Compile Include="TivoConnection.cs" />
+    <Compile Include="..\Tivo.Connect.Common\TivoTlsClient.cs">
+      <Link>TivoTlsClient.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sockets\NetworkStream.cs" />
     <Compile Include="Sockets\StateObject.cs" />
     <Compile Include="Sockets\TimerIntervals.cs" />
-    <Compile Include="TivoTlsClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BouncyCastle\crypto.csproj">
