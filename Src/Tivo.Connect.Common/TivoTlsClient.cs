@@ -8,30 +8,21 @@ namespace Tivo.Connect
 {
     internal class TivoTlsClient : DefaultTlsClient
     {
-        private readonly Action<string> captureTsn;
-
-        public TivoTlsClient(Action<string> captureTsn)
+        public TivoTlsClient()
         {
-            this.captureTsn = captureTsn;
         }
 
         class TivoTlsAuthentication : TlsAuthentication
         {
             private readonly TlsClientContext context;
-            private readonly Action<string> captureTsn;
 
-            public TivoTlsAuthentication(TlsClientContext context, Action<string> captureTsn)
+            public TivoTlsAuthentication(TlsClientContext context)
             {
                 this.context = context;
-                this.captureTsn = captureTsn;
             }
 
             public void NotifyServerCertificate(Certificate serverCertificate)
             {
-                X509CertificateStructure firstCert = serverCertificate.GetCerts()[0];
-                X509Name subject = firstCert.Subject;
-
-                this.captureTsn((string)subject.GetValueList()[0]);
             }
             
             public TlsCredentials GetClientCredentials(CertificateRequest certificateRequest)
@@ -62,7 +53,7 @@ namespace Tivo.Connect
 
         public override TlsAuthentication GetAuthentication()
         {
-            return new TivoTlsAuthentication(this.context, this.captureTsn);
+            return new TivoTlsAuthentication(this.context);
         }
     }
 }

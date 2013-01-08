@@ -129,7 +129,7 @@ namespace Tivo.Connect
                         // Now check that network control is enabled
                         return SendOptStatusGetRequest();
                     })
-                .Select(
+                .SelectMany(
                     statusResponse =>
                     {
                         if (((string)statusResponse["type"]) != "optStatusResponse")
@@ -141,6 +141,35 @@ namespace Tivo.Connect
                         {
                             throw new Exception("Network control not enabled");
                         }
+
+                        return SendBodyConfigSearchRequest();
+                    })
+                .Select(
+                    bodyConfigResponse =>
+                    {
+                        if (((string)bodyConfigResponse["type"]) != "bodyConfigList")
+                        {
+                            throw new FormatException("Expecting bodyConfigList");
+                        }
+
+                        if (!bodyConfigResponse.ContainsKey("bodyConfig"))
+                        {
+                            throw new Exception("No bodyConfig element in bodyConfigList");
+                        }
+
+                        var bodyConfigs = (IDictionary<string, object>[]) bodyConfigResponse["bodyConfig"];
+                        if (bodyConfigs.Length < 1)
+                        {
+                            throw new Exception("No bodyConfigs returned in bodyConfigList");
+                        }
+ 
+                        var bodyConfig = bodyConfigs[0];
+                        if (!bodyConfig.ContainsKey("bodyId"))
+                        {
+                            throw new Exception("No TSN returned in bodyConfig");
+                        }
+
+                        this.capturedTsn = (string)bodyConfig["bodyId"];
 
                         return Unit.Default;
                     });
@@ -230,7 +259,7 @@ namespace Tivo.Connect
                         try
                         {
                             // Create an SSL stream that will close the client's stream.
-                            var tivoTlsClient = new TivoTlsClient(CaptureTsnFromServerCert);
+                            var tivoTlsClient = new TivoTlsClient();
 
                             this.protocolHandler = new TlsProtocolHandler(new NetworkStream(socket));
                             this.protocolHandler.Connect(tivoTlsClient);
@@ -256,15 +285,6 @@ namespace Tivo.Connect
 
                         return protocolHandler.Stream;
                     });
-        }
-
-        private void CaptureTsnFromServerCert(string tsnFromCert)
-        {
-            if (tsnFromCert.Contains("-"))
-            {
-                string rawTsn = string.Join("", tsnFromCert.Split('-'));
-                this.capturedTsn = string.Format("tsn:{0}", rawTsn);
-            }
         }
 
         private void RpcReceiveThreadProc()
@@ -501,6 +521,16 @@ namespace Tivo.Connect
             return SendRequest((string)body["type"], body);
         }
 
+        private IObservable<IDictionary<string, object>> SendBodyConfigSearchRequest()
+        {
+            var body = new Dictionary<string, object>()
+            { 
+                { "type", "bodyConfigSearch" }
+            };
+
+            return SendRequest((string)body["type"], body);
+        }
+
         private IObservable<IDictionary<string, object>> SendGetFolderShowsRequest(string parentId)
         {
             var body = new Dictionary<string, object>
@@ -527,7 +557,28 @@ namespace Tivo.Connect
                 { "orderBy", new string[] { "startTime" } },
                 { "bodyId", this.capturedTsn },
                 { "objectIdAndType", itemIds.ToArray() },
-                { "note", new string[] { "recordingForChildRecordingId" } }
+                { "note", new string[] { "recordingForChildRecordingId" } },
+                //{ "responseTemplate", 
+                //    new Dictionary<string, object>
+                //    {
+                //        { "type", "responseTemplate" },
+                //        { "typeName", "recordingFolderItem" },
+                //        { "fieldName", 
+                //            new string[] 
+                //            { 
+                //                "recordingFolderItemId", 
+                //                "childRecordingId", 
+                //                "contentId", 
+                //                "objectIdAndType", 
+                //                "collectionType", 
+                //                "title",
+                //                "startTime",
+                //                "folderItemCount",
+                //                "folderType", 
+                //            } 
+                //        }
+                //    }
+                //}
             };
 
             return SendRequest((string)body["type"], body);
@@ -558,6 +609,39 @@ namespace Tivo.Connect
                 { "note", new string[] { "recordingForContentId" } },
                 { "type", "contentSearch" },
                 { "levelOfDetail", "high" },
+                //{ "responseTemplate", 
+                //    new object[]
+                //    {
+                //        new Dictionary<string, object>
+                //        {
+                //            { "type", "responseTemplate" },
+                //            { "typeName", "contentList" },
+                //            { "fieldName", 
+                //                new string[] 
+                //                { 
+                //                    "content",
+                //                } 
+                //            }
+                //        },
+                //        new Dictionary<string, object>
+                //        {
+                //            { "type", "responseTemplate" },
+                //            { "typeName", "content" },
+                //            { "fieldName", 
+                //                new string[] 
+                //                { 
+                //                    "title",
+                //                    "subtitle",
+                //                    "description",
+                //                    "seasonNumber",
+                //                    "episodeNum",
+                //                    "originalAirdate",
+                //                    "image"
+                //                } 
+                //            }
+                //        }
+                //    }
+                //}
             };
 
             return SendRequest((string)body["type"], body);
