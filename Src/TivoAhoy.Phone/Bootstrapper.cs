@@ -32,7 +32,6 @@ namespace TivoAhoy.Phone
             container.PerRequest<MyShowsViewModel>();
             container.PerRequest<IndividualShowViewModel>();
             container.PerRequest<ShowContainerViewModel>();
-
         }
 
         protected override object GetInstance(Type service, string key)

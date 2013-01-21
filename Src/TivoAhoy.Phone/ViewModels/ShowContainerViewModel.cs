@@ -79,7 +79,7 @@ namespace TivoAhoy.Phone.ViewModels
             }
         }
 
-        public void GetChildShows()
+        public async void GetChildShows()
         {
             this.Shows.Clear();
 
@@ -87,22 +87,28 @@ namespace TivoAhoy.Phone.ViewModels
 
             OnOperationStarted();
 
-            connection.Connect(this.settingsModel.ParsedIPAddress, this.settingsModel.MediaAccessKey)
-                .SelectMany(_ => connection.GetMyShowsList(this.Source))
-                .Finally(
-                    () =>
-                    {
-                        connection.Dispose();
-                        OnOperationFinished();
-                    })
-                .ObserveOnDispatcher()
-                .Subscribe(
+            try
+            {
+                await connection.ConnectAway(this.settingsModel.Username, this.settingsModel.Password);
+
+                var progress = new Progress<RecordingFolderItem>(
                     show =>
                     {
                         this.Shows.Add(CreateItemViewModel(show));
                         NotifyOfPropertyChange(() => this.ContentInfo);
-                    },
-                    ex => MessageBox.Show(string.Format("Connection Failed :\n{0}", ex.Message)));
+                    });
+
+                await connection.GetMyShowsList(this.Source, progress);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(string.Format("Connection Failed :\n{0}", ex.Message));
+            }
+            finally
+            {
+                connection.Dispose();
+                OnOperationFinished();
+            }
         }
 
         private IRecordingFolderItemViewModel CreateItemViewModel(RecordingFolderItem recordingFolderItem)

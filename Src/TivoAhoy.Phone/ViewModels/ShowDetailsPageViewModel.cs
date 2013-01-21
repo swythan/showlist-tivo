@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Linq;
-using System.Reactive.Linq;
 using System.Windows;
 using Caliburn.Micro;
 using Tivo.Connect;
 using Tivo.Connect.Entities;
-using TivoAhoy.Phone.Events;
 
 namespace TivoAhoy.Phone.ViewModels
 {
@@ -21,14 +19,14 @@ namespace TivoAhoy.Phone.ViewModels
 
         public ShowDetailsPageViewModel(
             IEventAggregator eventAggregator,
-            ISterlingInstance sterlingInstance, 
+            ISterlingInstance sterlingInstance,
             SettingsPageViewModel settingsModel)
         {
             this.eventAggregator = eventAggregator;
             this.sterlingInstance = sterlingInstance;
             this.settingsModel = settingsModel;
         }
-        
+
         public bool IsOperationInProgress
         {
             get { return this.isOperationInProgress; }
@@ -99,7 +97,7 @@ namespace TivoAhoy.Phone.ViewModels
             }
         }
 
-        public ShowDetails Show 
+        public ShowDetails Show
         {
             get { return this.showDetails; }
             set
@@ -131,42 +129,49 @@ namespace TivoAhoy.Phone.ViewModels
             FetchShowDetails();
         }
 
-        private void FetchShowDetails()
+        private async void FetchShowDetails()
         {
             var connection = new TivoConnection(sterlingInstance.Database);
 
             OnOperationStarted();
-            connection.Connect(this.settingsModel.ParsedIPAddress, this.settingsModel.MediaAccessKey)
-                .SelectMany(_ => connection.GetShowContentDetails(this.ShowContentID))
-                .Finally(
-                    () => 
-                    {
-                        connection.Dispose();
-                        OnOperationFinished();
-                    })
-                .ObserveOnDispatcher()
-                .Subscribe(
-                    show => this.Show = show,
-                    ex => MessageBox.Show(string.Format("Failed to retrieve details:\n{0}", ex.Message)));
+
+            try
+            {
+                await connection.ConnectAway(this.settingsModel.Username, this.settingsModel.Password);
+
+                this.Show = await connection.GetShowContentDetails(this.ShowContentID);
+            }
+            catch (Exception ex)
+            { 
+                MessageBox.Show(string.Format("Failed to retrieve details:\n{0}", ex.Message));
+            }
+            finally
+            { 
+                connection.Dispose();
+                OnOperationFinished();
+            }
         }
 
-        public void PlayShow()
+        public async void PlayShow()
         {
             var connection = new TivoConnection(sterlingInstance.Database);
 
             OnOperationStarted();
-            connection.Connect(this.settingsModel.ParsedIPAddress, this.settingsModel.MediaAccessKey)
-                .SelectMany(_ => connection.PlayShow(this.ShowRecordingID))
-                .Finally(
-                    () =>
-                    {
-                        connection.Dispose();
-                        OnOperationFinished();
-                    })
-                .ObserveOnDispatcher()
-                .Subscribe(
-                    show => { },
-                    ex => MessageBox.Show(string.Format("Play command failed:\n{0}", ex.Message)));
+
+            try
+            {
+                await connection.ConnectAway(this.settingsModel.Username, this.settingsModel.Password);
+                await connection.PlayShow(this.ShowRecordingID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(string.Format("Play command failed:\n{0}", ex.Message));
+            }
+            finally
+            {
+                connection.Dispose();
+                OnOperationFinished();
+            }
         }
 
         public bool CanPlayShow

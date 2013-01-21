@@ -94,12 +94,6 @@
     <Compile Include="..\Tivo.Connect.Common\Entities\ShowDetails.cs">
       <Link>Entities\ShowDetails.cs</Link>
     </Compile>
-    <Compile Include="..\Tivo.Connect.Common\ObservableSocket.cs">
-      <Link>ObservableSocket.cs</Link>
-    </Compile>
-    <Compile Include="..\Tivo.Connect.Common\SocketAsyncEventArgsExtensions.cs">
-      <Link>SocketAsyncEventArgsExtensions.cs</Link>
-    </Compile>
     <Compile Include="..\Tivo.Connect.Common\TivoConnection.Common.cs">
       <Link>TivoConnection.Common.cs</Link>
     </Compile>

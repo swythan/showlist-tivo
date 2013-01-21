@@ -15,18 +15,24 @@
             <RowDefinition
                 Height="Auto" />
             <RowDefinition
+                Height="Auto" />
+            <RowDefinition
                 Height="*" />
         </Grid.RowDefinitions>
         <Button
-            x:Name="ConnectAwayMode"
+            x:Name="Connect"
             Content="Connect" />
+        <Button
+            x:Name="GetWhatsOn"
+            Content="What's On?"
+            Grid.Row="1" />
         <Button
             x:Name="FetchMyShowsList"
             Content="My Shows"
-            Grid.Row="1" />
+            Grid.Row="2" />
         <ListView
             x:Name="Shows"
-            Grid.Row="2">
+            Grid.Row="3">
             <ListView.View>
 
                 <GridView

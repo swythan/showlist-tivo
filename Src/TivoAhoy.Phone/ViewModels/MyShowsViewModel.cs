@@ -20,8 +20,8 @@ namespace TivoAhoy.Phone.ViewModels
 
         public MyShowsViewModel(
             IEventAggregator eventAggregator,
-            ISterlingInstance sterlingInstance, 
-            SettingsPageViewModel settingsModel, 
+            ISterlingInstance sterlingInstance,
+            SettingsPageViewModel settingsModel,
             Func<IndividualShowViewModel> showViewModelFactory,
             Func<ShowContainerViewModel> showContainerViewModelFactory)
         {
@@ -49,7 +49,7 @@ namespace TivoAhoy.Phone.ViewModels
 
         private void OnOperationFinished()
         {
-            this.eventAggregator.Publish(new TivoOperationFinished());            
+            this.eventAggregator.Publish(new TivoOperationFinished());
         }
 
         public BindableCollection<IRecordingFolderItemViewModel> MyShows { get; private set; }
@@ -75,28 +75,31 @@ namespace TivoAhoy.Phone.ViewModels
             FetchShows(null);
         }
 
-        private void FetchShows(Container parent)
+        private async void FetchShows(Container parent)
         {
             this.MyShows.Clear();
 
             var connection = new TivoConnection(sterlingInstance.Database);
 
-            var ipAddress = IPAddress.Parse(this.settingsModel.TivoIPAddress);
-
             OnOperationStarted();
 
-            connection.Connect(ipAddress, this.settingsModel.MediaAccessKey)
-                .SelectMany(_ => connection.GetMyShowsList(parent))
-                .Finally(
-                    () => 
-                    {
-                        connection.Dispose();
-                        OnOperationFinished();
-                    }) 
-                .ObserveOnDispatcher()
-                .Subscribe(
-                    show => this.MyShows.Add(CreateItemViewModel(show)),
-                    ex => MessageBox.Show(string.Format("Connection Failed :\n{0}", ex.Message)));
+            try
+            {
+                await connection.ConnectAway(this.settingsModel.Username, this.settingsModel.Password);
+
+                var progress = new Progress<RecordingFolderItem>(show => this.MyShows.Add(CreateItemViewModel(show)));
+
+                await connection.GetMyShowsList(parent, progress);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(string.Format("Connection Failed :\n{0}", ex.Message));
+            }
+            finally
+            {
+                connection.Dispose();
+                OnOperationFinished();
+            }
         }
 
         private IRecordingFolderItemViewModel CreateItemViewModel(RecordingFolderItem recordingFolderItem)
@@ -116,7 +119,7 @@ namespace TivoAhoy.Phone.ViewModels
                 var result = this.showViewModelFactory();
                 result.Source = show;
 
-                return result; 
+                return result;
             }
 
             return null;
@@ -130,6 +133,6 @@ namespace TivoAhoy.Phone.ViewModels
             //{
             //    FetchShows(showContainer.Source);
             //}
-        }        
+        }
     }
 }

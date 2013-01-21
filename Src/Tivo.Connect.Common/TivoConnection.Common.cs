@@ -70,7 +70,7 @@ namespace Tivo.Connect
 
                     this.client = null;
                 }
-                
+
                 if (receiveCancellationTokenSource != null)
                 {
                     receiveCancellationTokenSource.Cancel();
@@ -79,167 +79,141 @@ namespace Tivo.Connect
             }
         }
 
-        public IObservable<Unit> Connect(IPAddress serverAddress, string mediaAccessKey)
+        public async Task Connect(IPAddress serverAddress, string mediaAccessKey)
         {
             this.capturedTsn = string.Empty;
 
-            return ConnectNetworkStream(new IPEndPoint(serverAddress, 1413))
-                .SelectMany(
-                    stream =>
-                    {
-                        this.sslStream = stream;
+            this.sslStream = await ConnectNetworkStream(new IPEndPoint(serverAddress, 1413));
 
-                        this.receiveSubject = new Subject<Tuple<int, IDictionary<string, object>>>();
-                        this.receiveCancellationTokenSource = new CancellationTokenSource();
+            this.receiveSubject = new Subject<Tuple<int, IDictionary<string, object>>>();
+            this.receiveCancellationTokenSource = new CancellationTokenSource();
 
-                        // Send authentication message to the TiVo. 
-                        var result = SendMakAuthenticationRequest(mediaAccessKey);
+            // Send authentication message to the TiVo. 
+            var authTask = SendMakAuthenticationRequest(mediaAccessKey);
 
-                        // Start listening on the socket *after* the first send operation.
-                        // This stops errors occuring on WP7
-                        this.receiveTask = Task.Factory.StartNew(RpcReceiveThreadProc, this.receiveCancellationTokenSource.Token, TaskCreationOptions.LongRunning, TaskScheduler.Default);
+            // Start listening on the socket *after* the first send operation.
+            // This stops errors occuring on WP7
+            this.receiveTask = Task.Factory.StartNew(RpcReceiveThreadProc, this.receiveCancellationTokenSource.Token, TaskCreationOptions.LongRunning, TaskScheduler.Default);
 
-                        return result;
-                    })
-                .SelectMany(
-                    authResponse =>
-                    {
-                        if (((string)authResponse["type"]) != "bodyAuthenticateResponse")
-                        {
-                            if (((string)authResponse["type"]) == "error")
-                            {
-                                throw new Exception(
-                                    string.Format("Authentication failed with error.\n Error code: {0}\nError text:{1}",
-                                        authResponse["code"],
-                                        authResponse["text"]));
-                            }
-                            else
-                            {
-                                throw new FormatException("Expecting bodyAuthenticateResponse");
-                            }
-                        }
+            var authResponse = await authTask;
 
-                        if (((string)authResponse["status"]) != "success")
-                        {
-                            throw new Exception(authResponse["message"] as string);
-                        }
+            if (((string)authResponse["type"]) != "bodyAuthenticateResponse")
+            {
+                if (((string)authResponse["type"]) == "error")
+                {
+                    throw new Exception(
+                        string.Format("Authentication failed with error.\n Error code: {0}\nError text:{1}",
+                            authResponse["code"],
+                            authResponse["text"]));
+                }
+                else
+                {
+                    throw new FormatException("Expecting bodyAuthenticateResponse");
+                }
+            }
 
-                        Debug.WriteLine("Authentication successful");
+            if (((string)authResponse["status"]) != "success")
+            {
+                throw new Exception(authResponse["message"] as string);
+            }
 
-                        // Now check that network control is enabled
-                        return SendOptStatusGetRequest();
-                    })
-                .SelectMany(
-                    statusResponse =>
-                    {
-                        if (((string)statusResponse["type"]) != "optStatusResponse")
-                        {
-                            throw new FormatException("Expecting optStatusResponse");
-                        }
+            Debug.WriteLine("Authentication successful");
 
-                        if (((string)statusResponse["optStatus"]) != "optIn")
-                        {
-                            throw new Exception("Network control not enabled");
-                        }
+            // Now check that network control is enabled
+            var statusResponse = await SendOptStatusGetRequest();
 
-                        return SendBodyConfigSearchRequest();
-                    })
-                .Select(
-                    bodyConfigResponse =>
-                    {
-                        if (((string)bodyConfigResponse["type"]) != "bodyConfigList")
-                        {
-                            throw new FormatException("Expecting bodyConfigList");
-                        }
+            if (((string)statusResponse["type"]) != "optStatusResponse")
+            {
+                throw new FormatException("Expecting optStatusResponse");
+            }
 
-                        if (!bodyConfigResponse.ContainsKey("bodyConfig"))
-                        {
-                            throw new Exception("No bodyConfig element in bodyConfigList");
-                        }
+            if (((string)statusResponse["optStatus"]) != "optIn")
+            {
+                throw new Exception("Network control not enabled");
+            }
 
-                        var bodyConfigs = (IDictionary<string, object>[]) bodyConfigResponse["bodyConfig"];
-                        if (bodyConfigs.Length < 1)
-                        {
-                            throw new Exception("No bodyConfigs returned in bodyConfigList");
-                        }
- 
-                        var bodyConfig = bodyConfigs[0];
-                        if (!bodyConfig.ContainsKey("bodyId"))
-                        {
-                            throw new Exception("No TSN returned in bodyConfig");
-                        }
+            var bodyConfigResponse = await SendBodyConfigSearchRequest();
 
-                        this.capturedTsn = (string)bodyConfig["bodyId"];
+            if (((string)bodyConfigResponse["type"]) != "bodyConfigList")
+            {
+                throw new FormatException("Expecting bodyConfigList");
+            }
 
-                        return Unit.Default;
-                    });
+            if (!bodyConfigResponse.ContainsKey("bodyConfig"))
+            {
+                throw new Exception("No bodyConfig element in bodyConfigList");
+            }
+
+            var bodyConfigs = (IDictionary<string, object>[])bodyConfigResponse["bodyConfig"];
+            if (bodyConfigs.Length < 1)
+            {
+                throw new Exception("No bodyConfigs returned in bodyConfigList");
+            }
+
+            var bodyConfig = bodyConfigs[0];
+            if (!bodyConfig.ContainsKey("bodyId"))
+            {
+                throw new Exception("No TSN returned in bodyConfig");
+            }
+
+            this.capturedTsn = (string)bodyConfig["bodyId"];
         }
 
-        public IObservable<Unit> ConnectAway(string username, string password)
+        public async Task ConnectAway(string username, string password)
         {
             this.capturedTsn = string.Empty;
 
-            return ConnectNetworkStream(new DnsEndPoint(@"secure-tivo-api.virginmedia.com", 443))
-                .SelectMany(
-                    stream =>
-                    {
-                        this.sslStream = stream;
+            this.sslStream = await ConnectNetworkStream(new DnsEndPoint(@"secure-tivo-api.virginmedia.com", 443));
 
-                        this.receiveSubject = new Subject<Tuple<int, IDictionary<string, object>>>();
-                        this.receiveCancellationTokenSource = new CancellationTokenSource();
+            this.receiveSubject = new Subject<Tuple<int, IDictionary<string, object>>>();
+            this.receiveCancellationTokenSource = new CancellationTokenSource();
 
-                        // Send authentication message to the TiVo. 
-                        var result = SendUernameAndPasswordAuthenticationRequest(username, password);
+            // Send authentication message to the TiVo. 
+            var authTask = SendUsernameAndPasswordAuthenticationRequest(username, password);
 
-                        // Start listening on the socket *after* the first send operation.
-                        // This stops errors occuring on WP7
-                        this.receiveTask = Task.Factory.StartNew(RpcReceiveThreadProc, this.receiveCancellationTokenSource.Token, TaskCreationOptions.LongRunning, TaskScheduler.Default);
+            // Start listening on the socket *after* the first send operation.
+            // This stops errors occuring on WP7
+            this.receiveTask = Task.Factory.StartNew(RpcReceiveThreadProc, this.receiveCancellationTokenSource.Token, TaskCreationOptions.LongRunning, TaskScheduler.Default);
 
-                        return result;
-                    })
-                .Select(
-                    authResponse =>
-                    {
-                        if (((string)authResponse["type"]) != "bodyAuthenticateResponse")
-                        {
-                            if (((string)authResponse["type"]) == "error")
-                            {
-                                throw new Exception(
-                                    string.Format("Authentication failed with error.\n Error code: {0}\nError text:{1}",
-                                        authResponse["code"],
-                                        authResponse["text"]));
-                            }
-                            else
-                            {
-                                throw new FormatException("Expecting bodyAuthenticateResponse");
-                            }
-                        }
+            var authResponse = await authTask;
 
-                        if (((string)authResponse["status"]) != "success")
-                        {
-                            throw new Exception(authResponse["message"] as string);
-                        }
+            if (((string)authResponse["type"]) != "bodyAuthenticateResponse")
+            {
+                if (((string)authResponse["type"]) == "error")
+                {
+                    throw new Exception(
+                        string.Format("Authentication failed with error.\n Error code: {0}\nError text:{1}",
+                            authResponse["code"],
+                            authResponse["text"]));
+                }
+                else
+                {
+                    throw new FormatException("Expecting bodyAuthenticateResponse");
+                }
+            }
 
-                        Debug.WriteLine("Authentication successful");
+            if (((string)authResponse["status"]) != "success")
+            {
+                throw new Exception(authResponse["message"] as string);
+            }
 
-                        if (string.IsNullOrEmpty(this.capturedTsn))
-                        {
-                            var deviceIds = authResponse["deviceId"] as IDictionary<string, object>[];
+            Debug.WriteLine("Authentication successful");
 
-                            if (deviceIds == null)
-                            {
-                                throw new Exception("No TiVo devices associated with account");
-                            }
-                            
-                            // TODO : Select which TiVO
-                            this.capturedTsn = (string)deviceIds[0]["id"];
-                        }
+            if (string.IsNullOrEmpty(this.capturedTsn))
+            {
+                var deviceIds = authResponse["deviceId"] as IDictionary<string, object>[];
 
-                        return Unit.Default;
-                    });
+                if (deviceIds == null)
+                {
+                    throw new Exception("No TiVo devices associated with account");
+                }
+
+                // TODO : Select which TiVO
+                this.capturedTsn = (string)deviceIds[0]["id"];
+            }
         }
 
-        private IObservable<Stream> ConnectNetworkStream(EndPoint remoteEndPoint)
+        private async Task<Stream> ConnectNetworkStream(EndPoint remoteEndPoint)
         {
             if (this.client != null)
             {
@@ -247,44 +221,72 @@ namespace Tivo.Connect
             }
 
             // Create a TCP/IP connection to the TiVo.
-            return ObservableSocket.Connect(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp, remoteEndPoint)
-                .ObserveOnDispatcher()
-                .Select(
-                    socket =>
+            this.client = await ConnectSocketAsync(remoteEndPoint);
+
+            Debug.WriteLine("Client connected.");
+
+            try
+            {
+                // Create an SSL stream that will close the client's stream.
+                var tivoTlsClient = new TivoTlsClient();
+
+                this.protocolHandler = new TlsProtocolHandler(new NetworkStream(this.client));
+                this.protocolHandler.Connect(tivoTlsClient);
+            }
+            catch (IOException e)
+            {
+                Debug.WriteLine("Authentication failed - closing the connection.");
+
+                Debug.WriteLine("Exception: {0}", e.Message);
+                if (e.InnerException != null)
+                {
+                    Debug.WriteLine("Inner exception: {0}", e.InnerException.Message);
+                }
+
+                this.client.Dispose();
+                this.client = null;
+
+                this.protocolHandler.Close();
+                this.protocolHandler = null;
+
+                throw;
+            }
+
+            return protocolHandler.Stream;
+        }
+
+        private static async Task<Socket> ConnectSocketAsync(EndPoint remoteEndPoint)
+        {
+            var tcs = new TaskCompletionSource<Socket>();
+
+            var args = new SocketAsyncEventArgs()
+            {
+                RemoteEndPoint = remoteEndPoint,
+            };
+
+            args.Completed +=
+                (sender, e) =>
+                {
+                    if (e.ConnectByNameError != null)
                     {
-                        Debug.WriteLine("Client connected.");
-
-                        this.client = socket;
-
-                        try
+                        tcs.TrySetException(e.ConnectByNameError);
+                    }
+                    else
+                    {
+                        if (e.SocketError != SocketError.Success)
                         {
-                            // Create an SSL stream that will close the client's stream.
-                            var tivoTlsClient = new TivoTlsClient();
-
-                            this.protocolHandler = new TlsProtocolHandler(new NetworkStream(socket));
-                            this.protocolHandler.Connect(tivoTlsClient);
+                            tcs.TrySetException(new SocketException((int)e.SocketError));
                         }
-                        catch (IOException e)
+                        else
                         {
-                            Debug.WriteLine("Authentication failed - closing the connection.");
-
-                            Debug.WriteLine("Exception: {0}", e.Message);
-                            if (e.InnerException != null)
-                            {
-                                Debug.WriteLine("Inner exception: {0}", e.InnerException.Message);
-                            }
-
-                            this.client.Dispose();
-                            this.client = null;
-
-                            this.protocolHandler.Close();
-                            this.protocolHandler = null;
-
-                            throw;
+                            tcs.TrySetResult(e.ConnectSocket);
                         }
+                    }
+                };
 
-                        return protocolHandler.Stream;
-                    });
+            Socket.ConnectAsync(SocketType.Stream, ProtocolType.Tcp, args);
+
+            return await tcs.Task;
         }
 
         private void RpcReceiveThreadProc()
@@ -308,42 +310,53 @@ namespace Tivo.Connect
             }
         }
 
-        public IObservable<RecordingFolderItem> GetMyShowsList(Container parent)
+        public async Task<IEnumerable<RecordingFolderItem>> GetMyShowsList(Container parent, IProgress<RecordingFolderItem> progress)
         {
             var parentId = parent != null ? parent.Id : null;
 
-            return SendGetFolderShowsRequest(parentId)
-                .SelectMany(results =>
-                    {
-                        var objectIds = (results["objectIdAndType"] as IEnumerable<string>)
-                            .Select(id => long.Parse(id));
+            var folderShows = await SendGetFolderShowsRequest(parentId);
 
-                        return GetRecordingFolderItems(objectIds, 5);
-                    });
+            var objectIds = ((IEnumerable<string>)folderShows["objectIdAndType"])
+                             .Select(id => long.Parse(id));
+
+            return await GetRecordingFolderItemsAsync(objectIds, 5, progress);
         }
 
-        public IObservable<ShowDetails> GetShowContentDetails(string contentId)
+        public async Task<ShowDetails> GetShowContentDetails(string contentId)
         {
-            var result = SendGetContentDetailsRequest(contentId)
-                .Select(detailsResults => ((IEnumerable<IDictionary<string, object>>)detailsResults["content"]).ToObservable())
-                .Concat()
-                .Select(x => new ShowDetails(x));
+            var detailsResults = await SendGetContentDetailsRequest(contentId);
 
-            return result;
+            var content = (IEnumerable<IDictionary<string, object>>)detailsResults["content"];
+            
+            return new ShowDetails(content.First());
         }
 
-        private IObservable<RecordingFolderItem> GetRecordingFolderItems(IEnumerable<long> objectIds, int pageSize)
+        private async Task<IEnumerable<RecordingFolderItem>> GetRecordingFolderItemsAsync(IEnumerable<long> objectIds, int pageSize, IProgress<RecordingFolderItem> progress)
         {
             var groups = objectIds
                 .Select((id, ix) => new { Id = id, Page = ix / pageSize })
                 .GroupBy(x => x.Page, x => x.Id);
 
-            return groups
-                .Select(group => GetRecordingFolderItems(group))
-                .Concat();
+            var result = new List<RecordingFolderItem>(objectIds.Count());
+
+            foreach (var group in groups)
+            {
+                var groupItems = await GetRecordingFolderItems(group).ConfigureAwait(false);
+                            
+                foreach (var item in groupItems)
+                {
+                    result.Add(item);
+                    if (progress != null)
+                    {
+                        progress.Report(item);
+                    }
+                }        
+            }
+
+            return result;
         }
 
-        private IObservable<RecordingFolderItem> GetRecordingFolderItems(IEnumerable<long> objectIds)
+        private async Task<IEnumerable<RecordingFolderItem>> GetRecordingFolderItems(IEnumerable<long> objectIds)
         {
             var itemsInCache = Enumerable.Empty<RecordingFolderItem>();
 
@@ -351,7 +364,7 @@ namespace Tivo.Connect
             {
                 var showsInCache = objectIds
                     .Join(this.cacheDb.Query<IndividualShow, long>(), id => id, tk => tk.Key, (id, tk) => tk.LazyValue.Value as RecordingFolderItem);
-                
+
                 var containersInCache = objectIds
                     .Join(this.cacheDb.Query<Container, long>(), id => id, tk => tk.Key, (id, tk) => tk.LazyValue.Value as RecordingFolderItem);
 
@@ -361,31 +374,45 @@ namespace Tivo.Connect
 
             if (objectIds.Except(itemsInCache.Select(item => item.ObjectId)).Any())
             {
-                var result = SendGetMyShowsItemDetailsRequest(objectIds)
-                    .Select(detailsResults => ((IEnumerable<IDictionary<string, object>>)detailsResults["recordingFolderItem"]).ToObservable())
-                    .Concat()
-                    .Select(detailItem => RecordingFolderItem.Create(detailItem));
+                var detailsResults = await SendGetMyShowsItemDetailsRequest(objectIds);
+                var detailItems = (IEnumerable<IDictionary<string, object>>)detailsResults["recordingFolderItem"];
+                var viewModels = detailItems.Select(detailItem => RecordingFolderItem.Create(detailItem));
 
                 if (cacheDb != null)
                 {
-                    result.Subscribe(item => this.cacheDb.Save(item.GetType(), item), () => this.cacheDb.Flush());
+                    foreach (var item in viewModels)
+                    {
+                        this.cacheDb.Save(item.GetType(), item);
+                    }
+
+                    this.cacheDb.Flush();
                 }
 
-                return result;
+                return viewModels;
             }
             else
             {
-                return itemsInCache.ToObservable();
+                return itemsInCache;
             }
         }
 
-        public IObservable<Unit> PlayShow(string recordingId)
+        public Task PlayShow(string recordingId)
         {
             // TODO : Handle failure
-            return SendPlayShowRequest(recordingId).Select(result => Unit.Default);
+            return SendPlayShowRequest(recordingId);
         }
 
-        private IObservable<IDictionary<string, object>> SendRequest(string requestType, object body)
+        public Task<IDictionary<string, object>> GetWhatsOn()
+        {
+            var body = new Dictionary<string, object>()
+            { 
+                { "type", "whatsOnSearch" },
+            };
+
+            return SendRequest("whatsOnSearch", body);
+        }
+
+        private async Task<IDictionary<string, object>> SendRequest(string requestType, object body)
         {
             int requestRpcId = Interlocked.Increment(ref this.lastRpcId);
 
@@ -400,12 +427,12 @@ namespace Tivo.Connect
             header.AppendLine("Content-Type:application/json");
             header.AppendLine("RequestType:" + requestType);
             header.AppendLine("ResponseCount:single");
-            
+
             if (!string.IsNullOrEmpty(this.capturedTsn))
             {
                 header.AppendLine(string.Format("BodyId:{0}", this.capturedTsn));
             }
-            
+
             header.AppendLine("X-ApplicationName:Quicksilver");
             header.AppendLine(string.Format("X-ApplicationVersion:{0}.{1}", appMajorVersion, appMinorVersion));
             header.AppendLine(string.Format("X-ApplicationSessionId:0x{0:x}", this.sessionId));
@@ -424,7 +451,7 @@ namespace Tivo.Connect
             this.sslStream.Write(messageBytes, 0, messageBytes.Length);
             this.sslStream.Flush();
 
-            return this.receiveSubject
+            return await this.receiveSubject
                 .Where(message => message.Item1 == requestRpcId)
                 .Select(message => message.Item2)
                 .Take(1);
@@ -475,7 +502,7 @@ namespace Tivo.Connect
             return Tuple.Create(rpcId, body);
         }
 
-        private IObservable<IDictionary<string, object>> SendMakAuthenticationRequest(string mediaAccessKey)
+        private Task<IDictionary<string, object>> SendMakAuthenticationRequest(string mediaAccessKey)
         {
             var body = new Dictionary<string, object>()
             { 
@@ -492,7 +519,7 @@ namespace Tivo.Connect
             return SendRequest((string)body["type"], body);
         }
 
-        private IObservable<IDictionary<string, object>> SendUernameAndPasswordAuthenticationRequest(string username, string password)
+        private Task<IDictionary<string, object>> SendUsernameAndPasswordAuthenticationRequest(string username, string password)
         {
             var body = new Dictionary<string, object>()
             { 
@@ -511,7 +538,7 @@ namespace Tivo.Connect
             return SendRequest((string)body["type"], body);
         }
 
-        private IObservable<IDictionary<string, object>> SendOptStatusGetRequest()
+        private Task<IDictionary<string, object>> SendOptStatusGetRequest()
         {
             var body = new Dictionary<string, object>()
             { 
@@ -521,7 +548,7 @@ namespace Tivo.Connect
             return SendRequest((string)body["type"], body);
         }
 
-        private IObservable<IDictionary<string, object>> SendBodyConfigSearchRequest()
+        private Task<IDictionary<string, object>> SendBodyConfigSearchRequest()
         {
             var body = new Dictionary<string, object>()
             { 
@@ -531,7 +558,7 @@ namespace Tivo.Connect
             return SendRequest((string)body["type"], body);
         }
 
-        private IObservable<IDictionary<string, object>> SendGetFolderShowsRequest(string parentId)
+        private Task<IDictionary<string, object>> SendGetFolderShowsRequest(string parentId)
         {
             var body = new Dictionary<string, object>
             {
@@ -549,7 +576,7 @@ namespace Tivo.Connect
             return SendRequest((string)body["type"], body);
         }
 
-        private IObservable<IDictionary<string, object>> SendGetMyShowsItemDetailsRequest(IEnumerable<long> itemIds)
+        private Task<IDictionary<string, object>> SendGetMyShowsItemDetailsRequest(IEnumerable<long> itemIds)
         {
             var body = new Dictionary<string, object>
             {
@@ -584,22 +611,22 @@ namespace Tivo.Connect
             return SendRequest((string)body["type"], body);
         }
 
-        private IObservable<IDictionary<string, object>> SendGetContentDetailsRequest(string contentId)
+        private Task<IDictionary<string, object>> SendGetContentDetailsRequest(string contentId)
         {
-//            {
-//  "contentId": ["tivo:ct.306278"],
-//  "filterUnavailableContent": false,
-//  "bodyId": "tsn:XXXXXXXXXXXXXXX",
-//  "note": [
-//    "userContentForCollectionId",
-//    "broadbandOfferGroupForContentId",
-//    "recordingForContentId"
-//  ],
-//  "responseTemplate": [...see “Response Template”...],
-//  "imageRuleset": [...see “Image Ruleset”...],
-//  "type": "contentSearch",
-//  "levelOfDetail": "high"
-//}
+            //            {
+            //  "contentId": ["tivo:ct.306278"],
+            //  "filterUnavailableContent": false,
+            //  "bodyId": "tsn:XXXXXXXXXXXXXXX",
+            //  "note": [
+            //    "userContentForCollectionId",
+            //    "broadbandOfferGroupForContentId",
+            //    "recordingForContentId"
+            //  ],
+            //  "responseTemplate": [...see “Response Template”...],
+            //  "imageRuleset": [...see “Image Ruleset”...],
+            //  "type": "contentSearch",
+            //  "levelOfDetail": "high"
+            //}
             var body = new Dictionary<string, object>
             {
                 { "contentId", new string[] { contentId } },
@@ -647,9 +674,9 @@ namespace Tivo.Connect
             return SendRequest((string)body["type"], body);
         }
 
-        private IObservable<IDictionary<string, object>> SendPlayShowRequest(string showId)
+        private Task<IDictionary<string, object>> SendPlayShowRequest(string showId)
         {
-            var body = 
+            var body =
                 new Dictionary<string, object>
                 { 
                     { "type", "uiNavigate" },

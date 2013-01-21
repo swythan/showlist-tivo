@@ -69,7 +69,7 @@
                 <RowDefinition
                     Height="Auto" />
             </Grid.RowDefinitions>
-            <TextBlock
+            <!--<TextBlock
                 HorizontalAlignment="Left"
                 Text="IP Address"
                 Style="{StaticResource PhoneTextNormalStyle}" />
@@ -78,18 +78,38 @@
                 Name="TivoIPAddress"
                 VerticalAlignment="Top"
                 Grid.Row="1"
-                InputScope="Digits"/>
+                InputScope="Digits" />
             <TextBlock
                 HorizontalAlignment="Left"
                 Text="Media Access Key"
                 Style="{StaticResource PhoneTextNormalStyle}"
-                Grid.Row="2"/>
+                Grid.Row="2" />
             <TextBox
                 HorizontalAlignment="Stretch"
                 Name="MediaAccessKey"
                 VerticalAlignment="Top"
                 Grid.Row="3"
-                InputScope="Digits" />
+                InputScope="Digits" />-->
+            <TextBlock
+                HorizontalAlignment="Left"
+                Text="Username"
+                Style="{StaticResource PhoneTextNormalStyle}" />
+            <TextBox
+                HorizontalAlignment="Stretch"
+                Name="Username"
+                VerticalAlignment="Top"
+                Grid.Row="1"
+                InputScope="EmailSmtpAddress" />
+            <TextBlock
+                HorizontalAlignment="Left"
+                Text="Password"
+                Style="{StaticResource PhoneTextNormalStyle}"
+                Grid.Row="2" />
+            <PasswordBox
+                HorizontalAlignment="Stretch"
+                Name="Password"
+                VerticalAlignment="Top"
+                Grid.Row="3"/>
             <TextBlock
                 Grid.Row="4"
                 TextWrapping="Wrap"

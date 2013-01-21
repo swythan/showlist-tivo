@@ -1,24 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Tivo.Connect;
-using System.ComponentModel;
-using Caliburn.Micro;
 using System.ComponentModel.Composition;
-using Tivo.Connect.Entities;
-using System.Reactive.Linq;
-using System.Reactive.Threading;
 using System.Net;
+using System.Reactive.Linq;
+using System.Windows;
+using Caliburn.Micro;
+using Tivo.Connect;
+using Tivo.Connect.Entities;
 
 namespace TivoTest
 {
@@ -51,46 +38,42 @@ namespace TivoTest
             }
         }
 
-        public void Connect()
+        public async void Connect()
         {
             var localConnection = new TivoConnection(this.sterlingInstance.Database);
             try
             {
-                localConnection.Connect(IPAddress.Parse("192.168.0.100"), "9837127953")
-                    .Subscribe(
-                        _ => this.connection = localConnection,
-                        ex =>
-                        {
-                            MessageBox.Show(string.Format("Connection Failed\n{0}", ex), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                            localConnection.Dispose();
-                        },
-                        () => NotifyOfPropertyChange(() => CanFetchMyShowsList));
+                await localConnection.Connect(IPAddress.Parse("192.168.0.100"), "9837127953");
+
+                this.connection = localConnection;
+
+                NotifyOfPropertyChange(() => CanFetchMyShowsList);
+                NotifyOfPropertyChange(() => CanGetWhatsOn);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(string.Format("Connection Failed\n{0}", ex), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                localConnection.Dispose();
             }
 
         }
 
-        public void ConnectAwayMode()
+        public async void ConnectAwayMode()
         {
             var localConnection = new TivoConnection(this.sterlingInstance.Database);
             try
             {
-                localConnection.ConnectAway(@"james.chaldecott@virginmedia.com", @"lambBh00na")
-                    .Subscribe(
-                        _ => this.connection = localConnection,
-                        ex =>
-                        {
-                            MessageBox.Show(string.Format("Connection Failed\n{0}", ex), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                            localConnection.Dispose();
-                        },
-                        () => NotifyOfPropertyChange(() => CanFetchMyShowsList));
+                await localConnection.ConnectAway(@"james.chaldecott@virginmedia.com", @"lambBh00na");
+
+                this.connection = localConnection;
+
+                NotifyOfPropertyChange(() => CanFetchMyShowsList);
+                NotifyOfPropertyChange(() => CanGetWhatsOn);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(string.Format("Connection Failed\n{0}", ex), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                localConnection.Dispose();
             }
 
         }
@@ -103,14 +86,23 @@ namespace TivoTest
             }
         }
 
-        public void FetchMyShowsList()
+        public bool CanGetWhatsOn
+        {
+            get
+            {
+                return this.connection != null;
+            }
+        }
+
+        public async void GetWhatsOn()
         {
             try
             {
-                shows.Clear();
+                var result = await connection.GetWhatsOn();
 
-                connection.GetMyShowsList(null)
-                    .Subscribe(item => this.Shows.Add(item), () => MessageBox.Show("Shows updated!", "Success", MessageBoxButton.OK, MessageBoxImage.Information));
+                Console.WriteLine(result);
+                
+                MessageBox.Show("What's On Finished!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {
@@ -118,7 +110,25 @@ namespace TivoTest
             }
         }
 
-        public void ActivateItem(RecordingFolderItem item)
+        public async void FetchMyShowsList()
+        {
+            try
+            {
+                shows.Clear();
+
+                var progress = new Progress<RecordingFolderItem>(item => this.Shows.Add(item));
+
+                await connection.GetMyShowsList(null, progress);
+                
+                MessageBox.Show("Shows updated!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(string.Format("Request Failed\n{0}", ex), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        public async void ActivateItem(RecordingFolderItem item)
         {
             var folder = item as Tivo.Connect.Entities.Container;
 
@@ -128,15 +138,15 @@ namespace TivoTest
                 {
                     shows.Clear();
 
-                    connection.GetMyShowsList(folder)
-                        .Subscribe(child => this.Shows.Add(child), () => MessageBox.Show("Shows updated!", "Success", MessageBoxButton.OK, MessageBoxImage.Information));
+                    var progress = new Progress<RecordingFolderItem>(child => this.Shows.Add(child));
+                    await connection.GetMyShowsList(folder, progress);
+
+                    MessageBox.Show("Shows updated!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(string.Format("Request Failed\n{0}", ex), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-
-
             }
             else
             {
@@ -144,7 +154,7 @@ namespace TivoTest
 
                 if (show != null)
                 {
-                    connection.PlayShow(show.Id);
+                    await connection.PlayShow(show.Id);
                 }
             }
         }
