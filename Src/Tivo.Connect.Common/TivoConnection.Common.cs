@@ -402,14 +402,35 @@ namespace Tivo.Connect
             return SendPlayShowRequest(recordingId);
         }
 
-        public Task<IDictionary<string, object>> GetWhatsOn()
+        public async Task<ShowDetails> GetWhatsOn()
         {
-            var body = new Dictionary<string, object>()
+            var whatsOnSearchBody = new Dictionary<string, object>()
             { 
                 { "type", "whatsOnSearch" },
             };
 
-            return SendRequest("whatsOnSearch", body);
+            var whatsOnResponse = await SendRequest("whatsOnSearch", whatsOnSearchBody).ConfigureAwait(false);
+
+            if (((string)whatsOnResponse["type"]) != "whatsOnList")
+            {
+                if (((string)whatsOnResponse["type"]) == "error")
+                {
+                    throw new Exception(
+                        string.Format("WhatsOnSearch returned an error.\n Error code: {0}\nError text:{1}",
+                            whatsOnResponse["code"],
+                            whatsOnResponse["text"]));
+                }
+                else
+                {
+                    throw new FormatException("Expecting whatsOnList");
+                }
+            }
+
+            var whatsOn = ((IEnumerable<IDictionary<string, object>>)whatsOnResponse["whatsOn"]).First();
+
+            var contentId = (string)whatsOn["contentId"];
+
+            return await GetShowContentDetails(contentId).ConfigureAwait(false);
         }
 
         private async Task<IDictionary<string, object>> SendRequest(string requestType, object body)
@@ -635,40 +656,60 @@ namespace Tivo.Connect
 //                { "note", new string[] { "userContentForCollectionId", "broadbandOfferGroupForContentId", "recordingForContentId" } },
                 { "note", new string[] { "recordingForContentId" } },
                 { "type", "contentSearch" },
-                { "levelOfDetail", "high" },
-                //{ "responseTemplate", 
-                //    new object[]
-                //    {
-                //        new Dictionary<string, object>
-                //        {
-                //            { "type", "responseTemplate" },
-                //            { "typeName", "contentList" },
-                //            { "fieldName", 
-                //                new string[] 
-                //                { 
-                //                    "content",
-                //                } 
-                //            }
-                //        },
-                //        new Dictionary<string, object>
-                //        {
-                //            { "type", "responseTemplate" },
-                //            { "typeName", "content" },
-                //            { "fieldName", 
-                //                new string[] 
-                //                { 
-                //                    "title",
-                //                    "subtitle",
-                //                    "description",
-                //                    "seasonNumber",
-                //                    "episodeNum",
-                //                    "originalAirdate",
-                //                    "image"
-                //                } 
-                //            }
-                //        }
-                //    }
-                //}
+                { "levelOfDetail", "medium" },
+                { "responseTemplate", 
+                    new object[]
+                    {
+                        new Dictionary<string, object>
+                        {
+                            { "type", "responseTemplate" },
+                            { "typeName", "contentList" },
+                            { "fieldName", 
+                                new string[] 
+                                { 
+                                    "content",
+                                } 
+                            }
+                        },
+                        new Dictionary<string, object>
+                        {
+                            { "type", "responseTemplate" },
+                            { "typeName", "content" },
+                            { "fieldName", 
+                                new string[] 
+                                { 
+                                    "title",
+                                    "subtitle",
+                                    "description",
+                                    "seasonNumber",
+                                    "episodeNum",
+                                    "originalAirdate",
+                                    "image"
+                                } 
+                            }
+                        }
+                    }
+                },
+                { "imageRuleset", 
+                    new Dictionary<string, object>
+                    {
+                        { "type", "imageRuleset" },
+                        { "name", "tvLandscape" },
+                        { "rule", 
+                            new object[]
+                            {
+                                new Dictionary<string, object>
+                                {
+                                    { "type", "imageRule" },
+                                    { "ruleType", "exactMatchDimension" },
+                                    { "imageType", new string[] {"showcaseBanner"} },
+                                    { "width", 360 },
+                                    { "height", 270 },
+                                }
+                            }
+                        }
+                    }
+                }
             };
 
             return SendRequest((string)body["type"], body);

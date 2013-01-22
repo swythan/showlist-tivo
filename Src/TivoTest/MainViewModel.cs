@@ -1,7 +1,9 @@
 ﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.Composition;
 using System.Net;
 using System.Reactive.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using Caliburn.Micro;
 using Tivo.Connect;
@@ -12,17 +14,25 @@ namespace TivoTest
     [Export(typeof(MainViewModel))]
     public partial class MainViewModel : PropertyChangedBase
     {
-        private TivoConnection connection;
-        private ISterlingInstance sterlingInstance;
+        private ITivoConnectionService tivoConnectionService;
 
         private BindableCollection<RecordingFolderItem> shows;
 
         [ImportingConstructor]
-        public MainViewModel(ISterlingInstance sterlingInstance)
+        public MainViewModel(ITivoConnectionService tivoConnectionService, WhatsOnViewModel whatsOnModel)
         {
-            this.sterlingInstance = sterlingInstance;
+            this.tivoConnectionService = tivoConnectionService;
+            this.WhatsOn = whatsOnModel;
 
+            this.tivoConnectionService.PropertyChanged += OnTivoConnectionServicePropertyChanged;
             this.shows = new BindableCollection<RecordingFolderItem>();
+        }
+
+        public WhatsOnViewModel WhatsOn { get; private set; }
+
+        void OnTivoConnectionServicePropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            NotifyOfPropertyChange(() => CanFetchMyShowsList);
         }
 
         public BindableCollection<RecordingFolderItem> Shows
@@ -40,81 +50,44 @@ namespace TivoTest
 
         public async void Connect()
         {
-            var localConnection = new TivoConnection(this.sterlingInstance.Database);
-            try
-            {
-                await localConnection.Connect(IPAddress.Parse("192.168.0.100"), "9837127953");
+            this.tivoConnectionService.IsAwayModeEnabled = false;
 
-                this.connection = localConnection;
-
-                NotifyOfPropertyChange(() => CanFetchMyShowsList);
-                NotifyOfPropertyChange(() => CanGetWhatsOn);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(string.Format("Connection Failed\n{0}", ex), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                localConnection.Dispose();
-            }
-
+            await TestConnection();
         }
 
         public async void ConnectAwayMode()
         {
-            var localConnection = new TivoConnection(this.sterlingInstance.Database);
+            this.tivoConnectionService.IsAwayModeEnabled = true;
+            
+            await TestConnection();
+        }
+
+        private async Task TestConnection()
+        {
             try
             {
-                await localConnection.ConnectAway(@"james.chaldecott@virginmedia.com", @"lambBh00na");
-
-                this.connection = localConnection;
-
-                NotifyOfPropertyChange(() => CanFetchMyShowsList);
-                NotifyOfPropertyChange(() => CanGetWhatsOn);
+                await this.tivoConnectionService.GetConnectionAsync();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(string.Format("Connection Failed\n{0}", ex), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                localConnection.Dispose();
             }
-
         }
 
         public bool CanFetchMyShowsList
         {
             get
             {
-                return this.connection != null;
+                return this.tivoConnectionService.IsConnected;
             }
         }
-
-        public bool CanGetWhatsOn
-        {
-            get
-            {
-                return this.connection != null;
-            }
-        }
-
-        public async void GetWhatsOn()
-        {
-            try
-            {
-                var result = await connection.GetWhatsOn();
-
-                Console.WriteLine(result);
-                
-                MessageBox.Show("What's On Finished!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(string.Format("Request Failed\n{0}", ex), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
         public async void FetchMyShowsList()
         {
             try
             {
                 shows.Clear();
+
+                var connection = await this.tivoConnectionService.GetConnectionAsync();
 
                 var progress = new Progress<RecordingFolderItem>(item => this.Shows.Add(item));
 
@@ -138,6 +111,8 @@ namespace TivoTest
                 {
                     shows.Clear();
 
+                    var connection = await this.tivoConnectionService.GetConnectionAsync();
+
                     var progress = new Progress<RecordingFolderItem>(child => this.Shows.Add(child));
                     await connection.GetMyShowsList(folder, progress);
 
@@ -154,6 +129,8 @@ namespace TivoTest
 
                 if (show != null)
                 {
+                    var connection = await this.tivoConnectionService.GetConnectionAsync();
+
                     await connection.PlayShow(show.Id);
                 }
             }
