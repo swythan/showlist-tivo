@@ -84,6 +84,7 @@ namespace Tivo.Connect
             this.capturedTsn = string.Empty;
 
             this.sslStream = await ConnectNetworkStream(new IPEndPoint(serverAddress, 1413));
+            this.receiveSubject = new Subject<Tuple<int, IDictionary<string, object>>>();
 
             // Send authentication message to the TiVo. 
             var authTask = SendMakAuthenticationRequest(mediaAccessKey);
@@ -139,7 +140,6 @@ namespace Tivo.Connect
 
         private void StartReceiveThread()
         {
-            this.receiveSubject = new Subject<Tuple<int, IDictionary<string, object>>>();
             this.receiveCancellationTokenSource = new CancellationTokenSource();
 
             this.receiveThread = new Thread((ThreadStart)RpcReceiveThreadProc);
@@ -153,6 +153,7 @@ namespace Tivo.Connect
             this.capturedTsn = string.Empty;
 
             this.sslStream = await ConnectNetworkStream(new DnsEndPoint(@"secure-tivo-api.virginmedia.com", 443));
+            this.receiveSubject = new Subject<Tuple<int, IDictionary<string, object>>>();
 
             // Send authentication message to the TiVo. 
             var authTask = SendUsernameAndPasswordAuthenticationRequest(username, password);
