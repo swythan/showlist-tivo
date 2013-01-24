@@ -19,7 +19,7 @@ namespace TivoAhoy.Phone
             container = new PhoneContainer(RootFrame);
 
             container.RegisterPhoneServices();
-
+            
             ConventionManager.AddElementConvention<PerformanceProgressBar>(PerformanceProgressBar.IsIndeterminateProperty, "IsIndeterminate", "Loaded");
 
             sterlingService = new SterlingService();

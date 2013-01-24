@@ -30,7 +30,7 @@ namespace Tivo.Connect
         private Stream sslStream = null;
         private int lastRpcId = 0;
 
-        private Task receiveTask;
+        private Thread receiveThread;
         private Subject<Tuple<int, IDictionary<string, object>>> receiveSubject;
         private CancellationTokenSource receiveCancellationTokenSource;
 
@@ -74,7 +74,7 @@ namespace Tivo.Connect
                 if (receiveCancellationTokenSource != null)
                 {
                     receiveCancellationTokenSource.Cancel();
-                    receiveCancellationTokenSource = null;
+                    // receiveCancellationTokenSource = null;
                 }
             }
         }
@@ -85,15 +85,12 @@ namespace Tivo.Connect
 
             this.sslStream = await ConnectNetworkStream(new IPEndPoint(serverAddress, 1413));
 
-            this.receiveSubject = new Subject<Tuple<int, IDictionary<string, object>>>();
-            this.receiveCancellationTokenSource = new CancellationTokenSource();
-
             // Send authentication message to the TiVo. 
             var authTask = SendMakAuthenticationRequest(mediaAccessKey);
 
             // Start listening on the socket *after* the first send operation.
             // This stops errors occuring on WP7
-            this.receiveTask = Task.Factory.StartNew(RpcReceiveThreadProc, this.receiveCancellationTokenSource.Token, TaskCreationOptions.LongRunning, TaskScheduler.Default);
+            StartReceiveThread();
 
             var authResponse = await authTask;
 
@@ -140,21 +137,29 @@ namespace Tivo.Connect
             this.capturedTsn = (string)bodyConfig["bodyId"];
         }
 
+        private void StartReceiveThread()
+        {
+            this.receiveSubject = new Subject<Tuple<int, IDictionary<string, object>>>();
+            this.receiveCancellationTokenSource = new CancellationTokenSource();
+
+            this.receiveThread = new Thread((ThreadStart)RpcReceiveThreadProc);
+            this.receiveThread.IsBackground = true;
+            this.receiveThread.Name = "RPC Receive Thread";
+            this.receiveThread.Start();
+        }
+
         public async Task ConnectAway(string username, string password)
         {
             this.capturedTsn = string.Empty;
 
             this.sslStream = await ConnectNetworkStream(new DnsEndPoint(@"secure-tivo-api.virginmedia.com", 443));
 
-            this.receiveSubject = new Subject<Tuple<int, IDictionary<string, object>>>();
-            this.receiveCancellationTokenSource = new CancellationTokenSource();
-
             // Send authentication message to the TiVo. 
             var authTask = SendUsernameAndPasswordAuthenticationRequest(username, password);
 
             // Start listening on the socket *after* the first send operation.
             // This stops errors occuring on WP7
-            this.receiveTask = Task.Factory.StartNew(RpcReceiveThreadProc, this.receiveCancellationTokenSource.Token, TaskCreationOptions.LongRunning, TaskScheduler.Default);
+            StartReceiveThread();
 
             var authResponse = await authTask;
 
@@ -252,7 +257,10 @@ namespace Tivo.Connect
                     }
                 };
 
-            Socket.ConnectAsync(SocketType.Stream, ProtocolType.Tcp, args);
+            if (!Socket.ConnectAsync(SocketType.Stream, ProtocolType.Tcp, args))
+            {
+                return args.ConnectSocket;
+            }
 
             return await tcs.Task;
         }
