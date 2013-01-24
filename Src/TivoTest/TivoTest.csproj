@@ -98,6 +98,10 @@
     <Compile Include="ISterlingInstance.cs" />
     <Compile Include="MainViewModel.cs" />
     <Compile Include="ShellViewModel.cs" />
+    <Compile Include="ShowGridView.xaml.cs">
+      <DependentUpon>ShowGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ShowGridViewModel.cs" />
     <Compile Include="SterlingService.cs" />
     <Compile Include="TivoConnectionService.cs" />
     <Compile Include="WhatsOnView.xaml.cs">
@@ -121,6 +125,10 @@
     <Page Include="ShellView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ShowGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WhatsOnView.xaml">
       <SubType>Designer</SubType>

@@ -79,14 +79,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Tivo.Connect.Common\Entities\Channel.cs">
+      <Link>Entities\Channel.cs</Link>
+    </Compile>
     <Compile Include="..\Tivo.Connect.Common\Entities\Container.cs">
       <Link>Entities\Container.cs</Link>
+    </Compile>
+    <Compile Include="..\Tivo.Connect.Common\Entities\GridRow.cs">
+      <Link>Entities\GridRow.cs</Link>
     </Compile>
     <Compile Include="..\Tivo.Connect.Common\Entities\ImageInfo.cs">
       <Link>Entities\ImageInfo.cs</Link>
     </Compile>
     <Compile Include="..\Tivo.Connect.Common\Entities\IndividualShow.cs">
       <Link>Entities\IndividualShow.cs</Link>
+    </Compile>
+    <Compile Include="..\Tivo.Connect.Common\Entities\Offer.cs">
+      <Link>Entities\Offer.cs</Link>
     </Compile>
     <Compile Include="..\Tivo.Connect.Common\Entities\RecordingFolderItem.cs">
       <Link>Entities\RecordingFolderItem.cs</Link>

@@ -97,21 +97,8 @@ namespace Tivo.Connect
 
             var authResponse = await authTask;
 
-            if (((string)authResponse["type"]) != "bodyAuthenticateResponse")
-            {
-                if (((string)authResponse["type"]) == "error")
-                {
-                    throw new Exception(
-                        string.Format("Authentication failed with error.\n Error code: {0}\nError text:{1}",
-                            authResponse["code"],
-                            authResponse["text"]));
-                }
-                else
-                {
-                    throw new FormatException("Expecting bodyAuthenticateResponse");
-                }
-            }
-
+            CheckResponse(authResponse, "bodyAuthenticateResponse", "Authentication");
+            
             if (((string)authResponse["status"]) != "success")
             {
                 throw new Exception(authResponse["message"] as string);
@@ -122,10 +109,7 @@ namespace Tivo.Connect
             // Now check that network control is enabled
             var statusResponse = await SendOptStatusGetRequest();
 
-            if (((string)statusResponse["type"]) != "optStatusResponse")
-            {
-                throw new FormatException("Expecting optStatusResponse");
-            }
+            CheckResponse(statusResponse, "optStatusResponse", "OptStatusGet");
 
             if (((string)statusResponse["optStatus"]) != "optIn")
             {
@@ -134,10 +118,7 @@ namespace Tivo.Connect
 
             var bodyConfigResponse = await SendBodyConfigSearchRequest();
 
-            if (((string)bodyConfigResponse["type"]) != "bodyConfigList")
-            {
-                throw new FormatException("Expecting bodyConfigList");
-            }
+            CheckResponse(bodyConfigResponse, "bodyConfigList", "BodyConfigSearch");
 
             if (!bodyConfigResponse.ContainsKey("bodyConfig"))
             {
@@ -177,20 +158,7 @@ namespace Tivo.Connect
 
             var authResponse = await authTask;
 
-            if (((string)authResponse["type"]) != "bodyAuthenticateResponse")
-            {
-                if (((string)authResponse["type"]) == "error")
-                {
-                    throw new Exception(
-                        string.Format("Authentication failed with error.\n Error code: {0}\nError text:{1}",
-                            authResponse["code"],
-                            authResponse["text"]));
-                }
-                else
-                {
-                    throw new FormatException("Expecting bodyAuthenticateResponse");
-                }
-            }
+            CheckResponse(authResponse, "bodyAuthenticateResponse", "Authentication");
 
             if (((string)authResponse["status"]) != "success")
             {
@@ -327,7 +295,7 @@ namespace Tivo.Connect
             var detailsResults = await SendGetContentDetailsRequest(contentId);
 
             var content = (IEnumerable<IDictionary<string, object>>)detailsResults["content"];
-            
+
             return new ShowDetails(content.First());
         }
 
@@ -342,7 +310,7 @@ namespace Tivo.Connect
             foreach (var group in groups)
             {
                 var groupItems = await GetRecordingFolderItems(group).ConfigureAwait(false);
-                            
+
                 foreach (var item in groupItems)
                 {
                     result.Add(item);
@@ -350,7 +318,7 @@ namespace Tivo.Connect
                     {
                         progress.Report(item);
                     }
-                }        
+                }
             }
 
             return result;
@@ -411,26 +379,45 @@ namespace Tivo.Connect
 
             var whatsOnResponse = await SendRequest("whatsOnSearch", whatsOnSearchBody).ConfigureAwait(false);
 
-            if (((string)whatsOnResponse["type"]) != "whatsOnList")
-            {
-                if (((string)whatsOnResponse["type"]) == "error")
-                {
-                    throw new Exception(
-                        string.Format("WhatsOnSearch returned an error.\n Error code: {0}\nError text:{1}",
-                            whatsOnResponse["code"],
-                            whatsOnResponse["text"]));
-                }
-                else
-                {
-                    throw new FormatException("Expecting whatsOnList");
-                }
-            }
+            CheckResponse(whatsOnResponse, "whatsOnList", "whatsOnSearch");
 
             var whatsOn = ((IEnumerable<IDictionary<string, object>>)whatsOnResponse["whatsOn"]).First();
 
             var contentId = (string)whatsOn["contentId"];
 
             return await GetShowContentDetails(contentId).ConfigureAwait(false);
+        }
+
+        public async Task<List<GridRow>> GetGridShowsAsync(DateTime minEndTime, DateTime maxStartTime, int anchorChannel, int count, int offset)
+        {
+            var request = new Dictionary<string, object>
+            {
+                { "type", "gridRowSearch" },
+                { "bodyId", this.capturedTsn },
+                { "orderBy", new string[] { "channelNumber"} },
+                { "isReceived", true},
+                { "minEndTime", minEndTime.ToString("yyyy'-'MM'-'dd HH':'mm':'ss") },
+                { "maxStartTime", maxStartTime.ToString("yyyy'-'MM'-'dd HH':'mm':'ss") },
+                { "count", count },
+                { "offset", offset },
+                { "anchorChannelIdentifier", 
+                    new Dictionary<string, object>
+                    {
+                        { "type", "channelIdentifier"},
+                        { "channelNumber", anchorChannel},
+                        { "sourceType", "cable"},                    
+                    }
+                },
+                { "levelOfDetail", "low" },
+           };
+
+            var response = await SendRequest("gridRowSearch", request);
+
+            CheckResponse(response, "gridRowList", "gridRowSearch");
+
+            var rows = (IEnumerable<IDictionary<string, object>>)response["gridRow"];
+
+            return rows.Select(x => new GridRow(x)).ToList();
         }
 
         private async Task<IDictionary<string, object>> SendRequest(string requestType, object body)
@@ -521,6 +508,26 @@ namespace Tivo.Connect
             IDictionary<string, object> body = jsonReader.Read<Dictionary<string, object>>(bodyJsonString);
 
             return Tuple.Create(rpcId, body);
+        }
+
+        private static void CheckResponse(IDictionary<string, object> response, string expectedType, string operationName)
+        {
+            var responseType = (string)response["type"];
+            if (responseType == expectedType)
+            {
+                return;
+            }
+
+            if (responseType != "error")
+            {
+                throw new FormatException(string.Format("Expecting {0}, but got {1}", expectedType, responseType));
+            }
+
+            throw new Exception(
+                string.Format("{0} returned an error.\n Error code: {1}\nError text:{2}",
+                    operationName,
+                    response["code"],
+                    response["text"]));
         }
 
         private Task<IDictionary<string, object>> SendMakAuthenticationRequest(string mediaAccessKey)

@@ -13,12 +13,18 @@
             <RowDefinition
                 Height="Auto" />
             <RowDefinition
+                Height="Auto" />
+            <RowDefinition
                 Height="*" />
         </Grid.RowDefinitions>
         <Button
             x:Name="Connect"
             Content="Connect" />
-        <TabControl Grid.Row="1">
+        <Button
+            x:Name="ConnectAwayMode"
+            Content="Connect (Away Mode)"
+            Grid.Row="1"/>
+        <TabControl Grid.Row="2">
             <TabItem
                 Header="My Shows">
                 <DockPanel LastChildFill="True">
@@ -68,6 +74,11 @@
                 Header="What's On">
                 <ContentControl
                     x:Name="WhatsOn" />
+            </TabItem>
+            <TabItem
+                Header="TV Guide">
+                <ContentControl
+                    x:Name="ShowGrid" />
             </TabItem>
         </TabControl>
 

@@ -19,16 +19,21 @@ namespace TivoTest
         private BindableCollection<RecordingFolderItem> shows;
 
         [ImportingConstructor]
-        public MainViewModel(ITivoConnectionService tivoConnectionService, WhatsOnViewModel whatsOnModel)
+        public MainViewModel(
+            ITivoConnectionService tivoConnectionService,
+            WhatsOnViewModel whatsOnModel,
+            ShowGridViewModel showGridModel)
         {
             this.tivoConnectionService = tivoConnectionService;
             this.WhatsOn = whatsOnModel;
+            this.ShowGrid = showGridModel;
 
             this.tivoConnectionService.PropertyChanged += OnTivoConnectionServicePropertyChanged;
             this.shows = new BindableCollection<RecordingFolderItem>();
         }
 
         public WhatsOnViewModel WhatsOn { get; private set; }
+        public ShowGridViewModel ShowGrid { get; private set; }
 
         void OnTivoConnectionServicePropertyChanged(object sender, PropertyChangedEventArgs e)
         {
