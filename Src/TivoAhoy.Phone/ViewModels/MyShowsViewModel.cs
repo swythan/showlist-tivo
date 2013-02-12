@@ -3,6 +3,7 @@ using System.Net;
 using System.Reactive.Linq;
 using System.Windows;
 using Caliburn.Micro;
+using Microsoft;
 using Tivo.Connect;
 using Tivo.Connect.Entities;
 using TivoAhoy.Phone.Events;
