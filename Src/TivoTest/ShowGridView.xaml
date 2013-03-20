@@ -1,11 +1,15 @@
-﻿<UserControl x:Class="TivoTest.ShowGridView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
+﻿<UserControl
+    x:Class="TivoTest.ShowGridView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:TivoTest"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="300">
+    <Grid
+        x:Name="root">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition
@@ -18,20 +22,89 @@
                 Content="Refresh" />
             <ListBox
                 x:Name="Rows"
-                Grid.Row="1">
+                Grid.Row="1"
+                Grid.IsSharedSizeScope="True">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel
-                            Orientation="Horizontal">
-                            <Image
-                                Source="{Binding Channel.LogoUrl}"/>
-                            <TextBlock
-                                Text="{Binding Channel.ChannelNumber}" />
-                            <TextBlock
-                                Text="{Binding Channel.Name}" />
-                            <TextBlock
-                                Text="{Binding Offers[0].Title}" />
-                        </StackPanel>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition
+                                    Width="Auto"
+                                    SharedSizeGroup="ChannelColumn" />
+                                <ColumnDefinition
+                                    Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel
+                                Grid.Column="0"
+                                Orientation="Horizontal"
+                                Background="DarkBlue">
+                                <Image
+                                    Source="{Binding Channel.LogoUrl}"
+                                    Width="65"
+                                    Height="55"
+                                    Stretch="Uniform" />
+                                <TextBlock
+                                    Text="{Binding Channel.ChannelNumber}"
+                                    Margin="0,0,5,0" />
+                                <TextBlock
+                                    Text="{Binding Channel.CallSign}"
+                                    Margin="0,0,5,0" />
+                            </StackPanel>
+                            <ItemsControl
+                                ItemsSource="{Binding Offers}"
+                                Grid.Column="1">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel
+                                            Width="500"
+                                            Orientation="Horizontal" />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border>
+                                            <Border.Width>
+                                                <MultiBinding
+                                                    Converter="{local:DurationToWidthConverter}">
+                                                    <Binding
+                                                        Path="Duration" />
+                                                    <Binding
+                                                        Path="StartTime" />
+                                                    <Binding
+                                                        Path="DataContext.StartTime"
+                                                        ElementName="root" />
+                                                    <Binding
+                                                        RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=ItemsControl}"
+                                                        Path="ActualWidth" />
+                                                </MultiBinding>
+                                            </Border.Width>
+                                            <Grid
+                                                Margin="2,0,2,0"
+                                                Background="LightBlue">
+                                                <TextBlock
+                                                    Text="{Binding Title}">
+                                                </TextBlock>
+                                                
+                                                <Grid.ToolTip>
+                                                    <StackPanel>
+                                                        <TextBlock
+                                                            Text="{Binding Title}" />
+                                                        <TextBlock
+                                                            Text="{Binding ShortTitle}" />
+                                                        <TextBlock
+                                                            Text="{Binding Subtitle}" />
+                                                        <TextBlock
+                                                            Text="{Binding StartTime}" />
+                                                        <TextBlock
+                                                            Text="{Binding Duration}" />
+                                                    </StackPanel>
+                                                </Grid.ToolTip>
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>

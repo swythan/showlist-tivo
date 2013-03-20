@@ -96,7 +96,7 @@ namespace Tivo.Connect
             var authResponse = await authTask;
 
             CheckResponse(authResponse, "bodyAuthenticateResponse", "Authentication");
-            
+
             if (((string)authResponse["status"]) != "success")
             {
                 throw new Exception(authResponse["message"] as string);
@@ -397,36 +397,40 @@ namespace Tivo.Connect
             return await GetShowContentDetails(contentId).ConfigureAwait(false);
         }
 
+        public async Task<List<Channel>> GetChannelsAsync(int count, int offset)
+        {
+            var response = await SendChannelSearchRequest(count, offset);
+
+            CheckResponse(response, "channelList", "channelSearch");
+
+            if (response.ContainsKey("channel"))
+            {
+                var rows = (IEnumerable<IDictionary<string, object>>)response["channel"];
+
+                return rows.Select(x => new Channel(x)).ToList();
+            }
+            else
+            {
+                return new List<Channel>();
+            }
+        }
+
         public async Task<List<GridRow>> GetGridShowsAsync(DateTime minEndTime, DateTime maxStartTime, int anchorChannel, int count, int offset)
         {
-            var request = new Dictionary<string, object>
-            {
-                { "type", "gridRowSearch" },
-                { "bodyId", this.capturedTsn },
-                { "orderBy", new string[] { "channelNumber"} },
-                { "isReceived", true},
-                { "minEndTime", minEndTime.ToString("yyyy'-'MM'-'dd HH':'mm':'ss") },
-                { "maxStartTime", maxStartTime.ToString("yyyy'-'MM'-'dd HH':'mm':'ss") },
-                { "count", count },
-                { "offset", offset },
-                { "anchorChannelIdentifier", 
-                    new Dictionary<string, object>
-                    {
-                        { "type", "channelIdentifier"},
-                        { "channelNumber", anchorChannel},
-                        { "sourceType", "cable"},                    
-                    }
-                },
-                { "levelOfDetail", "low" },
-           };
-
-            var response = await SendRequest("gridRowSearch", request);
+            var response = await SendGridRowSearchRequest(minEndTime, maxStartTime, anchorChannel, count, offset);
 
             CheckResponse(response, "gridRowList", "gridRowSearch");
 
-            var rows = (IEnumerable<IDictionary<string, object>>)response["gridRow"];
+            if (response.ContainsKey("gridRow"))
+            {
+                var rows = (IEnumerable<IDictionary<string, object>>)response["gridRow"];
 
-            return rows.Select(x => new GridRow(x)).ToList();
+                return rows.Select(x => new GridRow(x)).ToList();
+            }
+            else
+            {
+                return new List<GridRow>();
+            }
         }
 
         private async Task<IDictionary<string, object>> SendRequest(string requestType, object body)
@@ -749,6 +753,134 @@ namespace Tivo.Connect
                 };
 
             return SendRequest((string)body["type"], body);
+        }
+
+        private async Task<IDictionary<string, object>> SendChannelSearchRequest(int count, int offset)
+        {
+            var request = new Dictionary<string, object>
+            {
+                { "type", "channelSearch" },
+                { "bodyId", this.capturedTsn },
+                // { "noLimit", true},
+                { "isReceived", true },
+                { "count", count },
+                { "offset", offset },
+                { "responseTemplate", 
+                    new object[]
+                    {
+                        new Dictionary<string, object>
+                        {
+                            { "type", "responseTemplate" },
+                            { "typeName", "channelList" },
+                            { "fieldName", 
+                                new string[] 
+                                { 
+                                    "channel",
+                                } 
+                            }
+                        },                     
+                        new Dictionary<string, object>
+                        {
+                            { "type", "responseTemplate" },
+                            { "typeName", "channel" },
+                            { "fieldName", 
+                                new string[] 
+                                { 
+                                    "channelId", 
+                                    "channelNumber", 
+                                    "callSign", 
+                                    "logoIndex", 
+                                } 
+                            }
+                        },
+                    }
+                }  
+            };
+
+            var response = await SendRequest("channelSearch", request);
+            return response;
+        }
+
+        private async Task<IDictionary<string, object>> SendGridRowSearchRequest(DateTime minEndTime, DateTime maxStartTime, int anchorChannel, int count, int offset)
+        {
+            var request = new Dictionary<string, object>
+            {
+                { "type", "gridRowSearch" },
+                { "bodyId", this.capturedTsn },
+                { "orderBy", new string[] { "channelNumber"} },
+                { "isReceived", true},
+                { "minEndTime", minEndTime.ToString("yyyy'-'MM'-'dd HH':'mm':'ss") },
+                { "maxStartTime", maxStartTime.ToString("yyyy'-'MM'-'dd HH':'mm':'ss") },
+                { "count", count },
+                { "offset", offset },
+                { "anchorChannelIdentifier", 
+                    new Dictionary<string, object>
+                    {
+                        { "type", "channelIdentifier"},
+                        { "channelNumber", anchorChannel},
+                        { "sourceType", "cable"},                    
+                    }
+                },
+                { "levelOfDetail", "low" },
+                { "responseTemplate", 
+                    new object[]
+                    {
+                        new Dictionary<string, object>
+                        {
+                            { "type", "responseTemplate" },
+                            { "typeName", "gridRowList" },
+                            { "fieldName", 
+                                new string[] 
+                                { 
+                                    "gridRow",
+                                } 
+                            }
+                        },                     
+                        new Dictionary<string, object>
+                        {
+                            { "type", "responseTemplate" },
+                            { "typeName", "gridRow" },
+                            { "fieldName", 
+                                new string[] 
+                                { 
+                                    "channel", 
+                                    "offer", 
+                                } 
+                            }
+                        },
+                        new Dictionary<string, object>
+                        {
+                            { "type", "responseTemplate" },
+                            { "typeName", "channel" },
+                            { "fieldName", 
+                                new string[] 
+                                { 
+                                    "channelId", 
+                                    "channelNumber", 
+                                    "callSign", 
+                                    "logoIndex", 
+                                } 
+                            }
+                        },
+                        new Dictionary<string, object>
+                        {
+                            { "type", "responseTemplate" },
+                            { "typeName", "offer" },
+                            { "fieldName", 
+                                new string[] 
+                                { 
+                                    "title", 
+                                    "startTime", 
+                                    "duration", 
+                                } 
+                            }
+                        }
+                    }
+                }  
+            };
+
+            var response = await SendRequest("gridRowSearch", request);
+            return response;
         }
     }
 }

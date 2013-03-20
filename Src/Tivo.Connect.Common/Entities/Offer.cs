@@ -59,49 +59,49 @@ namespace Tivo.Connect.Entities
         {
             this.jsonSource = jsonSource;
 
-            this.ContentId = (string)jsonSource["contentId"];
-            this.ContentType = (string)jsonSource["contentType"];
-            this.CollectionId = (string)jsonSource  ["collectionId"];
-            this.CollectionType = (string)jsonSource["collectionType"];
-            this.PartnerContentId = (string)jsonSource   ["partnerContentId"];
-            this.PartnerCollectionId = (string)jsonSource["partnerCollectionId"];
+            //this.ContentId = (string)jsonSource["contentId"];
+            //this.ContentType = (string)jsonSource["contentType"];
+            //this.CollectionId = (string)jsonSource  ["collectionId"];
+            //this.CollectionType = (string)jsonSource["collectionType"];
+            //this.PartnerContentId = (string)jsonSource   ["partnerContentId"];
+            //this.PartnerCollectionId = (string)jsonSource["partnerCollectionId"];
 
-            this.Title =      (string)jsonSource["title"];
+            this.Title = (string)jsonSource["title"];
             
             if (jsonSource.ContainsKey("shortTitle"))
             {
                 this.ShortTitle = (string)jsonSource["shortTitle"];
             }
 
-            if (jsonSource.ContainsKey("subtitle"))
-            {
-                this.Subtitle = (string)jsonSource["subtitle"];
-            }
+            //if (jsonSource.ContainsKey("subtitle"))
+            //{
+            //    this.Subtitle = (string)jsonSource["subtitle"];
+            //}
 
-            if (this.jsonSource.ContainsKey("channel"))
-            {
-                this.Channel = new Channel((IDictionary<string, object>) jsonSource["channel"]);
-            }
+            //if (this.jsonSource.ContainsKey("channel"))
+            //{
+            //    this.Channel = new Channel((IDictionary<string, object>) jsonSource["channel"]);
+            //}
 
-            if (this.jsonSource.ContainsKey("repeat"))
-            {
-                this.IsRepeat = (bool)jsonSource["repeat"];
-            }
+            //if (this.jsonSource.ContainsKey("repeat"))
+            //{
+            //    this.IsRepeat = (bool)jsonSource["repeat"];
+            //}
 
-            this.IsEpisodic = (bool)jsonSource["episodic"];
-            this.IsHdTv = (bool)jsonSource["hdtv"];
-            this.IsEpisode = (bool)jsonSource["isEpisode"];
-            this.IsAdult = (bool)jsonSource["isAdult"];
+            //this.IsEpisodic = (bool)jsonSource["episodic"];
+            //this.IsHdTv = (bool)jsonSource["hdtv"];
+            //this.IsEpisode = (bool)jsonSource["isEpisode"];
+            //this.IsAdult = (bool)jsonSource["isAdult"];
 
-            if (this.jsonSource.ContainsKey("episodeNum"))
-            {
-                this.EpisodeNum = ((IEnumerable<int>)this.jsonSource["episodeNum"]).First();
-            }
+            //if (this.jsonSource.ContainsKey("episodeNum"))
+            //{
+            //    this.EpisodeNum = ((IEnumerable<int>)this.jsonSource["episodeNum"]).First();
+            //}
 
-            if (this.jsonSource.ContainsKey("seasonNumber"))
-            {
-                this.SeasonNumber = (int)this.jsonSource["seasonNumber"];
-            }
+            //if (this.jsonSource.ContainsKey("seasonNumber"))
+            //{
+            //    this.SeasonNumber = (int)this.jsonSource["seasonNumber"];
+            //}
 
             if (jsonSource.ContainsKey("startTime"))
             {

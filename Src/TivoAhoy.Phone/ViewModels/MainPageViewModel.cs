@@ -17,7 +17,8 @@
         public MainPageViewModel(
             IEventAggregator eventAggregator,
             INavigationService navigationService, 
-            MyShowsViewModel myShowsViewModel)
+            MyShowsViewModel myShowsViewModel,
+            ChannelListViewModel channelListViewModel)
         {
             this.navigationService = navigationService;
 
@@ -25,6 +26,9 @@
 
             myShowsViewModel.DisplayName = "my shows";
             this.Items.Add(myShowsViewModel);
+
+            channelListViewModel.DisplayName = "channels";
+            this.Items.Add(channelListViewModel);
 
             this.ActivateItem(myShowsViewModel);
         }
@@ -51,10 +55,15 @@
             get
             {
                 var myShows = this.ActiveItem as MyShowsViewModel;
-
                 if (myShows != null)
                 {
                     return myShows.CanRefreshShows;
+                }
+
+                var channels = this.ActiveItem as ChannelListViewModel;
+                if (channels != null)
+                {
+                    return channels.CanRefreshShows;
                 }
 
                 return false;
@@ -64,10 +73,15 @@
         public void RefreshList()
         {
             var myShows = this.ActiveItem as MyShowsViewModel;
-
             if (myShows != null)
             {
                 myShows.RefreshShows();
+            }
+
+            var channels = this.ActiveItem as ChannelListViewModel;
+            if (channels != null)
+            {
+                channels.RefreshShows();
             }
         }
 

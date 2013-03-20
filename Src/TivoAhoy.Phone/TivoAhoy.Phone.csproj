@@ -137,9 +137,15 @@
     <Compile Include="Events\TivoOperationStarted.cs" />
     <Compile Include="ISterlingInstance.cs" />
     <Compile Include="SterlingService.cs" />
+    <Compile Include="ViewModels\ChannelListViewModel.cs" />
     <Compile Include="ViewModels\MyShowsViewModel.cs" />
+    <Compile Include="ViewModels\OfferViewModel.cs" />
     <Compile Include="ViewModels\ShowDetailsPageViewModel.cs">
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\VirtualizedShowList.cs" />
+    <Compile Include="Views\ChannelListView.xaml.cs">
+      <DependentUpon>ChannelListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -169,6 +175,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Content>
+    <Page Include="Views\ChannelListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

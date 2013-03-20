@@ -101,6 +101,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DurationToWidthConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ITivoConnectionService.cs" />
     <Compile Include="ISterlingInstance.cs" />
     <Compile Include="MainViewModel.cs" />

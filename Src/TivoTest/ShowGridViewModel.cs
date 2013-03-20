@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,8 @@ namespace TivoTest
         private readonly ITivoConnectionService tivoConnectionService;
         
         private IEnumerable<GridRow> rows;
+        private DateTime startTime;
+        private DateTime endTime;
 
         [ImportingConstructor]
         public ShowGridViewModel(ITivoConnectionService tivoConnectionService)
@@ -43,6 +46,44 @@ namespace TivoTest
             }
         }
 
+        public DateTime StartTime
+        {
+            get
+            {
+                return this.startTime;
+            }
+
+            set
+            {
+                if (this.startTime == value)
+                {
+                    return;
+                }
+
+                this.startTime = value;
+                NotifyOfPropertyChange(() => this.StartTime);
+            }
+        }
+
+        public DateTime EndTime
+        {
+            get
+            {
+                return this.endTime;
+            }
+
+            set
+            {
+                if (this.endTime == value)
+                {
+                    return;
+                }
+
+                this.endTime = value;
+                NotifyOfPropertyChange(() => this.EndTime);
+            }
+        }
+
         public bool CanUpdate
         {
             get { return this.tivoConnectionService.IsConnected; }
@@ -54,7 +95,28 @@ namespace TivoTest
             {
                 var connection = await this.tivoConnectionService.GetConnectionAsync();
 
-                this.Rows = await connection.GetGridShowsAsync(DateTime.Now, DateTime.Now + TimeSpan.FromMinutes(30), 100, 10, 0);
+                var now = DateTime.Now;
+
+                var startTime = new DateTime(now.Year, now.Month, now.Day, now.Hour, (now.Minute / 15) * 15, 00);
+
+                this.StartTime = startTime;
+                this.EndTime = this.StartTime + TimeSpan.FromMinutes(15);
+
+                var newRows = new ObservableCollection<GridRow>();
+
+                this.Rows = newRows;
+
+                for (int i = 0; i < 10; i++)
+                {
+                    int pageSize = 5;
+
+                    var extraRows = await connection.GetGridShowsAsync(this.StartTime, this.EndTime, 100, pageSize, pageSize * i);
+
+                    foreach (var row in extraRows)
+                    {
+                        newRows.Add(row);
+                    }
+                }
             }
             catch (Exception ex)
             {

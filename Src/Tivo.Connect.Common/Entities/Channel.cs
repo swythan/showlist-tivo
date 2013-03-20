@@ -35,33 +35,60 @@ namespace Tivo.Connect.Entities
         public string PartnerStationId { get; set; }
         public string SourceType { get; set; }
         public string StationId { get; set; }
-        public int LogoIndex { get; set; }
-        public Uri LogoUrl { get; set; }
+        public int? LogoIndex { get; set; }
+
+        public Uri LogoUrl
+        {
+            get
+            {
+                if (this.LogoIndex == null)
+                {
+                    return null;
+                }
+
+                return this.GetLogoUrlFromIndex(this.LogoIndex.Value);
+            }
+        }
 
         private void SetupFromJson(IDictionary<string, object> jsonSource)
         {
             this.jsonSource = jsonSource;
 
-            this.Affiliate = (string)jsonSource["affiliate"];
+            //if (jsonSource.ContainsKey("affiliate"))
+            //{
+            //    this.Affiliate = (string)jsonSource["affiliate"];
+            //}
+
             this.CallSign = (string)jsonSource["callSign"];
             this.ChannelId = (string)jsonSource["channelId"];
             this.ChannelNumber = int.Parse((string)jsonSource["channelNumber"]);
-            this.Name = (string)jsonSource["name"];
-            this.PartnerStationId = (string)jsonSource["partnerStationId"];
-            this.SourceType = (string)jsonSource["sourceType"];
-            this.StationId = (string)jsonSource["stationId"];
-            this.IsDigital = (bool)jsonSource["isDigital"];
-            this.IsReceived = (bool)jsonSource["isReceived"];
-            this.LogoIndex = (int)jsonSource["logoIndex"];
+            //this.Name = (string)jsonSource["name"];
+            //this.PartnerStationId = (string)jsonSource["partnerStationId"];
+            //this.SourceType = (string)jsonSource["sourceType"];
+            //this.StationId = (string)jsonSource["stationId"];
+            //this.IsDigital = (bool)jsonSource["isDigital"];
+            //this.IsReceived = (bool)jsonSource["isReceived"];
 
-            int logoIdInUrl = this.LogoIndex & 0xFFFF;
-            var logoUrlString = string.Format(@"http://tivo-icdn.virginmedia.com/images-production/static/logos/65x55/{0}.png", logoIdInUrl);
+            if (jsonSource.ContainsKey("logoIndex"))
+            {
+                this.LogoIndex = (int)jsonSource["logoIndex"];
+            }
+        }
+
+        private Uri GetLogoUrlFromIndex(int index)
+        {
+            const string urlFormat = @"http://tivo-icdn.virginmedia.com/images-production/static/logos/65x55/{0}.png";
+
+            int logoIdInUrl = index & 0xFFFF;
+            var logoUrlString = string.Format(urlFormat, logoIdInUrl);
 
             Uri logoUrl;
             if (Uri.TryCreate(logoUrlString, UriKind.Absolute, out logoUrl))
             {
-                this.LogoUrl = logoUrl;
+                return logoUrl;
             }
+
+            return null;
         }
 
         public string JsonText
