@@ -9,13 +9,15 @@ namespace TivoAhoy.Phone.ViewModels
 {
     public class OfferViewModel : PropertyChangedBase
     {
-        private readonly Channel channel;
+        private readonly INavigationService navigationService;
+
+        private Channel channel;
         
         private Offer offer;
 
-        public OfferViewModel(Channel channel)
+        public OfferViewModel(INavigationService navigationService)
         {
-            this.channel = channel;
+            this.navigationService = navigationService;
         }
 
         public Channel Channel
@@ -24,6 +26,11 @@ namespace TivoAhoy.Phone.ViewModels
             {
                 return this.channel;
             }
+            set
+            {
+                this.channel = value;
+                this.NotifyOfPropertyChange(() => this.Channel);
+            }   
         }
 
         public Offer Offer
@@ -34,6 +41,15 @@ namespace TivoAhoy.Phone.ViewModels
                 this.offer = value;
                 this.NotifyOfPropertyChange(() => this.Offer);
             }
+        }
+
+        public void DisplayOfferDetails()
+        {
+            this.navigationService
+                .UriFor<ShowDetailsPageViewModel>()
+                .WithParam(x => x.ShowContentID, this.Offer.ContentId)
+                .WithParam(x => x.ShowOfferID, this.Offer.OfferId)
+                .Navigate();
         }
     }
 }

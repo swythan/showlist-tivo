@@ -18,17 +18,21 @@ namespace TivoAhoy.Phone.ViewModels
         private readonly IEventAggregator eventAggregator;
         private readonly ISterlingInstance sterlingInstance;
         private readonly SettingsPageViewModel settingsModel;
+        private readonly Func<OfferViewModel> offerViewModelFactory;
+
         private IList<Channel> channels;
         private IList shows;
 
         public ChannelListViewModel(
             IEventAggregator eventAggregator,
             ISterlingInstance sterlingInstance,
-            SettingsPageViewModel settingsModel)
+            SettingsPageViewModel settingsModel,
+            Func<OfferViewModel> offerViewModelFactory)
         {
             this.sterlingInstance = sterlingInstance;
             this.settingsModel = settingsModel;
             this.eventAggregator = eventAggregator;
+            this.offerViewModelFactory = offerViewModelFactory;
         }
 
         public ChannelListViewModel()
@@ -41,29 +45,31 @@ namespace TivoAhoy.Phone.ViewModels
         {
             this.Shows = new List<OfferViewModel>()
             {
-                new OfferViewModel(
-                    new Channel()
+                new OfferViewModel(null)
                     {
-                         ChannelNumber = 101,
-                         CallSign = "BBC 1",
-                         LogoIndex = 65736
-                    })
-                    {
+                        Channel = 
+                            new Channel()
+                            {
+                                 ChannelNumber = 101,
+                                 CallSign = "BBC 1",
+                                 LogoIndex = 65736
+                            },
                         Offer = 
                             new Offer()
                             {
                                 Title = "Antiques Roadshow"
                             }
                     },      
-                new OfferViewModel(
-                    new Channel()
+                new OfferViewModel(null)
                     {
-                         ChannelNumber = 102,
-                         CallSign = "BBC 2",
-                         LogoIndex = 65738
-                    })   
-                    {
-                        Offer = 
+                        Channel = 
+                            new Channel()
+                            {
+                                 ChannelNumber = 102,
+                                 CallSign = "BBC 2",
+                                 LogoIndex = 65738
+                            },   
+                        Offer =
                             new Offer()
                             {
                                 Title = "Charlie Brooker's Weekly Wipe"
@@ -143,7 +149,7 @@ namespace TivoAhoy.Phone.ViewModels
                 var newChannels = new BindableCollection<Channel>();
                 this.Channels = newChannels;
 
-                this.Shows = new VirtualizedShowList(connection, newChannels, DateTime.Now);
+                // this.Shows = new VirtualizedShowList(connection, offerViewModelFactory, newChannels, DateTime.Now);
 
                 int offset = 0;
                 int pageCount = 50;
@@ -159,7 +165,7 @@ namespace TivoAhoy.Phone.ViewModels
                     offset += extraChannels.Count;
                 } while (channelsAdded);
 
-                this.Shows = new VirtualizedShowList(connection, newChannels, DateTime.Now);
+                this.Shows = new VirtualizedShowList(connection, offerViewModelFactory, newChannels, DateTime.Now);
             }
             catch (Exception ex)
             {

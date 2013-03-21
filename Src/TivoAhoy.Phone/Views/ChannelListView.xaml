@@ -32,7 +32,8 @@
                 <DataTemplate>
                     <Grid
                         Margin="0,4"
-                        Background="{StaticResource PhoneChromeBrush}">
+                        Background="{StaticResource PhoneChromeBrush}"
+                        cal:Message.Attach="[Event Tap] = [Action DisplayOfferDetails]">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition
                                 Width="Auto" />

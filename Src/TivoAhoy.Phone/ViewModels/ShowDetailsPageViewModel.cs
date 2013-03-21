@@ -48,6 +48,7 @@ namespace TivoAhoy.Phone.ViewModels
 
         public string ShowContentID { get; set; }
         public string ShowRecordingID { get; set; }
+        public string ShowOfferID { get; set; }
 
         public bool HasEpisodeNumbers
         {
@@ -178,7 +179,10 @@ namespace TivoAhoy.Phone.ViewModels
         {
             get
             {
-                return this.ShowRecordingID != null && !this.IsOperationInProgress;
+                return false;
+                return 
+                    this.ShowRecordingID != null &&
+                    !this.IsOperationInProgress; ;
             }
         }
 

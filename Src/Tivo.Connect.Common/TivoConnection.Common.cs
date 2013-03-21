@@ -869,6 +869,8 @@ namespace Tivo.Connect
                             { "fieldName", 
                                 new string[] 
                                 { 
+                                    "offerId", 
+                                    "contentId",
                                     "title", 
                                     "startTime", 
                                     "duration", 

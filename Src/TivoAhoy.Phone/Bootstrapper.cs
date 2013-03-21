@@ -32,6 +32,7 @@ namespace TivoAhoy.Phone
             container.PerRequest<MyShowsViewModel>();
             container.PerRequest<ChannelListViewModel>();
             container.PerRequest<IndividualShowViewModel>();
+            container.PerRequest<OfferViewModel>();
             container.PerRequest<ShowContainerViewModel>();
         }
 

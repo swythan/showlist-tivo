@@ -103,6 +103,7 @@
                 Style="{StaticResource PhoneTextNormalStyle}" />
             <Button
                 x:Name="PlayShow"
+                Visibility="{Binding CanPlayShow, Converter={StaticResource boolToVisConverter}}"
                 Content="Play" 
                 Grid.Row="6"/>
         </Grid>

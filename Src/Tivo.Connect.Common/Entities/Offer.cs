@@ -53,17 +53,21 @@ namespace Tivo.Connect.Entities
         public bool IsEpisode { get; set; }
         public bool IsAdult { get; set; }
 
-        public int? EpisodeNum { get; set; }
+        public int? EpisodeNumber { get; set; }
         public int? SeasonNumber { get; set; }
 
         public DateTime StartTime { get; set; }
         public TimeSpan Duration { get; set; }
 
+        public IEnumerable<ImageInfo> Images { get; set; }
+
         private void SetupFromJson(IDictionary<string, object> jsonSource)
         {
             this.jsonSource = jsonSource;
 
-            //this.ContentId = (string)jsonSource["contentId"];
+            this.OfferId = (string)jsonSource["offerId"];
+            this.ContentId = (string)jsonSource["contentId"];
+            
             //this.ContentType = (string)jsonSource["contentType"];
             //this.CollectionId = (string)jsonSource  ["collectionId"];
             //this.CollectionType = (string)jsonSource["collectionType"];
