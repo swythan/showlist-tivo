@@ -156,7 +156,6 @@ namespace TivoAhoy.Phone.ViewModels
                     newChannels.AddRange(extraChannels);
 
                     channelsAdded = extraChannels.Count > 0;
-                    channelsAdded = false;
                     offset += extraChannels.Count;
                 } while (channelsAdded);
 
