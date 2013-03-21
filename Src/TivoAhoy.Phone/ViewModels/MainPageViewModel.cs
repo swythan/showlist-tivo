@@ -24,13 +24,13 @@
 
             eventAggregator.Subscribe(this);
 
+            channelListViewModel.DisplayName = "now";
+            this.Items.Add(channelListViewModel);
+
             myShowsViewModel.DisplayName = "my shows";
             this.Items.Add(myShowsViewModel);
 
-            channelListViewModel.DisplayName = "channels";
-            this.Items.Add(channelListViewModel);
-
-            this.ActivateItem(myShowsViewModel);
+            this.ActivateItem(channelListViewModel);
         }
 
         protected override void OnActivate()
