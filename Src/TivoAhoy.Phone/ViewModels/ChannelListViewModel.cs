@@ -31,6 +31,47 @@ namespace TivoAhoy.Phone.ViewModels
             this.eventAggregator = eventAggregator;
         }
 
+        public ChannelListViewModel()
+        {
+            if (Execute.InDesignMode)
+                LoadDesignData();
+        }
+
+        private void LoadDesignData()
+        {
+            this.Shows = new List<OfferViewModel>()
+            {
+                new OfferViewModel(
+                    new Channel()
+                    {
+                         ChannelNumber = 101,
+                         CallSign = "BBC 1",
+                         LogoIndex = 65736
+                    })
+                    {
+                        Offer = 
+                            new Offer()
+                            {
+                                Title = "Antiques Roadshow"
+                            }
+                    },      
+                new OfferViewModel(
+                    new Channel()
+                    {
+                         ChannelNumber = 102,
+                         CallSign = "BBC 2",
+                         LogoIndex = 65738
+                    })   
+                    {
+                        Offer = 
+                            new Offer()
+                            {
+                                Title = "Charlie Brooker's Weekly Wipe"
+                            }
+                    }, 
+            };
+        }
+
         protected override void OnActivate()
         {
             base.OnActivate();
@@ -115,6 +156,7 @@ namespace TivoAhoy.Phone.ViewModels
                     newChannels.AddRange(extraChannels);
 
                     channelsAdded = extraChannels.Count > 0;
+                    channelsAdded = false;
                     offset += extraChannels.Count;
                 } while (channelsAdded);
 

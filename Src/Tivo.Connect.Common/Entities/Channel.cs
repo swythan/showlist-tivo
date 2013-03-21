@@ -9,6 +9,10 @@ namespace Tivo.Connect.Entities
     {
         private IDictionary<string, object> jsonSource;
 
+        public Channel()
+        {
+        }
+
         public Channel(IDictionary<string, object> jsonSource)
         {
             SetupFromJson(jsonSource);

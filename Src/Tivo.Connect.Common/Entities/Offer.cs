@@ -12,6 +12,10 @@ namespace Tivo.Connect.Entities
     {
         private IDictionary<string, object> jsonSource;
 
+        public Offer()
+        {
+        }
+
         public Offer(IDictionary<string, object> jsonSource)
         {
             SetupFromJson(jsonSource);
@@ -36,13 +40,13 @@ namespace Tivo.Connect.Entities
 
         public string PartnerContentId { get; set; }
         public string PartnerCollectionId { get; set; }
-        
+
         public string Title { get; set; }
         public string ShortTitle { get; set; }
         public string Subtitle { get; set; }
-        
+
         public Channel Channel { get; set; }
-        
+
         public bool IsRepeat { get; set; }
         public bool IsEpisodic { get; set; }
         public bool IsHdTv { get; set; }
@@ -54,7 +58,7 @@ namespace Tivo.Connect.Entities
 
         public DateTime StartTime { get; set; }
         public TimeSpan Duration { get; set; }
-        
+
         private void SetupFromJson(IDictionary<string, object> jsonSource)
         {
             this.jsonSource = jsonSource;
@@ -67,7 +71,7 @@ namespace Tivo.Connect.Entities
             //this.PartnerCollectionId = (string)jsonSource["partnerCollectionId"];
 
             this.Title = (string)jsonSource["title"];
-            
+
             if (jsonSource.ContainsKey("shortTitle"))
             {
                 this.ShortTitle = (string)jsonSource["shortTitle"];
