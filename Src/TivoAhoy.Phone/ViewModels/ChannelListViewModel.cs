@@ -16,23 +16,25 @@ namespace TivoAhoy.Phone.ViewModels
     public class ChannelListViewModel : Screen
     {
         private readonly IEventAggregator eventAggregator;
+        private readonly INavigationService navigationService;
         private readonly ISterlingInstance sterlingInstance;
+
         private readonly SettingsPageViewModel settingsModel;
-        private readonly Func<OfferViewModel> offerViewModelFactory;
 
         private IList<Channel> channels;
         private IList shows;
 
         public ChannelListViewModel(
             IEventAggregator eventAggregator,
+            INavigationService navigationService,
             ISterlingInstance sterlingInstance,
             SettingsPageViewModel settingsModel,
             Func<OfferViewModel> offerViewModelFactory)
         {
+            this.eventAggregator = eventAggregator;
+            this.navigationService = navigationService;
             this.sterlingInstance = sterlingInstance;
             this.settingsModel = settingsModel;
-            this.eventAggregator = eventAggregator;
-            this.offerViewModelFactory = offerViewModelFactory;
         }
 
         public ChannelListViewModel()
@@ -45,30 +47,28 @@ namespace TivoAhoy.Phone.ViewModels
         {
             this.Shows = new List<OfferViewModel>()
             {
-                new OfferViewModel(null)
+                new OfferViewModel(
+                    new Channel()
                     {
-                        Channel = 
-                            new Channel()
-                            {
-                                 ChannelNumber = 101,
-                                 CallSign = "BBC 1",
-                                 LogoIndex = 65736
-                            },
+                            ChannelNumber = 101,
+                            CallSign = "BBC 1",
+                            LogoIndex = 65736
+                    })
+                    {
                         Offer = 
                             new Offer()
                             {
                                 Title = "Antiques Roadshow"
                             }
                     },      
-                new OfferViewModel(null)
+                new OfferViewModel(
+                    new Channel()
                     {
-                        Channel = 
-                            new Channel()
-                            {
-                                 ChannelNumber = 102,
-                                 CallSign = "BBC 2",
-                                 LogoIndex = 65738
-                            },   
+                            ChannelNumber = 102,
+                            CallSign = "BBC 2",
+                            LogoIndex = 65738
+                    }) 
+                    {
                         Offer =
                             new Offer()
                             {
@@ -149,7 +149,7 @@ namespace TivoAhoy.Phone.ViewModels
                 var newChannels = new BindableCollection<Channel>();
                 this.Channels = newChannels;
 
-                // this.Shows = new VirtualizedShowList(connection, offerViewModelFactory, newChannels, DateTime.Now);
+                // this.Shows = new VirtualizedShowList(connection, newChannels, DateTime.Now);
 
                 int offset = 0;
                 int pageCount = 50;
@@ -165,7 +165,7 @@ namespace TivoAhoy.Phone.ViewModels
                     offset += extraChannels.Count;
                 } while (channelsAdded);
 
-                this.Shows = new VirtualizedShowList(connection, offerViewModelFactory, newChannels, DateTime.Now);
+                this.Shows = new VirtualizedShowList(connection, newChannels, DateTime.Now);
             }
             catch (Exception ex)
             {
@@ -176,6 +176,23 @@ namespace TivoAhoy.Phone.ViewModels
                 // connection.Dispose();
                 OnOperationFinished();
             }
+        }
+
+        public void DisplayOfferDetails(OfferViewModel offer)
+        {
+            if (offer == null || 
+                offer.Offer == null ||
+                offer.Offer.ContentId == null ||
+                offer.Offer.OfferId == null)
+            {
+                return;
+            }
+
+            this.navigationService
+                .UriFor<ShowDetailsPageViewModel>()
+                .WithParam(x => x.ShowContentID, offer.Offer.ContentId)
+                .WithParam(x => x.ShowOfferID, offer.Offer.OfferId)
+                .Navigate();
         }
     }
 }

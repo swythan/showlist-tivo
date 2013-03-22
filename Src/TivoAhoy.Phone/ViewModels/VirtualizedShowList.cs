@@ -14,7 +14,6 @@ namespace TivoAhoy.Phone.ViewModels
     public class VirtualizedShowList : PropertyChangedBase, IList
     {
         private readonly TivoConnection connection;
-        private readonly Func<OfferViewModel> offerViewModelFactory;
         private readonly IList<Channel> channels;
         private readonly DateTime time;
         
@@ -22,12 +21,10 @@ namespace TivoAhoy.Phone.ViewModels
  
         public VirtualizedShowList(
             TivoConnection connection, 
-            Func<OfferViewModel> offerViewModelFactory,
             IList<Channel> channels, 
             DateTime time)
         {
             this.connection = connection;
-            this.offerViewModelFactory = offerViewModelFactory;
             this.channels = channels;
             this.time = time;
 
@@ -56,8 +53,7 @@ namespace TivoAhoy.Phone.ViewModels
             {
                 if (!this.showCache.ContainsKey(index))
                 {
-                    var newModel = offerViewModelFactory();
-                    newModel.Channel = this.channels[index];
+                    var newModel = new OfferViewModel(this.channels[index]);
 
                     this.showCache[index] = newModel;
 
