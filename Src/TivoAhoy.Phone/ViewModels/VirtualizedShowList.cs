@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -88,6 +89,7 @@ namespace TivoAhoy.Phone.ViewModels
             }
             catch (Exception ex)
             {
+                Debug.WriteLine("Error fetching now showing for channel {0} : {1}", model.Channel.ChannelNumber, ex);
             }
         }
         
