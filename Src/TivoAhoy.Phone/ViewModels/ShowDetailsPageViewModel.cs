@@ -105,13 +105,13 @@ namespace TivoAhoy.Phone.ViewModels
             {
                 this.showDetails = value;
 
-                var json = value.JsonText;
+                //var json = value.JsonText;
                 Debug.WriteLine("Show details fetched:");
 
-                foreach (var line in json.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.None))
-                {
-                    Debug.WriteLine(line);
-                }
+                //foreach (var line in json.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.None))
+                //{
+                //    Debug.WriteLine(line);
+                //}
 
                 Debug.WriteLine(string.Empty);
 

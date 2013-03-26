@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Tivo.Connect.Entities
 {
@@ -6,32 +7,12 @@ namespace Tivo.Connect.Entities
     {
         public Container()
         {
+            this.FolderItemCount = 1;
+            this.FolderType = string.Empty;
         }
 
-        protected override void SetupFromRecordingFolderItemJson(IDictionary<string, object> jsonSource)
-        {
-            base.SetupFromRecordingFolderItemJson(jsonSource);
-
-            this.Id = (string)jsonSource["recordingFolderItemId"];
-
-            if (jsonSource.ContainsKey("folderItemCount"))
-            {
-                this.FolderItemCount = (int)jsonSource["folderItemCount"];
-            }
-            else
-            {
-                this.FolderItemCount = 1;
-            }
-
-            if (jsonSource.ContainsKey("folderType"))
-            {
-                this.FolderType = (string)jsonSource["folderType"];
-            }
-            else
-            {
-                this.FolderType = string.Empty;
-            }
-        }
+        [JsonProperty("recordingFolderItemId")]
+        public string Id { get; set; }
 
         public int FolderItemCount { get; set; }
         public string FolderType { get; set; }

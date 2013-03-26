@@ -11,7 +11,8 @@ using System.Reactive.Subjects;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using JsonFx.Json;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Org.BouncyCastle.Crypto.Tls;
 using Tivo.Connect.Entities;
 using Wintellect.Sterling;
@@ -31,7 +32,7 @@ namespace Tivo.Connect
         private int lastRpcId = 0;
 
         private Thread receiveThread;
-        private Subject<Tuple<int, IDictionary<string, object>>> receiveSubject;
+        private Subject<Tuple<int, JObject>> receiveSubject;
         private CancellationTokenSource receiveCancellationTokenSource;
 
         private string capturedTsn;
@@ -83,8 +84,8 @@ namespace Tivo.Connect
         {
             this.capturedTsn = string.Empty;
 
-            this.sslStream = await ConnectNetworkStream(new IPEndPoint(serverAddress, 1413));
-            this.receiveSubject = new Subject<Tuple<int, IDictionary<string, object>>>();
+            this.sslStream = await ConnectNetworkStream(new IPEndPoint(serverAddress, 1413)).ConfigureAwait(false);
+            this.receiveSubject = new Subject<Tuple<int, JObject>>();
 
             // Send authentication message to the TiVo. 
             var authTask = SendMakAuthenticationRequest(mediaAccessKey);
@@ -93,19 +94,19 @@ namespace Tivo.Connect
             // This stops errors occuring on WP7
             StartReceiveThread();
 
-            var authResponse = await authTask;
+            var authResponse = await authTask.ConfigureAwait(false);
 
             CheckResponse(authResponse, "bodyAuthenticateResponse", "Authentication");
 
             if (((string)authResponse["status"]) != "success")
             {
-                throw new Exception(authResponse["message"] as string);
+                throw new Exception((string)authResponse["message"]);
             }
 
             Debug.WriteLine("Authentication successful");
 
             // Now check that network control is enabled
-            var statusResponse = await SendOptStatusGetRequest();
+            var statusResponse = await SendOptStatusGetRequest().ConfigureAwait(false);
 
             CheckResponse(statusResponse, "optStatusResponse", "OptStatusGet");
 
@@ -114,23 +115,23 @@ namespace Tivo.Connect
                 throw new Exception("Network control not enabled");
             }
 
-            var bodyConfigResponse = await SendBodyConfigSearchRequest();
+            var bodyConfigResponse = await SendBodyConfigSearchRequest().ConfigureAwait(false);
 
             CheckResponse(bodyConfigResponse, "bodyConfigList", "BodyConfigSearch");
 
-            if (!bodyConfigResponse.ContainsKey("bodyConfig"))
+            if (bodyConfigResponse["bodyConfig"] == null)
             {
                 throw new Exception("No bodyConfig element in bodyConfigList");
             }
 
-            var bodyConfigs = (IDictionary<string, object>[])bodyConfigResponse["bodyConfig"];
-            if (bodyConfigs.Length < 1)
+            var bodyConfigs = (JArray)bodyConfigResponse["bodyConfig"];
+            if (bodyConfigs.Count < 1)
             {
                 throw new Exception("No bodyConfigs returned in bodyConfigList");
             }
 
             var bodyConfig = bodyConfigs[0];
-            if (!bodyConfig.ContainsKey("bodyId"))
+            if (bodyConfig["bodyId"] == null)
             {
                 throw new Exception("No TSN returned in bodyConfig");
             }
@@ -152,8 +153,8 @@ namespace Tivo.Connect
         {
             this.capturedTsn = string.Empty;
 
-            this.sslStream = await ConnectNetworkStream(new DnsEndPoint(@"secure-tivo-api.virginmedia.com", 443));
-            this.receiveSubject = new Subject<Tuple<int, IDictionary<string, object>>>();
+            this.sslStream = await ConnectNetworkStream(new DnsEndPoint(@"secure-tivo-api.virginmedia.com", 443)).ConfigureAwait(false);
+            this.receiveSubject = new Subject<Tuple<int,JObject>>();
 
             // Send authentication message to the TiVo. 
             var authTask = SendUsernameAndPasswordAuthenticationRequest(username, password);
@@ -162,22 +163,23 @@ namespace Tivo.Connect
             // This stops errors occuring on WP7
             StartReceiveThread();
 
-            var authResponse = await authTask;
+            var authResponse = await authTask.ConfigureAwait(false);
 
             CheckResponse(authResponse, "bodyAuthenticateResponse", "Authentication");
 
             if (((string)authResponse["status"]) != "success")
             {
-                throw new Exception(authResponse["message"] as string);
+                throw new Exception((string)authResponse["message"]);
             }
 
             Debug.WriteLine("Authentication successful");
 
             if (string.IsNullOrEmpty(this.capturedTsn))
             {
-                var deviceIds = authResponse["deviceId"] as IDictionary<string, object>[];
+                var deviceIds = (JArray)authResponse["deviceId"];
 
-                if (deviceIds == null)
+                if (deviceIds == null ||
+                    deviceIds.Count < 1)
                 {
                     throw new Exception("No TiVo devices associated with account");
                 }
@@ -195,7 +197,7 @@ namespace Tivo.Connect
             }
 
             // Create a TCP/IP connection to the TiVo.
-            this.client = await ConnectSocketAsync(remoteEndPoint);
+            this.client = await ConnectSocketAsync(remoteEndPoint).ConfigureAwait(false);
 
             Debug.WriteLine("Client connected.");
 
@@ -263,7 +265,7 @@ namespace Tivo.Connect
                 return args.ConnectSocket;
             }
 
-            return await tcs.Task;
+            return await tcs.Task.ConfigureAwait(false);
         }
 
         private void RpcReceiveThreadProc()
@@ -291,21 +293,20 @@ namespace Tivo.Connect
         {
             var parentId = parent != null ? parent.Id : null;
 
-            var folderShows = await SendGetFolderShowsRequest(parentId);
+            var folderShows = await SendGetFolderShowsRequest(parentId).ConfigureAwait(false);
 
-            var objectIds = ((IEnumerable<string>)folderShows["objectIdAndType"])
-                             .Select(id => long.Parse(id));
+            var objectIds = folderShows["objectIdAndType"].ToObject<IList<long>>();
 
-            return await GetRecordingFolderItemsAsync(objectIds, 5, progress);
+            return await GetRecordingFolderItemsAsync(objectIds, 5, progress).ConfigureAwait(false);
         }
 
         public async Task<ShowDetails> GetShowContentDetails(string contentId)
         {
-            var detailsResults = await SendGetContentDetailsRequest(contentId);
+            var detailsResults = await SendGetContentDetailsRequest(contentId).ConfigureAwait(false);
 
-            var content = (IEnumerable<IDictionary<string, object>>)detailsResults["content"];
+            var content = (JArray)detailsResults["content"];
 
-            return new ShowDetails(content.First());
+            return content.First().ToObject<ShowDetails>();
         }
 
         private async Task<IEnumerable<RecordingFolderItem>> GetRecordingFolderItemsAsync(IEnumerable<long> objectIds, int pageSize, IProgress<RecordingFolderItem> progress)
@@ -351,9 +352,19 @@ namespace Tivo.Connect
 
             if (objectIds.Except(itemsInCache.Select(item => item.ObjectId)).Any())
             {
-                var detailsResults = await SendGetMyShowsItemDetailsRequest(objectIds);
-                var detailItems = (IEnumerable<IDictionary<string, object>>)detailsResults["recordingFolderItem"];
-                var viewModels = detailItems.Select(detailItem => RecordingFolderItem.Create(detailItem));
+                var detailsResults = await SendGetMyShowsItemDetailsRequest(objectIds).ConfigureAwait(false);
+                var detailItems = detailsResults["recordingFolderItem"];
+
+                var serializer = new JsonSerializer()
+                {
+                    Converters = 
+                    {
+                        new RecordingFolderItemCreator()
+                    }
+                };
+
+                var viewModels = detailItems.ToObject<List<RecordingFolderItem>>(serializer);
+
 
                 if (cacheDb != null)
                 {
@@ -390,7 +401,7 @@ namespace Tivo.Connect
 
             CheckResponse(whatsOnResponse, "whatsOnList", "whatsOnSearch");
 
-            var whatsOn = ((IEnumerable<IDictionary<string, object>>)whatsOnResponse["whatsOn"]).First();
+            var whatsOn = ((JArray)whatsOnResponse["whatsOn"]).First();
 
             var contentId = (string)whatsOn["contentId"];
 
@@ -399,15 +410,13 @@ namespace Tivo.Connect
 
         public async Task<List<Channel>> GetChannelsAsync(int count, int offset)
         {
-            var response = await SendChannelSearchRequest(count, offset);
+            var response = await SendChannelSearchRequest(count, offset).ConfigureAwait(false);
 
             CheckResponse(response, "channelList", "channelSearch");
 
-            if (response.ContainsKey("channel"))
+            if (response["channel"] != null)
             {
-                var rows = (IEnumerable<IDictionary<string, object>>)response["channel"];
-
-                return rows.Select(x => new Channel(x)).ToList();
+                return response["channel"].ToObject<List<Channel>>();
             }
             else
             {
@@ -417,15 +426,13 @@ namespace Tivo.Connect
 
         public async Task<List<GridRow>> GetGridShowsAsync(DateTime minEndTime, DateTime maxStartTime, int anchorChannel, int count, int offset)
         {
-            var response = await SendGridRowSearchRequest(minEndTime, maxStartTime, anchorChannel, count, offset);
+            var response = await SendGridRowSearchRequest(minEndTime, maxStartTime, anchorChannel, count, offset).ConfigureAwait(false);
 
             CheckResponse(response, "gridRowList", "gridRowSearch");
 
-            if (response.ContainsKey("gridRow"))
+            if (response["gridRow"] != null)
             {
-                var rows = (IEnumerable<IDictionary<string, object>>)response["gridRow"];
-
-                return rows.Select(x => new GridRow(x)).ToList();
+                return  response["gridRow"].ToObject<List<GridRow>>();
             }
             else
             {
@@ -433,7 +440,7 @@ namespace Tivo.Connect
             }
         }
 
-        private async Task<IDictionary<string, object>> SendRequest(string requestType, object body)
+        private async Task<JObject> SendRequest(string requestType, object body)
         {
             int requestRpcId = Interlocked.Increment(ref this.lastRpcId);
 
@@ -459,8 +466,7 @@ namespace Tivo.Connect
             header.AppendLine(string.Format("X-ApplicationSessionId:0x{0:x}", this.sessionId));
             header.AppendLine();
 
-            var writer = new JsonWriter();
-            string bodyText = writer.Write(body);
+            string bodyText = JsonConvert.SerializeObject(body);
 
             var messageString = string.Format("MRPC/2 {0} {1}\r\n{2}{3}",
                 Encoding.UTF8.GetByteCount(header.ToString()),
@@ -478,7 +484,7 @@ namespace Tivo.Connect
                 .Take(1);
         }
 
-        private Tuple<int, IDictionary<string, object>> ReadMessage()
+        private Tuple<int, JObject> ReadMessage()
         {
             StreamReader reader = new StreamReader(this.sslStream, Encoding.UTF8);
             var preamble = reader.ReadLine();
@@ -516,14 +522,13 @@ namespace Tivo.Connect
             var bodyChars = new char[bodyBytes];
             reader.ReadBlock(bodyChars, 0, bodyBytes);
 
-            var jsonReader = new JsonReader();
             string bodyJsonString = new string(bodyChars);
-            IDictionary<string, object> body = jsonReader.Read<Dictionary<string, object>>(bodyJsonString);
+            var body = JObject.Parse(bodyJsonString);
 
             return Tuple.Create(rpcId, body);
         }
 
-        private static void CheckResponse(IDictionary<string, object> response, string expectedType, string operationName)
+        private static void CheckResponse(JObject response, string expectedType, string operationName)
         {
             var responseType = (string)response["type"];
             if (responseType == expectedType)
@@ -543,7 +548,7 @@ namespace Tivo.Connect
                     response["text"]));
         }
 
-        private Task<IDictionary<string, object>> SendMakAuthenticationRequest(string mediaAccessKey)
+        private Task<JObject> SendMakAuthenticationRequest(string mediaAccessKey)
         {
             var body = new Dictionary<string, object>()
             { 
@@ -560,7 +565,7 @@ namespace Tivo.Connect
             return SendRequest((string)body["type"], body);
         }
 
-        private Task<IDictionary<string, object>> SendUsernameAndPasswordAuthenticationRequest(string username, string password)
+        private Task<JObject> SendUsernameAndPasswordAuthenticationRequest(string username, string password)
         {
             var body = new Dictionary<string, object>()
             { 
@@ -579,7 +584,7 @@ namespace Tivo.Connect
             return SendRequest((string)body["type"], body);
         }
 
-        private Task<IDictionary<string, object>> SendOptStatusGetRequest()
+        private Task<JObject> SendOptStatusGetRequest()
         {
             var body = new Dictionary<string, object>()
             { 
@@ -589,7 +594,7 @@ namespace Tivo.Connect
             return SendRequest((string)body["type"], body);
         }
 
-        private Task<IDictionary<string, object>> SendBodyConfigSearchRequest()
+        private Task<JObject> SendBodyConfigSearchRequest()
         {
             var body = new Dictionary<string, object>()
             { 
@@ -599,7 +604,7 @@ namespace Tivo.Connect
             return SendRequest((string)body["type"], body);
         }
 
-        private Task<IDictionary<string, object>> SendGetFolderShowsRequest(string parentId)
+        private Task<JObject> SendGetFolderShowsRequest(string parentId)
         {
             var body = new Dictionary<string, object>
             {
@@ -617,7 +622,7 @@ namespace Tivo.Connect
             return SendRequest((string)body["type"], body);
         }
 
-        private Task<IDictionary<string, object>> SendGetMyShowsItemDetailsRequest(IEnumerable<long> itemIds)
+        private Task<JObject> SendGetMyShowsItemDetailsRequest(IEnumerable<long> itemIds)
         {
             var body = new Dictionary<string, object>
             {
@@ -652,7 +657,7 @@ namespace Tivo.Connect
             return SendRequest((string)body["type"], body);
         }
 
-        private Task<IDictionary<string, object>> SendGetContentDetailsRequest(string contentId)
+        private Task<JObject> SendGetContentDetailsRequest(string contentId)
         {
             //            {
             //  "contentId": ["tivo:ct.306278"],
@@ -735,7 +740,7 @@ namespace Tivo.Connect
             return SendRequest((string)body["type"], body);
         }
 
-        private Task<IDictionary<string, object>> SendPlayShowRequest(string showId)
+        private Task<JObject> SendPlayShowRequest(string showId)
         {
             var body =
                 new Dictionary<string, object>
@@ -755,7 +760,7 @@ namespace Tivo.Connect
             return SendRequest((string)body["type"], body);
         }
 
-        private async Task<IDictionary<string, object>> SendChannelSearchRequest(int count, int offset)
+        private async Task<JObject> SendChannelSearchRequest(int count, int offset)
         {
             var request = new Dictionary<string, object>
             {
@@ -797,11 +802,11 @@ namespace Tivo.Connect
                 }  
             };
 
-            var response = await SendRequest("channelSearch", request);
+            var response = await SendRequest("channelSearch", request).ConfigureAwait(false);
             return response;
         }
 
-        private async Task<IDictionary<string, object>> SendGridRowSearchRequest(DateTime minEndTime, DateTime maxStartTime, int anchorChannel, int count, int offset)
+        private async Task<JObject> SendGridRowSearchRequest(DateTime minEndTime, DateTime maxStartTime, int anchorChannel, int count, int offset)
         {
             var request = new Dictionary<string, object>
             {
@@ -881,7 +886,7 @@ namespace Tivo.Connect
                 }  
             };
 
-            var response = await SendRequest("gridRowSearch", request);
+            var response = await SendRequest("gridRowSearch", request).ConfigureAwait(false);
             return response;
         }
     }

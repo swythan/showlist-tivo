@@ -13,7 +13,7 @@ using Caliburn.Micro;
 
 namespace TivoAhoy.Phone.ViewModels
 {
-    public interface IRecordingFolderItemViewModel  
+    public interface IRecordingFolderItemViewModel
     {
         string Title { get; }
         string Id { get; }
@@ -53,7 +53,22 @@ namespace TivoAhoy.Phone.ViewModels
 
         public string Id
         {
-            get { return this.Source.Id; }
+            get
+            {
+                var sourceContainer = this.Source as Container;
+                if (sourceContainer != null)
+                {
+                    return sourceContainer.Id;
+                }
+
+                var sourceShow = this.Source as IndividualShow;
+                if (sourceShow != null)
+                {
+                    return sourceShow.Id;
+                }
+                
+                return "<unknown>";
+            }
         }
 
         public abstract bool IsSingleShow { get; }

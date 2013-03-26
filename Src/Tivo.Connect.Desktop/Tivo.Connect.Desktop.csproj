@@ -40,9 +40,8 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="JsonFx, Version=2.0.1209.2802, Culture=neutral, PublicKeyToken=315052dd637f8a52, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\JsonFx.2.0.1209.2802\lib\net40\JsonFx.dll</HintPath>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -105,8 +104,14 @@
     <Compile Include="..\Tivo.Connect.Common\Entities\RecordingFolderItem.cs">
       <Link>Entities\RecordingFolderItem.cs</Link>
     </Compile>
+    <Compile Include="..\Tivo.Connect.Common\Entities\RecordingFolderItemCreator.cs">
+      <Link>Entities\RecordingFolderItemCreator.cs</Link>
+    </Compile>
     <Compile Include="..\Tivo.Connect.Common\Entities\ShowDetails.cs">
       <Link>Entities\ShowDetails.cs</Link>
+    </Compile>
+    <Compile Include="..\Tivo.Connect.Common\JsonCreationConverter.cs">
+      <Link>JsonCreationConverter.cs</Link>
     </Compile>
     <Compile Include="..\Tivo.Connect.Common\TivoConnection.Common.cs">
       <Link>TivoConnection.Common.cs</Link>

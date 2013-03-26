@@ -1,21 +1,11 @@
-﻿using JsonFx.Json;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
+using Newtonsoft.Json;
 
 namespace Tivo.Connect.Entities
 {
     public class ImageInfo: INotifyPropertyChanged
     {
-        private IDictionary<string, object> jsonSource;
-
-        public ImageInfo(IDictionary<string, object> jsonSource)
-        {
-            SetupFromJson(jsonSource);
-        }
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)
@@ -31,58 +21,31 @@ namespace Tivo.Connect.Entities
         public int? Width { get; set; }
         public int? Height { get; set; }
 
-        public Uri ImageUrl { get; set; }
-                
-        private void SetupFromJson(IDictionary<string, object> jsonSource)
-        {
-            this.jsonSource = jsonSource;
+        [JsonProperty("imageUrl")]
+        public string OriginalImageUrl { get; set; }
 
-            if (this.jsonSource.ContainsKey("imageId"))
-            {
-                this.ImageId = (string)jsonSource["imageId"];
-            }
-
-            if (this.jsonSource.ContainsKey("width"))
-            {
-                this.Width = (int)jsonSource["width"];
-            }
-
-            if (this.jsonSource.ContainsKey("height"))
-            {
-                this.Height = (int)jsonSource["height"];
-            }
-
-            if (this.jsonSource.ContainsKey("imageUrl"))
-            {
-                var urlString = (string)jsonSource["imageUrl"];
-
-                Uri originalUrl;
-                if (Uri.TryCreate(urlString, UriKind.Absolute, out originalUrl))
-                {
-                    if (originalUrl.AbsolutePath.StartsWith("/images"))
-                    {
-                        var imagePath = originalUrl.AbsolutePath.Substring(7);
-                        var vmImageHost = @"http://tivo-icdn.virginmedia.com/images-vm_production";
-
-                        this.ImageUrl = new Uri(vmImageHost + imagePath);
-                    }
-                }
-            }
-        }
-
-        public string JsonText
+        [JsonIgnore]
+        public Uri ImageUrl
         {
             get
             {
-                if (this.jsonSource == null)
-                    return string.Empty;
+                if (this.OriginalImageUrl != null)
+                {
+                    Uri originalUrl;
+                    if (Uri.TryCreate(this.OriginalImageUrl, UriKind.Absolute, out originalUrl))
+                    {
+                        if (originalUrl.AbsolutePath.StartsWith("/images"))
+                        {
+                            var imagePath = originalUrl.AbsolutePath.Substring(7);
+                            var vmImageHost = @"http://tivo-icdn.virginmedia.com/images-vm_production";
 
-                var writer = new JsonWriter();
-                writer.Settings.PrettyPrint = true;
+                            return new Uri(vmImageHost + imagePath);
+                        }
+                    }
+                }
 
-                return writer.Write(this.jsonSource);
+                return null;
             }
         }
-
     }
 }
