@@ -486,17 +486,55 @@ namespace Tivo.Connect
 
         private Tuple<int, JObject> ReadMessage()
         {
-            StreamReader reader = new StreamReader(this.sslStream, Encoding.UTF8);
-            var preamble = reader.ReadLine();
-            var preambleStrings = preamble.Split(' ');
+            List<byte> preambleBytes = new List<byte>(16);
 
-            var headerBytes = int.Parse(preambleStrings[1]);
-            var bodyBytes = int.Parse(preambleStrings[2]);
+            string preamble = null;
 
-            var headerChars = new char[headerBytes];
-            reader.ReadBlock(headerChars, 0, headerBytes);
+            List<byte> buffer = new List<byte>();
+            bool hasCr = false;
 
-            var header = new string(headerChars);
+            while (preamble == null)
+            {
+                int nextByte = this.sslStream.ReadByte();
+
+                if (nextByte == -1)
+                {
+                    throw new IOException("EOF reached in preamble.");
+                }
+
+                if (nextByte == 13)
+                {
+                    hasCr = true;
+                }
+                else
+                {
+                    if (nextByte == 10 && hasCr)
+                    {
+                        preamble = Encoding.UTF8.GetString(buffer.ToArray(), 0, buffer.Count);
+                    }
+                    else
+                    {
+                        if (hasCr)
+                        {
+                            buffer.Add(13);
+                            hasCr = false;
+                        }
+                        
+                        buffer.Add((byte)nextByte);
+                    }
+                }
+            }
+
+            var preambleParts = preamble.Split(' ');
+
+            var headerByteCount = int.Parse(preambleParts[1]);
+            var bodyByteCount = int.Parse(preambleParts[2]);
+
+            var headerBytes = new byte[headerByteCount];
+
+            this.sslStream.Read(headerBytes, 0, headerByteCount);
+
+            var header = Encoding.UTF8.GetString(headerBytes, 0, headerByteCount);
             var headerReader = new StringReader(header);
 
             int rpcId = 0;
@@ -519,10 +557,10 @@ namespace Tivo.Connect
                 }
             }
 
-            var bodyChars = new char[bodyBytes];
-            reader.ReadBlock(bodyChars, 0, bodyBytes);
+            var bodyBytes = new byte[bodyByteCount];
+            this.sslStream.Read(bodyBytes, 0, bodyByteCount);
 
-            string bodyJsonString = new string(bodyChars);
+            string bodyJsonString = Encoding.UTF8.GetString(bodyBytes, 0, bodyByteCount);
             var body = JObject.Parse(bodyJsonString);
 
             return Tuple.Create(rpcId, body);
