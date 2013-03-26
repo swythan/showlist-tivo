@@ -5,7 +5,6 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Reactive;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
 using System.Text;
@@ -353,6 +352,8 @@ namespace Tivo.Connect
             if (objectIds.Except(itemsInCache.Select(item => item.ObjectId)).Any())
             {
                 var detailsResults = await SendGetMyShowsItemDetailsRequest(objectIds).ConfigureAwait(false);
+
+                CheckResponse(detailsResults, "recordingFolderItemList", "recordingFolderItemSearch");
                 var detailItems = detailsResults["recordingFolderItem"];
 
                 var serializer = new JsonSerializer()
@@ -669,27 +670,41 @@ namespace Tivo.Connect
                 { "bodyId", this.capturedTsn },
                 { "objectIdAndType", itemIds.ToArray() },
                 { "note", new string[] { "recordingForChildRecordingId" } },
-                //{ "responseTemplate", 
-                //    new Dictionary<string, object>
-                //    {
-                //        { "type", "responseTemplate" },
-                //        { "typeName", "recordingFolderItem" },
-                //        { "fieldName", 
-                //            new string[] 
-                //            { 
-                //                "recordingFolderItemId", 
-                //                "childRecordingId", 
-                //                "contentId", 
-                //                "objectIdAndType", 
-                //                "collectionType", 
-                //                "title",
-                //                "startTime",
-                //                "folderItemCount",
-                //                "folderType", 
-                //            } 
-                //        }
-                //    }
-                //}
+                { "responseTemplate", 
+                    new object[]
+                    {
+                        new Dictionary<string, object>
+                        {
+                            { "type", "responseTemplate" },
+                            { "typeName", "recordingFolderItemList" },
+                            { "fieldName", 
+                                new string[] 
+                                { 
+                                    "recordingFolderItem", 
+                                } 
+                            }
+                        },
+                        new Dictionary<string, object>
+                        {
+                            { "type", "responseTemplate" },
+                            { "typeName", "recordingFolderItem" },
+                            { "fieldName", 
+                                new string[] 
+                                { 
+                                    "objectIdAndType", 
+                                    "collectionType", 
+                                    "title",
+                                    "childRecordingId", 
+                                    "contentId", 
+                                    "startTime",
+                                    "recordingFolderItemId", 
+                                    "folderItemCount",
+                                    "folderType", 
+                                } 
+                            }
+                        }
+                    }
+                }
             };
 
             return SendRequest((string)body["type"], body);
