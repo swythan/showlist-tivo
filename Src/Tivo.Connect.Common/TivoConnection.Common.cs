@@ -528,12 +528,15 @@ namespace Tivo.Connect
 
             var preambleParts = preamble.Split(' ');
 
-            var headerByteCount = int.Parse(preambleParts[1]);
-            var bodyByteCount = int.Parse(preambleParts[2]);
+            var expectedHeaderByteCount = int.Parse(preambleParts[1]);
+            var expectedBodyByteCount = int.Parse(preambleParts[2]);
 
-            var headerBytes = new byte[headerByteCount];
-
-            this.sslStream.Read(headerBytes, 0, headerByteCount);
+            var headerBytes = new byte[expectedHeaderByteCount];
+            int headerByteCount = 0;
+            while (headerByteCount < expectedHeaderByteCount)
+            {
+                headerByteCount += this.sslStream.Read(headerBytes, headerByteCount, expectedHeaderByteCount - headerByteCount);
+            }
 
             var header = Encoding.UTF8.GetString(headerBytes, 0, headerByteCount);
             var headerReader = new StringReader(header);
@@ -558,8 +561,12 @@ namespace Tivo.Connect
                 }
             }
 
-            var bodyBytes = new byte[bodyByteCount];
-            this.sslStream.Read(bodyBytes, 0, bodyByteCount);
+            var bodyBytes = new byte[expectedBodyByteCount];
+            int bodyByteCount = 0;
+            while (bodyByteCount < expectedBodyByteCount)
+            {
+                bodyByteCount += this.sslStream.Read(bodyBytes, bodyByteCount, expectedBodyByteCount - bodyByteCount);
+            }
 
             string bodyJsonString = Encoding.UTF8.GetString(bodyBytes, 0, bodyByteCount);
             var body = JObject.Parse(bodyJsonString);
