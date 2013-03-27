@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Caliburn.Micro;
-using Microsoft;
 using Tivo.Connect;
 using Tivo.Connect.Entities;
 using TivoAhoy.Phone.Events;
@@ -146,26 +143,8 @@ namespace TivoAhoy.Phone.ViewModels
             {
                 await connection.ConnectAway(this.settingsModel.Username, this.settingsModel.Password);
 
-                var newChannels = new BindableCollection<Channel>();
-                this.Channels = newChannels;
-
-                // this.Shows = new VirtualizedShowList(connection, newChannels, DateTime.Now);
-
-                int offset = 0;
-                int pageCount = 50;
-
-                bool channelsAdded;
-                do
-                {
-                    var extraChannels = await connection.GetChannelsAsync(pageCount, offset);
-
-                    newChannels.AddRange(extraChannels);
-
-                    channelsAdded = extraChannels.Count > 0;
-                    offset += extraChannels.Count;
-                } while (channelsAdded);
-
-                this.Shows = new VirtualizedShowList(connection, newChannels, DateTime.Now);
+                this.Channels = await connection.GetChannelsAsync();
+                this.Shows = new VirtualizedShowList(connection, this.Channels, DateTime.Now);
             }
             catch (Exception ex)
             {
@@ -180,7 +159,7 @@ namespace TivoAhoy.Phone.ViewModels
 
         public void DisplayOfferDetails(OfferViewModel offer)
         {
-            if (offer == null || 
+            if (offer == null ||
                 offer.Offer == null ||
                 offer.Offer.ContentId == null ||
                 offer.Offer.OfferId == null)

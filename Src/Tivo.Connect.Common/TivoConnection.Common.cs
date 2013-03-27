@@ -409,9 +409,9 @@ namespace Tivo.Connect
             return await GetShowContentDetails(contentId).ConfigureAwait(false);
         }
 
-        public async Task<List<Channel>> GetChannelsAsync(int count, int offset)
+        public async Task<List<Channel>> GetChannelsAsync()
         {
-            var response = await SendChannelSearchRequest(count, offset).ConfigureAwait(false);
+            var response = await SendChannelSearchRequest().ConfigureAwait(false);
 
             CheckResponse(response, "channelList", "channelSearch");
 
@@ -820,16 +820,14 @@ namespace Tivo.Connect
             return SendRequest((string)body["type"], body);
         }
 
-        private async Task<JObject> SendChannelSearchRequest(int count, int offset)
+        private async Task<JObject> SendChannelSearchRequest()
         {
             var request = new Dictionary<string, object>
             {
                 { "type", "channelSearch" },
                 { "bodyId", this.capturedTsn },
-                // { "noLimit", true},
+                { "noLimit", true},
                 { "isReceived", true },
-                { "count", count },
-                { "offset", offset },
                 { "responseTemplate", 
                     new object[]
                     {

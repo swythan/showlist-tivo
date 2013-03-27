@@ -30,17 +30,6 @@ namespace TivoAhoy.Phone.ViewModels
             this.time = time;
 
             this.showCache = new Dictionary<int, OfferViewModel>();
-
-            var collectionChanged = channels as INotifyCollectionChanged;
-            if (collectionChanged != null)
-            {
-                collectionChanged.CollectionChanged += OnCollectionChanged;
-            }
-        }
-
-        private void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            this.NotifyOfPropertyChange(() => this.Count);
         }
         
         public int Count
