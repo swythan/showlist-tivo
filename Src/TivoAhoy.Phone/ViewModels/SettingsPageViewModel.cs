@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Net;
-using System.Reactive.Linq;
 using System.Windows;
 using Caliburn.Micro;
 using Tivo.Connect;
-using TivoAhoy.Phone.Events;
 
 namespace TivoAhoy.Phone.ViewModels
 {
@@ -48,6 +46,7 @@ namespace TivoAhoy.Phone.ViewModels
 
                 this.tivoIPAddress = value;
                 NotifyOfPropertyChange(() => this.TivoIPAddress);
+                NotifyOfPropertyChange(() => this.ParsedIPAddress);
                 NotifyOfPropertyChange(() => this.CanTestConnection);
                 NotifyOfPropertyChange(() => this.SettingsAppearValid);
             }

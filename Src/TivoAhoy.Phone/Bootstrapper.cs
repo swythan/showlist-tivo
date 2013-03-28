@@ -24,7 +24,9 @@ namespace TivoAhoy.Phone
 
             sterlingService = new SterlingService();
             container.Instance<ISterlingInstance>(sterlingService);
-          
+
+            container.Singleton<ITivoConnectionService, TivoConnectionService>();
+
             container.Singleton<SettingsPageViewModel>();
             container.PerRequest<MainPageViewModel>();
             container.PerRequest<ShowDetailsPageViewModel>();
@@ -54,24 +56,38 @@ namespace TivoAhoy.Phone
         protected override void OnLaunch(object sender, Microsoft.Phone.Shell.LaunchingEventArgs e)
         {
             this.sterlingService.Activate();
+            EnableConnections(true);
+
             base.OnLaunch(sender, e);
+        }
+
+        private void EnableConnections(bool enable)
+        {
+            var connectionService = (ITivoConnectionService)this.container.GetInstance(typeof(ITivoConnectionService), null);
+            connectionService.IsConnectionEnabled = enable;
         }
 
         protected override void OnClose(object sender, Microsoft.Phone.Shell.ClosingEventArgs e)
         {
             base.OnClose(sender, e);
+
+            EnableConnections(false);
             this.sterlingService.Deactivate();
         }
 
         protected override void OnActivate(object sender, Microsoft.Phone.Shell.ActivatedEventArgs e)
         {
             this.sterlingService.Activate();
+            EnableConnections(true);
+
             base.OnActivate(sender, e);
         }
 
         protected override void OnDeactivate(object sender, Microsoft.Phone.Shell.DeactivatedEventArgs e)
         {
             base.OnDeactivate(sender, e);
+            
+            EnableConnections(false);
             this.sterlingService.Deactivate();
         }
     }

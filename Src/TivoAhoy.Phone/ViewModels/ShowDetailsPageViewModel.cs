@@ -11,20 +11,17 @@ namespace TivoAhoy.Phone.ViewModels
     public class ShowDetailsPageViewModel : Screen
     {
         private readonly IEventAggregator eventAggregator;
-        private readonly ISterlingInstance sterlingInstance;
-        private readonly SettingsPageViewModel settingsModel;
+        private readonly ITivoConnectionService connectionService;
 
         private ShowDetails showDetails;
         private bool isOperationInProgress;
 
         public ShowDetailsPageViewModel(
             IEventAggregator eventAggregator,
-            ISterlingInstance sterlingInstance,
-            SettingsPageViewModel settingsModel)
+            ITivoConnectionService connectionService)
         {
             this.eventAggregator = eventAggregator;
-            this.sterlingInstance = sterlingInstance;
-            this.settingsModel = settingsModel;
+            this.connectionService = connectionService;
         }
 
         public bool IsOperationInProgress
@@ -132,36 +129,32 @@ namespace TivoAhoy.Phone.ViewModels
 
         private async void FetchShowDetails()
         {
-            var connection = new TivoConnection(sterlingInstance.Database);
 
             OnOperationStarted();
 
             try
             {
-                await connection.ConnectAway(this.settingsModel.Username, this.settingsModel.Password);
+                var connection = await this.connectionService.GetConnectionAsync();
 
                 this.Show = await connection.GetShowContentDetails(this.ShowContentID);
             }
             catch (Exception ex)
-            { 
+            {
                 MessageBox.Show(string.Format("Failed to retrieve details:\n{0}", ex.Message));
             }
             finally
-            { 
-                connection.Dispose();
+            {
                 OnOperationFinished();
             }
         }
 
         public async void PlayShow()
         {
-            var connection = new TivoConnection(sterlingInstance.Database);
-
             OnOperationStarted();
 
             try
             {
-                await connection.ConnectAway(this.settingsModel.Username, this.settingsModel.Password);
+                var connection = await this.connectionService.GetConnectionAsync();
                 await connection.PlayShow(this.ShowRecordingID);
             }
             catch (Exception ex)
@@ -170,7 +163,6 @@ namespace TivoAhoy.Phone.ViewModels
             }
             finally
             {
-                connection.Dispose();
                 OnOperationFinished();
             }
         }
@@ -179,8 +171,8 @@ namespace TivoAhoy.Phone.ViewModels
         {
             get
             {
-                return false;
-                return 
+                return
+                    this.connectionService.IsAwayModeEnabled && 
                     this.ShowRecordingID != null &&
                     !this.IsOperationInProgress; ;
             }

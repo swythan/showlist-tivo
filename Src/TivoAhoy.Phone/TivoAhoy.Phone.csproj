@@ -131,12 +131,15 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AsyncLazy.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Events\TivoOperationFinished.cs" />
     <Compile Include="Events\TivoOperationStarted.cs" />
     <Compile Include="ISterlingInstance.cs" />
+    <Compile Include="ITivoConnectionService.cs" />
     <Compile Include="SterlingService.cs" />
+    <Compile Include="TivoConnectionService.cs" />
     <Compile Include="ViewModels\ChannelListViewModel.cs" />
     <Compile Include="ViewModels\MyShowsViewModel.cs" />
     <Compile Include="ViewModels\OfferViewModel.cs" />

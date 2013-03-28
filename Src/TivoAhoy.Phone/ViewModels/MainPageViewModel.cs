@@ -1,22 +1,23 @@
 ﻿namespace TivoAhoy.Phone.ViewModels
 {
     using System;
+    using System.ComponentModel;
     using System.Threading;
     using Caliburn.Micro;
-    using TivoAhoy.Phone.Events;  
+    using TivoAhoy.Phone.Events;
 
-    public class MainPageViewModel : 
+    public class MainPageViewModel :
         Conductor<IScreen>.Collection.OneActive,
         IHandle<TivoOperationStarted>,
         IHandle<TivoOperationFinished>
     {
         private readonly INavigationService navigationService;
-        
+
         private int operationsInProgress = 0;
 
         public MainPageViewModel(
             IEventAggregator eventAggregator,
-            INavigationService navigationService, 
+            INavigationService navigationService,
             MyShowsViewModel myShowsViewModel,
             ChannelListViewModel channelListViewModel)
         {
@@ -25,12 +26,25 @@
             eventAggregator.Subscribe(this);
 
             channelListViewModel.DisplayName = "now";
+            channelListViewModel.PropertyChanged += OnViewModelPropertyChanged;
             this.Items.Add(channelListViewModel);
 
             myShowsViewModel.DisplayName = "my shows";
+            myShowsViewModel.PropertyChanged += OnViewModelPropertyChanged;
             this.Items.Add(myShowsViewModel);
 
             this.ActivateItem(channelListViewModel);
+        }
+
+        private void OnViewModelPropertyChanged(object sender, PropertyChangedEventArgs args)
+        {
+            if (args.PropertyName == "CanRefreshShows")
+            {
+                if (sender == this.ActiveItem)
+                {
+                    this.NotifyOfPropertyChange(() => this.CanRefreshList);
+                }
+            }
         }
 
         protected override void OnActivate()

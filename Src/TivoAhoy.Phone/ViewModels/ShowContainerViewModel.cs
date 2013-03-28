@@ -12,8 +12,7 @@ namespace TivoAhoy.Phone.ViewModels
     public class ShowContainerViewModel : RecordingFolderItemViewModel<Container>
     {
         private readonly IEventAggregator eventAggregator;
-        private readonly ISterlingInstance sterlingInstance;
-        private readonly SettingsPageViewModel settingsModel;
+        private readonly ITivoConnectionService connectionService;
 
         private readonly Func<IndividualShowViewModel> showViewModelFactory;
         private readonly Func<ShowContainerViewModel> showContainerViewModelFactory;
@@ -22,14 +21,12 @@ namespace TivoAhoy.Phone.ViewModels
 
         public ShowContainerViewModel(
             IEventAggregator eventAggregator,
-            ISterlingInstance sterlingInstance,
-            SettingsPageViewModel settingsModel,
+            ITivoConnectionService connectionService,
             Func<IndividualShowViewModel> showViewModelFactory,
             Func<ShowContainerViewModel> showContainerViewModelFactory)
         {
+            this.connectionService = connectionService;
             this.eventAggregator = eventAggregator;
-            this.sterlingInstance = sterlingInstance;
-            this.settingsModel = settingsModel;
 
             this.showViewModelFactory = showViewModelFactory;
             this.showContainerViewModelFactory = showContainerViewModelFactory;
@@ -64,7 +61,7 @@ namespace TivoAhoy.Phone.ViewModels
                 NotifyOfPropertyChange(() => this.Shows);
             }
         }
-                        
+
         public string ContentInfo
         {
             get
@@ -75,7 +72,7 @@ namespace TivoAhoy.Phone.ViewModels
                 }
                 else
                 {
-                    return string.Format("{0} shows", this.Source.FolderItemCount);              
+                    return string.Format("{0} shows", this.Source.FolderItemCount);
                 }
             }
         }
@@ -84,13 +81,12 @@ namespace TivoAhoy.Phone.ViewModels
         {
             this.Shows.Clear();
 
-            var connection = new TivoConnection(sterlingInstance.Database);
 
             OnOperationStarted();
 
             try
             {
-                await connection.ConnectAway(this.settingsModel.Username, this.settingsModel.Password);
+                var connection = await this.connectionService.GetConnectionAsync();
 
                 var progress = new Progress<RecordingFolderItem>(
                     show =>
@@ -107,7 +103,6 @@ namespace TivoAhoy.Phone.ViewModels
             }
             finally
             {
-                connection.Dispose();
                 OnOperationFinished();
             }
         }

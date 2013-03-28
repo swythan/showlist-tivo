@@ -13,27 +13,39 @@ namespace TivoAhoy.Phone.ViewModels
     public class MyShowsViewModel : Screen
     {
         private readonly IEventAggregator eventAggregator;
-        private readonly ISterlingInstance sterlingInstance;
-        private readonly SettingsPageViewModel settingsModel;
+        private readonly ITivoConnectionService connectionService;
 
         private readonly Func<IndividualShowViewModel> showViewModelFactory;
         private readonly Func<ShowContainerViewModel> showContainerViewModelFactory;
 
         public MyShowsViewModel(
             IEventAggregator eventAggregator,
-            ISterlingInstance sterlingInstance,
-            SettingsPageViewModel settingsModel,
+            ITivoConnectionService connectionService,
             Func<IndividualShowViewModel> showViewModelFactory,
             Func<ShowContainerViewModel> showContainerViewModelFactory)
         {
-            this.sterlingInstance = sterlingInstance;
-            this.settingsModel = settingsModel;
+            this.connectionService = connectionService;
             this.eventAggregator = eventAggregator;
 
             this.showViewModelFactory = showViewModelFactory;
             this.showContainerViewModelFactory = showContainerViewModelFactory;
 
             this.MyShows = new BindableCollection<IRecordingFolderItemViewModel>();
+
+            connectionService.PropertyChanged += OnConnectionServicePropertyChanged;
+        }
+
+        private void OnConnectionServicePropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "IsConnected")
+            {
+                NotifyOfPropertyChange(() => this.CanRefreshShows);
+
+                if (this.IsActive)
+                {
+                    this.RefreshShows();
+                }
+            }
         }
 
         protected override void OnActivate()
@@ -41,6 +53,12 @@ namespace TivoAhoy.Phone.ViewModels
             base.OnActivate();
             NotifyOfPropertyChange(() => this.CanRefreshShows);
             NotifyOfPropertyChange(() => this.ShowSettingsPrompt);
+
+            if (this.MyShows == null ||
+                this.MyShows.Count == 0)
+            {
+                this.RefreshShows();
+            }
         }
 
         private void OnOperationStarted()
@@ -59,7 +77,7 @@ namespace TivoAhoy.Phone.ViewModels
         {
             get
             {
-                return this.settingsModel.SettingsAppearValid;
+                return this.connectionService.IsConnected;
             }
         }
 
@@ -67,26 +85,28 @@ namespace TivoAhoy.Phone.ViewModels
         {
             get
             {
-                return !this.settingsModel.SettingsAppearValid;
+                return !this.connectionService.SettingsAppearValid;
             }
         }
 
         public void RefreshShows()
         {
-            FetchShows(null);
+            if (this.CanRefreshShows)
+            {
+                FetchShows(null);
+            }
         }
 
         private async void FetchShows(Container parent)
         {
             this.MyShows.Clear();
 
-            var connection = new TivoConnection(sterlingInstance.Database);
 
             OnOperationStarted();
 
             try
             {
-                await connection.ConnectAway(this.settingsModel.Username, this.settingsModel.Password);
+                var connection = await this.connectionService.GetConnectionAsync();
 
                 var progress = new Progress<RecordingFolderItem>(show => this.MyShows.Add(CreateItemViewModel(show)));
 
@@ -98,7 +118,6 @@ namespace TivoAhoy.Phone.ViewModels
             }
             finally
             {
-                connection.Dispose();
                 OnOperationFinished();
             }
         }
