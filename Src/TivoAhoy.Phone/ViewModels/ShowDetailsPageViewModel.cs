@@ -34,6 +34,7 @@ namespace TivoAhoy.Phone.ViewModels
             this.isOperationInProgress = true;
             NotifyOfPropertyChange(() => this.IsOperationInProgress);
             NotifyOfPropertyChange(() => this.CanPlayShow);
+            NotifyOfPropertyChange(() => this.CanDeleteShow);
         }
 
         private void OnOperationFinished()
@@ -41,6 +42,7 @@ namespace TivoAhoy.Phone.ViewModels
             this.isOperationInProgress = false;
             NotifyOfPropertyChange(() => this.IsOperationInProgress);
             NotifyOfPropertyChange(() => this.CanPlayShow);
+            NotifyOfPropertyChange(() => this.CanDeleteShow);
         }
 
         public string ShowContentID { get; set; }
@@ -113,9 +115,12 @@ namespace TivoAhoy.Phone.ViewModels
                 Debug.WriteLine(string.Empty);
 
                 NotifyOfPropertyChange(() => this.Show);
+                NotifyOfPropertyChange(() => this.IsRecorded);
+                NotifyOfPropertyChange(() => this.IsOffer);
                 NotifyOfPropertyChange(() => this.MainImage);
                 NotifyOfPropertyChange(() => this.HasEpisodeNumbers);
                 NotifyOfPropertyChange(() => this.HasOriginalAirDate);
+                NotifyOfPropertyChange(() => this.CanDeleteShow);
                 NotifyOfPropertyChange(() => this.CanPlayShow);
             }
         }
@@ -148,6 +153,33 @@ namespace TivoAhoy.Phone.ViewModels
             }
         }
 
+        public bool IsRecorded
+        {
+            get
+            {
+                return this.ShowRecordingID != null;
+            }
+        }
+
+        public bool IsOffer
+        {
+            get
+            {
+                return this.ShowOfferID != null;
+            }
+        }
+
+        public bool CanPlayShow
+        {
+            get
+            {
+                return
+                    this.ShowRecordingID != null &&
+                    !this.connectionService.IsAwayModeEnabled &&
+                    !this.IsOperationInProgress;
+            }
+        }
+
         public async void PlayShow()
         {
             OnOperationStarted();
@@ -167,30 +199,35 @@ namespace TivoAhoy.Phone.ViewModels
             }
         }
 
-        public bool CanPlayShow
+        public bool CanDeleteShow
         {
             get
             {
                 return
-                    this.connectionService.IsAwayModeEnabled && 
                     this.ShowRecordingID != null &&
                     !this.IsOperationInProgress; ;
             }
         }
 
-        //private string GetRecordingId()
-        //{
-        //    if (this.ShowDetails == null ||
-        //        !this.ShowDetails.ContainsKey("recordingForContentId"))
-        //        return null;
+        public async void DeleteShow()
+        {
+            OnOperationStarted();
 
-        //    var recordingForContent = this.ShowDetails["recordingForContentId"] as IDictionary<string, object>;
+            try
+            {
+                var connection = await this.connectionService.GetConnectionAsync();
+                await connection.DeleteShow(this.ShowRecordingID);
 
-        //    if (recordingForContent == null ||
-        //        !recordingForContent.ContainsKey("recordingId"))
-        //        return null;
-
-        //    return recordingForContent["recordingId"] as string;
-        //}
+                MessageBox.Show("Recording deleted.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(string.Format("Delete command failed:\n{0}", ex.Message));
+            }
+            finally
+            {
+                OnOperationFinished();
+            }
+        }
     }
 }

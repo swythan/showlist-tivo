@@ -385,10 +385,18 @@ namespace Tivo.Connect
             }
         }
 
-        public Task PlayShow(string recordingId)
+        public async Task PlayShow(string recordingId)
         {
-            // TODO : Handle failure
-            return SendPlayShowRequest(recordingId);
+            var response = await SendPlayShowRequest(recordingId);
+
+            CheckResponse(response, "success", "uiNavigate");
+        }
+
+        public async Task DeleteShow(string recordingId)
+        {
+            var response = await SendDeleteShowRequest(recordingId);
+
+            CheckResponse(response, "success", "recordingUpdate");
         }
 
         public async Task<ShowDetails> GetWhatsOn()
@@ -818,6 +826,20 @@ namespace Tivo.Connect
                 };
 
             return SendRequest((string)body["type"], body);
+        }
+
+        private Task<JObject> SendDeleteShowRequest(string showId)
+        {
+            var request =
+                new Dictionary<string, object>
+                { 
+                    { "type", "recordingUpdate" },
+                    { "bodyId", this.capturedTsn },
+                    { "state", "deleted" },
+                    { "recordingId", showId }
+                };
+
+            return SendRequest("recordingUpdate", request);
         }
 
         private async Task<JObject> SendChannelSearchRequest()

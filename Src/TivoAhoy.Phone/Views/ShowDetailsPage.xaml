@@ -58,6 +58,8 @@
                     Height="*" />
                 <RowDefinition
                     Height="Auto" />
+                <RowDefinition
+                    Height="Auto" />
             </Grid.RowDefinitions>
             <Image
                 x:Name="MainImage"
@@ -102,10 +104,15 @@
                 Grid.Row="5"
                 Style="{StaticResource PhoneTextNormalStyle}" />
             <Button
+                x:Name="DeleteShow"
+                Visibility="{Binding IsRecorded, Converter={StaticResource boolToVisConverter}}"
+                Content="Delete"
+                Grid.Row="6" />
+            <Button
                 x:Name="PlayShow"
-                Visibility="{Binding CanPlayShow, Converter={StaticResource boolToVisConverter}}"
-                Content="Play" 
-                Grid.Row="6"/>
+                Visibility="{Binding IsRecorded, Converter={StaticResource boolToVisConverter}}"
+                Content="Play"
+                Grid.Row="7" />
         </Grid>
     </Grid>
  
