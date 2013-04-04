@@ -146,7 +146,6 @@
     <Compile Include="ViewModels\ShowDetailsPageViewModel.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ViewModels\VirtualizedShowList.cs" />
     <Compile Include="Views\ChannelListView.xaml.cs">
       <DependentUpon>ChannelListView.xaml</DependentUpon>
     </Compile>

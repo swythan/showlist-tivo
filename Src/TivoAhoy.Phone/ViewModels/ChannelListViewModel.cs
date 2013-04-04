@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using Caliburn.Micro;
@@ -15,6 +16,7 @@ namespace TivoAhoy.Phone.ViewModels
         private readonly IEventAggregator eventAggregator;
         private readonly INavigationService navigationService;
         private readonly ITivoConnectionService connectionService;
+        private readonly Func<OfferViewModel> offerViewModelFactory;
 
         private IList shows;
 
@@ -27,6 +29,7 @@ namespace TivoAhoy.Phone.ViewModels
             this.eventAggregator = eventAggregator;
             this.navigationService = navigationService;
             this.connectionService = connectionService;
+            this.offerViewModelFactory = offerViewModelFactory;
 
             connectionService.PropertyChanged += OnConnectionServicePropertyChanged;
         }
@@ -54,34 +57,28 @@ namespace TivoAhoy.Phone.ViewModels
         {
             this.Shows = new List<OfferViewModel>()
             {
-                new OfferViewModel(
+                OfferViewModel.CreateDesignTime(
                     new Channel()
                     {
                             ChannelNumber = 101,
                             CallSign = "BBC 1",
                             LogoIndex = 65736
-                    })
+                    },
+                    new Offer()
                     {
-                        Offer = 
-                            new Offer()
-                            {
-                                Title = "Antiques Roadshow"
-                            }
-                    },      
-                new OfferViewModel(
+                        Title = "Antiques Roadshow"
+                    }),      
+                OfferViewModel.CreateDesignTime(
                     new Channel()
                     {
                             ChannelNumber = 102,
                             CallSign = "BBC 2",
                             LogoIndex = 65738
-                    }) 
+                    },
+                    new Offer()
                     {
-                        Offer =
-                            new Offer()
-                            {
-                                Title = "Charlie Brooker's Weekly Wipe"
-                            }
-                    }, 
+                        Title = "Charlie Brooker's Weekly Wipe"
+                    }), 
             };
         }
 
@@ -151,7 +148,11 @@ namespace TivoAhoy.Phone.ViewModels
                 var connection = await this.connectionService.GetConnectionAsync();
 
                 var channels = await connection.GetChannelsAsync();
-                this.Shows = new VirtualizedShowList(connection, channels, DateTime.Now);
+                var time = DateTime.Now;
+
+                this.Shows = channels
+                    .Select(x => CreateOfferViewModel(x, time))
+                    .ToList();
             }
             catch (Exception ex)
             {
@@ -161,6 +162,14 @@ namespace TivoAhoy.Phone.ViewModels
             {
                 OnOperationFinished();
             }
+        }
+
+        private OfferViewModel CreateOfferViewModel(Channel channel, DateTime time)
+        {
+            var model = this.offerViewModelFactory();
+            model.Initialise(channel, time);
+
+            return model;
         }
 
         public void DisplayOfferDetails(OfferViewModel offer)
