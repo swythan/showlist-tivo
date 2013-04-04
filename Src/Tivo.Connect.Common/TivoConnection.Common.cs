@@ -290,6 +290,13 @@ namespace Tivo.Connect
             return await GetRecordingFolderItemsAsync(objectIds, 5, progress).ConfigureAwait(false);
         }
 
+        public async Task<IEnumerable<long>> GetRecordingFolderItemIds(string parentId)
+        {
+            var folderShows = await SendGetFolderShowsRequest(parentId).ConfigureAwait(false);
+
+            return folderShows["objectIdAndType"].ToObject<IList<long>>();
+        }
+
         public async Task<ShowDetails> GetShowContentDetails(string contentId)
         {
             var detailsResults = await SendGetContentDetailsRequest(contentId).ConfigureAwait(false);
@@ -324,7 +331,7 @@ namespace Tivo.Connect
             return result;
         }
 
-        private async Task<IEnumerable<RecordingFolderItem>> GetRecordingFolderItems(IEnumerable<long> objectIds)
+        public async Task<IEnumerable<RecordingFolderItem>> GetRecordingFolderItems(IEnumerable<long> objectIds)
         {
             var detailsResults = await SendGetMyShowsItemDetailsRequest(objectIds).ConfigureAwait(false);
 

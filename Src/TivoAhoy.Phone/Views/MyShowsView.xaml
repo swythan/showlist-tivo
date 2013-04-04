@@ -307,18 +307,19 @@
             </ListBox.ItemContainerStyle>
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <StackPanel />
+                    <VirtualizingStackPanel />
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <toolkit:ExpanderView
+                        DataContext="{Binding Item}"
                         Margin="0,0,0,8"
                         Header="{Binding}"
                         NonExpandableHeader="{Binding}"
                         Expander="{Binding}"
                         ItemsSource="{Binding Shows}"
-                        IsNonExpandable="{Binding IsSingleShow}"
+                        IsNonExpandable="{Binding IsSingleShow, FallbackValue=False}"
                         cal:Message.Attach="[Event Expanded] = [Action GetChildShows]" 
                         Style="{StaticResource CustomExpanderViewStyle}">
                         
@@ -331,7 +332,7 @@
                                 <Border
                                     Background="{StaticResource PhoneBackgroundBrush}">
                                     <TextBlock
-                                        Text="{Binding Title}"
+                                        Text="{Binding Title, FallbackValue=Loading...}"
                                         Style="{StaticResource PhoneTextLargeStyle}" />
                                 </Border>
                             </DataTemplate>
@@ -362,10 +363,11 @@
                             <DataTemplate>
                                 <ListBoxItem
                                     toolkit:TiltEffect.IsTiltEnabled="True"
+                                    DataContext="{Binding Item}"
                                     cal:Message.Attach="[Event Tap] = [Action DisplayShowDetails]">
                                     <StackPanel>
                                         <TextBlock
-                                            Text="{Binding Title}"
+                                            Text="{Binding Title, FallbackValue=Loading...}"
                                             Style="{StaticResource PhoneTextLargeStyle}" />
                                         <TextBlock
                                             Text="{Binding Source.StartTime, StringFormat=g, ConverterCulture={StaticResource DefaultCulture}}"
@@ -385,7 +387,7 @@
                                     toolkit:TiltEffect.IsTiltEnabled="True"
                                     cal:Message.Attach="[Event Tap] = [Action DisplayShowDetails]">
                                     <TextBlock
-                                        Text="{Binding Title}"
+                                        Text="{Binding Title, FallbackValue=Loading...}"
                                         Style="{StaticResource PhoneTextLargeStyle}" />
                                     <TextBlock
                                         Text="{Binding Source.StartTime, StringFormat=g, ConverterCulture={StaticResource DefaultCulture}}"

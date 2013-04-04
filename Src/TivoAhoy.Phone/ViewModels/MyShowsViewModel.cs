@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Reactive.Linq;
 using System.Windows;
@@ -15,22 +17,19 @@ namespace TivoAhoy.Phone.ViewModels
         private readonly IEventAggregator eventAggregator;
         private readonly ITivoConnectionService connectionService;
 
-        private readonly Func<IndividualShowViewModel> showViewModelFactory;
-        private readonly Func<ShowContainerViewModel> showContainerViewModelFactory;
+        private readonly Func<LazyRecordingFolderItemViewModel> showModelFactory;
+
+        private IEnumerable<LazyRecordingFolderItemViewModel> myShows;
 
         public MyShowsViewModel(
             IEventAggregator eventAggregator,
             ITivoConnectionService connectionService,
-            Func<IndividualShowViewModel> showViewModelFactory,
-            Func<ShowContainerViewModel> showContainerViewModelFactory)
+            Func<LazyRecordingFolderItemViewModel> showModelFactory)
         {
             this.connectionService = connectionService;
             this.eventAggregator = eventAggregator;
 
-            this.showViewModelFactory = showViewModelFactory;
-            this.showContainerViewModelFactory = showContainerViewModelFactory;
-
-            this.MyShows = new BindableCollection<IRecordingFolderItemViewModel>();
+            this.showModelFactory = showModelFactory;
 
             connectionService.PropertyChanged += OnConnectionServicePropertyChanged;
         }
@@ -55,7 +54,7 @@ namespace TivoAhoy.Phone.ViewModels
             NotifyOfPropertyChange(() => this.ShowSettingsPrompt);
 
             if (this.MyShows == null ||
-                this.MyShows.Count == 0)
+                !this.MyShows.Any())
             {
                 this.RefreshShows();
             }
@@ -71,7 +70,19 @@ namespace TivoAhoy.Phone.ViewModels
             this.eventAggregator.Publish(new TivoOperationFinished());
         }
 
-        public BindableCollection<IRecordingFolderItemViewModel> MyShows { get; private set; }
+        public IEnumerable<LazyRecordingFolderItemViewModel> MyShows 
+        { 
+            get
+            {
+                return this.myShows;
+            }
+
+            private set
+            {
+                this.myShows = value;
+                NotifyOfPropertyChange(() => this.MyShows);
+            }
+        }
 
         public bool CanRefreshShows
         {
@@ -99,18 +110,16 @@ namespace TivoAhoy.Phone.ViewModels
 
         private async void FetchShows(Container parent)
         {
-            this.MyShows.Clear();
-
-
             OnOperationStarted();
 
             try
             {
                 var connection = await this.connectionService.GetConnectionAsync();
 
-                var progress = new Progress<RecordingFolderItem>(show => this.MyShows.Add(CreateItemViewModel(show)));
-
-                await connection.GetMyShowsList(parent, progress);
+                var ids = await connection.GetRecordingFolderItemIds(parent != null ? parent.Id : null);
+                this.MyShows = ids
+                    .Select(CreateShowViewModel)
+                    .ToList();
             }
             catch (Exception ex)
             {
@@ -122,29 +131,14 @@ namespace TivoAhoy.Phone.ViewModels
             }
         }
 
-        private IRecordingFolderItemViewModel CreateItemViewModel(RecordingFolderItem recordingFolderItem)
+        private LazyRecordingFolderItemViewModel CreateShowViewModel(long itemId)
         {
-            var showContainer = recordingFolderItem as Container;
-            if (showContainer != null)
-            {
-                var result = this.showContainerViewModelFactory();
-                result.Source = showContainer;
+            var model = showModelFactory();
+            model.Initialise(itemId);
 
-                return result;
-            }
-
-            var show = recordingFolderItem as IndividualShow;
-            if (show != null)
-            {
-                var result = this.showViewModelFactory();
-                result.Source = show;
-
-                return result;
-            }
-
-            return null;
+            return model;
         }
-
+        
         public void ActivateItem(object item)
         {
             //var showContainer = item as ShowContainerViewModel;

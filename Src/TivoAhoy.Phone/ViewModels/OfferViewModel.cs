@@ -4,11 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Caliburn.Micro;
 using Tivo.Connect.Entities;
+using TivoAhoy.Phone.Events;
 
 namespace TivoAhoy.Phone.ViewModels
 {
     public class OfferViewModel : PropertyChangedBase
     {
+        private readonly IEventAggregator eventAggregator;
         private readonly ITivoConnectionService connectionService;
 
         private Channel channel;
@@ -17,9 +19,12 @@ namespace TivoAhoy.Phone.ViewModels
         private Task offerTask;
         private Offer offer;
 
-        public OfferViewModel(ITivoConnectionService connectionService)
+        public OfferViewModel(
+            ITivoConnectionService connectionService,
+            IEventAggregator eventAggregator)
         {
             this.connectionService = connectionService;
+            this.eventAggregator = eventAggregator;
         }
 
         public void Initialise(Channel channel, DateTime time)
@@ -30,7 +35,7 @@ namespace TivoAhoy.Phone.ViewModels
 
         public static OfferViewModel CreateDesignTime(Channel channel, Offer offer)
         {
-            var model = new OfferViewModel(null);
+            var model = new OfferViewModel(null, null);
 
             model.channel = channel;
             model.offer = offer;
@@ -70,8 +75,20 @@ namespace TivoAhoy.Phone.ViewModels
             }
         }
 
+        private void OnOperationStarted()
+        {
+            this.eventAggregator.Publish(new TivoOperationStarted());
+        }
+
+        private void OnOperationFinished()
+        {
+            this.eventAggregator.Publish(new TivoOperationFinished());
+        }
+
         private async Task UpdateOfferAsync()
         {
+            this.OnOperationStarted();
+
             try
             {
                 var connection = await this.connectionService.GetConnectionAsync();
@@ -91,6 +108,10 @@ namespace TivoAhoy.Phone.ViewModels
             catch (Exception ex)
             {
                 Debug.WriteLine("Error fetching now showing for channel {0} : {1}", this.Channel.ChannelNumber, ex);
+            }
+            finally
+            {
+                this.OnOperationFinished();
             }
         }
     }

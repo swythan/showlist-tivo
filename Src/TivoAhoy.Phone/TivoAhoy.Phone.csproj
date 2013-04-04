@@ -133,6 +133,7 @@
     <Compile Include="ITivoConnectionService.cs" />
     <Compile Include="TivoConnectionService.cs" />
     <Compile Include="ViewModels\ChannelListViewModel.cs" />
+    <Compile Include="ViewModels\LazyRecordingFolderItemViewModel.cs" />
     <Compile Include="ViewModels\MyShowsViewModel.cs" />
     <Compile Include="ViewModels\OfferViewModel.cs" />
     <Compile Include="ViewModels\ShowDetailsPageViewModel.cs">

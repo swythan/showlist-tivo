@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reactive.Linq;
 using System.Windows;
 using Caliburn.Micro;
@@ -14,24 +16,19 @@ namespace TivoAhoy.Phone.ViewModels
         private readonly IEventAggregator eventAggregator;
         private readonly ITivoConnectionService connectionService;
 
-        private readonly Func<IndividualShowViewModel> showViewModelFactory;
-        private readonly Func<ShowContainerViewModel> showContainerViewModelFactory;
+        private readonly Func<LazyRecordingFolderItemViewModel> showModelFactory;
 
-        private BindableCollection<IRecordingFolderItemViewModel> shows;
+        private IEnumerable<LazyRecordingFolderItemViewModel> shows;
 
         public ShowContainerViewModel(
             IEventAggregator eventAggregator,
             ITivoConnectionService connectionService,
-            Func<IndividualShowViewModel> showViewModelFactory,
-            Func<ShowContainerViewModel> showContainerViewModelFactory)
+            Func<LazyRecordingFolderItemViewModel> showModelFactory)
         {
             this.connectionService = connectionService;
             this.eventAggregator = eventAggregator;
 
-            this.showViewModelFactory = showViewModelFactory;
-            this.showContainerViewModelFactory = showContainerViewModelFactory;
-
-            this.shows = new BindableCollection<IRecordingFolderItemViewModel>();
+            this.showModelFactory = showModelFactory;
         }
 
         private void OnOperationStarted()
@@ -49,7 +46,7 @@ namespace TivoAhoy.Phone.ViewModels
             get { return false; }
         }
 
-        public BindableCollection<IRecordingFolderItemViewModel> Shows
+        public IEnumerable<LazyRecordingFolderItemViewModel> Shows
         {
             get { return shows; }
             set
@@ -79,23 +76,16 @@ namespace TivoAhoy.Phone.ViewModels
 
         public async void GetChildShows()
         {
-            this.Shows.Clear();
-
-
             OnOperationStarted();
 
             try
             {
                 var connection = await this.connectionService.GetConnectionAsync();
 
-                var progress = new Progress<RecordingFolderItem>(
-                    show =>
-                    {
-                        this.Shows.Add(CreateItemViewModel(show));
-                        NotifyOfPropertyChange(() => this.ContentInfo);
-                    });
-
-                await connection.GetMyShowsList(this.Source, progress);
+                var ids = await connection.GetRecordingFolderItemIds(this.Source != null ? this.Source.Id : null);
+                this.Shows = ids
+                    .Select(CreateShowViewModel)
+                    .ToList();
             }
             catch (Exception ex)
             {
@@ -107,27 +97,12 @@ namespace TivoAhoy.Phone.ViewModels
             }
         }
 
-        private IRecordingFolderItemViewModel CreateItemViewModel(RecordingFolderItem recordingFolderItem)
+        private LazyRecordingFolderItemViewModel CreateShowViewModel(long itemId)
         {
-            var showContainer = recordingFolderItem as Container;
-            if (showContainer != null)
-            {
-                var result = this.showContainerViewModelFactory();
-                result.Source = showContainer;
+            var model = showModelFactory();
+            model.Initialise(itemId);
 
-                return result;
-            }
-
-            var show = recordingFolderItem as IndividualShow;
-            if (show != null)
-            {
-                var result = this.showViewModelFactory();
-                result.Source = show;
-
-                return result;
-            }
-
-            return null;
+            return model;
         }
     }
 }
