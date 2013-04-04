@@ -129,7 +129,7 @@ namespace System.Net.Sockets
 
             if (!tcs.Task.Wait(this.ReadTimeout))
             {
-                throw new IOException("Write operation timed out.");
+                throw new IOException("Read operation timed out.");
             }
 
             return tcs.Task.Result;
