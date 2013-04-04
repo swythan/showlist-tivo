@@ -196,7 +196,7 @@ namespace Tivo.Connect
                 // Create an SSL stream that will close the client's stream.
                 var tivoTlsClient = new TivoTlsClient();
 
-                this.protocolHandler = new TlsProtocolHandler(new NetworkStream(this.client));
+                this.protocolHandler = new TlsProtocolHandler(new NetworkStream(this.client) { ReadTimeout = Timeout.Infinite });
                 this.protocolHandler.Connect(tivoTlsClient);
             }
             catch (IOException e)
