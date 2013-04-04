@@ -14,14 +14,11 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Org.BouncyCastle.Crypto.Tls;
 using Tivo.Connect.Entities;
-using Wintellect.Sterling;
 
 namespace Tivo.Connect
 {
     public class TivoConnection : IDisposable
     {
-        private ISterlingDatabaseInstance cacheDb;
-
         private readonly int sessionId;
 
         private Socket client;
@@ -39,12 +36,6 @@ namespace Tivo.Connect
         public TivoConnection()
         {
             sessionId = new Random().Next(0x26c000, 0x27dc20);
-        }
-
-        public TivoConnection(ISterlingDatabaseInstance cacheDb)
-            : this()
-        {
-            this.cacheDb = cacheDb;
         }
 
         public void Dispose()
@@ -335,54 +326,20 @@ namespace Tivo.Connect
 
         private async Task<IEnumerable<RecordingFolderItem>> GetRecordingFolderItems(IEnumerable<long> objectIds)
         {
-            var itemsInCache = Enumerable.Empty<RecordingFolderItem>();
+            var detailsResults = await SendGetMyShowsItemDetailsRequest(objectIds).ConfigureAwait(false);
 
-            if (this.cacheDb != null)
+            CheckResponse(detailsResults, "recordingFolderItemList", "recordingFolderItemSearch");
+            var detailItems = detailsResults["recordingFolderItem"];
+
+            var serializer = new JsonSerializer()
             {
-                var showsInCache = objectIds
-                    .Join(this.cacheDb.Query<IndividualShow, long>(), id => id, tk => tk.Key, (id, tk) => tk.LazyValue.Value as RecordingFolderItem);
-
-                var containersInCache = objectIds
-                    .Join(this.cacheDb.Query<Container, long>(), id => id, tk => tk.Key, (id, tk) => tk.LazyValue.Value as RecordingFolderItem);
-
-                itemsInCache = objectIds
-                    .Join(showsInCache.Concat(containersInCache), id => id, item => item.ObjectId, (id, item) => item);
-            }
-
-            if (objectIds.Except(itemsInCache.Select(item => item.ObjectId)).Any())
-            {
-                var detailsResults = await SendGetMyShowsItemDetailsRequest(objectIds).ConfigureAwait(false);
-
-                CheckResponse(detailsResults, "recordingFolderItemList", "recordingFolderItemSearch");
-                var detailItems = detailsResults["recordingFolderItem"];
-
-                var serializer = new JsonSerializer()
+                Converters = 
                 {
-                    Converters = 
-                    {
-                        new RecordingFolderItemCreator()
-                    }
-                };
-
-                var viewModels = detailItems.ToObject<List<RecordingFolderItem>>(serializer);
-
-
-                if (cacheDb != null)
-                {
-                    foreach (var item in viewModels)
-                    {
-                        this.cacheDb.Save(item.GetType(), item);
-                    }
-
-                    this.cacheDb.Flush();
+                    new RecordingFolderItemCreator()
                 }
+            };
 
-                return viewModels;
-            }
-            else
-            {
-                return itemsInCache;
-            }
+            return detailItems.ToObject<List<RecordingFolderItem>>(serializer);
         }
 
         public async Task PlayShow(string recordingId)

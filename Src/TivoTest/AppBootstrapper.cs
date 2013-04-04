@@ -11,7 +11,6 @@
     public class AppBootstrapper : Bootstrapper<IShell>
     {
         CompositionContainer container;
-        SterlingService sterlingService;
 
         /// <summary>
         /// By default, we are configured to use MEF
@@ -28,8 +27,6 @@
             batch.AddExportedValue<IWindowManager>(new WindowManager());
             batch.AddExportedValue<IEventAggregator>(new EventAggregator());
 
-            sterlingService = new SterlingService();
-            batch.AddExportedValue<ISterlingInstance>(sterlingService);
             batch.AddExportedValue(container);
             batch.AddExportedValue(catalog);
 
@@ -55,18 +52,6 @@
         protected override void BuildUp(object instance)
         {
             container.SatisfyImportsOnce(instance);
-        }
-
-        protected override void OnStartup(object sender, System.Windows.StartupEventArgs e)
-        {
-            sterlingService.Activate();
-            base.OnStartup(sender, e);
-        }
-
-        protected override void OnExit(object sender, EventArgs e)
-        {
-            base.OnExit(sender, e);
-            sterlingService.Deactivate();
         }
     }
 }

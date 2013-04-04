@@ -14,16 +14,13 @@ namespace TivoTest
     [Export(typeof(ITivoConnectionService))]
     public class TivoConnectionService: PropertyChangedBase, ITivoConnectionService
     {
-        private readonly ISterlingInstance sterlingInstance;
-        
         private bool isAwayModeEnabled = true;
         
         private TivoConnection connection = null;
         
         [ImportingConstructor]
-        public TivoConnectionService(ISterlingInstance sterlingInstance)
+        public TivoConnectionService()
         {
-            this.sterlingInstance = sterlingInstance;
         }
 
         public bool IsConnected
@@ -60,8 +57,7 @@ namespace TivoTest
         {
             if (this.connection == null)
             {
-
-                var localConnection = new TivoConnection(this.sterlingInstance.Database);
+                var localConnection = new TivoConnection();
                 try
                 {
                     if (this.IsAwayModeEnabled)

@@ -12,7 +12,6 @@ namespace TivoAhoy.Phone
     public class TivoConnectionService : PropertyChangedBase, ITivoConnectionService
     {
         private readonly IEventAggregator eventAggregator;
-        private readonly ISterlingInstance sterlingInstance;
         private readonly SettingsPageViewModel settings;
 
         private bool isAwayModeEnabled = true;
@@ -24,11 +23,9 @@ namespace TivoAhoy.Phone
 
         public TivoConnectionService(
             IEventAggregator eventAggregator,
-            ISterlingInstance sterlingInstance, 
             SettingsPageViewModel settings)
         {
             this.eventAggregator = eventAggregator;
-            this.sterlingInstance = sterlingInstance;
             this.settings = settings;
 
             this.settings.PropertyChanged += OnSettingsPropertyChanged;
@@ -169,7 +166,7 @@ namespace TivoAhoy.Phone
 
             this.eventAggregator.Publish(new TivoOperationStarted());
 
-            var localConnection = new TivoConnection(this.sterlingInstance.Database);
+            var localConnection = new TivoConnection();
             try
             {
                 if (this.IsAwayModeEnabled)

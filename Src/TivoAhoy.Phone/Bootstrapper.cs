@@ -12,7 +12,6 @@ namespace TivoAhoy.Phone
     public class Bootstrapper : PhoneBootstrapper
     {
         private PhoneContainer container;
-        private SterlingService sterlingService;
 
         protected override void Configure()
         {
@@ -21,9 +20,6 @@ namespace TivoAhoy.Phone
             container.RegisterPhoneServices();
             
             ConventionManager.AddElementConvention<PerformanceProgressBar>(PerformanceProgressBar.IsIndeterminateProperty, "IsIndeterminate", "Loaded");
-
-            sterlingService = new SterlingService();
-            container.Instance<ISterlingInstance>(sterlingService);
 
             container.Singleton<ITivoConnectionService, TivoConnectionService>();
 
@@ -55,7 +51,6 @@ namespace TivoAhoy.Phone
 
         protected override void OnLaunch(object sender, Microsoft.Phone.Shell.LaunchingEventArgs e)
         {
-            this.sterlingService.Activate();
             EnableConnections(true);
 
             base.OnLaunch(sender, e);
@@ -72,12 +67,10 @@ namespace TivoAhoy.Phone
             base.OnClose(sender, e);
 
             EnableConnections(false);
-            this.sterlingService.Deactivate();
         }
 
         protected override void OnActivate(object sender, Microsoft.Phone.Shell.ActivatedEventArgs e)
         {
-            this.sterlingService.Activate();
             EnableConnections(true);
 
             base.OnActivate(sender, e);
@@ -88,7 +81,6 @@ namespace TivoAhoy.Phone
             base.OnDeactivate(sender, e);
             
             EnableConnections(false);
-            this.sterlingService.Deactivate();
         }
     }
 }

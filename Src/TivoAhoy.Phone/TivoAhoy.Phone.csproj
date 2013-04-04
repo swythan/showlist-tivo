@@ -117,12 +117,6 @@
       <HintPath>..\packages\Caliburn.Micro.1.4.1\lib\wp71\System.Windows.Interactivity.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml" />
-    <Reference Include="Wintellect.Sterling.WindowsPhone">
-      <HintPath>..\packages\SterlingPhone.1.5.0.1\lib\SL3-WP\Wintellect.Sterling.WindowsPhone.dll</HintPath>
-    </Reference>
-    <Reference Include="Wintellect.Sterling.WindowsPhone.IsolatedStorage">
-      <HintPath>..\packages\SterlingPhone.1.5.0.1\lib\SL3-WP\Wintellect.Sterling.WindowsPhone.IsolatedStorage.dll</HintPath>
-    </Reference>
     <Reference Include="YourLastAboutDialog">
       <HintPath>..\packages\YLAD.2.0.0\lib\sl40-wp71\YourLastAboutDialog.dll</HintPath>
     </Reference>
@@ -136,9 +130,7 @@
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Events\TivoOperationFinished.cs" />
     <Compile Include="Events\TivoOperationStarted.cs" />
-    <Compile Include="ISterlingInstance.cs" />
     <Compile Include="ITivoConnectionService.cs" />
-    <Compile Include="SterlingService.cs" />
     <Compile Include="TivoConnectionService.cs" />
     <Compile Include="ViewModels\ChannelListViewModel.cs" />
     <Compile Include="ViewModels\MyShowsViewModel.cs" />
