@@ -144,7 +144,7 @@ namespace Tivo.Connect
             this.capturedTsn = string.Empty;
 
             this.sslStream = await ConnectNetworkStream(new DnsEndPoint(@"secure-tivo-api.virginmedia.com", 443)).ConfigureAwait(false);
-            this.receiveSubject = new Subject<Tuple<int,JObject>>();
+            this.receiveSubject = new Subject<Tuple<int, JObject>>();
 
             // Send authentication message to the TiVo. 
             var authTask = SendUsernameAndPasswordAuthenticationRequest(username, password);
@@ -349,6 +349,26 @@ namespace Tivo.Connect
             return detailItems.ToObject<List<RecordingFolderItem>>(serializer);
         }
 
+        public async Task<IList<long>> GetScheduledRecordingIds()
+        {
+            var results = await SendRecordingSearchIdRequest(new[] { "inProgress", "scheduled" }).ConfigureAwait(false);
+
+            CheckResponse(results, "idSequence", "recordingSearch");
+
+            var content = (JArray)results["objectIdAndType"];
+
+            return content.ToObject<IList<long>>();
+        }
+
+        public async Task<IList<Recording>> GetScheduledRecordings(int offset, int count)
+        {
+            var results = await SendRecordingSearchRequest(new[] { "inProgress", "scheduled" }, offset, count).ConfigureAwait(false);
+
+            CheckResponse(results, "recordingList", "recordingSearch");
+            
+            return results["recording"].ToObject<IList<Recording>>();
+        }
+
         public async Task PlayShow(string recordingId)
         {
             var response = await SendPlayShowRequest(recordingId);
@@ -405,7 +425,7 @@ namespace Tivo.Connect
 
             if (response["gridRow"] != null)
             {
-                return  response["gridRow"].ToObject<List<GridRow>>();
+                return response["gridRow"].ToObject<List<GridRow>>();
             }
             else
             {
@@ -492,7 +512,7 @@ namespace Tivo.Connect
                             buffer.Add(13);
                             hasCr = false;
                         }
-                        
+
                         buffer.Add((byte)nextByte);
                     }
                 }
@@ -931,6 +951,84 @@ namespace Tivo.Connect
             };
 
             var response = await SendRequest("gridRowSearch", request).ConfigureAwait(false);
+            return response;
+        }
+
+        private async Task<JObject> SendRecordingSearchIdRequest(string[] states)
+        {
+            var request = new Dictionary<string, object>
+            {
+                { "type", "recordingSearch" },
+                { "bodyId", this.capturedTsn },
+                { "state", states },
+                { "noLimit", true },
+                { "format", "idSequence" }
+            };
+
+            var response = await SendRequest("recordingSearch", request).ConfigureAwait(false);
+            return response;
+        }
+
+        private async Task<JObject> SendRecordingSearchRequest(string[] states, int offset, int count)
+        {
+            var request = new Dictionary<string, object>
+            {
+                { "type", "recordingSearch" },
+                { "bodyId", this.capturedTsn },
+                { "state", states },
+                { "offset", offset },
+                { "count", count },
+                { "levelOfDetail", "low" },
+                { "responseTemplate", 
+                    new object[]
+                    {
+                        new Dictionary<string, object>
+                        {
+                            { "type", "responseTemplate" },
+                            { "typeName", "recordingList" },
+                            { "fieldName", 
+                                new string[] 
+                                { 
+                                    "recording",
+                                    "isTop",
+                                    "isBottom",
+                                } 
+                            }
+                        },                     
+                        new Dictionary<string, object>
+                        {
+                            { "type", "responseTemplate" },
+                            { "typeName", "recording" },
+                            { "fieldName", 
+                                new string[] 
+                                { 
+                                    "recordingId", 
+                                    "state", 
+                                    "offerId", 
+                                    "contentId", 
+                                    "deletionPolicy", 
+                                    "suggestionScore", 
+                                    "subscriptionIdentifier", 
+                                } 
+                            }
+                        },
+                        new Dictionary<string, object>
+                        {
+                            { "type", "responseTemplate" },
+                            { "typeName", "subscriptionIdentifier" },
+                            { "fieldName", 
+                                new string[] 
+                                { 
+                                    "subscriptionId", 
+                                    "subscriptionType",
+                                } 
+                            }
+                        }
+                    }
+                }  
+            };
+
+            var response = await SendRequest("recordingSearch", request).ConfigureAwait(false);
             return response;
         }
     }

@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converters="clr-namespace:TivoAhoy.Phone.Converters"
     xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
     xmlns:vm="clr-namespace:TivoAhoy.Phone.ViewModels"
     mc:Ignorable="d"
@@ -15,6 +16,10 @@
     d:DataContext="{d:DesignInstance Type=vm:ChannelListViewModel, IsDesignTimeCreatable=True}"
     cal:Bind.AtDesignTime="True">
 
+    <UserControl.Resources>
+        <converters:BooleanToVisibilityConverter
+            x:Key="boolToVisConverter" />
+    </UserControl.Resources>
     <Grid
         x:Name="LayoutRoot"
         Background="{StaticResource PhoneBackgroundBrush}">
@@ -41,6 +46,8 @@
                                 Width="Auto" />
                             <ColumnDefinition
                                 Width="*" />
+                            <ColumnDefinition
+                                Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition
@@ -55,7 +62,7 @@
                             Width="65"
                             Height="55"
                             Stretch="Uniform"
-                            Margin="6,-20" />    
+                            Margin="6,-20" />
 
                         <TextBlock
                             Style="{StaticResource PhoneTextSmallStyle}"
@@ -64,12 +71,23 @@
                             HorizontalAlignment="Left"
                             Grid.Column="1"
                             Grid.Row="0" />
+                        <Ellipse
+                            Fill="Red"
+                            Stroke="White"
+                            StrokeThickness="2"
+                            Width="15"
+                            Height="15"
+                            Visibility="{Binding IsRecordingScheduled, Converter={StaticResource boolToVisConverter}}"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Right"
+                            Grid.Column="2"
+                            Grid.Row="0" />
                         <TextBlock
                             Style="{StaticResource PhoneTextSubtleStyle}"
                             Text="{Binding Channel.ChannelNumber}"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Right"
-                            Grid.Column="2"
+                            Grid.Column="3"
                             Grid.Row="0" />
                         <TextBlock
                             Style="{StaticResource PhoneTextNormalStyle}"
@@ -77,8 +95,8 @@
                             VerticalAlignment="Center"
                             HorizontalAlignment="Stretch"
                             Grid.Column="1"
-                            Grid.ColumnSpan="2"
-                            Grid.Row="1"/>
+                            Grid.ColumnSpan="3"
+                            Grid.Row="1" />
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>

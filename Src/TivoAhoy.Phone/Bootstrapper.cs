@@ -22,6 +22,7 @@ namespace TivoAhoy.Phone
             ConventionManager.AddElementConvention<PerformanceProgressBar>(PerformanceProgressBar.IsIndeterminateProperty, "IsIndeterminate", "Loaded");
 
             container.Singleton<ITivoConnectionService, TivoConnectionService>();
+            container.Singleton<IScheduledRecordingsService, ScheduledRecordingsService>();
 
             container.Singleton<SettingsPageViewModel>();
             container.PerRequest<MainPageViewModel>();

@@ -119,6 +119,9 @@
     <Compile Include="..\Tivo.Connect.Common\Entities\Offer.cs">
       <Link>Entities\Offer.cs</Link>
     </Compile>
+    <Compile Include="..\Tivo.Connect.Common\Entities\Recording.cs">
+      <Link>Entities\Recording.cs</Link>
+    </Compile>
     <Compile Include="..\Tivo.Connect.Common\Entities\RecordingFolderItem.cs">
       <Link>Entities\RecordingFolderItem.cs</Link>
     </Compile>
@@ -127,6 +130,9 @@
     </Compile>
     <Compile Include="..\Tivo.Connect.Common\Entities\ShowDetails.cs">
       <Link>Entities\ShowDetails.cs</Link>
+    </Compile>
+    <Compile Include="..\Tivo.Connect.Common\Entities\SubscriptionIdentifier.cs">
+      <Link>Entities\SubscriptionIdentifier.cs</Link>
     </Compile>
     <Compile Include="..\Tivo.Connect.Common\JsonCreationConverter.cs">
       <Link>JsonCreationConverter.cs</Link>

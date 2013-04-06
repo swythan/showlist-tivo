@@ -12,6 +12,7 @@ namespace TivoAhoy.Phone.ViewModels
     {
         private readonly IEventAggregator eventAggregator;
         private readonly ITivoConnectionService connectionService;
+        private readonly IScheduledRecordingsService scheduledRecordingsService;
 
         private Channel channel;
         private DateTime time;
@@ -21,10 +22,22 @@ namespace TivoAhoy.Phone.ViewModels
 
         public OfferViewModel(
             ITivoConnectionService connectionService,
-            IEventAggregator eventAggregator)
+            IEventAggregator eventAggregator,
+            IScheduledRecordingsService scheduledRecordingsService)
         {
             this.connectionService = connectionService;
             this.eventAggregator = eventAggregator;
+            this.scheduledRecordingsService = scheduledRecordingsService;
+
+            this.scheduledRecordingsService.PropertyChanged += OnRecordingScheduleUpdated;
+        }
+
+        private void OnRecordingScheduleUpdated(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "ScheduledRecordings")
+            {
+                this.NotifyOfPropertyChange(() => this.IsRecordingScheduled);
+            }
         }
 
         public void Initialise(Channel channel, DateTime time)
@@ -35,7 +48,7 @@ namespace TivoAhoy.Phone.ViewModels
 
         public static OfferViewModel CreateDesignTime(Channel channel, Offer offer)
         {
-            var model = new OfferViewModel(null, null);
+            var model = new OfferViewModel(null, null, null);
 
             model.channel = channel;
             model.offer = offer;
@@ -72,6 +85,25 @@ namespace TivoAhoy.Phone.ViewModels
             {
                 this.offer = value;
                 this.NotifyOfPropertyChange(() => this.Offer);
+                this.NotifyOfPropertyChange(() => this.IsRecordingScheduled);
+            }
+        }
+
+        public bool IsRecordingScheduled
+        {
+            get
+            {
+                if (this.scheduledRecordingsService == null)
+                {
+                    return true;
+                }
+
+                if (this.Offer == null)
+                {
+                    return false;
+                }
+
+                return this.scheduledRecordingsService.IsOfferRecordingScheduled(this.Offer.OfferId);
             }
         }
 
