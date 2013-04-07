@@ -7,16 +7,16 @@ namespace Tivo.Connect.Entities
     {
         protected override RecordingFolderItem Create(Type objectType, JObject jObject)
         {
-            var childRecordingId = (string)jObject["childRecordingId"];
-            var recordingFolderItemId = (string)jObject["recordingFolderItemId"];
+            int? folderItemCount = (int?)jObject["folderItemCount"];
 
-            if (childRecordingId.Split('.')[1] == recordingFolderItemId.Split('.')[1])
+            if (folderItemCount != null &
+                folderItemCount > 0)
             {
-                return new IndividualShow();
+                return new Container();
             }
             else
             {
-                return new Container();
+                return new IndividualShow();
             }
         }
     }
