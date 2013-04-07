@@ -112,7 +112,7 @@ namespace TivoAhoy.Phone
             set
             {
                 this.recordings = value;
-                this.recordingsByOfferId = this.recordings.ToDictionary(x => x.offerId);
+                this.recordingsByOfferId = this.recordings.ToDictionary(x => x.OfferId);
 
                 this.NotifyOfPropertyChange(() => this.ScheduledRecordings);
             }

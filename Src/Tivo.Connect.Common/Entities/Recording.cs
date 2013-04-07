@@ -23,13 +23,31 @@ namespace Tivo.Connect.Entities
         }
 
 
-        public string recordingId { get; set; }
-        public string state { get; set; }
-        public string offerId { get; set; }
-        public string contentId { get; set; }
-        public string deletionPolicy { get; set; }
-        public int suggestionScore { get; set; }
+        public string RecordingId { get; set; }
+        public string State { get; set; }
+        public string OfferId { get; set; }
+        public string ContentId { get; set; }
+        public string DeletionPolicy { get; set; }
+        public int SuggestionScore { get; set; }
 
-        public List<SubscriptionIdentifier> subscriptionIdentifier { get; set; }
+        public Channel Channel { get; set; }
+        public List<SubscriptionIdentifier> SubscriptionIdentifier { get; set; }
+
+        public DateTime ScheduledStartTime { get; set; }
+        public DateTime ScheduledEndTime { get; set; }
+
+        [JsonProperty("repeat")]
+        public bool IsRepeat { get; set; }
+
+        [JsonProperty("episodic")]
+        public bool IsEpisodic { get; set; }
+
+        [JsonProperty("hdtv")]
+        public bool IsHdTv { get; set; }
+
+        public bool IsEpisode { get; set; }
+
+        public string Title { get; set; }
+        public DateTime OriginalAirdate { get; set; }
     }
 }

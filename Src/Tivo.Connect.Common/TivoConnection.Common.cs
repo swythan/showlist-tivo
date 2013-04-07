@@ -365,8 +365,17 @@ namespace Tivo.Connect
             var results = await SendRecordingSearchRequest(new[] { "inProgress", "scheduled" }, offset, count).ConfigureAwait(false);
 
             CheckResponse(results, "recordingList", "recordingSearch");
-            
+
             return results["recording"].ToObject<IList<Recording>>();
+        }
+
+        public async Task<Recording> GetRecordingDetails(string offerId)
+        {
+            var results = await SendRecordingSearchRequest(offerId).ConfigureAwait(false);
+
+            CheckResponse(results, "recordingList", "recordingSearch");
+
+            return results["recording"].First().ToObject<Recording>();
         }
 
         public async Task PlayShow(string recordingId)
@@ -1003,12 +1012,96 @@ namespace Tivo.Connect
                                 new string[] 
                                 { 
                                     "recordingId", 
+                                    //"state", 
+                                    "offerId", 
+                                    //"contentId", 
+                                    //"deletionPolicy", 
+                                    //"suggestionScore", 
+                                    //"subscriptionIdentifier", 
+                                } 
+                            }
+                        },
+                        new Dictionary<string, object>
+                        {
+                            { "type", "responseTemplate" },
+                            { "typeName", "subscriptionIdentifier" },
+                            { "fieldName", 
+                                new string[] 
+                                { 
+                                    "subscriptionId", 
+                                    "subscriptionType",
+                                } 
+                            }
+                        }
+                    }
+                }  
+            };
+
+            var response = await SendRequest("recordingSearch", request).ConfigureAwait(false);
+            return response;
+        }
+
+        private async Task<JObject> SendRecordingSearchRequest(string recordingId)
+        {
+            var request = new Dictionary<string, object>
+            {
+                { "type", "recordingSearch" },
+                { "bodyId", this.capturedTsn },
+                { "state", new[] { "inProgress", "scheduled" } },
+                { "recordingId", recordingId },
+                { "levelOfDetail", "low" },
+                { "responseTemplate", 
+                    new object[]
+                    {
+                        new Dictionary<string, object>
+                        {
+                            { "type", "responseTemplate" },
+                            { "typeName", "recordingList" },
+                            { "fieldName", 
+                                new string[] 
+                                { 
+                                    "recording",
+                                    "isTop",
+                                    "isBottom",
+                                } 
+                            }
+                        },                     
+                        new Dictionary<string, object>
+                        {
+                            { "type", "responseTemplate" },
+                            { "typeName", "recording" },
+                            { "fieldName", 
+                                new string[] 
+                                { 
+                                    "recordingId", 
                                     "state", 
                                     "offerId", 
                                     "contentId", 
-                                    "deletionPolicy", 
-                                    "suggestionScore", 
-                                    "subscriptionIdentifier", 
+                                    "channel",
+                                    //"deletionPolicy", 
+                                    //"suggestionScore", 
+                                    //"subscriptionIdentifier", 
+                                    //"isEpisode",
+                                    "scheduledStartTime",
+                                    "scheduledEndTime",
+                                    //"hdtv",
+                                    //"episodic",
+                                    "title",
+                                    //"originalAirdate",
+                                } 
+                            }
+                        },
+                        new Dictionary<string, object>
+                        {
+                            { "type", "responseTemplate" },
+                            { "typeName", "channel" },
+                            { "fieldName", 
+                                new string[] 
+                                { 
+                                    "channelId", 
+                                    "channelNumber", 
+                                    "callSign", 
+                                    "logoIndex", 
                                 } 
                             }
                         },

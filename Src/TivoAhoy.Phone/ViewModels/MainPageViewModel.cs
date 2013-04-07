@@ -19,7 +19,8 @@
             IEventAggregator eventAggregator,
             INavigationService navigationService,
             MyShowsViewModel myShowsViewModel,
-            ChannelListViewModel channelListViewModel)
+            ChannelListViewModel channelListViewModel,
+            ToDoListViewModel toDoListViewModel)
         {
             this.navigationService = navigationService;
 
@@ -28,6 +29,10 @@
             channelListViewModel.DisplayName = "now";
             channelListViewModel.PropertyChanged += OnViewModelPropertyChanged;
             this.Items.Add(channelListViewModel);
+
+            toDoListViewModel.DisplayName = "scheduled";
+            toDoListViewModel.PropertyChanged += OnViewModelPropertyChanged;
+            this.Items.Add(toDoListViewModel);
 
             myShowsViewModel.DisplayName = "my shows";
             myShowsViewModel.PropertyChanged += OnViewModelPropertyChanged;
@@ -38,7 +43,8 @@
 
         private void OnViewModelPropertyChanged(object sender, PropertyChangedEventArgs args)
         {
-            if (args.PropertyName == "CanRefreshShows")
+            if (args.PropertyName == "CanRefreshShows" ||
+                args.PropertyName == "CanRefreshToDoList")
             {
                 if (sender == this.ActiveItem)
                 {
@@ -80,6 +86,12 @@
                     return channels.CanRefreshShows;
                 }
 
+                var toDoList = this.ActiveItem as ToDoListViewModel;
+                if (toDoList != null)
+                {
+                    return toDoList.CanRefreshToDoList;
+                }
+
                 return false;
             }
         }
@@ -96,6 +108,12 @@
             if (channels != null)
             {
                 channels.RefreshShows();
+            }
+
+            var toDoList = this.ActiveItem as ToDoListViewModel;
+            if (toDoList != null)
+            {
+                toDoList.RefreshToDoList();
             }
         }
 

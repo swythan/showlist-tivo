@@ -135,14 +135,19 @@
     <Compile Include="ScheduledRecordingsService.cs" />
     <Compile Include="TivoConnectionService.cs" />
     <Compile Include="ViewModels\ChannelListViewModel.cs" />
+    <Compile Include="ViewModels\RecordingViewModel.cs" />
     <Compile Include="ViewModels\LazyRecordingFolderItemViewModel.cs" />
     <Compile Include="ViewModels\MyShowsViewModel.cs" />
     <Compile Include="ViewModels\OfferViewModel.cs" />
     <Compile Include="ViewModels\ShowDetailsPageViewModel.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ViewModels\ToDoListViewModel.cs" />
     <Compile Include="Views\ChannelListView.xaml.cs">
       <DependentUpon>ChannelListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ToDoListView.xaml.cs">
+      <DependentUpon>ToDoListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -175,6 +180,10 @@
     <Page Include="Views\ChannelListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ToDoListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\MainPage.xaml">
       <SubType>Designer</SubType>
