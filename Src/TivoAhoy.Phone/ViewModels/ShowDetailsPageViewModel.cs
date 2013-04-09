@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows;
@@ -22,6 +23,36 @@ namespace TivoAhoy.Phone.ViewModels
         {
             this.eventAggregator = eventAggregator;
             this.connectionService = connectionService;
+        }
+
+        public ShowDetailsPageViewModel()
+        {
+            if (Execute.InDesignMode)
+                LoadDesignData();
+        }
+
+        private void LoadDesignData()
+        {
+            this.ShowContentID = "fakeContent";
+            this.ShowRecordingID = "fakeRecording";
+
+            this.Show = new ShowDetails()
+            {
+                Title = "The Walking Dead",
+                Subtitle = "An Interesting Episode",
+                SeasonNumber = 2,
+                EpisodeNumbers = new List<int>() { 3 },
+                OriginalAirDate = new DateTime(2012, 11, 16),
+                Images = new List<ImageInfo>
+                {
+                    new ImageInfo()
+                    {
+                        Height= 270,
+                        Width = 360,
+                        OriginalImageUrl= "http://10.185.116.1:8080/images/os/banner-270/55/12/551290d0c77e87f7dbb1ca3db42e3b3f.jpg"
+                    }
+                }
+            };
         }
 
         public bool IsOperationInProgress
