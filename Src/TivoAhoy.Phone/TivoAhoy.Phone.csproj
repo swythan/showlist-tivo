@@ -128,6 +128,7 @@
     <Compile Include="AsyncLazy.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\UtcToLocalTimeConverter.cs" />
     <Compile Include="Events\TivoOperationFinished.cs" />
     <Compile Include="Events\TivoOperationStarted.cs" />
     <Compile Include="IScheduledRecordingsService.cs" />

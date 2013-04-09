@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -31,11 +32,21 @@ namespace Tivo.Connect
         private Subject<Tuple<int, JObject>> receiveSubject;
         private CancellationTokenSource receiveCancellationTokenSource;
 
+        private JsonSerializer jsonSerializer;
+
         private string capturedTsn;
 
         public TivoConnection()
         {
             sessionId = new Random().Next(0x26c000, 0x27dc20);
+
+            var jsonSettings = new JsonSerializerSettings
+            {
+                DateTimeZoneHandling = DateTimeZoneHandling.Utc
+            };
+
+            this.jsonSerializer = JsonSerializer.Create(jsonSettings);
+            this.jsonSerializer.Converters.Add(new RecordingFolderItemCreator());
         }
 
         public void Dispose()
@@ -285,7 +296,7 @@ namespace Tivo.Connect
 
             var folderShows = await SendGetFolderShowsRequest(parentId).ConfigureAwait(false);
 
-            var objectIds = folderShows["objectIdAndType"].ToObject<IList<long>>();
+            var objectIds = folderShows["objectIdAndType"].ToObject<IList<long>>(this.jsonSerializer);
 
             return await GetRecordingFolderItemsAsync(objectIds, 5, progress).ConfigureAwait(false);
         }
@@ -294,7 +305,7 @@ namespace Tivo.Connect
         {
             var folderShows = await SendGetFolderShowsRequest(parentId).ConfigureAwait(false);
 
-            return folderShows["objectIdAndType"].ToObject<IList<long>>();
+            return folderShows["objectIdAndType"].ToObject<IList<long>>(this.jsonSerializer);
         }
 
         public async Task<ShowDetails> GetShowContentDetails(string contentId)
@@ -303,7 +314,7 @@ namespace Tivo.Connect
 
             var content = (JArray)detailsResults["content"];
 
-            return content.First().ToObject<ShowDetails>();
+            return content.First().ToObject<ShowDetails>(this.jsonSerializer);
         }
 
         private async Task<IEnumerable<RecordingFolderItem>> GetRecordingFolderItemsAsync(IEnumerable<long> objectIds, int pageSize, IProgress<RecordingFolderItem> progress)
@@ -338,15 +349,7 @@ namespace Tivo.Connect
             CheckResponse(detailsResults, "recordingFolderItemList", "recordingFolderItemSearch");
             var detailItems = detailsResults["recordingFolderItem"];
 
-            var serializer = new JsonSerializer()
-            {
-                Converters = 
-                {
-                    new RecordingFolderItemCreator()
-                }
-            };
-
-            return detailItems.ToObject<List<RecordingFolderItem>>(serializer);
+            return detailItems.ToObject<List<RecordingFolderItem>>(this.jsonSerializer);
         }
 
         public async Task<IList<long>> GetScheduledRecordingIds()
@@ -357,7 +360,7 @@ namespace Tivo.Connect
 
             var content = (JArray)results["objectIdAndType"];
 
-            return content.ToObject<IList<long>>();
+            return content.ToObject<IList<long>>(this.jsonSerializer);
         }
 
         public async Task<IList<Recording>> GetScheduledRecordings(int offset, int count)
@@ -366,7 +369,7 @@ namespace Tivo.Connect
 
             CheckResponse(results, "recordingList", "recordingSearch");
 
-            return results["recording"].ToObject<IList<Recording>>();
+            return results["recording"].ToObject<IList<Recording>>(this.jsonSerializer);
         }
 
         public async Task<Recording> GetRecordingDetails(string offerId)
@@ -375,7 +378,7 @@ namespace Tivo.Connect
 
             CheckResponse(results, "recordingList", "recordingSearch");
 
-            return results["recording"].First().ToObject<Recording>();
+            return results["recording"].First().ToObject<Recording>(this.jsonSerializer);
         }
 
         public async Task PlayShow(string recordingId)
@@ -418,7 +421,7 @@ namespace Tivo.Connect
 
             if (response["channel"] != null)
             {
-                return response["channel"].ToObject<List<Channel>>();
+                return response["channel"].ToObject<List<Channel>>(this.jsonSerializer);
             }
             else
             {
@@ -434,7 +437,7 @@ namespace Tivo.Connect
 
             if (response["gridRow"] != null)
             {
-                return response["gridRow"].ToObject<List<GridRow>>();
+                return response["gridRow"].ToObject<List<GridRow>>(this.jsonSerializer);
             }
             else
             {
