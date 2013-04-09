@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -32,6 +31,7 @@ namespace Tivo.Connect
         private Subject<Tuple<int, JObject>> receiveSubject;
         private CancellationTokenSource receiveCancellationTokenSource;
 
+        private JsonSerializerSettings jsonSettings;
         private JsonSerializer jsonSerializer;
 
         private string capturedTsn;
@@ -40,13 +40,14 @@ namespace Tivo.Connect
         {
             sessionId = new Random().Next(0x26c000, 0x27dc20);
 
-            var jsonSettings = new JsonSerializerSettings
+            this.jsonSettings = new JsonSerializerSettings
             {
-                DateTimeZoneHandling = DateTimeZoneHandling.Utc
+                DateTimeZoneHandling = DateTimeZoneHandling.Utc,
+                DateFormatString = "yyyy'-'MM'-'dd HH':'mm':'ss",
+                Converters = { new RecordingFolderItemCreator() }
             };
 
-            this.jsonSerializer = JsonSerializer.Create(jsonSettings);
-            this.jsonSerializer.Converters.Add(new RecordingFolderItemCreator());
+            this.jsonSerializer = JsonSerializer.Create(this.jsonSettings);
         }
 
         public void Dispose()
@@ -471,7 +472,7 @@ namespace Tivo.Connect
             header.AppendLine(string.Format("X-ApplicationSessionId:0x{0:x}", this.sessionId));
             header.AppendLine();
 
-            string bodyText = JsonConvert.SerializeObject(body);
+            string bodyText = JsonConvert.SerializeObject(body, this.jsonSettings);
 
             var messageString = string.Format("MRPC/2 {0} {1}\r\n{2}{3}",
                 Encoding.UTF8.GetByteCount(header.ToString()),
@@ -890,8 +891,8 @@ namespace Tivo.Connect
                 { "bodyId", this.capturedTsn },
                 { "orderBy", new string[] { "channelNumber"} },
                 { "isReceived", true},
-                { "minEndTime", minEndTime.ToUniversalTime().ToString("yyyy'-'MM'-'dd HH':'mm':'ss") },
-                { "maxStartTime", maxStartTime.ToUniversalTime().ToString("yyyy'-'MM'-'dd HH':'mm':'ss") },
+                { "minEndTime", minEndTime },
+                { "maxStartTime", maxStartTime },
                 { "count", count },
                 { "offset", offset },
                 { "anchorChannelIdentifier", 
