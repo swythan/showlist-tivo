@@ -29,7 +29,10 @@ namespace TivoAhoy.Phone.ViewModels
             this.eventAggregator = eventAggregator;
             this.scheduledRecordingsService = scheduledRecordingsService;
 
-            this.scheduledRecordingsService.PropertyChanged += OnRecordingScheduleUpdated;
+            if (this.scheduledRecordingsService != null)
+            {
+                this.scheduledRecordingsService.PropertyChanged += OnRecordingScheduleUpdated;
+            }
         }
 
         private void OnRecordingScheduleUpdated(object sender, System.ComponentModel.PropertyChangedEventArgs e)
