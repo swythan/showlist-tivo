@@ -780,26 +780,26 @@ namespace Tivo.Connect
                         }
                     }
                 },
-                { "imageRuleset", 
-                    new Dictionary<string, object>
-                    {
-                        { "type", "imageRuleset" },
-                        { "name", "tvLandscape" },
-                        { "rule", 
-                            new object[]
-                            {
-                                new Dictionary<string, object>
-                                {
-                                    { "type", "imageRule" },
-                                    { "ruleType", "exactMatchDimension" },
-                                    { "imageType", new string[] {"showcaseBanner"} },
-                                    { "width", 360 },
-                                    { "height", 270 },
-                                }
-                            }
-                        }
-                    }
-                }
+                //{ "imageRuleset", 
+                //    new Dictionary<string, object>
+                //    {
+                //        { "type", "imageRuleset" },
+                //        { "name", "tvLandscape" },
+                //        { "rule", 
+                //            new object[]
+                //            {
+                //                new Dictionary<string, object>
+                //                {
+                //                    { "type", "imageRule" },
+                //                    { "ruleType", "exactMatchDimension" },
+                //                    { "imageType", new string[] {"showcaseBanner"} },
+                //                    { "width", 360 },
+                //                    { "height", 270 },
+                //                }
+                //            }
+                //        }
+                //    }
+                //}
             };
 
             return SendRequest((string)body["type"], body);

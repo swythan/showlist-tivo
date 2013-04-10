@@ -152,6 +152,12 @@ namespace TivoAhoy.Phone.ViewModels
 
         private ImageInfo GetBestImageForWidth(int widthCutoff)
         {
+            if (this.Show == null ||
+                this.Show.Images == null)
+            {
+                return null;
+            }
+
             var imagesWithWidth = this.Show.Images.Where(x => x.Width != null).ToList();
             var largeImages = imagesWithWidth.Where(x => x.Width >= widthCutoff).OrderBy(x => x.Width).ToList();
             var smallImages = imagesWithWidth.Where(x => x.Width < widthCutoff).OrderByDescending(x => x.Width).ToList();
@@ -162,6 +168,12 @@ namespace TivoAhoy.Phone.ViewModels
 
         private ImageInfo GetBestImageForHeight(int heightCutoff)
         {
+            if (this.Show == null ||
+                this.Show.Images == null)
+            {
+                return null;
+            }
+
             var imagesWithHeight = this.Show.Images.Where(x => x.Height != null).ToList();
             var largeImages = imagesWithHeight.Where(x => x.Height >= heightCutoff).OrderBy(x => x.Height).ToList();
             var smallImages = imagesWithHeight.Where(x => x.Height < heightCutoff).OrderByDescending(x => x.Height).ToList();
