@@ -1,8 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
+using System.IO.IsolatedStorage;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using Caliburn.Micro;
 using Tivo.Connect;
 using Tivo.Connect.Entities;
@@ -16,6 +21,7 @@ namespace TivoAhoy.Phone.ViewModels
 
         private ShowDetails showDetails;
         private bool isOperationInProgress;
+        private int panoramaHeight = 800;
 
         public ShowDetailsPageViewModel(
             IEventAggregator eventAggregator,
@@ -51,8 +57,28 @@ namespace TivoAhoy.Phone.ViewModels
                         Width = 360,
                         OriginalImageUrl= "http://10.185.116.1:8080/images/os/banner-270/55/12/551290d0c77e87f7dbb1ca3db42e3b3f.jpg"
                     }
-                }
+                },
+                Description = "This is the description of this very interesting episode. Don't let it catch you out, as it really is very interesting"
+
             };
+        }
+
+        public int PanoramaHeight
+        {
+            get
+            {
+                return this.panoramaHeight;
+            }
+            set
+            {
+                if (this.panoramaHeight == value)
+                {
+                    return;
+                }
+
+                this.panoramaHeight = value;
+                NotifyOfPropertyChange(() => this.PanoramaHeight);
+            }
         }
 
         public bool IsOperationInProgress
@@ -111,13 +137,9 @@ namespace TivoAhoy.Phone.ViewModels
                     return null;
                 }
 
-                var widthCutoff = 400;
+                var widthCutoff = 1024;
 
-                var imagesWithWidth = this.Show.Images.Where(x => x.Width != null);
-                var largeImages = imagesWithWidth.Where(x => x.Width >= widthCutoff).OrderBy(x => x.Width);
-                var smallImages = imagesWithWidth.Where(x => x.Width < widthCutoff).OrderByDescending(x => x.Width);
-
-                var bestImage = largeImages.Concat(smallImages).Concat(this.Show.Images.Except(imagesWithWidth)).FirstOrDefault();
+                var bestImage = GetBestImageForWidth(widthCutoff);
 
                 if (bestImage == null)
                 {
@@ -126,6 +148,130 @@ namespace TivoAhoy.Phone.ViewModels
 
                 return bestImage.ImageUrl;
             }
+        }
+
+        private ImageInfo GetBestImageForWidth(int widthCutoff)
+        {
+            var imagesWithWidth = this.Show.Images.Where(x => x.Width != null).ToList();
+            var largeImages = imagesWithWidth.Where(x => x.Width >= widthCutoff).OrderBy(x => x.Width).ToList();
+            var smallImages = imagesWithWidth.Where(x => x.Width < widthCutoff).OrderByDescending(x => x.Width).ToList();
+
+            var bestImage = largeImages.Concat(smallImages).Concat(this.Show.Images.Except(imagesWithWidth)).FirstOrDefault();
+            return bestImage;
+        }
+
+        private ImageInfo GetBestImageForHeight(int heightCutoff)
+        {
+            var imagesWithHeight = this.Show.Images.Where(x => x.Height != null).ToList();
+            var largeImages = imagesWithHeight.Where(x => x.Height >= heightCutoff).OrderBy(x => x.Height).ToList();
+            var smallImages = imagesWithHeight.Where(x => x.Height < heightCutoff).OrderByDescending(x => x.Height).ToList();
+
+            var bestImage = largeImages.Concat(smallImages).Concat(this.Show.Images.Except(imagesWithHeight)).FirstOrDefault();
+            return bestImage;
+        }
+
+        private async void UpdateBackgroundBrush()
+        {
+            this.MainImageBrush = null;
+
+            var bestImage = this.GetBestImageForHeight(this.PanoramaHeight);
+
+            if (bestImage != null)
+            {
+                var bi = new BitmapImage();
+                if (await bi.SetUriSourceAsync(bestImage.ImageUrl))
+                {
+                    if (!Execute.InDesignMode)
+                    {
+                        var wb = new WriteableBitmap(bi);
+                        bi.UriSource = null;
+
+                        var backgroundFilename = GetBackgroundImageFilename();
+
+                        using (var tempStream = CreateTempFileStream(backgroundFilename))
+                        {
+                            var aspectRatio = wb.PixelHeight / (double)wb.PixelWidth;
+
+                            wb.SaveJpeg(tempStream, (int)(this.PanoramaHeight / aspectRatio), this.PanoramaHeight, 0, 95);
+                        }
+
+                        var bigImage = new BitmapImage();
+                        var bigImageStream = OpenTempFileStream(backgroundFilename);
+                        if (await bigImage.SetSourceAsync(bigImageStream))
+                        {
+                            bigImageStream.Close();
+                            DeleteTempFile(backgroundFilename);
+
+                            ImageBrush brush = new ImageBrush();
+                            brush.ImageSource = bigImage;
+                            brush.Stretch = Stretch.Uniform;
+                            brush.Opacity = 0.4;
+
+                            this.MainImageBrush = brush;
+                        }
+                    }
+                }
+                else
+                {
+                    ImageBrush brush = new ImageBrush();
+                    brush.ImageSource = bi;
+                    brush.Stretch = Stretch.UniformToFill;
+                    brush.Opacity = 0.4;
+
+                    this.MainImageBrush = brush;
+                }
+            }
+
+            this.NotifyOfPropertyChange(() => MainImageBrush);
+        }
+
+        private string GetBackgroundImageFilename()
+        {
+            var storage = IsolatedStorageFile.GetUserStoreForApplication();
+
+            var sanitizedContentId = this.ShowContentID.Replace(":", "_");
+
+            return Path.Combine("temp", sanitizedContentId + ".jpg");
+        }
+
+        private Stream CreateTempFileStream(string fileName)
+        {
+            var storage = IsolatedStorageFile.GetUserStoreForApplication();
+
+            storage.CreateDirectory("temp");
+            return storage.CreateFile(fileName);
+        }
+
+        private Stream OpenTempFileStream(string fileName)
+        {
+            var storage = IsolatedStorageFile.GetUserStoreForApplication();
+
+            if (!storage.DirectoryExists("temp"))
+            {
+                return null;
+            }
+
+            return storage.OpenFile(fileName, FileMode.Open, FileAccess.Read);
+        }
+
+        public void DeleteTempFile(string fileName)
+        {
+            try
+            {
+                var storage = IsolatedStorageFile.GetUserStoreForApplication();
+
+                if (storage.FileExists(fileName))
+                {
+                    storage.DeleteFile(fileName);
+                }
+            }
+            catch (Exception) { }
+        }
+
+        public ImageBrush MainImageBrush
+        {
+            get;
+            set;
         }
 
         public ShowDetails Show
@@ -149,10 +295,13 @@ namespace TivoAhoy.Phone.ViewModels
                 NotifyOfPropertyChange(() => this.IsRecorded);
                 NotifyOfPropertyChange(() => this.IsOffer);
                 NotifyOfPropertyChange(() => this.MainImage);
+                NotifyOfPropertyChange(() => this.MainImageBrush);
                 NotifyOfPropertyChange(() => this.HasEpisodeNumbers);
                 NotifyOfPropertyChange(() => this.HasOriginalAirDate);
                 NotifyOfPropertyChange(() => this.CanDeleteShow);
                 NotifyOfPropertyChange(() => this.CanPlayShow);
+
+                UpdateBackgroundBrush();
             }
         }
 

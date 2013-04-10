@@ -1,9 +1,10 @@
-﻿<phone:PhoneApplicationPage 
+﻿<phone:PhoneApplicationPage
     x:Class="TivoAhoy.Phone.Views.ShowDetailsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
@@ -13,9 +14,10 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    SupportedOrientations="Portrait" Orientation="Portrait"
-    mc:Ignorable="d" 
-    d:DesignHeight="800" 
+    SupportedOrientations="Portrait"
+    Orientation="Portrait"
+    mc:Ignorable="d"
+    d:DesignHeight="800"
     d:DesignWidth="480"
     shell:SystemTray.IsVisible="False"
     toolkit:TiltEffect.IsTiltEnabled="True"
@@ -26,100 +28,121 @@
         <converters:BooleanToVisibilityConverter
             x:Key="boolToVisConverter" />
     </UserControl.Resources>
-    
+
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid
+        x:Name="LayoutRoot"
+        Background="Transparent">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition
+                Height="Auto" />
+            <RowDefinition
+                Height="*" />
         </Grid.RowDefinitions>
-        
+
         <toolkit:PerformanceProgressBar
             x:Name="IsOperationInProgress"
             VerticalAlignment="Top"
             HorizontalAlignment="Stretch" />
 
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock x:Name="ApplicationTitle" Text="SHOW LIST" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock x:Name="Show_Title" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        <StackPanel
+            x:Name="TitlePanel"
+            Grid.Row="0"
+            Margin="12,17,0,28">
+            <TextBlock
+                x:Name="ApplicationTitle"
+                Text="SHOW LIST"
+                Style="{StaticResource PhoneTextNormalStyle}" />
         </StackPanel>
 
-        <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <Grid.RowDefinitions>
-                <RowDefinition
-                    Height="Auto" />
-                <RowDefinition
-                    Height="Auto" />
-                <RowDefinition
-                    Height="Auto" />
-                <RowDefinition
-                    Height="Auto" />
-                <RowDefinition
-                    Height="12" />
-                <RowDefinition
-                    Height="*" />
-                <RowDefinition
-                    Height="Auto" />
-                <RowDefinition
-                    Height="Auto" />
-            </Grid.RowDefinitions>
-            <Image
-                x:Name="MainImage"
-                Grid.Row="0"
-                Stretch="Uniform"
-                Margin="{StaticResource PhoneHorizontalMargin}"/>
-            <TextBlock
-                x:Name="Show_Subtitle"
-                Grid.Row="1"
-                Style="{StaticResource PhoneTextTitle2Style}" />
-            <StackPanel
-                Orientation="Horizontal"
-                Grid.Row="2"
-                Visibility="{Binding HasEpisodeNumbers, Converter={StaticResource boolToVisConverter}}">
-                <TextBlock
-                    Text="Season: "
-                    Style="{StaticResource PhoneTextNormalStyle}" />
-                <TextBlock
-                    x:Name="Show_SeasonNumber"
-                    Style="{StaticResource PhoneTextNormalStyle}" />
-                <TextBlock
-                    Text="Episode: "
-                    Style="{StaticResource PhoneTextNormalStyle}" />
-                <TextBlock
-                    x:Name="Show_EpisodeNumber"
-                    Style="{StaticResource PhoneTextNormalStyle}" />
-            </StackPanel>
-            <StackPanel
-                Orientation="Horizontal"
-                Grid.Row="3"
-                Visibility="{Binding HasOriginalAirDate, Converter={StaticResource boolToVisConverter}}">
-                <TextBlock
-                    Text="First aired: "
-                    Style="{StaticResource PhoneTextNormalStyle}" />
-                <TextBlock
-                    Text="{Binding Show.OriginalAirDate, StringFormat=d, ConverterCulture={StaticResource DefaultCulture}}"
-                    Style="{StaticResource PhoneTextNormalStyle}" />
-            </StackPanel>            
-            <TextBlock
-                x:Name="Show_Description"
-                TextWrapping="Wrap"
-                Grid.Row="5"
-                Style="{StaticResource PhoneTextNormalStyle}" />
-            <Button
-                x:Name="DeleteShow"
-                Visibility="{Binding IsRecorded, Converter={StaticResource boolToVisConverter}}"
-                Content="Delete"
-                Grid.Row="6" />
-            <Button
-                x:Name="PlayShow"
-                Visibility="{Binding IsRecorded, Converter={StaticResource boolToVisConverter}}"
-                Content="Play"
-                Grid.Row="7" />
-        </Grid>
+        <controls:Panorama
+            Grid.Row="1"
+            Title="{Binding Show.Title}"
+            Background="{Binding MainImageBrush}"
+            SizeChanged="Panorama_SizeChanged">
+
+            <controls:PanoramaItem >
+
+                <!--ContentPanel - place additional content here-->
+                <Grid
+                    x:Name="ContentPanel"
+                    Margin="12,0,12,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="*" />
+                    </Grid.RowDefinitions>
+                    <TextBlock
+                        x:Name="Show_Subtitle"
+                        Grid.Row="0"
+                        Style="{StaticResource PhoneTextExtraLargeStyle}" />
+                    <StackPanel
+                        Orientation="Horizontal"
+                        Grid.Row="1"
+                        Visibility="{Binding HasEpisodeNumbers, Converter={StaticResource boolToVisConverter}}">
+                        <TextBlock
+                            Text="Season: "
+                            Style="{StaticResource PhoneTextLargeStyle}" />
+                        <TextBlock
+                            x:Name="Show_SeasonNumber"
+                            Style="{StaticResource PhoneTextLargeStyle}" />
+                        <TextBlock
+                            Text="Episode: "
+                            Style="{StaticResource PhoneTextLargeStyle}" />
+                        <TextBlock
+                            x:Name="Show_EpisodeNumber"
+                            Style="{StaticResource PhoneTextLargeStyle}" />
+                    </StackPanel>
+                    <StackPanel
+                        Orientation="Horizontal"
+                        Grid.Row="2"
+                        Visibility="{Binding HasOriginalAirDate, Converter={StaticResource boolToVisConverter}}">
+                        <TextBlock
+                            Text="First aired: "
+                            Style="{StaticResource PhoneTextLargeStyle}" />
+                        <TextBlock
+                            Text="{Binding Show.OriginalAirDate, StringFormat=d, ConverterCulture={StaticResource DefaultCulture}}"
+                            Style="{StaticResource PhoneTextLargeStyle}" />
+                    </StackPanel>
+                    <TextBlock
+                        x:Name="Show_Description"
+                        TextWrapping="Wrap"
+                        Grid.Row="3"
+                        Style="{StaticResource PhoneTextNormalStyle}" />
+                </Grid>
+            </controls:PanoramaItem>
+            <controls:PanoramaItem >
+                <Grid
+                    x:Name="ActionPanel"
+                    Margin="12,0,12,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Button
+                        x:Name="DeleteShow"
+                        Visibility="{Binding IsRecorded, Converter={StaticResource boolToVisConverter}}"
+                        Content="Delete"
+                        Grid.Row="0" />
+                    <Button
+                        x:Name="PlayShow"
+                        Visibility="{Binding IsRecorded, Converter={StaticResource boolToVisConverter}}"
+                        Content="Play"
+                        Grid.Row="1" />
+                </Grid>
+
+            </controls:PanoramaItem>
+        </controls:Panorama>
     </Grid>
- 
+
     <!--Sample code showing usage of ApplicationBar-->
     <!--<phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
