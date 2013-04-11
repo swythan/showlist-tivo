@@ -185,6 +185,11 @@ namespace TivoAhoy.Phone.ViewModels
         private async void UpdateBackgroundBrush()
         {
             this.MainImageBrush = null;
+            
+            if (Execute.InDesignMode)
+            {
+                return;
+            }
 
             var bestImage = this.GetBestImageForHeight(this.PanoramaHeight);
 
@@ -219,7 +224,7 @@ namespace TivoAhoy.Phone.ViewModels
 
             this.NotifyOfPropertyChange(() => MainImageBrush);
         }
-        
+
         public ImageBrush MainImageBrush
         {
             get;
