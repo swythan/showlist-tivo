@@ -193,27 +193,19 @@ namespace TivoAhoy.Phone.ViewModels
                 var bi = new BitmapImage();
                 if (await bi.SetUriSourceAsync(bestImage.ImageUrl))
                 {
-                    if (!Execute.InDesignMode)
+                    var wb = new WriteableBitmap(bi);
+                    bi.UriSource = null;
+
+                    var bigImage = new BitmapImage();
+                    using (var tempStream = new MemoryStream())
                     {
-                        var wb = new WriteableBitmap(bi);
-                        bi.UriSource = null;
+                        var aspectRatio = wb.PixelHeight / (double)wb.PixelWidth;
 
-                        var backgroundFilename = GetBackgroundImageFilename();
+                        wb.SaveJpeg(tempStream, (int)(this.PanoramaHeight / aspectRatio), this.PanoramaHeight, 0, 95);
 
-                        using (var tempStream = CreateTempFileStream(backgroundFilename))
+                        tempStream.Seek(0, SeekOrigin.Begin);
+                        if (await bigImage.SetSourceAsync(tempStream))
                         {
-                            var aspectRatio = wb.PixelHeight / (double)wb.PixelWidth;
-
-                            wb.SaveJpeg(tempStream, (int)(this.PanoramaHeight / aspectRatio), this.PanoramaHeight, 0, 95);
-                        }
-
-                        var bigImage = new BitmapImage();
-                        var bigImageStream = OpenTempFileStream(backgroundFilename);
-                        if (await bigImage.SetSourceAsync(bigImageStream))
-                        {
-                            bigImageStream.Close();
-                            DeleteTempFile(backgroundFilename);
-
                             ImageBrush brush = new ImageBrush();
                             brush.ImageSource = bigImage;
                             brush.Stretch = Stretch.Uniform;
@@ -223,63 +215,11 @@ namespace TivoAhoy.Phone.ViewModels
                         }
                     }
                 }
-                else
-                {
-                    ImageBrush brush = new ImageBrush();
-                    brush.ImageSource = bi;
-                    brush.Stretch = Stretch.UniformToFill;
-                    brush.Opacity = 0.4;
-
-                    this.MainImageBrush = brush;
-                }
             }
 
             this.NotifyOfPropertyChange(() => MainImageBrush);
         }
-
-        private string GetBackgroundImageFilename()
-        {
-            var storage = IsolatedStorageFile.GetUserStoreForApplication();
-
-            var sanitizedContentId = this.ShowContentID.Replace(":", "_");
-
-            return Path.Combine("temp", sanitizedContentId + ".jpg");
-        }
-
-        private Stream CreateTempFileStream(string fileName)
-        {
-            var storage = IsolatedStorageFile.GetUserStoreForApplication();
-
-            storage.CreateDirectory("temp");
-            return storage.CreateFile(fileName);
-        }
-
-        private Stream OpenTempFileStream(string fileName)
-        {
-            var storage = IsolatedStorageFile.GetUserStoreForApplication();
-
-            if (!storage.DirectoryExists("temp"))
-            {
-                return null;
-            }
-
-            return storage.OpenFile(fileName, FileMode.Open, FileAccess.Read);
-        }
-
-        public void DeleteTempFile(string fileName)
-        {
-            try
-            {
-                var storage = IsolatedStorageFile.GetUserStoreForApplication();
-
-                if (storage.FileExists(fileName))
-                {
-                    storage.DeleteFile(fileName);
-                }
-            }
-            catch (Exception) { }
-        }
-
+        
         public ImageBrush MainImageBrush
         {
             get;
