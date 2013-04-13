@@ -24,7 +24,7 @@ namespace TivoAhoy.Phone
             container.Singleton<ITivoConnectionService, TivoConnectionService>();
             container.Singleton<IScheduledRecordingsService, ScheduledRecordingsService>();
 
-            container.Singleton<SettingsPageViewModel>();
+            container.PerRequest<SettingsPageViewModel>();
             container.PerRequest<MainPageViewModel>();
             container.PerRequest<ShowDetailsPageViewModel>();
 

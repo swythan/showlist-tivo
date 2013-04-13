@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
@@ -50,96 +51,113 @@
                 Style="{StaticResource PhoneTextTitle1Style}" />
         </StackPanel>
 
-        <!--ContentPanel - place additional content here-->
-        <Grid
-            x:Name="ContentPanel"
+        <controls:Pivot
             Grid.Row="1"
             Margin="12,0,12,0">
-            <Grid.RowDefinitions>
-                <RowDefinition
-                    Height="Auto" />
-                <RowDefinition
-                    Height="Auto" />
-                <RowDefinition
-                    Height="Auto" />
-                <RowDefinition
-                    Height="Auto" />
-                <RowDefinition
-                    Height="330*" />
-                <RowDefinition
-                    Height="Auto" />
-            </Grid.RowDefinitions>
-            <!--<TextBlock
-                HorizontalAlignment="Left"
-                Text="IP Address"
-                Style="{StaticResource PhoneTextNormalStyle}" />
-            <TextBox
-                HorizontalAlignment="Stretch"
-                Name="TivoIPAddress"
-                VerticalAlignment="Top"
-                Grid.Row="1"
-                InputScope="Digits" />
-            <TextBlock
-                HorizontalAlignment="Left"
-                Text="Media Access Key"
-                Style="{StaticResource PhoneTextNormalStyle}"
-                Grid.Row="2" />
-            <TextBox
-                HorizontalAlignment="Stretch"
-                Name="MediaAccessKey"
-                VerticalAlignment="Top"
-                Grid.Row="3"
-                InputScope="Digits" />-->
-            <TextBlock
-                HorizontalAlignment="Left"
-                Text="Username"
-                Style="{StaticResource PhoneTextNormalStyle}" />
-            <TextBox
-                HorizontalAlignment="Stretch"
-                Name="Username"
-                VerticalAlignment="Top"
-                Grid.Row="1"
-                InputScope="EmailSmtpAddress" />
-            <TextBlock
-                HorizontalAlignment="Left"
-                Text="Password"
-                Style="{StaticResource PhoneTextNormalStyle}"
-                Grid.Row="2" />
-            <PasswordBox
-                HorizontalAlignment="Stretch"
-                Name="Password"
-                VerticalAlignment="Top"
-                Grid.Row="3"/>
-            <TextBlock
-                Grid.Row="4"
-                TextWrapping="Wrap"
-                Style="{StaticResource PhoneTextSmallStyle}">
-                <Run>
-                To enable this app to work you must first connect your TiVo DVR to your home network.    </Run>
-                <LineBreak />
-                <Run>You must then enable "Network Remote Control" by going to:
-                </Run>
-                <LineBreak />
-                <Run>Help &amp; Settings > Settings > Network Remote Control</Run>
-                <LineBreak/>
-                <LineBreak />
-                <Run>Your IP Address can be found by going to:
-                </Run>
-                <LineBreak />
-                <Run>Help &amp; Settings > Settings > Network</Run>
-                <LineBreak />
-                <LineBreak />
-                <Run>Your Media Access Key is a 10 digit number that can be found by going to:                </Run>
-                <LineBreak />
-                <Run>Help &amp; Settings > System Info > Media Access Key</Run>
-            </TextBlock>
-            <Button
-                Content="Test Connection"
-                Grid.Row="5"
-                HorizontalAlignment="Stretch"
-                x:Name="TestConnection"
-                VerticalAlignment="Top" />
-        </Grid>
+            <controls:PivotItem
+                Header="Away Mode">
+                <Grid
+                    Grid.Row="1"
+                    Margin="12,0,12,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="330*" />
+                        <RowDefinition
+                            Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock
+                        HorizontalAlignment="Left"
+                        Text="Username"
+                        Style="{StaticResource PhoneTextNormalStyle}" />
+                    <TextBox
+                        HorizontalAlignment="Stretch"
+                        Name="Username"
+                        VerticalAlignment="Top"
+                        Grid.Row="1"
+                        InputScope="EmailSmtpAddress" />
+                    <TextBlock
+                        HorizontalAlignment="Left"
+                        Text="Password"
+                        Style="{StaticResource PhoneTextNormalStyle}"
+                        Grid.Row="2" />
+                    <PasswordBox
+                        HorizontalAlignment="Stretch"
+                        Name="Password"
+                        VerticalAlignment="Top"
+                        Grid.Row="3" />
+                    <Button
+                        Content="Test Connection"
+                        Grid.Row="5"
+                        HorizontalAlignment="Stretch"
+                        x:Name="TestAwayConnection"
+                        VerticalAlignment="Top" />
+                </Grid>
+
+            </controls:PivotItem>
+            <controls:PivotItem
+                Header="LAN Mode">
+                <Grid
+                    Grid.Row="1"
+                    Margin="12,0,12,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="330*" />
+                        <RowDefinition
+                            Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock
+                        HorizontalAlignment="Left"
+                        Text="IP Address"
+                        Style="{StaticResource PhoneTextNormalStyle}" />
+                    <TextBox
+                        HorizontalAlignment="Stretch"
+                        Name="TivoIPAddress"
+                        VerticalAlignment="Top"
+                        Grid.Row="1"
+                        InputScope="Digits" />
+                    <TextBlock
+                        HorizontalAlignment="Left"
+                        Text="Media Access Key"
+                        Style="{StaticResource PhoneTextNormalStyle}"
+                        Grid.Row="2" />
+                    <TextBox
+                        HorizontalAlignment="Stretch"
+                        Name="MediaAccessKey"
+                        VerticalAlignment="Top"
+                        Grid.Row="3"
+                        InputScope="Digits" />
+                    <Button
+                        Content="Search"
+                        Grid.Row="4"
+                        HorizontalAlignment="Stretch"
+                        x:Name="SearchLAN"
+                        VerticalAlignment="Top" />
+                    <Button
+                        Content="Test Connection"
+                        Grid.Row="5"
+                        HorizontalAlignment="Stretch"
+                        x:Name="TestLANConnection"
+                        VerticalAlignment="Top" />
+                </Grid>
+
+            </controls:PivotItem>
+        </controls:Pivot>
     </Grid>
 
     <!--Sample code showing usage of ApplicationBar-->

@@ -9,12 +9,11 @@ using TivoAhoy.Phone.ViewModels;
 
 namespace TivoAhoy.Phone
 {
-    public class TivoConnectionService : PropertyChangedBase, ITivoConnectionService
+    public class TivoConnectionService : PropertyChangedBase, ITivoConnectionService, IHandle<ConnectionSettingsChanged>
     {
         private readonly IEventAggregator eventAggregator;
-        private readonly SettingsPageViewModel settings;
 
-        private bool isAwayModeEnabled = true;
+        private bool isAwayModeEnabled = false;
         private bool isConnectionEnabled = false;
 
         private AsyncLazy<TivoConnection> lazyConnection;
@@ -22,13 +21,9 @@ namespace TivoAhoy.Phone
         private string error;
 
         public TivoConnectionService(
-            IEventAggregator eventAggregator,
-            SettingsPageViewModel settings)
+            IEventAggregator eventAggregator)
         {
             this.eventAggregator = eventAggregator;
-            this.settings = settings;
-
-            this.settings.PropertyChanged += OnSettingsPropertyChanged;
         }
 
         public bool IsConnectionEnabled
@@ -65,7 +60,18 @@ namespace TivoAhoy.Phone
         {
             if (this.SettingsAppearValid)
             {
-                this.lazyConnection = new AsyncLazy<TivoConnection>(() => this.ConnectAsync());
+                this.lazyConnection = new AsyncLazy<TivoConnection>(async() => 
+                    {
+                        var conn = await this.ConnectAsync();
+                        if (conn == null &&
+                            !this.IsAwayModeEnabled)
+                        {
+                            this.IsAwayModeEnabled = true;
+                            conn = await this.ConnectAsync();
+                        }
+
+                        return conn;
+                    });
 
                 await TaskEx.Delay(TimeSpan.FromSeconds(2));
 
@@ -73,32 +79,19 @@ namespace TivoAhoy.Phone
             }
         }
 
-        private void OnSettingsPropertyChanged(object sender, PropertyChangedEventArgs e)
+
+        void IHandle<ConnectionSettingsChanged>.Handle(ConnectionSettingsChanged message)
         {
-            if (e.PropertyName == "SettingsAppearValid")
-            {
-                this.NotifyOfPropertyChange(() => this.SettingsAppearValid);
-            }
-
-            if (e.PropertyName == "TivoIPAddress" ||
-                e.PropertyName == "MediaAccessKey" ||
-                e.PropertyName == "Username" ||
-                e.PropertyName == "Password")
-            {
-                ResetConnection();
-            }
-
-            if (e.PropertyName == "IsTestInProgress")
-            {
-                this.IsConnectionEnabled = !this.settings.IsTestInProgress;
-            }
+            this.NotifyOfPropertyChange(() => this.SettingsAppearValid);
+            ResetConnection();
         }
 
         public bool SettingsAppearValid
         {
             get
             {
-                return this.settings.SettingsAppearValid;
+                return ConnectionSettings.AwaySettingsAppearValid(ConnectionSettings.Username, ConnectionSettings.Password) ||
+                    ConnectionSettings.LanSettingsAppearValid(ConnectionSettings.TivoIPAddress, ConnectionSettings.MediaAccessKey);
             }
         }
 
@@ -171,11 +164,19 @@ namespace TivoAhoy.Phone
             {
                 if (this.IsAwayModeEnabled)
                 {
-                    await localConnection.ConnectAway(this.settings.Username, this.settings.Password);
+                    await localConnection.ConnectAway(ConnectionSettings.Username, ConnectionSettings.Password);
                 }
                 else
                 {
-                    await localConnection.Connect(this.settings.ParsedIPAddress, this.settings.MediaAccessKey);
+                    IPAddress parsedIpAddress;
+                    if (IPAddress.TryParse(ConnectionSettings.TivoIPAddress, out parsedIpAddress))
+                    {
+                        await localConnection.Connect(parsedIpAddress, ConnectionSettings.MediaAccessKey);
+                    }
+                    else
+                    {
+                        return null;
+                    }
                 }
 
                 this.isConnected = true;
