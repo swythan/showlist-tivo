@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
-using System.Net.Sockets;
+using System.Reactive.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using Caliburn.Micro;
@@ -36,7 +36,6 @@ namespace TivoAhoy.Phone.ViewModels
         private const string dnsProtocol = "_tivo-mindrpc._tcp.";
 
         private readonly IEventAggregator eventAggregator;
-        private readonly MDnsClient mdnsClient;
 
         private string tivoIPAddress;
         private string mediaAccessKey;
@@ -44,15 +43,12 @@ namespace TivoAhoy.Phone.ViewModels
         private string password;
         private bool isTestInProgress;
 
-        private Dictionary<string, string> discoveredTivos = new Dictionary<string, string>();
+        private Dictionary<string, IPAddress> discoveredTivos = new Dictionary<string, IPAddress>();
         private object syncLock = new object();
 
         public SettingsPageViewModel(IEventAggregator eventAggregator)
         {
             this.eventAggregator = eventAggregator;
-
-            this.mdnsClient = MDnsClient.CreateAndResolve(dnsProtocol);
-            this.mdnsClient.AnswerReceived += OnMDnsAnswerReceived;
         }
 
         protected override void OnInitialize()
@@ -275,31 +271,28 @@ namespace TivoAhoy.Phone.ViewModels
         {
             this.discoveredTivos.Clear();
 
-            if (this.mdnsClient.IsStarted)
-            {
-                this.mdnsClient.Resolve(dnsProtocol);
-            }
-            else
-            {
-                try
-                {
-                    this.mdnsClient.Start();
-                }
-                catch (SocketException)
-                {
-                    // this could mean we are simply not in an adequate network for this
-                }
-            }
+            var dnsAnswers = await MDnsClient.CreateAndResolveAsync(dnsProtocol);
 
-            await TaskEx.Delay(TimeSpan.FromSeconds(3));
-
-            if (this.discoveredTivos.Count > 0)
+            if (dnsAnswers != null)
             {
-                this.TivoIPAddress = this.discoveredTivos.Values.First();
+                var answersSubscription = dnsAnswers
+                    .Select(HandleDnsAnswer)
+                    .Where(x => x != null)
+                    .ObserveOnDispatcher()
+                    .Subscribe(x => this.discoveredTivos.Add(x.Item1, x.Item2));
+
+                await TaskEx.Delay(TimeSpan.FromSeconds(5));
+
+                answersSubscription.Dispose();
+
+                if (this.discoveredTivos.Count > 0)
+                {
+                    this.TivoIPAddress = this.discoveredTivos.Values.First().ToString();
+                }
             }
         }
 
-        private void OnMDnsAnswerReceived(Discovery.Message msg)
+        private Tuple<string, IPAddress> HandleDnsAnswer(Discovery.Message msg)
         {
             bool isTivoResponse = false;
 
@@ -319,7 +312,7 @@ namespace TivoAhoy.Phone.ViewModels
 
             if (!isTivoResponse)
             {
-                return;
+                return null;
             }
 
 
@@ -357,10 +350,7 @@ namespace TivoAhoy.Phone.ViewModels
 
             Debug.WriteLine("TiVo found at {0}:{1}", msg.From.Address, port);
 
-            lock (this.syncLock)
-            {
-                this.discoveredTivos.Add(tivoName, tivoAddress.ToString());
-            }
+            return Tuple.Create(tivoName, tivoAddress);
         }
     }
 }

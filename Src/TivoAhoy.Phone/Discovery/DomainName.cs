@@ -9,7 +9,10 @@
     {
         public DomainName() { }
 
-        public DomainName(IEnumerable<string> domainName) : base(domainName) { }
+        public DomainName(IEnumerable<string> domainName) :
+            base(domainName)
+        {
+        }
 
         public byte[] ToBytes()
         {
@@ -130,24 +133,23 @@
 
         #endregion
 
-        public static DomainName Get(BinaryReader reader)
+        internal static DomainName Get(BackReferenceBinaryReader reader)
         {
             byte stringLength = reader.ReadByte();
             if (stringLength >> 6 == 3)
             {
-
-                if (!(reader is BackReferenceBinaryReader))
-                    throw new NotSupportedException("The given binary reader does not support back reference");
                 //In case of pointer
                 ushort ptr;
                 BinaryHelper.FromBytes(new byte[] { (byte)(stringLength - (3 << 6)), reader.ReadByte() }, out ptr);
-                return ((BackReferenceBinaryReader)reader).Get<DomainName>(ptr);
+
+                return reader.Get<DomainName>(ptr);
             }
             else
             {
                 DomainName dn = new DomainName();
-                if (reader is BackReferenceBinaryReader)
-                    ((BackReferenceBinaryReader)reader).Register((int)reader.BaseStream.Position - 1, dn);
+
+                reader.Register((int)reader.BaseStream.Position - 1, dn);
+
                 //stringLength = reader.ReadByte();
                 if (stringLength != 0)
                 {

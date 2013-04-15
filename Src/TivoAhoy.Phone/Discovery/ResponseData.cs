@@ -10,7 +10,7 @@
     {
         public abstract void WriteTo(Stream writer);
 
-        internal static ResponseData Get(Type type, System.IO.BinaryReader reader)
+        internal static ResponseData Get(Type type, BackReferenceBinaryReader reader)
         {
             switch (type)
             {
@@ -57,7 +57,7 @@
                 default:
                     break;
             }
-            //throw new NotImplementedException(string.Format("Cannot read {0} response", type));
+
             return UnknownResponseData.Get(reader);
         }
     }
@@ -143,7 +143,7 @@
             DomainName.WriteTo(writer);
         }
 
-        internal static Ptr Get(BinaryReader reader)
+        internal static Ptr Get(BackReferenceBinaryReader reader)
         {
             Ptr p = new Ptr();
             //useless datalength
@@ -172,7 +172,7 @@
         public ushort Port { get; set; }
         public DomainName Target { get; set; }
 
-        internal static Srv Get(BinaryReader reader)
+        internal static Srv Get(BackReferenceBinaryReader reader)
         {
             Srv srv = new Srv();
             //Useless Datalength

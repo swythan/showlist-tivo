@@ -2,123 +2,129 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.Linq;
     using System.Net;
     using System.Net.Sockets;
+    using System.Reactive.Disposables;
+    using System.Reactive.Linq;
+    using System.Reactive.Subjects;
     using System.Threading;
+    using System.Threading.Tasks;
 
-    public class MDnsClient
+    public class MDnsClient : IDisposable
     {
         public static readonly IPEndPoint EndPoint = new IPEndPoint(IPAddress.Parse("224.0.0.251"), 5353);
 
         private UdpAnySourceMulticastClient client;
         private IPEndPoint local;
-        private ushort requestId;
+
+        private Task receiverTask;
+        private CancellationTokenSource receiverCts;
+
+        private Subject<Message> answers = new Subject<Message>();
 
         public MDnsClient(IPEndPoint endpoint)
         {
             local = endpoint;
             client = new UdpAnySourceMulticastClient(endpoint.Address, endpoint.Port);
-            receiver = new Thread(StartReceiving);
         }
 
-        public bool IsStarted { get; set; }
-
-        public delegate void ObjectEvent<T>(T msg);
-        public event ObjectEvent<Message> AnswerReceived;
-        public event ObjectEvent<Message> QueryReceived;
-
-        public bool Send(Message message, IPEndPoint ep)
+        public void Dispose()
         {
-            try
+            this.Stop();
+
+            if (this.client != null)
             {
-                byte[] byteMessage = message.GetBytes();
-                client.BeginSendTo(byteMessage, 0, byteMessage.Length, ep, OnSendTo, null);
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
+                this.client.Dispose();
             }
         }
 
-        private void OnSendTo(IAsyncResult aResult)
+        public bool IsStarted
         {
-            client.EndSendTo(aResult);
+            get { return this.receiverTask != null; }
         }
 
-        public void Resolve(string protocol)
+        public async Task<IObservable<Message>> ResolveAsync(string protocol)
         {
-            Message message = new Message();
-            List<byte> guid = Guid.NewGuid().ToByteArray().Take(2).ToList();
-            requestId = (ushort)(guid[0] * byte.MaxValue + guid[1]);
-            message.ID = requestId;
+            ushort requestId = CreateRequestId();
+
+            Message message = new Message(requestId);
             message.Questions.Add(new Question(protocol));
-            Send(message, EndPoint);
+
+            byte[] byteMessage = message.GetBytes();
+
+            await Task.Factory.FromAsync(
+                (buffer, ep, callback, state) => client.BeginSendTo(buffer, 0, buffer.Length, ep, callback, state),
+                client.EndSendTo,
+                byteMessage,
+                EndPoint,
+                null);
+
+            return this.answers.Where(x => x.ID == requestId || x.ID == 0);
         }
 
-        public static MDnsClient CreateAndResolve(string protocol)
+        private static ushort CreateRequestId()
+        {
+            List<byte> guid = Guid.NewGuid()
+                .ToByteArray()
+                .Take(2)
+                .ToList();
+
+            return (ushort)(guid[0] * byte.MaxValue + guid[1]);
+        }
+
+        public async static Task<IObservable<Message>> CreateAndResolveAsync(string protocol)
         {
             MDnsClient client = new MDnsClient(EndPoint /* new IPEndPoint(IPAddress.Any, 5353) */ );
-            client.client.BeginJoinGroup(OnJoinGroup, client.client);
+
             try
             {
-                client.Resolve(protocol);
+                await client.StartAsync();
+
+                var answers = await client.ResolveAsync(protocol);
+
+                return Observable.Using(
+                    () => client,
+                    _ => answers);
             }
             catch (SocketException)
             {
-            }
-
-            return client;
-        }
-        private static void OnJoinGroup(IAsyncResult aResult)
-        {
-            var client = (UdpAnySourceMulticastClient)aResult.AsyncState;
-
-            try
-            {
-                client.EndJoinGroup(aResult);
-                client.MulticastLoopback = true;
-            }
-            catch (System.Net.Sockets.SocketException)
-            {
+                return Observable.Empty<Message>();
             }
         }
 
-        private AutoResetEvent active = new AutoResetEvent(false);
-
-        private byte[] mReceived = new byte[4096];
-        private void StartReceiving()
+        private async void StartReceiving()
         {
-            while (IsStarted)
+            CancellationToken token = this.receiverCts.Token;
+
+            while (!token.IsCancellationRequested)
             {
                 try
                 {
-                    client.BeginReceiveFromGroup(mReceived, 0, mReceived.Length, StartReceiving, null);
+                    byte[] receivedData = new byte[4096];
+                    var receiveResult = await Task.Factory.FromAsync(
+                        client.BeginReceiveFromGroup,
+                        (iar) =>
+                        {
+                            IPEndPoint endpoint;
+                            int result = client.EndReceiveFromGroup(iar, out endpoint);
+
+                            return Tuple.Create(result, endpoint);
+                        },
+                        receivedData,
+                        0,
+                        receivedData.Length, null, TaskCreationOptions.None);
+
+                    DecodeMessage(receivedData, receiveResult.Item2);
                 }
                 catch (Exception)
                 {
                 }
-
-                active.WaitOne();
             }
         }
 
-        private void StartReceiving(IAsyncResult result)
-        {
-            //result.AsyncWaitHandle.WaitOne();
-            IPEndPoint src = new IPEndPoint(IPAddress.Any, 0);
-            try
-            {
-                client.EndReceiveFromGroup(result, out src);
-                Treat(mReceived, src);
-            }
-            catch (WebException)
-            {
-            }
-        }
-
-        protected void Treat(byte[] bytes, IPEndPoint from)
+        protected void DecodeMessage(byte[] bytes, IPEndPoint from)
         {
             Message m;
             try
@@ -132,40 +138,50 @@
             {
                 return;
             }
+
             m.From = from;
-            ushort requestId = this.requestId;
-            active.Set();
-            if ((m.ID == requestId && m.QueryResponse == Qr.Answer) || m.ID == 0)
+
+            if (m.QueryResponse == Qr.Answer)
             {
-                if (AnswerReceived != null)
-                    AnswerReceived(m);
+                this.answers.OnNext(m);
             }
-            if ((m.ID != requestId || m.ID == 0) && m.QueryResponse == Qr.Query)
-            {
-                this.requestId = 0;
-                if (QueryReceived != null)
-                    QueryReceived(m);
-            }
+
+            //if (m.QueryResponse == Qr.Query)
+            //{
+            //    if (QueryReceived != null)
+            //        QueryReceived(this, new MessageEventArgs(m));
+            //}
         }
 
         public void Stop()
         {
-            IsStarted = false;
-            active.Set();
-
-            while (receiver.IsAlive)
+            if (this.receiverCts != null)
             {
-                System.Threading.Thread.Sleep(100);
+                this.receiverCts.Cancel();
+            }
+
+            if (this.receiverTask != null)
+            {
+                this.receiverTask.Wait();
+
+                this.receiverCts = null;
+                this.receiverTask = null;
             }
         }
-        Thread receiver;
 
-        public void Start()
+        public async Task StartAsync()
         {
             if (!IsStarted)
             {
-                IsStarted = true;
-                receiver.Start();
+                await Task.Factory.FromAsync(
+                    this.client.BeginJoinGroup,
+                    this.client.EndJoinGroup,
+                    null);
+
+                this.client.MulticastLoopback = true;
+
+                this.receiverCts = new CancellationTokenSource();
+                this.receiverTask = Task.Factory.StartNew(StartReceiving, this.receiverCts.Token);
             }
         }
     }

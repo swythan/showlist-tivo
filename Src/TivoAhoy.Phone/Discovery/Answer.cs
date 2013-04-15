@@ -29,7 +29,7 @@ namespace TivoAhoy.Phone.Discovery
             return string.Format("{0}, Type: {1}, Class: {2}, TTL: {3} = {4}", DomainName, Type, Class, Ttl, ResponseData);
         }
 
-        internal static Answer Get(System.IO.BinaryReader reader)
+        internal static Answer Get(BackReferenceBinaryReader reader)
         {
             Answer a = new Answer();
             a.DomainName = DomainName.Get(reader);

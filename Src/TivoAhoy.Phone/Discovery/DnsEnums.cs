@@ -4,8 +4,8 @@
 
     public enum Qr
     {
-        Query,
-        Answer
+        Query = 0,
+        Answer = 1
     }
 
     public enum OpCode
