@@ -105,6 +105,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.Bcl.1.0.16-rc\lib\sl4-windowsphone71\System.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Threading.Tasks, Version=1.5.11.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.Bcl.1.0.16-rc\lib\sl4-windowsphone71\System.Threading.Tasks.dll</HintPath>
@@ -131,6 +132,7 @@
     <Compile Include="ConnectionSettings.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\UtcToLocalTimeConverter.cs" />
+    <Compile Include="DiscoveredTivo.cs" />
     <Compile Include="Discovery\Answer.cs" />
     <Compile Include="Discovery\BackReferenceBinaryReader.cs" />
     <Compile Include="Discovery\BaseMessage.cs" />
@@ -148,6 +150,7 @@
     <Compile Include="Events\TivoOperationStarted.cs" />
     <Compile Include="IScheduledRecordingsService.cs" />
     <Compile Include="ITivoConnectionService.cs" />
+    <Compile Include="KnownTivoConnection.cs" />
     <Compile Include="ScheduledRecordingsService.cs" />
     <Compile Include="SettingsStore.cs" />
     <Compile Include="TivoConnectionService.cs" />

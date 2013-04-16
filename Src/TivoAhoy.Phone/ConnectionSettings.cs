@@ -1,33 +1,34 @@
-﻿using System.Net;
+﻿using System.Collections.Generic;
+using System.Net;
 namespace TivoAhoy.Phone
 {
     public static class ConnectionSettings
     {
-        public static string TivoIPAddress
+        public static KnownTivoConnection[] KnownTivos
         {
-            get { return SettingsStore.GetValueOrDefault(string.Empty, "TivoIPAddress"); }
-            set { SettingsStore.AddOrUpdateValue(value, "TivoIPAddress"); }
+            get { return SettingsStore.GetValueOrDefault(new KnownTivoConnection[0], "KnownTivos"); }
+            set { SettingsStore.AddOrUpdateValue(value, "KnownTivos"); }
         }
 
-        public static string MediaAccessKey
+        public static string SelectedTivoTsn
         {
-            get { return SettingsStore.GetValueOrDefault(string.Empty, "MediaAccessKey"); }
-            set { SettingsStore.AddOrUpdateValue(value, "MediaAccessKey"); }
+            get { return SettingsStore.GetValueOrDefault(string.Empty, "SelectedTivoTsn"); }
+            set { SettingsStore.AddOrUpdateValue(value, "SelectedTivoTsn"); }
         }
 
-        public static string Username
+        public static string AwayModeUsername
         {
             get { return SettingsStore.GetValueOrDefault(string.Empty, "Username"); }
             set { SettingsStore.AddOrUpdateValue(value, "Username"); }
         }
 
-        public static string Password
+        public static string AwayModePassword
         {
             get { return SettingsStore.GetValueOrDefault(string.Empty, "Password"); }
             set { SettingsStore.AddOrUpdateValue(value, "Password"); }
         }
 
-        public static bool LanSettingsAppearValid(string ipAddress, string mediaAccessKey)
+        public static bool LanSettingsAppearValid(IPAddress ipAddress, string mediaAccessKey)
         {
             if (mediaAccessKey == null ||
                 mediaAccessKey.Length != 10)
@@ -41,8 +42,8 @@ namespace TivoAhoy.Phone
                 return false;
             }
 
-            IPAddress parsedIpAddress;
-            if (!IPAddress.TryParse(ipAddress, out parsedIpAddress))
+            if (ipAddress == null ||
+                ipAddress == IPAddress.None)
             {
                 return false;
             }

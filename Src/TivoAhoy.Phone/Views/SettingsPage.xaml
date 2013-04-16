@@ -39,16 +39,11 @@
         <StackPanel
             x:Name="TitlePanel"
             Grid.Row="0"
-            Margin="12,17,0,28">
+            Margin="12,17,0,12">
             <TextBlock
                 x:Name="ApplicationTitle"
                 Text="SHOW LIST"
                 Style="{StaticResource PhoneTextNormalStyle}" />
-            <TextBlock
-                x:Name="PageTitle"
-                Text="Settings"
-                Margin="12,-7,0,0"
-                Style="{StaticResource PhoneTextTitle1Style}" />
         </StackPanel>
 
         <controls:Pivot
@@ -103,7 +98,7 @@
 
             </controls:PivotItem>
             <controls:PivotItem
-                Header="LAN Mode">
+                Header="Home Mode">
                 <Grid
                     Grid.Row="1"
                     Margin="12,0,12,0">
@@ -117,40 +112,65 @@
                         <RowDefinition
                             Height="Auto" />
                         <RowDefinition
-                            Height="330*" />
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition />
                         <RowDefinition
                             Height="Auto" />
                     </Grid.RowDefinitions>
                     <TextBlock
                         HorizontalAlignment="Left"
-                        Text="IP Address"
-                        Style="{StaticResource PhoneTextNormalStyle}" />
-                    <TextBox
+                        Text="Name"
+                        Style="{StaticResource PhoneTextNormalStyle}"
+                        Grid.Row="0" />
+                    <toolkit:ListPicker
                         HorizontalAlignment="Stretch"
-                        Name="TivoIPAddress"
+                        Name="DiscoveredTivos"
+                        DisplayMemberPath="Name"
                         VerticalAlignment="Top"
                         Grid.Row="1"
+                        />
+                    <TextBlock
+                        HorizontalAlignment="Left"
+                        Text="IP Address"
+                        Style="{StaticResource PhoneTextNormalStyle}"
+                        Grid.Row="2" />
+                    <TextBox
+                        HorizontalAlignment="Stretch"
+                        Name="LanIpAddress"
+                        VerticalAlignment="Top"
+                        Grid.Row="3"
+                        IsReadOnly="True"
                         InputScope="Digits" />
                     <TextBlock
                         HorizontalAlignment="Left"
                         Text="Media Access Key"
                         Style="{StaticResource PhoneTextNormalStyle}"
-                        Grid.Row="2" />
+                        Grid.Row="4" />
+                    <HyperlinkButton
+                        Content="Help"
+                        NavigateUri="http://my.virginmedia.com/discover/tv/tvanywhere/app/get-set-up.html"
+                        TargetName="_blank"
+                        HorizontalAlignment="Right"
+                        Grid.Row="4"
+                        VerticalAlignment="Top" />
                     <TextBox
-                        HorizontalAlignment="Stretch"
-                        Name="MediaAccessKey"
+                        HorizontalAlignment="Right"
+                        Name="LanMediaAccessKey"
                         VerticalAlignment="Top"
-                        Grid.Row="3"
-                        InputScope="Digits" />
+                        Grid.Row="5"
+                        InputScope="Digits"
+                        Width="408" />
                     <Button
                         Content="Search"
-                        Grid.Row="4"
+                        Grid.Row="6"
                         HorizontalAlignment="Stretch"
                         x:Name="SearchLAN"
                         VerticalAlignment="Top" />
                     <Button
                         Content="Test Connection"
-                        Grid.Row="5"
+                        Grid.Row="7"
                         HorizontalAlignment="Stretch"
                         x:Name="TestLANConnection"
                         VerticalAlignment="Top" />

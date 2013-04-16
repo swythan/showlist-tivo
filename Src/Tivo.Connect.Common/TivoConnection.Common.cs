@@ -82,6 +82,22 @@ namespace Tivo.Connect
             }
         }
 
+        public string ConnectedTsn
+        {
+            get
+            {
+                if (this.capturedTsn == null)
+                    return null;
+
+                if (this.capturedTsn.StartsWith("tsn:"))
+                {
+                    return this.capturedTsn.Substring(4);
+                }
+
+                return this.capturedTsn;
+            }
+        }
+
         public async Task Connect(IPAddress serverAddress, string mediaAccessKey)
         {
             this.capturedTsn = string.Empty;

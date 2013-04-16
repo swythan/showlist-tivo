@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Caliburn.Micro;
@@ -90,8 +91,20 @@ namespace TivoAhoy.Phone
         {
             get
             {
-                return ConnectionSettings.AwaySettingsAppearValid(ConnectionSettings.Username, ConnectionSettings.Password) ||
-                    ConnectionSettings.LanSettingsAppearValid(ConnectionSettings.TivoIPAddress, ConnectionSettings.MediaAccessKey);
+                if (ConnectionSettings.AwaySettingsAppearValid(ConnectionSettings.AwayModeUsername, ConnectionSettings.AwayModePassword))
+                {
+                    return true;
+                }
+
+                var lanSettings = ConnectionSettings.KnownTivos
+                    .FirstOrDefault(x => x.TSN.Equals(ConnectionSettings.SelectedTivoTsn, StringComparison.Ordinal));
+
+                if (lanSettings == null)
+                {
+                    return false;
+                }
+
+                return ConnectionSettings.LanSettingsAppearValid(lanSettings.LastIpAddress, lanSettings.MediaAccessKey);
             }
         }
 
@@ -164,14 +177,16 @@ namespace TivoAhoy.Phone
             {
                 if (this.IsAwayModeEnabled)
                 {
-                    await localConnection.ConnectAway(ConnectionSettings.Username, ConnectionSettings.Password);
+                    await localConnection.ConnectAway(ConnectionSettings.AwayModeUsername, ConnectionSettings.AwayModePassword);
                 }
                 else
                 {
-                    IPAddress parsedIpAddress;
-                    if (IPAddress.TryParse(ConnectionSettings.TivoIPAddress, out parsedIpAddress))
+                    var lanSettings = ConnectionSettings.KnownTivos
+                        .FirstOrDefault(x => x.TSN.Equals(ConnectionSettings.SelectedTivoTsn, StringComparison.Ordinal));
+
+                    if (lanSettings != null)
                     {
-                        await localConnection.Connect(parsedIpAddress, ConnectionSettings.MediaAccessKey);
+                        await localConnection.Connect(lanSettings.LastIpAddress, lanSettings.MediaAccessKey);
                     }
                     else
                     {

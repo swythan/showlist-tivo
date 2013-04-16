@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
@@ -7,107 +9,189 @@ using System.Reactive.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using Caliburn.Micro;
+using Microsoft.Phone.Net.NetworkInformation;
 using Tivo.Connect;
 using TivoAhoy.Phone.Discovery;
 using TivoAhoy.Phone.Events;
 
 namespace TivoAhoy.Phone.ViewModels
 {
-    public class SettingsPageModelStorage : StorageHandler<SettingsPageViewModel>
-    {
-        public override void Configure()
-        {
-            this.Property(x => x.TivoIPAddress)
-                .InPhoneState();
-
-            this.Property(x => x.MediaAccessKey)
-                .InPhoneState();
-
-            this.Property(x => x.Username)
-                .InPhoneState();
-
-            this.Property(x => x.Password)
-                .InPhoneState();
-        }
-    }
-
     public class SettingsPageViewModel : Screen
     {
         private const string dnsProtocol = "_tivo-mindrpc._tcp.";
 
         private readonly IEventAggregator eventAggregator;
 
-        private string tivoIPAddress;
-        private string mediaAccessKey;
+        private KnownTivoConnection lanSettings;
+
         private string username;
         private string password;
+
         private bool isTestInProgress;
 
-        private Dictionary<string, IPAddress> discoveredTivos = new Dictionary<string, IPAddress>();
-        private object syncLock = new object();
+        private ObservableCollection<DiscoveredTivo> discoveredTivos = new ObservableCollection<DiscoveredTivo>();
+        private DiscoveredTivo currentDiscoveredTivo;
 
         public SettingsPageViewModel(IEventAggregator eventAggregator)
         {
             this.eventAggregator = eventAggregator;
         }
 
-        protected override void OnInitialize()
+        private void OnNetworkAvailabilityChanged(object sender, NetworkNotificationEventArgs e)
         {
-            this.TivoIPAddress = ConnectionSettings.TivoIPAddress;
-            this.MediaAccessKey = ConnectionSettings.MediaAccessKey;
-            this.Username = ConnectionSettings.Username;
-            this.Password = ConnectionSettings.Password;
-
-            base.OnInitialize();
+            NotifyOfPropertyChange(() => this.CanSearchLAN);
         }
 
         protected override void OnActivate()
         {
             base.OnActivate();
+
+            DeviceNetworkInformation.NetworkAvailabilityChanged += this.OnNetworkAvailabilityChanged;
+
+            Observable.Timer(TimeSpan.FromSeconds(0.5))
+                .ObserveOnDispatcher()
+                .Subscribe(_ =>
+                    {
+                        if (this.CanSearchLAN)
+                        {
+                            this.SearchLAN();
+                        }
+                    });
+
+            this.Username = ConnectionSettings.AwayModeUsername;
+            this.Password = ConnectionSettings.AwayModePassword;
         }
 
         protected override void OnDeactivate(bool close)
         {
             if (!close)
             {
-                ConnectionSettings.TivoIPAddress = this.TivoIPAddress;
-                ConnectionSettings.MediaAccessKey = this.MediaAccessKey;
-                ConnectionSettings.Username = this.Username;
-                ConnectionSettings.Password = this.Password;
+                //ConnectionSettings.TivoIPAddress = this.TivoIPAddress;
+                //ConnectionSettings.MediaAccessKey = this.MediaAccessKey;
+                //ConnectionSettings.AwayModeUsername = this.Username;
+                //ConnectionSettings.AwayModePassword = this.Password;
                 this.eventAggregator.Publish(new ConnectionSettingsChanged());
             }
+
+            DeviceNetworkInformation.NetworkAvailabilityChanged -= this.OnNetworkAvailabilityChanged;
 
             base.OnDeactivate(close);
         }
 
-        public string TivoIPAddress
+        public ObservableCollection<DiscoveredTivo> DiscoveredTivos
         {
-            get { return this.tivoIPAddress; }
+            get { return this.discoveredTivos; }
+        }
+
+        public DiscoveredTivo CurrentDiscoveredTivo
+        {
+            get { return this.currentDiscoveredTivo; }
             set
             {
-                if (this.tivoIPAddress == value)
+                if (this.currentDiscoveredTivo == value)
                     return;
 
-                this.tivoIPAddress = value;
-                NotifyOfPropertyChange(() => this.TivoIPAddress);
-                NotifyOfPropertyChange(() => this.ParsedIPAddress);
-                NotifyOfPropertyChange(() => this.CanTestLANConnection);
-                NotifyOfPropertyChange(() => this.LanSettingsAppearValid);
+                this.currentDiscoveredTivo = value;
+
+                if (this.currentDiscoveredTivo != null)
+                {
+                    var settings = ConnectionSettings.KnownTivos
+                        .FirstOrDefault(x => x.TSN.Equals(this.currentDiscoveredTivo.TSN, StringComparison.Ordinal));
+
+                    if (settings == null)
+                    {
+                        settings = new KnownTivoConnection()
+                        {
+                            Name = this.currentDiscoveredTivo.Name,
+                            TSN = this.currentDiscoveredTivo.TSN,
+                        };
+                    }
+
+                    settings.LastIpAddress = this.currentDiscoveredTivo.IpAddress;
+
+                    this.LanSettings = settings;
+                }
+                else
+                {
+                    this.LanSettings = ConnectionSettings.KnownTivos
+                        .FirstOrDefault(x => x.TSN.Equals(ConnectionSettings.SelectedTivoTsn, StringComparison.Ordinal));
+                }
+
             }
         }
 
-        public string MediaAccessKey
+        public KnownTivoConnection LanSettings
         {
-            get { return this.mediaAccessKey; }
+            get { return this.lanSettings; }
             set
             {
-                if (this.mediaAccessKey == value)
+                if (this.lanSettings == value)
                     return;
 
-                this.mediaAccessKey = value;
-                NotifyOfPropertyChange(() => this.MediaAccessKey);
-                NotifyOfPropertyChange(() => this.CanTestLANConnection);
-                NotifyOfPropertyChange(() => this.LanSettingsAppearValid);
+                this.lanSettings = value;
+                this.NotifyOfPropertyChange(() => this.LanSettings);
+                this.NotifyOfPropertyChange(() => this.LanName);
+                this.NotifyOfPropertyChange(() => this.LanIpAddress);
+                this.NotifyOfPropertyChange(() => this.LanMediaAccessKey);
+                this.NotifyOfPropertyChange(() => this.CanTestLANConnection);
+                this.NotifyOfPropertyChange(() => this.LanSettingsAppearValid);
+            }
+        }
+
+        public string LanName
+        {
+            get
+            {
+                if (this.LanSettings == null)
+                {
+                    return null;
+                }
+
+                return this.lanSettings.Name;
+            }
+        }
+
+        public string LanIpAddress
+        {
+            get
+            {
+                if (this.LanSettings == null)
+                {
+                    return null;
+                }
+
+                return this.lanSettings.LastIpAddress.ToString();
+            }
+        }
+
+        public string LanMediaAccessKey
+        {
+            get
+            {
+                if (this.LanSettings == null)
+                {
+                    return null;
+                }
+
+                return this.lanSettings.MediaAccessKey;
+            }
+
+            set
+            {
+                if (this.LanSettings == null)
+                {
+                    return;
+                }
+
+                if (this.LanSettings.MediaAccessKey == value)
+                {
+                    return;
+                }
+
+                this.LanSettings.MediaAccessKey = value;
+                this.NotifyOfPropertyChange(() => this.LanMediaAccessKey);
+                this.NotifyOfPropertyChange(() => this.CanTestLANConnection);
+                this.NotifyOfPropertyChange(() => this.LanSettingsAppearValid);
             }
         }
 
@@ -150,6 +234,7 @@ namespace TivoAhoy.Phone.ViewModels
         {
             this.isTestInProgress = true;
             NotifyOfPropertyChange(() => this.IsTestInProgress);
+            NotifyOfPropertyChange(() => this.CanSearchLAN);
             NotifyOfPropertyChange(() => this.CanTestLANConnection);
             NotifyOfPropertyChange(() => this.CanTestAwayConnection);
         }
@@ -158,22 +243,9 @@ namespace TivoAhoy.Phone.ViewModels
         {
             this.isTestInProgress = false;
             NotifyOfPropertyChange(() => this.IsTestInProgress);
+            NotifyOfPropertyChange(() => this.CanSearchLAN);
             NotifyOfPropertyChange(() => this.CanTestLANConnection);
             NotifyOfPropertyChange(() => this.CanTestAwayConnection);
-        }
-
-        public IPAddress ParsedIPAddress
-        {
-            get
-            {
-                IPAddress ipAddress;
-                if (IPAddress.TryParse(this.TivoIPAddress, out ipAddress))
-                {
-                    return ipAddress;
-                }
-
-                return IPAddress.None;
-            }
         }
 
         public bool CanTestAwayConnection
@@ -196,7 +268,12 @@ namespace TivoAhoy.Phone.ViewModels
         {
             get
             {
-                return ConnectionSettings.LanSettingsAppearValid(this.TivoIPAddress, this.MediaAccessKey);
+                if (this.LanSettings == null)
+                {
+                    return false;
+                }
+
+                return ConnectionSettings.LanSettingsAppearValid(this.LanSettings.LastIpAddress, this.LanSettings.MediaAccessKey);
             }
         }
 
@@ -204,7 +281,7 @@ namespace TivoAhoy.Phone.ViewModels
         {
             get
             {
-                return ConnectionSettings.LanSettingsAppearValid(this.TivoIPAddress, this.MediaAccessKey);
+                return ConnectionSettings.AwaySettingsAppearValid(this.Username, this.Password);
             }
         }
 
@@ -218,8 +295,8 @@ namespace TivoAhoy.Phone.ViewModels
             {
                 await connection.ConnectAway(this.Username, this.Password);
 
-                ConnectionSettings.Username = this.Username;
-                ConnectionSettings.Password = this.Password;
+                ConnectionSettings.AwayModeUsername = this.Username;
+                ConnectionSettings.AwayModePassword = this.Password;
                 this.eventAggregator.Publish(new ConnectionSettingsChanged());
 
                 MessageBox.Show("Connection Succeeded!");
@@ -239,19 +316,24 @@ namespace TivoAhoy.Phone.ViewModels
         {
             var connection = new TivoConnection();
 
-            if (this.ParsedIPAddress == IPAddress.None)
-            {
-                return;
-            }
-
             OnOperationStarted();
 
             try
             {
-                await connection.Connect(this.ParsedIPAddress, this.MediaAccessKey);
+                await connection.Connect(this.LanSettings.LastIpAddress, this.LanSettings.MediaAccessKey);
 
-                ConnectionSettings.TivoIPAddress = this.TivoIPAddress;
-                ConnectionSettings.MediaAccessKey = this.MediaAccessKey;
+                if (!this.LanSettings.TSN.Equals(connection.ConnectedTsn, StringComparison.Ordinal))
+                {
+                    this.LanSettings.TSN = connection.ConnectedTsn;
+                }
+
+                var knownTivosByTsn = ConnectionSettings.KnownTivos.ToDictionary(x => x.TSN);
+
+                knownTivosByTsn[connection.ConnectedTsn] = this.LanSettings;
+
+                ConnectionSettings.KnownTivos = knownTivosByTsn.Values.ToArray();
+                ConnectionSettings.SelectedTivoTsn = connection.ConnectedTsn;
+
                 this.eventAggregator.Publish(new ConnectionSettingsChanged());
 
                 MessageBox.Show("Connection Succeeded!");
@@ -267,9 +349,22 @@ namespace TivoAhoy.Phone.ViewModels
             }
         }
 
+        public bool CanSearchLAN
+        {
+            get
+            {
+                return
+                    !this.IsTestInProgress && 
+                    DeviceNetworkInformation.IsWiFiEnabled && 
+                    DeviceNetworkInformation.IsNetworkAvailable;
+            }
+        }
+
         public async void SearchLAN()
         {
             this.discoveredTivos.Clear();
+
+            OnOperationStarted();
 
             var dnsAnswers = await MDnsClient.CreateAndResolveAsync(dnsProtocol);
 
@@ -279,20 +374,27 @@ namespace TivoAhoy.Phone.ViewModels
                     .Select(HandleDnsAnswer)
                     .Where(x => x != null)
                     .ObserveOnDispatcher()
-                    .Subscribe(x => this.discoveredTivos.Add(x.Item1, x.Item2));
+                    .Subscribe(x => this.discoveredTivos.Add(x));
 
-                await TaskEx.Delay(TimeSpan.FromSeconds(5));
+                await TaskEx.Delay(TimeSpan.FromSeconds(3));
 
                 answersSubscription.Dispose();
 
-                if (this.discoveredTivos.Count > 0)
+                var selectedTivo = this.discoveredTivos
+                    .FirstOrDefault(x => x.TSN.Equals(ConnectionSettings.SelectedTivoTsn, StringComparison.Ordinal));
+
+                if (selectedTivo == null)
                 {
-                    this.TivoIPAddress = this.discoveredTivos.Values.First().ToString();
+                    selectedTivo = this.discoveredTivos.FirstOrDefault();
                 }
+
+                this.CurrentDiscoveredTivo = selectedTivo;
             }
+
+            OnOperationFinished();
         }
 
-        private Tuple<string, IPAddress> HandleDnsAnswer(Discovery.Message msg)
+        private DiscoveredTivo HandleDnsAnswer(Discovery.Message msg)
         {
             bool isTivoResponse = false;
 
@@ -315,10 +417,10 @@ namespace TivoAhoy.Phone.ViewModels
                 return null;
             }
 
-
             int? port = null;
             IPAddress tivoAddress = null;
             string tivoName = null;
+            string tivoTsn = null;
 
             foreach (var additional in msg.Additionals)
             {
@@ -329,6 +431,10 @@ namespace TivoAhoy.Phone.ViewModels
                     foreach (var property in txtData.Properties)
                     {
                         Debug.WriteLine("TXT entry: {0} = {1}", property.Key, property.Value);
+                        if (property.Key == "TSN")
+                        {
+                            tivoTsn = property.Value;
+                        }
                     }
                 }
 
@@ -350,7 +456,7 @@ namespace TivoAhoy.Phone.ViewModels
 
             Debug.WriteLine("TiVo found at {0}:{1}", msg.From.Address, port);
 
-            return Tuple.Create(tivoName, tivoAddress);
+            return new DiscoveredTivo(tivoName, tivoAddress, tivoTsn);
         }
     }
 }
