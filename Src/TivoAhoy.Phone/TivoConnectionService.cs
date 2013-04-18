@@ -1,12 +1,10 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
 using Caliburn.Micro;
+using Microsoft.Phone.Net.NetworkInformation;
 using Tivo.Connect;
 using TivoAhoy.Phone.Events;
-using TivoAhoy.Phone.ViewModels;
 
 namespace TivoAhoy.Phone
 {
@@ -14,17 +12,21 @@ namespace TivoAhoy.Phone
     {
         private readonly IEventAggregator eventAggregator;
 
-        private bool isAwayModeEnabled = false;
         private bool isConnectionEnabled = false;
 
         private AsyncLazy<TivoConnection> lazyConnection;
+
         private bool isConnected = false;
+        private bool isAwayMode = false;
+
         private string error;
 
         public TivoConnectionService(
             IEventAggregator eventAggregator)
         {
             this.eventAggregator = eventAggregator;
+
+            DeviceNetworkInformation.NetworkAvailabilityChanged += OnNetworkAvailabilityChanged;
         }
 
         public bool IsConnectionEnabled
@@ -47,6 +49,38 @@ namespace TivoAhoy.Phone
             }
         }
 
+        public string ConnectedNetworkName
+        {
+            get
+            {
+                using (var networks = new NetworkInterfaceList())
+                {
+                    foreach (var network in networks)
+                    {
+                        if (network.InterfaceState == ConnectState.Connected &&
+                            network.InterfaceSubtype == NetworkInterfaceSubType.WiFi)
+                        {
+                            return network.InterfaceName;
+                        }
+                    }
+                }
+
+                return null;
+            }
+        }
+
+        private void OnNetworkAvailabilityChanged(object sender, NetworkNotificationEventArgs e)
+        {
+            if (e.NetworkInterface.InterfaceSubtype == NetworkInterfaceSubType.WiFi)
+            {
+                if (e.NotificationType == NetworkNotificationType.InterfaceConnected ||
+                    e.NotificationType == NetworkNotificationType.InterfaceDisconnected)
+                {
+                    NotifyOfPropertyChange(() => this.ConnectedNetworkName);
+                }
+            }
+        }
+
         private void ResetConnection()
         {
             this.isConnected = false;
@@ -61,18 +95,7 @@ namespace TivoAhoy.Phone
         {
             if (this.SettingsAppearValid)
             {
-                this.lazyConnection = new AsyncLazy<TivoConnection>(async() => 
-                    {
-                        var conn = await this.ConnectAsync();
-                        if (conn == null &&
-                            !this.IsAwayModeEnabled)
-                        {
-                            this.IsAwayModeEnabled = true;
-                            conn = await this.ConnectAsync();
-                        }
-
-                        return conn;
-                    });
+                this.lazyConnection = new AsyncLazy<TivoConnection>(async () => await this.ConnectAsync(false));
 
                 await TaskEx.Delay(TimeSpan.FromSeconds(2));
 
@@ -104,6 +127,11 @@ namespace TivoAhoy.Phone
                     return false;
                 }
 
+                if (lanSettings.NetworkName != this.ConnectedNetworkName)
+                {
+                    return false;
+                }
+
                 return ConnectionSettings.LanSettingsAppearValid(lanSettings.LastIpAddress, lanSettings.MediaAccessKey);
             }
         }
@@ -116,25 +144,25 @@ namespace TivoAhoy.Phone
             }
         }
 
-        public bool IsAwayModeEnabled
+        public bool IsAwayMode
         {
             get
             {
-                return this.isAwayModeEnabled;
+                return this.isAwayMode;
             }
 
             set
             {
-                if (this.isAwayModeEnabled == value)
+                if (this.isAwayMode == value)
                 {
                     return;
                 }
 
-                this.isAwayModeEnabled = value;
+                this.isAwayMode = value;
 
                 ResetConnection();
 
-                this.NotifyOfPropertyChange(() => this.IsAwayModeEnabled);
+                this.NotifyOfPropertyChange(() => this.IsAwayMode);
             }
         }
 
@@ -162,7 +190,7 @@ namespace TivoAhoy.Phone
             return this.lazyConnection.Value;
         }
 
-        private async Task<TivoConnection> ConnectAsync()
+        private async Task<TivoConnection> ConnectAsync(bool forceAwayMode)
         {
             if (!this.SettingsAppearValid ||
                 !this.IsConnectionEnabled)
@@ -172,43 +200,60 @@ namespace TivoAhoy.Phone
 
             this.eventAggregator.Publish(new TivoOperationStarted());
 
+            this.isConnected = false;
+            this.isAwayMode = false;
+
             var localConnection = new TivoConnection();
             try
             {
-                if (this.IsAwayModeEnabled)
-                {
-                    await localConnection.ConnectAway(ConnectionSettings.AwayModeUsername, ConnectionSettings.AwayModePassword);
-                }
-                else
+                if (!forceAwayMode)
                 {
                     var lanSettings = ConnectionSettings.KnownTivos
                         .FirstOrDefault(x => x.TSN.Equals(ConnectionSettings.SelectedTivoTsn, StringComparison.Ordinal));
 
-                    if (lanSettings != null)
+                    if (lanSettings != null &&
+                        ConnectionSettings.LanSettingsAppearValid(lanSettings.LastIpAddress, lanSettings.MediaAccessKey) &&
+                        lanSettings.NetworkName == this.ConnectedNetworkName)
                     {
-                        await localConnection.Connect(lanSettings.LastIpAddress, lanSettings.MediaAccessKey);
-                    }
-                    else
-                    {
-                        return null;
+                        try
+                        {
+                            await localConnection.Connect(lanSettings.LastIpAddress, lanSettings.MediaAccessKey);
+
+                            this.isConnected = true;
+                            this.isAwayMode = false;
+                        }
+                        catch (Exception ex)
+                        {
+                            this.Error = ex.Message;
+                        }
                     }
                 }
 
-                this.isConnected = true;
+                if (!this.isConnected)
+                {
+                    try
+                    {
+                        await localConnection.ConnectAway(ConnectionSettings.AwayModeUsername, ConnectionSettings.AwayModePassword);
+
+                        this.isConnected = true;
+                        this.isAwayMode = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        this.Error = ex.Message;
+                    }
+                }
+
                 NotifyOfPropertyChange(() => IsConnected);
+                NotifyOfPropertyChange(() => IsAwayMode);
+
+                if (!this.isConnected)
+                {
+                    localConnection.Dispose();
+                    localConnection = null;
+                }
 
                 return localConnection;
-            }
-            catch (Exception ex)
-            {
-                localConnection.Dispose();
-
-                this.isConnected = false;
-                this.Error = ex.Message;
-
-                NotifyOfPropertyChange(() => IsConnected);
-
-                return null;
             }
             finally
             {

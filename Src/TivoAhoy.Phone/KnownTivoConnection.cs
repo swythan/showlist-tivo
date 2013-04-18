@@ -18,6 +18,9 @@ namespace TivoAhoy.Phone
         [DataMember]
         public string IpAddress { get; set; }
 
+        [DataMember]
+        public string NetworkName { get; set; }
+
         public IPAddress LastIpAddress
         {
             get

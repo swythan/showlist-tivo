@@ -21,6 +21,7 @@ namespace TivoAhoy.Phone.ViewModels
         private const string dnsProtocol = "_tivo-mindrpc._tcp.";
 
         private readonly IEventAggregator eventAggregator;
+        private readonly ITivoConnectionService connectionService;
 
         private KnownTivoConnection lanSettings;
 
@@ -32,21 +33,25 @@ namespace TivoAhoy.Phone.ViewModels
         private ObservableCollection<DiscoveredTivo> discoveredTivos = new ObservableCollection<DiscoveredTivo>();
         private DiscoveredTivo currentDiscoveredTivo;
 
-        public SettingsPageViewModel(IEventAggregator eventAggregator)
+        public SettingsPageViewModel(IEventAggregator eventAggregator, ITivoConnectionService connectionService)
         {
             this.eventAggregator = eventAggregator;
+            this.connectionService = connectionService;
+
+            this.connectionService.PropertyChanged += OnConnectionServicePropertyChanged;
         }
 
-        private void OnNetworkAvailabilityChanged(object sender, NetworkNotificationEventArgs e)
+        private void OnConnectionServicePropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            NotifyOfPropertyChange(() => this.CanSearchLAN);
+            if (e.PropertyName == "ConnectedNetworkName")
+            {
+                NotifyOfPropertyChange(() => this.CanSearchLAN);
+            }
         }
 
         protected override void OnActivate()
         {
             base.OnActivate();
-
-            DeviceNetworkInformation.NetworkAvailabilityChanged += this.OnNetworkAvailabilityChanged;
 
             Observable.Timer(TimeSpan.FromSeconds(0.5))
                 .ObserveOnDispatcher()
@@ -72,8 +77,6 @@ namespace TivoAhoy.Phone.ViewModels
                 //ConnectionSettings.AwayModePassword = this.Password;
                 this.eventAggregator.Publish(new ConnectionSettingsChanged());
             }
-
-            DeviceNetworkInformation.NetworkAvailabilityChanged -= this.OnNetworkAvailabilityChanged;
 
             base.OnDeactivate(close);
         }
@@ -108,6 +111,7 @@ namespace TivoAhoy.Phone.ViewModels
                     }
 
                     settings.LastIpAddress = this.currentDiscoveredTivo.IpAddress;
+                    settings.NetworkName = this.connectionService.ConnectedNetworkName;
 
                     this.LanSettings = settings;
                 }
@@ -353,15 +357,18 @@ namespace TivoAhoy.Phone.ViewModels
         {
             get
             {
-                return
-                    !this.IsTestInProgress && 
-                    DeviceNetworkInformation.IsWiFiEnabled && 
-                    DeviceNetworkInformation.IsNetworkAvailable;
+                if (this.IsTestInProgress)
+                    return false;
+
+                return this.connectionService.ConnectedNetworkName != null;
             }
         }
 
         public async void SearchLAN()
         {
+            if (!this.CanSearchLAN)
+                return;
+
             this.discoveredTivos.Clear();
 
             OnOperationStarted();

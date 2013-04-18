@@ -312,7 +312,7 @@ namespace TivoAhoy.Phone.ViewModels
             {
                 return
                     this.ShowRecordingID != null &&
-                    !this.connectionService.IsAwayModeEnabled &&
+                    !this.connectionService.IsAwayMode &&
                     !this.IsOperationInProgress;
             }
         }
