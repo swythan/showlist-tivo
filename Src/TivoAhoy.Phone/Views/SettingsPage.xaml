@@ -99,7 +99,7 @@
                         use to log on to the Virgin Media website.
                     </TextBlock>
                     <Button
-                        Content="Test Connection"
+                        Content="Save"
                         Grid.Row="6"
                         HorizontalAlignment="Stretch"
                         x:Name="TestAwayConnection"
@@ -194,7 +194,7 @@
                         (e.g. both connected to your SuperHub). 
                     </TextBlock>
                     <Button
-                        Content="Test Connection"
+                        Content="Save"
                         Grid.Row="7"
                         HorizontalAlignment="Stretch"
                         x:Name="TestLANConnection"
