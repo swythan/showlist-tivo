@@ -18,6 +18,9 @@ namespace TivoAhoy.Phone.ViewModels
         private readonly ITivoConnectionService connectionService;
         private readonly Func<OfferViewModel> offerViewModelFactory;
 
+        private List<Channel> channels;
+        private DateTime startTime;
+
         private IList shows;
 
         public ChannelListViewModel(
@@ -30,7 +33,8 @@ namespace TivoAhoy.Phone.ViewModels
             this.navigationService = navigationService;
             this.connectionService = connectionService;
             this.offerViewModelFactory = offerViewModelFactory;
-
+            this.StartTime = DateTime.Now;
+            
             connectionService.PropertyChanged += OnConnectionServicePropertyChanged;
         }
 
@@ -66,7 +70,9 @@ namespace TivoAhoy.Phone.ViewModels
                     },
                     new Offer()
                     {
-                        Title = "Antiques Roadshow"
+                        Title = "Antiques Roadshow",
+                        StartTime = DateTime.Parse("17:00"),
+                        DurationSeconds = 1800
                     }),      
                 OfferViewModel.CreateDesignTime(
                     new Channel()
@@ -77,7 +83,9 @@ namespace TivoAhoy.Phone.ViewModels
                     },
                     new Offer()
                     {
-                        Title = "Charlie Brooker's Weekly Wipe"
+                        Title = "Charlie Brooker's Weekly Wipe",
+                        StartTime = DateTime.Parse("17:15"),
+                        DurationSeconds = 3600
                     }), 
             };
         }
@@ -103,6 +111,52 @@ namespace TivoAhoy.Phone.ViewModels
         private void OnOperationFinished()
         {
             this.eventAggregator.Publish(new TivoOperationFinished());
+        }
+
+        public List<DateTime> Dates
+        {
+            get
+            {
+                var today = DateTime.Now.Date;
+
+                return Enumerable.Range(-14, 28)
+                    .Select(x => (today + TimeSpan.FromDays(x)).Date)
+                    .ToList();
+            }
+        }
+
+        public DateTime SelectedDate
+        {
+            get
+            {
+                return this.startTime.Date;
+            }
+
+            set
+            {
+                this.StartTime = value.Date + this.StartTime.TimeOfDay;
+            }
+        }
+
+        public DateTime StartTime
+        {
+            get { return this.startTime; }
+            set
+            {
+                if (this.startTime == value)
+                {
+                    return;
+                }
+
+                this.startTime = DateTime.SpecifyKind(value, DateTimeKind.Local);
+                if (this.startTime.Second == 0)
+                {
+                    this.startTime = this.startTime + TimeSpan.FromSeconds(1);
+                }
+
+                this.NotifyOfPropertyChange(() => this.StartTime);
+                this.NotifyOfPropertyChange(() => this.SelectedDate);
+            }
         }
 
         public IList Shows
@@ -147,11 +201,13 @@ namespace TivoAhoy.Phone.ViewModels
             {
                 var connection = await this.connectionService.GetConnectionAsync();
 
-                var channels = await connection.GetChannelsAsync();
-                var time = DateTime.Now;
+                if (this.channels == null)
+                {
+                    this.channels = await connection.GetChannelsAsync();
+                }
 
-                this.Shows = channels
-                    .Select(x => CreateOfferViewModel(x, time))
+                this.Shows = this.channels
+                    .Select(x => CreateOfferViewModel(x, this.StartTime))
                     .ToList();
             }
             catch (Exception ex)

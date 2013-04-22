@@ -71,14 +71,23 @@ namespace Tivo.Connect.Entities
 
                 return this.EpisodeNumbers[0];
             }
-        }   
-                
+        }
+
         [JsonIgnore]
         public TimeSpan Duration
         {
             get
             {
                 return TimeSpan.FromSeconds(this.DurationSeconds);
+            }
+        }
+
+        [JsonIgnore]
+        public DateTime EndTime
+        {
+            get
+            {
+                return this.StartTime + this.Duration;
             }
         }
     }

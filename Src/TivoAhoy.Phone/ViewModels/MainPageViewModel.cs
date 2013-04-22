@@ -26,7 +26,7 @@
 
             eventAggregator.Subscribe(this);
 
-            channelListViewModel.DisplayName = "now";
+            channelListViewModel.DisplayName = "guide";
             channelListViewModel.PropertyChanged += OnViewModelPropertyChanged;
             this.Items.Add(channelListViewModel);
 

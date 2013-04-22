@@ -18,8 +18,6 @@ namespace TivoAhoy.Phone
             container = new PhoneContainer(RootFrame);
 
             container.RegisterPhoneServices();
-            
-            ConventionManager.AddElementConvention<PerformanceProgressBar>(PerformanceProgressBar.IsIndeterminateProperty, "IsIndeterminate", "Loaded");
 
             container.Singleton<ITivoConnectionService, TivoConnectionService>();
             container.Singleton<IScheduledRecordingsService, ScheduledRecordingsService>();
@@ -36,6 +34,8 @@ namespace TivoAhoy.Phone
             container.PerRequest<RecordingViewModel>();
             container.PerRequest<ShowContainerViewModel>();
             container.PerRequest<LazyRecordingFolderItemViewModel>();
+
+            AddCustomConventions();
         }
 
         protected override object GetInstance(Type service, string key)
@@ -83,8 +83,65 @@ namespace TivoAhoy.Phone
         protected override void OnDeactivate(object sender, Microsoft.Phone.Shell.DeactivatedEventArgs e)
         {
             base.OnDeactivate(sender, e);
-            
+
             EnableConnections(false);
+        }
+
+        static void AddCustomConventions()
+        {
+            ConventionManager.AddElementConvention<PerformanceProgressBar>(PerformanceProgressBar.IsIndeterminateProperty, "IsIndeterminate", "Loaded");
+
+            ConventionManager.AddElementConvention<Pivot>(Pivot.ItemsSourceProperty, "SelectedItem", "SelectionChanged").ApplyBinding =
+                (viewModelType, path, property, element, convention) =>
+                {
+                    if (ConventionManager
+                        .GetElementConvention(typeof(ItemsControl))
+                        .ApplyBinding(viewModelType, path, property, element, convention))
+                    {
+                        ConventionManager
+                            .ConfigureSelectedItem(element, Pivot.SelectedItemProperty, viewModelType, path);
+                        ConventionManager
+                            .ApplyHeaderTemplate(element, Pivot.HeaderTemplateProperty, null, viewModelType);
+                        return true;
+                    }
+
+                    return false;
+                };
+
+            ConventionManager.AddElementConvention<Panorama>(Panorama.ItemsSourceProperty, "SelectedItem", "SelectionChanged").ApplyBinding =
+                (viewModelType, path, property, element, convention) =>
+                {
+                    if (ConventionManager
+                        .GetElementConvention(typeof(ItemsControl))
+                        .ApplyBinding(viewModelType, path, property, element, convention))
+                    {
+                        ConventionManager
+                            .ConfigureSelectedItem(element, Panorama.SelectedItemProperty, viewModelType, path);
+                        ConventionManager
+                            .ApplyHeaderTemplate(element, Panorama.HeaderTemplateProperty, null, viewModelType);
+                        return true;
+                    }
+
+                    return false;
+                };
+
+            ConventionManager.AddElementConvention<ListPicker>(ListPicker.ItemsSourceProperty, "SelectedItem", "SelectionChanged").ApplyBinding =
+                (viewModelType, path, property, element, convention) =>
+                {
+                    if (ConventionManager
+                        .GetElementConvention(typeof(ItemsControl))
+                        .ApplyBinding(viewModelType, path, property, element, convention))
+                    {
+                        ConventionManager
+                            .ConfigureSelectedItem(element, ListPicker.SelectedItemProperty, viewModelType, path);
+                        ConventionManager
+                            .ApplyHeaderTemplate(element, ListPicker.HeaderTemplateProperty, null, viewModelType);
+                        return true;
+                    }
+
+                    return false;
+                };
+
         }
     }
 }
