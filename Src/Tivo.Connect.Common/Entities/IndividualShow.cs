@@ -14,5 +14,7 @@ namespace Tivo.Connect.Entities
 
         public string ContentId { get; set; }
         public DateTime StartTime { get; set; }
+
+        public Recording RecordingForChildRecordingId { get; set; }
     }
 }

@@ -33,6 +33,7 @@ namespace TivoAhoy.Phone.ViewModels
 
                 NotifyOfPropertyChange(() => this.Source);
                 NotifyOfPropertyChange(() => this.Title);
+                NotifyOfPropertyChange(() => this.IsSuggestion);
             }
         }
 
@@ -56,11 +57,20 @@ namespace TivoAhoy.Phone.ViewModels
                 {
                     return sourceShow.Id;
                 }
-                
+
                 return "<unknown>";
             }
         }
 
         public abstract bool IsSingleShow { get; }
+
+        public virtual bool IsSuggestion
+        {
+            get
+            {
+                return false;
+            }
+        }
+
     }
 }

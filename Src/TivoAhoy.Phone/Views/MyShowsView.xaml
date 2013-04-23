@@ -14,6 +14,10 @@
     <UserControl.Resources>
         <converters:BooleanToVisibilityConverter
             x:Key="boolToVisConverter" />
+        
+        <converters:BooleanToVisibilityConverter
+            x:Key="negBoolToVisConverter"
+            IsReversed="True"/>
 
         <Style
             x:Key="CustomExpanderViewStyle"
@@ -367,8 +371,13 @@
                                     cal:Message.Attach="[Event Tap] = [Action DisplayShowDetails]">
                                     <StackPanel>
                                         <TextBlock
+                                            Text="{Binding Title}"
+                                            Style="{StaticResource PhoneTextGroupHeaderStyle}"
+                                            Visibility="{Binding IsSuggestion, Converter={StaticResource boolToVisConverter}}" />
+                                        <TextBlock
                                             Text="{Binding Title, FallbackValue=Loading...}"
-                                            Style="{StaticResource PhoneTextLargeStyle}" />
+                                            Style="{StaticResource PhoneTextLargeStyle}"
+                                            Visibility="{Binding IsSuggestion, Converter={StaticResource negBoolToVisConverter}}" />
                                         <TextBlock
                                             Text="{Binding Source.StartTime, StringFormat=g, ConverterCulture={StaticResource DefaultCulture}}"
                                             Style="{StaticResource PhoneTextSubtleStyle}" />
@@ -387,8 +396,13 @@
                                     toolkit:TiltEffect.IsTiltEnabled="True"
                                     cal:Message.Attach="[Event Tap] = [Action DisplayShowDetails]">
                                     <TextBlock
+                                        Text="{Binding Title}"
+                                        Style="{StaticResource PhoneTextGroupHeaderStyle}"
+                                        Visibility="{Binding IsSuggestion, Converter={StaticResource boolToVisConverter}}" />
+                                    <TextBlock
                                         Text="{Binding Title, FallbackValue=Loading...}"
-                                        Style="{StaticResource PhoneTextLargeStyle}" />
+                                        Style="{StaticResource PhoneTextLargeStyle}"
+                                        Visibility="{Binding IsSuggestion, Converter={StaticResource negBoolToVisConverter}}" />
                                     <TextBlock
                                         Text="{Binding Source.StartTime, StringFormat=g, ConverterCulture={StaticResource DefaultCulture}}"
                                         Style="{StaticResource PhoneTextSubtleStyle}" />

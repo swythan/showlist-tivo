@@ -725,6 +725,44 @@ namespace Tivo.Connect
                                     "recordingFolderItemId", 
                                     "folderItemCount",
                                     "folderType", 
+                                    "recordingForChildRecordingId"
+                                } 
+                            }
+                        },                      
+                        new Dictionary<string, object>
+                        {
+                            { "type", "responseTemplate" },
+                            { "typeName", "recording" },
+                            { "fieldName", 
+                                new string[] 
+                                { 
+                                    "recordingId", 
+                                    "state", 
+                                    "offerId", 
+                                    "contentId", 
+                                    "channel",
+                                    "deletionPolicy", 
+                                    "suggestionScore", 
+                                    "subscriptionIdentifier", 
+                                    //"isEpisode",
+                                    "scheduledStartTime",
+                                    "scheduledEndTime",
+                                    //"hdtv",
+                                    //"episodic",
+                                    "title",
+                                    //"originalAirdate",
+                                } 
+                            }
+                        },
+                        new Dictionary<string, object>
+                        {
+                            { "type", "responseTemplate" },
+                            { "typeName", "subscriptionIdentifier" },
+                            { "fieldName", 
+                                new string[] 
+                                { 
+                                    "subscriptionId", 
+                                    "subscriptionType",
                                 } 
                             }
                         }

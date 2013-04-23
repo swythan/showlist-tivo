@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Net;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,6 +27,30 @@ namespace TivoAhoy.Phone.ViewModels
         public override bool IsSingleShow
         {
             get { return true; }
+        }
+
+        public override bool IsSuggestion
+        {
+            get
+            {
+                IndividualShow source = this.Source;
+                if (source == null)
+                    return false;
+
+                Recording recording = source.RecordingForChildRecordingId;
+                if (recording == null)
+                    return false;
+
+                var subscriptions = recording.SubscriptionIdentifier;
+                
+                if (subscriptions == null)
+                    return false;
+
+                if (subscriptions.Any(x => x.SubscriptionType != "suggestions"))
+                    return false;
+
+                return true;
+            }
         }
 
         public void DisplayShowDetails()
