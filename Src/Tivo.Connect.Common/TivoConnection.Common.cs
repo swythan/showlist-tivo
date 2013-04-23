@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
+using System.ServiceModel;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -118,7 +119,7 @@ namespace Tivo.Connect
 
             if (((string)authResponse["status"]) != "success")
             {
-                throw new Exception((string)authResponse["message"]);
+                throw new UnauthorizedAccessException((string)authResponse["message"]);
             }
 
             Debug.WriteLine("Authentication successful");
@@ -130,7 +131,7 @@ namespace Tivo.Connect
 
             if (((string)statusResponse["optStatus"]) != "optIn")
             {
-                throw new Exception("Network control not enabled");
+                throw new ActionNotSupportedException("Network control not enabled");
             }
 
             var bodyConfigResponse = await SendBodyConfigSearchRequest().ConfigureAwait(false);
@@ -139,19 +140,19 @@ namespace Tivo.Connect
 
             if (bodyConfigResponse["bodyConfig"] == null)
             {
-                throw new Exception("No bodyConfig element in bodyConfigList");
+                throw new FormatException("No bodyConfig element in bodyConfigList");
             }
 
             var bodyConfigs = (JArray)bodyConfigResponse["bodyConfig"];
             if (bodyConfigs.Count < 1)
             {
-                throw new Exception("No bodyConfigs returned in bodyConfigList");
+                throw new FormatException("No bodyConfigs returned in bodyConfigList");
             }
 
             var bodyConfig = bodyConfigs[0];
             if (bodyConfig["bodyId"] == null)
             {
-                throw new Exception("No TSN returned in bodyConfig");
+                throw new FormatException("No TSN returned in bodyConfig");
             }
 
             this.capturedTsn = (string)bodyConfig["bodyId"];
@@ -187,7 +188,7 @@ namespace Tivo.Connect
 
             if (((string)authResponse["status"]) != "success")
             {
-                throw new Exception((string)authResponse["message"]);
+                throw new UnauthorizedAccessException((string)authResponse["message"]);
             }
 
             Debug.WriteLine("Authentication successful");
@@ -199,7 +200,7 @@ namespace Tivo.Connect
                 if (deviceIds == null ||
                     deviceIds.Count < 1)
                 {
-                    throw new Exception("No TiVo devices associated with account");
+                    throw new InvalidOperationException("No TiVo devices associated with account");
                 }
 
                 // TODO : Select which TiVO
@@ -608,11 +609,7 @@ namespace Tivo.Connect
                 throw new FormatException(string.Format("Expecting {0}, but got {1}", expectedType, responseType));
             }
 
-            throw new Exception(
-                string.Format("{0} returned an error.\n Error code: {1}\nError text:{2}",
-                    operationName,
-                    response["code"],
-                    response["text"]));
+            throw new TivoException((string)response["text"], (string)response["code"], operationName);
         }
 
         private Task<JObject> SendMakAuthenticationRequest(string mediaAccessKey)

@@ -67,6 +67,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Rx-Xaml.2.1.30204.0\lib\Net45\System.Reactive.Windows.Threading.dll</HintPath>
     </Reference>
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -114,6 +115,9 @@
     </Compile>
     <Compile Include="..\Tivo.Connect.Common\TivoConnection.Common.cs">
       <Link>TivoConnection.Common.cs</Link>
+    </Compile>
+    <Compile Include="..\Tivo.Connect.Common\TivoException.cs">
+      <Link>TivoException.cs</Link>
     </Compile>
     <Compile Include="..\Tivo.Connect.Common\TivoTlsClient.cs">
       <Link>TivoTlsClient.cs</Link>

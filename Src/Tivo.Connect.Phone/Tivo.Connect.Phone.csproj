@@ -90,6 +90,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.Bcl.1.0.19\lib\sl4-windowsphone71\System.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="System.Servicemodel" />
     <Reference Include="System.Threading.Tasks, Version=1.5.11.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.Bcl.1.0.19\lib\sl4-windowsphone71\System.Threading.Tasks.dll</HintPath>
@@ -140,6 +141,9 @@
     </Compile>
     <Compile Include="..\Tivo.Connect.Common\TivoConnection.Common.cs">
       <Link>TivoConnection.Common.cs</Link>
+    </Compile>
+    <Compile Include="..\Tivo.Connect.Common\TivoException.cs">
+      <Link>TivoException.cs</Link>
     </Compile>
     <Compile Include="..\Tivo.Connect.Common\TivoTlsClient.cs">
       <Link>TivoTlsClient.cs</Link>

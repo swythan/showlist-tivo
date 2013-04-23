@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Reactive.Linq;
+using System.ServiceModel;
 using System.Threading.Tasks;
 using System.Windows;
 using Caliburn.Micro;
@@ -305,6 +306,21 @@ namespace TivoAhoy.Phone.ViewModels
 
                 MessageBox.Show("Connection Succeeded!");
             }
+            catch (UnauthorizedAccessException ex)
+            {
+                MessageBox.Show("Invalid username or password");
+            }
+            catch (TivoException ex)
+            {
+                if (ex.Code == "authenticationFailed")
+                {
+                    MessageBox.Show("Invalid username or password");
+                }
+                else
+                {
+                    MessageBox.Show(string.Format("Connection Failed :\n{0}", ex.Message));
+                }
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(string.Format("Connection Failed :\n{0}", ex.Message));
@@ -342,9 +358,28 @@ namespace TivoAhoy.Phone.ViewModels
 
                 MessageBox.Show("Connection Succeeded!");
             }
+            catch (ActionNotSupportedException)
+            {
+                MessageBox.Show("Network remote control not enabled on TiVo");
+            }
+
+            catch (UnauthorizedAccessException)
+            {
+                MessageBox.Show("Incorrect Media Access Key");
+            }
+            catch (TivoException ex)
+            {
+                if (ex.Code == "authenticationFailed")
+                {
+                    MessageBox.Show("Incorrect Media Access Key");
+                }
+                else
+                {
+                    MessageBox.Show(string.Format("Connection Failed :\n{0}", ex.Message));
+                }
+            }
             catch (Exception ex)
             {
-                MessageBox.Show(string.Format("Connection Failed :\n{0}", ex.Message));
             }
             finally
             {
