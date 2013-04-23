@@ -11,6 +11,7 @@ namespace TivoAhoy.Phone
     public class TivoConnectionService : PropertyChangedBase, ITivoConnectionService, IHandle<ConnectionSettingsChanged>
     {
         private readonly IEventAggregator eventAggregator;
+        private readonly IProgressService progressService;
 
         private bool isConnectionEnabled = false;
 
@@ -22,9 +23,13 @@ namespace TivoAhoy.Phone
         private string error;
 
         public TivoConnectionService(
-            IEventAggregator eventAggregator)
+            IEventAggregator eventAggregator,
+            IProgressService progressService)
         {
             this.eventAggregator = eventAggregator;
+            this.progressService = progressService;
+
+            this.eventAggregator.Subscribe(this);
 
             DeviceNetworkInformation.NetworkAvailabilityChanged += OnNetworkAvailabilityChanged;
         }
@@ -198,14 +203,13 @@ namespace TivoAhoy.Phone
                 return null;
             }
 
-            this.eventAggregator.Publish(new TivoOperationStarted());
-
-            this.isConnected = false;
-            this.isAwayMode = false;
-
-            var localConnection = new TivoConnection();
-            try
+            using (this.progressService.Show())
             {
+                this.isConnected = false;
+                this.isAwayMode = false;
+
+                var localConnection = new TivoConnection();
+
                 if (!forceAwayMode)
                 {
                     var lanSettings = ConnectionSettings.KnownTivos
@@ -254,10 +258,6 @@ namespace TivoAhoy.Phone
                 }
 
                 return localConnection;
-            }
-            finally
-            {
-                this.eventAggregator.Publish(new TivoOperationFinished());
             }
         }
     }

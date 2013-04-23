@@ -14,7 +14,7 @@ namespace TivoAhoy.Phone.ViewModels
 {
     public class MyShowsViewModel : Screen
     {
-        private readonly IEventAggregator eventAggregator;
+        private readonly IProgressService progressService;
         private readonly ITivoConnectionService connectionService;
 
         private readonly Func<LazyRecordingFolderItemViewModel> showModelFactory;
@@ -22,12 +22,12 @@ namespace TivoAhoy.Phone.ViewModels
         private IEnumerable<LazyRecordingFolderItemViewModel> myShows;
 
         public MyShowsViewModel(
-            IEventAggregator eventAggregator,
+            IProgressService progressService,
             ITivoConnectionService connectionService,
             Func<LazyRecordingFolderItemViewModel> showModelFactory)
         {
             this.connectionService = connectionService;
-            this.eventAggregator = eventAggregator;
+            this.progressService = progressService;
 
             this.showModelFactory = showModelFactory;
 
@@ -58,16 +58,6 @@ namespace TivoAhoy.Phone.ViewModels
             {
                 this.RefreshShows();
             }
-        }
-
-        private void OnOperationStarted()
-        {
-            this.eventAggregator.Publish(new TivoOperationStarted());
-        }
-
-        private void OnOperationFinished()
-        {
-            this.eventAggregator.Publish(new TivoOperationFinished());
         }
 
         public IEnumerable<LazyRecordingFolderItemViewModel> MyShows 
@@ -110,24 +100,21 @@ namespace TivoAhoy.Phone.ViewModels
 
         private async void FetchShows(Container parent)
         {
-            OnOperationStarted();
-
             try
             {
                 var connection = await this.connectionService.GetConnectionAsync();
 
-                var ids = await connection.GetRecordingFolderItemIds(parent != null ? parent.Id : null);
-                this.MyShows = ids
-                    .Select(CreateShowViewModel)
-                    .ToList();
+                using (this.progressService.Show())
+                {
+                    var ids = await connection.GetRecordingFolderItemIds(parent != null ? parent.Id : null);
+                    this.MyShows = ids
+                        .Select(CreateShowViewModel)
+                        .ToList();
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(string.Format("Connection Failed :\n{0}", ex.Message));
-            }
-            finally
-            {
-                OnOperationFinished();
             }
         }
 

@@ -10,7 +10,7 @@ namespace TivoAhoy.Phone.ViewModels
 {
     public class RecordingViewModel : PropertyChangedBase
     {
-        private readonly IEventAggregator eventAggregator;
+        private readonly IProgressService progressService;
         private readonly ITivoConnectionService connectionService;
 
         string recordingId;
@@ -20,10 +20,10 @@ namespace TivoAhoy.Phone.ViewModels
 
         public RecordingViewModel(
             ITivoConnectionService connectionService,
-            IEventAggregator eventAggregator)
+            IProgressService progressService)
         {
             this.connectionService = connectionService;
-            this.eventAggregator = eventAggregator;
+            this.progressService = progressService;
         }
 
         public void Initialise(string recordingId)
@@ -76,7 +76,7 @@ namespace TivoAhoy.Phone.ViewModels
                 this.NotifyOfPropertyChange(() => this.IsInProgress);
             }
         }
-        
+
         public bool IsInProgress
         {
             get
@@ -90,33 +90,20 @@ namespace TivoAhoy.Phone.ViewModels
             }
         }
 
-        private void OnOperationStarted()
-        {
-            this.eventAggregator.Publish(new TivoOperationStarted());
-        }
-
-        private void OnOperationFinished()
-        {
-            this.eventAggregator.Publish(new TivoOperationFinished());
-        }
-
         private async Task UpdateRecordingAsync()
         {
-            this.OnOperationStarted();
-
             try
             {
                 var connection = await this.connectionService.GetConnectionAsync();
 
-                this.Recording = await connection.GetRecordingDetails(this.recordingId);
+                using (this.progressService.Show())
+                {
+                    this.Recording = await connection.GetRecordingDetails(this.recordingId);
+                }
             }
             catch (Exception ex)
             {
                 Debug.WriteLine("Error fetching recording details for recording {0} : {1}", this.recordingId, ex);
-            }
-            finally
-            {
-                this.OnOperationFinished();
             }
         }
     }

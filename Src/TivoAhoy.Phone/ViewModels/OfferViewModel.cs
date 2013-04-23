@@ -10,7 +10,7 @@ namespace TivoAhoy.Phone.ViewModels
 {
     public class OfferViewModel : PropertyChangedBase
     {
-        private readonly IEventAggregator eventAggregator;
+        private readonly IProgressService progressService;
         private readonly ITivoConnectionService connectionService;
         private readonly IScheduledRecordingsService scheduledRecordingsService;
 
@@ -22,11 +22,11 @@ namespace TivoAhoy.Phone.ViewModels
 
         public OfferViewModel(
             ITivoConnectionService connectionService,
-            IEventAggregator eventAggregator,
+            IProgressService progressService,
             IScheduledRecordingsService scheduledRecordingsService)
         {
             this.connectionService = connectionService;
-            this.eventAggregator = eventAggregator;
+            this.progressService = progressService;
             this.scheduledRecordingsService = scheduledRecordingsService;
 
             if (this.scheduledRecordingsService != null)
@@ -110,43 +110,30 @@ namespace TivoAhoy.Phone.ViewModels
             }
         }
 
-        private void OnOperationStarted()
-        {
-            this.eventAggregator.Publish(new TivoOperationStarted());
-        }
-
-        private void OnOperationFinished()
-        {
-            this.eventAggregator.Publish(new TivoOperationFinished());
-        }
-
         private async Task UpdateOfferAsync()
         {
-            this.OnOperationStarted();
-
             try
             {
                 var connection = await this.connectionService.GetConnectionAsync();
 
-                var rows = await connection.GetGridShowsAsync(
-                    this.time,
-                    this.time,
-                    this.Channel.ChannelNumber,
-                    1,
-                    0);
-
-                if (rows.Count > 0)
+                using (this.progressService.Show())
                 {
-                    this.Offer = rows[0].Offers.FirstOrDefault();
+                    var rows = await connection.GetGridShowsAsync(
+                        this.time,
+                        this.time,
+                        this.Channel.ChannelNumber,
+                        1,
+                        0);
+
+                    if (rows.Count > 0)
+                    {
+                        this.Offer = rows[0].Offers.FirstOrDefault();
+                    }
                 }
             }
             catch (Exception ex)
             {
                 Debug.WriteLine("Error fetching now showing for channel {0} : {1}", this.Channel.ChannelNumber, ex);
-            }
-            finally
-            {
-                this.OnOperationFinished();
             }
         }
     }

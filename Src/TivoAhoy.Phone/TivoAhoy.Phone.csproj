@@ -147,11 +147,11 @@
     <Compile Include="Discovery\Question.cs" />
     <Compile Include="Discovery\ResponseData.cs" />
     <Compile Include="Events\ConnectionSettingsChanged.cs" />
-    <Compile Include="Events\TivoOperationFinished.cs" />
-    <Compile Include="Events\TivoOperationStarted.cs" />
+    <Compile Include="IProgressService.cs" />
     <Compile Include="IScheduledRecordingsService.cs" />
     <Compile Include="ITivoConnectionService.cs" />
     <Compile Include="KnownTivoConnection.cs" />
+    <Compile Include="ProgressService.cs" />
     <Compile Include="ScheduledRecordingsService.cs" />
     <Compile Include="SettingsStore.cs" />
     <Compile Include="TivoConnectionService.cs" />

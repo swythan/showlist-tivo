@@ -12,7 +12,7 @@ namespace TivoAhoy.Phone.ViewModels
 {
     public class LazyRecordingFolderItemViewModel : PropertyChangedBase
     {
-        private readonly IEventAggregator eventAggregator;
+        private readonly IProgressService progressService;
         private readonly ITivoConnectionService connectionService;
         private readonly Func<IndividualShowViewModel> showViewModelFactory;
         private readonly Func<ShowContainerViewModel> showContainerViewModelFactory;
@@ -23,13 +23,13 @@ namespace TivoAhoy.Phone.ViewModels
         private IRecordingFolderItemViewModel item;
 
         public LazyRecordingFolderItemViewModel(
-            IEventAggregator eventAggregator,
+            IProgressService progressService,
             ITivoConnectionService connectionService,
             Func<IndividualShowViewModel> showViewModelFactory,
             Func<ShowContainerViewModel> showContainerViewModelFactory)
 
         {
-            this.eventAggregator = eventAggregator;
+            this.progressService = progressService;
             this.connectionService = connectionService;
             this.showViewModelFactory = showViewModelFactory;
             this.showContainerViewModelFactory = showContainerViewModelFactory;
@@ -64,37 +64,24 @@ namespace TivoAhoy.Phone.ViewModels
             }
         }
 
-        private void OnOperationStarted()
-        {
-            this.eventAggregator.Publish(new TivoOperationStarted());
-        }
-
-        private void OnOperationFinished()
-        {
-            this.eventAggregator.Publish(new TivoOperationFinished());
-        }
-
         private async Task UpdateItemAsync()
         {
-            this.OnOperationStarted();
-
             try
             {
                 var connection = await this.connectionService.GetConnectionAsync();
 
-                var results = await connection.GetRecordingFolderItems(new[] { this.objectId });
+                using (progressService.Show())
+                {
+                    var results = await connection.GetRecordingFolderItems(new[] { this.objectId });
 
-                var source = results.FirstOrDefault();
+                    var source = results.FirstOrDefault();
 
-                this.Item = CreateItemViewModel(source);
+                    this.Item = CreateItemViewModel(source);
+                }
             }
             catch (Exception ex)
             {
                 Debug.WriteLine("Error fetching recording folder item details for item {0} : {1}", this.objectId, ex);
-            }
-            finally
-            {
-                this.OnOperationFinished();
             }
         }
 

@@ -13,7 +13,7 @@ namespace TivoAhoy.Phone.ViewModels
 {
     public class ShowContainerViewModel : RecordingFolderItemViewModel<Container>
     {
-        private readonly IEventAggregator eventAggregator;
+        private readonly IProgressService progressService;
         private readonly ITivoConnectionService connectionService;
 
         private readonly Func<LazyRecordingFolderItemViewModel> showModelFactory;
@@ -21,24 +21,14 @@ namespace TivoAhoy.Phone.ViewModels
         private IEnumerable<LazyRecordingFolderItemViewModel> shows;
 
         public ShowContainerViewModel(
-            IEventAggregator eventAggregator,
+            IProgressService progressService,
             ITivoConnectionService connectionService,
             Func<LazyRecordingFolderItemViewModel> showModelFactory)
         {
             this.connectionService = connectionService;
-            this.eventAggregator = eventAggregator;
+            this.progressService = progressService;
 
             this.showModelFactory = showModelFactory;
-        }
-
-        private void OnOperationStarted()
-        {
-            this.eventAggregator.Publish(new TivoOperationStarted());
-        }
-
-        private void OnOperationFinished()
-        {
-            this.eventAggregator.Publish(new TivoOperationFinished());
         }
 
         public override bool IsSingleShow
@@ -76,24 +66,21 @@ namespace TivoAhoy.Phone.ViewModels
 
         public async void GetChildShows()
         {
-            OnOperationStarted();
-
             try
             {
                 var connection = await this.connectionService.GetConnectionAsync();
 
-                var ids = await connection.GetRecordingFolderItemIds(this.Source != null ? this.Source.Id : null);
-                this.Shows = ids
-                    .Select(CreateShowViewModel)
-                    .ToList();
+                using (progressService.Show())
+                {
+                    var ids = await connection.GetRecordingFolderItemIds(this.Source != null ? this.Source.Id : null);
+                    this.Shows = ids
+                        .Select(CreateShowViewModel)
+                        .ToList();
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(string.Format("Connection Failed :\n{0}", ex.Message));
-            }
-            finally
-            {
-                OnOperationFinished();
             }
         }
 

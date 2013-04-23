@@ -19,6 +19,7 @@ namespace TivoAhoy.Phone
 
             container.RegisterPhoneServices();
 
+            container.Instance<IProgressService>(new ProgressService(RootFrame));
             container.Singleton<ITivoConnectionService, TivoConnectionService>();
             container.Singleton<IScheduledRecordingsService, ScheduledRecordingsService>();
 

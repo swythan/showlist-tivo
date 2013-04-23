@@ -99,16 +99,6 @@ namespace TivoAhoy.Phone.ViewModels
             }
         }
 
-        private void OnOperationStarted()
-        {
-            this.eventAggregator.Publish(new TivoOperationStarted());
-        }
-
-        private void OnOperationFinished()
-        {
-            this.eventAggregator.Publish(new TivoOperationFinished());
-        }
-
         public IList ToDoList
         {
             get { return this.toDoList; }

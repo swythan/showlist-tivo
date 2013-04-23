@@ -7,24 +7,17 @@
     using TivoAhoy.Phone.Events;
 
     public class MainPageViewModel :
-        Conductor<IScreen>.Collection.OneActive,
-        IHandle<TivoOperationStarted>,
-        IHandle<TivoOperationFinished>
+        Conductor<IScreen>.Collection.OneActive
     {
         private readonly INavigationService navigationService;
 
-        private int operationsInProgress = 0;
-
         public MainPageViewModel(
-            IEventAggregator eventAggregator,
             INavigationService navigationService,
             MyShowsViewModel myShowsViewModel,
             ChannelListViewModel channelListViewModel,
             ToDoListViewModel toDoListViewModel)
         {
             this.navigationService = navigationService;
-
-            eventAggregator.Subscribe(this);
 
             channelListViewModel.DisplayName = "guide";
             channelListViewModel.PropertyChanged += OnViewModelPropertyChanged;
@@ -120,26 +113,6 @@
         public void ShowAbout()
         {
             this.navigationService.Navigate(new Uri("/YourLastAboutDialog;component/AboutPage.xaml", UriKind.Relative));
-        }
-
-        public bool IsOperationInProgress
-        {
-            get
-            {
-                return this.operationsInProgress > 0;
-            }
-        }
-
-        public void Handle(TivoOperationStarted message)
-        {
-            Interlocked.Increment(ref this.operationsInProgress);
-            NotifyOfPropertyChange(() => this.IsOperationInProgress);
-        }
-
-        public void Handle(TivoOperationFinished message)
-        {
-            Interlocked.Decrement(ref this.operationsInProgress);
-            NotifyOfPropertyChange(() => this.IsOperationInProgress);
         }
     }
 }

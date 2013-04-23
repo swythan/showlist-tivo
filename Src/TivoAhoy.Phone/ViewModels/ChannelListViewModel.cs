@@ -13,7 +13,7 @@ namespace TivoAhoy.Phone.ViewModels
 {
     public class ChannelListViewModel : Screen
     {
-        private readonly IEventAggregator eventAggregator;
+        private readonly IProgressService progressService;
         private readonly INavigationService navigationService;
         private readonly ITivoConnectionService connectionService;
         private readonly Func<OfferViewModel> offerViewModelFactory;
@@ -24,12 +24,12 @@ namespace TivoAhoy.Phone.ViewModels
         private IList shows;
 
         public ChannelListViewModel(
-            IEventAggregator eventAggregator,
+            IProgressService progressService,
             INavigationService navigationService,
             ITivoConnectionService connectionService,
             Func<OfferViewModel> offerViewModelFactory)
         {
-            this.eventAggregator = eventAggregator;
+            this.progressService = progressService;
             this.navigationService = navigationService;
             this.connectionService = connectionService;
             this.offerViewModelFactory = offerViewModelFactory;
@@ -101,16 +101,6 @@ namespace TivoAhoy.Phone.ViewModels
             {
                 this.RefreshShows();
             }
-        }
-
-        private void OnOperationStarted()
-        {
-            this.eventAggregator.Publish(new TivoOperationStarted());
-        }
-
-        private void OnOperationFinished()
-        {
-            this.eventAggregator.Publish(new TivoOperationFinished());
         }
 
         public List<DateTime> Dates
@@ -195,28 +185,25 @@ namespace TivoAhoy.Phone.ViewModels
 
         private async Task FetchChannels()
         {
-            OnOperationStarted();
-
             try
             {
                 var connection = await this.connectionService.GetConnectionAsync();
 
-                if (this.channels == null)
+                using (this.progressService.Show())
                 {
-                    this.channels = await connection.GetChannelsAsync();
-                }
+                    if (this.channels == null)
+                    {
+                        this.channels = await connection.GetChannelsAsync();
+                    }
 
-                this.Shows = this.channels
-                    .Select(x => CreateOfferViewModel(x, this.StartTime))
-                    .ToList();
+                    this.Shows = this.channels
+                        .Select(x => CreateOfferViewModel(x, this.StartTime))
+                        .ToList();
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(string.Format("Connection Failed :\n{0}", ex.Message));
-            }
-            finally
-            {
-                OnOperationFinished();
             }
         }
 

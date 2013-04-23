@@ -11,17 +11,17 @@ namespace TivoAhoy.Phone
 {
     public class ScheduledRecordingsService : PropertyChangedBase, IScheduledRecordingsService
     {
-        private readonly IEventAggregator eventAggregator;
+        private readonly IProgressService progressService;
         private readonly ITivoConnectionService connectionService;
 
         private IEnumerable<Recording> recordings;
         private Dictionary<string, Recording> recordingsByOfferId;
 
         public ScheduledRecordingsService(
-            IEventAggregator eventAggregator,
+            IProgressService progressService,
             ITivoConnectionService connectionService)
         {
-            this.eventAggregator = eventAggregator;
+            this.progressService = progressService;
             this.connectionService = connectionService;
 
             connectionService.PropertyChanged += OnConnectionServicePropertyChanged;
@@ -56,13 +56,11 @@ namespace TivoAhoy.Phone
             {
                 return;
             }
+            
+            var connection = await this.connectionService.GetConnectionAsync();
 
-            OnOperationStarted();
-
-            try
+            using (progressService.Show())
             {
-                var connection = await this.connectionService.GetConnectionAsync();
-
                 var recordingIds = await connection.GetScheduledRecordingIds();
 
                 var recordings = new List<Recording>();
@@ -73,13 +71,9 @@ namespace TivoAhoy.Phone
                     var page = await connection.GetScheduledRecordings(offset, pageSize);
                     recordings.AddRange(page);
                 }
-
                 this.ScheduledRecordings = recordings;
             }
-            finally
-            {
-                OnOperationFinished();
-            }
+
         }
 
         private void OnConnectionServicePropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -92,18 +86,8 @@ namespace TivoAhoy.Phone
             }
         }
 
-        private void OnOperationStarted()
+        public IEnumerable<Recording> ScheduledRecordings
         {
-            this.eventAggregator.Publish(new TivoOperationStarted());
-        }
-
-        private void OnOperationFinished()
-        {
-            this.eventAggregator.Publish(new TivoOperationFinished());
-        }
-        
-        public IEnumerable<Recording> ScheduledRecordings 
-        { 
             get
             {
                 return this.recordings;
