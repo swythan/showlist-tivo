@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="TivoAhoy.Phone.Views.MyShowsView"
+﻿<UserControl
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,18 +6,19 @@
     xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:converters="clr-namespace:TivoAhoy.Phone.Converters"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:ec="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions"
+    x:Class="TivoAhoy.Phone.Views.MyShowsView"
     mc:Ignorable="d"
-    FontFamily="{StaticResource PhoneFontFamilyNormal}"
-    FontSize="{StaticResource PhoneFontSizeNormal}"
-    Foreground="{StaticResource PhoneForegroundBrush}"
-    d:DesignHeight="480" d:DesignWidth="480">
+    d:DesignHeight="480"
+    d:DesignWidth="480">
     <UserControl.Resources>
         <converters:BooleanToVisibilityConverter
             x:Key="boolToVisConverter" />
-        
+
         <converters:BooleanToVisibilityConverter
             x:Key="negBoolToVisConverter"
-            IsReversed="True"/>
+            IsReversed="True" />
 
         <Style
             x:Key="CustomExpanderViewStyle"
@@ -214,9 +215,8 @@
                                 X2="0"
                                 Y1="0"
                                 Y2="1"
-                                Margin="0,0,0,0" 
-                                VerticalAlignment="Stretch"
-                                />
+                                Margin="0,0,0,0"
+                                VerticalAlignment="Stretch" />
                             <ContentControl
                                 x:Name="NonExpandableContent"
                                 Grid.ColumnSpan="2"
@@ -297,7 +297,22 @@
         </Style>
     </UserControl.Resources>
 
-    <Grid x:Name="LayoutRoot" Margin="12,0,12,0">
+    <UserControl.FontFamily>
+        <StaticResource
+            ResourceKey="PhoneFontFamilyNormal" />
+    </UserControl.FontFamily>
+    <UserControl.FontSize>
+        <StaticResource
+            ResourceKey="PhoneFontSizeNormal" />
+    </UserControl.FontSize>
+    <UserControl.Foreground>
+        <StaticResource
+            ResourceKey="PhoneForegroundBrush" />
+    </UserControl.Foreground>
+
+    <Grid
+        x:Name="LayoutRoot"
+        Margin="12,0,12,0">
         <ListBox
             x:Name="MyShows"
             Margin="0,0,0,0">
@@ -324,9 +339,9 @@
                         Expander="{Binding}"
                         ItemsSource="{Binding Shows}"
                         IsNonExpandable="{Binding IsSingleShow, FallbackValue=False}"
-                        cal:Message.Attach="[Event Expanded] = [Action GetChildShows]" 
+                        cal:Message.Attach="[Event Expanded] = [Action GetChildShows]"
                         Style="{StaticResource CustomExpanderViewStyle}">
-                        
+
                         <!-- 
                         The HeaderTemplate describes the header for an expandable item.
                         In this case it's the series/show title.
@@ -370,16 +385,48 @@
                                     DataContext="{Binding Item}"
                                     cal:Message.Attach="[Event Tap] = [Action DisplayShowDetails]">
                                     <StackPanel>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition
+                                                    Width="Auto" />
+                                                <ColumnDefinition
+                                                    Width="*" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <Image
+                                                Source="/Images/thumbsup.png"
+                                                Stretch="Uniform"
+                                                VerticalAlignment="Center"
+                                                Margin="12,0,-12,0"
+                                                Visibility="Collapsed">
+                                                <i:Interaction.Triggers>
+                                                    <ec:DataTrigger
+                                                        Binding="{Binding IsSuggestion}"
+                                                        Value="True">
+                                                        <ec:ChangePropertyAction
+                                                            PropertyName="Visibility"
+                                                            Value="Visible" />
+                                                    </ec:DataTrigger>
+                                                </i:Interaction.Triggers>
+                                            </Image>
+
+                                            <TextBlock
+                                                Grid.Column="1"
+                                                Text="{Binding Title, FallbackValue=Loading...}"
+                                                Style="{StaticResource PhoneTextTitle2Style}" />
+
+                                            <i:Interaction.Triggers>
+                                                <ec:DataTrigger
+                                                    Binding="{Binding IsSuggestion}"
+                                                    Value="True">
+                                                    <ec:ChangePropertyAction
+                                                        PropertyName="Opacity"
+                                                        Value="0.66" />
+                                                </ec:DataTrigger>
+                                            </i:Interaction.Triggers>
+                                        </Grid>
                                         <TextBlock
-                                            Text="{Binding Title}"
-                                            Style="{StaticResource PhoneTextGroupHeaderStyle}"
-                                            Visibility="{Binding IsSuggestion, Converter={StaticResource boolToVisConverter}}" />
-                                        <TextBlock
-                                            Text="{Binding Title, FallbackValue=Loading...}"
-                                            Style="{StaticResource PhoneTextLargeStyle}"
-                                            Visibility="{Binding IsSuggestion, Converter={StaticResource negBoolToVisConverter}}" />
-                                        <TextBlock
-                                            Text="{Binding Source.StartTime, StringFormat=g, ConverterCulture={StaticResource DefaultCulture}}"
+                                            Text="{Binding Source.StartTime, ConverterCulture={StaticResource DefaultCulture}, StringFormat=g}"
                                             Style="{StaticResource PhoneTextSubtleStyle}" />
                                     </StackPanel>
                                 </ListBoxItem>
@@ -395,16 +442,48 @@
                                 <StackPanel
                                     toolkit:TiltEffect.IsTiltEnabled="True"
                                     cal:Message.Attach="[Event Tap] = [Action DisplayShowDetails]">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition
+                                                Width="Auto" />
+                                            <ColumnDefinition
+                                                Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Image
+                                            Source="/Images/thumbsup.png"
+                                            Stretch="Uniform"
+                                            VerticalAlignment="Center"
+                                            Margin="12,0,-12,0"
+                                            Visibility="Collapsed">
+                                            <i:Interaction.Triggers>
+                                                <ec:DataTrigger
+                                                    Binding="{Binding IsSuggestion}"
+                                                    Value="True">
+                                                    <ec:ChangePropertyAction
+                                                        PropertyName="Visibility"
+                                                        Value="Visible" />
+                                                </ec:DataTrigger>
+                                            </i:Interaction.Triggers>
+                                        </Image>
+
+                                        <TextBlock
+                                            Grid.Column="1"
+                                            Text="{Binding Title, FallbackValue=Loading...}"
+                                            Style="{StaticResource PhoneTextTitle2Style}" />
+
+                                        <i:Interaction.Triggers>
+                                            <ec:DataTrigger
+                                                Binding="{Binding IsSuggestion}"
+                                                Value="True">
+                                                <ec:ChangePropertyAction
+                                                    PropertyName="Opacity"
+                                                    Value="0.66" />
+                                            </ec:DataTrigger>
+                                        </i:Interaction.Triggers>
+                                    </Grid>
                                     <TextBlock
-                                        Text="{Binding Title}"
-                                        Style="{StaticResource PhoneTextGroupHeaderStyle}"
-                                        Visibility="{Binding IsSuggestion, Converter={StaticResource boolToVisConverter}}" />
-                                    <TextBlock
-                                        Text="{Binding Title, FallbackValue=Loading...}"
-                                        Style="{StaticResource PhoneTextLargeStyle}"
-                                        Visibility="{Binding IsSuggestion, Converter={StaticResource negBoolToVisConverter}}" />
-                                    <TextBlock
-                                        Text="{Binding Source.StartTime, StringFormat=g, ConverterCulture={StaticResource DefaultCulture}}"
+                                        Text="{Binding Source.StartTime, ConverterCulture={StaticResource DefaultCulture}, StringFormat=g}"
                                         Style="{StaticResource PhoneTextSubtleStyle}" />
                                     <!--<TextBlock
                                         Text="{Binding LastMessageReceived.Subject}"
@@ -426,14 +505,14 @@
                     </toolkit:ExpanderView>
                 </DataTemplate>
             </ListBox.ItemTemplate>
-
         </ListBox>
         <TextBlock
             Visibility="{Binding ShowSettingsPrompt, Converter={StaticResource boolToVisConverter}}"
             Style="{StaticResource PhoneTextSubtleStyle}"
             TextWrapping="Wrap"
             VerticalAlignment="Center">
-            Valid connection details for your TiVo® DVR have not been entered. Please use the Settings option below to enter them.
+            <Run
+                Text="Valid connection details for your TiVo® DVR have not been entered. Please use the Settings option below to enter them." />
         </TextBlock>
     </Grid>
 </UserControl>

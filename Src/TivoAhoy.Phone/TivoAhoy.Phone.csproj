@@ -31,6 +31,7 @@
     <SccProvider>SAK</SccProvider>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\Src\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <ExpressionBlendVersion>5.0.40218.0</ExpressionBlendVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -62,6 +63,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Caliburn.Micro.1.4.1\lib\wp71\Caliburn.Micro.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Expression.Interactions" />
     <Reference Include="Microsoft.Phone" />
     <Reference Include="Microsoft.Phone.Controls" />
     <Reference Include="Microsoft.Phone.Controls.Toolkit, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b772ad94eb9ca604, processorArchitecture=MSIL">
@@ -230,6 +232,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\WMAppManifest.xml" />
+    <Content Include="Images\thumbsup.png" />
     <Content Include="tivo_vm.p12" />
     <Resource Include="Application_IconImage_62x62.png" />
     <Resource Include="Application_TileImage_173x173.png" />
