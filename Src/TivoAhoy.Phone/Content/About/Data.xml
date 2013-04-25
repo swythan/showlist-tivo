@@ -19,7 +19,7 @@
   <!-- The AdditionalNotes attribute has no equivalent in the WMAppManifest.xml; you can only define its content here -->
   <!-- Explicitly set any of the attributes to an empty string to remove it (including its label) from the dialog -->
   <App Author="James Chaldecott"
-       Publisher=""       
+       Publisher=""
        AdditionalNotes="This application is in no way associated with or endorsed by either TiVo, Inc. or Virgin Media. TiVo is a registered trademark of TiVo Inc. and its subsidiaries worldwide." />
   <Items>
     <!-- Create a MainItem entry to configure the front page -->
@@ -55,30 +55,15 @@
     <Item Title="history"
           Type="text">
       1.0.0.0
-      This is the initial public version.      
+      This is the initial public version.
     </Item>
     <Item Title="credits"
           Type="xaml">
-      <StackPanel 
+      <views:CreditsView
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d">
-        <RichTextBox
-          IsReadOnly="True"
-          BorderBrush="{x:Null}"
-          Foreground="{StaticResource PhoneSubtleBrush}">
-          <Paragraph>
-            <Hyperlink
-                NavigateUri="http://thenounproject.com/noun/thumbs-up/#icon-No14365"
-                TargetName="_blank">Thumbs Up</Hyperlink> icon designed by
-            <Hyperlink
-                NavigateUri="http://thenounproject.com/jontesta"
-                TargetName="_blank">Jon Testa</Hyperlink> from The Noun Project
-          </Paragraph>
-        </RichTextBox>
-      </StackPanel>
-    </Item>  
+        xmlns:views="clr-namespace:TivoAhoy.Phone.Views;assembly=TivoAhoy.Phone"
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Stretch" />
+    </Item>
   </Items>
 </About>

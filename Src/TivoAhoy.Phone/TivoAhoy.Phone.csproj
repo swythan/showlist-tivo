@@ -169,6 +169,9 @@
     <Compile Include="Views\ChannelListView.xaml.cs">
       <DependentUpon>ChannelListView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CreditsView.xaml.cs">
+      <DependentUpon>CreditsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ToDoListView.xaml.cs">
       <DependentUpon>ToDoListView.xaml</DependentUpon>
     </Compile>
@@ -201,6 +204,10 @@
       <SubType>Designer</SubType>
     </Content>
     <Page Include="Views\ChannelListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CreditsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
