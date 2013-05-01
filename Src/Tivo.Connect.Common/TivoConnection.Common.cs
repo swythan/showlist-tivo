@@ -420,6 +420,15 @@ namespace Tivo.Connect
             CheckResponse(response, "success", "recordingUpdate");
         }
 
+        public async Task<SubscribeResult> ScheduleSingleRecording(string contentId, string offerId)
+        {
+            var response = await SendScheduleSingleRecordingRequest(contentId, offerId);
+
+            CheckResponse(response, "subscribeResult", "subscribe");
+
+            return response.ToObject<SubscribeResult>();
+        }
+
         public async Task<ShowDetails> GetWhatsOn()
         {
             var whatsOnSearchBody = new Dictionary<string, object>()
@@ -902,6 +911,143 @@ namespace Tivo.Connect
                     { "bodyId", this.capturedTsn },
                     { "state", newState },
                     { "recordingId", recordingId }
+                };
+
+            return SendRequest("recordingUpdate", request);
+        }
+
+        private Task<JObject> SendScheduleSingleRecordingRequest(string contentId, string offerId)
+        {
+            // This seems to be ignoring the response template!
+            var request =
+                new Dictionary<string, object>
+                { 
+                    { "type", "subscribe" },
+                    { "bodyId", this.capturedTsn },
+                    { "recordingQuality", "best" },
+                    { "maxRecordings", 1 },
+                    { "ignoreConflicts", "false" },
+                    { "keepBehavior", "fifo" },
+                    { "startTimePadding", 60 },
+                    { "endTimePadding", 240 },
+                    { "idSetSource", 
+                        new Dictionary<string, object> 
+                        {
+                            { "type", "singleOfferSource" },
+                            { "contentId", contentId },
+                            { "offerId", offerId }
+                        }
+                    },
+                    { "responseTemplate", 
+                        new object[]
+                        {
+                            new Dictionary<string, object>
+                            {
+                                { "type", "responseTemplate" },
+                                { "typeName", "subscribeResult" },
+                                { "fieldName", 
+                                    new string[] 
+                                    { 
+                                        "subscription",
+                                        "conflicts",
+                                    } 
+                                }
+                            },                     
+                            new Dictionary<string, object>
+                            {
+                                { "type", "responseTemplate" },
+                                { "typeName", "subscriptionIdentifier" },
+                                { "fieldName", 
+                                    new string[] 
+                                    { 
+                                        "subscriptionId", 
+                                        "subscriptionType",
+                                    } 
+                                }
+                            },
+                            new Dictionary<string, object>
+                            {
+                                { "type", "responseTemplate" },
+                                { "typeName", "subscriptionConflicts" },
+                                { "fieldName", 
+                                    new string[] 
+                                    { 
+                                        "willCancel", 
+                                        "willGet", 
+                                    } 
+                                }
+                            },
+                            new Dictionary<string, object>
+                            {
+                                { "type", "responseTemplate" },
+                                { "typeName", "conflict" },
+                                { "fieldName", 
+                                    new string[] 
+                                    { 
+                                        "reason", 
+                                        "requestWinning", 
+                                        "winningOffer", 
+                                        "losingOffer", 
+                                        "losingRecording", 
+                                    } 
+                                }
+                            },
+                            new Dictionary<string, object>
+                            {
+                                { "type", "responseTemplate" },
+                                { "typeName", "offer" },
+                                { "fieldName", 
+                                    new string[] 
+                                    { 
+                                        "offerId", 
+                                        "contentId",
+                                        "title", 
+                                        "startTime", 
+                                        "duration", 
+                                    } 
+                                }
+                            },
+                            new Dictionary<string, object>
+                            {
+                                { "type", "responseTemplate" },
+                                { "typeName", "recording" },
+                                { "fieldName", 
+                                    new string[] 
+                                    { 
+                                        "recordingId", 
+                                        "state", 
+                                        //"offerId", 
+                                        //"contentId", 
+                                        "channel",
+                                        //"deletionPolicy", 
+                                        //"suggestionScore", 
+                                        //"subscriptionIdentifier", 
+                                        //"isEpisode",
+                                        "scheduledStartTime",
+                                        "scheduledEndTime",
+                                        //"hdtv",
+                                        //"episodic",
+                                        "title",
+                                        //"originalAirdate",
+                                    } 
+                                }
+                            },
+                            new Dictionary<string, object>
+                            {
+                                { "type", "responseTemplate" },
+                                { "typeName", "channel" },
+                                { "fieldName", 
+                                    new string[] 
+                                    { 
+                                        "channelId", 
+                                        "channelNumber", 
+                                        "callSign", 
+                                        "logoIndex", 
+                                    } 
+                                }
+                            },                 
+                        }
+                    }  
                 };
 
             return SendRequest("recordingUpdate", request);

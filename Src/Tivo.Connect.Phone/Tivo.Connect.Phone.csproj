@@ -106,6 +106,9 @@
     <Compile Include="..\Tivo.Connect.Common\Entities\Channel.cs">
       <Link>Entities\Channel.cs</Link>
     </Compile>
+    <Compile Include="..\Tivo.Connect.Common\Entities\Conflict.cs">
+      <Link>Entities\Conflict.cs</Link>
+    </Compile>
     <Compile Include="..\Tivo.Connect.Common\Entities\Container.cs">
       <Link>Entities\Container.cs</Link>
     </Compile>
@@ -132,6 +135,12 @@
     </Compile>
     <Compile Include="..\Tivo.Connect.Common\Entities\ShowDetails.cs">
       <Link>Entities\ShowDetails.cs</Link>
+    </Compile>
+    <Compile Include="..\Tivo.Connect.Common\Entities\SubscribeResult.cs">
+      <Link>Entities\SubscribeResult.cs</Link>
+    </Compile>
+    <Compile Include="..\Tivo.Connect.Common\Entities\SubscriptionConflicts.cs">
+      <Link>Entities\SubscriptionConflicts.cs</Link>
     </Compile>
     <Compile Include="..\Tivo.Connect.Common\Entities\SubscriptionIdentifier.cs">
       <Link>Entities\SubscriptionIdentifier.cs</Link>

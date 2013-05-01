@@ -98,6 +98,7 @@ namespace TivoAhoy.Phone.ViewModels
             NotifyOfPropertyChange(() => this.CanPlayShow);
             NotifyOfPropertyChange(() => this.CanDeleteShow);
             NotifyOfPropertyChange(() => this.CanCancelRecording);
+            NotifyOfPropertyChange(() => this.CanScheduleRecording);
         }
 
         private void OnOperationFinished()
@@ -107,6 +108,7 @@ namespace TivoAhoy.Phone.ViewModels
             NotifyOfPropertyChange(() => this.CanPlayShow);
             NotifyOfPropertyChange(() => this.CanDeleteShow);
             NotifyOfPropertyChange(() => this.CanCancelRecording);
+            NotifyOfPropertyChange(() => this.CanScheduleRecording);
         }
 
         public string ShowContentID { get; set; }
@@ -276,6 +278,7 @@ namespace TivoAhoy.Phone.ViewModels
                 NotifyOfPropertyChange(() => this.CanDeleteShow);
                 NotifyOfPropertyChange(() => this.CanPlayShow);
                 NotifyOfPropertyChange(() => this.CanCancelRecording);
+                NotifyOfPropertyChange(() => this.CanScheduleRecording);
 
                 UpdateBackgroundBrush();
             }
@@ -419,7 +422,7 @@ namespace TivoAhoy.Phone.ViewModels
             try
             {
                 var connection = await this.connectionService.GetConnectionAsync();
-                
+
                 using (progressService.Show())
                 {
                     await connection.DeleteRecording(this.ShowRecordingID);
@@ -468,6 +471,52 @@ namespace TivoAhoy.Phone.ViewModels
             catch (Exception ex)
             {
                 MessageBox.Show(string.Format("Cancel recording command failed:\n{0}", ex.Message));
+            }
+            finally
+            {
+                OnOperationFinished();
+            }
+        }
+
+        public bool CanScheduleRecording
+        {
+            get
+            {
+                if (!this.IsRecordable)
+                    return false;
+
+                return
+                    !this.connectionService.IsAwayMode &&
+                    !this.IsOperationInProgress;
+            }
+        }
+
+        public async void ScheduleRecording()
+        {
+            OnOperationStarted();
+
+            try
+            {
+                var connection = await this.connectionService.GetConnectionAsync();
+
+                SubscribeResult result;
+                using (progressService.Show())
+                {
+                    result = await connection.ScheduleSingleRecording(this.ShowContentID, this.ShowOfferID);
+                }
+
+                if (result.Subscription != null)
+                {
+                    MessageBox.Show("Recording scheduled.");
+                }
+                else
+                {
+                    MessageBox.Show(string.Format("Unable to schedule recording due to conflicts."));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(string.Format("Failed to schedule recording:\n{0}", ex.Message));
             }
             finally
             {

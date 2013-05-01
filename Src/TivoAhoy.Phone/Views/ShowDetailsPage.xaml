@@ -128,9 +128,9 @@
                             Height="Auto" />
                         <RowDefinition
                             Height="Auto" />
-                        <!--<RowDefinition
-                            Height="Auto" />
                         <RowDefinition
+                            Height="Auto" />
+                        <!--<RowDefinition
                             Height="Auto" />-->
                     </Grid.RowDefinitions>
                     <Button
@@ -148,12 +148,12 @@
                         Visibility="{Binding IsScheduled, Converter={StaticResource boolToVisConverter}}"
                         Content="Cancel Recording"
                         Grid.Row="2" />
-                    <!--<Button
+                    <Button
                         x:Name="ScheduleRecording"
                         Visibility="{Binding IsRecordable, Converter={StaticResource boolToVisConverter}}"
                         Content="Record this Episode "
                         Grid.Row="3" />
-                    <Button
+                    <!--<Button
                         x:Name="GetSeriesLink"
                         Visibility="{Binding IsRecordable, Converter={StaticResource boolToVisConverter}}"
                         Content="Get Series Link"
