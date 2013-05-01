@@ -71,14 +71,29 @@
                             HorizontalAlignment="Left"
                             Grid.Column="0"
                             Grid.Row="1" />
-                        <TextBlock
-                            Style="{StaticResource PhoneTextSubtleStyle}"
-                            Text="{Binding Recording.ScheduledStartTime, Converter={StaticResource utcToLocalConverter}, StringFormat=t}"
-                            VerticalAlignment="Center"
-                            HorizontalAlignment="Right"
-                            Grid.Column="1"
+                        <StackPanel
                             Grid.Row="1"
-                            Grid.ColumnSpan="3" />
+                            Grid.Column="1"
+                            Grid.ColumnSpan="3"
+                            Orientation="Horizontal"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Right">
+                            <TextBlock
+                                Style="{StaticResource PhoneTextSubtleStyle}"
+                                Text="{Binding Recording.ScheduledStartTime, Converter={StaticResource utcToLocalConverter}, StringFormat=h:mm}"
+                                VerticalAlignment="Center"
+                                Margin="12,0,0,0" />
+                            <TextBlock
+                                Style="{StaticResource PhoneTextSubtleStyle}"
+                                Text=" - "
+                                VerticalAlignment="Center"
+                                Margin="0" />
+                            <TextBlock
+                                Style="{StaticResource PhoneTextSubtleStyle}"
+                                Text="{Binding Recording.ScheduledEndTime, Converter={StaticResource utcToLocalConverter}, StringFormat=t}"
+                                VerticalAlignment="Center"
+                                Margin="0,0,12,0" />
+                        </StackPanel>
                         <TextBlock
                             Style="{StaticResource PhoneTextNormalStyle}"
                             Text="{Binding Recording.Title, FallbackValue=Loading...}"
