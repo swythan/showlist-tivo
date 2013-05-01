@@ -406,9 +406,16 @@ namespace Tivo.Connect
             CheckResponse(response, "success", "uiNavigate");
         }
 
-        public async Task DeleteShow(string recordingId)
+        public async Task DeleteRecording(string recordingId)
         {
-            var response = await SendDeleteShowRequest(recordingId);
+            var response = await SendDeleteRecordingRequest(recordingId);
+
+            CheckResponse(response, "success", "recordingUpdate");
+        }
+
+        public async Task CancelRecording(string recordingId)
+        {
+            var response = await SendCancelRecordingRequest(recordingId);
 
             CheckResponse(response, "success", "recordingUpdate");
         }
@@ -876,15 +883,25 @@ namespace Tivo.Connect
             return SendRequest((string)body["type"], body);
         }
 
-        private Task<JObject> SendDeleteShowRequest(string showId)
+        private Task<JObject> SendDeleteRecordingRequest(string recordingId)
+        {
+            return SendRecordingUpdateRequest(recordingId, "deleted");
+        }
+
+        private Task<JObject> SendCancelRecordingRequest(string recordingId)
+        {
+            return SendRecordingUpdateRequest(recordingId, "cancelled");
+        }
+
+        private Task<JObject> SendRecordingUpdateRequest(string recordingId, string newState)
         {
             var request =
                 new Dictionary<string, object>
                 { 
                     { "type", "recordingUpdate" },
                     { "bodyId", this.capturedTsn },
-                    { "state", "deleted" },
-                    { "recordingId", showId }
+                    { "state", newState },
+                    { "recordingId", recordingId }
                 };
 
             return SendRequest("recordingUpdate", request);

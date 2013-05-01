@@ -17,17 +17,22 @@ namespace TivoAhoy.Phone.ViewModels
     public class ShowDetailsPageViewModel : Screen
     {
         private readonly IEventAggregator eventAggregator;
+        private readonly IProgressService progressService;
         private readonly ITivoConnectionService connectionService;
 
         private ShowDetails showDetails;
+        private Recording recordingDetails;
+
         private bool isOperationInProgress;
         private int panoramaHeight = 800;
 
         public ShowDetailsPageViewModel(
             IEventAggregator eventAggregator,
+            IProgressService progressService,
             ITivoConnectionService connectionService)
         {
             this.eventAggregator = eventAggregator;
+            this.progressService = progressService;
             this.connectionService = connectionService;
         }
 
@@ -92,6 +97,7 @@ namespace TivoAhoy.Phone.ViewModels
             NotifyOfPropertyChange(() => this.IsOperationInProgress);
             NotifyOfPropertyChange(() => this.CanPlayShow);
             NotifyOfPropertyChange(() => this.CanDeleteShow);
+            NotifyOfPropertyChange(() => this.CanCancelRecording);
         }
 
         private void OnOperationFinished()
@@ -100,6 +106,7 @@ namespace TivoAhoy.Phone.ViewModels
             NotifyOfPropertyChange(() => this.IsOperationInProgress);
             NotifyOfPropertyChange(() => this.CanPlayShow);
             NotifyOfPropertyChange(() => this.CanDeleteShow);
+            NotifyOfPropertyChange(() => this.CanCancelRecording);
         }
 
         public string ShowContentID { get; set; }
@@ -185,7 +192,7 @@ namespace TivoAhoy.Phone.ViewModels
         private async void UpdateBackgroundBrush()
         {
             this.MainImageBrush = null;
-            
+
             if (Execute.InDesignMode)
             {
                 return;
@@ -238,25 +245,37 @@ namespace TivoAhoy.Phone.ViewModels
             {
                 this.showDetails = value;
 
-                //var json = value.JsonText;
                 Debug.WriteLine("Show details fetched:");
 
-                //foreach (var line in json.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.None))
-                //{
-                //    Debug.WriteLine(line);
-                //}
-
-                Debug.WriteLine(string.Empty);
-
                 NotifyOfPropertyChange(() => this.Show);
-                NotifyOfPropertyChange(() => this.IsRecorded);
-                NotifyOfPropertyChange(() => this.IsOffer);
+                //NotifyOfPropertyChange(() => this.IsRecorded);
                 NotifyOfPropertyChange(() => this.MainImage);
                 NotifyOfPropertyChange(() => this.MainImageBrush);
                 NotifyOfPropertyChange(() => this.HasEpisodeNumbers);
                 NotifyOfPropertyChange(() => this.HasOriginalAirDate);
+                //NotifyOfPropertyChange(() => this.CanDeleteShow);
+                //NotifyOfPropertyChange(() => this.CanPlayShow);
+
+                UpdateBackgroundBrush();
+            }
+        }
+
+        public Recording Recording
+        {
+            get { return this.recordingDetails; }
+            set
+            {
+                this.recordingDetails = value;
+
+                Debug.WriteLine("Recording details fetched:");
+
+                NotifyOfPropertyChange(() => this.Recording);
+                NotifyOfPropertyChange(() => this.IsRecorded);
+                NotifyOfPropertyChange(() => this.IsRecordable);
+                NotifyOfPropertyChange(() => this.IsScheduled);
                 NotifyOfPropertyChange(() => this.CanDeleteShow);
                 NotifyOfPropertyChange(() => this.CanPlayShow);
+                NotifyOfPropertyChange(() => this.CanCancelRecording);
 
                 UpdateBackgroundBrush();
             }
@@ -278,7 +297,15 @@ namespace TivoAhoy.Phone.ViewModels
             {
                 var connection = await this.connectionService.GetConnectionAsync();
 
-                this.Show = await connection.GetShowContentDetails(this.ShowContentID);
+                using (progressService.Show())
+                {
+                    if (!string.IsNullOrEmpty(this.ShowRecordingID))
+                    {
+                        this.Recording = await connection.GetRecordingDetails(this.ShowRecordingID);
+                    }
+
+                    this.Show = await connection.GetShowContentDetails(this.ShowContentID);
+                }
             }
             catch (Exception ex)
             {
@@ -294,15 +321,44 @@ namespace TivoAhoy.Phone.ViewModels
         {
             get
             {
-                return this.ShowRecordingID != null;
+                if (this.Recording == null)
+                    return false;
+
+                if (this.Recording.State != "complete" &&
+                    this.Recording.State != "inProgress")
+                    return false;
+
+                return true;
             }
         }
 
-        public bool IsOffer
+        public bool IsScheduled
         {
             get
             {
-                return this.ShowOfferID != null;
+                if (this.Recording == null)
+                    return false;
+
+                return
+                    this.Recording.State == "scheduled";
+            }
+        }
+
+        public bool IsRecordable
+        {
+            get
+            {
+                if (this.ShowOfferID == null)
+                    return false;
+
+                if (this.ShowRecordingID == null)
+                    return true;
+
+                if (this.Recording == null)
+                    return false;
+
+                // TODO : Should we be able to record existing recordings in certain states (e.g. cancelled)?
+                return false;
             }
         }
 
@@ -310,8 +366,10 @@ namespace TivoAhoy.Phone.ViewModels
         {
             get
             {
+                if (!this.IsRecorded)
+                    return false;
+
                 return
-                    this.ShowRecordingID != null &&
                     !this.connectionService.IsAwayMode &&
                     !this.IsOperationInProgress;
             }
@@ -324,7 +382,11 @@ namespace TivoAhoy.Phone.ViewModels
             try
             {
                 var connection = await this.connectionService.GetConnectionAsync();
-                await connection.PlayShow(this.ShowRecordingID);
+
+                using (progressService.Show())
+                {
+                    await connection.PlayShow(this.ShowRecordingID);
+                }
             }
             catch (Exception ex)
             {
@@ -340,9 +402,13 @@ namespace TivoAhoy.Phone.ViewModels
         {
             get
             {
-                return
-                    this.ShowRecordingID != null &&
-                    !this.IsOperationInProgress; ;
+                if (this.IsOperationInProgress)
+                    return false;
+
+                if (this.Recording == null)
+                    return false;
+
+                return this.Recording.State == "complete";
             }
         }
 
@@ -353,13 +419,55 @@ namespace TivoAhoy.Phone.ViewModels
             try
             {
                 var connection = await this.connectionService.GetConnectionAsync();
-                await connection.DeleteShow(this.ShowRecordingID);
+                
+                using (progressService.Show())
+                {
+                    await connection.DeleteRecording(this.ShowRecordingID);
+                }
 
                 MessageBox.Show("Recording deleted.");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(string.Format("Delete command failed:\n{0}", ex.Message));
+            }
+            finally
+            {
+                OnOperationFinished();
+            }
+        }
+
+        public bool CanCancelRecording
+        {
+            get
+            {
+                if (this.IsOperationInProgress)
+                    return false;
+
+                if (!this.IsScheduled)
+                    return false;
+
+                return true;
+            }
+        }
+
+        public async void CancelRecording()
+        {
+            OnOperationStarted();
+
+            try
+            {
+                var connection = await this.connectionService.GetConnectionAsync();
+                using (progressService.Show())
+                {
+                    await connection.CancelRecording(this.ShowRecordingID);
+                }
+
+                MessageBox.Show("Recording cancelled.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(string.Format("Cancel recording command failed:\n{0}", ex.Message));
             }
             finally
             {

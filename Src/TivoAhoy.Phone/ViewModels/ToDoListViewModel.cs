@@ -157,6 +157,7 @@ namespace TivoAhoy.Phone.ViewModels
             if (recording == null ||
                 recording.Recording == null ||
                 recording.Recording.ContentId == null ||
+                recording.Recording.RecordingId == null ||
                 recording.Recording.OfferId == null)
             {
                 return;
@@ -165,6 +166,7 @@ namespace TivoAhoy.Phone.ViewModels
             this.navigationService
                 .UriFor<ShowDetailsPageViewModel>()
                 .WithParam(x => x.ShowContentID, recording.Recording.ContentId)
+                .WithParam(x => x.ShowRecordingID, recording.Recording.RecordingId)
                 .WithParam(x => x.ShowOfferID, recording.Recording.OfferId)
                 .Navigate();
         }

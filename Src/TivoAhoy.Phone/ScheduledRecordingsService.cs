@@ -32,6 +32,19 @@ namespace TivoAhoy.Phone
             }
         }
 
+        public Recording GetScheduledRecordingForOffer(string offerId)
+        {
+            if (this.recordingsByOfferId == null)
+            {
+                return null;
+            }
+
+            Recording result;
+            this.recordingsByOfferId.TryGetValue(offerId, out result);
+
+            return result;
+        }
+
         public bool IsOfferRecordingScheduled(string offerId)
         {
             if (this.recordingsByOfferId == null)

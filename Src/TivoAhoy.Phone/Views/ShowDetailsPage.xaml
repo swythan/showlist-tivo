@@ -126,17 +126,38 @@
                             Height="Auto" />
                         <RowDefinition
                             Height="Auto" />
+                        <RowDefinition
+                            Height="Auto" />
+                        <!--<RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="Auto" />-->
                     </Grid.RowDefinitions>
-                    <Button
-                        x:Name="DeleteShow"
-                        Visibility="{Binding IsRecorded, Converter={StaticResource boolToVisConverter}}"
-                        Content="Delete"
-                        Grid.Row="0" />
                     <Button
                         x:Name="PlayShow"
                         Visibility="{Binding IsRecorded, Converter={StaticResource boolToVisConverter}}"
                         Content="Play"
+                        Grid.Row="0" />
+                    <Button
+                        x:Name="DeleteShow"
+                        Visibility="{Binding IsRecorded, Converter={StaticResource boolToVisConverter}}"
+                        Content="Delete Recording"
                         Grid.Row="1" />
+                    <Button
+                        x:Name="CancelRecording"
+                        Visibility="{Binding IsScheduled, Converter={StaticResource boolToVisConverter}}"
+                        Content="Cancel Recording"
+                        Grid.Row="2" />
+                    <!--<Button
+                        x:Name="ScheduleRecording"
+                        Visibility="{Binding IsRecordable, Converter={StaticResource boolToVisConverter}}"
+                        Content="Record this Episode "
+                        Grid.Row="3" />
+                    <Button
+                        x:Name="GetSeriesLink"
+                        Visibility="{Binding IsRecordable, Converter={StaticResource boolToVisConverter}}"
+                        Content="Get Series Link"
+                        Grid.Row="4" />-->
                 </Grid>
 
             </controls:PanoramaItem>

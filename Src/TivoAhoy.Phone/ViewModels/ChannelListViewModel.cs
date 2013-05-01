@@ -15,6 +15,7 @@ namespace TivoAhoy.Phone.ViewModels
     {
         private readonly IProgressService progressService;
         private readonly INavigationService navigationService;
+        private readonly IScheduledRecordingsService scheduledRecordingsService;
         private readonly ITivoConnectionService connectionService;
         private readonly Func<OfferViewModel> offerViewModelFactory;
 
@@ -26,15 +27,17 @@ namespace TivoAhoy.Phone.ViewModels
         public ChannelListViewModel(
             IProgressService progressService,
             INavigationService navigationService,
+            IScheduledRecordingsService scheduledRecordingsService,
             ITivoConnectionService connectionService,
             Func<OfferViewModel> offerViewModelFactory)
         {
             this.progressService = progressService;
             this.navigationService = navigationService;
+            this.scheduledRecordingsService = scheduledRecordingsService;
             this.connectionService = connectionService;
             this.offerViewModelFactory = offerViewModelFactory;
             this.StartTime = DateTime.Now;
-            
+
             connectionService.PropertyChanged += OnConnectionServicePropertyChanged;
         }
 
@@ -225,10 +228,13 @@ namespace TivoAhoy.Phone.ViewModels
                 return;
             }
 
+            var scheduledRecording = this.scheduledRecordingsService.GetScheduledRecordingForOffer(offer.Offer.OfferId);
+
             this.navigationService
                 .UriFor<ShowDetailsPageViewModel>()
                 .WithParam(x => x.ShowContentID, offer.Offer.ContentId)
                 .WithParam(x => x.ShowOfferID, offer.Offer.OfferId)
+                .WithParam(x => x.ShowRecordingID, scheduledRecording == null ? null : scheduledRecording.RecordingId)
                 .Navigate();
         }
     }

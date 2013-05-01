@@ -9,8 +9,9 @@ namespace TivoAhoy.Phone
     {
         bool CanRefreshRecordings { get; }
         Task RefreshRecordings();
-        
+
         bool IsOfferRecordingScheduled(string offerId);
+        Recording GetScheduledRecordingForOffer(string offerId);
 
         IEnumerable<Recording> ScheduledRecordings { get; }
     }
