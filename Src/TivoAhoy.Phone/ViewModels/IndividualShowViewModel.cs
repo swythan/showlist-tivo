@@ -24,6 +24,22 @@ namespace TivoAhoy.Phone.ViewModels
             this.navigationService = navigationService;
         }
 
+        public IndividualShowViewModel()
+        {
+            if (Execute.InDesignMode)
+                LoadDesignData();
+        }
+
+        private void LoadDesignData()
+        {
+            this.Source = 
+                new IndividualShow()
+                {
+                    Title = "The Walking Dead",
+                    StartTime = DateTime.Parse("2013/05/01 21:00")
+                };
+        }
+
         public override bool IsSingleShow
         {
             get { return true; }
@@ -42,7 +58,7 @@ namespace TivoAhoy.Phone.ViewModels
                     return false;
 
                 var subscriptions = recording.SubscriptionIdentifier;
-                
+
                 if (subscriptions == null)
                     return false;
 

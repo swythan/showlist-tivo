@@ -25,6 +25,7 @@ namespace TivoAhoy.Phone
 
             container.PerRequest<SettingsPageViewModel>();
             container.PerRequest<MainPageViewModel>();
+            container.PerRequest<ShowContainerShowsPageViewModel>();
             container.PerRequest<ShowDetailsPageViewModel>();
 
             container.PerRequest<MyShowsViewModel>();

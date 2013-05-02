@@ -13,40 +13,33 @@ namespace TivoAhoy.Phone.ViewModels
 {
     public class ShowContainerViewModel : RecordingFolderItemViewModel<Container>
     {
-        private readonly IProgressService progressService;
-        private readonly ITivoConnectionService connectionService;
+        private readonly INavigationService navigationService;
 
-        private readonly Func<LazyRecordingFolderItemViewModel> showModelFactory;
-
-        private IEnumerable<LazyRecordingFolderItemViewModel> shows;
-
-        public ShowContainerViewModel(
-            IProgressService progressService,
-            ITivoConnectionService connectionService,
-            Func<LazyRecordingFolderItemViewModel> showModelFactory)
+        public ShowContainerViewModel(INavigationService navigationService)
         {
-            this.connectionService = connectionService;
-            this.progressService = progressService;
+            this.navigationService = navigationService;
+        }
 
-            this.showModelFactory = showModelFactory;
+        public ShowContainerViewModel()
+        {
+            if (Execute.InDesignMode)
+                LoadDesignData();
+        }
+
+        private void LoadDesignData()
+        {
+            this.Source =
+                new Container()
+                {
+                    Title = "64 Zoo Lane",
+                    FolderItemCount = 4,
+                    FolderType = "series"
+                };
         }
 
         public override bool IsSingleShow
         {
             get { return false; }
-        }
-
-        public IEnumerable<LazyRecordingFolderItemViewModel> Shows
-        {
-            get { return shows; }
-            set
-            {
-                if (this.shows == value)
-                    return;
-
-                this.shows = value;
-                NotifyOfPropertyChange(() => this.Shows);
-            }
         }
 
         public string ContentInfo
@@ -64,32 +57,16 @@ namespace TivoAhoy.Phone.ViewModels
             }
         }
 
-        public async void GetChildShows()
+        public void DisplayContainerShows()
         {
-            try
-            {
-                var connection = await this.connectionService.GetConnectionAsync();
+            if (this.Source == null)
+                return;
 
-                using (progressService.Show())
-                {
-                    var ids = await connection.GetRecordingFolderItemIds(this.Source != null ? this.Source.Id : null);
-                    this.Shows = ids
-                        .Select(CreateShowViewModel)
-                        .ToList();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(string.Format("Connection Failed :\n{0}", ex.Message));
-            }
-        }
-
-        private LazyRecordingFolderItemViewModel CreateShowViewModel(long itemId)
-        {
-            var model = showModelFactory();
-            model.Initialise(itemId);
-
-            return model;
+            this.navigationService
+                .UriFor<ShowContainerShowsPageViewModel>()
+                .WithParam(x => x.ParentId, this.Source.Id)
+                .WithParam(x => x.Title, this.Title)
+                .Navigate();
         }
     }
 }

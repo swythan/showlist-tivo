@@ -35,6 +35,17 @@ namespace TivoAhoy.Phone.ViewModels
             this.showContainerViewModelFactory = showContainerViewModelFactory;
         }
 
+        /// <summary>
+        /// Design mode constructor
+        /// </summary>
+        public LazyRecordingFolderItemViewModel(RecordingFolderItem item)
+        {
+            this.showViewModelFactory = () => new IndividualShowViewModel();
+            this.showContainerViewModelFactory = () => new ShowContainerViewModel();
+
+            this.Item = CreateItemViewModel(item);
+        }
+
         public void Initialise(long objectId)
         {
             this.objectId = objectId;

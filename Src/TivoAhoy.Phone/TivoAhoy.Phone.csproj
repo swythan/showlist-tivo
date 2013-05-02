@@ -162,6 +162,7 @@
     <Compile Include="ViewModels\LazyRecordingFolderItemViewModel.cs" />
     <Compile Include="ViewModels\MyShowsViewModel.cs" />
     <Compile Include="ViewModels\OfferViewModel.cs" />
+    <Compile Include="ViewModels\ShowContainerShowsPageViewModel.cs" />
     <Compile Include="ViewModels\ShowDetailsPageViewModel.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -171,6 +172,15 @@
     </Compile>
     <Compile Include="Views\CreditsView.xaml.cs">
       <DependentUpon>CreditsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\IndividualShowView.xaml.cs">
+      <DependentUpon>IndividualShowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShowContainerShowsPage.xaml.cs">
+      <DependentUpon>ShowContainerShowsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShowContainerView.xaml.cs">
+      <DependentUpon>ShowContainerView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ToDoListView.xaml.cs">
       <DependentUpon>ToDoListView.xaml</DependentUpon>
@@ -208,6 +218,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CreditsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\IndividualShowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ShowContainerShowsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ShowContainerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

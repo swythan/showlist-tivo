@@ -19,6 +19,7 @@ namespace TivoAhoy.Phone.ViewModels
 
         private readonly Func<LazyRecordingFolderItemViewModel> showModelFactory;
 
+        private string parentId;
         private IEnumerable<LazyRecordingFolderItemViewModel> myShows;
 
         public MyShowsViewModel(
@@ -33,6 +34,39 @@ namespace TivoAhoy.Phone.ViewModels
 
             connectionService.PropertyChanged += OnConnectionServicePropertyChanged;
         }
+        
+        public MyShowsViewModel()
+        {
+            if (Execute.InDesignMode)
+                LoadDesignData();
+        }
+
+        private void LoadDesignData()
+        {
+            this.MyShows = new List<LazyRecordingFolderItemViewModel>
+            {
+                new LazyRecordingFolderItemViewModel(
+                    new IndividualShow()
+                    {
+                        Title = "The Walking Dead",
+                        StartTime = DateTime.Parse("2013/05/01 21:00")                        
+                    }),
+                new LazyRecordingFolderItemViewModel(
+                    new IndividualShow()
+                    {
+                        Title = "Antiques Roadshow",
+                        StartTime = DateTime.Parse("2013/05/02 17:30")                        
+                    }),
+                new LazyRecordingFolderItemViewModel(
+                    new Container()
+                    {
+                        Title = "64 Zoo Lane",
+                        FolderItemCount = 4,
+                        FolderType = "series"
+                    })
+            };
+        }
+
 
         private void OnConnectionServicePropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
@@ -60,8 +94,22 @@ namespace TivoAhoy.Phone.ViewModels
             }
         }
 
-        public IEnumerable<LazyRecordingFolderItemViewModel> MyShows 
-        { 
+        public string ParentId
+        {
+            get { return this.parentId; }
+            set
+            {
+                if (this.parentId == value)
+                    return;
+
+                this.parentId = value;
+
+                NotifyOfPropertyChange(() => this.ParentId);
+            }
+        }
+
+        public IEnumerable<LazyRecordingFolderItemViewModel> MyShows
+        {
             get
             {
                 return this.myShows;
@@ -74,14 +122,6 @@ namespace TivoAhoy.Phone.ViewModels
             }
         }
 
-        public bool CanRefreshShows
-        {
-            get
-            {
-                return this.connectionService.IsConnected;
-            }
-        }
-
         public bool ShowSettingsPrompt
         {
             get
@@ -90,15 +130,24 @@ namespace TivoAhoy.Phone.ViewModels
             }
         }
 
+        public bool CanRefreshShows
+        {
+            get
+            {
+                return this.connectionService.IsConnected;
+            }
+        }
+
+
         public void RefreshShows()
         {
             if (this.CanRefreshShows)
             {
-                FetchShows(null);
+                FetchShows();
             }
         }
 
-        private async void FetchShows(Container parent)
+        private async void FetchShows()
         {
             try
             {
@@ -106,7 +155,7 @@ namespace TivoAhoy.Phone.ViewModels
 
                 using (this.progressService.Show())
                 {
-                    var ids = await connection.GetRecordingFolderItemIds(parent != null ? parent.Id : null);
+                    var ids = await connection.GetRecordingFolderItemIds(this.ParentId);
                     this.MyShows = ids
                         .Select(CreateShowViewModel)
                         .ToList();
@@ -125,7 +174,7 @@ namespace TivoAhoy.Phone.ViewModels
 
             return model;
         }
-        
+
         public void ActivateItem(object item)
         {
             //var showContainer = item as ShowContainerViewModel;
