@@ -8,6 +8,7 @@
     xmlns:ec="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions"
     xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
     xmlns:vm="clr-namespace:TivoAhoy.Phone.ViewModels"
+    xmlns:converters="clr-namespace:TivoAhoy.Phone.Converters"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -16,6 +17,11 @@
     d:DataContext="{d:DesignInstance Type=vm:IndividualShowViewModel, IsDesignTimeCreatable=True}"
     cal:Bind.AtDesignTime="True">
 
+    <UserControl.Resources>
+        <converters:BooleanToVisibilityConverter
+            x:Key="boolToVisConverter" />
+    </UserControl.Resources>
+    
     <Grid
         x:Name="LayoutRoot"
         Background="Transparent"
@@ -62,9 +68,33 @@
                     </ec:DataTrigger>
                 </i:Interaction.Triggers>
             </Grid>
-            <TextBlock
-                Text="{Binding Source.StartTime, ConverterCulture={StaticResource DefaultCulture}, StringFormat=g}"
-                Style="{StaticResource PhoneTextSmallStyle}" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition
+                        Width="Auto" />
+                    <ColumnDefinition
+                        Width="*" />
+                    <ColumnDefinition
+                        Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Text="{Binding Source.StartTime, ConverterCulture={StaticResource DefaultCulture}, StringFormat=g}"
+                    Style="{StaticResource PhoneTextSmallStyle}"
+                    Grid.ColumnSpan="2" />
+                <StackPanel
+                    Orientation="Horizontal"
+                    Grid.Column="3"
+                    Visibility="{Binding HasEpisodeNumbers, Converter={StaticResource boolToVisConverter}}">
+                    <TextBlock
+                        Text="{Binding Source.RecordingForChildRecordingId.SeasonNumber, StringFormat='S\{0\}'}"
+                        Style="{StaticResource PhoneTextSmallStyle}" 
+                        Margin="0"/>
+                    <TextBlock
+                        Text="{Binding Source.RecordingForChildRecordingId.EpisodeNumber, StringFormat='Ep\{0\}'}"
+                        Style="{StaticResource PhoneTextSmallStyle}"
+                        Margin="12,0" />
+                </StackPanel>
+            </Grid>
         </StackPanel>
     </Grid>
 </UserControl>

@@ -49,5 +49,27 @@ namespace Tivo.Connect.Entities
 
         public string Title { get; set; }
         public DateTime OriginalAirdate { get; set; }
+
+        public int? SeasonNumber { get; set; }
+
+        [JsonProperty("episodeNum")]
+        public List<int> EpisodeNumbers { get; set; }
+
+        [JsonIgnore]
+        public int? EpisodeNumber
+        {
+            get
+            {
+                if (this.EpisodeNumbers == null ||
+                    this.EpisodeNumbers.Count == 0)
+                {
+                    return null;
+                }
+
+                return this.EpisodeNumbers[0];
+            }
+        }
+
+
     }
 }
