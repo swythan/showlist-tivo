@@ -81,7 +81,8 @@
                     <TextBlock
                         x:Name="Show_Subtitle"
                         Grid.Row="0"
-                        Style="{StaticResource PhoneTextExtraLargeStyle}" />
+                        Style="{StaticResource PhoneTextExtraLargeStyle}"
+                        Visibility="{Binding HasSubtitle, Converter={StaticResource boolToVisConverter}}" />
                     <StackPanel
                         Orientation="Horizontal"
                         Grid.Row="1"
@@ -110,13 +111,20 @@
                             Text="{Binding Show.OriginalAirDate, StringFormat=d, ConverterCulture={StaticResource DefaultCulture}}"
                             Style="{StaticResource PhoneTextLargeStyle}" />
                     </StackPanel>
-                    <TextBlock
-                        x:Name="Show_Description"
-                        TextWrapping="Wrap"
+                    <ScrollViewer
                         Grid.Row="3"
-                        Style="{StaticResource PhoneTextNormalStyle}" />
+                        Margin="12"
+                        VerticalScrollBarVisibility="Auto">
+                        <TextBlock
+                            x:Name="Show_Description"
+                            TextWrapping="Wrap"
+                            Style="{StaticResource PhoneTextNormalStyle}"
+                            FontSize="{StaticResource PhoneFontSizeMedium}"
+                            Margin="0" />
+                    </ScrollViewer>
                 </Grid>
             </controls:PanoramaItem>
+                       
             <controls:PanoramaItem >
                 <Grid
                     x:Name="ActionPanel"

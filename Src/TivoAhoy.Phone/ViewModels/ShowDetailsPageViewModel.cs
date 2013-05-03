@@ -115,6 +115,16 @@ namespace TivoAhoy.Phone.ViewModels
         public string ShowRecordingID { get; set; }
         public string ShowOfferID { get; set; }
 
+        public bool HasSubtitle
+        {
+            get
+            {
+                return
+                    this.Show != null &&
+                    !string.IsNullOrWhiteSpace(this.Show.Subtitle);
+            }
+        }
+
         public bool HasEpisodeNumbers
         {
             get
@@ -253,6 +263,7 @@ namespace TivoAhoy.Phone.ViewModels
                 //NotifyOfPropertyChange(() => this.IsRecorded);
                 NotifyOfPropertyChange(() => this.MainImage);
                 NotifyOfPropertyChange(() => this.MainImageBrush);
+                NotifyOfPropertyChange(() => this.HasSubtitle);
                 NotifyOfPropertyChange(() => this.HasEpisodeNumbers);
                 NotifyOfPropertyChange(() => this.HasOriginalAirDate);
                 //NotifyOfPropertyChange(() => this.CanDeleteShow);
