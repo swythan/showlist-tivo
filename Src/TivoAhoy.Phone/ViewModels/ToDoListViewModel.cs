@@ -87,6 +87,7 @@ namespace TivoAhoy.Phone.ViewModels
                 }
             }
         }
+
         protected override void OnActivate()
         {
             base.OnActivate();
@@ -95,7 +96,7 @@ namespace TivoAhoy.Phone.ViewModels
             if (this.ToDoList == null ||
                 this.ToDoList.Count == 0)
             {
-                this.UpdateToDoList();
+                Task.Factory.StartNew(() => this.UpdateToDoList());
             }
         }
 
@@ -132,7 +133,7 @@ namespace TivoAhoy.Phone.ViewModels
             }
         }
 
-        private async Task UpdateToDoList()
+        private void UpdateToDoList()
         {
             var recordings = this.scheduledRecordingService.ScheduledRecordings;
 
