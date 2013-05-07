@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2009/deployment" AppPlatformVersion="7.1">
-  <App xmlns="" ProductID="{0056bd0c-d7a2-4f93-9f1f-8ee5bbef8c76}" Title="Show List for TiVo®" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="TivoAhoy.Phone author" Description="Sample description" Publisher="TivoAhoy.Phone">
+  <App xmlns="" ProductID="{0056bd0c-d7a2-4f93-9f1f-8ee5bbef8c76}" Title="Show List for TiVo®" RuntimeType="Silverlight" Version="2.0.0.0" Genre="apps.normal" Author="James Chaldecott" Description="Access your Virgin Media TiVo® DVR using WiFi.&#xD;&#xA;&#xD;&#xA;Browse your My Shows list, upcoming recordings and the EPG.  You can then schedule, cancel or delete recordings, as well start recordings playing (on your TV)." Publisher="James Chaldecott">
     <IconPath IsRelative="true" IsResource="false">Application_IconImage_62x62.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />

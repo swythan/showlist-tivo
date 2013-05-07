@@ -54,8 +54,23 @@
     <!-- Supported types are "text" and "xaml", where text is nicely formatted automatically, and XAML is handled by the built-in XamlReader -->
     <Item Title="history"
           Type="text">
+      2.0.0.0
+      Re-release after a long time away!
+      - Away Mode support - Connect from anywhere with internet access!
+      - Show TV Guide (EPG)
+      - Show scheduled recordings
+      - Schedule a new recording (no recording options, yet)
+      - Cancel a scheduled recording
+      - Delete an existing recording
+      - Automatically connect at startup
+      - Automatically find TiVo DVRs on WiFi network
+      
       1.0.0.0
-      This is the initial public version.
+      Initial public version
+      - Home Mode only (manually enter IP address for TiVo on WiFi)
+      - List recorded shows
+      - Display details of a recording
+      - Play an existing recording (on TV)
     </Item>
     <Item Title="credits"
           Type="xaml">
