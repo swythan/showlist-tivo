@@ -98,6 +98,13 @@
                         Please enter the username and password you 
                         use to log on to the Virgin Media website.
                     </TextBlock>
+                    <HyperlinkButton
+                        Content="More Details"
+                        NavigateUri="http://snipurl.com/showlist-settings-help"
+                        TargetName="_blank"
+                        HorizontalAlignment="Center"
+                        Grid.Row="5"
+                        VerticalAlignment="Top" />
                     <Button
                         Content="Save"
                         Grid.Row="6"
@@ -171,13 +178,6 @@
                         Style="{StaticResource PhoneTextNormalStyle}"
                         Grid.Row="3"
                         Margin="12,0,0,0" />
-                    <HyperlinkButton
-                        Content="Help"
-                        NavigateUri="http://my.virginmedia.com/discover/tv/tvanywhere/app/get-set-up.html"
-                        TargetName="_blank"
-                        HorizontalAlignment="Right"
-                        Grid.Row="3"
-                        VerticalAlignment="Top" />
                     <TextBox
                         HorizontalAlignment="Stretch"
                         Name="LanMediaAccessKey"
@@ -193,6 +193,13 @@
                         must be connected to the same network 
                         (e.g. both connected to your SuperHub). 
                     </TextBlock>
+                    <HyperlinkButton
+                        Content="More Details"
+                        NavigateUri="http://snipurl.com/showlist-settings-help"
+                        TargetName="_blank"
+                        HorizontalAlignment="Center"
+                        Grid.Row="6"
+                        VerticalAlignment="Top" />
                     <Button
                         Content="Save"
                         Grid.Row="7"
