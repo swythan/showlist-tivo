@@ -67,7 +67,6 @@ namespace TivoAhoy.Phone.ViewModels
             };
         }
 
-
         private void OnConnectionServicePropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             if (e.PropertyName == "IsConnected")
@@ -85,7 +84,6 @@ namespace TivoAhoy.Phone.ViewModels
         {
             base.OnActivate();
             NotifyOfPropertyChange(() => this.CanRefreshShows);
-            NotifyOfPropertyChange(() => this.ShowSettingsPrompt);
 
             if (this.MyShows == null ||
                 !this.MyShows.Any())
@@ -122,14 +120,6 @@ namespace TivoAhoy.Phone.ViewModels
             }
         }
 
-        public bool ShowSettingsPrompt
-        {
-            get
-            {
-                return !this.connectionService.SettingsAppearValid;
-            }
-        }
-
         public bool CanRefreshShows
         {
             get
@@ -137,7 +127,6 @@ namespace TivoAhoy.Phone.ViewModels
                 return this.connectionService.IsConnected;
             }
         }
-
 
         public void RefreshShows()
         {

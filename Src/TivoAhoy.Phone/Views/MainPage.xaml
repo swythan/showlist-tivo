@@ -9,6 +9,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+    xmlns:converters="clr-namespace:TivoAhoy.Phone.Converters"
     mc:Ignorable="d"
     d:DesignWidth="480"
     d:DesignHeight="728"
@@ -21,11 +22,16 @@
     shell:SystemTray.Opacity="0"
     toolkit:TiltEffect.IsTiltEnabled="True">
 
+    <UserControl.Resources>
+        <converters:BooleanToVisibilityConverter
+            x:Key="boolToVisConverter" />
+    </UserControl.Resources>
+
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid
         x:Name="LayoutRoot"
         Background="Transparent">
-        
+
         <!--Panorama control-->
         <controls:Pivot
             Title="SHOW LIST"
@@ -39,10 +45,34 @@
             </controls:Pivot.HeaderTemplate>
         </controls:Pivot>
 
+        <RichTextBox
+            Visibility="{Binding ShowSettingsPrompt, Converter={StaticResource boolToVisConverter}}"
+            TextWrapping="Wrap"
+            VerticalAlignment="Center"
+            IsReadOnly="True"
+            Margin="{StaticResource PhoneHorizontalMargin}"
+            TextAlignment="Justify"
+            Foreground="{StaticResource PhoneSubtleBrush}"
+            FontFamily="{StaticResource PhoneFontFamilyNormal}"
+            FontSize="{StaticResource PhoneFontSizeMediumLarge}">
+            <Paragraph>
+                Valid connection settings for your TiVo® DVR have not been entered. 
+            </Paragraph>
+            <Paragraph />
+            <Paragraph>
+                Please go to 
+                <Hyperlink
+                    NavigateUri="/Views/SettingsPage.xaml">
+                    Settings
+                </Hyperlink> and enter your connection settings.
+            </Paragraph>
+        </RichTextBox>
     </Grid>
 
     <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+        <shell:ApplicationBar
+            IsVisible="True"
+            IsMenuEnabled="True">
             <cal:AppBarButton
                 Text="Refresh"
                 IconUri="/Images/appbar.refresh.rest.png"

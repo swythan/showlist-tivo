@@ -10,14 +10,19 @@
         Conductor<IScreen>.Collection.OneActive
     {
         private readonly INavigationService navigationService;
+        private readonly ITivoConnectionService connectionService;
 
         public MainPageViewModel(
             INavigationService navigationService,
+            ITivoConnectionService connectionService,
             MyShowsViewModel myShowsViewModel,
             ChannelListViewModel channelListViewModel,
             ToDoListViewModel toDoListViewModel)
         {
             this.navigationService = navigationService;
+            this.connectionService = connectionService;
+
+            connectionService.PropertyChanged += OnConnectionServicePropertyChanged;
 
             channelListViewModel.DisplayName = "guide";
             channelListViewModel.PropertyChanged += OnViewModelPropertyChanged;
@@ -32,6 +37,14 @@
             this.Items.Add(myShowsViewModel);
 
             this.ActivateItem(channelListViewModel);
+        }
+
+        private void OnConnectionServicePropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "SettingsAppearValid")
+            {
+                NotifyOfPropertyChange(() => this.ShowSettingsPrompt);
+            }
         }
 
         private void OnViewModelPropertyChanged(object sender, PropertyChangedEventArgs args)
@@ -50,12 +63,21 @@
         {
             base.OnActivate();
             NotifyOfPropertyChange(() => this.CanRefreshList);
+            NotifyOfPropertyChange(() => this.ShowSettingsPrompt);
         }
 
         protected override void OnActivationProcessed(IScreen item, bool success)
         {
             base.OnActivationProcessed(item, success);
             NotifyOfPropertyChange(() => this.CanRefreshList);
+        }
+
+        public bool ShowSettingsPrompt
+        {
+            get
+            {
+                return !this.connectionService.SettingsAppearValid;
+            }
         }
 
         public void ShowSettings()
