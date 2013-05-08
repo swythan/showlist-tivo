@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<meta charset="utf-8">
+<!--	[[1]]	# App title #		-->	
+	<title>Show List for TiVo®</title>
+	<meta name="description" content="The One-Page Windows Phone 7 App Website Template">
+	<meta name="author" content="Nick Harewood: www.space-scape.com/wp7appsite/">
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">	
+	
+	<link rel="stylesheet" href="stylesheets/base.min.css">
+	<link rel="stylesheet" href="stylesheets/skeleton.css">
+	<link rel="stylesheet" href="stylesheets/layout.css">
+
+	<style type="text/css">
+
+/* 	[[3]] #Windows Phone App Website Branding Styles */
+
+	/* Text and Background colour */
+	body {
+		color: #000;
+		background-color:#BDBDBD;
+	}
+	
+	/* Header Colours */
+	h1, h2, h3, h4, h5, h6 {color: #333;}
+	
+	/* Link colour */
+	a, a:visited { color: #666;}
+
+	/* Logo */
+	#header #logo h1 {
+		width: 173px;
+		height: 173px;
+		background: transparent url(images/branding/ShowListLogo_173x173.png) no-repeat;
+	}
+
+	/* Strapline colour */
+	#header #strapline p {color: #000;}
+
+	/* App Feature List - define custom feature icons here -  */
+	ul.featurelist li.BulletImage { background-image: url(images/listcircle.png);}
+
+	/* User Review Quote */
+	blockquote.user_quote p {color: #666;}
+
+	</style>
+
+	<link rel="shortcut icon" href="images/branding/favicon.ico">
+
+</head>
+<body>
+
+	<div id="maincontainer" class="container">
+	
+		<div class="sixteen columns" id="header">
+		
+			<div id="logo" class="four columns alpha">
+<!--	[[4]]	# App title #		-->	
+				<h1>Show List for TiVo®</h1>
+			</div>
+			
+			<div id="strapline" class="six columns omega offset-by-six">
+<!--	[[5]]	# App strapline #		-->	
+				<p>The <em>best</em> way to control your TiVo® DVR from Windows Phone</p>
+			</div>
+		</div>
+		<br class="clear"/>
+		<div class="sixteen columns" id="contentcontainer">
+		
+			<div class="four columns alpha">
+				<h2>Latest</h2>
+<!--	# Twitter Feed  #		-->	
+				<div class="tweet"></div> 
+<!--	[[6]]	# Twitter Follow Button : Enter your twitter link below #		-->	
+				<a href="https://twitter.com/wp_ShowList" class="twitter-follow-button" data-show-count="false">Follow wp_ShowList</a>
+			</div>
+				
+			<div id="phonescreens" class="six columns">
+				<div id="slider">
+<!--	[[7]]	# App Screenshots - Replace items in this list with your own 240x400px Images #		-->	
+					<ul>				
+						<li><img src="images/screenshots/Guide.png" alt="TV Guide" /></li>
+						<li><img src="images/screenshots/Scheduled.png" alt="Scheduled recordings" /></li>
+						<li><img src="images/screenshots/MyShows.png" alt="My Shows list" /></li>
+						<li><img src="images/screenshots/MyShowsFolder.png " alt="My Shows list (folder contents)" /></li>
+						<li><img src="images/screenshots/Settings.png " alt="Settings (Away Mode)" /></li>
+						<li><img src="images/screenshots/SettingsHome.png " alt="Settings (Home Mode)" /></li>
+						<li><img src="images/screenshots/Show Details.png " alt="Show Details" /></li>
+						<li><img src="images/screenshots/Show Details2.png " alt="Show Details" /></li>
+					</ul>
+				</div>
+<!--	[[8]]	# App Marketplace Link - Find your app on the marketplace and insert the URL below#		-->	
+				<p class="downloadlink"><a href="http://www.windowsphone.com/s?appid=f19ef184-5017-4e10-bf57-9e48ecd1bbd5">Download for Windows Phone</a></p>
+			</div>
+			
+			<div id="features" class="six columns omega">
+				<h2>Features</h2>
+<!--	[[9]]	# App Feature List #		-->	
+				<ul class="featurelist">				
+					<li class="BulletImage">Connect either on your LAN or over the internet</li>
+					<li class="BulletImage">Browse your My Shows list, upcoming recordings and the TV Guide</li>
+					<li class="BulletImage">Schedule (or cancel) recordings from anywhere in the world!</li>
+					<li class="BulletImage">Play shows without having to scrolling through lists on the TV</li>
+					<li class="BulletImage">More features coming soon!</li>
+				</ul>
+<!--	[[10]]	# User Reviews & Quotes #		-->	
+<!--				<blockquote class="user_quote">
+					<p>The best (and only) Windows Phone 7 App site template I've ever used!</p>
+					<cite>Nick Harewood, App Designer</cite>
+				</blockquote>
+-->
+			</div>
+		
+
+		</div>
+
+		
+		
+	</div>
+
+<!--	# Footer #		-->	
+	<div class="container" id="footer">
+		<p><a href="http://wp7appsite.codeplex.com/">WP7 App Site</a> by <a href="http://www.space-scape.com/">Nick Harewood</a></p>
+	</div>
+
+	<!-- Load all the JS -->
+	<script type="text/javascript" src="javascripts/jsLoader.js"></script>
+	<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
+	<script type="text/javascript">
+
+	//	[[2]]	# Twitter Feed Options - see http://tweet.seaofclouds.com/ for details # 
+		jQuery(function($){
+			$(".tweet").tweet({
+				username: "wp_showlist",
+				join_text: "auto",
+				count: 3,
+				auto_join_text_default: "We said:",
+				auto_join_text_ed: "We",
+				auto_join_text_ing: "We were",
+				auto_join_text_reply: "",
+				auto_join_text_url: "",
+				loading_text: "loading tweets..."
+			});
+		});
+		
+	</script> 	
+
+	<script type="text/javascript">
+//	[[11]]	# UserVoice Widget code location
+	  var uvOptions = {};
+	  (function() {
+		var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = false;
+		uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/Yzd2DrjJ2Mm7Z2e6lZNPg.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
+	  })();
+
+//	[[12]]	# Screenshot Slider options #		
+		$(document).ready(function(){	
+			$("#slider").easySlider({
+				auto: true, 
+				continuous: true,
+				pause: 5000,
+				controlsShow: false
+			});
+		});	
+	</script>
+
+</body>
+</html>
