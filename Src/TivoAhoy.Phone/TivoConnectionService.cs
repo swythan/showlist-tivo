@@ -10,6 +10,7 @@ namespace TivoAhoy.Phone
 {
     public class TivoConnectionService : PropertyChangedBase, ITivoConnectionService, IHandle<ConnectionSettingsChanged>
     {
+        private readonly IAnalyticsService analyticsService;
         private readonly IEventAggregator eventAggregator;
         private readonly IProgressService progressService;
 
@@ -23,9 +24,11 @@ namespace TivoAhoy.Phone
         private string error;
 
         public TivoConnectionService(
+            IAnalyticsService analyticsService,
             IEventAggregator eventAggregator,
             IProgressService progressService)
         {
+            this.analyticsService = analyticsService;
             this.eventAggregator = eventAggregator;
             this.progressService = progressService;
 
@@ -225,6 +228,8 @@ namespace TivoAhoy.Phone
 
                             this.isConnected = true;
                             this.isAwayMode = false;
+
+                            this.analyticsService.ConnectedHomeMode();
                         }
                         catch (Exception ex)
                         {
@@ -241,7 +246,9 @@ namespace TivoAhoy.Phone
 
                         this.isConnected = true;
                         this.isAwayMode = true;
-                    }
+ 
+                        this.analyticsService.ConnectedAwayMode();
+                   }
                     catch (Exception ex)
                     {
                         this.Error = ex.Message;

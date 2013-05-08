@@ -126,6 +126,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnalyticsService.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -149,10 +150,12 @@
     <Compile Include="Discovery\Question.cs" />
     <Compile Include="Discovery\ResponseData.cs" />
     <Compile Include="Events\ConnectionSettingsChanged.cs" />
+    <Compile Include="IAnalyticsService.cs" />
     <Compile Include="IProgressService.cs" />
     <Compile Include="IScheduledRecordingsService.cs" />
     <Compile Include="ITivoConnectionService.cs" />
     <Compile Include="KnownTivoConnection.cs" />
+    <Compile Include="LocalyticsSession.cs" />
     <Compile Include="ProgressService.cs" />
     <Compile Include="ScheduledRecordingsService.cs" />
     <Compile Include="SettingsStore.cs" />

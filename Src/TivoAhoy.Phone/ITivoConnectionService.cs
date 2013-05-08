@@ -16,6 +16,5 @@ namespace TivoAhoy.Phone
         bool IsConnectionEnabled { get; set; }
 
         Task<TivoConnection> GetConnectionAsync();
-
     }
 }

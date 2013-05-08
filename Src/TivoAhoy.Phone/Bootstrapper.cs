@@ -20,6 +20,8 @@ namespace TivoAhoy.Phone
             container.RegisterPhoneServices();
 
             container.Instance<IProgressService>(new ProgressService(RootFrame));
+
+            container.Singleton<IAnalyticsService, AnalyticsService>();
             container.Singleton<ITivoConnectionService, TivoConnectionService>();
             container.Singleton<IScheduledRecordingsService, ScheduledRecordingsService>();
 
@@ -57,6 +59,7 @@ namespace TivoAhoy.Phone
 
         protected override void OnLaunch(object sender, Microsoft.Phone.Shell.LaunchingEventArgs e)
         {
+            EnableAnalytics(true);
             EnableConnections(true);
 
             base.OnLaunch(sender, e);
@@ -68,15 +71,31 @@ namespace TivoAhoy.Phone
             connectionService.IsConnectionEnabled = enable;
         }
 
+        private void EnableAnalytics(bool enable)
+        {
+            var analytics = (IAnalyticsService)this.container.GetInstance(typeof(IAnalyticsService), null);
+
+            if (enable)
+            {
+                analytics.OpenSession();
+            }
+            else
+            {
+                analytics.CloseSession();
+            }
+        }
+
         protected override void OnClose(object sender, Microsoft.Phone.Shell.ClosingEventArgs e)
         {
             base.OnClose(sender, e);
 
             EnableConnections(false);
+            EnableAnalytics(false);
         }
 
         protected override void OnActivate(object sender, Microsoft.Phone.Shell.ActivatedEventArgs e)
         {
+            EnableAnalytics(true);
             EnableConnections(true);
 
             base.OnActivate(sender, e);
@@ -87,6 +106,22 @@ namespace TivoAhoy.Phone
             base.OnDeactivate(sender, e);
 
             EnableConnections(false);
+            EnableAnalytics(false);
+        }
+
+        protected override void OnUnhandledException(object sender, System.Windows.ApplicationUnhandledExceptionEventArgs e)
+        {
+            try
+            {
+                var analytics = (IAnalyticsService)this.container.GetInstance(typeof(IAnalyticsService), null);
+                analytics.AppCrash(e.ExceptionObject);
+            }
+            catch (Exception)
+            {
+                // Ignore errors when logging
+            }
+
+            base.OnUnhandledException(sender, e);
         }
 
         static void AddCustomConventions()

@@ -16,6 +16,7 @@ namespace TivoAhoy.Phone.ViewModels
 {
     public class ShowDetailsPageViewModel : Screen
     {
+        private readonly IAnalyticsService analyticsService;
         private readonly IEventAggregator eventAggregator;
         private readonly IProgressService progressService;
         private readonly ITivoConnectionService connectionService;
@@ -27,10 +28,12 @@ namespace TivoAhoy.Phone.ViewModels
         private int panoramaHeight = 800;
 
         public ShowDetailsPageViewModel(
+            IAnalyticsService analyticsService,
             IEventAggregator eventAggregator,
             IProgressService progressService,
             ITivoConnectionService connectionService)
         {
+            this.analyticsService = analyticsService;
             this.eventAggregator = eventAggregator;
             this.progressService = progressService;
             this.connectionService = connectionService;
@@ -393,6 +396,8 @@ namespace TivoAhoy.Phone.ViewModels
         {
             OnOperationStarted();
 
+            this.analyticsService.PlayRecording();
+
             try
             {
                 var connection = await this.connectionService.GetConnectionAsync();
@@ -429,6 +434,8 @@ namespace TivoAhoy.Phone.ViewModels
         public async void DeleteShow()
         {
             OnOperationStarted();
+
+            this.analyticsService.DeleteRecording();
 
             try
             {
@@ -469,6 +476,8 @@ namespace TivoAhoy.Phone.ViewModels
         {
             OnOperationStarted();
 
+            this.analyticsService.CancelSingleRecording();
+
             try
             {
                 var connection = await this.connectionService.GetConnectionAsync();
@@ -505,6 +514,8 @@ namespace TivoAhoy.Phone.ViewModels
         public async void ScheduleRecording()
         {
             OnOperationStarted();
+                
+            this.analyticsService.ScheduleSingleRecording();
 
             try
             {
