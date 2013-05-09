@@ -399,6 +399,17 @@ namespace Tivo.Connect
             return results["recording"].First().ToObject<Recording>(this.jsonSerializer);
         }
 
+        public async Task<Offer> GetOfferDetails(string offerId)
+        {
+            var detailsResults = await SendOfferSearchRequest(offerId).ConfigureAwait(false);
+
+            CheckResponse(detailsResults, "offerList", "offerSearch");
+
+            var content = (JArray)detailsResults["offer"];
+
+            return content.First().ToObject<Offer>(this.jsonSerializer);
+        }
+
         public async Task PlayShow(string recordingId)
         {
             var response = await SendPlayShowRequest(recordingId);
@@ -927,6 +938,7 @@ namespace Tivo.Connect
                     { "type", "subscribe" },
                     { "bodyId", this.capturedTsn },
                     { "recordingQuality", "best" },
+                    { "showStatus", "rerunsAllowed" },
                     { "maxRecordings", 1 },
                     { "ignoreConflicts", "false" },
                     { "keepBehavior", "fifo" },
@@ -1052,7 +1064,7 @@ namespace Tivo.Connect
                     }  
                 };
 
-            return SendRequest("recordingUpdate", request);
+            return SendRequest("subscribe", request);
         }
 
         private async Task<JObject> SendChannelSearchRequest()
@@ -1342,6 +1354,23 @@ namespace Tivo.Connect
             };
 
             var response = await SendRequest("recordingSearch", request).ConfigureAwait(false);
+            return response;
+        }
+
+        private async Task<JObject> SendOfferSearchRequest(string offerId)
+        {
+            var request = new Dictionary<string, object>
+            {
+                { "type", "offerSearch" },
+                { "bodyId", this.capturedTsn },
+                {"searchable",true},
+                {"receivedChannelsOnly",false},
+                {"namespace", "refserver" },
+                {"offerId", new[] { offerId } },
+                {"note", new[] { "recordingForOfferId" } },
+            };
+
+            var response = await SendRequest("offerSearch", request).ConfigureAwait(false);
             return response;
         }
     }

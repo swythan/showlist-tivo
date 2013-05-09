@@ -23,6 +23,7 @@ namespace TivoAhoy.Phone.ViewModels
 
         private ShowDetails showDetails;
         private Recording recordingDetails;
+        private Offer offerDetails;
 
         private bool isOperationInProgress;
         private int panoramaHeight = 800;
@@ -293,8 +294,21 @@ namespace TivoAhoy.Phone.ViewModels
                 NotifyOfPropertyChange(() => this.CanPlayShow);
                 NotifyOfPropertyChange(() => this.CanCancelRecording);
                 NotifyOfPropertyChange(() => this.CanScheduleRecording);
+            }
+        }
 
-                UpdateBackgroundBrush();
+        public Offer Offer
+        {
+            get { return this.offerDetails; }
+            set
+            {
+                this.offerDetails = value;
+
+                Debug.WriteLine("Offer details fetched:");
+
+                NotifyOfPropertyChange(() => this.Offer);
+                NotifyOfPropertyChange(() => this.IsRecordable);
+                NotifyOfPropertyChange(() => this.CanScheduleRecording);
             }
         }
 
@@ -316,12 +330,17 @@ namespace TivoAhoy.Phone.ViewModels
 
                 using (progressService.Show())
                 {
+                    this.Show = await connection.GetShowContentDetails(this.ShowContentID);
+
                     if (!string.IsNullOrEmpty(this.ShowRecordingID))
                     {
                         this.Recording = await connection.GetRecordingDetails(this.ShowRecordingID);
                     }
 
-                    this.Show = await connection.GetShowContentDetails(this.ShowContentID);
+                    if (!string.IsNullOrEmpty(this.ShowOfferID))
+                    {
+                        this.Offer = await connection.GetOfferDetails(this.ShowOfferID);
+                    }
                 }
             }
             catch (Exception ex)
@@ -505,9 +524,10 @@ namespace TivoAhoy.Phone.ViewModels
                 if (!this.IsRecordable)
                     return false;
 
-                return
-                    !this.connectionService.IsAwayMode &&
-                    !this.IsOperationInProgress;
+                if (this.IsScheduled)
+                    return false;
+
+                return !this.IsOperationInProgress;
             }
         }
 
