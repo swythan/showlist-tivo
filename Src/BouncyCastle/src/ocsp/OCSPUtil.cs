@@ -92,7 +92,7 @@ namespace Org.BouncyCastle.Ocsp
 		internal static DerObjectIdentifier GetAlgorithmOid(
 			string algorithmName)
 		{
-			algorithmName = algorithmName.ToUpper(CultureInfo.InvariantCulture);
+			algorithmName = algorithmName.ToUpperInvariant();
 
 			if (algorithms.Contains(algorithmName))
 			{

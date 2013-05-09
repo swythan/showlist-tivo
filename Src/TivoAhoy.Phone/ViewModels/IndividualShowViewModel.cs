@@ -1,16 +1,8 @@
 ﻿using System;
-using System.Net;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Ink;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-using Tivo.Connect.Entities;
-using TivoAhoy.Phone.ViewModels;
+using System.Collections.Generic;
+using System.Linq;
 using Caliburn.Micro;
+using Tivo.Connect.Entities;
 
 namespace TivoAhoy.Phone.ViewModels
 {
@@ -23,9 +15,67 @@ namespace TivoAhoy.Phone.ViewModels
             this.navigationService = navigationService;
         }
 
+        public IndividualShowViewModel()
+        {
+            if (Execute.InDesignMode)
+                LoadDesignData();
+        }
+
+        private void LoadDesignData()
+        {
+            this.Source =
+                new IndividualShow()
+                {
+                    Title = "The Walking Dead",
+                    StartTime = DateTime.Parse("2013/05/01 21:00"),
+                    RecordingForChildRecordingId =
+                    new Recording
+                    {
+                        EpisodeNumbers = new List<int> { 5 },
+                        SeasonNumber = 2
+                    }
+                };
+        }
+
         public override bool IsSingleShow
         {
             get { return true; }
+        }
+
+        public override bool IsSuggestion
+        {
+            get
+            {
+                IndividualShow source = this.Source;
+                if (source == null)
+                    return false;
+
+                Recording recording = source.RecordingForChildRecordingId;
+                if (recording == null)
+                    return false;
+
+                var subscriptions = recording.SubscriptionIdentifier;
+
+                if (subscriptions == null)
+                    return false;
+
+                if (subscriptions.Any(x => x.SubscriptionType != "suggestions"))
+                    return false;
+
+                return true;
+            }
+        }
+
+        public bool HasEpisodeNumbers
+        {
+            get
+            {
+                return
+                    this.Source != null &&
+                    this.Source.RecordingForChildRecordingId != null &&
+                    this.Source.RecordingForChildRecordingId.EpisodeNumber != null &&
+                    this.Source.RecordingForChildRecordingId.SeasonNumber != null;
+            }
         }
 
         public void DisplayShowDetails()

@@ -21,46 +21,66 @@
             x:Name="Connect"
             Content="Connect" />
         <Button
-            x:Name="FetchMyShowsList"
-            Content="My Shows"
-            Grid.Row="1" />
-        <ListView
-            x:Name="Shows"
-            Grid.Row="2">
-            <ListView.View>
+            x:Name="ConnectAwayMode"
+            Content="Connect (Away Mode)"
+            Grid.Row="1"/>
+        <TabControl Grid.Row="2">
+            <TabItem
+                Header="My Shows">
+                <DockPanel LastChildFill="True">
+                    <Button
+                        x:Name="FetchMyShowsList"
+                        Content="Refresh"
+                        DockPanel.Dock="Top" />
+                    <ListView
+                        x:Name="Shows">
+                        <ListView.View>
+                            <GridView
+                                AllowsColumnReorder="true">
 
-                <GridView
-                    AllowsColumnReorder="true">
+                                <GridViewColumn
+                                    DisplayMemberBinding="{Binding ItemType}"
+                                    Header="Collection Type"
+                                    Width="100" />
 
-                    <GridViewColumn
-                        DisplayMemberBinding="{Binding ItemType}"
-                        Header="Collection Type"
-                        Width="100" />
+                                <GridViewColumn
+                                    DisplayMemberBinding="{Binding Title}"
+                                    Header="Title"
+                                    Width="200" />
 
-                    <GridViewColumn
-                        DisplayMemberBinding="{Binding Title}"
-                        Header="Title"
-                        Width="200" />
+                                <GridViewColumn
+                                    DisplayMemberBinding="{Binding Id}"
+                                    Width="100"
+                                    Header="Item Id" />
 
-                    <GridViewColumn
-                        DisplayMemberBinding="{Binding Id}"
-                        Width="100"
-                        Header="Item Id" />
+                            </GridView>
 
-                </GridView>
+                        </ListView.View>
+                        <ListView.ItemContainerStyle>
+                            <Style
+                                TargetType="{x:Type ListViewItem}">
+                                <Setter
+                                    Property="ToolTip"
+                                    Value="{Binding JsonText }" />
+                                <Setter
+                                    Property="cal:Message.Attach"
+                                    Value="[Event MouseDoubleClick] = [Action ActivateItem($dataContext)]" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>                    
+                </DockPanel>
+            </TabItem>
+            <TabItem
+                Header="What's On">
+                <ContentControl
+                    x:Name="WhatsOn" />
+            </TabItem>
+            <TabItem
+                Header="TV Guide">
+                <ContentControl
+                    x:Name="ShowGrid" />
+            </TabItem>
+        </TabControl>
 
-            </ListView.View>
-            <ListView.ItemContainerStyle>
-                <Style
-                    TargetType="{x:Type ListViewItem}">
-                    <Setter
-                        Property="ToolTip"
-                        Value="{Binding JsonText }" />
-                    <Setter
-                        Property="cal:Message.Attach"
-                        Value="[Event MouseDoubleClick] = [Action ActivateItem($dataContext)]" />
-                </Style>
-            </ListView.ItemContainerStyle>
-        </ListView>
     </Grid>
 </UserControl>

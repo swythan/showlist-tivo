@@ -79,7 +79,7 @@ namespace Org.BouncyCastle.Security
 //		public static DerObjectIdentifier GetObjectIdentifier(
 //			string mechanism)
 //		{
-//			mechanism = (string) algorithms[mechanism.ToUpper(CultureInfo.InvariantCulture)];
+//			mechanism = (string) algorithms[mechanism.ToUpperInvariant()];
 //
 //			if (mechanism != null)
 //			{
@@ -103,7 +103,7 @@ namespace Org.BouncyCastle.Security
 		public static IMac GetMac(
 			string algorithm)
 		{
-			string upper = algorithm.ToUpper(CultureInfo.InvariantCulture);
+			string upper = algorithm.ToUpperInvariant();
 
 			string mechanism = (string) algorithms[upper];
 

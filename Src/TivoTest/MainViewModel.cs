@@ -1,41 +1,43 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Tivo.Connect;
 using System.ComponentModel;
-using Caliburn.Micro;
 using System.ComponentModel.Composition;
-using Tivo.Connect.Entities;
-using System.Reactive.Linq;
-using System.Reactive.Threading;
 using System.Net;
+using System.Reactive.Linq;
+using System.Threading.Tasks;
+using System.Windows;
+using Caliburn.Micro;
+using Tivo.Connect;
+using Tivo.Connect.Entities;
 
 namespace TivoTest
 {
     [Export(typeof(MainViewModel))]
     public partial class MainViewModel : PropertyChangedBase
     {
-        private TivoConnection connection;
-        private ISterlingInstance sterlingInstance;
+        private ITivoConnectionService tivoConnectionService;
 
         private BindableCollection<RecordingFolderItem> shows;
 
         [ImportingConstructor]
-        public MainViewModel(ISterlingInstance sterlingInstance)
+        public MainViewModel(
+            ITivoConnectionService tivoConnectionService,
+            WhatsOnViewModel whatsOnModel,
+            ShowGridViewModel showGridModel)
         {
-            this.sterlingInstance = sterlingInstance;
+            this.tivoConnectionService = tivoConnectionService;
+            this.WhatsOn = whatsOnModel;
+            this.ShowGrid = showGridModel;
 
+            this.tivoConnectionService.PropertyChanged += OnTivoConnectionServicePropertyChanged;
             this.shows = new BindableCollection<RecordingFolderItem>();
+        }
+
+        public WhatsOnViewModel WhatsOn { get; private set; }
+        public ShowGridViewModel ShowGrid { get; private set; }
+
+        void OnTivoConnectionServicePropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            NotifyOfPropertyChange(() => CanFetchMyShowsList);
         }
 
         public BindableCollection<RecordingFolderItem> Shows
@@ -51,44 +53,52 @@ namespace TivoTest
             }
         }
 
-        public void Connect()
+        public async void Connect()
         {
-            var localConnection = new TivoConnection(this.sterlingInstance.Database);
+            this.tivoConnectionService.IsAwayModeEnabled = false;
+
+            await TestConnection();
+        }
+
+        public async void ConnectAwayMode()
+        {
+            this.tivoConnectionService.IsAwayModeEnabled = true;
+            
+            await TestConnection();
+        }
+
+        private async Task TestConnection()
+        {
             try
             {
-                localConnection.Connect(IPAddress.Parse("192.168.0.100"), "9837127953")
-                    .Subscribe(
-                        _ => this.connection = localConnection,
-                        ex =>
-                        {
-                            MessageBox.Show(string.Format("Connection Failed\n{0}", ex), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                            localConnection.Dispose();
-                        },
-                        () => NotifyOfPropertyChange(() => CanFetchMyShowsList));
+                await this.tivoConnectionService.GetConnectionAsync();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(string.Format("Connection Failed\n{0}", ex), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
         }
 
         public bool CanFetchMyShowsList
         {
             get
             {
-                return this.connection != null;
+                return this.tivoConnectionService.IsConnected;
             }
         }
-
-        public void FetchMyShowsList()
+        public async void FetchMyShowsList()
         {
             try
             {
                 shows.Clear();
 
-                connection.GetMyShowsList(null)
-                    .Subscribe(item => this.Shows.Add(item), () => MessageBox.Show("Shows updated!", "Success", MessageBoxButton.OK, MessageBoxImage.Information));
+                var connection = await this.tivoConnectionService.GetConnectionAsync();
+
+                var progress = new Progress<RecordingFolderItem>(item => this.Shows.Add(item));
+
+                await connection.GetMyShowsList(null, progress);
+                
+                MessageBox.Show("Shows updated!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {
@@ -96,7 +106,7 @@ namespace TivoTest
             }
         }
 
-        public void ActivateItem(RecordingFolderItem item)
+        public async void ActivateItem(RecordingFolderItem item)
         {
             var folder = item as Tivo.Connect.Entities.Container;
 
@@ -106,15 +116,17 @@ namespace TivoTest
                 {
                     shows.Clear();
 
-                    connection.GetMyShowsList(folder)
-                        .Subscribe(child => this.Shows.Add(child), () => MessageBox.Show("Shows updated!", "Success", MessageBoxButton.OK, MessageBoxImage.Information));
+                    var connection = await this.tivoConnectionService.GetConnectionAsync();
+
+                    var progress = new Progress<RecordingFolderItem>(child => this.Shows.Add(child));
+                    await connection.GetMyShowsList(folder, progress);
+
+                    MessageBox.Show("Shows updated!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(string.Format("Request Failed\n{0}", ex), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-
-
             }
             else
             {
@@ -122,7 +134,9 @@ namespace TivoTest
 
                 if (show != null)
                 {
-                    connection.PlayShow(show.Id);
+                    var connection = await this.tivoConnectionService.GetConnectionAsync();
+
+                    await connection.PlayShow(show.Id);
                 }
             }
         }

@@ -190,7 +190,7 @@ namespace Org.BouncyCastle.OpenSsl
 			}
 
 
-			string dekAlgName = algorithm.ToUpper(CultureInfo.InvariantCulture);
+			string dekAlgName = algorithm.ToUpperInvariant();
 
 			// Note: For backward compatibility
 			if (dekAlgName == "DESEDE")

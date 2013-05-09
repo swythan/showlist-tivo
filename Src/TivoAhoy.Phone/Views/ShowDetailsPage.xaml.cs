@@ -19,5 +19,15 @@ namespace TivoAhoy.Phone.Views
         {
             InitializeComponent();
         }
+
+        private void Panorama_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            var model = this.DataContext as TivoAhoy.Phone.ViewModels.ShowDetailsPageViewModel;
+
+            if (model != null)
+            {
+                model.PanoramaHeight = Convert.ToInt32(e.NewSize.Height);
+            }
+        }
     }
 }

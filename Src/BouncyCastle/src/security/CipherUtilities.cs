@@ -220,7 +220,7 @@ namespace Org.BouncyCastle.Security
 			if (mechanism == null)
 				throw new ArgumentNullException("mechanism");
 
-			mechanism = mechanism.ToUpper(CultureInfo.InvariantCulture);
+			mechanism = mechanism.ToUpperInvariant();
 			string aliased = (string) algorithms[mechanism];
 
 			if (aliased != null)
@@ -246,7 +246,7 @@ namespace Org.BouncyCastle.Security
 			if (algorithm == null)
 				throw new ArgumentNullException("algorithm");
 
-			algorithm = algorithm.ToUpper(CultureInfo.InvariantCulture);
+			algorithm = algorithm.ToUpperInvariant();
 
 			string aliased = (string) algorithms[algorithm];
 

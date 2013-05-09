@@ -259,8 +259,8 @@ namespace Org.BouncyCastle.Pkcs
 							}
 							else
 							{
-								Console.WriteLine("extra " + b.BagID);
-								Console.WriteLine("extra " + Asn1Dump.DumpAsString(b));
+                                System.Diagnostics.Debug.WriteLine("extra " + b.BagID);
+                                System.Diagnostics.Debug.WriteLine("extra " + Asn1Dump.DumpAsString(b));
 							}
 						}
 					}
@@ -417,15 +417,15 @@ namespace Org.BouncyCastle.Pkcs
 							}
 							else
 							{
-								Console.WriteLine("extra " + b.BagID);
-								Console.WriteLine("extra " + Asn1Dump.DumpAsString(b));
+                                System.Diagnostics.Debug.WriteLine("extra " + b.BagID);
+                                System.Diagnostics.Debug.WriteLine("extra " + Asn1Dump.DumpAsString(b));
 							}
 						}
 					}
 					else
 					{
-						Console.WriteLine("extra " + oid);
-						Console.WriteLine("extra " + Asn1Dump.DumpAsString(ci.Content));
+                        System.Diagnostics.Debug.WriteLine("extra " + oid);
+                        System.Diagnostics.Debug.WriteLine("extra " + Asn1Dump.DumpAsString(ci.Content));
 					}
 				}
 			}
@@ -1183,7 +1183,7 @@ namespace Org.BouncyCastle.Pkcs
 			public object Remove(
 				string alias)
 			{
-				string lower = alias.ToLower(CultureInfo.InvariantCulture);
+				string lower = alias.ToLowerInvariant();
 				string k = (string) keys[lower];
 
 				if (k == null)
@@ -1201,7 +1201,7 @@ namespace Org.BouncyCastle.Pkcs
 			{
 				get
 				{
-					string lower = alias.ToLower(CultureInfo.InvariantCulture);
+					string lower = alias.ToLowerInvariant();
 					string k = (string) keys[lower];
 
 					if (k == null)
@@ -1211,7 +1211,7 @@ namespace Org.BouncyCastle.Pkcs
 				}
 				set
 				{
-					string lower = alias.ToLower(CultureInfo.InvariantCulture);
+					string lower = alias.ToLowerInvariant();
 					string k = (string) keys[lower];
 					if (k != null)
 					{

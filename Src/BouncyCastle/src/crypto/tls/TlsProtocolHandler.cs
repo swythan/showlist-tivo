@@ -1011,7 +1011,7 @@ namespace Org.BouncyCastle.Crypto.Tls
 			{
 				if (!this.closed)
 				{
-					this.FailWithError(AlertLevel.fatal, e.AlertDescription);
+					this.FailWithError(e.AlertDescription, e);
 				}
 				throw e;
 			}
@@ -1019,7 +1019,7 @@ namespace Org.BouncyCastle.Crypto.Tls
 			{
 				if (!this.closed)
 				{
-					this.FailWithError(AlertLevel.fatal, AlertDescription.internal_error);
+					this.FailWithError(AlertDescription.internal_error, e);
 				}
 				throw e;
 			}
@@ -1027,7 +1027,7 @@ namespace Org.BouncyCastle.Crypto.Tls
 			{
 				if (!this.closed)
 				{
-					this.FailWithError(AlertLevel.fatal, AlertDescription.internal_error);
+					this.FailWithError(AlertDescription.internal_error, e);
 				}
 				throw e;
 			}
@@ -1043,7 +1043,7 @@ namespace Org.BouncyCastle.Crypto.Tls
 			{
 				if (!this.closed)
 				{
-					this.FailWithError(AlertLevel.fatal, e.AlertDescription);
+					this.FailWithError(e.AlertDescription, e);
 				}
 				throw e;
 			}
@@ -1051,7 +1051,7 @@ namespace Org.BouncyCastle.Crypto.Tls
 			{
 				if (!closed)
 				{
-					this.FailWithError(AlertLevel.fatal, AlertDescription.internal_error);
+					this.FailWithError(AlertDescription.internal_error, e);
 				}
 				throw e;
 			}
@@ -1059,7 +1059,7 @@ namespace Org.BouncyCastle.Crypto.Tls
 			{
 				if (!closed)
 				{
-					this.FailWithError(AlertLevel.fatal, AlertDescription.internal_error);
+					this.FailWithError(AlertDescription.internal_error, e);
 				}
 				throw e;
 			}
@@ -1137,8 +1137,18 @@ namespace Org.BouncyCastle.Crypto.Tls
 		* @param alertDescription The exact alert message.
 		* @throws IOException If alert was fatal.
 		*/
-		private void FailWithError(AlertLevel alertLevel, AlertDescription	alertDescription)
-		{
+        private void FailWithError(AlertLevel alertLevel, AlertDescription alertDescription)
+        {
+            this.FailWithError(alertLevel, alertDescription, null);
+        }
+
+        private void FailWithError(AlertDescription alertDescription, Exception ex)
+        {
+            this.FailWithError(AlertLevel.fatal, alertDescription, ex);
+        }
+
+        private void FailWithError(AlertLevel alertLevel, AlertDescription alertDescription, Exception ex)
+        {
 			/*
 			* Check if the connection is still open.
 			*/
@@ -1160,12 +1170,12 @@ namespace Org.BouncyCastle.Crypto.Tls
 				rs.Close();
 				if (alertLevel == AlertLevel.fatal)
 				{
-					throw new IOException(TLS_ERROR_MESSAGE);
+					throw new IOException(TLS_ERROR_MESSAGE, ex);
 				}
 			}
 			else
 			{
-				throw new IOException(TLS_ERROR_MESSAGE);
+				throw new IOException(TLS_ERROR_MESSAGE, ex);
 			}
 		}
 

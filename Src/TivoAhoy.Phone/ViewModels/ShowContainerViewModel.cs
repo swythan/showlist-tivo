@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reactive.Linq;
 using System.Windows;
 using Caliburn.Micro;
+using Microsoft;
 using Tivo.Connect;
 using Tivo.Connect.Entities;
 using TivoAhoy.Phone.Events;
@@ -10,40 +13,28 @@ namespace TivoAhoy.Phone.ViewModels
 {
     public class ShowContainerViewModel : RecordingFolderItemViewModel<Container>
     {
-        private readonly IEventAggregator eventAggregator;
-        private readonly ISterlingInstance sterlingInstance;
-        private readonly SettingsPageViewModel settingsModel;
+        private readonly INavigationService navigationService;
 
-        private readonly Func<IndividualShowViewModel> showViewModelFactory;
-        private readonly Func<ShowContainerViewModel> showContainerViewModelFactory;
-
-        private BindableCollection<IRecordingFolderItemViewModel> shows;
-
-        public ShowContainerViewModel(
-            IEventAggregator eventAggregator,
-            ISterlingInstance sterlingInstance,
-            SettingsPageViewModel settingsModel,
-            Func<IndividualShowViewModel> showViewModelFactory,
-            Func<ShowContainerViewModel> showContainerViewModelFactory)
+        public ShowContainerViewModel(INavigationService navigationService)
         {
-            this.eventAggregator = eventAggregator;
-            this.sterlingInstance = sterlingInstance;
-            this.settingsModel = settingsModel;
-
-            this.showViewModelFactory = showViewModelFactory;
-            this.showContainerViewModelFactory = showContainerViewModelFactory;
-
-            this.shows = new BindableCollection<IRecordingFolderItemViewModel>();
+            this.navigationService = navigationService;
         }
 
-        private void OnOperationStarted()
+        public ShowContainerViewModel()
         {
-            this.eventAggregator.Publish(new TivoOperationStarted());
+            if (Execute.InDesignMode)
+                LoadDesignData();
         }
 
-        private void OnOperationFinished()
+        private void LoadDesignData()
         {
-            this.eventAggregator.Publish(new TivoOperationFinished());
+            this.Source =
+                new Container()
+                {
+                    Title = "64 Zoo Lane",
+                    FolderItemCount = 4,
+                    FolderType = "series"
+                };
         }
 
         public override bool IsSingleShow
@@ -51,19 +42,6 @@ namespace TivoAhoy.Phone.ViewModels
             get { return false; }
         }
 
-        public BindableCollection<IRecordingFolderItemViewModel> Shows
-        {
-            get { return shows; }
-            set
-            {
-                if (this.shows == value)
-                    return;
-
-                this.shows = value;
-                NotifyOfPropertyChange(() => this.Shows);
-            }
-        }
-                        
         public string ContentInfo
         {
             get
@@ -74,58 +52,21 @@ namespace TivoAhoy.Phone.ViewModels
                 }
                 else
                 {
-                    return string.Format("{0} shows", this.Source.FolderItemCount);              
+                    return string.Format("{0} shows", this.Source.FolderItemCount);
                 }
             }
         }
 
-        public void GetChildShows()
+        public void DisplayContainerShows()
         {
-            this.Shows.Clear();
+            if (this.Source == null)
+                return;
 
-            var connection = new TivoConnection(sterlingInstance.Database);
-
-            OnOperationStarted();
-
-            connection.Connect(this.settingsModel.ParsedIPAddress, this.settingsModel.MediaAccessKey)
-                .SelectMany(_ => connection.GetMyShowsList(this.Source))
-                .Finally(
-                    () =>
-                    {
-                        connection.Dispose();
-                        OnOperationFinished();
-                    })
-                .ObserveOnDispatcher()
-                .Subscribe(
-                    show =>
-                    {
-                        this.Shows.Add(CreateItemViewModel(show));
-                        NotifyOfPropertyChange(() => this.ContentInfo);
-                    },
-                    ex => MessageBox.Show(string.Format("Connection Failed :\n{0}", ex.Message)));
-        }
-
-        private IRecordingFolderItemViewModel CreateItemViewModel(RecordingFolderItem recordingFolderItem)
-        {
-            var showContainer = recordingFolderItem as Container;
-            if (showContainer != null)
-            {
-                var result = this.showContainerViewModelFactory();
-                result.Source = showContainer;
-
-                return result;
-            }
-
-            var show = recordingFolderItem as IndividualShow;
-            if (show != null)
-            {
-                var result = this.showViewModelFactory();
-                result.Source = show;
-
-                return result;
-            }
-
-            return null;
+            this.navigationService
+                .UriFor<ShowContainerShowsPageViewModel>()
+                .WithParam(x => x.ParentId, this.Source.Id)
+                .WithParam(x => x.Title, this.Title)
+                .Navigate();
         }
     }
 }

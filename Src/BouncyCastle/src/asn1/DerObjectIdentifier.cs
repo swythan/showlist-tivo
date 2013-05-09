@@ -151,7 +151,7 @@ namespace Org.BouncyCastle.Asn1
 				}
 			}
 
-			dOut.Close();
+            dOut.Dispose();
 
 			derOut.WriteEncoded(Asn1Tags.ObjectIdentifier, bOut.ToArray());
         }

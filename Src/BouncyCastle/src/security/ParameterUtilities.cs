@@ -143,7 +143,7 @@ namespace Org.BouncyCastle.Security
 		public static string GetCanonicalAlgorithmName(
 			string algorithm)
 		{
-			return (string) algorithms[algorithm.ToUpper(CultureInfo.InvariantCulture)];
+			return (string) algorithms[algorithm.ToUpperInvariant()];
 		}
 
 		public static KeyParameter CreateKeyParameter(

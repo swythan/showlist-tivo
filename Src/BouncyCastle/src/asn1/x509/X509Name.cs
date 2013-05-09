@@ -4,7 +4,7 @@ using System.Globalization;
 using System.IO;
 using System.Text;
 
-#if SILVERLIGHT
+#if (SILVERLIGHT || PORTABLE)
 using System.Collections.Generic;
 #endif
 
@@ -204,8 +204,8 @@ namespace Org.BouncyCastle.Asn1.X509
 
 		private static readonly bool[] defaultReverse = { false };
 
-#if SILVERLIGHT
-		/**
+#if (SILVERLIGHT || PORTABLE)
+        /**
 		* default look up table translating OID values into their common symbols following
 		* the convention in RFC 2253 with a few extras
 		*/
@@ -417,7 +417,7 @@ namespace Org.BouncyCastle.Asn1.X509
             }
         }
 
-#if !SILVERLIGHT
+#if !(SILVERLIGHT || PORTABLE)
         [Obsolete]
         public X509Name(
             ArrayList ordering,
@@ -442,7 +442,7 @@ namespace Org.BouncyCastle.Asn1.X509
         {
         }
 
-#if !SILVERLIGHT
+#if !(SILVERLIGHT || PORTABLE)
         [Obsolete]
         public X509Name(
             ArrayList				ordering,
@@ -453,7 +453,7 @@ namespace Org.BouncyCastle.Asn1.X509
         }
 #endif
 
-		/**
+        /**
         * Constructor from a table of attributes with ordering.
         * <p>
         * it's is assumed the table contains OID/string pairs, and the contents
@@ -485,7 +485,7 @@ namespace Org.BouncyCastle.Asn1.X509
 			}
         }
 
-#if !SILVERLIGHT
+#if !(SILVERLIGHT || PORTABLE)
         [Obsolete]
         public X509Name(
             ArrayList oids,
@@ -495,7 +495,7 @@ namespace Org.BouncyCastle.Asn1.X509
         }
 #endif
 
-		/**
+        /**
         * Takes two vectors one of the oids and the other of the values.
         */
         public X509Name(
@@ -505,7 +505,7 @@ namespace Org.BouncyCastle.Asn1.X509
         {
         }
 
-#if !SILVERLIGHT
+#if !(SILVERLIGHT || PORTABLE)
         [Obsolete]
         public X509Name(
             ArrayList				oids,
@@ -516,7 +516,7 @@ namespace Org.BouncyCastle.Asn1.X509
         }
 #endif
 
-		/**
+        /**
         * Takes two vectors one of the oids and the other of the values.
         * <p>
         * The passed in converter will be used to convert the strings into their
@@ -599,7 +599,7 @@ namespace Org.BouncyCastle.Asn1.X509
         {
         }
 
-#if !SILVERLIGHT
+#if !(SILVERLIGHT || PORTABLE)
         [Obsolete]
         public X509Name(
             bool reverse,
@@ -610,7 +610,7 @@ namespace Org.BouncyCastle.Asn1.X509
         }
 #endif
 
-		/**
+        /**
         * Takes an X509 dir name as a string of the format "C=AU, ST=Victoria", or
         * some such, converting it into an ordered set of name attributes. lookUp
         * should provide a table of lookups, indexed by lowercase only strings and
@@ -635,7 +635,7 @@ namespace Org.BouncyCastle.Asn1.X509
             string		name,
             IDictionary lookUp)
         {
-            if (name.ToUpper(CultureInfo.InvariantCulture).StartsWith("OID."))
+            if (name.ToUpperInvariant().StartsWith("OID."))
             {
                 return new DerObjectIdentifier(name.Substring(4));
             }
@@ -644,7 +644,7 @@ namespace Org.BouncyCastle.Asn1.X509
                 return new DerObjectIdentifier(name);
             }
 
-			DerObjectIdentifier oid = (DerObjectIdentifier)lookUp[name.ToLower(CultureInfo.InvariantCulture)];
+			DerObjectIdentifier oid = (DerObjectIdentifier)lookUp[name.ToLowerInvariant()];
             if (oid == null)
             {
                 throw new ArgumentException("Unknown object id - " + name + " - passed to distinguished name");
@@ -748,7 +748,7 @@ namespace Org.BouncyCastle.Asn1.X509
 			}
         }
 
-#if !SILVERLIGHT
+#if !(SILVERLIGHT || PORTABLE)
 		/**
 		* return an ArrayList of the oids in the name, in the order they were found.
 		*/
@@ -767,7 +767,7 @@ namespace Org.BouncyCastle.Asn1.X509
             return Platform.CreateArrayList(ordering);
         }
 
-#if !SILVERLIGHT
+#if !(SILVERLIGHT || PORTABLE)
 		/**
 		* return an ArrayList of the values found in the name, in the order they
 		* were found.
@@ -788,7 +788,7 @@ namespace Org.BouncyCastle.Asn1.X509
             return Platform.CreateArrayList(values);
         }
 
-#if !SILVERLIGHT
+#if !(SILVERLIGHT || PORTABLE)
 		/**
 		 * return an ArrayList of the values found in the name, in the order they
 		 * were found, with the DN label corresponding to passed in oid.
@@ -802,7 +802,7 @@ namespace Org.BouncyCastle.Asn1.X509
 		}
 #endif
 
-		/**
+        /**
 		 * return an IList of the values found in the name, in the order they
 		 * were found, with the DN label corresponding to passed in oid.
 		 */
@@ -1005,7 +1005,7 @@ namespace Org.BouncyCastle.Asn1.X509
 		private static string canonicalize(
 			string s)
 		{
-			string v = s.ToLower(CultureInfo.InvariantCulture).Trim();
+			string v = s.ToLowerInvariant().Trim();
 
 			if (v.StartsWith("#"))
 			{
@@ -1013,7 +1013,7 @@ namespace Org.BouncyCastle.Asn1.X509
 
 				if (obj is IAsn1String)
 				{
-					v = ((IAsn1String)obj).GetString().ToLower(CultureInfo.InvariantCulture).Trim();
+					v = ((IAsn1String)obj).GetString().ToLowerInvariant().Trim();
 				}
 			}
 
@@ -1107,7 +1107,7 @@ namespace Org.BouncyCastle.Asn1.X509
             }
         }
 
-#if !SILVERLIGHT
+#if !(SILVERLIGHT || PORTABLE)
         [Obsolete]
         public string ToString(
             bool        reverse,
@@ -1133,7 +1133,7 @@ namespace Org.BouncyCastle.Asn1.X509
             bool		reverse,
             IDictionary oidSymbols)
         {
-#if SILVERLIGHT
+#if (SILVERLIGHT || PORTABLE)
             List<object> components = new List<object>();
 #else
 			ArrayList components = new ArrayList();

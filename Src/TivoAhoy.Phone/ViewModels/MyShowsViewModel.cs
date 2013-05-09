@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Reactive.Linq;
 using System.Windows;
 using Caliburn.Micro;
+using Microsoft;
 using Tivo.Connect;
 using Tivo.Connect.Entities;
 using TivoAhoy.Phone.Events;
@@ -11,115 +14,154 @@ namespace TivoAhoy.Phone.ViewModels
 {
     public class MyShowsViewModel : Screen
     {
-        private readonly IEventAggregator eventAggregator;
-        private readonly ISterlingInstance sterlingInstance;
-        private readonly SettingsPageViewModel settingsModel;
+        private readonly IProgressService progressService;
+        private readonly ITivoConnectionService connectionService;
 
-        private readonly Func<IndividualShowViewModel> showViewModelFactory;
-        private readonly Func<ShowContainerViewModel> showContainerViewModelFactory;
+        private readonly Func<LazyRecordingFolderItemViewModel> showModelFactory;
+
+        private string parentId;
+        private IEnumerable<LazyRecordingFolderItemViewModel> myShows;
 
         public MyShowsViewModel(
-            IEventAggregator eventAggregator,
-            ISterlingInstance sterlingInstance, 
-            SettingsPageViewModel settingsModel, 
-            Func<IndividualShowViewModel> showViewModelFactory,
-            Func<ShowContainerViewModel> showContainerViewModelFactory)
+            IProgressService progressService,
+            ITivoConnectionService connectionService,
+            Func<LazyRecordingFolderItemViewModel> showModelFactory)
         {
-            this.sterlingInstance = sterlingInstance;
-            this.settingsModel = settingsModel;
-            this.eventAggregator = eventAggregator;
+            this.connectionService = connectionService;
+            this.progressService = progressService;
 
-            this.showViewModelFactory = showViewModelFactory;
-            this.showContainerViewModelFactory = showContainerViewModelFactory;
+            this.showModelFactory = showModelFactory;
 
-            this.MyShows = new BindableCollection<IRecordingFolderItemViewModel>();
+            connectionService.PropertyChanged += OnConnectionServicePropertyChanged;
+        }
+        
+        public MyShowsViewModel()
+        {
+            if (Execute.InDesignMode)
+                LoadDesignData();
+        }
+
+        private void LoadDesignData()
+        {
+            this.MyShows = new List<LazyRecordingFolderItemViewModel>
+            {
+                new LazyRecordingFolderItemViewModel(
+                    new IndividualShow()
+                    {
+                        Title = "The Walking Dead",
+                        StartTime = DateTime.Parse("2013/05/01 21:00")                        
+                    }),
+                new LazyRecordingFolderItemViewModel(
+                    new IndividualShow()
+                    {
+                        Title = "Antiques Roadshow",
+                        StartTime = DateTime.Parse("2013/05/02 17:30")                        
+                    }),
+                new LazyRecordingFolderItemViewModel(
+                    new Container()
+                    {
+                        Title = "64 Zoo Lane",
+                        FolderItemCount = 4,
+                        FolderType = "series"
+                    })
+            };
+        }
+
+        private void OnConnectionServicePropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "IsConnected")
+            {
+                NotifyOfPropertyChange(() => this.CanRefreshShows);
+
+                if (this.IsActive)
+                {
+                    this.RefreshShows();
+                }
+            }
         }
 
         protected override void OnActivate()
         {
             base.OnActivate();
             NotifyOfPropertyChange(() => this.CanRefreshShows);
-            NotifyOfPropertyChange(() => this.ShowSettingsPrompt);
+
+            if (this.MyShows == null ||
+                !this.MyShows.Any())
+            {
+                this.RefreshShows();
+            }
         }
 
-        private void OnOperationStarted()
+        public string ParentId
         {
-            this.eventAggregator.Publish(new TivoOperationStarted());
+            get { return this.parentId; }
+            set
+            {
+                if (this.parentId == value)
+                    return;
+
+                this.parentId = value;
+
+                NotifyOfPropertyChange(() => this.ParentId);
+            }
         }
 
-        private void OnOperationFinished()
+        public IEnumerable<LazyRecordingFolderItemViewModel> MyShows
         {
-            this.eventAggregator.Publish(new TivoOperationFinished());            
-        }
+            get
+            {
+                return this.myShows;
+            }
 
-        public BindableCollection<IRecordingFolderItemViewModel> MyShows { get; private set; }
+            private set
+            {
+                this.myShows = value;
+                NotifyOfPropertyChange(() => this.MyShows);
+            }
+        }
 
         public bool CanRefreshShows
         {
             get
             {
-                return this.settingsModel.SettingsAppearValid;
-            }
-        }
-
-        public bool ShowSettingsPrompt
-        {
-            get
-            {
-                return !this.settingsModel.SettingsAppearValid;
+                return this.connectionService.IsConnected;
             }
         }
 
         public void RefreshShows()
         {
-            FetchShows(null);
+            if (this.CanRefreshShows)
+            {
+                FetchShows();
+            }
         }
 
-        private void FetchShows(Container parent)
+        private async void FetchShows()
         {
-            this.MyShows.Clear();
+            try
+            {
+                var connection = await this.connectionService.GetConnectionAsync();
 
-            var connection = new TivoConnection(sterlingInstance.Database);
-
-            var ipAddress = IPAddress.Parse(this.settingsModel.TivoIPAddress);
-
-            OnOperationStarted();
-
-            connection.Connect(ipAddress, this.settingsModel.MediaAccessKey)
-                .SelectMany(_ => connection.GetMyShowsList(parent))
-                .Finally(
-                    () => 
-                    {
-                        connection.Dispose();
-                        OnOperationFinished();
-                    }) 
-                .ObserveOnDispatcher()
-                .Subscribe(
-                    show => this.MyShows.Add(CreateItemViewModel(show)),
-                    ex => MessageBox.Show(string.Format("Connection Failed :\n{0}", ex.Message)));
+                using (this.progressService.Show())
+                {
+                    var ids = await connection.GetRecordingFolderItemIds(this.ParentId);
+                    this.MyShows = ids
+                        .Select(CreateShowViewModel)
+                        .ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(string.Format("Connection Failed :\n{0}", ex.Message));
+            }
         }
 
-        private IRecordingFolderItemViewModel CreateItemViewModel(RecordingFolderItem recordingFolderItem)
+        private LazyRecordingFolderItemViewModel CreateShowViewModel(long itemId)
         {
-            var showContainer = recordingFolderItem as Container;
-            if (showContainer != null)
-            {
-                var result = this.showContainerViewModelFactory();
-                result.Source = showContainer;
+            var model = showModelFactory();
+            model.Initialise(itemId);
 
-                return result;
-            }
-
-            var show = recordingFolderItem as IndividualShow;
-            if (show != null)
-            {
-                var result = this.showViewModelFactory();
-                result.Source = show;
-
-                return result; 
-            }
-
-            return null;
+            return model;
         }
 
         public void ActivateItem(object item)
@@ -130,6 +172,6 @@ namespace TivoAhoy.Phone.ViewModels
             //{
             //    FetchShows(showContainer.Source);
             //}
-        }        
+        }
     }
 }

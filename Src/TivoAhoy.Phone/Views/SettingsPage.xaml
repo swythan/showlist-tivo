@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
@@ -38,88 +39,177 @@
         <StackPanel
             x:Name="TitlePanel"
             Grid.Row="0"
-            Margin="12,17,0,28">
+            Margin="12,17,0,12">
             <TextBlock
                 x:Name="ApplicationTitle"
                 Text="SHOW LIST"
                 Style="{StaticResource PhoneTextNormalStyle}" />
-            <TextBlock
-                x:Name="PageTitle"
-                Text="Settings"
-                Margin="12,-7,0,0"
-                Style="{StaticResource PhoneTextTitle1Style}" />
         </StackPanel>
 
-        <!--ContentPanel - place additional content here-->
-        <Grid
-            x:Name="ContentPanel"
+        <controls:Pivot
             Grid.Row="1"
-            Margin="12,0,12,0">
-            <Grid.RowDefinitions>
-                <RowDefinition
-                    Height="Auto" />
-                <RowDefinition
-                    Height="Auto" />
-                <RowDefinition
-                    Height="Auto" />
-                <RowDefinition
-                    Height="Auto" />
-                <RowDefinition
-                    Height="330*" />
-                <RowDefinition
-                    Height="Auto" />
-            </Grid.RowDefinitions>
-            <TextBlock
-                HorizontalAlignment="Left"
-                Text="IP Address"
-                Style="{StaticResource PhoneTextNormalStyle}" />
-            <TextBox
-                HorizontalAlignment="Stretch"
-                Name="TivoIPAddress"
-                VerticalAlignment="Top"
-                Grid.Row="1"
-                InputScope="Digits"/>
-            <TextBlock
-                HorizontalAlignment="Left"
-                Text="Media Access Key"
-                Style="{StaticResource PhoneTextNormalStyle}"
-                Grid.Row="2"/>
-            <TextBox
-                HorizontalAlignment="Stretch"
-                Name="MediaAccessKey"
-                VerticalAlignment="Top"
-                Grid.Row="3"
-                InputScope="Digits" />
-            <TextBlock
-                Grid.Row="4"
-                TextWrapping="Wrap"
-                Style="{StaticResource PhoneTextSmallStyle}">
-                <Run>
-                To enable this app to work you must first connect your TiVo DVR to your home network.    </Run>
-                <LineBreak />
-                <Run>You must then enable "Network Remote Control" by going to:
-                </Run>
-                <LineBreak />
-                <Run>Help &amp; Settings > Settings > Network Remote Control</Run>
-                <LineBreak/>
-                <LineBreak />
-                <Run>Your IP Address can be found by going to:
-                </Run>
-                <LineBreak />
-                <Run>Help &amp; Settings > Settings > Network</Run>
-                <LineBreak />
-                <LineBreak />
-                <Run>Your Media Access Key is a 10 digit number that can be found by going to:                </Run>
-                <LineBreak />
-                <Run>Help &amp; Settings > System Info > Media Access Key</Run>
-            </TextBlock>
-            <Button
-                Content="Test Connection"
-                Grid.Row="5"
-                HorizontalAlignment="Stretch"
-                x:Name="TestConnection"
-                VerticalAlignment="Top" />
-        </Grid>
+            Margin="12,0,12,12">
+            <controls:PivotItem
+                Header="Away Mode">
+                <Grid
+                    Margin="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition />
+                        <RowDefinition
+                            Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock
+                        HorizontalAlignment="Left"
+                        Text="Username"
+                        Style="{StaticResource PhoneTextNormalStyle}"
+                        Margin="12,0,0,0" />
+                    <TextBox
+                        HorizontalAlignment="Stretch"
+                        Name="Username"
+                        VerticalAlignment="Top"
+                        Grid.Row="1"
+                        InputScope="EmailSmtpAddress" />
+                    <TextBlock
+                        HorizontalAlignment="Left"
+                        Text="Password"
+                        Style="{StaticResource PhoneTextNormalStyle}"
+                        Grid.Row="2"
+                        Margin="12,0,0,0" />
+                    <PasswordBox
+                        HorizontalAlignment="Stretch"
+                        Name="Password"
+                        VerticalAlignment="Top"
+                        Grid.Row="3" />
+                    <TextBlock
+                        Grid.Row="4"
+                        Style="{StaticResource PhoneTextSubtleStyle}"
+                        TextWrapping="Wrap"
+                        VerticalAlignment="Center">
+                        Please enter the username and password you 
+                        use to log on to the Virgin Media website.
+                    </TextBlock>
+                    <HyperlinkButton
+                        Content="More Details"
+                        NavigateUri="http://snipurl.com/showlist-settings-help"
+                        TargetName="_blank"
+                        HorizontalAlignment="Center"
+                        Grid.Row="5"
+                        VerticalAlignment="Top" />
+                    <Button
+                        Content="Save"
+                        Grid.Row="6"
+                        HorizontalAlignment="Stretch"
+                        x:Name="TestAwayConnection"
+                        VerticalAlignment="Top" />
+                </Grid>
+
+            </controls:PivotItem>
+            <controls:PivotItem
+                Header="Home Mode">
+                <Grid
+                    Grid.Row="1"
+                    Margin="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="64*" />
+                        <RowDefinition
+                            Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid
+                        Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition
+                                Width="*" />
+                            <ColumnDefinition
+                                Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <toolkit:ListPicker
+                            Header="Name"
+                            HorizontalAlignment="Stretch"
+                            x:Name="DiscoveredTivos"
+                            DisplayMemberPath="Name"
+                            VerticalAlignment="Top"
+                            Margin="12,0,12,12" />
+                        <Button
+                            Content="Search"
+                            HorizontalAlignment="Right"
+                            x:Name="SearchLAN"
+                            VerticalAlignment="Bottom"
+                            Grid.Column="1" />
+                    </Grid>
+                    <TextBlock
+                        HorizontalAlignment="Left"
+                        Text="IP Address"
+                        Style="{StaticResource PhoneTextNormalStyle}"
+                        Grid.Row="1"
+                        Margin="12,0,0,0" />
+                    <TextBox
+                        HorizontalAlignment="Stretch"
+                        Name="LanIpAddress"
+                        VerticalAlignment="Top"
+                        Grid.Row="2"
+                        IsReadOnly="True"
+                        InputScope="Digits" />
+                    <TextBlock
+                        HorizontalAlignment="Left"
+                        Text="Media Access Key"
+                        Style="{StaticResource PhoneTextNormalStyle}"
+                        Grid.Row="3"
+                        Margin="12,0,0,0" />
+                    <TextBox
+                        HorizontalAlignment="Stretch"
+                        Name="LanMediaAccessKey"
+                        VerticalAlignment="Top"
+                        Grid.Row="4"
+                        InputScope="Digits" />
+                    <TextBlock
+                        Grid.Row="5"
+                        Style="{StaticResource PhoneTextSubtleStyle}"
+                        TextWrapping="Wrap"
+                        VerticalAlignment="Center">
+                        For Home Mode to work your TiVo and phone
+                        must be connected to the same network 
+                        (e.g. both connected to your SuperHub). 
+                    </TextBlock>
+                    <HyperlinkButton
+                        Content="More Details"
+                        NavigateUri="http://snipurl.com/showlist-settings-help"
+                        TargetName="_blank"
+                        HorizontalAlignment="Center"
+                        Grid.Row="6"
+                        VerticalAlignment="Top" />
+                    <Button
+                        Content="Save"
+                        Grid.Row="7"
+                        HorizontalAlignment="Stretch"
+                        x:Name="TestLANConnection"
+                        VerticalAlignment="Top" />
+                </Grid>
+
+            </controls:PivotItem>
+        </controls:Pivot>
     </Grid>
 
     <!--Sample code showing usage of ApplicationBar-->

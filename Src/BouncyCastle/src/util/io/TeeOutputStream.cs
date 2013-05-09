@@ -18,11 +18,14 @@ namespace Org.BouncyCastle.Utilities.IO
 			this.tee = tee;
 		}
 
-		public override void Close()
-		{
-			output.Close();
-			tee.Close();
-		}
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                output.Dispose();
+                tee.Dispose();
+            }
+        }
 
 		public override void Write(byte[] buffer, int offset, int count)
 		{

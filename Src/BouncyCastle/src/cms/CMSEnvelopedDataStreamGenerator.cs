@@ -255,27 +255,31 @@ namespace Org.BouncyCastle.Cms
 				_out.Write(bytes, off, len);
 			}
 
-			public override void Close()
-			{
-				_out.Close();
-
-				// TODO Parent context(s) should really be be closed explicitly
-
-				_eiGen.Close();
-
-                if (_outer.unprotectedAttributeGenerator != null)
+            protected override void Dispose(bool disposing)
+            {
+                if (disposing)
                 {
-                    Asn1.Cms.AttributeTable attrTable = _outer.unprotectedAttributeGenerator.GetAttributes(Platform.CreateHashtable());
+                    _out.Dispose();
 
-                    Asn1Set unprotectedAttrs = new BerSet(attrTable.ToAsn1EncodableVector());
+                    // TODO Parent context(s) should really be be closed explicitly
 
-                    _envGen.AddObject(new DerTaggedObject(false, 1, unprotectedAttrs));
+                    _eiGen.Close();
+
+                    if (_outer.unprotectedAttributeGenerator != null)
+                    {
+                        Asn1.Cms.AttributeTable attrTable = _outer.unprotectedAttributeGenerator.GetAttributes(Platform.CreateHashtable());
+
+                        Asn1Set unprotectedAttrs = new BerSet(attrTable.ToAsn1EncodableVector());
+
+                        _envGen.AddObject(new DerTaggedObject(false, 1, unprotectedAttrs));
+                    }
+
+                    _envGen.Close();
+                    _cGen.Close();
                 }
 
-				_envGen.Close();
-				_cGen.Close();
-				base.Close();
-			}
+                base.Dispose(disposing);
+            }
 		}
 	}
 }

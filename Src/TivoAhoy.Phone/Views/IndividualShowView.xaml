@@ -1,0 +1,100 @@
+﻿<UserControl
+    x:Class="TivoAhoy.Phone.Views.IndividualShowView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:ec="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions"
+    xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+    xmlns:vm="clr-namespace:TivoAhoy.Phone.ViewModels"
+    xmlns:converters="clr-namespace:TivoAhoy.Phone.Converters"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignWidth="480"
+    d:DataContext="{d:DesignInstance Type=vm:IndividualShowViewModel, IsDesignTimeCreatable=True}"
+    cal:Bind.AtDesignTime="True">
+
+    <UserControl.Resources>
+        <converters:BooleanToVisibilityConverter
+            x:Key="boolToVisConverter" />
+    </UserControl.Resources>
+    
+    <Grid
+        x:Name="LayoutRoot"
+        Background="Transparent"
+        HorizontalAlignment="Stretch"
+        cal:Message.Attach="[Event Tap] = [Action DisplayShowDetails()]">
+        <StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition
+                        Width="Auto" />
+                    <ColumnDefinition
+                        Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Image
+                    Source="/Images/thumbsup.png"
+                    Stretch="Uniform"
+                    VerticalAlignment="Center"
+                    Margin="12,0,-12,0"
+                    Visibility="Collapsed">
+                    <i:Interaction.Triggers>
+                        <ec:DataTrigger
+                            Binding="{Binding IsSuggestion}"
+                            Value="True">
+                            <ec:ChangePropertyAction
+                                PropertyName="Visibility"
+                                Value="Visible" />
+                        </ec:DataTrigger>
+                    </i:Interaction.Triggers>
+                </Image>
+
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{Binding Title, FallbackValue=Loading...}"
+                    Style="{StaticResource PhoneTextNormalStyle}" />
+
+                <i:Interaction.Triggers>
+                    <ec:DataTrigger
+                        Binding="{Binding IsSuggestion}"
+                        Value="True">
+                        <ec:ChangePropertyAction
+                            PropertyName="Opacity"
+                            Value="0.66" />
+                    </ec:DataTrigger>
+                </i:Interaction.Triggers>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition
+                        Width="Auto" />
+                    <ColumnDefinition
+                        Width="*" />
+                    <ColumnDefinition
+                        Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Text="{Binding Source.StartTime, ConverterCulture={StaticResource DefaultCulture}, StringFormat=g}"
+                    Style="{StaticResource PhoneTextSmallStyle}"
+                    Grid.ColumnSpan="2" />
+                <StackPanel
+                    Orientation="Horizontal"
+                    Grid.Column="3"
+                    Visibility="{Binding HasEpisodeNumbers, Converter={StaticResource boolToVisConverter}}">
+                    <TextBlock
+                        Text="{Binding Source.RecordingForChildRecordingId.SeasonNumber, StringFormat='S\{0\}'}"
+                        Style="{StaticResource PhoneTextSmallStyle}" 
+                        Margin="0"/>
+                    <TextBlock
+                        Text="{Binding Source.RecordingForChildRecordingId.EpisodeNumber, StringFormat='Ep\{0\}'}"
+                        Style="{StaticResource PhoneTextSmallStyle}"
+                        Margin="12,0" />
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</UserControl>
