@@ -45,7 +45,11 @@ namespace Tivo.Connect
             {
                 DateTimeZoneHandling = DateTimeZoneHandling.Utc,
                 DateFormatString = "yyyy'-'MM'-'dd HH':'mm':'ss",
-                Converters = { new RecordingFolderItemCreator() }
+                Converters =
+                {
+                    new RecordingFolderItemCreator(), 
+                    new UnifiedItemCreator(),
+                }
             };
 
             this.jsonSerializer = JsonSerializer.Create(this.jsonSettings);
@@ -408,6 +412,15 @@ namespace Tivo.Connect
             var content = (JArray)detailsResults["offer"];
 
             return content.First().ToObject<Offer>(this.jsonSerializer);
+        }
+
+        public async Task<IList<IUnifiedItem>> ExecuteUnifiedItemSearch(string keyword, int offset, int count)
+        {
+            var results = await SendUnifiedItemSearchRequest(keyword, offset, count).ConfigureAwait(false);
+
+            CheckResponse(results, "unifiedItemList", "unifiedItemSearch");
+
+            return results["unifiedItem"].ToObject<IList<IUnifiedItem>>(this.jsonSerializer);
         }
 
         public async Task PlayShow(string recordingId)
@@ -1371,6 +1384,27 @@ namespace Tivo.Connect
             };
 
             var response = await SendRequest("offerSearch", request).ConfigureAwait(false);
+            return response;
+        }
+
+        private async Task<JObject> SendUnifiedItemSearchRequest(string keyword, int offset, int count)
+        {
+            var request = new Dictionary<string, object>
+            {
+                { "type", "unifiedItemSearch" },
+                { "bodyId", this.capturedTsn },
+                { "keyword", keyword },
+                { "count", count },
+                { "offset", offset },
+                { "numRelevantItems", 50 },
+                { "orderBy", new[] { "relevance" } },
+                { "searchable", true },
+                { "mergeOverridingCollections", true },
+                { "includeUnifiedItemType", new[] { "collection", "person" } },
+                { "levelOfDetail", "high" },
+            };
+
+            var response = await SendRequest("unifiedItemSearch", request).ConfigureAwait(false);
             return response;
         }
     }

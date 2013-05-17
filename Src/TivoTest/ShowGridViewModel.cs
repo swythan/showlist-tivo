@@ -15,7 +15,7 @@ namespace TivoTest
     public class ShowGridViewModel : PropertyChangedBase
     {
         private readonly ITivoConnectionService tivoConnectionService;
-        
+
         private IEnumerable<GridRow> rows;
         private DateTime startTime;
         private DateTime endTime;
@@ -123,5 +123,5 @@ namespace TivoTest
                 MessageBox.Show(string.Format("Request Failed\n{0}", ex), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-  }
+    }
 }

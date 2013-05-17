@@ -98,6 +98,10 @@
     </Compile>
     <Compile Include="ITivoConnectionService.cs" />
     <Compile Include="MainViewModel.cs" />
+    <Compile Include="SearchView.xaml.cs">
+      <DependentUpon>SearchView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SearchViewModel.cs" />
     <Compile Include="ShellViewModel.cs" />
     <Compile Include="ShowGridView.xaml.cs">
       <DependentUpon>ShowGridView.xaml</DependentUpon>
@@ -122,6 +126,10 @@
       <DependentUpon>MainView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="SearchView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ShellView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

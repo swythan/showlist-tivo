@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using Newtonsoft.Json;
 
 namespace Tivo.Connect.Entities
 {
-    public class ImageInfo: INotifyPropertyChanged
+    public class Person : INotifyPropertyChanged, IUnifiedItem
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -17,12 +18,23 @@ namespace Tivo.Connect.Entities
             }
         }
 
-        public string ImageId { get; set; }
-        //public string ImageType { get; set; }
+        public string PersonId { get; set; }
+        public string NameId { get; set; }
 
-        public int? Width { get; set; }
-        public int? Height { get; set; }
+        [JsonProperty("first")]
+        public string FirstName { get; set; }
 
+        [JsonProperty("middle")]
+        public string MiddleName { get; set; }
+
+        [JsonProperty("last")]
+        public string LastName { get; set; }
+
+        public string Sex { get; set; }
+
+        public DateTime BirthDate { get; set; }
+        public string BirthPlace { get; set; }
+    
         [JsonProperty("imageUrl")]
         public string OriginalImageUrl { get; set; }
 
