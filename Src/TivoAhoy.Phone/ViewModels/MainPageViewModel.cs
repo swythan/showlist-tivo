@@ -17,7 +17,8 @@
             ITivoConnectionService connectionService,
             MyShowsViewModel myShowsViewModel,
             ChannelListViewModel channelListViewModel,
-            ToDoListViewModel toDoListViewModel)
+            ToDoListViewModel toDoListViewModel,
+            SearchViewModel searchViewModel)
         {
             this.navigationService = navigationService;
             this.connectionService = connectionService;
@@ -35,6 +36,10 @@
             myShowsViewModel.DisplayName = "my shows";
             myShowsViewModel.PropertyChanged += OnViewModelPropertyChanged;
             this.Items.Add(myShowsViewModel);
+
+            searchViewModel.DisplayName = "search";
+            searchViewModel.PropertyChanged += OnViewModelPropertyChanged;
+            this.Items.Add(searchViewModel);
 
             this.ActivateItem(channelListViewModel);
         }
