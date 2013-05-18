@@ -161,6 +161,8 @@
     <Compile Include="SettingsStore.cs" />
     <Compile Include="TivoConnectionService.cs" />
     <Compile Include="ViewModels\ChannelListViewModel.cs" />
+    <Compile Include="ViewModels\CollectionItemViewModel.cs" />
+    <Compile Include="ViewModels\PersonItemViewModel.cs" />
     <Compile Include="ViewModels\RecordingViewModel.cs" />
     <Compile Include="ViewModels\LazyRecordingFolderItemViewModel.cs" />
     <Compile Include="ViewModels\MyShowsViewModel.cs" />
@@ -174,6 +176,9 @@
     <Compile Include="ViewModels\UnifiedItemViewModel.cs" />
     <Compile Include="Views\ChannelListView.xaml.cs">
       <DependentUpon>ChannelListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PersonItemView.xaml.cs">
+      <DependentUpon>PersonItemView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CreditsView.xaml.cs">
       <DependentUpon>CreditsView.xaml</DependentUpon>
@@ -211,8 +216,8 @@
     <Compile Include="Views\ShowDetailsPage.xaml.cs">
       <DependentUpon>ShowDetailsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\UnifiedItemView.xaml.cs">
-      <DependentUpon>UnifiedItemView.xaml</DependentUpon>
+    <Compile Include="Views\CollectionItemView.xaml.cs">
+      <DependentUpon>CollectionItemView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -227,6 +232,10 @@
     <Page Include="Views\ChannelListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PersonItemView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\CreditsView.xaml">
       <SubType>Designer</SubType>
@@ -268,7 +277,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\UnifiedItemView.xaml">
+    <Page Include="Views\CollectionItemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

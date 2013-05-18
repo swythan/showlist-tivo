@@ -16,7 +16,7 @@ namespace TivoAhoy.Phone.ViewModels
         private readonly IProgressService progressService;
         private readonly ITivoConnectionService connectionService;
         private string searchText;
-        private IList<UnifiedItemViewModel> results;
+        private IList<IUnifiedItemViewModel> results;
 
         public SearchViewModel(
             IProgressService progressService,
@@ -52,7 +52,7 @@ namespace TivoAhoy.Phone.ViewModels
             }
         }
 
-        public IList<UnifiedItemViewModel> Results
+        public IList<IUnifiedItemViewModel> Results
         {
             get
             {
@@ -84,12 +84,32 @@ namespace TivoAhoy.Phone.ViewModels
                     result = Enumerable.Empty<IUnifiedItem>();
                 }
 
-                this.Results = result.Select(x => new UnifiedItemViewModel(x)).ToList();
+                this.Results = result
+                    .Select(x => CreateItemViewModel(x))
+                    .Where(x => x != null)
+                    .ToList();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(string.Format("Search Failed\n{0}", ex.Message));
             }
+        }
+
+        private IUnifiedItemViewModel CreateItemViewModel(IUnifiedItem item)
+        {
+            var person = item as Person;
+            if (person != null)
+            {
+                return new PersonItemViewModel(person);
+            }
+
+            var collection = item as Collection;
+            if (collection != null)
+            {
+                return new CollectionItemViewModel(collection);
+            }
+
+            return null;
         }
     }
 }

@@ -3,50 +3,38 @@ using Tivo.Connect.Entities;
 
 namespace TivoAhoy.Phone.ViewModels
 {
-    public class UnifiedItemViewModel : PropertyChangedBase
+    public interface IUnifiedItemViewModel
     {
-        private IUnifiedItem item;
+        string DisplayText { get; }
+    }
 
-        public UnifiedItemViewModel(IUnifiedItem item)
+    public abstract class UnifiedItemViewModel<T> : PropertyChangedBase, IUnifiedItemViewModel where T : class, IUnifiedItem
+    {
+        private T source;
+
+        public UnifiedItemViewModel(T source)
         {
-            this.item = item;
+            this.source = source;
         }
 
-        public string DisplayText
+        public T Source
         {
             get
             {
-                var collection = this.item as Collection;
-                if (collection != null)
-                {
-                    return "[C] " + collection.Title;
-                }
+                return this.source;
+            }
+            set
+            {
+                if (this.source == value)
+                    return;
 
-                var person = this.item as Person;
-                if (person != null)
-                {
-                    string result = "";
-                    
-                    if (!string.IsNullOrWhiteSpace(person.FirstName))
-                    {
-                        result = person.FirstName;
-                    }
+                this.source = value;
 
-                    if (!string.IsNullOrWhiteSpace(person.LastName))
-                    {
-                        if (result.Length > 0)
-                        {
-                            result += " ";
-                        }
-
-                        result += person.LastName;
-                    }
-
-                    return "[P] " + result;
-                }
-
-                return null;
+                NotifyOfPropertyChange(() => this.Source);
+                NotifyOfPropertyChange(() => this.DisplayText);
             }
         }
+
+        public abstract string DisplayText { get; }
     }
 }

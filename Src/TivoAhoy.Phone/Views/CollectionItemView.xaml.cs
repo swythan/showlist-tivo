@@ -10,9 +10,9 @@ using Microsoft.Phone.Shell;
 
 namespace TivoAhoy.Phone.Views
 {
-    public partial class UnifiedItemView : UserControl
+    public partial class CollectionItemView : UserControl
     {
-        public UnifiedItemView()
+        public CollectionItemView()
         {
             InitializeComponent();
         }
