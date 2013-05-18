@@ -15,16 +15,12 @@
         x:Name="LayoutRoot"
         Background="Transparent">
         <StackPanel Orientation="Horizontal">
-            <TextBlock
-                Text="Collection:" />
+            <Image Source="/Images/Television.png" 
+                   Stretch="None"
+                   Margin="12,0,0,0"/>
             <TextBlock
                 Text="{Binding DisplayText}"
                 Style="{StaticResource PhoneTextNormalStyle}" />
-
-            <!--<TextBlock
-                Text="{Binding ContentInfo, ConverterCulture={StaticResource DefaultCulture}, StringFormat=g}"
-                Style="{StaticResource PhoneTextSmallStyle}"
-                Foreground="{StaticResource PhoneAccentBrush}" />-->
         </StackPanel>
     </Grid>
 </UserControl>

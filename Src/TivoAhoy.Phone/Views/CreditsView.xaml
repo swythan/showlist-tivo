@@ -134,22 +134,6 @@
                         DEALINGS IN THE SOFTWARE.
                 </Paragraph>
             </RichTextBox>
-            <RichTextBox
-                IsReadOnly="True"
-                Margin="{StaticResource PhoneVerticalMargin}"
-                BorderBrush="{x:Null}"
-                Foreground="{StaticResource PhoneSubtleBrush}">
-                <Paragraph>
-                    <Hyperlink
-                        Foreground="{StaticResource PhoneAccentBrush}"
-                        FontFamily="{StaticResource PhoneFontFamilySemiBold}"
-                        NavigateUri="http://thenounproject.com/noun/thumbs-up/#icon-No14365"
-                        TargetName="_blank">Thumbs Up</Hyperlink> icon designed by
-                    <Hyperlink
-                        NavigateUri="http://thenounproject.com/jontesta"
-                        TargetName="_blank">Jon Testa</Hyperlink> from The Noun Project
-                </Paragraph>
-            </RichTextBox>
         </StackPanel>
     </Grid>
 

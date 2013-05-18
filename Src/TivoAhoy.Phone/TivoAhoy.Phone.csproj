@@ -289,7 +289,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\WMAppManifest.xml" />
-    <Content Include="Images\thumbsup.png" />
+    <Content Include="Images\Television.png" />
     <Content Include="tivo_vm.p12" />
     <Resource Include="Application_IconImage_62x62.png" />
     <Resource Include="Application_TileImage_173x173.png" />

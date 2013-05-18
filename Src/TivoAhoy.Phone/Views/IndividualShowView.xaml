@@ -21,7 +21,7 @@
         <converters:BooleanToVisibilityConverter
             x:Key="boolToVisConverter" />
     </UserControl.Resources>
-    
+
     <Grid
         x:Name="LayoutRoot"
         Background="Transparent"
@@ -36,22 +36,22 @@
                         Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <Image
-                    Source="/Images/thumbsup.png"
-                    Stretch="Uniform"
-                    VerticalAlignment="Center"
-                    Margin="12,0,-12,0"
-                    Visibility="Collapsed">
+                <TextBlock
+                    Style="{StaticResource PhoneTextNormalStyle}"
+                    FontFamily="Segoe UI Symbol"
+                    Text=""
+                    Visibility="Collapsed"
+                    Margin="12,0,-6,0">
                     <i:Interaction.Triggers>
                         <ec:DataTrigger
-                            Binding="{Binding IsSuggestion}"
-                            Value="True">
+                                Binding="{Binding IsSuggestion}"
+                                Value="True">
                             <ec:ChangePropertyAction
-                                PropertyName="Visibility"
-                                Value="Visible" />
+                                    PropertyName="Visibility"
+                                    Value="Visible" />
                         </ec:DataTrigger>
                     </i:Interaction.Triggers>
-                </Image>
+                </TextBlock>
 
                 <TextBlock
                     Grid.Column="1"
@@ -87,8 +87,8 @@
                     Visibility="{Binding HasEpisodeNumbers, Converter={StaticResource boolToVisConverter}}">
                     <TextBlock
                         Text="{Binding Source.RecordingForChildRecordingId.SeasonNumber, StringFormat='S\{0\}'}"
-                        Style="{StaticResource PhoneTextSmallStyle}" 
-                        Margin="0"/>
+                        Style="{StaticResource PhoneTextSmallStyle}"
+                        Margin="0" />
                     <TextBlock
                         Text="{Binding Source.RecordingForChildRecordingId.EpisodeNumber, StringFormat='Ep\{0\}'}"
                         Style="{StaticResource PhoneTextSmallStyle}"

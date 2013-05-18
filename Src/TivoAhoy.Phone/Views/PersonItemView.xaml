@@ -8,23 +8,20 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    d:DesignHeight="480"
     d:DesignWidth="480">
 
     <Grid
         x:Name="LayoutRoot"
         Background="Transparent">
-        <StackPanel Orientation="Horizontal">
+        <StackPanel
+            Orientation="Horizontal">
             <TextBlock
-                Text="Person:" />
+                Text=""
+                FontFamily="Segoe UI Symbol" 
+                Margin="14,0,2,0"/>
             <TextBlock
                 Text="{Binding DisplayText}"
                 Style="{StaticResource PhoneTextNormalStyle}" />
-
-            <!--<TextBlock
-                Text="{Binding ContentInfo, ConverterCulture={StaticResource DefaultCulture}, StringFormat=g}"
-                Style="{StaticResource PhoneTextSmallStyle}"
-                Foreground="{StaticResource PhoneAccentBrush}" />-->
         </StackPanel>
     </Grid>
 </UserControl>
