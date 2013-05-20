@@ -2,10 +2,12 @@
 
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Windows.Controls;
 using Caliburn.Micro;
 using Microsoft.Phone.Controls;
-using TivoAhoy.Phone.ViewModels;
+using TivoAhoy.Common.Services;
+using TivoAhoy.Common.ViewModels;
 
 namespace TivoAhoy.Phone
 {
@@ -41,6 +43,20 @@ namespace TivoAhoy.Phone
             container.PerRequest<LazyRecordingFolderItemViewModel>();
 
             AddCustomConventions();
+        }
+
+        protected override IEnumerable<Assembly> SelectAssemblies()
+        {
+            var assemblies =
+                new List<Assembly> 
+                {
+                    typeof(Bootstrapper).Assembly, 
+                    typeof(MainPageViewModel).Assembly
+                };
+
+            AssemblySource.Instance.AddRange(assemblies);
+
+            return base.SelectAssemblies();
         }
 
         protected override object GetInstance(Type service, string key)
@@ -127,6 +143,11 @@ namespace TivoAhoy.Phone
 
         static void AddCustomConventions()
         {
+            ViewModelLocator.AddNamespaceMapping("TivoAhoy.Phone.Views", "TivoAhoy.Common.ViewModels", "View");
+            ViewModelLocator.AddNamespaceMapping("TivoAhoy.Phone.Views", "TivoAhoy.Common.ViewModels", "Page");
+            ViewLocator.AddNamespaceMapping("TivoAhoy.Common.ViewModels", "TivoAhoy.Phone.Views", "View");
+            ViewLocator.AddNamespaceMapping("TivoAhoy.Common.ViewModels", "TivoAhoy.Phone.Views", "Page");
+
             ConventionManager.AddElementConvention<PerformanceProgressBar>(PerformanceProgressBar.IsIndeterminateProperty, "IsIndeterminate", "Loaded");
 
             ConventionManager.AddElementConvention<Pivot>(Pivot.ItemsSourceProperty, "SelectedItem", "SelectionChanged").ApplyBinding =

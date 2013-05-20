@@ -22,7 +22,7 @@ namespace TivoAhoy.Phone.Views
 
         private void Panorama_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            var model = this.DataContext as TivoAhoy.Phone.ViewModels.ShowDetailsPageViewModel;
+            var model = this.DataContext as TivoAhoy.Common.ViewModels.ShowDetailsPageViewModel;
 
             if (model != null)
             {

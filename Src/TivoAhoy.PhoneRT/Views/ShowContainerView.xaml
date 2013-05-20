@@ -1,0 +1,35 @@
+﻿<UserControl
+    x:Class="TivoAhoy.PhoneRT.Views.ShowContainerView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:ec="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions"
+    xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+    xmlns:vm="clr-namespace:TivoAhoy.Common.ViewModels;assembly=TivoAhoy.Common"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignWidth="480"
+    d:DataContext="{d:DesignInstance Type=vm:ShowContainerViewModel, IsDesignTimeCreatable=True}"
+    cal:Bind.AtDesignTime="True">
+
+    <Grid
+        x:Name="LayoutRoot"
+        Background="Transparent"
+        cal:Message.Attach="[Event Tap] = [Action DisplayContainerShows()]">    
+        <StackPanel>
+            <TextBlock
+                Grid.Column="1"
+                Text="{Binding Title, FallbackValue=Loading...}"
+                Style="{StaticResource PhoneTextNormalStyle}" />
+
+            <TextBlock
+                Text="{Binding ContentInfo, ConverterCulture={StaticResource DefaultCulture}, StringFormat=g}"
+                Style="{StaticResource PhoneTextSmallStyle}"
+                Foreground="{StaticResource PhoneAccentBrush}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

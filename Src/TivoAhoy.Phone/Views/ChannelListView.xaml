@@ -7,7 +7,7 @@
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:converters="clr-namespace:TivoAhoy.Phone.Converters"
     xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
-    xmlns:vm="clr-namespace:TivoAhoy.Phone.ViewModels"
+    xmlns:vm="clr-namespace:TivoAhoy.Common.ViewModels;assembly=TivoAhoy.Common"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"

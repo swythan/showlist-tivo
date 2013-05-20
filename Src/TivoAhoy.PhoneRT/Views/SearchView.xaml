@@ -1,0 +1,67 @@
+﻿<UserControl
+    x:Class="TivoAhoy.PhoneRT.Views.SearchView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480"
+    d:DesignWidth="480">
+
+    <Grid
+        x:Name="LayoutRoot">
+
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Height="Auto" />
+            <RowDefinition
+                Height="Auto" />
+            <RowDefinition
+                Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock
+            Text="Keyword"
+            HorizontalAlignment="Left"
+            Grid.Row="0" 
+            Margin="12,0,0,0"/>
+        <TextBox
+            x:Name="SearchText"
+            Grid.Column="1"
+            Grid.Row="1" />
+        <Button
+            Grid.ColumnSpan="2"
+            x:Name="Search"
+            Content="Search"
+            Grid.Row="2" />
+        <ListBox
+            x:Name="Results"
+            Grid.Row="3"
+            Grid.ColumnSpan="2"
+            Margin="12">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid
+                        Margin="0,4"
+                        Background="{StaticResource PhoneChromeBrush}">
+                        <ContentControl
+                            HorizontalContentAlignment="Stretch"
+                            cal:View.Model="{Binding}" />
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemContainerStyle>
+                <Style
+                    TargetType="ListBoxItem">
+                    <Setter
+                        Property="HorizontalContentAlignment"
+                        Value="Stretch" />
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
+    </Grid>
+</UserControl>

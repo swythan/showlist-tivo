@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Show List for TiVo")]
-[assembly: AssemblyCopyright("Copyright © James Chaldecott 2010")]
+[assembly: AssemblyCopyright("Copyright © James Chaldecott 2010-2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

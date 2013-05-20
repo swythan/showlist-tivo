@@ -127,54 +127,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnalyticsService.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AsyncLazy.cs" />
-    <Compile Include="BitmapImageExtensions.cs" />
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="ConnectionSettings.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\UtcToLocalTimeConverter.cs" />
-    <Compile Include="DiscoveredTivo.cs" />
-    <Compile Include="Discovery\Answer.cs" />
-    <Compile Include="Discovery\BackReferenceBinaryReader.cs" />
-    <Compile Include="Discovery\BaseMessage.cs" />
-    <Compile Include="Discovery\BinaryHelper.cs" />
-    <Compile Include="Discovery\DnsEnums.cs" />
-    <Compile Include="Discovery\DomainName.cs" />
-    <Compile Include="Discovery\IRequest.cs" />
-    <Compile Include="Discovery\IResponse.cs" />
-    <Compile Include="Discovery\MDnsClient.cs" />
-    <Compile Include="Discovery\Message.cs" />
-    <Compile Include="Discovery\Question.cs" />
-    <Compile Include="Discovery\ResponseData.cs" />
-    <Compile Include="Events\ConnectionSettingsChanged.cs" />
-    <Compile Include="IAnalyticsService.cs" />
-    <Compile Include="IProgressService.cs" />
-    <Compile Include="IScheduledRecordingsService.cs" />
-    <Compile Include="ITivoConnectionService.cs" />
-    <Compile Include="KnownTivoConnection.cs" />
-    <Compile Include="LocalyticsSession.cs" />
-    <Compile Include="ProgressService.cs" />
-    <Compile Include="ScheduledRecordingsService.cs" />
-    <Compile Include="SettingsStore.cs" />
-    <Compile Include="TivoConnectionService.cs" />
-    <Compile Include="ViewModels\ChannelListViewModel.cs" />
-    <Compile Include="ViewModels\CollectionItemViewModel.cs" />
-    <Compile Include="ViewModels\PersonItemViewModel.cs" />
-    <Compile Include="ViewModels\RecordingViewModel.cs" />
-    <Compile Include="ViewModels\LazyRecordingFolderItemViewModel.cs" />
-    <Compile Include="ViewModels\MyShowsViewModel.cs" />
-    <Compile Include="ViewModels\OfferViewModel.cs" />
-    <Compile Include="ViewModels\SearchViewModel.cs" />
-    <Compile Include="ViewModels\ShowContainerShowsPageViewModel.cs" />
-    <Compile Include="ViewModels\ShowDetailsPageViewModel.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ViewModels\ToDoListViewModel.cs" />
-    <Compile Include="ViewModels\UnifiedItemViewModel.cs" />
     <Compile Include="Views\ChannelListView.xaml.cs">
       <DependentUpon>ChannelListView.xaml</DependentUpon>
     </Compile>
@@ -209,11 +167,6 @@
     <Compile Include="Views\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\ShowContainerViewModel.cs" />
-    <Compile Include="ViewModels\IndividualShowViewModel.cs" />
-    <Compile Include="ViewModels\MainPageViewModel.cs" />
-    <Compile Include="ViewModels\RecordingFolderItemViewModel.cs" />
-    <Compile Include="ViewModels\SettingsPageViewModel.cs" />
     <Compile Include="Views\ShowDetailsPage.xaml.cs">
       <DependentUpon>ShowDetailsPage.xaml</DependentUpon>
     </Compile>
@@ -289,7 +242,9 @@
     <None Include="Properties\AppManifest.xml">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Properties\WMAppManifest.xml" />
+    <None Include="Properties\WMAppManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
     <Content Include="Images\Television.png" />
     <Content Include="tivo_vm.p12" />
     <Resource Include="Application_IconImage_62x62.png" />
@@ -310,6 +265,10 @@
     <ProjectReference Include="..\Tivo.Connect.Phone\Tivo.Connect.Phone.csproj">
       <Project>{AFFFC8BC-3E92-4860-97EF-66C331874DDE}</Project>
       <Name>Tivo.Connect.Phone</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TivoAhoy.Common\TivoAhoy.Common.csproj">
+      <Project>{80FABC5F-78FB-423B-8983-BA3E85FCF748}</Project>
+      <Name>TivoAhoy.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
