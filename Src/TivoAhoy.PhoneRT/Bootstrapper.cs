@@ -48,7 +48,7 @@ namespace TivoAhoy.PhoneRT
 
         protected override IEnumerable<Assembly> SelectAssemblies()
         {
-            var assemblies = 
+            var assemblies =
                 new List<Assembly> 
                 {
                     typeof(Bootstrapper).Assembly, 
@@ -56,7 +56,7 @@ namespace TivoAhoy.PhoneRT
                 };
 
             AssemblySource.Instance.AddRange(assemblies);
-            
+
             return base.SelectAssemblies();
         }
 
@@ -149,7 +149,7 @@ namespace TivoAhoy.PhoneRT
             ViewLocator.AddNamespaceMapping("TivoAhoy.Common.ViewModels", "TivoAhoy.PhoneRT.Views", "View");
             ViewLocator.AddNamespaceMapping("TivoAhoy.Common.ViewModels", "TivoAhoy.PhoneRT.Views", "Page");
 
-             //ConventionManager.AddElementConvention<PerformanceProgressBar>(PerformanceProgressBar.IsIndeterminateProperty, "IsIndeterminate", "Loaded");
+            //ConventionManager.AddElementConvention<PerformanceProgressBar>(PerformanceProgressBar.IsIndeterminateProperty, "IsIndeterminate", "Loaded");
 
             ConventionManager.AddElementConvention<Pivot>(Pivot.ItemsSourceProperty, "SelectedItem", "SelectionChanged").ApplyBinding =
                 (viewModelType, path, property, element, convention) =>
@@ -185,23 +185,22 @@ namespace TivoAhoy.PhoneRT
                     return false;
                 };
 
-            //ConventionManager.AddElementConvention<ListPicker>(ListPicker.ItemsSourceProperty, "SelectedItem", "SelectionChanged").ApplyBinding =
-            //    (viewModelType, path, property, element, convention) =>
-            //    {
-            //        if (ConventionManager
-            //            .GetElementConvention(typeof(ItemsControl))
-            //            .ApplyBinding(viewModelType, path, property, element, convention))
-            //        {
-            //            ConventionManager
-            //                .ConfigureSelectedItem(element, ListPicker.SelectedItemProperty, viewModelType, path);
-            //            ConventionManager
-            //                .ApplyHeaderTemplate(element, ListPicker.HeaderTemplateProperty, null, viewModelType);
-            //            return true;
-            //        }
+            ConventionManager.AddElementConvention<ListPicker>(ListPicker.ItemsSourceProperty, "SelectedItem", "SelectionChanged")
+                .ApplyBinding =
+                    (viewModelType, path, property, element, convention) =>
+                    {
+                        if (ConventionManager.GetElementConvention(typeof(ItemsControl))
+                            .ApplyBinding(viewModelType, path, property, element, convention))
+                        {
+                            ConventionManager
+                                .ConfigureSelectedItem(element, ListPicker.SelectedItemProperty, viewModelType, path);
+                            //ConventionManager
+                            //    .ApplyHeaderTemplate(element, ListPicker.HeaderTemplateProperty, null, viewModelType);
+                            return true;
+                        }
 
-            //        return false;
-            //    };
-
+                        return false;
+                    };
         }
     }
 }

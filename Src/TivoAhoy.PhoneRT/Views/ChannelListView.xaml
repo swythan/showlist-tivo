@@ -35,6 +35,14 @@
                             x:Name="Highlighted">
                             <Storyboard>
                                 <ObjectAnimationUsingKeyFrames
+                                    Storyboard.TargetName="UserControl"
+                                    Storyboard.TargetProperty="Foreground"
+                                    Duration="0">
+                                    <DiscreteObjectKeyFrame
+                                        Value="{StaticResource PhoneTextBoxForegroundBrush}"
+                                        KeyTime="0" />
+                                </ObjectAnimationUsingKeyFrames>
+                                <ObjectAnimationUsingKeyFrames
                                     Storyboard.TargetName="Border"
                                     Storyboard.TargetProperty="Background"
                                     Duration="0">
