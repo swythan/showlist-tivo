@@ -12,17 +12,21 @@ namespace TivoAhoy.Common.ViewModels
     public class SearchViewModel : Screen
     {
         private readonly IProgressService progressService;
+        private readonly ISpeechService speechService;
         private readonly ITivoConnectionService connectionService;
+
         private string searchText;
         private IList<IUnifiedItemViewModel> results;
 
         public SearchViewModel(
             IProgressService progressService,
+            ISpeechService speechService,
             ITivoConnectionService connectionService
             )
         {
             this.connectionService = connectionService;
             this.progressService = progressService;
+            this.speechService = speechService;
 
             connectionService.PropertyChanged += OnConnectionServicePropertyChanged;
         }
@@ -90,6 +94,29 @@ namespace TivoAhoy.Common.ViewModels
             catch (Exception ex)
             {
                 MessageBox.Show(string.Format("Search Failed\n{0}", ex.Message));
+            }
+        }
+
+        public async void SearchByVoice()
+        {
+            string findText = await this.speechService.RecognizeTextFromWebSearchGrammar("Ex. \"The Simpsons\"");
+
+            if (string.IsNullOrWhiteSpace(findText))
+            {
+                return;
+            }
+
+            this.SearchText = findText;
+
+            if (this.CanSearch)
+            {
+                this.Search();
+
+                await this.speechService.Speak(string.Format("Searching for {0}", this.SearchText));
+            }
+            else
+            { 
+                await this.speechService.Speak("Sorry, search not available.");
             }
         }
 

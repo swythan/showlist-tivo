@@ -6,9 +6,9 @@ using System.Reflection;
 using System.Windows.Controls;
 using Caliburn.Micro;
 using Microsoft.Phone.Controls;
-using TivoAhoy.Phone;
-using TivoAhoy.Common.ViewModels;
 using TivoAhoy.Common.Services;
+using TivoAhoy.Common.ViewModels;
+using TivoAhoy.PhoneRT.Services;
 
 namespace TivoAhoy.PhoneRT
 {
@@ -27,6 +27,7 @@ namespace TivoAhoy.PhoneRT
             container.Singleton<IAnalyticsService, AnalyticsService>();
             container.Singleton<ITivoConnectionService, TivoConnectionService>();
             container.Singleton<IScheduledRecordingsService, ScheduledRecordingsService>();
+            container.Singleton<ISpeechService, SpeechService>();
 
             container.PerRequest<SettingsPageViewModel>();
             container.PerRequest<MainPageViewModel>();
@@ -77,12 +78,12 @@ namespace TivoAhoy.PhoneRT
 
         protected override void OnLaunch(object sender, Microsoft.Phone.Shell.LaunchingEventArgs e)
         {
-            EnableAnalytics(true);
+            EnableAnalytics(true);          
             EnableConnections(true);
 
             base.OnLaunch(sender, e);
         }
-
+    
         private void EnableConnections(bool enable)
         {
             var connectionService = (ITivoConnectionService)this.container.GetInstance(typeof(ITivoConnectionService), null);
