@@ -15,6 +15,8 @@ namespace TivoAhoy.Common.ViewModels
         private readonly ISpeechService speechService;
         private readonly ITivoConnectionService connectionService;
 
+        bool isSearchInProgress = false;
+
         private string searchText;
         private IList<IUnifiedItemViewModel> results;
 
@@ -36,6 +38,24 @@ namespace TivoAhoy.Common.ViewModels
             if (e.PropertyName == "IsConnected")
             {
                 NotifyOfPropertyChange(() => this.CanSearch);
+                NotifyOfPropertyChange(() => this.CanSearchByVoice);
+            }
+        }
+
+        public bool IsSearchInProgress
+        {
+            get
+            {
+                return this.isSearchInProgress;
+            }
+
+            set
+            {
+                this.isSearchInProgress = value;
+                
+                NotifyOfPropertyChange(() => this.IsSearchInProgress);
+                NotifyOfPropertyChange(() => this.CanSearch);
+                NotifyOfPropertyChange(() => this.CanSearchByVoice);
             }
         }
 
@@ -75,25 +95,47 @@ namespace TivoAhoy.Common.ViewModels
 
         public async void Search()
         {
+            if (!this.CanSearch)
+            {
+                return;
+            }
+
+            this.IsSearchInProgress = true;
+
             try
             {
-                var connection = await this.connectionService.GetConnectionAsync();
-
-                IEnumerable<IUnifiedItem> result = await connection.ExecuteUnifiedItemSearch(this.SearchText, 0, 50);
-
-                if (result == null)
+                using (this.progressService.Show())
                 {
-                    result = Enumerable.Empty<IUnifiedItem>();
-                }
+                    var connection = await this.connectionService.GetConnectionAsync();
 
-                this.Results = result
-                    .Select(x => CreateItemViewModel(x))
-                    .Where(x => x != null)
-                    .ToList();
+                    IEnumerable<IUnifiedItem> result = await connection.ExecuteUnifiedItemSearch(this.SearchText, 0, 50);
+
+                    if (result == null)
+                    {
+                        result = Enumerable.Empty<IUnifiedItem>();
+                    }
+
+                    this.Results = result
+                        .Select(x => CreateItemViewModel(x))
+                        .Where(x => x != null)
+                        .ToList();
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(string.Format("Search Failed\n{0}", ex.Message));
+            }
+            finally
+            {
+                this.IsSearchInProgress = false;
+            }
+        }
+
+        public bool CanSearchByVoice
+        {
+            get
+            {
+                return this.connectionService.IsConnected && this.speechService != null;
             }
         }
 
@@ -108,7 +150,7 @@ namespace TivoAhoy.Common.ViewModels
 
             this.SearchText = findText;
 
-            if (this.CanSearch)
+            if (this.CanSearchByVoice)
             {
                 this.Search();
 

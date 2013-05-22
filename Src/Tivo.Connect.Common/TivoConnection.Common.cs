@@ -416,11 +416,19 @@ namespace Tivo.Connect
 
         public async Task<IList<IUnifiedItem>> ExecuteUnifiedItemSearch(string keyword, int offset, int count)
         {
-            var results = await SendUnifiedItemSearchRequest(keyword, offset, count).ConfigureAwait(false);
+            var response = await SendUnifiedItemSearchRequest(keyword, offset, count).ConfigureAwait(false);
 
-            CheckResponse(results, "unifiedItemList", "unifiedItemSearch");
+            CheckResponse(response, "unifiedItemList", "unifiedItemSearch");
 
-            return results["unifiedItem"].ToObject<IList<IUnifiedItem>>(this.jsonSerializer);
+            var results = response["unifiedItem"];
+            if (results != null)
+            {
+                return results.ToObject<IList<IUnifiedItem>>(this.jsonSerializer);
+            }
+            else
+            {
+                return new List<IUnifiedItem>();
+            }
         }
 
         public async Task PlayShow(string recordingId)
