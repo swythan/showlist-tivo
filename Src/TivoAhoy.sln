@@ -154,9 +154,9 @@ Global
 		{232FB191-2EF2-4D41-9CB9-CA1FC71B05B5}.Release|ARM.ActiveCfg = Release|ARM
 		{232FB191-2EF2-4D41-9CB9-CA1FC71B05B5}.Release|ARM.Build.0 = Release|ARM
 		{232FB191-2EF2-4D41-9CB9-CA1FC71B05B5}.Release|ARM.Deploy.0 = Release|ARM
-		{232FB191-2EF2-4D41-9CB9-CA1FC71B05B5}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{232FB191-2EF2-4D41-9CB9-CA1FC71B05B5}.Release|Mixed Platforms.Build.0 = Release|x86
-		{232FB191-2EF2-4D41-9CB9-CA1FC71B05B5}.Release|Mixed Platforms.Deploy.0 = Release|x86
+		{232FB191-2EF2-4D41-9CB9-CA1FC71B05B5}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{232FB191-2EF2-4D41-9CB9-CA1FC71B05B5}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{232FB191-2EF2-4D41-9CB9-CA1FC71B05B5}.Release|Mixed Platforms.Deploy.0 = Release|Any CPU
 		{232FB191-2EF2-4D41-9CB9-CA1FC71B05B5}.Release|x86.ActiveCfg = Release|x86
 		{232FB191-2EF2-4D41-9CB9-CA1FC71B05B5}.Release|x86.Build.0 = Release|x86
 		{232FB191-2EF2-4D41-9CB9-CA1FC71B05B5}.Release|x86.Deploy.0 = Release|x86

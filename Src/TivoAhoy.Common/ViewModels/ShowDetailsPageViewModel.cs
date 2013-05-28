@@ -12,6 +12,7 @@ using Caliburn.Micro;
 using Tivo.Connect;
 using Tivo.Connect.Entities;
 using TivoAhoy.Common.Services;
+using TivoAhoy.Common.Utils;
 
 namespace TivoAhoy.Common.ViewModels
 {
@@ -28,6 +29,8 @@ namespace TivoAhoy.Common.ViewModels
 
         private bool isOperationInProgress;
         private int panoramaHeight = 800;
+
+        private ImageBrush mainImageBrush = null;
 
         public ShowDetailsPageViewModel(
             IAnalyticsService analyticsService,
@@ -151,61 +154,6 @@ namespace TivoAhoy.Common.ViewModels
             }
         }
 
-        public Uri MainImage
-        {
-            get
-            {
-                if (this.Show == null ||
-                    this.Show.Images == null)
-                {
-                    return null;
-                }
-
-                var widthCutoff = 1024;
-
-                var bestImage = GetBestImageForWidth(widthCutoff);
-
-                if (bestImage == null)
-                {
-                    return null;
-                }
-
-                return bestImage.ImageUrl;
-            }
-        }
-
-        private ImageInfo GetBestImageForWidth(int widthCutoff)
-        {
-            if (this.Show == null ||
-                this.Show.Images == null)
-            {
-                return null;
-            }
-
-            var imagesWithWidth = this.Show.Images.Where(x => x.Width != null).ToList();
-            var largeImages = imagesWithWidth.Where(x => x.Width >= widthCutoff).OrderBy(x => x.Width).ToList();
-            var smallImages = imagesWithWidth.Where(x => x.Width < widthCutoff).OrderByDescending(x => x.Width).ToList();
-
-            var bestImage = largeImages.Concat(smallImages).Concat(this.Show.Images.Except(imagesWithWidth)).FirstOrDefault();
-            return bestImage;
-        }
-
-        private ImageInfo GetBestImageForHeight(int heightCutoff)
-        {
-            if (this.Show == null ||
-                this.Show.Images == null)
-            {
-                return null;
-            }
-
-            var imagesWithHeight = this.Show.Images.Where(x => x.Height != null).ToList();
-            var largeImages = imagesWithHeight.Where(x => x.Height >= heightCutoff).OrderBy(x => x.Height).ToList();
-            var smallImages = imagesWithHeight.Where(x => x.Height < heightCutoff).OrderByDescending(x => x.Height).ToList();
-
-            var bestImage = largeImages.Concat(smallImages).Concat(this.Show.Images.Except(imagesWithHeight)).FirstOrDefault();
-            return bestImage;
-        }
-
         private async void UpdateBackgroundBrush()
         {
             this.MainImageBrush = null;
@@ -215,44 +163,32 @@ namespace TivoAhoy.Common.ViewModels
                 return;
             }
 
-            var bestImage = this.GetBestImageForHeight(this.PanoramaHeight);
-
-            if (bestImage != null)
+            if (this.Show == null)
             {
-                var bi = new BitmapImage();
-                if (await bi.SetUriSourceAsync(bestImage.ImageUrl))
-                {
-                    var wb = new WriteableBitmap(bi);
-                    bi.UriSource = null;
-
-                    var bigImage = new BitmapImage();
-                    using (var tempStream = new MemoryStream())
-                    {
-                        var aspectRatio = wb.PixelHeight / (double)wb.PixelWidth;
-
-                        wb.SaveJpeg(tempStream, (int)(this.PanoramaHeight / aspectRatio), this.PanoramaHeight, 0, 95);
-
-                        tempStream.Seek(0, SeekOrigin.Begin);
-                        if (await bigImage.SetSourceAsync(tempStream))
-                        {
-                            ImageBrush brush = new ImageBrush();
-                            brush.ImageSource = bigImage;
-                            brush.Stretch = Stretch.Uniform;
-                            brush.Opacity = 0.4;
-
-                            this.MainImageBrush = brush;
-                        }
-                    }
-                }
+                return;
             }
 
-            this.NotifyOfPropertyChange(() => MainImageBrush);
+            int requiredHeight = this.PanoramaHeight;
+
+            var bestImage = this.Show.Images.GetBestImageForHeight(requiredHeight);
+
+            this.MainImageBrush = await bestImage.GetResizedImageBrushAsync(requiredHeight);
         }
+
 
         public ImageBrush MainImageBrush
         {
-            get;
-            set;
+            get { return this.mainImageBrush; }
+            set
+            {
+                if (this.mainImageBrush == value)
+                {
+                    return;
+                }
+
+                this.mainImageBrush = value;
+                this.NotifyOfPropertyChange(() => MainImageBrush);
+            }
         }
 
         public ShowDetails Show
@@ -266,7 +202,6 @@ namespace TivoAhoy.Common.ViewModels
 
                 NotifyOfPropertyChange(() => this.Show);
                 //NotifyOfPropertyChange(() => this.IsRecorded);
-                NotifyOfPropertyChange(() => this.MainImage);
                 NotifyOfPropertyChange(() => this.MainImageBrush);
                 NotifyOfPropertyChange(() => this.HasSubtitle);
                 NotifyOfPropertyChange(() => this.HasEpisodeNumbers);
@@ -535,7 +470,7 @@ namespace TivoAhoy.Common.ViewModels
         public async void ScheduleRecording()
         {
             OnOperationStarted();
-                
+
             this.analyticsService.ScheduleSingleRecording();
 
             try

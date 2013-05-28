@@ -123,6 +123,7 @@
     <Compile Include="Services\IScheduledRecordingsService.cs" />
     <Compile Include="Services\ITivoConnectionService.cs" />
     <Compile Include="Settings\KnownTivoConnection.cs" />
+    <Compile Include="Utils\ImageInfoExtensions.cs" />
     <Compile Include="Utils\LocalyticsSession.cs" />
     <Compile Include="Services\ProgressService.cs" />
     <Compile Include="Services\ScheduledRecordingsService.cs" />
