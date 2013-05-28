@@ -31,6 +31,11 @@ namespace Tivo.Connect.Entities
 
         public string Role { get; set; }
 
+        public string CharacterName { get; set; }
+
+        [JsonProperty("image")]
+        public List<ImageInfo> Images { get; set; }
+
         [JsonProperty("imageUrl")]
         public string OriginalImageUrl { get; set; }
 

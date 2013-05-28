@@ -1,13 +1,31 @@
+using Caliburn.Micro;
 using Tivo.Connect.Entities;
 
 namespace TivoAhoy.Common.ViewModels
 {
     public class CollectionItemViewModel : UnifiedItemViewModel<Collection>
     {
-        public CollectionItemViewModel(Collection collection)
-            : base(collection)
-        {
+        private readonly INavigationService navigationService;
 
+        public CollectionItemViewModel(INavigationService navigationService)
+        {
+            this.navigationService = navigationService;
+        }
+
+
+        public CollectionItemViewModel()
+        {
+            if (Execute.InDesignMode)
+                LoadDesignData();
+        }
+
+        private void LoadDesignData()
+        {
+            this.Source =
+                new Collection()
+                {
+                    Title = "The Walking Dead",                   
+                };
         }
 
         public override string DisplayText
@@ -19,6 +37,14 @@ namespace TivoAhoy.Common.ViewModels
 
                 return this.Source.Title;
             }
+        }
+
+        public void DisplayCollectionDetails()
+        {
+            this.navigationService
+                .UriFor<CollectionDetailsPageViewModel>()
+                .WithParam(x => x.CollectionID, this.Source.CollectionId)
+                .Navigate();
         }
     }
 }

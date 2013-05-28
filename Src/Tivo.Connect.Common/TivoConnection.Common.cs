@@ -414,6 +414,17 @@ namespace Tivo.Connect
             return content.First().ToObject<Offer>(this.jsonSerializer);
         }
 
+        public async Task<Collection> GetCollectionDetails(string collectionId)
+        {
+            var detailsResults = await SendCollectionSearchRequest(collectionId).ConfigureAwait(false);
+
+            CheckResponse(detailsResults, "collectionList", "collectionSearch");
+
+            var content = (JArray)detailsResults["collection"];
+
+            return content.First().ToObject<Collection>(this.jsonSerializer);
+        }
+
         public async Task<IList<IUnifiedItem>> ExecuteUnifiedItemSearch(string keyword, int offset, int count)
         {
             var response = await SendUnifiedItemSearchRequest(keyword, offset, count).ConfigureAwait(false);
@@ -1392,6 +1403,29 @@ namespace Tivo.Connect
             };
 
             var response = await SendRequest("offerSearch", request).ConfigureAwait(false);
+            return response;
+        }
+
+        private async Task<JObject> SendCollectionSearchRequest(string collectionId)
+        {
+            var request = new Dictionary<string, object>
+            {
+                { "type", "collectionSearch" },
+                { "bodyId", this.capturedTsn },
+                { "filterUnavailable", false },
+                { "collectionId", new[] { collectionId } },
+                { "note", 
+                    new string[] 
+                    { 
+                        //"userContentForCollectionId", // Use this to get thumbs rating
+                        //"broadcastOfferGroupForCollectionId", // Use this to get example offers
+                        //"broadbandOfferGroupForCollectionId" // Not entirely sure what this gives you!
+                    }
+                },
+                { "levelOfDetail", "high" },
+            };
+
+            var response = await SendRequest("collectionSearch", request).ConfigureAwait(false);
             return response;
         }
 

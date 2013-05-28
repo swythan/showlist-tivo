@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.IO.IsolatedStorage;
 using System.Linq;
+using System.Reactive.Disposables;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
@@ -96,12 +97,21 @@ namespace TivoAhoy.Common.ViewModels
 
         public bool IsOperationInProgress
         {
-            get { return this.isOperationInProgress; }
+            get
+            {
+                return this.isOperationInProgress;
+            }
         }
 
-        private void OnOperationStarted()
+        private void SetIsOperationInProgress(bool value)
         {
-            this.isOperationInProgress = true;
+            if (this.isOperationInProgress == value)
+            {
+                return;
+            }
+
+            this.isOperationInProgress = value;
+
             NotifyOfPropertyChange(() => this.IsOperationInProgress);
             NotifyOfPropertyChange(() => this.CanPlayShow);
             NotifyOfPropertyChange(() => this.CanDeleteShow);
@@ -109,14 +119,13 @@ namespace TivoAhoy.Common.ViewModels
             NotifyOfPropertyChange(() => this.CanScheduleRecording);
         }
 
-        private void OnOperationFinished()
-        {
-            this.isOperationInProgress = false;
-            NotifyOfPropertyChange(() => this.IsOperationInProgress);
-            NotifyOfPropertyChange(() => this.CanPlayShow);
-            NotifyOfPropertyChange(() => this.CanDeleteShow);
-            NotifyOfPropertyChange(() => this.CanCancelRecording);
-            NotifyOfPropertyChange(() => this.CanScheduleRecording);
+        private IDisposable ShowProgress()
+        {       
+            this.SetIsOperationInProgress(true);
+
+            return new CompositeDisposable(
+                this.progressService.Show(),
+                Disposable.Create(() => this.SetIsOperationInProgress(false)));
         }
 
         public string ShowContentID { get; set; }
@@ -257,15 +266,12 @@ namespace TivoAhoy.Common.ViewModels
 
         private async void FetchShowDetails()
         {
-
-            OnOperationStarted();
-
             try
             {
-                var connection = await this.connectionService.GetConnectionAsync();
-
-                using (progressService.Show())
+                using (this.ShowProgress())
                 {
+                    var connection = await this.connectionService.GetConnectionAsync();
+
                     this.Show = await connection.GetShowContentDetails(this.ShowContentID);
 
                     if (!string.IsNullOrEmpty(this.ShowRecordingID))
@@ -282,10 +288,6 @@ namespace TivoAhoy.Common.ViewModels
             catch (Exception ex)
             {
                 MessageBox.Show(string.Format("Failed to retrieve details:\n{0}", ex.Message));
-            }
-            finally
-            {
-                OnOperationFinished();
             }
         }
 
@@ -349,26 +351,20 @@ namespace TivoAhoy.Common.ViewModels
 
         public async void PlayShow()
         {
-            OnOperationStarted();
-
             this.analyticsService.PlayRecording();
 
             try
             {
-                var connection = await this.connectionService.GetConnectionAsync();
-
-                using (progressService.Show())
+                using (this.ShowProgress())
                 {
+                    var connection = await this.connectionService.GetConnectionAsync();
+
                     await connection.PlayShow(this.ShowRecordingID);
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(string.Format("Play command failed:\n{0}", ex.Message));
-            }
-            finally
-            {
-                OnOperationFinished();
             }
         }
 
@@ -388,16 +384,14 @@ namespace TivoAhoy.Common.ViewModels
 
         public async void DeleteShow()
         {
-            OnOperationStarted();
-
             this.analyticsService.DeleteRecording();
 
             try
             {
-                var connection = await this.connectionService.GetConnectionAsync();
-
-                using (progressService.Show())
+                using (this.ShowProgress())
                 {
+                    var connection = await this.connectionService.GetConnectionAsync();
+
                     await connection.DeleteRecording(this.ShowRecordingID);
                 }
 
@@ -406,10 +400,6 @@ namespace TivoAhoy.Common.ViewModels
             catch (Exception ex)
             {
                 MessageBox.Show(string.Format("Delete command failed:\n{0}", ex.Message));
-            }
-            finally
-            {
-                OnOperationFinished();
             }
         }
 
@@ -429,15 +419,13 @@ namespace TivoAhoy.Common.ViewModels
 
         public async void CancelRecording()
         {
-            OnOperationStarted();
-
             this.analyticsService.CancelSingleRecording();
 
             try
             {
-                var connection = await this.connectionService.GetConnectionAsync();
-                using (progressService.Show())
+                using (this.ShowProgress())
                 {
+                    var connection = await this.connectionService.GetConnectionAsync();
                     await connection.CancelRecording(this.ShowRecordingID);
                 }
 
@@ -446,10 +434,6 @@ namespace TivoAhoy.Common.ViewModels
             catch (Exception ex)
             {
                 MessageBox.Show(string.Format("Cancel recording command failed:\n{0}", ex.Message));
-            }
-            finally
-            {
-                OnOperationFinished();
             }
         }
 
@@ -469,17 +453,15 @@ namespace TivoAhoy.Common.ViewModels
 
         public async void ScheduleRecording()
         {
-            OnOperationStarted();
-
             this.analyticsService.ScheduleSingleRecording();
 
             try
             {
-                var connection = await this.connectionService.GetConnectionAsync();
-
                 SubscribeResult result;
-                using (progressService.Show())
+                using (this.ShowProgress())
                 {
+                    var connection = await this.connectionService.GetConnectionAsync();
+
                     result = await connection.ScheduleSingleRecording(this.ShowContentID, this.ShowOfferID);
                 }
 
@@ -495,10 +477,6 @@ namespace TivoAhoy.Common.ViewModels
             catch (Exception ex)
             {
                 MessageBox.Show(string.Format("Failed to schedule recording:\n{0}", ex.Message));
-            }
-            finally
-            {
-                OnOperationFinished();
             }
         }
     }

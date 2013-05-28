@@ -40,11 +40,6 @@
                 Height="*" />
         </Grid.RowDefinitions>
 
-        <toolkit:PerformanceProgressBar
-            x:Name="IsOperationInProgress"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Stretch" />
-
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel
             x:Name="TitlePanel"

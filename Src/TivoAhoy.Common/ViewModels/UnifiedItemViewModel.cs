@@ -12,9 +12,8 @@ namespace TivoAhoy.Common.ViewModels
     {
         private T source;
 
-        public UnifiedItemViewModel(T source)
+        public UnifiedItemViewModel()
         {
-            this.source = source;
         }
 
         public T Source

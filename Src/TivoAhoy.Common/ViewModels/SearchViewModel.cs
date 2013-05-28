@@ -14,6 +14,8 @@ namespace TivoAhoy.Common.ViewModels
         private readonly IProgressService progressService;
         private readonly ISpeechService speechService;
         private readonly ITivoConnectionService connectionService;
+        private readonly Func<PersonItemViewModel> personFactory;
+        private readonly Func<CollectionItemViewModel> collectionFactory;
 
         bool isSearchInProgress = false;
 
@@ -23,12 +25,17 @@ namespace TivoAhoy.Common.ViewModels
         public SearchViewModel(
             IProgressService progressService,
             ISpeechService speechService,
-            ITivoConnectionService connectionService
+            ITivoConnectionService connectionService,
+            Func<PersonItemViewModel> personFactory,
+            Func<CollectionItemViewModel> collectionFactory
             )
         {
             this.connectionService = connectionService;
             this.progressService = progressService;
             this.speechService = speechService;
+
+            this.personFactory = personFactory;
+            this.collectionFactory = collectionFactory;
 
             connectionService.PropertyChanged += OnConnectionServicePropertyChanged;
         }
@@ -167,13 +174,18 @@ namespace TivoAhoy.Common.ViewModels
             var person = item as Person;
             if (person != null)
             {
-                return new PersonItemViewModel(person);
+                var viewModel = personFactory();
+                viewModel.Source = person;
+
+                return viewModel;
             }
 
             var collection = item as Collection;
             if (collection != null)
             {
-                return new CollectionItemViewModel(collection);
+                var viewModel = collectionFactory();
+                viewModel.Source = collection;
+                return viewModel;
             }
 
             return null;

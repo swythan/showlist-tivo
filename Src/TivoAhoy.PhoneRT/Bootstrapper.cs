@@ -32,6 +32,7 @@ namespace TivoAhoy.PhoneRT
             container.PerRequest<SettingsPageViewModel>();
             container.PerRequest<MainPageViewModel>();
             container.PerRequest<ShowContainerShowsPageViewModel>();
+            container.PerRequest<CollectionDetailsPageViewModel>();
             container.PerRequest<ShowDetailsPageViewModel>();
 
             container.PerRequest<MyShowsViewModel>();
@@ -43,6 +44,8 @@ namespace TivoAhoy.PhoneRT
             container.PerRequest<RecordingViewModel>();
             container.PerRequest<ShowContainerViewModel>();
             container.PerRequest<LazyRecordingFolderItemViewModel>();
+            container.PerRequest<PersonItemViewModel>();
+            container.PerRequest<CollectionItemViewModel>();
 
             AddCustomConventions();
         }

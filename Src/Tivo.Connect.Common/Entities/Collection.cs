@@ -26,8 +26,14 @@ namespace Tivo.Connect.Entities
         public string Description { get; set; }
         //public string DescriptionLanguage { get; set; }
 
-        public List<Category> category { get; set; }
-        public List<Credit> credit { get; set; }
+        [JsonProperty("category")]
+        public List<Category> Categories { get; set; }
+
+        [JsonProperty("credit")]
+        public List<Credit> Credits { get; set; }
+
+        [JsonProperty("image")]
+        public List<ImageInfo> Images { get; set; }
 
         [JsonProperty("episodic")]
         public bool IsEpisodic { get; set; }

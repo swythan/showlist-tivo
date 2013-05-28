@@ -4,11 +4,11 @@ namespace TivoAhoy.Common.ViewModels
 {
     public class PersonItemViewModel : UnifiedItemViewModel<Person>
     {
-        public PersonItemViewModel(Person person)
-            : base(person)
+        public PersonItemViewModel()
         {
 
         }
+
         public override string DisplayText
         {
             get
