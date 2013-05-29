@@ -2,19 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Caliburn.Micro;
 using Tivo.Connect.Entities;
-using TivoAhoy.Common.Events;
 using TivoAhoy.Common.Services;
 
 namespace TivoAhoy.Common.ViewModels
 {
     public class ToDoListViewModel : Screen
     {
-        private readonly IEventAggregator eventAggregator;
         private readonly INavigationService navigationService;
         private readonly IScheduledRecordingsService scheduledRecordingService;
         private readonly Func<RecordingViewModel> recordingViewModelFactory;
@@ -22,12 +19,10 @@ namespace TivoAhoy.Common.ViewModels
         private IList toDoList;
 
         public ToDoListViewModel(
-            IEventAggregator eventAggregator,
             INavigationService navigationService,
             IScheduledRecordingsService scheduledRecordingService,
             Func<RecordingViewModel> recordingViewModelFactory)
         {
-            this.eventAggregator = eventAggregator;
             this.navigationService = navigationService;
             this.scheduledRecordingService = scheduledRecordingService;
             this.recordingViewModelFactory = recordingViewModelFactory;

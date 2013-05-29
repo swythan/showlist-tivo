@@ -132,6 +132,7 @@
     <Compile Include="ViewModels\ChannelListViewModel.cs" />
     <Compile Include="ViewModels\CollectionItemViewModel.cs" />
     <Compile Include="ViewModels\CollectionDetailsPageViewModel.cs" />
+    <Compile Include="ViewModels\CreditsViewModel.cs" />
     <Compile Include="ViewModels\IndividualShowViewModel.cs" />
     <Compile Include="ViewModels\LazyRecordingFolderItemViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />

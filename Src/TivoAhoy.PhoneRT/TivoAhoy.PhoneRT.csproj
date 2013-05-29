@@ -121,6 +121,9 @@
     <Compile Include="Views\AppCreditsView.xaml.cs">
       <DependentUpon>AppCreditsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CreditsView.xaml.cs">
+      <DependentUpon>CreditsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\IndividualShowView.xaml.cs">
       <DependentUpon>IndividualShowView.xaml</DependentUpon>
     </Compile>
@@ -192,6 +195,10 @@
     <Page Include="Views\AppCreditsView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CreditsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\IndividualShowView.xaml">
       <Generator>MSBuild:Compile</Generator>

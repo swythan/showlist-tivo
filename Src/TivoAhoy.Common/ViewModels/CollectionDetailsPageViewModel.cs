@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
-using System.IO.IsolatedStorage;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using Caliburn.Micro;
-using Tivo.Connect;
 using Tivo.Connect.Entities;
 using TivoAhoy.Common.Services;
 using TivoAhoy.Common.Utils;
@@ -19,9 +14,9 @@ namespace TivoAhoy.Common.ViewModels
     public class CollectionDetailsPageViewModel : Screen
     {
         private readonly IAnalyticsService analyticsService;
-        private readonly IEventAggregator eventAggregator;
         private readonly IProgressService progressService;
         private readonly ITivoConnectionService connectionService;
+        private readonly CreditsViewModel creditsViewModel;
 
         private Collection collectionDetails;
 
@@ -32,14 +27,14 @@ namespace TivoAhoy.Common.ViewModels
 
         public CollectionDetailsPageViewModel(
             IAnalyticsService analyticsService,
-            IEventAggregator eventAggregator,
             IProgressService progressService,
-            ITivoConnectionService connectionService)
+            ITivoConnectionService connectionService,
+            CreditsViewModel creditsViewModel)
         {
             this.analyticsService = analyticsService;
-            this.eventAggregator = eventAggregator;
             this.progressService = progressService;
             this.connectionService = connectionService;
+            this.creditsViewModel = creditsViewModel;
         }
 
         public CollectionDetailsPageViewModel()
@@ -175,21 +170,27 @@ namespace TivoAhoy.Common.ViewModels
                 Debug.WriteLine("Collection details fetched:");
 
                 NotifyOfPropertyChange(() => this.Collection);
-                NotifyOfPropertyChange(() => this.HasCredits);
+                NotifyOfPropertyChange(() => this.Credits);
                 NotifyOfPropertyChange(() => this.MainImageBrush);
 
                 UpdateBackgroundBrush();
             }
         }
 
-        public bool HasCredits
+        public CreditsViewModel Credits
         {
             get
             {
-                return
-                    this.Collection != null &&
-                    this.Collection.Credits != null &&
-                    this.Collection.Credits.Any();
+                if (this.Collection == null)
+                {
+                    this.creditsViewModel.Credits = null;
+                }
+                else
+                {
+                    this.creditsViewModel.Credits = this.Collection.Credits;
+                }
+
+                return this.creditsViewModel;
             }
         }
 

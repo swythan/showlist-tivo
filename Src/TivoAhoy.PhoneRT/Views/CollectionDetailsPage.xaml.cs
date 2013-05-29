@@ -34,13 +34,13 @@ namespace TivoAhoy.PhoneRT.Views
 
         void OnModelPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == "HasCredits")
+            if (e.PropertyName == "Credits")
             {
                 var model = this.DataContext as TivoAhoy.Common.ViewModels.CollectionDetailsPageViewModel;
 
                 if (model != null)
                 {
-                    this.CreditsItem.Visibility = model.HasCredits ? Visibility.Visible : Visibility.Collapsed;
+                    this.Credits.Visibility = model.Credits.HasCredits ? Visibility.Visible : Visibility.Collapsed;
                 }
             }
         }

@@ -81,74 +81,9 @@
             </controls:PanoramaItem>
 
             <controls:PanoramaItem
-                x:Name="CreditsItem"
-                Visibility="Collapsed">
-                <Grid
-                    x:Name="CreditsPanel"
-                    Margin="12,0,12,0">
-                    <ListBox
-                        x:Name="Collection_Credits">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <Grid
-                                    Margin="12">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition
-                                            Height="*" />
-                                        <RowDefinition
-                                            Height="Auto" />
-                                        <RowDefinition
-                                            Height="Auto" />
-                                        <RowDefinition
-                                            Height="*" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition
-                                            Width="Auto" />
-                                        <ColumnDefinition
-                                            Width="Auto" />
-                                        <ColumnDefinition
-                                            Width="*" />
-                                        <ColumnDefinition
-                                            Width="Auto" />
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock
-                                        Grid.Column="0"
-                                        VerticalAlignment="Center"
-                                        Style="{StaticResource PhoneTextLargeStyle}"
-                                        Text="{Binding FirstName}"
-                                        Grid.Row="1" />
-                                    <TextBlock
-                                        Grid.Column="1"
-                                        VerticalAlignment="Center"
-                                        Style="{StaticResource PhoneTextLargeStyle}"
-                                        Text="{Binding LastName}"
-                                        Grid.Row="1" />
-                                    <TextBlock
-                                        Grid.Column="0"
-                                        VerticalAlignment="Center"
-                                        Style="{StaticResource PhoneTextAccentStyle}"
-                                        Text="{Binding CharacterName}"
-                                        Grid.Row="2"
-                                        Grid.ColumnSpan="2" />
-                                    <Image
-                                        Grid.Column="3"
-                                        Source="{Binding ImageUrl}"
-                                        Grid.RowSpan="4" />
-                                </Grid>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                        <ListBox.ItemContainerStyle>
-                            <Style
-                                TargetType="ListBoxItem">
-                                <Setter
-                                    Property="HorizontalContentAlignment"
-                                    Value="Stretch" />
-                            </Style>
-                        </ListBox.ItemContainerStyle>
-                    </ListBox>
-                </Grid>
-            </controls:PanoramaItem>
+                x:Name="Credits"
+                Visibility="Collapsed" />
+            
             <!--<controls:PanoramaItem>
                 <Grid
                     x:Name="ActionPanel"

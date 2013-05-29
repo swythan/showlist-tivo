@@ -46,6 +46,7 @@ namespace TivoAhoy.PhoneRT
             container.PerRequest<LazyRecordingFolderItemViewModel>();
             container.PerRequest<PersonItemViewModel>();
             container.PerRequest<CollectionItemViewModel>();
+            container.PerRequest<CreditsViewModel>();
 
             AddCustomConventions();
         }
