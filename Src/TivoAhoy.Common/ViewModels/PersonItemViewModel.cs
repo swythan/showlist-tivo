@@ -1,14 +1,32 @@
+using Caliburn.Micro;
 using Tivo.Connect.Entities;
 
 namespace TivoAhoy.Common.ViewModels
 {
     public class PersonItemViewModel : UnifiedItemViewModel<Person>
     {
-        public PersonItemViewModel()
-        {
+        private readonly INavigationService navigationService;
 
+        public PersonItemViewModel(INavigationService navigationService)
+        {
+            this.navigationService = navigationService;
         }
 
+        public PersonItemViewModel()
+        {
+            if (Execute.InDesignMode)
+                LoadDesignData();
+        }
+
+        private void LoadDesignData()
+        {
+            this.Source =
+                new Person()
+                {
+                    FirstName = "James",
+                    LastName = "Chaldecott",
+                };
+        }
         public override string DisplayText
         {
             get
@@ -16,24 +34,16 @@ namespace TivoAhoy.Common.ViewModels
                 if (this.Source == null)
                     return null;
 
-                string result = "";
-                if (!string.IsNullOrWhiteSpace(this.Source.FirstName))
-                {
-                    result = this.Source.FirstName;
-                }
-
-                if (!string.IsNullOrWhiteSpace(this.Source.LastName))
-                {
-                    if (result.Length > 0)
-                    {
-                        result += " ";
-                    }
-                    result += this.Source.LastName;
-                }
-
-                return result;
+                return this.Source.DisplayName;
             }
         }
 
+        public void DisplayPersonDetails()
+        {
+            this.navigationService
+                .UriFor<PersonDetailsPageViewModel>()
+                .WithParam(x => x.PersonID, this.Source.PersonId)
+                .Navigate();
+        }
     }
 }

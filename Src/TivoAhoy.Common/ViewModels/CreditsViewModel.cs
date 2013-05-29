@@ -74,5 +74,19 @@ namespace TivoAhoy.Common.ViewModels
             }
         }
 
+        public void DisplayPersonDetails(Credit credit)
+        {
+            if (credit == null ||
+                credit.PersonId == null)
+            {
+                return;
+            }
+
+            this.navigationService
+                .UriFor<PersonDetailsPageViewModel>()
+                .WithParam(x => x.PersonID, credit.PersonId)
+                .Navigate();
+        }
+
     }
 }

@@ -34,6 +34,7 @@ namespace TivoAhoy.PhoneRT
             container.PerRequest<ShowContainerShowsPageViewModel>();
             container.PerRequest<CollectionDetailsPageViewModel>();
             container.PerRequest<ShowDetailsPageViewModel>();
+            container.PerRequest<PersonDetailsPageViewModel>();
 
             container.PerRequest<MyShowsViewModel>();
             container.PerRequest<ChannelListViewModel>();

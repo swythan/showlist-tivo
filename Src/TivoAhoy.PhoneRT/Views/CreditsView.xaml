@@ -4,12 +4,17 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+    xmlns:vm="clr-namespace:TivoAhoy.Common.ViewModels;assembly=TivoAhoy.Common"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     d:DesignHeight="480"
-    d:DesignWidth="480">
+    d:DesignWidth="480"
+    d:DataContext="{d:DesignInstance Type=vm:CreditsViewModel, IsDesignTimeCreatable=True}"
+    cal:Bind.AtDesignTime="True">
+
 
     <Grid
         x:Name="LayoutRoot"
@@ -19,7 +24,10 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid
-                        Margin="12">
+                        Margin="12"
+                        Background="Transparent"
+                        cal:Message.Attach="[Event Tap] = [Action DisplayPersonDetails($dataContext)]">
+
                         <Grid.RowDefinitions>
                             <RowDefinition
                                 Height="*" />
@@ -44,13 +52,7 @@
                             Grid.Column="0"
                             VerticalAlignment="Center"
                             Style="{StaticResource PhoneTextLargeStyle}"
-                            Text="{Binding FirstName}"
-                            Grid.Row="1" />
-                        <TextBlock
-                            Grid.Column="1"
-                            VerticalAlignment="Center"
-                            Style="{StaticResource PhoneTextLargeStyle}"
-                            Text="{Binding LastName}"
+                            Text="{Binding DisplayName}"
                             Grid.Row="1" />
                         <TextBlock
                             Grid.Column="0"

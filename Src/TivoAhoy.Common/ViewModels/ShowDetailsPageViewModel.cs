@@ -20,7 +20,6 @@ namespace TivoAhoy.Common.ViewModels
     public class ShowDetailsPageViewModel : Screen
     {
         private readonly IAnalyticsService analyticsService;
-        private readonly IEventAggregator eventAggregator;
         private readonly IProgressService progressService;
         private readonly ITivoConnectionService connectionService;
         private readonly CreditsViewModel creditsViewModel;
@@ -36,13 +35,11 @@ namespace TivoAhoy.Common.ViewModels
 
         public ShowDetailsPageViewModel(
             IAnalyticsService analyticsService,
-            IEventAggregator eventAggregator,
             IProgressService progressService,
             ITivoConnectionService connectionService,
             CreditsViewModel creditsViewModel)
         {
             this.analyticsService = analyticsService;
-            this.eventAggregator = eventAggregator;
             this.progressService = progressService;
             this.connectionService = connectionService;
             this.creditsViewModel = creditsViewModel;

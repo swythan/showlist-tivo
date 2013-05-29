@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Text;
 using Newtonsoft.Json;
 
 namespace Tivo.Connect.Entities
@@ -34,9 +35,12 @@ namespace Tivo.Connect.Entities
 
         public DateTime BirthDate { get; set; }
         public string BirthPlace { get; set; }
-    
+
         [JsonProperty("imageUrl")]
         public string OriginalImageUrl { get; set; }
+
+        [JsonProperty("image")]
+        public List<ImageInfo> Images { get; set; }
 
         [JsonIgnore]
         public Uri ImageUrl
@@ -59,6 +63,34 @@ namespace Tivo.Connect.Entities
                 }
 
                 return null;
+            }
+        }
+
+        [JsonIgnore]
+        public string DisplayName
+        {
+            get
+            {
+                var sb = new StringBuilder();
+
+                if (!string.IsNullOrWhiteSpace(this.FirstName))
+                {
+                    sb.Append(this.FirstName);
+                    sb.Append(" ");
+                }
+
+                if (!string.IsNullOrWhiteSpace(this.MiddleName))
+                {
+                    sb.Append(this.MiddleName);
+                    sb.Append(" ");
+                }
+
+                if (!string.IsNullOrWhiteSpace(this.LastName))
+                {
+                    sb.Append(this.LastName);
+                }
+
+                return sb.ToString().Trim();
             }
         }
     }

@@ -138,6 +138,7 @@
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\MyShowsViewModel.cs" />
     <Compile Include="ViewModels\OfferViewModel.cs" />
+    <Compile Include="ViewModels\PersonDetailsPageViewModel.cs" />
     <Compile Include="ViewModels\PersonItemViewModel.cs" />
     <Compile Include="ViewModels\RecordingFolderItemViewModel.cs" />
     <Compile Include="ViewModels\RecordingViewModel.cs" />

@@ -4,15 +4,20 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+    xmlns:vm="clr-namespace:TivoAhoy.Common.ViewModels;assembly=TivoAhoy.Common"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    d:DesignWidth="480">
+    d:DesignHeight="50"
+    d:DesignWidth="480"
+    d:DataContext="{d:DesignInstance Type=vm:PersonItemViewModel, IsDesignTimeCreatable=True}">
 
     <Grid
         x:Name="LayoutRoot"
-        Background="Transparent">
+        Background="Transparent"
+        cal:Message.Attach="[Event Tap] = [Action DisplayPersonDetails()]">
         <StackPanel
             Orientation="Horizontal">
             <TextBlock

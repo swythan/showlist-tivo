@@ -425,6 +425,17 @@ namespace Tivo.Connect
             return content.First().ToObject<Collection>(this.jsonSerializer);
         }
 
+        public async Task<Person> GetPersonDetails(string personId)
+        {
+            var detailsResults = await SendPersonSearchRequest(personId).ConfigureAwait(false);
+
+            CheckResponse(detailsResults, "personList", "personSearch");
+
+            var content = (JArray)detailsResults["person"];
+
+            return content.First().ToObject<Person>(this.jsonSerializer);
+        }
+
         public async Task<IList<IUnifiedItem>> ExecuteUnifiedItemSearch(string keyword, int offset, int count)
         {
             var response = await SendUnifiedItemSearchRequest(keyword, offset, count).ConfigureAwait(false);
@@ -1450,5 +1461,29 @@ namespace Tivo.Connect
             var response = await SendRequest("unifiedItemSearch", request).ConfigureAwait(false);
             return response;
         }
+        
+        private async Task<JObject> SendPersonSearchRequest(string personId)
+        {
+            var request = new Dictionary<string, object>
+            {
+                { "type", "personSearch" },
+                { "bodyId", this.capturedTsn },
+                { "personId", new[] { personId } },
+                { "note", 
+                    new string[] 
+                    { 
+                        "roleForPersonId",
+                    }
+                },
+                { "levelOfDetail", "high" },
+            };
+
+            var response = await SendRequest("personSearch", request).ConfigureAwait(false);
+
+            Debug.WriteLine(response.Root);
+
+            return response;
+        }
+
     }
 }

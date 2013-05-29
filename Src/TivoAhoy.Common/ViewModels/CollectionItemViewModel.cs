@@ -11,8 +11,7 @@ namespace TivoAhoy.Common.ViewModels
         {
             this.navigationService = navigationService;
         }
-
-
+        
         public CollectionItemViewModel()
         {
             if (Execute.InDesignMode)
