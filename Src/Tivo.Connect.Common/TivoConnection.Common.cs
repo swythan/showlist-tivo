@@ -915,9 +915,6 @@ namespace Tivo.Connect
             };
 
             var response = await SendRequest((string)body["type"], body).ConfigureAwait(false);
-
-            Debug.WriteLine(response.Root);
-
             return response;
         }
 
