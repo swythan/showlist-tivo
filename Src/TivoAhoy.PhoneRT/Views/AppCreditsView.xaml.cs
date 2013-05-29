@@ -10,9 +10,9 @@ using Microsoft.Phone.Shell;
 
 namespace TivoAhoy.PhoneRT.Views
 {
-    public partial class CreditsView : UserControl
+    public partial class AppCreditsView : UserControl
     {
-        public CreditsView()
+        public AppCreditsView()
         {
             InitializeComponent();
         }
