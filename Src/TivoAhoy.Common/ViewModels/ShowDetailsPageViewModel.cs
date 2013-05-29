@@ -23,6 +23,7 @@ namespace TivoAhoy.Common.ViewModels
         private readonly IEventAggregator eventAggregator;
         private readonly IProgressService progressService;
         private readonly ITivoConnectionService connectionService;
+        private readonly CreditsViewModel creditsViewModel;
 
         private ShowDetails showDetails;
         private Recording recordingDetails;
@@ -37,12 +38,14 @@ namespace TivoAhoy.Common.ViewModels
             IAnalyticsService analyticsService,
             IEventAggregator eventAggregator,
             IProgressService progressService,
-            ITivoConnectionService connectionService)
+            ITivoConnectionService connectionService,
+            CreditsViewModel creditsViewModel)
         {
             this.analyticsService = analyticsService;
             this.eventAggregator = eventAggregator;
             this.progressService = progressService;
             this.connectionService = connectionService;
+            this.creditsViewModel = creditsViewModel;
         }
 
         public ShowDetailsPageViewModel()
@@ -120,7 +123,7 @@ namespace TivoAhoy.Common.ViewModels
         }
 
         private IDisposable ShowProgress()
-        {       
+        {
             this.SetIsOperationInProgress(true);
 
             return new CompositeDisposable(
@@ -183,8 +186,7 @@ namespace TivoAhoy.Common.ViewModels
 
             this.MainImageBrush = await bestImage.GetResizedImageBrushAsync(requiredHeight);
         }
-
-
+        
         public ImageBrush MainImageBrush
         {
             get { return this.mainImageBrush; }
@@ -210,13 +212,11 @@ namespace TivoAhoy.Common.ViewModels
                 Debug.WriteLine("Show details fetched:");
 
                 NotifyOfPropertyChange(() => this.Show);
-                //NotifyOfPropertyChange(() => this.IsRecorded);
                 NotifyOfPropertyChange(() => this.MainImageBrush);
+                NotifyOfPropertyChange(() => this.Credits);
                 NotifyOfPropertyChange(() => this.HasSubtitle);
                 NotifyOfPropertyChange(() => this.HasEpisodeNumbers);
                 NotifyOfPropertyChange(() => this.HasOriginalAirDate);
-                //NotifyOfPropertyChange(() => this.CanDeleteShow);
-                //NotifyOfPropertyChange(() => this.CanPlayShow);
 
                 UpdateBackgroundBrush();
             }
@@ -254,6 +254,23 @@ namespace TivoAhoy.Common.ViewModels
                 NotifyOfPropertyChange(() => this.Offer);
                 NotifyOfPropertyChange(() => this.IsRecordable);
                 NotifyOfPropertyChange(() => this.CanScheduleRecording);
+            }
+        }
+
+        public CreditsViewModel Credits
+        {
+            get
+            {
+                if (this.Show == null)
+                {
+                    this.creditsViewModel.Credits = null;
+                }
+                else
+                {
+                    this.creditsViewModel.Credits = this.Show.Credits;
+                }
+
+                return this.creditsViewModel;
             }
         }
 

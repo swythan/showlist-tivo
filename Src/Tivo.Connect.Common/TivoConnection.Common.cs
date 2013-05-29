@@ -332,7 +332,7 @@ namespace Tivo.Connect
 
         public async Task<ShowDetails> GetShowContentDetails(string contentId)
         {
-            var detailsResults = await SendGetContentDetailsRequest(contentId).ConfigureAwait(false);
+            var detailsResults = await SendContentSearchRequest(contentId).ConfigureAwait(false);
 
             var content = (JArray)detailsResults["content"];
 
@@ -834,7 +834,7 @@ namespace Tivo.Connect
             return SendRequest((string)body["type"], body);
         }
 
-        private Task<JObject> SendGetContentDetailsRequest(string contentId)
+        private async Task<JObject> SendContentSearchRequest(string contentId)
         {
             //            {
             //  "contentId": ["tivo:ct.306278"],
@@ -858,40 +858,40 @@ namespace Tivo.Connect
 //                { "note", new string[] { "userContentForCollectionId", "broadbandOfferGroupForContentId", "recordingForContentId" } },
                 { "note", new string[] { "recordingForContentId" } },
                 { "type", "contentSearch" },
-                { "levelOfDetail", "medium" },
-                { "responseTemplate", 
-                    new object[]
-                    {
-                        new Dictionary<string, object>
-                        {
-                            { "type", "responseTemplate" },
-                            { "typeName", "contentList" },
-                            { "fieldName", 
-                                new string[] 
-                                { 
-                                    "content",
-                                } 
-                            }
-                        },
-                        new Dictionary<string, object>
-                        {
-                            { "type", "responseTemplate" },
-                            { "typeName", "content" },
-                            { "fieldName", 
-                                new string[] 
-                                { 
-                                    "title",
-                                    "subtitle",
-                                    "description",
-                                    "seasonNumber",
-                                    "episodeNum",
-                                    "originalAirdate",
-                                    "image"
-                                } 
-                            }
-                        }
-                    }
-                },
+                { "levelOfDetail", "high" },
+                //{ "responseTemplate", 
+                //    new object[]
+                //    {
+                //        new Dictionary<string, object>
+                //        {
+                //            { "type", "responseTemplate" },
+                //            { "typeName", "contentList" },
+                //            { "fieldName", 
+                //                new string[] 
+                //                { 
+                //                    "content",
+                //                } 
+                //            }
+                //        },
+                //        new Dictionary<string, object>
+                //        {
+                //            { "type", "responseTemplate" },
+                //            { "typeName", "content" },
+                //            { "fieldName", 
+                //                new string[] 
+                //                { 
+                //                    "title",
+                //                    "subtitle",
+                //                    "description",
+                //                    "seasonNumber",
+                //                    "episodeNum",
+                //                    "originalAirdate",
+                //                    "image"
+                //                } 
+                //            }
+                //        }
+                //    }
+                //},
                 //{ "imageRuleset", 
                 //    new Dictionary<string, object>
                 //    {
@@ -914,7 +914,11 @@ namespace Tivo.Connect
                 //}
             };
 
-            return SendRequest((string)body["type"], body);
+            var response = await SendRequest((string)body["type"], body).ConfigureAwait(false);
+
+            Debug.WriteLine(response.Root);
+
+            return response;
         }
 
         private Task<JObject> SendPlayShowRequest(string showId)

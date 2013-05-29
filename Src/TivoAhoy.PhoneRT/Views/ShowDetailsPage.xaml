@@ -119,7 +119,11 @@
                     </ScrollViewer>
                 </Grid>
             </controls:PanoramaItem>
-                       
+            
+            <controls:PanoramaItem
+                x:Name="Credits"
+                Visibility="Collapsed" />
+
             <controls:PanoramaItem >
                 <Grid
                     x:Name="ActionPanel"
