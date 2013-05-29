@@ -175,9 +175,21 @@ namespace TivoAhoy.Common.ViewModels
                 Debug.WriteLine("Collection details fetched:");
 
                 NotifyOfPropertyChange(() => this.Collection);
+                NotifyOfPropertyChange(() => this.HasCredits);
                 NotifyOfPropertyChange(() => this.MainImageBrush);
 
                 UpdateBackgroundBrush();
+            }
+        }
+
+        public bool HasCredits
+        {
+            get
+            {
+                return
+                    this.Collection != null &&
+                    this.Collection.Credits != null &&
+                    this.Collection.Credits.Any();
             }
         }
 

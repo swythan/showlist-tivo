@@ -27,6 +27,21 @@ namespace TivoAhoy.PhoneRT.Views
             if (model != null)
             {
                 model.PanoramaHeight = Convert.ToInt32(e.NewSize.Height);
+
+                model.PropertyChanged += OnModelPropertyChanged;
+            }
+        }
+
+        void OnModelPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "HasCredits")
+            {
+                var model = this.DataContext as TivoAhoy.Common.ViewModels.CollectionDetailsPageViewModel;
+
+                if (model != null)
+                {
+                    this.CreditsItem.Visibility = model.HasCredits ? Visibility.Visible : Visibility.Collapsed;
+                }
             }
         }
     }
