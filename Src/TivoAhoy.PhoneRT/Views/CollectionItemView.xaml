@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
     xmlns:vm="clr-namespace:TivoAhoy.Common.ViewModels;assembly=TivoAhoy.Common"
+    xmlns:converters="clr-namespace:TivoAhoy.Phone.Converters"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -14,18 +15,40 @@
     d:DesignWidth="480"
     d:DataContext="{d:DesignInstance Type=vm:CollectionItemViewModel, IsDesignTimeCreatable=True}">
 
+    <UserControl.Resources>
+        <converters:BooleanToVisibilityConverter
+            x:Key="boolToVisConverter" />
+        <converters:NullOrEmptyToVisibilityConverter
+            x:Key="nullToVisConverter" />
+    </UserControl.Resources>
+
     <Grid
         x:Name="LayoutRoot"
         Background="Transparent"
         cal:Message.Attach="[Event Tap] = [Action DisplayCollectionDetails()]">
-        <StackPanel Orientation="Horizontal">
-            <Image Source="/Images/Television.png" 
-                   Stretch="None"
-                   Margin="12,0,0,0"/>
-            <TextBlock
-                Text="{Binding DisplayText}"
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition
+                    Width="Auto" />
+                <ColumnDefinition
+                    Width="*" />
+            </Grid.ColumnDefinitions>
+            <Image
+                Source="/Images/Television.png"
+                Stretch="None"
+                Grid.RowSpan="2"
                 VerticalAlignment="Center"
-                Style="{StaticResource PhoneTextNormalStyle}" />
-        </StackPanel>
+                Margin="0"/>
+            <StackPanel
+                Grid.Column="1"
+                Orientation="Vertical">
+                <TextBlock
+                    Text="{Binding Title}"
+                    Style="{StaticResource PhoneTextNormalStyle}" />
+                <TextBlock
+                    Text="{Binding Subtitle}"
+                    Style="{StaticResource PhoneTextSubtleStyle}" />
+            </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>

@@ -427,7 +427,18 @@ namespace Tivo.Connect
 
         public async Task<Person> GetPersonDetails(string personId)
         {
-            var detailsResults = await SendPersonSearchRequest(personId).ConfigureAwait(false);
+            JObject detailsResults = await SendBasicPersonSearchRequest(personId).ConfigureAwait(false);
+
+            CheckResponse(detailsResults, "personList", "personSearch");
+
+            var content = (JArray)detailsResults["person"];
+
+            return content.First().ToObject<Person>(this.jsonSerializer);
+        }
+
+        public async Task<Person> GetBasicPersonDetails(string personId)
+        {
+            JObject detailsResults = await SendPersonSearchRequest(personId).ConfigureAwait(false);
 
             CheckResponse(detailsResults, "personList", "personSearch");
 
@@ -1461,7 +1472,59 @@ namespace Tivo.Connect
             var response = await SendRequest("unifiedItemSearch", request).ConfigureAwait(false);
             return response;
         }
-        
+
+        private async Task<JObject> SendBasicPersonSearchRequest(string personId)
+        {
+            var request = new Dictionary<string, object>
+            {
+                { "type", "personSearch" },
+                { "bodyId", this.capturedTsn },
+                { "personId", new[] { personId } },
+                { "note", 
+                    new string[] 
+                    { 
+                        "roleForPersonId",
+                    }
+                },
+                { "responseTemplate", 
+                    new object[]
+                    {
+                        new Dictionary<string, object>
+                        {
+                            { "type", "responseTemplate" },
+                            { "typeName", "personList" },
+                            { "fieldName", 
+                                new string[] 
+                                { 
+                                    "person",
+                                    "isTop",
+                                    "isBottom",
+                                } 
+                            }
+                        },                     
+                        new Dictionary<string, object>
+                        {
+                            { "type", "responseTemplate" },
+                            { "typeName", "person" },
+                            { "fieldName", 
+                                new string[] 
+                                { 
+                                    "personId", 
+                                    "first", 
+                                    "middle", 
+                                    "last", 
+                                    "roleForPersonId"
+                                } 
+                            }
+                        },
+                    }
+                },
+            };
+
+            var response = await SendRequest("personSearch", request).ConfigureAwait(false);
+            return response;
+        }
+
         private async Task<JObject> SendPersonSearchRequest(string personId)
         {
             var request = new Dictionary<string, object>
@@ -1479,9 +1542,6 @@ namespace Tivo.Connect
             };
 
             var response = await SendRequest("personSearch", request).ConfigureAwait(false);
-
-            Debug.WriteLine(response.Root);
-
             return response;
         }
 

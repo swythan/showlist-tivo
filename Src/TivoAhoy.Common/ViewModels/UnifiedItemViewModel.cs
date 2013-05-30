@@ -5,7 +5,7 @@ namespace TivoAhoy.Common.ViewModels
 {
     public interface IUnifiedItemViewModel
     {
-        string DisplayText { get; }
+        string Title { get; }
     }
 
     public abstract class UnifiedItemViewModel<T> : PropertyChangedBase, IUnifiedItemViewModel where T : class, IUnifiedItem
@@ -30,10 +30,12 @@ namespace TivoAhoy.Common.ViewModels
                 this.source = value;
 
                 NotifyOfPropertyChange(() => this.Source);
-                NotifyOfPropertyChange(() => this.DisplayText);
+                NotifyOfPropertyChange(() => this.Title);
+                NotifyOfPropertyChange(() => this.Subtitle);
             }
         }
 
-        public abstract string DisplayText { get; }
+        public abstract string Title { get; }
+        public abstract string Subtitle { get; }
     }
 }

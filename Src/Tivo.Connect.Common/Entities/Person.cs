@@ -42,6 +42,8 @@ namespace Tivo.Connect.Entities
         [JsonProperty("image")]
         public List<ImageInfo> Images { get; set; }
 
+        public List<string> RoleForPersonId { get; set; }
+
         [JsonIgnore]
         public Uri ImageUrl
         {

@@ -2,8 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using Caliburn.Micro;
+using Tivo.Connect;
 using Tivo.Connect.Entities;
 using TivoAhoy.Common.Services;
 
@@ -115,7 +117,7 @@ namespace TivoAhoy.Common.ViewModels
                 {
                     var connection = await this.connectionService.GetConnectionAsync();
 
-                    IEnumerable<IUnifiedItem> result = await connection.ExecuteUnifiedItemSearch(this.SearchText, 0, 50);
+                    IEnumerable<IUnifiedItem> result = await connection.ExecuteUnifiedItemSearch(this.SearchText, 0, 25);
 
                     if (result == null)
                     {
