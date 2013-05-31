@@ -59,14 +59,14 @@ namespace TivoAhoy.Common.ViewModels
                 if (this.Source == null)
                     return null;
 
-                if (this.Source.RoleForPersonId == null)
+                if (this.Source.Roles == null)
                 {
                     GetRolesForPerson();
 
                     return null;
                 }
 
-                var roles = this.Source.RoleForPersonId
+                var roles = this.Source.Roles
                     .Select(x => UppercaseFirst(SplitCamelCase(x)))
                     .Distinct()
                     .Take(2);

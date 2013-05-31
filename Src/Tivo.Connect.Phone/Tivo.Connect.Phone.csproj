@@ -118,6 +118,9 @@
     <Compile Include="..\Tivo.Connect.Common\Entities\Container.cs">
       <Link>Entities\Container.cs</Link>
     </Compile>
+    <Compile Include="..\Tivo.Connect.Common\Entities\ContentSummaryForPerson.cs">
+      <Link>Entities\ContentSummaryForPerson.cs</Link>
+    </Compile>
     <Compile Include="..\Tivo.Connect.Common\Entities\Credit.cs">
       <Link>Entities\Credit.cs</Link>
     </Compile>

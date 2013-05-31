@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Media;
@@ -13,6 +14,8 @@ namespace TivoAhoy.Common.ViewModels
     {
         private readonly IProgressService progressService;
         private readonly ITivoConnectionService connectionService;
+        private readonly PersonContentViewModel contentSummaryViewModel;
+
         private int panoramaHeight = 800;
 
         private Person personDetails;
@@ -21,10 +24,12 @@ namespace TivoAhoy.Common.ViewModels
 
         public PersonDetailsPageViewModel(
             IProgressService progressService,
-            ITivoConnectionService connectionService)
+            ITivoConnectionService connectionService,
+            PersonContentViewModel contentViewModel)
         {
             this.progressService = progressService;
             this.connectionService = connectionService;
+            this.contentSummaryViewModel = contentViewModel;
         }
 
         public PersonDetailsPageViewModel()
@@ -35,28 +40,29 @@ namespace TivoAhoy.Common.ViewModels
 
         private void LoadDesignData()
         {
-            //this.ShowContentID = "fakeContent";
-            //this.ShowRecordingID = "fakeRecording";
-
-            //this.Show = new ShowDetails()
-            //{
-            //    Title = "The Walking Dead",
-            //    Subtitle = "An Interesting Episode",
-            //    SeasonNumber = 2,
-            //    EpisodeNumbers = new List<int>() { 3 },
-            //    OriginalAirDate = new DateTime(2012, 11, 16),
-            //    Images = new List<ImageInfo>
-            //    {
-            //        new ImageInfo()
-            //        {
-            //            Height= 270,
-            //            Width = 360,
-            //            OriginalImageUrl= "http://10.185.116.1:8080/images/os/banner-270/55/12/551290d0c77e87f7dbb1ca3db42e3b3f.jpg"
-            //        }
-            //    },
-            //    Description = "This is the description of this very interesting episode. Don't let it catch you out, as it really is very interesting"
-
-            //};
+            this.PersonID = "fakePerson";
+            this.Person = new Person
+            {
+                FirstName = "Ted",
+                OriginalImageUrl = "http://10.185.116.1:8080/images/legacy/small/69/55/695556e67a7b88608fc01a5c72501a24.jpg",
+                LastName = "Danson",
+                BirthDate = new DateTime(1963, 2, 25),
+                BirthPlace = "Los Angeles, California",
+                Roles = 
+                    new List<string> { "actor" },
+                Images = 
+                    new List<ImageInfo>
+                    {
+                        new ImageInfo
+                        {
+                            Width= 59,
+                            Height = 78,
+                            ImageId = "tivo:im.458355819",
+                            ImageType= "person",
+                            OriginalImageUrl= "http://10.185.116.1:8080/images/legacy/small/69/55/695556e67a7b88608fc01a5c72501a24.jpg",
+                        },
+                    }
+            };
         }
 
         public int PanoramaHeight
@@ -78,6 +84,23 @@ namespace TivoAhoy.Common.ViewModels
         }
 
         public string PersonID { get; set; }
+
+        public PersonContentViewModel ContentSummary
+        {
+            get
+            {
+                if (this.Person == null)
+                {
+                    this.contentSummaryViewModel.ContentList = null;
+                }
+                else
+                {
+                    this.contentSummaryViewModel.ContentList = this.Person.ContentSummary;
+                }
+
+                return this.contentSummaryViewModel;
+            }
+        }
 
         private async void UpdateBackgroundBrush()
         {
@@ -125,6 +148,7 @@ namespace TivoAhoy.Common.ViewModels
                 Debug.WriteLine("Person details fetched:");
 
                 NotifyOfPropertyChange(() => this.Person);
+                NotifyOfPropertyChange(() => this.ContentSummary);
                 NotifyOfPropertyChange(() => this.MainImageBrush);
 
                 UpdateBackgroundBrush();
@@ -146,7 +170,9 @@ namespace TivoAhoy.Common.ViewModels
                 {
                     var connection = await this.connectionService.GetConnectionAsync();
 
-                    this.Person = await connection.GetPersonDetails(this.PersonID);
+                    this.Person = await connection.GetPersonDetails(this.PersonID, false);
+
+                    this.Person = await connection.GetPersonDetails(this.PersonID, true);
                 }
             }
             catch (Exception ex)

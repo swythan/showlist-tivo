@@ -20,7 +20,7 @@ namespace Tivo.Connect.Entities
         }
 
         public string PersonId { get; set; }
-        public string NameId { get; set; }
+        //public string NameId { get; set; }
 
         [JsonProperty("first")]
         public string FirstName { get; set; }
@@ -33,8 +33,9 @@ namespace Tivo.Connect.Entities
 
         public string Sex { get; set; }
 
-        public DateTime BirthDate { get; set; }
         public string BirthPlace { get; set; }
+        public DateTime? BirthDate { get; set; }
+        public DateTime? DeathDate { get; set; }
 
         [JsonProperty("imageUrl")]
         public string OriginalImageUrl { get; set; }
@@ -42,7 +43,11 @@ namespace Tivo.Connect.Entities
         [JsonProperty("image")]
         public List<ImageInfo> Images { get; set; }
 
-        public List<string> RoleForPersonId { get; set; }
+        [JsonProperty("roleForPersonId")]
+        public List<string> Roles { get; set; }
+
+        [JsonProperty("contentSummaryForPersonId")]
+        public List<ContentSummaryForPersonId> ContentSummary { get; set; }
 
         [JsonIgnore]
         public Uri ImageUrl

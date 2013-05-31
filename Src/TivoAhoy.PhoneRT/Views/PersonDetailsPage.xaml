@@ -14,7 +14,7 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    SupportedOrientations="Portrait"  
+    SupportedOrientations="Portrait"
     Orientation="Portrait"
     mc:Ignorable="d"
     d:DesignHeight="800"
@@ -27,6 +27,8 @@
     <UserControl.Resources>
         <converters:BooleanToVisibilityConverter
             x:Key="boolToVisConverter" />
+        <converters:NullOrEmptyToVisibilityConverter
+            x:Key="nullToVisConverter" />
     </UserControl.Resources>
 
     <!--LayoutRoot contains the root grid where all other page content is placed-->
@@ -63,20 +65,70 @@
                 <Grid
                     x:Name="ContentPanel"
                     Margin="12,0,12,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition
+                            Width="Auto" />
+                        <ColumnDefinition
+                            Width="*" />
+                    </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition />
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="*" />
                     </Grid.RowDefinitions>
-                    <ScrollViewer
-                        Grid.Row="0"
-                        Margin="12"
-                        VerticalScrollBarVisibility="Auto">
-                        <TextBlock
-                            x:Name="Collection_Description"
-                            TextWrapping="Wrap"
-                            Style="{StaticResource PhoneTextNormalStyle}"
-                            FontSize="{StaticResource PhoneFontSizeMedium}"
-                            Margin="0" />
-                    </ScrollViewer>
+                    <TextBlock
+                        x:Name="Person_DisplayName"
+                        Style="{StaticResource PhoneTextLargeStyle}"
+                        Grid.ColumnSpan="2" />
+                    <TextBlock
+                        Grid.Row="1"
+                        Text="Birthplace:"
+                        Visibility="{Binding Person.BirthPlace, Converter={StaticResource nullToVisConverter}}"
+                        Style="{StaticResource PhoneTextNormalStyle}" />
+                    <TextBlock
+                        Text="{Binding Person.BirthPlace}"
+                        Visibility="{Binding Person.BirthPlace, Converter={StaticResource nullToVisConverter}}"
+                        Style="{StaticResource PhoneTextNormalStyle}"
+                        Grid.Row="1"
+                        Grid.Column="1" />
+                    <TextBlock
+                        Grid.Row="2"
+                        Text="Born:"
+                        Visibility="{Binding Person.BirthDate, Converter={StaticResource nullToVisConverter}}"
+                        Style="{StaticResource PhoneTextNormalStyle}" />
+                    <TextBlock
+                        Text="{Binding Person.BirthDate, StringFormat=d, ConverterCulture={StaticResource DefaultCulture}}"
+                        Visibility="{Binding Person.BirthDate, Converter={StaticResource nullToVisConverter}}"
+                        Style="{StaticResource PhoneTextNormalStyle}"
+                        Grid.Row="2"
+                        Grid.Column="1" />
+                    <TextBlock
+                        Grid.Row="3"
+                        Text="Died:"
+                        Visibility="{Binding Person.DeathDate, Converter={StaticResource nullToVisConverter}}"
+                        Style="{StaticResource PhoneTextNormalStyle}" />
+                    <TextBlock
+                        Text="{Binding Person.DeathDate, StringFormat=d, ConverterCulture={StaticResource DefaultCulture}}"
+                        Visibility="{Binding Person.DeathDate, Converter={StaticResource nullToVisConverter}}"
+                        Style="{StaticResource PhoneTextNormalStyle}"
+                        Grid.Row="3"
+                        Grid.Column="1" />
+                    <ContentControl
+                        Margin="0,12"
+                        x:Name="ContentSummary"
+                        Grid.Row="4"
+                        Grid.ColumnSpan="2" 
+                        VerticalAlignment="Stretch"
+                        HorizontalAlignment="Stretch"
+                        VerticalContentAlignment="Stretch"
+                        HorizontalContentAlignment="Stretch"/>
                 </Grid>
             </controls:PanoramaItem>
         </controls:Panorama>

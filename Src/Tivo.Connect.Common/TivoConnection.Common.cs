@@ -425,9 +425,9 @@ namespace Tivo.Connect
             return content.First().ToObject<Collection>(this.jsonSerializer);
         }
 
-        public async Task<Person> GetPersonDetails(string personId)
+        public async Task<Person> GetPersonDetails(string personId, bool includeContentSummary)
         {
-            JObject detailsResults = await SendBasicPersonSearchRequest(personId).ConfigureAwait(false);
+            JObject detailsResults = await SendPersonSearchRequest(personId, includeContentSummary).ConfigureAwait(false);
 
             CheckResponse(detailsResults, "personList", "personSearch");
 
@@ -438,7 +438,7 @@ namespace Tivo.Connect
 
         public async Task<Person> GetBasicPersonDetails(string personId)
         {
-            JObject detailsResults = await SendPersonSearchRequest(personId).ConfigureAwait(false);
+            JObject detailsResults = await SendBasicPersonSearchRequest(personId).ConfigureAwait(false);
 
             CheckResponse(detailsResults, "personList", "personSearch");
 
@@ -1525,19 +1525,25 @@ namespace Tivo.Connect
             return response;
         }
 
-        private async Task<JObject> SendPersonSearchRequest(string personId)
+        private async Task<JObject> SendPersonSearchRequest(string personId, bool includeContentSummary)
         {
+            string[] notes;
+
+            if (!includeContentSummary)
+            {
+                notes = new[] { "roleForPersonId" };
+            }
+            else
+            {
+                notes = new[] { "roleForPersonId", "contentSummaryForPersonId" };
+            }
+
             var request = new Dictionary<string, object>
             {
                 { "type", "personSearch" },
                 { "bodyId", this.capturedTsn },
                 { "personId", new[] { personId } },
-                { "note", 
-                    new string[] 
-                    { 
-                        "roleForPersonId",
-                    }
-                },
+                { "note", notes },
                 { "levelOfDetail", "high" },
             };
 

@@ -101,6 +101,7 @@
     </Compile>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\ImageInfoListToUrlConverter.cs" />
     <Compile Include="Converters\NullOrEmptyToVisibilityConverter.cs" />
     <Compile Include="Converters\UtcToLocalTimeConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -121,6 +122,9 @@
     </Compile>
     <Compile Include="Views\AppCreditsView.xaml.cs">
       <DependentUpon>AppCreditsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PersonContentView.xaml.cs">
+      <DependentUpon>PersonContentView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CreditsView.xaml.cs">
       <DependentUpon>CreditsView.xaml</DependentUpon>
@@ -197,6 +201,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\AppCreditsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PersonContentView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
