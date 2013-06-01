@@ -387,11 +387,36 @@ namespace Tivo.Connect
 
         public async Task<IList<Recording>> GetScheduledRecordings(int offset, int count)
         {
-            var results = await SendRecordingSearchRequest(new[] { "inProgress", "scheduled" }, offset, count).ConfigureAwait(false);
+            var response = await SendRecordingSearchRequest(new[] { "inProgress", "scheduled" }, offset, count).ConfigureAwait(false);
 
-            CheckResponse(results, "recordingList", "recordingSearch");
+            CheckResponse(response, "recordingList", "recordingSearch");
 
-            return results["recording"].ToObject<IList<Recording>>(this.jsonSerializer);
+            var results = response["recording"];
+            if (results != null)
+            {
+                return results.ToObject<IList<Recording>>(this.jsonSerializer);
+            }
+            else
+            {
+                return new List<Recording>();
+            }
+        }
+
+        public async Task<IList<Offer>> GetUpcomingOffers(string collectionId, int offset, int count)
+        {
+            var response = await SendUpcomingOfferSearchForCollectionIdRequest(collectionId, offset, count).ConfigureAwait(false);
+
+            CheckResponse(response, "offerList", "offerSearch");
+
+            var results = response["offer"];
+            if (results != null)
+            {
+                return results.ToObject<IList<Offer>>(this.jsonSerializer);
+            }
+            else
+            {
+                return new List<Offer>();
+            }
         }
 
         public async Task<Recording> GetRecordingDetails(string offerId)
@@ -1418,11 +1443,88 @@ namespace Tivo.Connect
             {
                 { "type", "offerSearch" },
                 { "bodyId", this.capturedTsn },
-                {"searchable",true},
-                {"receivedChannelsOnly",false},
-                {"namespace", "refserver" },
-                {"offerId", new[] { offerId } },
-                {"note", new[] { "recordingForOfferId" } },
+                { "searchable", true},
+                { "receivedChannelsOnly", false},
+                { "namespace", "refserver" },
+                { "offerId", new[] { offerId } },
+                { "note", new[] { "recordingForOfferId" } },
+            };
+
+            var response = await SendRequest("offerSearch", request).ConfigureAwait(false);
+            return response;
+        }
+
+        private async Task<JObject> SendUpcomingOfferSearchForCollectionIdRequest(string collectionId, int offset, int count)
+        {
+            var request = new Dictionary<string, object>
+            {
+                { "type", "offerSearch" },
+                { "bodyId", this.capturedTsn },
+                { "collectionId", new[] { collectionId } },
+                { "offset", offset },
+                { "count", count },
+                { "searchable", true},
+                { "receivedChannelsOnly", false},
+                { "namespace", "refserver" },
+                { "note", new[] { "recordingForOfferId" } },
+                { "responseTemplate", 
+                    new object[]
+                    {
+                        new Dictionary<string, object>
+                        {
+                            { "type", "responseTemplate" },
+                            { "typeName", "offerList" },
+                            { "fieldName", 
+                                new string[] 
+                                { 
+                                    "offer",
+                                    "isTop",
+                                    "isBottom",
+                                } 
+                            }
+                        },
+                        new Dictionary<string, object>
+                        {
+                            { "type", "responseTemplate" },
+                            { "typeName", "offer" },
+                            { "fieldName", 
+                                new string[] 
+                                { 
+                                    "offerId",
+                                    "contentId",
+                                    "collectionId",
+                                    "collectionType",
+                                    "title",
+                                    "subtitle",
+                                    "startTime",
+                                    "duration",
+                                    "seasonNumber",
+                                    "episodeNum",
+                                    "episodic",
+                                    "hdtv",
+                                    "isAdult",
+                                    "isEpisode",
+                                    "repeat",
+                                    "channel"
+                                } 
+                            }
+                        }, 
+                        new Dictionary<string, object>
+                        {
+                            { "type", "responseTemplate" },
+                            { "typeName", "channel" },
+                            { "fieldName", 
+                                new string[] 
+                                { 
+                                    "channelId", 
+                                    "channelNumber", 
+                                    "callSign", 
+                                    "logoIndex", 
+                                } 
+                            }
+                        },
+                    }
+                },
             };
 
             var response = await SendRequest("offerSearch", request).ConfigureAwait(false);

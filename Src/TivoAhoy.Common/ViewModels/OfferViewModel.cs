@@ -50,6 +50,12 @@ namespace TivoAhoy.Common.ViewModels
             this.time = time;
         }
 
+        public void Initialise(Offer offer)
+        {
+            this.channel = offer.Channel;
+            this.offer = offer;
+        }
+
         public static OfferViewModel CreateDesignTime(Channel channel, Offer offer)
         {
             var model = new OfferViewModel(null, null, null);
@@ -89,6 +95,7 @@ namespace TivoAhoy.Common.ViewModels
             {
                 this.offer = value;
                 this.NotifyOfPropertyChange(() => this.Offer);
+                this.NotifyOfPropertyChange(() => this.UpcomingOfferDisplayText);
                 this.NotifyOfPropertyChange(() => this.IsRecordingScheduled);
             }
         }
@@ -108,6 +115,27 @@ namespace TivoAhoy.Common.ViewModels
                 }
 
                 return this.scheduledRecordingsService.IsOfferRecordingScheduled(this.Offer.OfferId);
+            }
+        }
+
+        public string UpcomingOfferDisplayText
+        {
+            get
+            {
+                if (this.Offer == null)
+                {
+                    return null;
+                }
+
+                var bestTitle = string.IsNullOrWhiteSpace(this.Offer.Subtitle) ? this.Offer.Title : this.Offer.Subtitle;
+
+                if (this.Offer.SeasonNumber != null &&
+                    this.Offer.EpisodeNumbers != null)
+                {
+                    return string.Format("{0} [S{1} E{2}]", bestTitle, this.Offer.SeasonNumber, this.Offer.EpisodeNumberText); 
+                }
+
+                return bestTitle;
             }
         }
 

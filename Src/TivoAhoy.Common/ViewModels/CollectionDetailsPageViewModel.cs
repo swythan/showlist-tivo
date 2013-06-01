@@ -17,6 +17,7 @@ namespace TivoAhoy.Common.ViewModels
         private readonly IProgressService progressService;
         private readonly ITivoConnectionService connectionService;
         private readonly CreditsViewModel creditsViewModel;
+        private readonly UpcomingOffersViewModel upcomingOffersViewModel;
 
         private Collection collectionDetails;
 
@@ -29,12 +30,14 @@ namespace TivoAhoy.Common.ViewModels
             IAnalyticsService analyticsService,
             IProgressService progressService,
             ITivoConnectionService connectionService,
-            CreditsViewModel creditsViewModel)
+            CreditsViewModel creditsViewModel,
+            UpcomingOffersViewModel upcomingOffersViewModel)
         {
             this.analyticsService = analyticsService;
             this.progressService = progressService;
             this.connectionService = connectionService;
             this.creditsViewModel = creditsViewModel;
+            this.upcomingOffersViewModel = upcomingOffersViewModel;
         }
 
         public CollectionDetailsPageViewModel()
@@ -191,6 +194,16 @@ namespace TivoAhoy.Common.ViewModels
                 }
 
                 return this.creditsViewModel;
+            }
+        }
+
+        public UpcomingOffersViewModel UpcomingOffers
+        {
+            get
+            {
+                this.upcomingOffersViewModel.CollectionID = this.CollectionID;
+
+                return this.upcomingOffersViewModel;
             }
         }
 

@@ -19,7 +19,7 @@
     mc:Ignorable="d"
     d:DesignHeight="800"
     d:DesignWidth="480"
-    shell:SystemTray.IsVisible="False"
+    shell:SystemTray.IsVisible="True"
     toolkit:TiltEffect.IsTiltEnabled="True"
     d:DataContext="{d:DesignInstance Type=vm:CollectionDetailsPageViewModel, IsDesignTimeCreatable=True}"
     cal:Bind.AtDesignTime="True">
@@ -83,7 +83,11 @@
             <controls:PanoramaItem
                 x:Name="Credits"
                 Visibility="Collapsed" />
-            
+
+            <controls:PanoramaItem
+                x:Name="UpcomingOffers"
+                Visibility="Visible" />
+
             <!--<controls:PanoramaItem>
                 <Grid
                     x:Name="ActionPanel"

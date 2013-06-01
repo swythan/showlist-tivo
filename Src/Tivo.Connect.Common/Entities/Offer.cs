@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using Newtonsoft.Json;
 
 namespace Tivo.Connect.Entities
@@ -42,7 +43,7 @@ namespace Tivo.Connect.Entities
 
         [JsonProperty("hdtv")]
         public bool IsHdTv { get; set; }
-        
+
         public bool IsEpisode { get; set; }
         public bool IsAdult { get; set; }
 
@@ -57,7 +58,7 @@ namespace Tivo.Connect.Entities
         public int DurationSeconds { get; set; }
 
         public List<ImageInfo> Images { get; set; }
-        
+
         [JsonIgnore]
         public int? EpisodeNumber
         {
@@ -70,6 +71,23 @@ namespace Tivo.Connect.Entities
                 }
 
                 return this.EpisodeNumbers[0];
+            }
+        }
+
+        [JsonIgnore]
+        public string EpisodeNumberText
+        {
+            get
+            {
+                if (this.EpisodeNumbers == null ||
+                    this.EpisodeNumbers.Count == 0)
+                {
+                    return null;
+                }
+
+                var episodesAsStrings = this.EpisodeNumbers.Select(x => x.ToString());
+
+                return string.Join(",", episodesAsStrings);
             }
         }
 

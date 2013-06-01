@@ -49,6 +49,7 @@ namespace TivoAhoy.PhoneRT
             container.PerRequest<CollectionItemViewModel>();
             container.PerRequest<CreditsViewModel>();
             container.PerRequest<PersonContentViewModel>();
+            container.PerRequest<UpcomingOffersViewModel>();
 
             AddCustomConventions();
         }

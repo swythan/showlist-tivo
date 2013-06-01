@@ -123,6 +123,9 @@
     <Compile Include="Views\AppCreditsView.xaml.cs">
       <DependentUpon>AppCreditsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\UpcomingOffersView.xaml.cs">
+      <DependentUpon>UpcomingOffersView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PersonContentView.xaml.cs">
       <DependentUpon>PersonContentView.xaml</DependentUpon>
     </Compile>
@@ -201,6 +204,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\AppCreditsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UpcomingOffersView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
