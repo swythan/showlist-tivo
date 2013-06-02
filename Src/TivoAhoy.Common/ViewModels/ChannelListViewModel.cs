@@ -2,6 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reactive;
+using System.Reactive.Linq;
+using System.Reactive.Subjects;
 using System.Threading.Tasks;
 using System.Windows;
 using Caliburn.Micro;
@@ -25,6 +28,8 @@ namespace TivoAhoy.Common.ViewModels
 
         private IList shows;
 
+        private Subject<Unit> dateChangedSubject = new Subject<Unit>();
+
         public ChannelListViewModel(
             IProgressService progressService,
             INavigationService navigationService,
@@ -40,6 +45,10 @@ namespace TivoAhoy.Common.ViewModels
             this.StartTime = DateTime.Now;
 
             connectionService.PropertyChanged += OnConnectionServicePropertyChanged;
+
+            dateChangedSubject
+                .Throttle(TimeSpan.FromSeconds(1))
+                .Subscribe(_ => RefreshShows());
         }
 
         private void OnConnectionServicePropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -150,6 +159,8 @@ namespace TivoAhoy.Common.ViewModels
 
                 this.NotifyOfPropertyChange(() => this.StartTime);
                 this.NotifyOfPropertyChange(() => this.SelectedDate);
+
+                this.dateChangedSubject.OnNext(Unit.Default);
             }
         }
 
