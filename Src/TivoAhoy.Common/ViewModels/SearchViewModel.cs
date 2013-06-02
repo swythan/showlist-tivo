@@ -2,6 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reactive;
+using System.Reactive.Linq;
+using System.Reactive.Subjects;
 using System.Threading.Tasks;
 using System.Windows;
 using Caliburn.Micro;
@@ -24,6 +27,9 @@ namespace TivoAhoy.Common.ViewModels
         private string searchText;
         private IList<IUnifiedItemViewModel> results;
 
+        private Subject<Unit> searchTextChangedSubject = new Subject<Unit>();
+        private string lastSearchText = null;
+
         public SearchViewModel(
             IProgressService progressService,
             ISpeechService speechService,
@@ -39,7 +45,17 @@ namespace TivoAhoy.Common.ViewModels
             this.personFactory = personFactory;
             this.collectionFactory = collectionFactory;
 
-            connectionService.PropertyChanged += OnConnectionServicePropertyChanged;
+            this.connectionService.PropertyChanged += OnConnectionServicePropertyChanged;
+
+            this.searchTextChangedSubject
+                .Throttle(TimeSpan.FromSeconds(1))
+                .Subscribe(_ =>
+                    {
+                        if (this.SearchText != this.lastSearchText)
+                        {
+                            this.Search();
+                        }
+                    });
         }
 
         private void OnConnectionServicePropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -61,7 +77,7 @@ namespace TivoAhoy.Common.ViewModels
             set
             {
                 this.isSearchInProgress = value;
-                
+
                 NotifyOfPropertyChange(() => this.IsSearchInProgress);
                 NotifyOfPropertyChange(() => this.CanSearch);
                 NotifyOfPropertyChange(() => this.CanSearchByVoice);
@@ -80,6 +96,8 @@ namespace TivoAhoy.Common.ViewModels
                 this.searchText = value;
                 NotifyOfPropertyChange(() => this.SearchText);
                 NotifyOfPropertyChange(() => this.CanSearch);
+
+                this.searchTextChangedSubject.OnNext(Unit.Default);
             }
         }
 
@@ -116,6 +134,8 @@ namespace TivoAhoy.Common.ViewModels
                 using (this.progressService.Show())
                 {
                     var connection = await this.connectionService.GetConnectionAsync();
+
+                    this.lastSearchText = this.SearchText;
 
                     IEnumerable<IUnifiedItem> result = await connection.ExecuteUnifiedItemSearch(this.SearchText, 0, 25);
 
@@ -166,7 +186,7 @@ namespace TivoAhoy.Common.ViewModels
                 await this.speechService.Speak(string.Format("Searching for {0}", this.SearchText));
             }
             else
-            { 
+            {
                 await this.speechService.Speak("Sorry, search not available.");
             }
         }
