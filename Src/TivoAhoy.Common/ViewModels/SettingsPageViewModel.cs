@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
+using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using System.ServiceModel;
 using System.Threading.Tasks;
@@ -24,6 +25,7 @@ namespace TivoAhoy.Common.ViewModels
         private const string dnsProtocol = "_tivo-mindrpc._tcp.";
 
         private readonly IEventAggregator eventAggregator;
+        private readonly IProgressService progressService;
         private readonly ITivoConnectionService connectionService;
 
         private KnownTivoConnection lanSettings;
@@ -36,10 +38,14 @@ namespace TivoAhoy.Common.ViewModels
         private ObservableCollection<DiscoveredTivo> discoveredTivos = new ObservableCollection<DiscoveredTivo>();
         private DiscoveredTivo currentDiscoveredTivo;
 
-        public SettingsPageViewModel(IEventAggregator eventAggregator, ITivoConnectionService connectionService)
+        public SettingsPageViewModel(
+            IEventAggregator eventAggregator, 
+            IProgressService progressService, 
+            ITivoConnectionService connectionService)
         {
             this.eventAggregator = eventAggregator;
             this.connectionService = connectionService;
+            this.progressService = progressService;
 
             this.connectionService.PropertyChanged += OnConnectionServicePropertyChanged;
         }
@@ -237,22 +243,28 @@ namespace TivoAhoy.Common.ViewModels
             get { return this.isTestInProgress; }
         }
 
-        private void OnOperationStarted()
+        private void SetIsTestInProgress(bool value)
         {
-            this.isTestInProgress = true;
+            if (this.isTestInProgress == value)
+            {
+                return;
+            }
+
+            this.isTestInProgress = value;
+
             NotifyOfPropertyChange(() => this.IsTestInProgress);
             NotifyOfPropertyChange(() => this.CanSearchLAN);
             NotifyOfPropertyChange(() => this.CanTestLANConnection);
             NotifyOfPropertyChange(() => this.CanTestAwayConnection);
         }
 
-        private void OnOperationFinished()
+        private IDisposable ShowProgress()
         {
-            this.isTestInProgress = false;
-            NotifyOfPropertyChange(() => this.IsTestInProgress);
-            NotifyOfPropertyChange(() => this.CanSearchLAN);
-            NotifyOfPropertyChange(() => this.CanTestLANConnection);
-            NotifyOfPropertyChange(() => this.CanTestAwayConnection);
+            this.SetIsTestInProgress(true);
+
+            return new CompositeDisposable(
+                this.progressService.Show(),
+                Disposable.Create(() => this.SetIsTestInProgress(false)));
         }
 
         public bool CanTestAwayConnection
@@ -296,15 +308,16 @@ namespace TivoAhoy.Common.ViewModels
         {
             var connection = new TivoConnection();
 
-            OnOperationStarted();
-
             try
             {
-                await connection.ConnectAway(this.Username, this.Password);
+                using (ShowProgress())
+                {
+                    await connection.ConnectAway(this.Username, this.Password);
 
-                ConnectionSettings.AwayModeUsername = this.Username;
-                ConnectionSettings.AwayModePassword = this.Password;
-                this.eventAggregator.Publish(new ConnectionSettingsChanged());
+                    ConnectionSettings.AwayModeUsername = this.Username;
+                    ConnectionSettings.AwayModePassword = this.Password;
+                    this.eventAggregator.Publish(new ConnectionSettingsChanged());
+                }
 
                 MessageBox.Show("Connection Succeeded!");
             }
@@ -330,7 +343,6 @@ namespace TivoAhoy.Common.ViewModels
             finally
             {
                 connection.Dispose();
-                OnOperationFinished();
             }
         }
 
@@ -338,25 +350,26 @@ namespace TivoAhoy.Common.ViewModels
         {
             var connection = new TivoConnection();
 
-            OnOperationStarted();
-
             try
             {
-                await connection.Connect(this.LanSettings.LastIpAddress, this.LanSettings.MediaAccessKey);
-
-                if (!this.LanSettings.TSN.Equals(connection.ConnectedTsn, StringComparison.Ordinal))
+                using (ShowProgress())
                 {
-                    this.LanSettings.TSN = connection.ConnectedTsn;
+                    await connection.Connect(this.LanSettings.LastIpAddress, this.LanSettings.MediaAccessKey);
+
+                    if (!this.LanSettings.TSN.Equals(connection.ConnectedTsn, StringComparison.Ordinal))
+                    {
+                        this.LanSettings.TSN = connection.ConnectedTsn;
+                    }
+
+                    var knownTivosByTsn = ConnectionSettings.KnownTivos.ToDictionary(x => x.TSN);
+
+                    knownTivosByTsn[connection.ConnectedTsn] = this.LanSettings;
+
+                    ConnectionSettings.KnownTivos = knownTivosByTsn.Values.ToArray();
+                    ConnectionSettings.SelectedTivoTsn = connection.ConnectedTsn;
+
+                    this.eventAggregator.Publish(new ConnectionSettingsChanged());
                 }
-
-                var knownTivosByTsn = ConnectionSettings.KnownTivos.ToDictionary(x => x.TSN);
-
-                knownTivosByTsn[connection.ConnectedTsn] = this.LanSettings;
-
-                ConnectionSettings.KnownTivos = knownTivosByTsn.Values.ToArray();
-                ConnectionSettings.SelectedTivoTsn = connection.ConnectedTsn;
-
-                this.eventAggregator.Publish(new ConnectionSettingsChanged());
 
                 MessageBox.Show("Connection Succeeded!");
             }
@@ -386,7 +399,6 @@ namespace TivoAhoy.Common.ViewModels
             finally
             {
                 connection.Dispose();
-                OnOperationFinished();
             }
         }
 
@@ -408,34 +420,33 @@ namespace TivoAhoy.Common.ViewModels
 
             this.discoveredTivos.Clear();
 
-            OnOperationStarted();
-
-            var dnsAnswers = await MDnsClient.CreateAndResolveAsync(dnsProtocol);
-
-            if (dnsAnswers != null)
+            using (ShowProgress())
             {
-                var answersSubscription = dnsAnswers
-                    .Select(HandleDnsAnswer)
-                    .Where(x => x != null)
-                    .ObserveOnDispatcher()
-                    .Subscribe(x => this.discoveredTivos.Add(x));
+                var dnsAnswers = await MDnsClient.CreateAndResolveAsync(dnsProtocol);
 
-                await TaskEx.Delay(TimeSpan.FromSeconds(3));
-
-                answersSubscription.Dispose();
-
-                var selectedTivo = this.discoveredTivos
-                    .FirstOrDefault(x => x.TSN.Equals(ConnectionSettings.SelectedTivoTsn, StringComparison.Ordinal));
-
-                if (selectedTivo == null)
+                if (dnsAnswers != null)
                 {
-                    selectedTivo = this.discoveredTivos.FirstOrDefault();
+                    var answersSubscription = dnsAnswers
+                        .Select(HandleDnsAnswer)
+                        .Where(x => x != null)
+                        .ObserveOnDispatcher()
+                        .Subscribe(x => this.discoveredTivos.Add(x));
+
+                    await TaskEx.Delay(TimeSpan.FromSeconds(3));
+
+                    answersSubscription.Dispose();
+
+                    var selectedTivo = this.discoveredTivos
+                        .FirstOrDefault(x => x.TSN.Equals(ConnectionSettings.SelectedTivoTsn, StringComparison.Ordinal));
+
+                    if (selectedTivo == null)
+                    {
+                        selectedTivo = this.discoveredTivos.FirstOrDefault();
+                    }
+
+                    this.CurrentDiscoveredTivo = selectedTivo;
                 }
-
-                this.CurrentDiscoveredTivo = selectedTivo;
             }
-
-            OnOperationFinished();
         }
 
         private DiscoveredTivo HandleDnsAnswer(Discovery.Message msg)
