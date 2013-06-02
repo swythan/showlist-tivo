@@ -37,7 +37,7 @@
       <ListenFor> find {*}</ListenFor>
       <ListenFor> search [TiVo] </ListenFor>
       <ListenFor> search [TiVo] [for] {*} </ListenFor>
-      <Feedback> Search TiVo for what? </Feedback>
+      <Feedback> What are you looking for? </Feedback>
       <Navigate />
     </Command>
 

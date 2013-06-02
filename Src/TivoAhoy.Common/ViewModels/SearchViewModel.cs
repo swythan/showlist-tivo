@@ -170,6 +170,9 @@ namespace TivoAhoy.Common.ViewModels
 
         public async void SearchByVoice()
         {
+            // Start connecting now (in case we are disconnected, esp at start-up)
+            var connectTask = this.connectionService.GetConnectionAsync();
+
             string findText = await this.speechService.RecognizeTextFromWebSearchGrammar("Ex. \"The Simpsons\"");
 
             if (string.IsNullOrWhiteSpace(findText))
@@ -178,6 +181,9 @@ namespace TivoAhoy.Common.ViewModels
             }
 
             this.SearchText = findText;
+
+            // Wait for the connection to succeed (or fail)
+            await connectTask;
 
             if (this.CanSearchByVoice)
             {
