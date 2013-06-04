@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Caliburn.Micro;
+using Tivo.Connect;
 using Tivo.Connect.Entities;
 using TivoAhoy.Common.Services;
 
@@ -67,7 +68,7 @@ namespace TivoAhoy.Common.ViewModels
                 }
 
                 var roles = this.Source.Roles
-                    .Select(x => UppercaseFirst(SplitCamelCase(x)))
+                    .Select(x => x.SplitCamelCase().UppercaseFirst())
                     .Distinct()
                     .Take(2);
 
@@ -92,29 +93,6 @@ namespace TivoAhoy.Common.ViewModels
             {
                 Debug.WriteLine("Failed to get better details for person item: {0}", ex);
             }
-        }
-
-        public static string SplitCamelCase(string input)
-        {
-            if (string.IsNullOrEmpty(input))
-            {
-                return string.Empty;
-            }
-
-            return Regex.Replace(input, "([A-Z])", " $1", RegexOptions.Compiled).Trim();
-        }
-
-        static string UppercaseFirst(string input)
-        {
-            if (string.IsNullOrEmpty(input))
-            {
-                return string.Empty;
-            }
-
-            char[] chars = input.ToCharArray();
-            chars[0] = char.ToUpper(chars[0]);
-
-            return new string(chars);
         }
 
         public void DisplayPersonDetails()

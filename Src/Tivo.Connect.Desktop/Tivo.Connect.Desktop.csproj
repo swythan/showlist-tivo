@@ -143,6 +143,9 @@
     <Compile Include="..\Tivo.Connect.Common\JsonCreationConverter.cs">
       <Link>JsonCreationConverter.cs</Link>
     </Compile>
+    <Compile Include="..\Tivo.Connect.Common\StringUtils.cs">
+      <Link>StringUtils.cs</Link>
+    </Compile>
     <Compile Include="..\Tivo.Connect.Common\TivoConnection.Common.cs">
       <Link>TivoConnection.Common.cs</Link>
     </Compile>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 using Newtonsoft.Json;
+using Tivo.Connect;
 
 namespace Tivo.Connect.Entities
 {
@@ -30,7 +31,8 @@ namespace Tivo.Connect.Entities
         [JsonProperty("last")]
         public string LastName { get; set; }
 
-        public string Role { get; set; }
+        [JsonProperty("role")]
+        public string OriginalRole { get; set; }
 
         public string CharacterName { get; set; }
 
@@ -39,6 +41,15 @@ namespace Tivo.Connect.Entities
 
         [JsonProperty("imageUrl")]
         public string OriginalImageUrl { get; set; }
+
+        [JsonIgnore]
+        public string Role
+        {
+            get
+            {
+                return this.OriginalRole.SplitCamelCase().UppercaseFirst();
+            }
+        }
 
         [JsonIgnore]
         public Uri ImageUrl

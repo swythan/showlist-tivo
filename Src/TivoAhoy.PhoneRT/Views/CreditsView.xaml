@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
     xmlns:vm="clr-namespace:TivoAhoy.Common.ViewModels;assembly=TivoAhoy.Common"
+    xmlns:converters="clr-namespace:TivoAhoy.Phone.Converters"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -15,16 +16,23 @@
     d:DataContext="{d:DesignInstance Type=vm:CreditsViewModel, IsDesignTimeCreatable=True}"
     cal:Bind.AtDesignTime="True">
 
+    <UserControl.Resources>
+        <converters:NullOrEmptyToVisibilityConverter
+            x:Key="nullToVisConverter" />
+        <converters:NullOrEmptyToVisibilityConverter
+            x:Key="nonNullToVisConverter"
+            IsReversed="True" />
+    </UserControl.Resources>
 
     <Grid
         x:Name="LayoutRoot"
-        Margin="12,0,12,0">
+        Margin="0,-6,0,0">
         <ListBox
             x:Name="Credits">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid
-                        Margin="12"
+                        Margin="12,6"
                         Background="Transparent"
                         cal:Message.Attach="[Event Tap] = [Action DisplayPersonDetails($dataContext)]">
 
@@ -38,33 +46,31 @@
                             <RowDefinition
                                 Height="*" />
                         </Grid.RowDefinitions>
+                        
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition
                                 Width="Auto" />
                             <ColumnDefinition
-                                Width="Auto" />
-                            <ColumnDefinition
                                 Width="*" />
-                            <ColumnDefinition
-                                Width="Auto" />
                         </Grid.ColumnDefinitions>
-                        <TextBlock
-                            Grid.Column="0"
-                            VerticalAlignment="Center"
-                            Style="{StaticResource PhoneTextLargeStyle}"
-                            Text="{Binding DisplayName}"
-                            Grid.Row="1" />
-                        <TextBlock
-                            Grid.Column="0"
-                            VerticalAlignment="Center"
-                            Style="{StaticResource PhoneTextAccentStyle}"
-                            Text="{Binding CharacterName}"
-                            Grid.Row="2"
-                            Grid.ColumnSpan="2" />
                         <Image
-                            Grid.Column="3"
-                            Source="{Binding ImageUrl}"
-                            Grid.RowSpan="4" />
+                            Source="{Binding ImageUrl}"/>
+                        <StackPanel
+                            Grid.Column="1"
+                            Orientation="Vertical"
+                            VerticalAlignment="Center">
+                            <TextBlock
+                                Style="{StaticResource PhoneTextLargeStyle}"
+                                Text="{Binding DisplayName}" />
+                            <TextBlock
+                                Style="{StaticResource PhoneTextAccentStyle}"
+                                Text="{Binding CharacterName}"
+                                Visibility="{Binding CharacterName, Converter={StaticResource nullToVisConverter}}" />
+                            <TextBlock
+                                Style="{StaticResource PhoneTextAccentStyle}"
+                                Text="{Binding Role}"
+                                Visibility="{Binding CharacterName, Converter={StaticResource nonNullToVisConverter}}" />
+                        </StackPanel>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>

@@ -32,7 +32,7 @@ namespace TivoAhoy.Common.ViewModels
                         OriginalImageUrl= "http://10.185.116.1:8080/images/legacy/small/69/55/695556e67a7b88608fc01a5c72501a24.jpg",
                         LastName= "Danson",
                         PersonId= "tivo:pn.61724",
-                        Role = "actor",
+                        OriginalRole = "actor",
                         Images = new List<ImageInfo>
                         {
                             new ImageInfo
@@ -44,7 +44,15 @@ namespace TivoAhoy.Common.ViewModels
                                 OriginalImageUrl= "http://10.185.116.1:8080/images/legacy/small/69/55/695556e67a7b88608fc01a5c72501a24.jpg",
                             },
                         }
+                    },
+                    new Credit
+                    {
+                        FirstName ="Quentin",
+                        LastName= "Tarantino",
+                        PersonId= "tivo:pn.11111",
+                        OriginalRole = "director",
                     }
+
                 };
         }
 
