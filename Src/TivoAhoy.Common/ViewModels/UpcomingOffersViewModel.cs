@@ -20,7 +20,10 @@ namespace TivoAhoy.Common.ViewModels
         private string collectionID;
         private List<OfferViewModel> offers;
 
-        private string statusText;
+        private string contentId;
+        private IEnumerable<string> excludedOfferIds;
+
+        private bool isLoading;
 
         public UpcomingOffersViewModel(
             IProgressService progressService,
@@ -59,23 +62,24 @@ namespace TivoAhoy.Common.ViewModels
 
         private void LoadDesignData()
         {
-            Offers = new List<OfferViewModel>
-                {
+            SetOffers(
+                new List<OfferViewModel> 
+                { 
                     OfferViewModel.CreateDesignTime(
-                        new Channel()
+                        new Channel() 
+                        { 
+                            ChannelNumber = 101, 
+                            CallSign = "BBC 1", 
+                            LogoIndex = 65736 
+                        }, 
+                        new Offer() 
                         {
-                                ChannelNumber = 101,
-                                CallSign = "BBC 1",
-                                LogoIndex = 65736
-                        },
-                        new Offer()
-                        {
-                            Title = "Antiques Roadshow",
-                            Subtitle = "Hereford",
-                            StartTime = DateTime.Parse("17:00"),
-                            DurationSeconds = 1800
-                        }),      
-                };
+                            Title = "Antiques Roadshow", 
+                            Subtitle = "Hereford", 
+                            StartTime = DateTime.Parse("17:00"), 
+                            DurationSeconds = 1800 
+                        }) 
+                });
         }
 
         protected override void OnActivate()
@@ -113,20 +117,73 @@ namespace TivoAhoy.Common.ViewModels
             }
         }
 
-        public List<OfferViewModel> Offers
+        public string ContentID
         {
-            get { return this.offers; }
-
+            get
+            {
+                return this.contentId;
+            }
             set
             {
-                if (this.offers == value)
+                if (this.contentId == value)
                 {
                     return;
                 }
 
-                this.offers = value;
-                this.NotifyOfPropertyChange(() => this.Offers);
-                this.NotifyOfPropertyChange(() => this.HasOffers);
+                this.contentId = value;
+
+                this.NotifyOfPropertyChange(() => this.ContentID);
+
+                if (this.CanRefreshOffers)
+                {
+                    RefreshOffers();
+                }
+            }
+        }
+
+        public IEnumerable<string> ExcludedOfferIds
+        {
+            get { return this.excludedOfferIds; }
+            set
+            {
+                this.excludedOfferIds = value;
+                NotifyOfPropertyChange(() => this.ExcludedOfferIds);
+                NotifyOfPropertyChange(() => this.Offers);
+            }
+        }
+
+        public void SetOffers(List<OfferViewModel> value)
+        {
+            if (this.offers == value)
+            {
+                return;
+            }
+            this.offers = value;
+            this.NotifyOfPropertyChange(() => this.Offers);
+            this.NotifyOfPropertyChange(() => this.HasOffers);
+        }
+
+        public bool IsLoading
+        {
+            get { return this.isLoading; }
+            set
+            {
+                isLoading = value;
+                NotifyOfPropertyChange(() => this.StatusText);
+            }
+        }
+
+        public List<OfferViewModel> Offers
+        {
+            get
+            {
+                if (this.ExcludedOfferIds == null ||
+                    this.offers == null)
+                {
+                    return this.offers;
+                }
+
+                return this.offers.Where(x => !this.ExcludedOfferIds.Contains(x.Offer.OfferId)).ToList();
             }
         }
 
@@ -144,17 +201,17 @@ namespace TivoAhoy.Common.ViewModels
         {
             get
             {
-                return this.statusText;
-            }
-            set
-            {
-                if (this.statusText == value)
+                if (this.IsLoading)
                 {
-                    return;
+                    return "Loading...";
                 }
 
-                this.statusText = value;
-                this.NotifyOfPropertyChange(() => this.StatusText);
+                if (!this.HasOffers)
+                {
+                    return "No upcoming showings";
+                }
+
+                return null;
             }
         }
 
@@ -165,7 +222,6 @@ namespace TivoAhoy.Common.ViewModels
                 return this.connectionService.IsConnected;
             }
         }
-
 
         public async void RefreshOffers()
         {
@@ -179,7 +235,7 @@ namespace TivoAhoy.Common.ViewModels
         {
             try
             {
-                this.StatusText = "Loading...";
+                this.IsLoading = true;
 
                 using (this.progressService.Show())
                 {
@@ -192,16 +248,22 @@ namespace TivoAhoy.Common.ViewModels
 
                     do
                     {
-                        page = await connection.GetUpcomingOffers(this.CollectionID, upcomingOffers.Count, pageSize);
+                        if (this.ContentID == null)
+                        {
+                            page = await connection.GetUpcomingOffersForCollection(this.CollectionID, upcomingOffers.Count, pageSize);
+                        }
+                        else
+                        {
+                            page = await connection.GetUpcomingOffersForContent(this.ContentID, upcomingOffers.Count, pageSize);
+                        }
+
                         upcomingOffers.AddRange(page);
                     }
                     while (page != null && page.Count == pageSize);
 
                     Debug.WriteLine("Fetched {0} upcoming offers", upcomingOffers.Count);
 
-                    this.Offers = upcomingOffers
-                        .Select(x => CreateOfferViewModel(x))
-                        .ToList();
+                    this.SetOffers(upcomingOffers.Select(x => CreateOfferViewModel(x)).ToList());
                 }
             }
             catch (Exception ex)
@@ -210,15 +272,7 @@ namespace TivoAhoy.Common.ViewModels
             }
             finally
             {
-                if (this.Offers != null &&
-                    this.Offers.Any())
-                {
-                    this.StatusText = null;
-                }
-                else
-                {
-                    this.StatusText = "No upcoming showings";
-                }
+                this.IsLoading = false;
             }
         }
 

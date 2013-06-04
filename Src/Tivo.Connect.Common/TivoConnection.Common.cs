@@ -402,9 +402,26 @@ namespace Tivo.Connect
             }
         }
 
-        public async Task<IList<Offer>> GetUpcomingOffers(string collectionId, int offset, int count)
+        public async Task<IList<Offer>> GetUpcomingOffersForCollection(string collectionId, int offset, int count)
         {
             var response = await SendUpcomingOfferSearchForCollectionIdRequest(collectionId, offset, count).ConfigureAwait(false);
+
+            CheckResponse(response, "offerList", "offerSearch");
+
+            var results = response["offer"];
+            if (results != null)
+            {
+                return results.ToObject<IList<Offer>>(this.jsonSerializer);
+            }
+            else
+            {
+                return new List<Offer>();
+            }
+        }
+
+        public async Task<IList<Offer>> GetUpcomingOffersForContent(string contentId, int offset, int count)
+        {
+            var response = await SendUpcomingOfferSearchForContentIdRequest(contentId, offset, count).ConfigureAwait(false);
 
             CheckResponse(response, "offerList", "offerSearch");
 
@@ -1456,17 +1473,37 @@ namespace Tivo.Connect
 
         private async Task<JObject> SendUpcomingOfferSearchForCollectionIdRequest(string collectionId, int offset, int count)
         {
+            var request = BuildUpcomingOfferSearchRequest(offset, count);
+            
+            request["collectionId"] = new[] { collectionId };
+
+            var response = await SendRequest("offerSearch", request).ConfigureAwait(false);
+            return response;
+        }
+
+        private async Task<JObject> SendUpcomingOfferSearchForContentIdRequest(string contentId, int offset, int count)
+        {
+            var request = BuildUpcomingOfferSearchRequest(offset, count);
+
+            request["contentId"] = new[] { contentId };
+
+            var response = await SendRequest("offerSearch", request).ConfigureAwait(false);
+            return response;
+        }
+
+        private Dictionary<string, object> BuildUpcomingOfferSearchRequest(int offset, int count)
+        {
             var request = new Dictionary<string, object>
             {
                 { "type", "offerSearch" },
                 { "bodyId", this.capturedTsn },
-                { "collectionId", new[] { collectionId } },
                 { "offset", offset },
                 { "count", count },
                 { "searchable", true},
                 { "receivedChannelsOnly", false},
                 { "namespace", "refserver" },
                 { "note", new[] { "recordingForOfferId" } },
+                { "minEndTime", DateTime.UtcNow },
                 { "responseTemplate", 
                     new object[]
                     {
@@ -1526,9 +1563,7 @@ namespace Tivo.Connect
                     }
                 },
             };
-
-            var response = await SendRequest("offerSearch", request).ConfigureAwait(false);
-            return response;
+            return request;
         }
 
         private async Task<JObject> SendCollectionSearchRequest(string collectionId)

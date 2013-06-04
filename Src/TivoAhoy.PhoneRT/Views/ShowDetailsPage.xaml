@@ -124,6 +124,9 @@
             <controls:PanoramaItem
                 x:Name="Credits" />
 
+            <controls:PanoramaItem
+                x:Name="UpcomingOffers" />
+
             <controls:PanoramaItem >
                 <Grid
                     x:Name="ActionPanel"

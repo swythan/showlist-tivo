@@ -26,6 +26,7 @@ namespace TivoAhoy.Common.ViewModels
         private readonly IProgressService progressService;
         private readonly ITivoConnectionService connectionService;
         private readonly CreditsViewModel creditsViewModel;
+        private readonly UpcomingOffersViewModel upcomingOffersViewModel;
 
         private ShowDetails showDetails;
         private Recording recordingDetails;
@@ -41,13 +42,15 @@ namespace TivoAhoy.Common.ViewModels
             INavigationService navigationService,
             IProgressService progressService,
             ITivoConnectionService connectionService,
-            CreditsViewModel creditsViewModel)
+            CreditsViewModel creditsViewModel,
+            UpcomingOffersViewModel upcomingOffersViewModel)
         {
             this.analyticsService = analyticsService;
             this.navigationService = navigationService;
             this.progressService = progressService;
             this.connectionService = connectionService;
             this.creditsViewModel = creditsViewModel;
+            this.upcomingOffersViewModel = upcomingOffersViewModel;
         }
 
         public ShowDetailsPageViewModel()
@@ -273,6 +276,17 @@ namespace TivoAhoy.Common.ViewModels
                 }
 
                 return this.creditsViewModel;
+            }
+        }
+
+        public UpcomingOffersViewModel UpcomingOffers
+        {
+            get
+            {
+                this.upcomingOffersViewModel.ContentID = this.ShowContentID;
+                this.upcomingOffersViewModel.ExcludedOfferIds = new [] { this.ShowOfferID };
+                
+                return this.upcomingOffersViewModel;
             }
         }
 
