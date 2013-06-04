@@ -55,7 +55,8 @@
             Grid.Row="1"
             Title="{Binding Show.Title}"
             Background="{Binding MainImageBrush}"
-            SizeChanged="Panorama_SizeChanged">
+            SizeChanged="Panorama_SizeChanged"
+            cal:Message.Attach="[Event Tap] = [Action DisplayCollectionDetails()]">
 
             <controls:PanoramaItem >
 

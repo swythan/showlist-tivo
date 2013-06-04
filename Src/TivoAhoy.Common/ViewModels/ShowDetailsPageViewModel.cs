@@ -22,6 +22,7 @@ namespace TivoAhoy.Common.ViewModels
     public class ShowDetailsPageViewModel : Screen
     {
         private readonly IAnalyticsService analyticsService;
+        private readonly INavigationService navigationService;
         private readonly IProgressService progressService;
         private readonly ITivoConnectionService connectionService;
         private readonly CreditsViewModel creditsViewModel;
@@ -37,11 +38,13 @@ namespace TivoAhoy.Common.ViewModels
 
         public ShowDetailsPageViewModel(
             IAnalyticsService analyticsService,
+            INavigationService navigationService,
             IProgressService progressService,
             ITivoConnectionService connectionService,
             CreditsViewModel creditsViewModel)
         {
             this.analyticsService = analyticsService;
+            this.navigationService = navigationService;
             this.progressService = progressService;
             this.connectionService = connectionService;
             this.creditsViewModel = creditsViewModel;
@@ -581,6 +584,20 @@ namespace TivoAhoy.Common.ViewModels
                     toast.Show();
                 });
             }
+        }
+
+        public void DisplayCollectionDetails()
+        {
+            if (this.Show == null ||
+                this.Show.CollectionId == null)
+            {
+                return;
+            }
+
+            this.navigationService
+                .UriFor<CollectionDetailsPageViewModel>()
+                .WithParam(x => x.CollectionID, this.Show.CollectionId)
+                .Navigate();
         }
     }
 }
