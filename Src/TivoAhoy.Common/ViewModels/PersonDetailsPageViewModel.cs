@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 using Caliburn.Micro;
+using Coding4Fun.Toolkit.Controls;
 using Tivo.Connect.Entities;
 using TivoAhoy.Common.Services;
 using TivoAhoy.Common.Utils;
@@ -177,7 +179,19 @@ namespace TivoAhoy.Common.ViewModels
             }
             catch (Exception ex)
             {
-                MessageBox.Show(string.Format("Failed to retrieve person details:\n{0}", ex.Message));
+                Execute.BeginOnUIThread(() =>
+                {
+                    var toast = new ToastPrompt()
+                    {
+                        Title = "Failed to fetch person details",
+                        Message = ex.Message,
+                        TextOrientation = Orientation.Vertical,
+                        TextWrapping = TextWrapping.Wrap,
+                        Background = new SolidColorBrush(Colors.Red),
+                    };
+
+                    toast.Show();
+                });
             }
         }
     }

@@ -1,10 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 using Caliburn.Micro;
+using Coding4Fun.Toolkit.Controls;
 using TivoAhoy.Common.Services;
 using Windows.Phone.Speech.Recognition;
 using Windows.Phone.Speech.Synthesis;
@@ -53,14 +54,36 @@ namespace TivoAhoy.PhoneRT.Services
                 sr.Settings.ReadoutEnabled = false;
                 sr.Settings.ShowConfirmation = false;
 
-
                 SpeechRecognitionUIResult result = await sr.RecognizeWithUIAsync();
-                if (result != null &&
-                    result.ResultStatus == SpeechRecognitionUIStatus.Succeeded &&
-                    result.RecognitionResult != null &&
-                    result.RecognitionResult.TextConfidence != SpeechRecognitionConfidence.Rejected)
+                if (result != null)
                 {
-                    text = result.RecognitionResult.Text;
+                    if (result.ResultStatus == SpeechRecognitionUIStatus.Succeeded)
+                    {
+                        if (result.RecognitionResult != null &&
+                            result.RecognitionResult.TextConfidence != SpeechRecognitionConfidence.Rejected)
+                        {
+                            text = result.RecognitionResult.Text;
+                        }
+                    }
+                    else
+                    {
+                        if (result.ResultStatus == SpeechRecognitionUIStatus.PrivacyPolicyDeclined)
+                        {
+                            Execute.BeginOnUIThread(() =>
+                            {
+                                var toast = new ToastPrompt()
+                                {
+                                    Title = "Privacy policy declined",
+                                    Message = "You must accept the privacy policy to use speech recognition.",
+                                    TextOrientation = Orientation.Vertical,
+                                    TextWrapping = TextWrapping.Wrap,
+                                    Background = new SolidColorBrush(Colors.Red),
+                                };
+
+                                toast.Show();
+                            });
+                        }
+                    }
                 }
             }
             catch

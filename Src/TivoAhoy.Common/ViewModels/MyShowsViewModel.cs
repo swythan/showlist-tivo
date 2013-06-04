@@ -4,7 +4,10 @@ using System.Linq;
 using System.Net;
 using System.Reactive.Linq;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 using Caliburn.Micro;
+using Coding4Fun.Toolkit.Controls;
 using Microsoft;
 using Tivo.Connect;
 using Tivo.Connect.Entities;
@@ -153,7 +156,19 @@ namespace TivoAhoy.Common.ViewModels
             }
             catch (Exception ex)
             {
-                MessageBox.Show(string.Format("Connection Failed :\n{0}", ex.Message));
+                Execute.BeginOnUIThread(() =>
+                {
+                    var toast = new ToastPrompt()
+                    {
+                        Title = "Failed to fetch My Shows list.",
+                        Message = ex.Message,
+                        TextOrientation = Orientation.Vertical,
+                        TextWrapping = TextWrapping.Wrap,
+                        Background = new SolidColorBrush(Colors.Red),
+                    };
+
+                    toast.Show();
+                });
             }
         }
 

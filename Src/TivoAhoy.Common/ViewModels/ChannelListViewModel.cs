@@ -7,7 +7,10 @@ using System.Reactive.Linq;
 using System.Reactive.Subjects;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 using Caliburn.Micro;
+using Coding4Fun.Toolkit.Controls;
 using Tivo.Connect;
 using Tivo.Connect.Entities;
 using TivoAhoy.Common.Events;
@@ -202,10 +205,10 @@ namespace TivoAhoy.Common.ViewModels
         {
             try
             {
-                var connection = await this.connectionService.GetConnectionAsync();
-
                 using (this.progressService.Show())
                 {
+                    var connection = await this.connectionService.GetConnectionAsync();
+
                     if (this.channels == null)
                     {
                         this.channels = await connection.GetChannelsAsync();
@@ -218,7 +221,16 @@ namespace TivoAhoy.Common.ViewModels
             }
             catch (Exception ex)
             {
-                MessageBox.Show(string.Format("Connection Failed :\n{0}", ex.Message));
+                var toast = new ToastPrompt()
+                {
+                    Title = "Failed to fetch channel list",
+                    Message = ex.Message,
+                    TextOrientation = Orientation.Vertical,
+                    TextWrapping = TextWrapping.Wrap,
+                    Background = new SolidColorBrush(Colors.Red),
+                };
+
+                toast.Show();
             }
         }
 

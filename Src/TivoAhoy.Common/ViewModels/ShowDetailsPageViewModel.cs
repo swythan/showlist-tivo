@@ -7,9 +7,11 @@ using System.Linq;
 using System.Reactive.Disposables;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Caliburn.Micro;
+using Coding4Fun.Toolkit.Controls;
 using Tivo.Connect;
 using Tivo.Connect.Entities;
 using TivoAhoy.Common.Services;
@@ -183,7 +185,7 @@ namespace TivoAhoy.Common.ViewModels
 
             this.MainImageBrush = await bestImage.GetResizedImageBrushAsync(requiredHeight);
         }
-        
+
         public ImageBrush MainImageBrush
         {
             get { return this.mainImageBrush; }
@@ -301,7 +303,19 @@ namespace TivoAhoy.Common.ViewModels
             }
             catch (Exception ex)
             {
-                MessageBox.Show(string.Format("Failed to retrieve details:\n{0}", ex.Message));
+                Execute.BeginOnUIThread(() =>
+                {
+                    var toast = new ToastPrompt()
+                    {
+                        Title = "Failed to fetch show details",
+                        Message = ex.Message,
+                        TextOrientation = Orientation.Vertical,
+                        TextWrapping = TextWrapping.Wrap,
+                        Background = new SolidColorBrush(Colors.Red),
+                    };
+
+                    toast.Show();
+                });
             }
         }
 
@@ -378,7 +392,19 @@ namespace TivoAhoy.Common.ViewModels
             }
             catch (Exception ex)
             {
-                MessageBox.Show(string.Format("Play command failed:\n{0}", ex.Message));
+                Execute.BeginOnUIThread(() =>
+                {
+                    var toast = new ToastPrompt()
+                    {
+                        Title = "Play command failed",
+                        Message = ex.Message,
+                        TextOrientation = Orientation.Vertical,
+                        TextWrapping = TextWrapping.Wrap,
+                        Background = new SolidColorBrush(Colors.Red),
+                    };
+
+                    toast.Show();
+                });
             }
         }
 
@@ -409,11 +435,29 @@ namespace TivoAhoy.Common.ViewModels
                     await connection.DeleteRecording(this.ShowRecordingID);
                 }
 
-                MessageBox.Show("Recording deleted.");
+                var toast = new ToastPrompt()
+                {
+                    Title = "Recording Deleted",
+                    TextOrientation = Orientation.Vertical,
+                };
+
+                toast.Show();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(string.Format("Delete command failed:\n{0}", ex.Message));
+                Execute.BeginOnUIThread(() =>
+                {
+                    var toast = new ToastPrompt()
+                    {
+                        Title = "Delete command failed",
+                        Message = ex.Message,
+                        TextOrientation = Orientation.Vertical,
+                        TextWrapping = TextWrapping.Wrap,
+                        Background = new SolidColorBrush(Colors.Red),
+                    };
+
+                    toast.Show();
+                });
             }
         }
 
@@ -443,11 +487,29 @@ namespace TivoAhoy.Common.ViewModels
                     await connection.CancelRecording(this.ShowRecordingID);
                 }
 
-                MessageBox.Show("Recording cancelled.");
+                var toast = new ToastPrompt()
+                {
+                    Title = "Recording Cancelled",
+                    TextOrientation = Orientation.Vertical,
+                };
+
+                toast.Show();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(string.Format("Cancel recording command failed:\n{0}", ex.Message));
+                Execute.BeginOnUIThread(() =>
+                {
+                    var toast = new ToastPrompt()
+                    {
+                        Title = "Cancel Recording Failed",
+                        Message = ex.Message,
+                        TextOrientation = Orientation.Vertical,
+                        TextWrapping = TextWrapping.Wrap,
+                        Background = new SolidColorBrush(Colors.Red),
+                    };
+
+                    toast.Show();
+                });
             }
         }
 
@@ -481,16 +543,43 @@ namespace TivoAhoy.Common.ViewModels
 
                 if (result.Subscription != null)
                 {
-                    MessageBox.Show("Recording scheduled.");
+                    var toast = new ToastPrompt()
+                    {
+                        Title = "Recording Scheduled",
+                        TextOrientation = Orientation.Vertical,
+                    };
+
+                    toast.Show();
                 }
                 else
                 {
-                    MessageBox.Show(string.Format("Unable to schedule recording due to conflicts."));
+                    var toast = new ToastPrompt()
+                    {
+                        Title = "Schedule Recording Failed",
+                        Message = "Could not schedule recording due to conflicts.",
+                        TextOrientation = Orientation.Vertical,
+                        TextWrapping = TextWrapping.Wrap,
+                        Background = new SolidColorBrush(Colors.Red),
+                    };
+
+                    toast.Show();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(string.Format("Failed to schedule recording:\n{0}", ex.Message));
+                Execute.BeginOnUIThread(() =>
+                {
+                    var toast = new ToastPrompt()
+                    {
+                        Title = "Schedule Recording Failed",
+                        Message = ex.Message,
+                        TextOrientation = Orientation.Vertical,
+                        TextWrapping = TextWrapping.Wrap,
+                        Background = new SolidColorBrush(Colors.Red),
+                    };
+
+                    toast.Show();
+                });
             }
         }
     }

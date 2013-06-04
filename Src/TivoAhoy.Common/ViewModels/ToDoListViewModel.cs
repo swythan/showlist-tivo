@@ -4,7 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 using Caliburn.Micro;
+using Coding4Fun.Toolkit.Controls;
 using Tivo.Connect.Entities;
 using TivoAhoy.Common.Services;
 
@@ -124,7 +127,16 @@ namespace TivoAhoy.Common.ViewModels
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(string.Format("Connection Failed :\n{0}", ex.Message));
+                    var toast = new ToastPrompt()
+                    {
+                        Title = "Failed to fetch Scheduled list.",
+                        Message = ex.Message,
+                        TextOrientation = Orientation.Vertical,
+                        TextWrapping = TextWrapping.Wrap,
+                        Background = new SolidColorBrush(Colors.Red),
+                    };
+
+                    toast.Show();
                 }
             }
         }

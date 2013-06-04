@@ -7,7 +7,10 @@ using System.Reactive.Linq;
 using System.Reactive.Subjects;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 using Caliburn.Micro;
+using Coding4Fun.Toolkit.Controls;
 using Tivo.Connect;
 using Tivo.Connect.Entities;
 using TivoAhoy.Common.Services;
@@ -152,7 +155,19 @@ namespace TivoAhoy.Common.ViewModels
             }
             catch (Exception ex)
             {
-                MessageBox.Show(string.Format("Search Failed\n{0}", ex.Message));
+                Execute.BeginOnUIThread(() =>
+                {
+                    var toast = new ToastPrompt()
+                    {
+                        Title = "Search failed",
+                        Message = ex.Message,
+                        TextOrientation = Orientation.Vertical,
+                        TextWrapping = TextWrapping.Wrap,
+                        Background = new SolidColorBrush(Colors.Red),
+                    };
+
+                    toast.Show();
+                });
             }
             finally
             {

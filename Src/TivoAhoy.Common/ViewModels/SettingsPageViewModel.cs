@@ -10,7 +10,10 @@ using System.Reactive.Linq;
 using System.ServiceModel;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 using Caliburn.Micro;
+using Coding4Fun.Toolkit.Controls;
 using Microsoft.Phone.Net.NetworkInformation;
 using Tivo.Connect;
 using TivoAhoy.Common.Discovery;
@@ -319,26 +322,60 @@ namespace TivoAhoy.Common.ViewModels
                     this.eventAggregator.Publish(new ConnectionSettingsChanged());
                 }
 
-                MessageBox.Show("Connection Succeeded!");
+                var toast = new ToastPrompt()
+                {
+                    Title = "Connection succeeded",
+                    Message = "Home Mode",
+                    TextOrientation = Orientation.Vertical,
+                };
+
+                toast.Show();
             }
             catch (UnauthorizedAccessException ex)
             {
-                MessageBox.Show("Invalid username or password");
+                var toast = new ToastPrompt()
+                {
+                    Title = "Connection Failed",
+                    Message = "Invalid username or password",
+                    TextOrientation = Orientation.Vertical,
+                    TextWrapping = TextWrapping.Wrap,
+                    Background = new SolidColorBrush(Colors.Red),
+                };
+
+                toast.Show();
             }
             catch (TivoException ex)
             {
+                string message = ex.Message;
+
                 if (ex.Code == "authenticationFailed")
                 {
-                    MessageBox.Show("Invalid username or password");
+                    message = "Invalid username or password";
                 }
-                else
+
+                var toast = new ToastPrompt()
                 {
-                    MessageBox.Show(string.Format("Connection Failed :\n{0}", ex.Message));
-                }
+                    Title = "Connection Failed",
+                    Message = message,
+                    TextOrientation = Orientation.Vertical,
+                    TextWrapping = TextWrapping.Wrap,
+                    Background = new SolidColorBrush(Colors.Red),
+                };
+
+                toast.Show();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(string.Format("Connection Failed :\n{0}", ex.Message));
+                var toast = new ToastPrompt()
+                {
+                    Title = "Connection Failed",
+                    Message = ex.Message,
+                    TextOrientation = Orientation.Vertical,
+                    TextWrapping = TextWrapping.Wrap,
+                    Background = new SolidColorBrush(Colors.Red),
+                };
+
+                toast.Show();
             }
             finally
             {
@@ -371,27 +408,60 @@ namespace TivoAhoy.Common.ViewModels
                     this.eventAggregator.Publish(new ConnectionSettingsChanged());
                 }
 
-                MessageBox.Show("Connection Succeeded!");
+                var toast = new ToastPrompt()
+                {
+                    Title = "Connection succeeded",
+                    Message = "Home Mode",
+                    TextOrientation = Orientation.Vertical,
+                };
+
+                toast.Show();
             }
             catch (ActionNotSupportedException)
             {
-                MessageBox.Show("Network remote control not enabled on TiVo");
-            }
+                var toast = new ToastPrompt()
+                {
+                    Title = "Connection Failed",
+                    Message = "Network remote control not enabled on TiVo.",
+                    TextOrientation = Orientation.Vertical,
+                    TextWrapping = TextWrapping.Wrap,
+                    Background = new SolidColorBrush(Colors.Red),
+                };
 
+                toast.Show();
+            }
             catch (UnauthorizedAccessException)
             {
-                MessageBox.Show("Incorrect Media Access Key");
+                var toast = new ToastPrompt()
+                {
+                    Title = "Connection Failed",
+                    Message = "Incorrect Media Access Key",
+                    TextOrientation = Orientation.Vertical,
+                    TextWrapping = TextWrapping.Wrap,
+                    Background = new SolidColorBrush(Colors.Red),
+                };
+
+                toast.Show();
             }
             catch (TivoException ex)
             {
+                string message = ex.Message;
+
                 if (ex.Code == "authenticationFailed")
                 {
-                    MessageBox.Show("Incorrect Media Access Key");
+                    message = "Incorrect Media Access Key";
                 }
-                else
+
+                var toast = new ToastPrompt()
                 {
-                    MessageBox.Show(string.Format("Connection Failed :\n{0}", ex.Message));
-                }
+                    Title = "Connection Failed",
+                    Message = message,
+                    TextOrientation = Orientation.Vertical,
+                    TextWrapping = TextWrapping.Wrap,
+                    Background = new SolidColorBrush(Colors.Red),
+                };
+
+                toast.Show();
             }
             catch (Exception ex)
             {

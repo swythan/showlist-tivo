@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Caliburn.Micro;
+using Coding4Fun.Toolkit.Controls;
 using Microsoft.Phone.Net.NetworkInformation;
 using Tivo.Connect;
 using TivoAhoy.Common.Events;
@@ -231,7 +232,20 @@ namespace TivoAhoy.Common.Services
                             this.isConnected = true;
                             this.isAwayMode = false;
 
+                            Execute.BeginOnUIThread(() =>
+                                {
+                                    var toast = new ToastPrompt()
+                                    {
+                                        Title = "Connected",
+                                        Message = "Home Mode",
+                                        MillisecondsUntilHidden = 600,
+                                    };
+
+                                    toast.Show();
+                                });
+
                             this.analyticsService.ConnectedHomeMode();
+
                         }
                         catch (Exception ex)
                         {
@@ -248,9 +262,21 @@ namespace TivoAhoy.Common.Services
 
                         this.isConnected = true;
                         this.isAwayMode = true;
- 
+
+                        Execute.BeginOnUIThread(() =>
+                            {
+                                var toast = new ToastPrompt()
+                                {
+                                    Title = "Connected",
+                                    Message = "Away Mode",
+                                    MillisecondsUntilHidden = 600,
+                                };
+
+                                toast.Show();
+                            });
+
                         this.analyticsService.ConnectedAwayMode();
-                   }
+                    }
                     catch (Exception ex)
                     {
                         this.Error = ex.Message;
