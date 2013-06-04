@@ -83,5 +83,12 @@
                 </Style>
             </ListBox.ItemContainerStyle>
         </ListBox>
+        <TextBlock
+            Text="No credits available" 
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            FontStyle="Italic"
+            Style="{StaticResource PhoneTextGroupHeaderStyle}"
+            Visibility="{Binding Credits, Converter={StaticResource nonNullToVisConverter}}" />
     </Grid>
 </UserControl>

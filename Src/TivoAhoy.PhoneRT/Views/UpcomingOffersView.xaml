@@ -22,6 +22,12 @@
             x:Key="boolToVisConverter" />
         <converters:UtcToLocalTimeConverter
             x:Key="utcToLocalConverter" />
+        <converters:NullOrEmptyToVisibilityConverter
+            x:Key="nullToVisConverter"
+            IsReversed="True" />
+        <converters:NullOrEmptyToVisibilityConverter
+            x:Key="nonNullToVisConverter"
+            IsReversed="True" />
     </UserControl.Resources>
     <Grid>
         <ListBox
@@ -116,5 +122,11 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <TextBlock
+            Text="{Binding StatusText}"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            FontStyle="Italic"
+            Style="{StaticResource PhoneTextGroupHeaderStyle}" />
     </Grid>
 </UserControl>

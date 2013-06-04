@@ -121,8 +121,7 @@
             </controls:PanoramaItem>
             
             <controls:PanoramaItem
-                x:Name="Credits"
-                Visibility="Collapsed" />
+                x:Name="Credits" />
 
             <controls:PanoramaItem >
                 <Grid

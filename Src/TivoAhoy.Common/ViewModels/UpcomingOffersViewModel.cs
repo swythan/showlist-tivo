@@ -20,6 +20,8 @@ namespace TivoAhoy.Common.ViewModels
         private string collectionID;
         private List<OfferViewModel> offers;
 
+        private string statusText;
+
         public UpcomingOffersViewModel(
             IProgressService progressService,
             INavigationService navigationService,
@@ -138,6 +140,24 @@ namespace TivoAhoy.Common.ViewModels
             }
         }
 
+        public string StatusText
+        {
+            get
+            {
+                return this.statusText;
+            }
+            set
+            {
+                if (this.statusText == value)
+                {
+                    return;
+                }
+
+                this.statusText = value;
+                this.NotifyOfPropertyChange(() => this.StatusText);
+            }
+        }
+
         public bool CanRefreshOffers
         {
             get
@@ -159,6 +179,8 @@ namespace TivoAhoy.Common.ViewModels
         {
             try
             {
+                this.StatusText = "Loading...";
+
                 using (this.progressService.Show())
                 {
                     var connection = await this.connectionService.GetConnectionAsync();
@@ -185,6 +207,18 @@ namespace TivoAhoy.Common.ViewModels
             catch (Exception ex)
             {
                 Debug.WriteLine(string.Format("Fetching upcoming shows failed :\n{0}", ex.Message));
+            }
+            finally
+            {
+                if (this.Offers != null &&
+                    this.Offers.Any())
+                {
+                    this.StatusText = null;
+                }
+                else
+                {
+                    this.StatusText = "No upcoming showings";
+                }
             }
         }
 
@@ -215,6 +249,5 @@ namespace TivoAhoy.Common.ViewModels
                 .WithParam(x => x.ShowRecordingID, scheduledRecording == null ? null : scheduledRecording.RecordingId)
                 .Navigate();
         }
-
     }
 }

@@ -81,12 +81,10 @@
             </controls:PanoramaItem>
 
             <controls:PanoramaItem
-                x:Name="Credits"
-                Visibility="Collapsed" />
+                x:Name="Credits" />
 
             <controls:PanoramaItem
-                x:Name="UpcomingOffers"
-                Visibility="Visible" />
+                x:Name="UpcomingOffers" />
 
             <!--<controls:PanoramaItem>
                 <Grid
