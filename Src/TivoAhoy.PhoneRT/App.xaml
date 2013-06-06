@@ -1,15 +1,75 @@
 ﻿<Application
-    x:Class="TivoAhoy.PhoneRT.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:local="clr-namespace:TivoAhoy.PhoneRT"
+    xmlns:Primitives="clr-namespace:Microsoft.Phone.Controls.Primitives;assembly=Microsoft.Phone"
+    x:Class="TivoAhoy.PhoneRT.App"
     Startup="Application_Startup">
 
     <Application.Resources>
         <local:Bootstrapper
             x:Key="bootstrapper" />
-     </Application.Resources>
+        <Style
+            TargetType="phone:Panorama">
+            <Setter
+                Property="ItemsPanel">
+                <Setter.Value>
+                    <ItemsPanelTemplate>
+                        <Primitives:PanoramaPanel
+                            x:Name="panel" />
+                    </ItemsPanelTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter
+                Property="Foreground"
+                Value="{StaticResource PhoneForegroundBrush}" />
+            <Setter
+                Property="Background"
+                Value="Transparent" />
+            <Setter
+                Property="Template">
+                <Setter.Value>
+                    <ControlTemplate
+                        TargetType="phone:Panorama">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition
+                                    Height="auto" />
+                                <RowDefinition
+                                    Height="*" />
+                            </Grid.RowDefinitions>
+                            <Primitives:PanningBackgroundLayer
+                                x:Name="BackgroundLayer"
+                                HorizontalAlignment="Left"
+                                Grid.RowSpan="2">
+                                <Border
+                                    x:Name="background"
+                                    Background="{TemplateBinding Background}" />
+                            </Primitives:PanningBackgroundLayer>
+                            <Primitives:PanningTitleLayer
+                                x:Name="TitleLayer"
+                                CharacterSpacing="-35"
+                                ContentTemplate="{TemplateBinding TitleTemplate}"
+                                Content="{TemplateBinding Title}"
+                                FontSize="110"
+                                FontFamily="{StaticResource PhoneFontFamilyLight}"
+                                HorizontalAlignment="Left"
+                                Margin="10,-24,0,0"
+                                Grid.Row="0" />
+                            <Primitives:PanningLayer
+                                x:Name="ItemsLayer"
+                                HorizontalAlignment="Left"
+                                Grid.Row="1">
+                                <ItemsPresenter
+                                    x:Name="items" />
+                            </Primitives:PanningLayer>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Application.Resources>
 
 </Application>
