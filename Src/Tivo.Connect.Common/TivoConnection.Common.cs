@@ -442,7 +442,15 @@ namespace Tivo.Connect
 
             CheckResponse(results, "recordingList", "recordingSearch");
 
-            return results["recording"].First().ToObject<Recording>(this.jsonSerializer);
+            var content = (JArray)results["recording"];
+
+            if (content == null ||
+                !content.Any())
+            {
+                return null;
+            }
+
+            return content.First().ToObject<Recording>(this.jsonSerializer);
         }
 
         public async Task<Offer> GetOfferDetails(string offerId)
@@ -452,6 +460,12 @@ namespace Tivo.Connect
             CheckResponse(detailsResults, "offerList", "offerSearch");
 
             var content = (JArray)detailsResults["offer"];
+
+            if (content == null ||
+                !content.Any())
+            {
+                return null;
+            }
 
             return content.First().ToObject<Offer>(this.jsonSerializer);
         }
@@ -464,6 +478,12 @@ namespace Tivo.Connect
 
             var content = (JArray)detailsResults["collection"];
 
+            if (content == null ||
+               !content.Any())
+            {
+                return null;
+            }
+
             return content.First().ToObject<Collection>(this.jsonSerializer);
         }
 
@@ -475,6 +495,12 @@ namespace Tivo.Connect
 
             var content = (JArray)detailsResults["person"];
 
+            if (content == null ||
+                !content.Any())
+            {
+                return null;
+            }
+
             return content.First().ToObject<Person>(this.jsonSerializer);
         }
 
@@ -485,6 +511,12 @@ namespace Tivo.Connect
             CheckResponse(detailsResults, "personList", "personSearch");
 
             var content = (JArray)detailsResults["person"];
+
+            if (content == null ||
+                !content.Any())
+            {
+                return null;
+            }
 
             return content.First().ToObject<Person>(this.jsonSerializer);
         }
@@ -1474,7 +1506,7 @@ namespace Tivo.Connect
         private async Task<JObject> SendUpcomingOfferSearchForCollectionIdRequest(string collectionId, int offset, int count)
         {
             var request = BuildUpcomingOfferSearchRequest(offset, count);
-            
+
             request["collectionId"] = new[] { collectionId };
 
             var response = await SendRequest("offerSearch", request).ConfigureAwait(false);
