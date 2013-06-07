@@ -63,9 +63,11 @@
             </controls:PanoramaItem>
 
             <controls:PanoramaItem
+                Header="Credits"
                 x:Name="Credits" />
 
             <controls:PanoramaItem
+                Header="Upcoming"
                 x:Name="UpcomingOffers" />
 
             <!--<controls:PanoramaItem>
