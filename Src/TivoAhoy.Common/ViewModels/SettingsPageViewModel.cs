@@ -325,7 +325,7 @@ namespace TivoAhoy.Common.ViewModels
                 var toast = new ToastPrompt()
                 {
                     Title = "Connection succeeded",
-                    Message = "Home Mode",
+                    Message = "Away Mode",
                     TextOrientation = Orientation.Vertical,
                 };
 
