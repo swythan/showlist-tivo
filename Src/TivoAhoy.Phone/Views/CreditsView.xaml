@@ -1,0 +1,94 @@
+﻿<UserControl
+    x:Class="TivoAhoy.Phone.Views.CreditsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+    xmlns:vm="clr-namespace:TivoAhoy.Common.ViewModels;assembly=TivoAhoy.Common"
+    xmlns:converters="clr-namespace:TivoAhoy.Phone.Converters"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480"
+    d:DesignWidth="480"
+    d:DataContext="{d:DesignInstance Type=vm:CreditsViewModel, IsDesignTimeCreatable=True}"
+    cal:Bind.AtDesignTime="True">
+
+    <UserControl.Resources>
+        <converters:NullOrEmptyToVisibilityConverter
+            x:Key="nullToVisConverter" />
+        <converters:NullOrEmptyToVisibilityConverter
+            x:Key="nonNullToVisConverter"
+            IsReversed="True" />
+    </UserControl.Resources>
+
+    <Grid
+        x:Name="LayoutRoot"
+        Margin="0,-6,0,0">
+        <ListBox
+            x:Name="Credits">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid
+                        Margin="12,6"
+                        Background="Transparent"
+                        cal:Message.Attach="[Event Tap] = [Action DisplayPersonDetails($dataContext)]">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition
+                                Height="*" />
+                            <RowDefinition
+                                Height="Auto" />
+                            <RowDefinition
+                                Height="Auto" />
+                            <RowDefinition
+                                Height="*" />
+                        </Grid.RowDefinitions>
+                        
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition
+                                Width="Auto" />
+                            <ColumnDefinition
+                                Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image
+                            Source="{Binding ImageUrl}"/>
+                        <StackPanel
+                            Grid.Column="1"
+                            Orientation="Vertical"
+                            VerticalAlignment="Center">
+                            <TextBlock
+                                Style="{StaticResource PhoneTextLargeStyle}"
+                                Text="{Binding DisplayName}" />
+                            <TextBlock
+                                Style="{StaticResource PhoneTextAccentStyle}"
+                                Text="{Binding CharacterName}"
+                                Visibility="{Binding CharacterName, Converter={StaticResource nullToVisConverter}}" />
+                            <TextBlock
+                                Style="{StaticResource PhoneTextAccentStyle}"
+                                Text="{Binding Role}"
+                                Visibility="{Binding CharacterName, Converter={StaticResource nonNullToVisConverter}}" />
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemContainerStyle>
+                <Style
+                    TargetType="ListBoxItem">
+                    <Setter
+                        Property="HorizontalContentAlignment"
+                        Value="Stretch" />
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
+        <TextBlock
+            Text="No credits available" 
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            FontStyle="Italic"
+            Style="{StaticResource PhoneTextGroupHeaderStyle}"
+            Visibility="{Binding Credits, Converter={StaticResource nonNullToVisConverter}}" />
+    </Grid>
+</UserControl>

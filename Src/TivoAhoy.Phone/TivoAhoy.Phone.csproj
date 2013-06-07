@@ -135,9 +135,23 @@
     </Compile>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\ImageInfoListToUrlConverter.cs" />
+    <Compile Include="Converters\NullOrEmptyToVisibilityConverter.cs" />
     <Compile Include="Converters\UtcToLocalTimeConverter.cs" />
     <Compile Include="Views\ChannelListView.xaml.cs">
       <DependentUpon>ChannelListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CollectionDetailsPage.xaml.cs">
+      <DependentUpon>CollectionDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CreditsView.xaml.cs">
+      <DependentUpon>CreditsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PersonContentView.xaml.cs">
+      <DependentUpon>PersonContentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PersonDetailsPage.xaml.cs">
+      <DependentUpon>PersonDetailsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PersonItemView.xaml.cs">
       <DependentUpon>PersonItemView.xaml</DependentUpon>
@@ -176,6 +190,9 @@
     <Compile Include="Views\CollectionItemView.xaml.cs">
       <DependentUpon>CollectionItemView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\UpcomingOffersView.xaml.cs">
+      <DependentUpon>UpcomingOffersView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -189,6 +206,22 @@
     <Page Include="Views\ChannelListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CollectionDetailsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CreditsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PersonContentView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PersonDetailsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\PersonItemView.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -237,6 +270,10 @@
     <Page Include="Views\CollectionItemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UpcomingOffersView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
