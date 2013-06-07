@@ -84,6 +84,7 @@ namespace TivoAhoy.Common.ViewModels
                 .UriFor<ShowDetailsPageViewModel>()
                 .WithParam(x => x.ShowContentID, this.Source.ContentId)
                 .WithParam(x => x.ShowRecordingID, this.Source.Id)
+                .WithParam(x => x.ShowOfferID, this.Source.RecordingForChildRecordingId.OfferId)
                 .Navigate();
         }
     }

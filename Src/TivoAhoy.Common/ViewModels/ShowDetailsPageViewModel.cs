@@ -81,8 +81,23 @@ namespace TivoAhoy.Common.ViewModels
                     }
                 },
                 Description = "This is the description of this very interesting episode. Don't let it catch you out, as it really is very interesting"
-
             };
+
+            this.Offer = 
+                new Offer() 
+                {
+                    Title = "The Walking Dead",
+                    Subtitle = "An Interesting Episode", 
+                    StartTime = DateTime.Parse("21:00"), 
+                    DurationSeconds = 1825,
+                    Channel = 
+                        new Channel() 
+                        { 
+                            ChannelNumber = 150, 
+                            CallSign = "Ch5 HD", 
+                            LogoIndex = 65736 
+                        }
+                };
         }
 
         public int PanoramaHeight
@@ -244,6 +259,9 @@ namespace TivoAhoy.Common.ViewModels
                 NotifyOfPropertyChange(() => this.CanPlayShow);
                 NotifyOfPropertyChange(() => this.CanCancelRecording);
                 NotifyOfPropertyChange(() => this.CanScheduleRecording);
+                NotifyOfPropertyChange(() => this.Channel);
+                NotifyOfPropertyChange(() => this.StartTime);
+                NotifyOfPropertyChange(() => this.Duration);
             }
         }
 
@@ -259,6 +277,9 @@ namespace TivoAhoy.Common.ViewModels
                 NotifyOfPropertyChange(() => this.Offer);
                 NotifyOfPropertyChange(() => this.IsRecordable);
                 NotifyOfPropertyChange(() => this.CanScheduleRecording);
+                NotifyOfPropertyChange(() => this.Channel);
+                NotifyOfPropertyChange(() => this.StartTime);
+                NotifyOfPropertyChange(() => this.Duration);
             }
         }
 
@@ -307,14 +328,14 @@ namespace TivoAhoy.Common.ViewModels
 
                     this.Show = await connection.GetShowContentDetails(this.ShowContentID);
 
-                    if (!string.IsNullOrEmpty(this.ShowRecordingID))
-                    {
-                        this.Recording = await connection.GetRecordingDetails(this.ShowRecordingID);
-                    }
-
                     if (!string.IsNullOrEmpty(this.ShowOfferID))
                     {
                         this.Offer = await connection.GetOfferDetails(this.ShowOfferID);
+                    }
+
+                    if (!string.IsNullOrEmpty(this.ShowRecordingID))
+                    {
+                        this.Recording = await connection.GetRecordingDetails(this.ShowRecordingID);
                     }
                 }
             }
@@ -340,6 +361,9 @@ namespace TivoAhoy.Common.ViewModels
         {
             get
             {
+                if (Execute.InDesignMode)
+                    return true;
+
                 if (this.Recording == null)
                     return false;
 
@@ -355,6 +379,9 @@ namespace TivoAhoy.Common.ViewModels
         {
             get
             {
+                if (Execute.InDesignMode)
+                    return true;
+
                 if (this.Recording == null)
                     return false;
 
@@ -367,6 +394,9 @@ namespace TivoAhoy.Common.ViewModels
         {
             get
             {
+                if (Execute.InDesignMode)
+                    return true;
+
                 if (this.ShowOfferID == null)
                     return false;
 
@@ -378,6 +408,60 @@ namespace TivoAhoy.Common.ViewModels
 
                 // TODO : Should we be able to record existing recordings in certain states (e.g. cancelled)?
                 return false;
+            }
+        }
+
+        public Channel Channel
+        {
+            get
+            {
+                if (this.Offer != null)
+                {
+                    return this.Offer.Channel;
+                }
+
+                if (this.Recording != null)
+                {
+                    return this.Recording.Channel;
+                }
+
+                return null;
+            }
+        }
+
+        public DateTime? StartTime
+        {
+            get
+            {
+                if (this.Recording != null)
+                {
+                    return this.Recording.ScheduledStartTime;
+                }
+
+                if (this.Offer != null)
+                {
+                    return this.Offer.StartTime;
+                }
+
+                return null;
+            }
+        }
+
+        public TimeSpan? Duration
+        {
+            get
+            {
+                if (this.Recording != null)
+                {
+                    return this.Recording.ScheduledEndTime - this.Recording.ScheduledStartTime;
+                }
+
+                if (this.Offer != null)
+                {
+                    return this.Offer.Duration;
+                }
+
+                return null;
             }
         }
 
