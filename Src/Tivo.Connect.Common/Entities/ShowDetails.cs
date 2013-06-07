@@ -18,6 +18,12 @@ namespace Tivo.Connect.Entities
             }
         }
 
+        public string ContentId { get; set; }
+
+        public string CollectionId { get; set; }
+        public string CollectionDescription { get; set; }
+        public string CollectionType { get; set; }
+
         public string Title { get; set; }
         public string Subtitle { get; set; }
         public int? SeasonNumber { get; set; }
@@ -27,10 +33,15 @@ namespace Tivo.Connect.Entities
         [JsonProperty("episodeNum")]
         public List<int> EpisodeNumbers { get; set; }
 
+        [JsonProperty("category")]
+        public List<Category> Categories { get; set; }
+
+        [JsonProperty("credit")]
+        public List<Credit> Credits { get; set; }
+
         [JsonProperty("image")]
         public List<ImageInfo> Images { get; set; }
-
-
+        
         [JsonIgnore]
         public int? EpisodeNumber
         {

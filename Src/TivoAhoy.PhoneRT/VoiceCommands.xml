@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.0">
+  <CommandSet xml:lang="en-GB" Name="TivoAhoyEnGb">
+    <CommandPrefix> TiVo </CommandPrefix>
+    <Example> my shows </Example>
+
+    <Command Name="MyShowsList">
+      <Example> my shows </Example>
+      <ListenFor> my shows </ListenFor>
+      <ListenFor> recorded </ListenFor>
+      <Feedback> Displaying MyShows list from TiVo... </Feedback>
+      <Navigate />
+    </Command>
+    
+    <Command Name="ToDoList">
+      <Example> to do </Example>
+      <ListenFor> to do </ListenFor>
+      <ListenFor> todo </ListenFor>
+      <ListenFor> scheduled </ListenFor>
+      <Feedback> Displaying scheduled recordings... </Feedback>
+      <Navigate />
+    </Command>  
+    
+    <Command Name="ShowGuide">
+      <Example> guide </Example>
+      <ListenFor> guide </ListenFor>
+      <ListenFor> channels </ListenFor>
+      <ListenFor> e.p.g. </ListenFor>
+      <Feedback> Displaying program guide from TiVo... </Feedback>
+      <Navigate />
+    </Command>
+
+    <Command Name="Search">
+      <Example> search </Example>
+      <ListenFor> find </ListenFor>
+      <ListenFor> find {*}</ListenFor>
+      <ListenFor> search [TiVo] </ListenFor>
+      <ListenFor> search [TiVo] [for] {*} </ListenFor>
+      <Feedback> What are you looking for? </Feedback>
+      <Navigate />
+    </Command>
+
+    <!--<Command Name="PlayUnknownLevel">
+      <Example> replay level two </Example>
+      <ListenFor> [and] replay level {*} </ListenFor>
+      <Feedback> Unknown level; going to level selection... </Feedback>
+      <Navigate Target="LevelSelect.xaml" />
+    </Command>
+
+    <PhraseList Label="number">
+      <Item> one </Item>
+      <Item> two </Item>
+      <Item> three </Item>
+    </PhraseList>-->
+
+  </CommandSet>
+</VoiceCommands>
+
+<!-- Example -->
+<!--
+
+    The preceding example demonstrates a hypothetical game called 'Contoso ROD3O!' which defines two
+    Commands that a user can say to either start a new game or replay one of three levels in the game.  
+    To initiate the PlayGame command, a user can say "Contoso Rodeo play  a new game" or "Contoso Rodeo
+    play new game". Either phrase will start a new game. To initiate the second Command, a user can say
+    "Contoso Rodeo replay level one", "Contoso Rodeo replay level two", or "Contoso Rodeo replay level 
+    three".
+    The second Command demonstrates how to use a PhraseList with a Command. PhraseLists can be updated 
+    dynamically by the application (e.g., if a user unlocks a new level or game or feature, you might 
+    want to allow the user to give commands for newfeatures after voice commands are already registered.)
+    The third Command demonstrates how the {*} sequence can parallel another command to recognize speech
+    that is not defined in the CommandSet.
+
+  Note:
+
+      [and] Indicates that "and" is optional. Making connecting words like this optional
+            can help both "Contoso Rodeo, play new game" and "open Contoso Rodeo and play
+            a new game" feel natural to speak.
+                 
+      {number} Defined separately from the Command, mapping to "one" or "two" or "three".
+
+-->

@@ -2,10 +2,12 @@
 
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Windows.Controls;
 using Caliburn.Micro;
 using Microsoft.Phone.Controls;
-using TivoAhoy.Phone.ViewModels;
+using TivoAhoy.Common.Services;
+using TivoAhoy.Common.ViewModels;
 
 namespace TivoAhoy.Phone
 {
@@ -28,18 +30,40 @@ namespace TivoAhoy.Phone
             container.PerRequest<SettingsPageViewModel>();
             container.PerRequest<MainPageViewModel>();
             container.PerRequest<ShowContainerShowsPageViewModel>();
+            container.PerRequest<CollectionDetailsPageViewModel>();
             container.PerRequest<ShowDetailsPageViewModel>();
+            container.PerRequest<PersonDetailsPageViewModel>();
 
             container.PerRequest<MyShowsViewModel>();
             container.PerRequest<ChannelListViewModel>();
             container.PerRequest<ToDoListViewModel>();
+            container.PerRequest<SearchViewModel>();
             container.PerRequest<IndividualShowViewModel>();
             container.PerRequest<OfferViewModel>();
             container.PerRequest<RecordingViewModel>();
             container.PerRequest<ShowContainerViewModel>();
             container.PerRequest<LazyRecordingFolderItemViewModel>();
+            container.PerRequest<PersonItemViewModel>();
+            container.PerRequest<CollectionItemViewModel>();
+            container.PerRequest<CreditsViewModel>();
+            container.PerRequest<PersonContentViewModel>();
+            container.PerRequest<UpcomingOffersViewModel>();
 
             AddCustomConventions();
+        }
+
+        protected override IEnumerable<Assembly> SelectAssemblies()
+        {
+            var assemblies =
+                new List<Assembly> 
+                {
+                    typeof(Bootstrapper).Assembly, 
+                    typeof(MainPageViewModel).Assembly
+                };
+
+            AssemblySource.Instance.AddRange(assemblies);
+
+            return base.SelectAssemblies();
         }
 
         protected override object GetInstance(Type service, string key)
@@ -59,12 +83,12 @@ namespace TivoAhoy.Phone
 
         protected override void OnLaunch(object sender, Microsoft.Phone.Shell.LaunchingEventArgs e)
         {
-            EnableAnalytics(true);
+            EnableAnalytics(true);          
             EnableConnections(true);
 
             base.OnLaunch(sender, e);
         }
-
+    
         private void EnableConnections(bool enable)
         {
             var connectionService = (ITivoConnectionService)this.container.GetInstance(typeof(ITivoConnectionService), null);
@@ -126,6 +150,11 @@ namespace TivoAhoy.Phone
 
         static void AddCustomConventions()
         {
+            ViewModelLocator.AddNamespaceMapping("TivoAhoy.Phone.Views", "TivoAhoy.Common.ViewModels", "View");
+            ViewModelLocator.AddNamespaceMapping("TivoAhoy.Phone.Views", "TivoAhoy.Common.ViewModels", "Page");
+            ViewLocator.AddNamespaceMapping("TivoAhoy.Common.ViewModels", "TivoAhoy.Phone.Views", "View");
+            ViewLocator.AddNamespaceMapping("TivoAhoy.Common.ViewModels", "TivoAhoy.Phone.Views", "Page");
+
             ConventionManager.AddElementConvention<PerformanceProgressBar>(PerformanceProgressBar.IsIndeterminateProperty, "IsIndeterminate", "Loaded");
 
             ConventionManager.AddElementConvention<Pivot>(Pivot.ItemsSourceProperty, "SelectedItem", "SelectionChanged").ApplyBinding =
@@ -162,23 +191,22 @@ namespace TivoAhoy.Phone
                     return false;
                 };
 
-            ConventionManager.AddElementConvention<ListPicker>(ListPicker.ItemsSourceProperty, "SelectedItem", "SelectionChanged").ApplyBinding =
-                (viewModelType, path, property, element, convention) =>
-                {
-                    if (ConventionManager
-                        .GetElementConvention(typeof(ItemsControl))
-                        .ApplyBinding(viewModelType, path, property, element, convention))
+            ConventionManager.AddElementConvention<ListPicker>(ListPicker.ItemsSourceProperty, "SelectedItem", "SelectionChanged")
+                .ApplyBinding =
+                    (viewModelType, path, property, element, convention) =>
                     {
-                        ConventionManager
-                            .ConfigureSelectedItem(element, ListPicker.SelectedItemProperty, viewModelType, path);
-                        ConventionManager
-                            .ApplyHeaderTemplate(element, ListPicker.HeaderTemplateProperty, null, viewModelType);
-                        return true;
-                    }
+                        if (ConventionManager.GetElementConvention(typeof(ItemsControl))
+                            .ApplyBinding(viewModelType, path, property, element, convention))
+                        {
+                            ConventionManager
+                                .ConfigureSelectedItem(element, ListPicker.SelectedItemProperty, viewModelType, path);
+                            //ConventionManager
+                            //    .ApplyHeaderTemplate(element, ListPicker.HeaderTemplateProperty, null, viewModelType);
+                            return true;
+                        }
 
-                    return false;
-                };
-
+                        return false;
+                    };
         }
     }
 }

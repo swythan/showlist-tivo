@@ -4,153 +4,91 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+    xmlns:vm="clr-namespace:TivoAhoy.Common.ViewModels;assembly=TivoAhoy.Common"
+    xmlns:converters="clr-namespace:TivoAhoy.Phone.Converters"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    d:DesignWidth="480">
+    d:DesignHeight="480"
+    d:DesignWidth="480"
+    d:DataContext="{d:DesignInstance Type=vm:CreditsViewModel, IsDesignTimeCreatable=True}"
+    cal:Bind.AtDesignTime="True">
+
+    <UserControl.Resources>
+        <converters:NullOrEmptyToVisibilityConverter
+            x:Key="nullToVisConverter" />
+        <converters:NullOrEmptyToVisibilityConverter
+            x:Key="nonNullToVisConverter"
+            IsReversed="True" />
+    </UserControl.Resources>
 
     <Grid
-        x:Name="LayoutRoot">
-        <StackPanel>
-            <RichTextBox
-                IsReadOnly="True"
-                Margin="{StaticResource PhoneVerticalMargin}"
-                BorderBrush="{x:Null}"
-                Foreground="{StaticResource PhoneSubtleBrush}">
-                <Paragraph>
-                    TiVo is a registered trademark of TiVo Inc. or its subsidiaries worldwide.
-                </Paragraph>
-            </RichTextBox>
-            <RichTextBox
-                IsReadOnly="True"
-                Margin="{StaticResource PhoneVerticalMargin}"
-                BorderBrush="{x:Null}"
-                Foreground="{StaticResource PhoneSubtleBrush}"
-                FontSize="{StaticResource PhoneFontSizeSmall}">
-                <Paragraph
-                    Foreground="{StaticResource PhoneAccentBrush}"
-                    FontFamily="{StaticResource PhoneFontFamilySemiBold}"
-                    FontSize="{StaticResource PhoneFontSizeNormal}">
-                    <Hyperlink
-                        NavigateUri="http://caliburnmicro.codeplex.com/"
-                        TargetName="_blank">
-                        Caliburn Micro
-                    </Hyperlink>
-                </Paragraph>
-                <Paragraph
-                    FontSize="{StaticResource PhoneFontSizeNormal}">
-                    The MIT License (MIT)
-                </Paragraph>
-                <Paragraph>
-                    Copyright (c) 2010 Blue Spire Consulting, Inc.
-                </Paragraph>
-                <Paragraph>
-                    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-                </Paragraph>
-                <Paragraph>
-                    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-                </Paragraph>
-                <Paragraph
-                    FontFamily="{StaticResource PhoneFontFamilySemiBold}">
-                    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-                        DEALINGS IN THE SOFTWARE.</Paragraph>
-            </RichTextBox>
-            <RichTextBox
-                IsReadOnly="True"
-                Margin="{StaticResource PhoneVerticalMargin}"
-                BorderBrush="{x:Null}"
-                Foreground="{StaticResource PhoneSubtleBrush}"
-                FontSize="{StaticResource PhoneFontSizeSmall}">
-                <Paragraph
-                    Foreground="{StaticResource PhoneAccentBrush}"
-                    FontFamily="{StaticResource PhoneFontFamilySemiBold}"
-                    FontSize="{StaticResource PhoneFontSizeNormal}">
-                    <Hyperlink
-                        NavigateUri="http://json.codeplex.com/"
-                        TargetName="_blank">
-                        Json.NET
-                    </Hyperlink>
-                </Paragraph>
-                <Paragraph
-                    FontSize="{StaticResource PhoneFontSizeNormal}">
-                    The MIT License (MIT)
-                </Paragraph>
-                <Paragraph>
-                    Copyright (c) 2007 James Newton-King
-                </Paragraph>
-                <Paragraph>
-                    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-                </Paragraph>
-                <Paragraph>
-                    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-                </Paragraph>
-                <Paragraph
-                    FontFamily="{StaticResource PhoneFontFamilySemiBold}">
-                    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-                        DEALINGS IN THE SOFTWARE.</Paragraph>
-            </RichTextBox>
-            <RichTextBox
-                IsReadOnly="True"
-                Margin="{StaticResource PhoneVerticalMargin}"
-                BorderBrush="{x:Null}"
-                Foreground="{StaticResource PhoneSubtleBrush}"
-                FontSize="{StaticResource PhoneFontSizeSmall}">
-                <Paragraph
-                    Foreground="{StaticResource PhoneAccentBrush}"
-                    FontFamily="{StaticResource PhoneFontFamilySemiBold}"
-                    FontSize="{StaticResource PhoneFontSizeNormal}">
-                    <Hyperlink
-                        NavigateUri="http://www.bouncycastle.org"
-                        TargetName="_blank">
-                        The Bouncy Castle Cryptographic C# API
-                    </Hyperlink>
-                </Paragraph>
-                <Paragraph
-                    FontSize="{StaticResource PhoneFontSizeNormal}">
-                    The Bouncy Castle License
-                </Paragraph>
-                <Paragraph>
-                    Copyright (c) 2000-2011 The Legion Of The Bouncy Castle 
-                    (<Hyperlink
-                        NavigateUri="http://www.bouncycastle.org"
-                        TargetName="_blank">
-                        http://www.bouncycastle.org
-                    </Hyperlink>)
-                </Paragraph>
-                <Paragraph>
-                    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sub license, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-                </Paragraph>
-                <Paragraph>
-                    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-                </Paragraph>
-                <Paragraph
-                    FontFamily="{StaticResource PhoneFontFamilySemiBold}">
-                    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-                        INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
-                        PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-                        LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-                        OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-                        DEALINGS IN THE SOFTWARE.
-                </Paragraph>
-            </RichTextBox>
-            <RichTextBox
-                IsReadOnly="True"
-                Margin="{StaticResource PhoneVerticalMargin}"
-                BorderBrush="{x:Null}"
-                Foreground="{StaticResource PhoneSubtleBrush}">
-                <Paragraph>
-                    <Hyperlink
-                        Foreground="{StaticResource PhoneAccentBrush}"
-                        FontFamily="{StaticResource PhoneFontFamilySemiBold}"
-                        NavigateUri="http://thenounproject.com/noun/thumbs-up/#icon-No14365"
-                        TargetName="_blank">Thumbs Up</Hyperlink> icon designed by
-                    <Hyperlink
-                        NavigateUri="http://thenounproject.com/jontesta"
-                        TargetName="_blank">Jon Testa</Hyperlink> from The Noun Project
-                </Paragraph>
-            </RichTextBox>
-        </StackPanel>
-    </Grid>
+        x:Name="LayoutRoot"
+        Margin="0,-6,0,0">
+        <ListBox
+            x:Name="Credits">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid
+                        Margin="12,6"
+                        Background="Transparent"
+                        cal:Message.Attach="[Event Tap] = [Action DisplayPersonDetails($dataContext)]">
 
+                        <Grid.RowDefinitions>
+                            <RowDefinition
+                                Height="*" />
+                            <RowDefinition
+                                Height="Auto" />
+                            <RowDefinition
+                                Height="Auto" />
+                            <RowDefinition
+                                Height="*" />
+                        </Grid.RowDefinitions>
+                        
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition
+                                Width="Auto" />
+                            <ColumnDefinition
+                                Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image
+                            Source="{Binding ImageUrl}"/>
+                        <StackPanel
+                            Grid.Column="1"
+                            Orientation="Vertical"
+                            VerticalAlignment="Center">
+                            <TextBlock
+                                Style="{StaticResource PhoneTextLargeStyle}"
+                                Text="{Binding DisplayName}" />
+                            <TextBlock
+                                Style="{StaticResource PhoneTextAccentStyle}"
+                                Text="{Binding CharacterName}"
+                                Visibility="{Binding CharacterName, Converter={StaticResource nullToVisConverter}}" />
+                            <TextBlock
+                                Style="{StaticResource PhoneTextAccentStyle}"
+                                Text="{Binding Role}"
+                                Visibility="{Binding CharacterName, Converter={StaticResource nonNullToVisConverter}}" />
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemContainerStyle>
+                <Style
+                    TargetType="ListBoxItem">
+                    <Setter
+                        Property="HorizontalContentAlignment"
+                        Value="Stretch" />
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
+        <TextBlock
+            Text="No credits available" 
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            FontStyle="Italic"
+            Style="{StaticResource PhoneTextGroupHeaderStyle}"
+            Visibility="{Binding Credits, Converter={StaticResource nonNullToVisConverter}}" />
+    </Grid>
 </UserControl>

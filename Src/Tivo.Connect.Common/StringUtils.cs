@@ -1,0 +1,30 @@
+﻿using System.Text.RegularExpressions;
+
+namespace Tivo.Connect
+{
+    public static class StringUtils
+    {
+        public static string SplitCamelCase(this string input)
+        {
+            if (string.IsNullOrEmpty(input))
+            {
+                return string.Empty;
+            }
+
+            return Regex.Replace(input, "([A-Z])", " $1", RegexOptions.Compiled).Trim();
+        }
+
+        public static string UppercaseFirst(this string input)
+        {
+            if (string.IsNullOrEmpty(input))
+            {
+                return string.Empty;
+            }
+
+            char[] chars = input.ToCharArray();
+            chars[0] = char.ToUpper(chars[0]);
+
+            return new string(chars);
+        }
+    }
+}

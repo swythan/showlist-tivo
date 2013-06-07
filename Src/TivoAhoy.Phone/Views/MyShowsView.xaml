@@ -8,7 +8,7 @@
     xmlns:converters="clr-namespace:TivoAhoy.Phone.Converters"
     xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
     xmlns:ec="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions"
-    xmlns:vm="clr-namespace:TivoAhoy.Phone.ViewModels"
+    xmlns:vm="clr-namespace:TivoAhoy.Common.ViewModels;assembly=TivoAhoy.Common"
     x:Class="TivoAhoy.Phone.Views.MyShowsView"
     mc:Ignorable="d"
     d:DesignHeight="480"

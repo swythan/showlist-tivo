@@ -80,6 +80,11 @@
                 <ContentControl
                     x:Name="ShowGrid" />
             </TabItem>
+            <TabItem
+                Header="Search">
+                <ContentControl
+                    x:Name="Search" />
+            </TabItem>
         </TabControl>
 
     </Grid>

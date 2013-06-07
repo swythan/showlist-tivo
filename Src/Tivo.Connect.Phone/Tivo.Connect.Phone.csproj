@@ -63,28 +63,28 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Newtonsoft.Json.5.0.2\lib\portable-net40+sl4+wp7+win8\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.5.0.5\lib\portable-net40+sl4+wp7+win8\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Observable" />
-    <Reference Include="System.Reactive.Core, Version=2.1.30204.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Reactive.Core, Version=2.1.30214.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Rx-Core.2.1.30204.0\lib\SL4-WindowsPhone71\System.Reactive.Core.dll</HintPath>
+      <HintPath>..\packages\Rx-Core.2.1.30214.0\lib\SL4-WindowsPhone71\System.Reactive.Core.dll</HintPath>
     </Reference>
-    <Reference Include="System.Reactive.Interfaces, Version=2.1.30204.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Reactive.Interfaces, Version=2.1.30214.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Rx-Interfaces.2.1.30204.0\lib\SL4-WindowsPhone71\System.Reactive.Interfaces.dll</HintPath>
+      <HintPath>..\packages\Rx-Interfaces.2.1.30214.0\lib\SL4-WindowsPhone71\System.Reactive.Interfaces.dll</HintPath>
     </Reference>
-    <Reference Include="System.Reactive.Linq, Version=2.1.30204.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Reactive.Linq, Version=2.1.30214.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Rx-Linq.2.1.30204.0\lib\SL4-WindowsPhone71\System.Reactive.Linq.dll</HintPath>
+      <HintPath>..\packages\Rx-Linq.2.1.30214.0\lib\SL4-WindowsPhone71\System.Reactive.Linq.dll</HintPath>
     </Reference>
-    <Reference Include="System.Reactive.PlatformServices, Version=2.1.30204.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Reactive.PlatformServices, Version=2.1.30214.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Rx-PlatformServices.2.1.30204.0\lib\SL4-WindowsPhone71\System.Reactive.PlatformServices.dll</HintPath>
+      <HintPath>..\packages\Rx-PlatformServices.2.1.30214.0\lib\SL4-WindowsPhone71\System.Reactive.PlatformServices.dll</HintPath>
     </Reference>
-    <Reference Include="System.Reactive.Windows.Threading, Version=2.1.30204.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Reactive.Windows.Threading, Version=2.1.30214.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Rx-Xaml.2.1.30204.0\lib\SL4-WindowsPhone71\System.Reactive.Windows.Threading.dll</HintPath>
+      <HintPath>..\packages\Rx-XAML.2.1.30214.0\lib\SL4-WindowsPhone71\System.Reactive.Windows.Threading.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime, Version=1.5.11.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -103,14 +103,26 @@
     <Reference Include="mscorlib.extensions" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Tivo.Connect.Common\Entities\Category.cs">
+      <Link>Entities\Category.cs</Link>
+    </Compile>
     <Compile Include="..\Tivo.Connect.Common\Entities\Channel.cs">
       <Link>Entities\Channel.cs</Link>
+    </Compile>
+    <Compile Include="..\Tivo.Connect.Common\Entities\Collection.cs">
+      <Link>Entities\Collection.cs</Link>
     </Compile>
     <Compile Include="..\Tivo.Connect.Common\Entities\Conflict.cs">
       <Link>Entities\Conflict.cs</Link>
     </Compile>
     <Compile Include="..\Tivo.Connect.Common\Entities\Container.cs">
       <Link>Entities\Container.cs</Link>
+    </Compile>
+    <Compile Include="..\Tivo.Connect.Common\Entities\ContentSummaryForPerson.cs">
+      <Link>Entities\ContentSummaryForPerson.cs</Link>
+    </Compile>
+    <Compile Include="..\Tivo.Connect.Common\Entities\Credit.cs">
+      <Link>Entities\Credit.cs</Link>
     </Compile>
     <Compile Include="..\Tivo.Connect.Common\Entities\GridRow.cs">
       <Link>Entities\GridRow.cs</Link>
@@ -121,8 +133,14 @@
     <Compile Include="..\Tivo.Connect.Common\Entities\IndividualShow.cs">
       <Link>Entities\IndividualShow.cs</Link>
     </Compile>
+    <Compile Include="..\Tivo.Connect.Common\Entities\IUnifiedItem.cs">
+      <Link>Entities\IUnifiedItem.cs</Link>
+    </Compile>
     <Compile Include="..\Tivo.Connect.Common\Entities\Offer.cs">
       <Link>Entities\Offer.cs</Link>
+    </Compile>
+    <Compile Include="..\Tivo.Connect.Common\Entities\Person.cs">
+      <Link>Entities\Person.cs</Link>
     </Compile>
     <Compile Include="..\Tivo.Connect.Common\Entities\Recording.cs">
       <Link>Entities\Recording.cs</Link>
@@ -145,8 +163,14 @@
     <Compile Include="..\Tivo.Connect.Common\Entities\SubscriptionIdentifier.cs">
       <Link>Entities\SubscriptionIdentifier.cs</Link>
     </Compile>
+    <Compile Include="..\Tivo.Connect.Common\Entities\UnifiedItemCreator.cs">
+      <Link>Entities\UnifiedItemCreator.cs</Link>
+    </Compile>
     <Compile Include="..\Tivo.Connect.Common\JsonCreationConverter.cs">
       <Link>JsonCreationConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Tivo.Connect.Common\StringUtils.cs">
+      <Link>StringUtils.cs</Link>
     </Compile>
     <Compile Include="..\Tivo.Connect.Common\TivoConnection.Common.cs">
       <Link>TivoConnection.Common.cs</Link>
@@ -180,7 +204,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
-  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.4\tools\Microsoft.Bcl.Build.targets" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.5\tools\Microsoft.Bcl.Build.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

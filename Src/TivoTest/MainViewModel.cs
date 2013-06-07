@@ -22,11 +22,13 @@ namespace TivoTest
         public MainViewModel(
             ITivoConnectionService tivoConnectionService,
             WhatsOnViewModel whatsOnModel,
-            ShowGridViewModel showGridModel)
+            ShowGridViewModel showGridModel,
+            SearchViewModel searchModel)
         {
             this.tivoConnectionService = tivoConnectionService;
             this.WhatsOn = whatsOnModel;
             this.ShowGrid = showGridModel;
+            this.Search = searchModel;
 
             this.tivoConnectionService.PropertyChanged += OnTivoConnectionServicePropertyChanged;
             this.shows = new BindableCollection<RecordingFolderItem>();
@@ -34,6 +36,7 @@ namespace TivoTest
 
         public WhatsOnViewModel WhatsOn { get; private set; }
         public ShowGridViewModel ShowGrid { get; private set; }
+        public SearchViewModel Search { get; private set; }
 
         void OnTivoConnectionServicePropertyChanged(object sender, PropertyChangedEventArgs e)
         {

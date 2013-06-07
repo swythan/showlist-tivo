@@ -10,7 +10,7 @@
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:converters="clr-namespace:TivoAhoy.Phone.Converters"
     xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
-    xmlns:vm="clr-namespace:TivoAhoy.Phone.ViewModels"
+    xmlns:vm="clr-namespace:TivoAhoy.Common.ViewModels;assembly=TivoAhoy.Common"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -19,7 +19,7 @@
     mc:Ignorable="d"
     d:DesignHeight="800"
     d:DesignWidth="480"
-    shell:SystemTray.IsVisible="False"
+    shell:SystemTray.IsVisible="True"
     toolkit:TiltEffect.IsTiltEnabled="True"
     d:DataContext="{d:DesignInstance Type=vm:ShowDetailsPageViewModel, IsDesignTimeCreatable=True}"
     cal:Bind.AtDesignTime="True">
@@ -27,47 +27,33 @@
     <UserControl.Resources>
         <converters:BooleanToVisibilityConverter
             x:Key="boolToVisConverter" />
+        <converters:UtcToLocalTimeConverter
+            x:Key="utcToLocalConverter" />
+        <converters:NullOrEmptyToVisibilityConverter
+            x:Key="nullToVisConverter"
+            IsReversed="True" />
+        <converters:NullOrEmptyToVisibilityConverter
+            x:Key="nonNullToVisConverter"
+            IsReversed="True" />
     </UserControl.Resources>
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid
         x:Name="LayoutRoot"
         Background="Transparent">
-        <Grid.RowDefinitions>
-            <RowDefinition
-                Height="Auto" />
-            <RowDefinition
-                Height="*" />
-        </Grid.RowDefinitions>
-
-        <toolkit:PerformanceProgressBar
-            x:Name="IsOperationInProgress"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Stretch" />
-
-        <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel
-            x:Name="TitlePanel"
-            Grid.Row="0"
-            Margin="12,17,0,28">
-            <TextBlock
-                x:Name="ApplicationTitle"
-                Text="SHOW LIST"
-                Style="{StaticResource PhoneTextNormalStyle}" />
-        </StackPanel>
 
         <controls:Panorama
-            Grid.Row="1"
             Title="{Binding Show.Title}"
             Background="{Binding MainImageBrush}"
-            SizeChanged="Panorama_SizeChanged">
+            SizeChanged="Panorama_SizeChanged"
+            cal:Message.Attach="[Event Tap] = [Action DisplayCollectionDetails()]">
 
-            <controls:PanoramaItem >
+            <controls:PanoramaItem>
 
                 <!--ContentPanel - place additional content here-->
                 <Grid
                     x:Name="ContentPanel"
-                    Margin="12,0,12,0">
+                    Margin="0,-24,0,12">
                     <Grid.RowDefinitions>
                         <RowDefinition
                             Height="Auto" />
@@ -76,43 +62,116 @@
                         <RowDefinition
                             Height="Auto" />
                         <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
                             Height="*" />
+                        <RowDefinition
+                            Height="Auto" />
                     </Grid.RowDefinitions>
                     <TextBlock
                         x:Name="Show_Subtitle"
                         Grid.Row="0"
                         Style="{StaticResource PhoneTextExtraLargeStyle}"
+                        Margin="12,0,0,0"
                         Visibility="{Binding HasSubtitle, Converter={StaticResource boolToVisConverter}}" />
-                    <StackPanel
-                        Orientation="Horizontal"
-                        Grid.Row="1"
-                        Visibility="{Binding HasEpisodeNumbers, Converter={StaticResource boolToVisConverter}}">
+                    <Grid
+                        Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition
+                                Height="Auto" />
+                            <RowDefinition
+                                Height="*" />
+                            <RowDefinition
+                                Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition
+                                Width="Auto" />
+                            <ColumnDefinition
+                                Width="Auto" />
+                            <ColumnDefinition
+                                Width="*" />
+                            <ColumnDefinition
+                                Width="Auto" />
+                        </Grid.ColumnDefinitions>
                         <TextBlock
-                            Text="Season: "
-                            Style="{StaticResource PhoneTextLargeStyle}" />
+                            Grid.Row="0"
+                            Grid.Column="3"
+                            Style="{StaticResource PhoneTextLargeStyle}"
+                            FontSize="{StaticResource PhoneFontSizeMediumLarge}"
+                            HorizontalAlignment="Right"
+                            Text="{Binding StartTime, Converter={StaticResource utcToLocalConverter}, StringFormat=t}" />
                         <TextBlock
-                            x:Name="Show_SeasonNumber"
-                            Style="{StaticResource PhoneTextLargeStyle}" />
+                            Style="{StaticResource PhoneTextLargeStyle}"
+                            FontSize="{StaticResource PhoneFontSizeMediumLarge}"
+                            HorizontalAlignment="Left"
+                            Text="{Binding StartTime, Converter={StaticResource utcToLocalConverter}, StringFormat=ddd d MMMM}"
+                            Grid.Row="0"
+                            Grid.Column="1" />
                         <TextBlock
-                            Text="Episode: "
-                            Style="{StaticResource PhoneTextLargeStyle}" />
-                        <TextBlock
-                            x:Name="Show_EpisodeNumber"
-                            Style="{StaticResource PhoneTextLargeStyle}" />
-                    </StackPanel>
+                            Style="{StaticResource PhoneTextLargeStyle}"
+                            FontSize="{StaticResource PhoneFontSizeMediumLarge}"
+                            HorizontalAlignment="Right"
+                            Text="{Binding Duration.TotalMinutes, StringFormat=\{0:F0\} minutes}"
+                            Grid.Row="1"
+                            Grid.Column="3" />
+                        <StackPanel
+                            Margin="0"
+                            Orientation="Vertical"
+                            Grid.RowSpan="2">
+                            <Image
+                                Source="{Binding Channel.LogoUrl}"
+                                Width="65"
+                                Height="55"
+                                Stretch="Uniform"
+                                Margin="12,0,0,-8"
+                                VerticalAlignment="Top" />
+                            <TextBlock
+                                Text="{Binding Channel.CallSign}"
+                                Style="{StaticResource PhoneTextSmallStyle}"
+                                FontSize="{StaticResource PhoneFontSizeSmall}"
+                                Margin="12,0,0,0"
+                                HorizontalAlignment="Center"/>
+                        </StackPanel>
+
+                    </Grid>
                     <StackPanel
                         Orientation="Horizontal"
                         Grid.Row="2"
+                        Visibility="{Binding HasEpisodeNumbers, Converter={StaticResource boolToVisConverter}}">
+                        <TextBlock
+                            Text="Season: "
+                            Style="{StaticResource PhoneTextLargeStyle}"
+                            FontSize="{StaticResource PhoneFontSizeMediumLarge}" />
+                        <TextBlock
+                            x:Name="Show_SeasonNumber"
+                            Style="{StaticResource PhoneTextLargeStyle}"
+                            FontSize="{StaticResource PhoneFontSizeMediumLarge}" />
+                        <TextBlock
+                            Text="Episode: "
+                            Style="{StaticResource PhoneTextLargeStyle}"
+                            FontSize="{StaticResource PhoneFontSizeMediumLarge}" />
+                        <TextBlock
+                            x:Name="Show_EpisodeNumber"
+                            Style="{StaticResource PhoneTextLargeStyle}"
+                            FontSize="{StaticResource PhoneFontSizeMediumLarge}" />
+                    </StackPanel>
+                    <StackPanel
+                        Orientation="Horizontal"
+                        Grid.Row="3"
                         Visibility="{Binding HasOriginalAirDate, Converter={StaticResource boolToVisConverter}}">
                         <TextBlock
                             Text="First aired: "
-                            Style="{StaticResource PhoneTextLargeStyle}" />
+                            Style="{StaticResource PhoneTextLargeStyle}"
+                            FontSize="{StaticResource PhoneFontSizeMediumLarge}" />
                         <TextBlock
-                            Text="{Binding Show.OriginalAirDate, StringFormat=d, ConverterCulture={StaticResource DefaultCulture}}"
-                            Style="{StaticResource PhoneTextLargeStyle}" />
+                            Text="{Binding Show.OriginalAirDate, ConverterCulture={StaticResource DefaultCulture}, StringFormat=d}"
+                            Style="{StaticResource PhoneTextLargeStyle}"
+                            FontSize="{StaticResource PhoneFontSizeMediumLarge}" />
                     </StackPanel>
                     <ScrollViewer
-                        Grid.Row="3"
+                        Grid.Row="4"
                         Margin="12"
                         VerticalScrollBarVisibility="Auto">
                         <TextBlock
@@ -122,53 +181,58 @@
                             FontSize="{StaticResource PhoneFontSizeMedium}"
                             Margin="0" />
                     </ScrollViewer>
-                </Grid>
-            </controls:PanoramaItem>
-                       
-            <controls:PanoramaItem >
-                <Grid
-                    x:Name="ActionPanel"
-                    Margin="12,0,12,0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition
-                            Height="Auto" />
-                        <RowDefinition
-                            Height="Auto" />
-                        <RowDefinition
-                            Height="Auto" />
-                        <RowDefinition
-                            Height="Auto" />
-                        <!--<RowDefinition
+                    <Grid
+                        x:Name="ActionPanel"
+                        Grid.Row="5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition
+                                Height="Auto" />
+                            <RowDefinition
+                                Height="Auto" />
+                            <RowDefinition
+                                Height="Auto" />
+                            <RowDefinition
+                                Height="Auto" />
+                            <!--<RowDefinition
                             Height="Auto" />-->
-                    </Grid.RowDefinitions>
-                    <Button
-                        x:Name="PlayShow"
-                        Visibility="{Binding IsRecorded, Converter={StaticResource boolToVisConverter}}"
-                        Content="Play"
-                        Grid.Row="0" />
-                    <Button
-                        x:Name="DeleteShow"
-                        Visibility="{Binding IsRecorded, Converter={StaticResource boolToVisConverter}}"
-                        Content="Delete Recording"
-                        Grid.Row="1" />
-                    <Button
-                        x:Name="CancelRecording"
-                        Visibility="{Binding IsScheduled, Converter={StaticResource boolToVisConverter}}"
-                        Content="Cancel Recording"
-                        Grid.Row="2" />
-                    <Button
-                        x:Name="ScheduleRecording"
-                        Visibility="{Binding IsRecordable, Converter={StaticResource boolToVisConverter}}"
-                        Content="Record this Episode "
-                        Grid.Row="3" />
-                    <!--<Button
+                        </Grid.RowDefinitions>
+                        <Button
+                            x:Name="PlayShow"
+                            Visibility="{Binding IsRecorded, Converter={StaticResource boolToVisConverter}}"
+                            Content="Play"
+                            Grid.Row="0" />
+                        <Button
+                            x:Name="DeleteShow"
+                            Visibility="{Binding IsRecorded, Converter={StaticResource boolToVisConverter}}"
+                            Content="Delete Recording"
+                            Grid.Row="1" />
+                        <Button
+                            x:Name="CancelRecording"
+                            Visibility="{Binding IsScheduled, Converter={StaticResource boolToVisConverter}}"
+                            Content="Cancel Recording"
+                            Grid.Row="2" />
+                        <Button
+                            x:Name="ScheduleRecording"
+                            Visibility="{Binding IsRecordable, Converter={StaticResource boolToVisConverter}}"
+                            Content="Record this Episode "
+                            Grid.Row="3" />
+                        <!--<Button
                         x:Name="GetSeriesLink"
                         Visibility="{Binding IsRecordable, Converter={StaticResource boolToVisConverter}}"
                         Content="Get Series Link"
                         Grid.Row="4" />-->
+                    </Grid>
                 </Grid>
-
             </controls:PanoramaItem>
+
+            <controls:PanoramaItem
+                Header="Credits"
+                x:Name="Credits" />
+
+            <controls:PanoramaItem
+                Header="Upcoming"
+                x:Name="UpcomingOffers" />
+
         </controls:Panorama>
     </Grid>
 

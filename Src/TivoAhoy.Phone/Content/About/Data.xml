@@ -78,7 +78,7 @@
     </Item>
     <Item Title="credits"
           Type="xaml">
-      <views:CreditsView
+      <views:AppCreditsView
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:views="clr-namespace:TivoAhoy.Phone.Views;assembly=TivoAhoy.Phone"
         HorizontalAlignment="Stretch"

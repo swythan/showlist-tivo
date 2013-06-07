@@ -1,0 +1,55 @@
+﻿<UserControl
+    x:Class="TivoAhoy.PhoneRT.Views.PersonItemView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+    xmlns:vm="clr-namespace:TivoAhoy.Common.ViewModels;assembly=TivoAhoy.Common"
+    xmlns:converters="clr-namespace:TivoAhoy.Phone.Converters"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="80"
+    d:DesignWidth="480"
+    d:DataContext="{d:DesignInstance Type=vm:PersonItemViewModel, IsDesignTimeCreatable=True}">
+
+    <UserControl.Resources>
+        <converters:BooleanToVisibilityConverter
+            x:Key="boolToVisConverter" />
+        <converters:NullOrEmptyToVisibilityConverter
+            x:Key="nullToVisConverter" />
+    </UserControl.Resources>
+
+    <Grid
+        x:Name="LayoutRoot"
+        Background="Transparent"
+        cal:Message.Attach="[Event Tap] = [Action DisplayPersonDetails()]">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition
+                    Width="Auto" />
+                <ColumnDefinition
+                    Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock
+                Text="&#xE13D;"
+                FontFamily="Segoe UI Symbol"
+                Grid.RowSpan="2"
+                VerticalAlignment="Center"
+                Margin="2,0,3,0" />
+            <StackPanel
+                Grid.Column="1"
+                Orientation="Vertical">
+                <TextBlock
+                    Text="{Binding Title}"
+                    Style="{StaticResource PhoneTextNormalStyle}" />
+                <TextBlock
+                    Text="{Binding Subtitle}"
+                    Style="{StaticResource PhoneTextSubtleStyle}" />
+            </StackPanel>
+
+        </Grid>
+    </Grid>
+</UserControl>

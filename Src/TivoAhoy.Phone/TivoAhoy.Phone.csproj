@@ -55,13 +55,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Caliburn.Micro, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Caliburn.Micro, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Caliburn.Micro.1.4.1\lib\wp71\Caliburn.Micro.dll</HintPath>
+      <HintPath>..\packages\Caliburn.Micro.1.5.1\lib\wp71\Caliburn.Micro.dll</HintPath>
     </Reference>
-    <Reference Include="Caliburn.Micro.Extensions, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Caliburn.Micro.Extensions, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Caliburn.Micro.1.4.1\lib\wp71\Caliburn.Micro.Extensions.dll</HintPath>
+      <HintPath>..\packages\Caliburn.Micro.1.5.1\lib\wp71\Caliburn.Micro.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Coding4Fun.Toolkit.Controls">
+      <HintPath>..\packages\Coding4Fun.Toolkit.Controls.2.0.5\lib\wp71\Coding4Fun.Toolkit.Controls.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Expression.Interactions" />
     <Reference Include="Microsoft.Phone" />
@@ -83,25 +86,25 @@
       <HintPath>..\packages\Microsoft.Bcl.Async.1.0.16\lib\sl4-windowsphone71\Microsoft.Threading.Tasks.Extensions.Phone.dll</HintPath>
     </Reference>
     <Reference Include="System.Observable" />
-    <Reference Include="System.Reactive.Core, Version=2.1.30204.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Reactive.Core, Version=2.1.30214.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Rx-Core.2.1.30204.0\lib\SL4-WindowsPhone71\System.Reactive.Core.dll</HintPath>
+      <HintPath>..\packages\Rx-Core.2.1.30214.0\lib\SL4-WindowsPhone71\System.Reactive.Core.dll</HintPath>
     </Reference>
-    <Reference Include="System.Reactive.Interfaces, Version=2.1.30204.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Reactive.Interfaces, Version=2.1.30214.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Rx-Interfaces.2.1.30204.0\lib\SL4-WindowsPhone71\System.Reactive.Interfaces.dll</HintPath>
+      <HintPath>..\packages\Rx-Interfaces.2.1.30214.0\lib\SL4-WindowsPhone71\System.Reactive.Interfaces.dll</HintPath>
     </Reference>
-    <Reference Include="System.Reactive.Linq, Version=2.1.30204.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Reactive.Linq, Version=2.1.30214.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Rx-Linq.2.1.30204.0\lib\SL4-WindowsPhone71\System.Reactive.Linq.dll</HintPath>
+      <HintPath>..\packages\Rx-Linq.2.1.30214.0\lib\SL4-WindowsPhone71\System.Reactive.Linq.dll</HintPath>
     </Reference>
-    <Reference Include="System.Reactive.PlatformServices, Version=2.1.30204.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Reactive.PlatformServices, Version=2.1.30214.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Rx-PlatformServices.2.1.30204.0\lib\SL4-WindowsPhone71\System.Reactive.PlatformServices.dll</HintPath>
+      <HintPath>..\packages\Rx-PlatformServices.2.1.30214.0\lib\SL4-WindowsPhone71\System.Reactive.PlatformServices.dll</HintPath>
     </Reference>
-    <Reference Include="System.Reactive.Windows.Threading, Version=2.1.30204.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Reactive.Windows.Threading, Version=2.1.30214.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Rx-Xaml.2.1.30204.0\lib\SL4-WindowsPhone71\System.Reactive.Windows.Threading.dll</HintPath>
+      <HintPath>..\packages\Rx-XAML.2.1.30214.0\lib\SL4-WindowsPhone71\System.Reactive.Windows.Threading.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime, Version=1.5.11.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -118,66 +121,49 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Net" />
     <Reference Include="System.Windows.Interactivity, Version=3.8.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Caliburn.Micro.1.4.1\lib\wp71\System.Windows.Interactivity.dll</HintPath>
+      <HintPath>..\packages\Caliburn.Micro.1.5.1\lib\wp71\System.Windows.Interactivity.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml" />
-    <Reference Include="YourLastAboutDialog">
-      <HintPath>..\packages\YLAD.2.0.0\lib\sl40-wp71\YourLastAboutDialog.dll</HintPath>
+    <Reference Include="YourLastAboutDialog, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\YLAD.2.1.0\lib\wp71\YourLastAboutDialog.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnalyticsService.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AsyncLazy.cs" />
-    <Compile Include="BitmapImageExtensions.cs" />
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="ConnectionSettings.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\ImageInfoListToUrlConverter.cs" />
+    <Compile Include="Converters\NullOrEmptyToVisibilityConverter.cs" />
     <Compile Include="Converters\UtcToLocalTimeConverter.cs" />
-    <Compile Include="DiscoveredTivo.cs" />
-    <Compile Include="Discovery\Answer.cs" />
-    <Compile Include="Discovery\BackReferenceBinaryReader.cs" />
-    <Compile Include="Discovery\BaseMessage.cs" />
-    <Compile Include="Discovery\BinaryHelper.cs" />
-    <Compile Include="Discovery\DnsEnums.cs" />
-    <Compile Include="Discovery\DomainName.cs" />
-    <Compile Include="Discovery\IRequest.cs" />
-    <Compile Include="Discovery\IResponse.cs" />
-    <Compile Include="Discovery\MDnsClient.cs" />
-    <Compile Include="Discovery\Message.cs" />
-    <Compile Include="Discovery\Question.cs" />
-    <Compile Include="Discovery\ResponseData.cs" />
-    <Compile Include="Events\ConnectionSettingsChanged.cs" />
-    <Compile Include="IAnalyticsService.cs" />
-    <Compile Include="IProgressService.cs" />
-    <Compile Include="IScheduledRecordingsService.cs" />
-    <Compile Include="ITivoConnectionService.cs" />
-    <Compile Include="KnownTivoConnection.cs" />
-    <Compile Include="LocalyticsSession.cs" />
-    <Compile Include="ProgressService.cs" />
-    <Compile Include="ScheduledRecordingsService.cs" />
-    <Compile Include="SettingsStore.cs" />
-    <Compile Include="TivoConnectionService.cs" />
-    <Compile Include="ViewModels\ChannelListViewModel.cs" />
-    <Compile Include="ViewModels\RecordingViewModel.cs" />
-    <Compile Include="ViewModels\LazyRecordingFolderItemViewModel.cs" />
-    <Compile Include="ViewModels\MyShowsViewModel.cs" />
-    <Compile Include="ViewModels\OfferViewModel.cs" />
-    <Compile Include="ViewModels\ShowContainerShowsPageViewModel.cs" />
-    <Compile Include="ViewModels\ShowDetailsPageViewModel.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ViewModels\ToDoListViewModel.cs" />
     <Compile Include="Views\ChannelListView.xaml.cs">
       <DependentUpon>ChannelListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CollectionDetailsPage.xaml.cs">
+      <DependentUpon>CollectionDetailsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CreditsView.xaml.cs">
       <DependentUpon>CreditsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PersonContentView.xaml.cs">
+      <DependentUpon>PersonContentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PersonDetailsPage.xaml.cs">
+      <DependentUpon>PersonDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PersonItemView.xaml.cs">
+      <DependentUpon>PersonItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AppCreditsView.xaml.cs">
+      <DependentUpon>AppCreditsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\IndividualShowView.xaml.cs">
       <DependentUpon>IndividualShowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SearchView.xaml.cs">
+      <DependentUpon>SearchView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ShowContainerShowsPage.xaml.cs">
       <DependentUpon>ShowContainerShowsPage.xaml</DependentUpon>
@@ -198,13 +184,14 @@
     <Compile Include="Views\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\ShowContainerViewModel.cs" />
-    <Compile Include="ViewModels\IndividualShowViewModel.cs" />
-    <Compile Include="ViewModels\MainPageViewModel.cs" />
-    <Compile Include="ViewModels\RecordingFolderItemViewModel.cs" />
-    <Compile Include="ViewModels\SettingsPageViewModel.cs" />
     <Compile Include="Views\ShowDetailsPage.xaml.cs">
       <DependentUpon>ShowDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CollectionItemView.xaml.cs">
+      <DependentUpon>CollectionItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UpcomingOffersView.xaml.cs">
+      <DependentUpon>UpcomingOffersView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -220,11 +207,35 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\CollectionDetailsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\CreditsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PersonContentView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PersonDetailsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PersonItemView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AppCreditsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\IndividualShowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SearchView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -256,6 +267,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\CollectionItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UpcomingOffersView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -263,8 +282,10 @@
     <None Include="Properties\AppManifest.xml">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Properties\WMAppManifest.xml" />
-    <Content Include="Images\thumbsup.png" />
+    <None Include="Properties\WMAppManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Images\Television.png" />
     <Content Include="tivo_vm.p12" />
     <Resource Include="Application_IconImage_62x62.png" />
     <Resource Include="Application_TileImage_173x173.png" />
@@ -285,6 +306,10 @@
       <Project>{AFFFC8BC-3E92-4860-97EF-66C331874DDE}</Project>
       <Name>Tivo.Connect.Phone</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TivoAhoy.Common\TivoAhoy.Common.csproj">
+      <Project>{80FABC5F-78FB-423B-8983-BA3E85FCF748}</Project>
+      <Name>TivoAhoy.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
@@ -297,5 +322,5 @@
   -->
   <ProjectExtensions />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
-  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.4\tools\Microsoft.Bcl.Build.targets" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.5\tools\Microsoft.Bcl.Build.targets" />
 </Project>

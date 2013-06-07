@@ -16,7 +16,7 @@
     mc:Ignorable="d"
     d:DesignHeight="800"
     d:DesignWidth="480"
-    shell:SystemTray.IsVisible="False"
+    shell:SystemTray.IsVisible="True"
     toolkit:TiltEffect.IsTiltEnabled="True">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
@@ -29,11 +29,6 @@
             <RowDefinition
                 Height="*" />
         </Grid.RowDefinitions>
-
-        <toolkit:PerformanceProgressBar
-            x:Name="IsTestInProgress"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Stretch" />
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel

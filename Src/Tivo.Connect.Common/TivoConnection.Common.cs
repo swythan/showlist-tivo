@@ -45,7 +45,11 @@ namespace Tivo.Connect
             {
                 DateTimeZoneHandling = DateTimeZoneHandling.Utc,
                 DateFormatString = "yyyy'-'MM'-'dd HH':'mm':'ss",
-                Converters = { new RecordingFolderItemCreator() }
+                Converters =
+                {
+                    new RecordingFolderItemCreator(), 
+                    new UnifiedItemCreator(),
+                }
             };
 
             this.jsonSerializer = JsonSerializer.Create(this.jsonSettings);
@@ -328,7 +332,7 @@ namespace Tivo.Connect
 
         public async Task<ShowDetails> GetShowContentDetails(string contentId)
         {
-            var detailsResults = await SendGetContentDetailsRequest(contentId).ConfigureAwait(false);
+            var detailsResults = await SendContentSearchRequest(contentId).ConfigureAwait(false);
 
             var content = (JArray)detailsResults["content"];
 
@@ -383,11 +387,53 @@ namespace Tivo.Connect
 
         public async Task<IList<Recording>> GetScheduledRecordings(int offset, int count)
         {
-            var results = await SendRecordingSearchRequest(new[] { "inProgress", "scheduled" }, offset, count).ConfigureAwait(false);
+            var response = await SendRecordingSearchRequest(new[] { "inProgress", "scheduled" }, offset, count).ConfigureAwait(false);
 
-            CheckResponse(results, "recordingList", "recordingSearch");
+            CheckResponse(response, "recordingList", "recordingSearch");
 
-            return results["recording"].ToObject<IList<Recording>>(this.jsonSerializer);
+            var results = response["recording"];
+            if (results != null)
+            {
+                return results.ToObject<IList<Recording>>(this.jsonSerializer);
+            }
+            else
+            {
+                return new List<Recording>();
+            }
+        }
+
+        public async Task<IList<Offer>> GetUpcomingOffersForCollection(string collectionId, int offset, int count)
+        {
+            var response = await SendUpcomingOfferSearchForCollectionIdRequest(collectionId, offset, count).ConfigureAwait(false);
+
+            CheckResponse(response, "offerList", "offerSearch");
+
+            var results = response["offer"];
+            if (results != null)
+            {
+                return results.ToObject<IList<Offer>>(this.jsonSerializer);
+            }
+            else
+            {
+                return new List<Offer>();
+            }
+        }
+
+        public async Task<IList<Offer>> GetUpcomingOffersForContent(string contentId, int offset, int count)
+        {
+            var response = await SendUpcomingOfferSearchForContentIdRequest(contentId, offset, count).ConfigureAwait(false);
+
+            CheckResponse(response, "offerList", "offerSearch");
+
+            var results = response["offer"];
+            if (results != null)
+            {
+                return results.ToObject<IList<Offer>>(this.jsonSerializer);
+            }
+            else
+            {
+                return new List<Offer>();
+            }
         }
 
         public async Task<Recording> GetRecordingDetails(string offerId)
@@ -408,6 +454,56 @@ namespace Tivo.Connect
             var content = (JArray)detailsResults["offer"];
 
             return content.First().ToObject<Offer>(this.jsonSerializer);
+        }
+
+        public async Task<Collection> GetCollectionDetails(string collectionId)
+        {
+            var detailsResults = await SendCollectionSearchRequest(collectionId).ConfigureAwait(false);
+
+            CheckResponse(detailsResults, "collectionList", "collectionSearch");
+
+            var content = (JArray)detailsResults["collection"];
+
+            return content.First().ToObject<Collection>(this.jsonSerializer);
+        }
+
+        public async Task<Person> GetPersonDetails(string personId, bool includeContentSummary)
+        {
+            JObject detailsResults = await SendPersonSearchRequest(personId, includeContentSummary).ConfigureAwait(false);
+
+            CheckResponse(detailsResults, "personList", "personSearch");
+
+            var content = (JArray)detailsResults["person"];
+
+            return content.First().ToObject<Person>(this.jsonSerializer);
+        }
+
+        public async Task<Person> GetBasicPersonDetails(string personId)
+        {
+            JObject detailsResults = await SendBasicPersonSearchRequest(personId).ConfigureAwait(false);
+
+            CheckResponse(detailsResults, "personList", "personSearch");
+
+            var content = (JArray)detailsResults["person"];
+
+            return content.First().ToObject<Person>(this.jsonSerializer);
+        }
+
+        public async Task<IList<IUnifiedItem>> ExecuteUnifiedItemSearch(string keyword, int offset, int count)
+        {
+            var response = await SendUnifiedItemSearchRequest(keyword, offset, count).ConfigureAwait(false);
+
+            CheckResponse(response, "unifiedItemList", "unifiedItemSearch");
+
+            var results = response["unifiedItem"];
+            if (results != null)
+            {
+                return results.ToObject<IList<IUnifiedItem>>(this.jsonSerializer);
+            }
+            else
+            {
+                return new List<IUnifiedItem>();
+            }
         }
 
         public async Task PlayShow(string recordingId)
@@ -802,7 +898,7 @@ namespace Tivo.Connect
             return SendRequest((string)body["type"], body);
         }
 
-        private Task<JObject> SendGetContentDetailsRequest(string contentId)
+        private async Task<JObject> SendContentSearchRequest(string contentId)
         {
             //            {
             //  "contentId": ["tivo:ct.306278"],
@@ -826,40 +922,40 @@ namespace Tivo.Connect
 //                { "note", new string[] { "userContentForCollectionId", "broadbandOfferGroupForContentId", "recordingForContentId" } },
                 { "note", new string[] { "recordingForContentId" } },
                 { "type", "contentSearch" },
-                { "levelOfDetail", "medium" },
-                { "responseTemplate", 
-                    new object[]
-                    {
-                        new Dictionary<string, object>
-                        {
-                            { "type", "responseTemplate" },
-                            { "typeName", "contentList" },
-                            { "fieldName", 
-                                new string[] 
-                                { 
-                                    "content",
-                                } 
-                            }
-                        },
-                        new Dictionary<string, object>
-                        {
-                            { "type", "responseTemplate" },
-                            { "typeName", "content" },
-                            { "fieldName", 
-                                new string[] 
-                                { 
-                                    "title",
-                                    "subtitle",
-                                    "description",
-                                    "seasonNumber",
-                                    "episodeNum",
-                                    "originalAirdate",
-                                    "image"
-                                } 
-                            }
-                        }
-                    }
-                },
+                { "levelOfDetail", "high" },
+                //{ "responseTemplate", 
+                //    new object[]
+                //    {
+                //        new Dictionary<string, object>
+                //        {
+                //            { "type", "responseTemplate" },
+                //            { "typeName", "contentList" },
+                //            { "fieldName", 
+                //                new string[] 
+                //                { 
+                //                    "content",
+                //                } 
+                //            }
+                //        },
+                //        new Dictionary<string, object>
+                //        {
+                //            { "type", "responseTemplate" },
+                //            { "typeName", "content" },
+                //            { "fieldName", 
+                //                new string[] 
+                //                { 
+                //                    "title",
+                //                    "subtitle",
+                //                    "description",
+                //                    "seasonNumber",
+                //                    "episodeNum",
+                //                    "originalAirdate",
+                //                    "image"
+                //                } 
+                //            }
+                //        }
+                //    }
+                //},
                 //{ "imageRuleset", 
                 //    new Dictionary<string, object>
                 //    {
@@ -882,7 +978,8 @@ namespace Tivo.Connect
                 //}
             };
 
-            return SendRequest((string)body["type"], body);
+            var response = await SendRequest((string)body["type"], body).ConfigureAwait(false);
+            return response;
         }
 
         private Task<JObject> SendPlayShowRequest(string showId)
@@ -1363,15 +1460,233 @@ namespace Tivo.Connect
             {
                 { "type", "offerSearch" },
                 { "bodyId", this.capturedTsn },
-                {"searchable",true},
-                {"receivedChannelsOnly",false},
-                {"namespace", "refserver" },
-                {"offerId", new[] { offerId } },
-                {"note", new[] { "recordingForOfferId" } },
+                { "searchable", true},
+                { "receivedChannelsOnly", false},
+                { "namespace", "refserver" },
+                { "offerId", new[] { offerId } },
+                { "note", new[] { "recordingForOfferId" } },
             };
 
             var response = await SendRequest("offerSearch", request).ConfigureAwait(false);
             return response;
         }
+
+        private async Task<JObject> SendUpcomingOfferSearchForCollectionIdRequest(string collectionId, int offset, int count)
+        {
+            var request = BuildUpcomingOfferSearchRequest(offset, count);
+            
+            request["collectionId"] = new[] { collectionId };
+
+            var response = await SendRequest("offerSearch", request).ConfigureAwait(false);
+            return response;
+        }
+
+        private async Task<JObject> SendUpcomingOfferSearchForContentIdRequest(string contentId, int offset, int count)
+        {
+            var request = BuildUpcomingOfferSearchRequest(offset, count);
+
+            request["contentId"] = new[] { contentId };
+
+            var response = await SendRequest("offerSearch", request).ConfigureAwait(false);
+            return response;
+        }
+
+        private Dictionary<string, object> BuildUpcomingOfferSearchRequest(int offset, int count)
+        {
+            var request = new Dictionary<string, object>
+            {
+                { "type", "offerSearch" },
+                { "bodyId", this.capturedTsn },
+                { "offset", offset },
+                { "count", count },
+                { "searchable", true},
+                { "receivedChannelsOnly", false},
+                { "namespace", "refserver" },
+                { "note", new[] { "recordingForOfferId" } },
+                { "minEndTime", DateTime.UtcNow },
+                { "responseTemplate", 
+                    new object[]
+                    {
+                        new Dictionary<string, object>
+                        {
+                            { "type", "responseTemplate" },
+                            { "typeName", "offerList" },
+                            { "fieldName", 
+                                new string[] 
+                                { 
+                                    "offer",
+                                    "isTop",
+                                    "isBottom",
+                                } 
+                            }
+                        },
+                        new Dictionary<string, object>
+                        {
+                            { "type", "responseTemplate" },
+                            { "typeName", "offer" },
+                            { "fieldName", 
+                                new string[] 
+                                { 
+                                    "offerId",
+                                    "contentId",
+                                    "collectionId",
+                                    "collectionType",
+                                    "title",
+                                    "subtitle",
+                                    "startTime",
+                                    "duration",
+                                    "seasonNumber",
+                                    "episodeNum",
+                                    "episodic",
+                                    "hdtv",
+                                    "isAdult",
+                                    "isEpisode",
+                                    "repeat",
+                                    "channel"
+                                } 
+                            }
+                        }, 
+                        new Dictionary<string, object>
+                        {
+                            { "type", "responseTemplate" },
+                            { "typeName", "channel" },
+                            { "fieldName", 
+                                new string[] 
+                                { 
+                                    "channelId", 
+                                    "channelNumber", 
+                                    "callSign", 
+                                    "logoIndex", 
+                                } 
+                            }
+                        },
+                    }
+                },
+            };
+            return request;
+        }
+
+        private async Task<JObject> SendCollectionSearchRequest(string collectionId)
+        {
+            var request = new Dictionary<string, object>
+            {
+                { "type", "collectionSearch" },
+                { "bodyId", this.capturedTsn },
+                { "filterUnavailable", false },
+                { "collectionId", new[] { collectionId } },
+                { "note", 
+                    new string[] 
+                    { 
+                        //"userContentForCollectionId", // Use this to get thumbs rating
+                        //"broadcastOfferGroupForCollectionId", // Use this to get example offers
+                        //"broadbandOfferGroupForCollectionId" // Not entirely sure what this gives you!
+                    }
+                },
+                { "levelOfDetail", "high" },
+            };
+
+            var response = await SendRequest("collectionSearch", request).ConfigureAwait(false);
+            return response;
+        }
+
+        private async Task<JObject> SendUnifiedItemSearchRequest(string keyword, int offset, int count)
+        {
+            var request = new Dictionary<string, object>
+            {
+                { "type", "unifiedItemSearch" },
+                { "bodyId", this.capturedTsn },
+                { "keyword", keyword },
+                { "count", count },
+                { "offset", offset },
+                { "numRelevantItems", 50 },
+                { "orderBy", new[] { "relevance" } },
+                { "searchable", true },
+                { "mergeOverridingCollections", true },
+                { "includeUnifiedItemType", new[] { "collection", "person" } },
+                { "levelOfDetail", "high" },
+            };
+
+            var response = await SendRequest("unifiedItemSearch", request).ConfigureAwait(false);
+            return response;
+        }
+
+        private async Task<JObject> SendBasicPersonSearchRequest(string personId)
+        {
+            var request = new Dictionary<string, object>
+            {
+                { "type", "personSearch" },
+                { "bodyId", this.capturedTsn },
+                { "personId", new[] { personId } },
+                { "note", 
+                    new string[] 
+                    { 
+                        "roleForPersonId",
+                    }
+                },
+                { "responseTemplate", 
+                    new object[]
+                    {
+                        new Dictionary<string, object>
+                        {
+                            { "type", "responseTemplate" },
+                            { "typeName", "personList" },
+                            { "fieldName", 
+                                new string[] 
+                                { 
+                                    "person",
+                                    "isTop",
+                                    "isBottom",
+                                } 
+                            }
+                        },                     
+                        new Dictionary<string, object>
+                        {
+                            { "type", "responseTemplate" },
+                            { "typeName", "person" },
+                            { "fieldName", 
+                                new string[] 
+                                { 
+                                    "personId", 
+                                    "first", 
+                                    "middle", 
+                                    "last", 
+                                    "roleForPersonId"
+                                } 
+                            }
+                        },
+                    }
+                },
+            };
+
+            var response = await SendRequest("personSearch", request).ConfigureAwait(false);
+            return response;
+        }
+
+        private async Task<JObject> SendPersonSearchRequest(string personId, bool includeContentSummary)
+        {
+            string[] notes;
+
+            if (!includeContentSummary)
+            {
+                notes = new[] { "roleForPersonId" };
+            }
+            else
+            {
+                notes = new[] { "roleForPersonId", "contentSummaryForPersonId" };
+            }
+
+            var request = new Dictionary<string, object>
+            {
+                { "type", "personSearch" },
+                { "bodyId", this.capturedTsn },
+                { "personId", new[] { personId } },
+                { "note", notes },
+                { "levelOfDetail", "high" },
+            };
+
+            var response = await SendRequest("personSearch", request).ConfigureAwait(false);
+            return response;
+        }
+
     }
 }

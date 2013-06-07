@@ -18,6 +18,8 @@ namespace Tivo.Connect.Entities
         }
 
         public string ImageId { get; set; }
+        public string ImageType { get; set; }
+
         public int? Width { get; set; }
         public int? Height { get; set; }
 
