@@ -22,6 +22,8 @@
         <converters:NullOrEmptyToVisibilityConverter
             x:Key="nonNullToVisConverter"
             IsReversed="True" />
+        <converters:ImageInfoListToUrlConverter
+            x:Key="imageInfoConverter" />
     </UserControl.Resources>
 
     <Grid
@@ -54,7 +56,8 @@
                                 Width="*" />
                         </Grid.ColumnDefinitions>
                         <Image
-                            Source="{Binding ImageUrl}"/>
+                            Height="75"
+                            Source="{Binding Images, Converter={StaticResource imageInfoConverter}, ConverterParameter=75}" />
                         <StackPanel
                             Grid.Column="1"
                             Orientation="Vertical"

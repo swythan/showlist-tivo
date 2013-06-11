@@ -46,7 +46,6 @@ namespace TivoAhoy.Common.ViewModels
             this.Person = new Person
             {
                 FirstName = "Ted",
-                OriginalImageUrl = "http://10.185.116.1:8080/images/legacy/small/69/55/695556e67a7b88608fc01a5c72501a24.jpg",
                 LastName = "Danson",
                 BirthDate = new DateTime(1963, 2, 25),
                 BirthPlace = "Los Angeles, California",
