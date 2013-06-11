@@ -18,10 +18,10 @@ namespace TivoAhoy.Common.Services
         public void OpenSession()
         {
             // Release key
-            // this.session = new LocalyticsSession("9abdb358ac0ba50ec8572ed-8c572854-b81f-11e2-0d7e-004a77f8b47f");
+            this.session = new LocalyticsSession("9abdb358ac0ba50ec8572ed-8c572854-b81f-11e2-0d7e-004a77f8b47f");
 
             // Debugging key
-            this.session = new LocalyticsSession("388a340816ebda0f44d732d-1bf26e3e-b820-11e2-0d7e-004a77f8b47f");
+            //this.session = new LocalyticsSession("388a340816ebda0f44d732d-1bf26e3e-b820-11e2-0d7e-004a77f8b47f");
 
             this.session.open();
             this.session.upload();
