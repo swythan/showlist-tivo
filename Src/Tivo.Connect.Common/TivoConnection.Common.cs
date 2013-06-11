@@ -523,6 +523,11 @@ namespace Tivo.Connect
 
         public async Task<IList<IUnifiedItem>> ExecuteUnifiedItemSearch(string keyword, int offset, int count)
         {
+            if (string.IsNullOrWhiteSpace(keyword))
+            {
+                return new List<IUnifiedItem>();
+            }
+
             var response = await SendUnifiedItemSearchRequest(keyword, offset, count).ConfigureAwait(false);
 
             CheckResponse(response, "unifiedItemList", "unifiedItemSearch");
