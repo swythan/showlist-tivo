@@ -58,6 +58,13 @@
     <!-- Supported types are "text" and "xaml", where text is nicely formatted automatically, and XAML is handled by the built-in XamlReader -->
     <Item Title="history"
           Type="text">
+      2.1.0.0
+      - Search (for shows or people).
+      - Show upcoming times for an individual show or a series.
+      - Show credits for a show (or series).
+      - Show information for a person.
+      - Layout improvements.
+
       2.0.0.0
       Re-release after a long time away!
       - Away Mode support - Connect from anywhere with internet access!
