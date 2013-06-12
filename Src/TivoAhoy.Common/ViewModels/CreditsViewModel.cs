@@ -29,7 +29,6 @@ namespace TivoAhoy.Common.ViewModels
                     {
                         CharacterName= "D.B. Russell",
                         FirstName ="Ted",
-                        OriginalImageUrl= "http://10.185.116.1:8080/images/legacy/small/69/55/695556e67a7b88608fc01a5c72501a24.jpg",
                         LastName= "Danson",
                         PersonId= "tivo:pn.61724",
                         OriginalRole = "actor",

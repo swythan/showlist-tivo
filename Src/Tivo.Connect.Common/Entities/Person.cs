@@ -36,10 +36,7 @@ namespace Tivo.Connect.Entities
         public string BirthPlace { get; set; }
         public DateTime? BirthDate { get; set; }
         public DateTime? DeathDate { get; set; }
-
-        [JsonProperty("imageUrl")]
-        public string OriginalImageUrl { get; set; }
-
+        
         [JsonProperty("image")]
         public List<ImageInfo> Images { get; set; }
 
@@ -48,30 +45,6 @@ namespace Tivo.Connect.Entities
 
         [JsonProperty("contentSummaryForPersonId")]
         public List<ContentSummaryForPersonId> ContentSummary { get; set; }
-
-        [JsonIgnore]
-        public Uri ImageUrl
-        {
-            get
-            {
-                if (this.OriginalImageUrl != null)
-                {
-                    Uri originalUrl;
-                    if (Uri.TryCreate(this.OriginalImageUrl, UriKind.Absolute, out originalUrl))
-                    {
-                        if (originalUrl.AbsolutePath.StartsWith("/images"))
-                        {
-                            var imagePath = originalUrl.AbsolutePath.Substring(7);
-                            var vmImageHost = @"http://tivo-icdn.virginmedia.com/images-vm_production";
-
-                            return new Uri(vmImageHost + imagePath);
-                        }
-                    }
-                }
-
-                return null;
-            }
-        }
 
         [JsonIgnore]
         public string DisplayName
