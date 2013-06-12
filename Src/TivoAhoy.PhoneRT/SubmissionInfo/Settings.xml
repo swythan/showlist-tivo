@@ -1,0 +1,6 @@
+<MarketplaceDetails>
+  <SmallAppTile>Marketplace_Store_300x300.png</SmallAppTile>
+  <ScreenShots>Guide.WVGA.png;My Shows.WVGA.png;Scheduled.WVGA.png;Search.WVGA.png;Show Details 1.WVGA.png;Show Details 2.WVGA.png;Show Details 3.WVGA.png;Person Details.WVGA.png;</ScreenShots>
+  <ScreenShotsWXGA>Guide.WXGA.png;My Shows.WXGA.png;Scheduled.WXGA.png;Search.WXGA.png;Show Details 1.WXGA.png;Show Details 2.WXGA.png;Show Details 3.WXGA.png;Person Details.WXGA.png;</ScreenShotsWXGA>
+  <ScreenShots720P>Guide.720P.png;My Shows.720P.png;Scheduled.720P.png;Search.720P.png;Show Details 1.720P.png;Show Details 2.720P.png;Show Details 3.720P.png;Person Details.720P.png;</ScreenShots720P>
+</MarketplaceDetails>

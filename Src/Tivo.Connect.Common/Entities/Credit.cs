@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 using Newtonsoft.Json;
-using Tivo.Connect;
 
 namespace Tivo.Connect.Entities
 {
@@ -38,40 +36,13 @@ namespace Tivo.Connect.Entities
 
         [JsonProperty("image")]
         public List<ImageInfo> Images { get; set; }
-
-        [JsonProperty("imageUrl")]
-        public string OriginalImageUrl { get; set; }
-
+        
         [JsonIgnore]
         public string Role
         {
             get
             {
                 return this.OriginalRole.SplitCamelCase().UppercaseFirst();
-            }
-        }
-
-        [JsonIgnore]
-        public Uri ImageUrl
-        {
-            get
-            {
-                if (this.OriginalImageUrl != null)
-                {
-                    Uri originalUrl;
-                    if (Uri.TryCreate(this.OriginalImageUrl, UriKind.Absolute, out originalUrl))
-                    {
-                        if (originalUrl.AbsolutePath.StartsWith("/images"))
-                        {
-                            var imagePath = originalUrl.AbsolutePath.Substring(7);
-                            var vmImageHost = @"http://tivo-icdn.virginmedia.com/images-vm_production";
-
-                            return new Uri(vmImageHost + imagePath);
-                        }
-                    }
-                }
-
-                return null;
             }
         }
 

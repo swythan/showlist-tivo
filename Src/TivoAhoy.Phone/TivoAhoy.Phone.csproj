@@ -285,6 +285,7 @@
     <None Include="Properties\WMAppManifest.xml">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Images\Person.png" />
     <Content Include="Images\Television.png" />
     <Content Include="tivo_vm.p12" />
     <Resource Include="Application_IconImage_62x62.png" />

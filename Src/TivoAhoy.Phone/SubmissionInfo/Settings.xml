@@ -1,7 +1,6 @@
 <MarketplaceDetails>
-  <SmallAppTile>
-  </SmallAppTile>
-  <ScreenShots>Guide.png;Scheduled.png;MyShows.png;MyShowsFolder.png;Show Details.png;Show Details2.png;Settings.png;SettingsHome.png;</ScreenShots>
+  <SmallAppTile>Marketplace_Store_300x300.png</SmallAppTile>
+  <ScreenShots>Guide.WP7.png;My Shows.WP7.png;Scheduled.WP7.png;Search.WP7.png;Show Details 1.WP7.png;Show Details 2.WP7.png;Show Details 3.WP7.png;Person Details.WP7.png;</ScreenShots>
   <ScreenShotsWXGA>;;;;;;;;</ScreenShotsWXGA>
   <ScreenShots720P>;;;;;;;;</ScreenShots720P>
 </MarketplaceDetails>

@@ -45,8 +45,16 @@
         <controls:Panorama
             Title="{Binding Show.Title}"
             Background="{Binding MainImageBrush}"
-            SizeChanged="Panorama_SizeChanged"
-            cal:Message.Attach="[Event Tap] = [Action DisplayCollectionDetails()]">
+            SizeChanged="Panorama_SizeChanged">
+
+            <controls:Panorama.TitleTemplate>
+                <DataTemplate>
+                    <ContentControl
+                        Content="{Binding}"
+                        Background="Transparent"
+                        cal:Message.Attach="[Event Tap] = [Action DisplayCollectionDetails()]" />
+                </DataTemplate>
+            </controls:Panorama.TitleTemplate>
 
             <controls:PanoramaItem>
 
