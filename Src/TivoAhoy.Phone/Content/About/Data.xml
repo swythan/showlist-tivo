@@ -47,8 +47,8 @@
         <Link NavigateUri="http://swythan.uservoice.com/"
               Content="http://swythan.uservoice.com/"
               Label="Feedback/Support:" />       
-        <Link NavigateUri="mailto:apps@swythan.co.uk"
-              Content="apps@swythan.co.uk"
+        <Link NavigateUri="mailto:tickets@swythan.uservoice.com"
+              Content="tickets@swythan.uservoice.com"
               Label="Email Support:" />
       </Links>
     </MainItem>
