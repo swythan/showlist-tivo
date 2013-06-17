@@ -1,0 +1,58 @@
+﻿<Window
+    x:Class="TivoConnectionTest.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="MainWindow"
+    Height="350"
+    Width="525"
+    x:Name="root">
+    <Grid
+        DataContext="{Binding ElementName=root}">
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Height="Auto" />
+            <RowDefinition
+                Height="*" />
+            <RowDefinition
+                Height="*" />
+        </Grid.RowDefinitions>
+        <Button
+            Content="Search"
+            Click="Button_Click" />
+        <ListBox
+            Grid.Row="1"
+            ItemsSource="{Binding DiscoveredTivos}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border
+                        BorderBrush="Black"
+                        CornerRadius="4">
+                        <StackPanel
+                            Orientation="Horizontal">
+                            <TextBlock
+                                Text="IP Address: " />
+                            <TextBlock
+                                Text="{Binding IpAddress}" />
+                            <TextBlock
+                                Text=",   Name: " />
+                            <TextBlock
+                                Text="{Binding Name}" />
+                            <TextBlock
+                                Text=",   TSN: " />
+                            <TextBlock
+                                Text="{Binding TSN}" />
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <TextBox
+            TextWrapping="Wrap"
+            VerticalScrollBarVisibility="Auto"
+            AcceptsReturn="True"
+            Name="textBox" 
+            Grid.Row="2"/>
+
+    </Grid>
+</Window>
