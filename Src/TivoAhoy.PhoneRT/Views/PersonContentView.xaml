@@ -7,6 +7,7 @@
     xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
     xmlns:vm="clr-namespace:TivoAhoy.Common.ViewModels;assembly=TivoAhoy.Common"
     xmlns:converters="clr-namespace:TivoAhoy.Phone.Converters"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -23,9 +24,9 @@
 
     <Grid
         x:Name="LayoutRoot">
-        <ListBox
-            x:Name="ContentList">
-            <ListBox.ItemTemplate>
+        <phone:LongListSelector
+            ItemsSource="{Binding ContentList}">
+            <phone:LongListSelector.ItemTemplate>
                 <DataTemplate>
                     <Grid
                         Margin="12"
@@ -48,15 +49,7 @@
                             Text="{Binding Title}" />
                     </Grid>
                 </DataTemplate>
-            </ListBox.ItemTemplate>
-            <ListBox.ItemContainerStyle>
-                <Style
-                    TargetType="ListBoxItem">
-                    <Setter
-                        Property="HorizontalContentAlignment"
-                        Value="Stretch" />
-                </Style>
-            </ListBox.ItemContainerStyle>
-        </ListBox>
+            </phone:LongListSelector.ItemTemplate>
+        </phone:LongListSelector>
     </Grid>
 </UserControl>
