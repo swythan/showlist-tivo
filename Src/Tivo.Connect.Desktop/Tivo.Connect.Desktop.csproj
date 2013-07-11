@@ -143,6 +143,9 @@
     <Compile Include="..\Tivo.Connect.Common\JsonCreationConverter.cs">
       <Link>JsonCreationConverter.cs</Link>
     </Compile>
+    <Compile Include="..\Tivo.Connect.Common\MindRpcFormatter.cs">
+      <Link>MindRpcFormatter.cs</Link>
+    </Compile>
     <Compile Include="..\Tivo.Connect.Common\StringUtils.cs">
       <Link>StringUtils.cs</Link>
     </Compile>
@@ -151,6 +154,9 @@
     </Compile>
     <Compile Include="..\Tivo.Connect.Common\TivoException.cs">
       <Link>TivoException.cs</Link>
+    </Compile>
+    <Compile Include="..\Tivo.Connect.Common\TivoNetworkSession.cs">
+      <Link>TivoNetworkSession.cs</Link>
     </Compile>
     <Compile Include="..\Tivo.Connect.Common\TivoTlsClient.cs">
       <Link>TivoTlsClient.cs</Link>

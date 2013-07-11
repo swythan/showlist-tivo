@@ -1,36 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Net;
-using System.Net.Sockets;
-using System.Reactive.Linq;
-using System.Reactive.Subjects;
 using System.ServiceModel;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Org.BouncyCastle.Crypto.Tls;
 using Tivo.Connect.Entities;
 
 namespace Tivo.Connect
 {
     public class TivoConnection : IDisposable
     {
-        private readonly int sessionId;
-
-        private Socket client;
-        private TlsProtocolHandler protocolHandler;
-
-        private Stream sslStream = null;
-        private int lastRpcId = 0;
-
-        private Thread receiveThread;
-        private Subject<Tuple<int, JObject>> receiveSubject;
-        private CancellationTokenSource receiveCancellationTokenSource;
+        private TivoNetworkSession tivoSession;
 
         private JsonSerializerSettings jsonSettings;
         private JsonSerializer jsonSerializer;
@@ -39,8 +22,6 @@ namespace Tivo.Connect
 
         public TivoConnection()
         {
-            sessionId = new Random().Next(0x26c000, 0x27dc20);
-
             this.jsonSettings = new JsonSerializerSettings
             {
                 DateTimeZoneHandling = DateTimeZoneHandling.Utc,
@@ -65,24 +46,10 @@ namespace Tivo.Connect
         {
             if (disposing)
             {
-                if (this.protocolHandler != null)
+                if (this.tivoSession != null)
                 {
-                    this.protocolHandler.Close();
-                    this.protocolHandler = null;
-                }
-
-                if (this.client != null)
-                {
-                    this.client.Dispose();
-                    Debug.WriteLine("Client closed.");
-
-                    this.client = null;
-                }
-
-                if (receiveCancellationTokenSource != null)
-                {
-                    receiveCancellationTokenSource.Cancel();
-                    // receiveCancellationTokenSource = null;
+                    this.tivoSession.Dispose();
+                    this.tivoSession = null;
                 }
             }
         }
@@ -107,15 +74,12 @@ namespace Tivo.Connect
         {
             this.capturedTsn = string.Empty;
 
-            this.sslStream = await ConnectNetworkStream(new IPEndPoint(serverAddress, 1413)).ConfigureAwait(false);
-            this.receiveSubject = new Subject<Tuple<int, JObject>>();
+            this.tivoSession = new TivoNetworkSession();
 
-            // Send authentication message to the TiVo. 
-            var authTask = SendMakAuthenticationRequest(mediaAccessKey);
-
-            // Start listening on the socket *after* the first send operation.
-            // This stops errors occuring on WP7
-            StartReceiveThread();
+            var authTask = this.tivoSession.Connect(
+                new IPEndPoint(serverAddress, 1413), 
+                false, 
+                BuildMakAuthenticationRequest(mediaAccessKey));
 
             var authResponse = await authTask.ConfigureAwait(false);
 
@@ -162,29 +126,16 @@ namespace Tivo.Connect
             this.capturedTsn = (string)bodyConfig["bodyId"];
         }
 
-        private void StartReceiveThread()
-        {
-            this.receiveCancellationTokenSource = new CancellationTokenSource();
-
-            this.receiveThread = new Thread((ThreadStart)RpcReceiveThreadProc);
-            this.receiveThread.IsBackground = true;
-            this.receiveThread.Name = "RPC Receive Thread";
-            this.receiveThread.Start();
-        }
-
-        public async Task ConnectAway(string username, string password)
+        public async Task<string> ConnectAway(string username, string password)
         {
             this.capturedTsn = string.Empty;
 
-            this.sslStream = await ConnectNetworkStream(new DnsEndPoint(@"secure-tivo-api.virginmedia.com", 443)).ConfigureAwait(false);
-            this.receiveSubject = new Subject<Tuple<int, JObject>>();
+            this.tivoSession = new TivoNetworkSession();
 
-            // Send authentication message to the TiVo. 
-            var authTask = SendUsernameAndPasswordAuthenticationRequest(username, password);
-
-            // Start listening on the socket *after* the first send operation.
-            // This stops errors occuring on WP7
-            StartReceiveThread();
+            var authTask = this.tivoSession.Connect(
+                new DnsEndPoint(@"secure-tivo-api.virginmedia.com", 443),
+                true,
+                BuildUsernameAndPasswordAuthenticationRequest(username, password));
 
             var authResponse = await authTask.ConfigureAwait(false);
 
@@ -210,106 +161,8 @@ namespace Tivo.Connect
                 // TODO : Select which TiVO
                 this.capturedTsn = (string)deviceIds[0]["id"];
             }
-        }
 
-        private async Task<Stream> ConnectNetworkStream(EndPoint remoteEndPoint)
-        {
-            if (this.client != null)
-            {
-                throw new InvalidOperationException("Cannot open the same connection twice.");
-            }
-
-            // Create a TCP/IP connection to the TiVo.
-            this.client = await ConnectSocketAsync(remoteEndPoint).ConfigureAwait(false);
-
-            Debug.WriteLine("Client connected.");
-
-            try
-            {
-                // Create an SSL stream that will close the client's stream.
-                var tivoTlsClient = new TivoTlsClient();
-
-                this.protocolHandler = new TlsProtocolHandler(new NetworkStream(this.client) { ReadTimeout = Timeout.Infinite });
-                this.protocolHandler.Connect(tivoTlsClient);
-            }
-            catch (IOException e)
-            {
-                Debug.WriteLine("Authentication failed - closing the connection.");
-
-                Debug.WriteLine("Exception: {0}", e.Message);
-                if (e.InnerException != null)
-                {
-                    Debug.WriteLine("Inner exception: {0}", e.InnerException.Message);
-                }
-
-                this.client.Dispose();
-                this.client = null;
-
-                this.protocolHandler.Close();
-                this.protocolHandler = null;
-
-                throw;
-            }
-
-            return protocolHandler.Stream;
-        }
-
-        private static async Task<Socket> ConnectSocketAsync(EndPoint remoteEndPoint)
-        {
-            var tcs = new TaskCompletionSource<Socket>();
-
-            var args = new SocketAsyncEventArgs()
-            {
-                RemoteEndPoint = remoteEndPoint,
-            };
-
-            args.Completed +=
-                (sender, e) =>
-                {
-                    if (e.ConnectByNameError != null)
-                    {
-                        tcs.TrySetException(e.ConnectByNameError);
-                    }
-                    else
-                    {
-                        if (e.SocketError != SocketError.Success)
-                        {
-                            tcs.TrySetException(new SocketException((int)e.SocketError));
-                        }
-                        else
-                        {
-                            tcs.TrySetResult(e.ConnectSocket);
-                        }
-                    }
-                };
-
-            if (!Socket.ConnectAsync(SocketType.Stream, ProtocolType.Tcp, args))
-            {
-                return args.ConnectSocket;
-            }
-
-            return await tcs.Task.ConfigureAwait(false);
-        }
-
-        private void RpcReceiveThreadProc()
-        {
-            try
-            {
-                while (true)
-                {
-                    this.receiveSubject.OnNext(ReadMessage());
-
-                    if (this.receiveCancellationTokenSource.IsCancellationRequested)
-                    {
-                        this.receiveSubject.OnCompleted();
-                        return;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                this.receiveSubject.OnError(ex);
-            }
+            return (string)authResponse["mediaAccessKey"];
         }
 
         public async Task<IEnumerable<RecordingFolderItem>> GetMyShowsList(Container parent, IProgress<RecordingFolderItem> progress)
@@ -578,9 +431,10 @@ namespace Tivo.Connect
             var whatsOnSearchBody = new Dictionary<string, object>()
             { 
                 { "type", "whatsOnSearch" },
+                { "bodyId", this.capturedTsn },
             };
 
-            var whatsOnResponse = await SendRequest("whatsOnSearch", whatsOnSearchBody).ConfigureAwait(false);
+            var whatsOnResponse = await this.tivoSession.SendRequest(whatsOnSearchBody).ConfigureAwait(false);
 
             CheckResponse(whatsOnResponse, "whatsOnList", "whatsOnSearch");
 
@@ -623,139 +477,6 @@ namespace Tivo.Connect
             }
         }
 
-        private async Task<JObject> SendRequest(string requestType, object body)
-        {
-            int requestRpcId = Interlocked.Increment(ref this.lastRpcId);
-
-            int schemaVersion = 7;
-            int appMajorVersion = 1;
-            int appMinorVersion = 2;
-
-            var header = new StringBuilder();
-            header.AppendLine("Type:request");
-            header.AppendLine(string.Format("RpcId:{0}", requestRpcId));
-            header.AppendLine(string.Format("SchemaVersion:{0}", schemaVersion));
-            header.AppendLine("Content-Type:application/json");
-            header.AppendLine("RequestType:" + requestType);
-            header.AppendLine("ResponseCount:single");
-
-            if (!string.IsNullOrEmpty(this.capturedTsn))
-            {
-                header.AppendLine(string.Format("BodyId:{0}", this.capturedTsn));
-            }
-
-            header.AppendLine("X-ApplicationName:Quicksilver");
-            header.AppendLine(string.Format("X-ApplicationVersion:{0}.{1}", appMajorVersion, appMinorVersion));
-            header.AppendLine(string.Format("X-ApplicationSessionId:0x{0:x}", this.sessionId));
-            header.AppendLine();
-
-            string bodyText = JsonConvert.SerializeObject(body, this.jsonSettings);
-
-            var messageString = string.Format("MRPC/2 {0} {1}\r\n{2}{3}",
-                Encoding.UTF8.GetByteCount(header.ToString()),
-                Encoding.UTF8.GetByteCount(bodyText),
-                header.ToString(),
-                bodyText);
-
-            var messageBytes = Encoding.UTF8.GetBytes(messageString);
-            this.sslStream.Write(messageBytes, 0, messageBytes.Length);
-            this.sslStream.Flush();
-
-            return await this.receiveSubject
-                .Where(message => message.Item1 == requestRpcId)
-                .Select(message => message.Item2)
-                .Take(1);
-        }
-
-        private Tuple<int, JObject> ReadMessage()
-        {
-            List<byte> preambleBytes = new List<byte>(16);
-
-            string preamble = null;
-
-            List<byte> buffer = new List<byte>();
-            bool hasCr = false;
-
-            while (preamble == null)
-            {
-                int nextByte = this.sslStream.ReadByte();
-
-                if (nextByte == -1)
-                {
-                    throw new IOException("EOF reached in preamble.");
-                }
-
-                if (nextByte == 13)
-                {
-                    hasCr = true;
-                }
-                else
-                {
-                    if (nextByte == 10 && hasCr)
-                    {
-                        preamble = Encoding.UTF8.GetString(buffer.ToArray(), 0, buffer.Count);
-                    }
-                    else
-                    {
-                        if (hasCr)
-                        {
-                            buffer.Add(13);
-                            hasCr = false;
-                        }
-
-                        buffer.Add((byte)nextByte);
-                    }
-                }
-            }
-
-            var preambleParts = preamble.Split(' ');
-
-            var expectedHeaderByteCount = int.Parse(preambleParts[1]);
-            var expectedBodyByteCount = int.Parse(preambleParts[2]);
-
-            var headerBytes = new byte[expectedHeaderByteCount];
-            int headerByteCount = 0;
-            while (headerByteCount < expectedHeaderByteCount)
-            {
-                headerByteCount += this.sslStream.Read(headerBytes, headerByteCount, expectedHeaderByteCount - headerByteCount);
-            }
-
-            var header = Encoding.UTF8.GetString(headerBytes, 0, headerByteCount);
-            var headerReader = new StringReader(header);
-
-            int rpcId = 0;
-            while (true)
-            {
-                var line = headerReader.ReadLine();
-                if (line == null)
-                    break;
-
-                if (line.StartsWith("RpcId", StringComparison.OrdinalIgnoreCase))
-                {
-                    var tokens = line.Split(':');
-                    if (tokens.Length > 1)
-                    {
-                        if (int.TryParse(tokens[1], out rpcId))
-                        {
-                            break;
-                        }
-                    }
-                }
-            }
-
-            var bodyBytes = new byte[expectedBodyByteCount];
-            int bodyByteCount = 0;
-            while (bodyByteCount < expectedBodyByteCount)
-            {
-                bodyByteCount += this.sslStream.Read(bodyBytes, bodyByteCount, expectedBodyByteCount - bodyByteCount);
-            }
-
-            string bodyJsonString = Encoding.UTF8.GetString(bodyBytes, 0, bodyByteCount);
-            var body = JObject.Parse(bodyJsonString);
-
-            return Tuple.Create(rpcId, body);
-        }
-
         private static void CheckResponse(JObject response, string expectedType, string operationName)
         {
             var responseType = (string)response["type"];
@@ -772,7 +493,7 @@ namespace Tivo.Connect
             throw new TivoException((string)response["text"], (string)response["code"], operationName);
         }
 
-        private Task<JObject> SendMakAuthenticationRequest(string mediaAccessKey)
+        private Dictionary<string, object> BuildMakAuthenticationRequest(string mediaAccessKey)
         {
             var body = new Dictionary<string, object>()
             { 
@@ -786,10 +507,10 @@ namespace Tivo.Connect
                 }
             };
 
-            return SendRequest((string)body["type"], body);
+            return body;
         }
 
-        private Task<JObject> SendUsernameAndPasswordAuthenticationRequest(string username, string password)
+        private Dictionary<string, object> BuildUsernameAndPasswordAuthenticationRequest(string username, string password)
         {
             var body = new Dictionary<string, object>()
             { 
@@ -805,7 +526,7 @@ namespace Tivo.Connect
                 }
             };
 
-            return SendRequest((string)body["type"], body);
+            return body;
         }
 
         private Task<JObject> SendOptStatusGetRequest()
@@ -815,7 +536,7 @@ namespace Tivo.Connect
                 { "type", "optStatusGet" }
             };
 
-            return SendRequest((string)body["type"], body);
+            return this.tivoSession.SendRequest(body);
         }
 
         private Task<JObject> SendBodyConfigSearchRequest()
@@ -825,7 +546,7 @@ namespace Tivo.Connect
                 { "type", "bodyConfigSearch" }
             };
 
-            return SendRequest((string)body["type"], body);
+            return this.tivoSession.SendRequest(body);
         }
 
         private Task<JObject> SendGetFolderShowsRequest(string parentId)
@@ -843,7 +564,7 @@ namespace Tivo.Connect
                 body["parentRecordingFolderItemId"] = parentId;
             }
 
-            return SendRequest((string)body["type"], body);
+            return this.tivoSession.SendRequest(body);
         }
 
         private Task<JObject> SendGetMyShowsItemDetailsRequest(IEnumerable<long> itemIds)
@@ -932,7 +653,7 @@ namespace Tivo.Connect
                 }
             };
 
-            return SendRequest((string)body["type"], body);
+            return this.tivoSession.SendRequest(body);
         }
 
         private async Task<JObject> SendContentSearchRequest(string contentId)
@@ -1015,7 +736,7 @@ namespace Tivo.Connect
                 //}
             };
 
-            var response = await SendRequest((string)body["type"], body).ConfigureAwait(false);
+            var response = await this.tivoSession.SendRequest(body).ConfigureAwait(false);
             return response;
         }
 
@@ -1025,6 +746,7 @@ namespace Tivo.Connect
                 new Dictionary<string, object>
                 { 
                     { "type", "uiNavigate" },
+                    { "bodyId", this.capturedTsn },
                     { "uri", "x-tivo:classicui:playback" },
                     { "parameters", 
                         new Dictionary<string, object> 
@@ -1036,7 +758,7 @@ namespace Tivo.Connect
                     }
                 };
 
-            return SendRequest((string)body["type"], body);
+            return this.tivoSession.SendRequest(body);
         }
 
         private Task<JObject> SendDeleteRecordingRequest(string recordingId)
@@ -1060,7 +782,7 @@ namespace Tivo.Connect
                     { "recordingId", recordingId }
                 };
 
-            return SendRequest("recordingUpdate", request);
+            return this.tivoSession.SendRequest(request);
         }
 
         private Task<JObject> SendScheduleSingleRecordingRequest(string contentId, string offerId)
@@ -1198,7 +920,7 @@ namespace Tivo.Connect
                     }  
                 };
 
-            return SendRequest("subscribe", request);
+            return this.tivoSession.SendRequest(request);
         }
 
         private async Task<JObject> SendChannelSearchRequest()
@@ -1241,7 +963,7 @@ namespace Tivo.Connect
                 }  
             };
 
-            var response = await SendRequest("channelSearch", request).ConfigureAwait(false);
+            var response = await this.tivoSession.SendRequest(request).ConfigureAwait(false);
             return response;
         }
 
@@ -1325,7 +1047,7 @@ namespace Tivo.Connect
                 }  
             };
 
-            var response = await SendRequest("gridRowSearch", request).ConfigureAwait(false);
+            var response = await this.tivoSession.SendRequest(request).ConfigureAwait(false);
             return response;
         }
 
@@ -1340,7 +1062,7 @@ namespace Tivo.Connect
                 { "format", "idSequence" }
             };
 
-            var response = await SendRequest("recordingSearch", request).ConfigureAwait(false);
+            var response = await this.tivoSession.SendRequest(request).ConfigureAwait(false);
             return response;
         }
 
@@ -1403,7 +1125,7 @@ namespace Tivo.Connect
                 }  
             };
 
-            var response = await SendRequest("recordingSearch", request).ConfigureAwait(false);
+            var response = await this.tivoSession.SendRequest(request).ConfigureAwait(false);
             return response;
         }
 
@@ -1487,7 +1209,7 @@ namespace Tivo.Connect
                 }  
             };
 
-            var response = await SendRequest("recordingSearch", request).ConfigureAwait(false);
+            var response = await this.tivoSession.SendRequest(request).ConfigureAwait(false);
             return response;
         }
 
@@ -1504,7 +1226,7 @@ namespace Tivo.Connect
                 { "note", new[] { "recordingForOfferId" } },
             };
 
-            var response = await SendRequest("offerSearch", request).ConfigureAwait(false);
+            var response = await this.tivoSession.SendRequest(request).ConfigureAwait(false);
             return response;
         }
 
@@ -1514,7 +1236,7 @@ namespace Tivo.Connect
 
             request["collectionId"] = new[] { collectionId };
 
-            var response = await SendRequest("offerSearch", request).ConfigureAwait(false);
+            var response = await this.tivoSession.SendRequest(request).ConfigureAwait(false);
             return response;
         }
 
@@ -1524,7 +1246,7 @@ namespace Tivo.Connect
 
             request["contentId"] = new[] { contentId };
 
-            var response = await SendRequest("offerSearch", request).ConfigureAwait(false);
+            var response = await this.tivoSession.SendRequest(request).ConfigureAwait(false);
             return response;
         }
 
@@ -1622,7 +1344,7 @@ namespace Tivo.Connect
                 { "levelOfDetail", "high" },
             };
 
-            var response = await SendRequest("collectionSearch", request).ConfigureAwait(false);
+            var response = await this.tivoSession.SendRequest(request).ConfigureAwait(false);
             return response;
         }
 
@@ -1643,7 +1365,7 @@ namespace Tivo.Connect
                 { "levelOfDetail", "high" },
             };
 
-            var response = await SendRequest("unifiedItemSearch", request).ConfigureAwait(false);
+            var response = await this.tivoSession.SendRequest(request).ConfigureAwait(false);
             return response;
         }
 
@@ -1695,7 +1417,7 @@ namespace Tivo.Connect
                 },
             };
 
-            var response = await SendRequest("personSearch", request).ConfigureAwait(false);
+            var response = await this.tivoSession.SendRequest(request).ConfigureAwait(false);
             return response;
         }
 
@@ -1721,7 +1443,7 @@ namespace Tivo.Connect
                 { "levelOfDetail", "high" },
             };
 
-            var response = await SendRequest("personSearch", request).ConfigureAwait(false);
+            var response = await this.tivoSession.SendRequest(request).ConfigureAwait(false);
             return response;
         }
 

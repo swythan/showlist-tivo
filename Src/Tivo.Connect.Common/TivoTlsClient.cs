@@ -6,7 +6,7 @@ using Org.BouncyCastle.Pkcs;
 
 namespace Tivo.Connect
 {
-    internal class TivoTlsClient : DefaultTlsClient
+    public class TivoTlsClient : DefaultTlsClient
     {
         public TivoTlsClient()
         {
@@ -31,6 +31,7 @@ namespace Tivo.Connect
                 //var keyStreamInfo = System.Windows.Application.GetResourceStream(new Uri("tivo.p12", UriKind.Relative));
                 //var keyStore = new Pkcs12Store(keyStreamInfo.Stream, "mpE7Qy8cSqdf".ToCharArray());
 
+                // var keyStreamInfo = System.Windows.Application.GetResourceStream(new Uri("/tivo_vm.p12", UriKind.Relative));
                 var keyStreamInfo = System.Windows.Application.GetResourceStream(new Uri("tivo_vm.p12", UriKind.Relative));
                 var keyStore = new Pkcs12Store(keyStreamInfo.Stream, "R2N48DSKr2Cm".ToCharArray());
 
