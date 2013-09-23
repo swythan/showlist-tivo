@@ -14,6 +14,11 @@ namespace TivoTest
     [Export(typeof(ITivoConnectionService))]
     public class TivoConnectionService: PropertyChangedBase, ITivoConnectionService
     {
+        private const string TivoUsername = @"james.chaldecott@virginmedia.com";
+        private const string TivoPassword = @"lambBh00na";
+        private const string TivoIPAddress = "192.168.0.100";
+        private const string TivoMak = "9837127953";
+
         private bool isAwayModeEnabled = true;
         
         private TivoConnection connection = null;
@@ -62,11 +67,11 @@ namespace TivoTest
                 {
                     if (this.IsAwayModeEnabled)
                     {
-                        await localConnection.ConnectAway(@"james.chaldecott@virginmedia.com", @"lambBh00na");
+                        await localConnection.ConnectAway(TivoUsername, TivoPassword);
                     }
                     else
                     {
-                        await localConnection.Connect(IPAddress.Parse("192.168.0.100"), "9837127953");
+                        await localConnection.Connect(IPAddress.Parse(TivoIPAddress), TivoMak);
                     }
 
                     this.connection = localConnection;
