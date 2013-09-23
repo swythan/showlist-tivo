@@ -1,22 +1,13 @@
 using System;
-using System.Net;
-using Caliburn.Micro;
-using ZeroconfService;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Sockets;
-using System.Reactive.Linq;
+using System.Net;
 using System.Net.Security;
-using System.Security.Cryptography.X509Certificates;
+using System.Net.Sockets;
 using System.Security.Authentication;
-using System.Text;
-using Newtonsoft.Json.Linq;
-using System.IO;
-using Tivo.Connect;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Diagnostics;
-using Org.BouncyCastle.Crypto.Tls;
+using System.Security.Cryptography.X509Certificates;
+using Caliburn.Micro;
+using ZeroconfService;
 
 namespace TivoProxy
 {
