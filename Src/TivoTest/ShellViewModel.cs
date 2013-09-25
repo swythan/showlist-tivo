@@ -1,4 +1,10 @@
-﻿namespace TivoTest {
+﻿//-----------------------------------------------------------------------
+// <copyright file="ShellViewModel.cs" company="James Chaldecott">
+// Copyright (c) 2012-2013 James Chaldecott. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
+
+namespace TivoTest {
     using System.ComponentModel.Composition;
 
     [Export(typeof(IShell))]

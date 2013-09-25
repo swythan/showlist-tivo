@@ -1,4 +1,10 @@
-﻿namespace TivoAhoy.Common.ViewModels
+﻿//-----------------------------------------------------------------------
+// <copyright file="MainPageViewModel.cs" company="James Chaldecott">
+// Copyright (c) 2012-2013 James Chaldecott. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
+
+namespace TivoAhoy.Common.ViewModels
 {
     using System;
     using System.ComponentModel;

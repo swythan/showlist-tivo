@@ -1,4 +1,10 @@
-﻿using System.ComponentModel;
+﻿//-----------------------------------------------------------------------
+// <copyright file="RecordingFolderItem.cs" company="James Chaldecott">
+// Copyright (c) 2012-2013 James Chaldecott. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
+
+using System.ComponentModel;
 using Newtonsoft.Json;
 
 namespace Tivo.Connect.Entities

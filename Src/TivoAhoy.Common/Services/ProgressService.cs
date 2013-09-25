@@ -1,4 +1,10 @@
-﻿namespace TivoAhoy.Common.Services
+﻿//-----------------------------------------------------------------------
+// <copyright file="ProgressService.cs" company="James Chaldecott">
+// Copyright (c) 2012-2013 James Chaldecott. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
+
+namespace TivoAhoy.Common.Services
 {
     using System;
     using System.Reactive.Disposables;
