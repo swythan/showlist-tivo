@@ -21,9 +21,9 @@ namespace TivoAhoy.Phone
 
         protected override void Configure()
         {
-            container = new PhoneContainer(RootFrame);
+            container = new PhoneContainer();
 
-            container.RegisterPhoneServices();
+            container.RegisterPhoneServices(RootFrame);
 
             container.Instance<IProgressService>(new ProgressService(RootFrame));
 
