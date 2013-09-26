@@ -154,9 +154,9 @@
       <Project>{38872a5f-e87e-4fad-b109-8eb7b2e6a4a0}</Project>
       <Name>crypto</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Tivo.Connect.Desktop\Tivo.Connect.Desktop.csproj">
-      <Project>{1618809c-2129-4720-a49c-83d6f940cabc}</Project>
-      <Name>Tivo.Connect.Desktop</Name>
+    <ProjectReference Include="..\Tivo.Connect\Tivo.Connect.csproj">
+      <Project>{3e1efb52-90b7-439b-8354-b605a344cac0}</Project>
+      <Name>Tivo.Connect</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -40,33 +40,9 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Reactive.Core, Version=2.1.30214.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Rx-Core.2.1.30214.0\lib\Net45\System.Reactive.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Reactive.Interfaces, Version=2.1.30214.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Rx-Interfaces.2.1.30214.0\lib\Net45\System.Reactive.Interfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Reactive.Linq, Version=2.1.30214.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Rx-Linq.2.1.30214.0\lib\Net45\System.Reactive.Linq.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Reactive.PlatformServices, Version=2.1.30214.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Rx-PlatformServices.2.1.30214.0\lib\Net45\System.Reactive.PlatformServices.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Reactive.Windows.Threading, Version=2.1.30214.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Rx-XAML.2.1.30214.0\lib\Net45\System.Reactive.Windows.Threading.dll</HintPath>
-    </Reference>
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
@@ -77,94 +53,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Tivo.Connect\Entities\Category.cs">
-      <Link>Entities\Category.cs</Link>
-    </Compile>
-    <Compile Include="..\Tivo.Connect\Entities\Channel.cs">
-      <Link>Entities\Channel.cs</Link>
-    </Compile>
-    <Compile Include="..\Tivo.Connect\Entities\Collection.cs">
-      <Link>Entities\Collection.cs</Link>
-    </Compile>
-    <Compile Include="..\Tivo.Connect\Entities\Conflict.cs">
-      <Link>Entities\Conflict.cs</Link>
-    </Compile>
-    <Compile Include="..\Tivo.Connect\Entities\Container.cs">
-      <Link>Entities\Container.cs</Link>
-    </Compile>
-    <Compile Include="..\Tivo.Connect\Entities\ContentSummaryForPerson.cs">
-      <Link>Entities\ContentSummaryForPerson.cs</Link>
-    </Compile>
-    <Compile Include="..\Tivo.Connect\Entities\Credit.cs">
-      <Link>Entities\Credit.cs</Link>
-    </Compile>
-    <Compile Include="..\Tivo.Connect\Entities\GridRow.cs">
-      <Link>Entities\GridRow.cs</Link>
-    </Compile>
-    <Compile Include="..\Tivo.Connect\Entities\ImageInfo.cs">
-      <Link>Entities\ImageInfo.cs</Link>
-    </Compile>
-    <Compile Include="..\Tivo.Connect\Entities\IndividualShow.cs">
-      <Link>Entities\IndividualShow.cs</Link>
-    </Compile>
-    <Compile Include="..\Tivo.Connect\Entities\IUnifiedItem.cs">
-      <Link>Entities\IUnifiedItem.cs</Link>
-    </Compile>
-    <Compile Include="..\Tivo.Connect\Entities\Offer.cs">
-      <Link>Entities\Offer.cs</Link>
-    </Compile>
-    <Compile Include="..\Tivo.Connect\Entities\Person.cs">
-      <Link>Entities\Person.cs</Link>
-    </Compile>
-    <Compile Include="..\Tivo.Connect\Entities\Recording.cs">
-      <Link>Entities\Recording.cs</Link>
-    </Compile>
-    <Compile Include="..\Tivo.Connect\Entities\RecordingFolderItem.cs">
-      <Link>Entities\RecordingFolderItem.cs</Link>
-    </Compile>
-    <Compile Include="..\Tivo.Connect\Entities\RecordingFolderItemCreator.cs">
-      <Link>Entities\RecordingFolderItemCreator.cs</Link>
-    </Compile>
-    <Compile Include="..\Tivo.Connect\Entities\ShowDetails.cs">
-      <Link>Entities\ShowDetails.cs</Link>
-    </Compile>
-    <Compile Include="..\Tivo.Connect\Entities\SubscribeResult.cs">
-      <Link>Entities\SubscribeResult.cs</Link>
-    </Compile>
-    <Compile Include="..\Tivo.Connect\Entities\SubscriptionConflicts.cs">
-      <Link>Entities\SubscriptionConflicts.cs</Link>
-    </Compile>
-    <Compile Include="..\Tivo.Connect\Entities\SubscriptionIdentifier.cs">
-      <Link>Entities\SubscriptionIdentifier.cs</Link>
-    </Compile>
-    <Compile Include="..\Tivo.Connect\Entities\UnifiedItemCreator.cs">
-      <Link>Entities\UnifiedItemCreator.cs</Link>
-    </Compile>
-    <Compile Include="..\Tivo.Connect\JsonCreationConverter.cs">
-      <Link>JsonCreationConverter.cs</Link>
-    </Compile>
-    <Compile Include="..\Tivo.Connect\MindRpcFormatter.cs">
-      <Link>MindRpcFormatter.cs</Link>
-    </Compile>
-    <Compile Include="..\Tivo.Connect\StringUtils.cs">
-      <Link>StringUtils.cs</Link>
-    </Compile>
-    <Compile Include="..\Tivo.Connect\TivoConnection.Common.cs">
-      <Link>TivoConnection.Common.cs</Link>
-    </Compile>
-    <Compile Include="..\Tivo.Connect\TivoException.cs">
-      <Link>TivoException.cs</Link>
-    </Compile>
-    <Compile Include="..\Tivo.Connect\TivoNetworkSession.cs">
-      <Link>TivoNetworkSession.cs</Link>
-    </Compile>
-    <Compile Include="..\Tivo.Connect\TivoTlsClient.cs">
-      <Link>TivoTlsClient.cs</Link>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BouncyCastle\crypto.csproj">
