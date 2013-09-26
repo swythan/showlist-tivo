@@ -1,9 +1,10 @@
-﻿<UserControl
+﻿<UserControl 
     x:Class="TivoAhoy.PhoneRT.Views.ChannelListView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone" 
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:converters="clr-namespace:TivoAhoy.Phone.Converters"
     xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
@@ -16,7 +17,6 @@
     d:DesignWidth="440"
     d:DataContext="{d:DesignInstance Type=vm:ChannelListViewModel, IsDesignTimeCreatable=True}"
     cal:Bind.AtDesignTime="True">
-
     <UserControl.Resources>
         <converters:BooleanToVisibilityConverter
             x:Key="boolToVisConverter" />
@@ -139,17 +139,9 @@
             <RowDefinition
                 Height="Auto" />
         </Grid.RowDefinitions>
-        <ListBox
-            x:Name="Shows">
-            <ListBox.ItemContainerStyle>
-                <Style
-                    TargetType="ListBoxItem">
-                    <Setter
-                        Property="HorizontalContentAlignment"
-                        Value="Stretch" />
-                </Style>
-            </ListBox.ItemContainerStyle>
-            <ListBox.ItemTemplate>
+        <phone:LongListSelector
+            ItemsSource="{Binding Shows}">
+            <phone:LongListSelector.ItemTemplate>
                 <DataTemplate>
                     <Grid
                         Margin="0,4"
@@ -244,8 +236,8 @@
                             Margin="12,0" />
                     </Grid>
                 </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+            </phone:LongListSelector.ItemTemplate>
+        </phone:LongListSelector>
         <Grid
             Grid.Row="1">
             <Grid.ColumnDefinitions>

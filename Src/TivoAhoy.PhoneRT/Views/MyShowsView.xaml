@@ -4,6 +4,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone" 
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:converters="clr-namespace:TivoAhoy.Phone.Converters"
     xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
@@ -41,17 +42,9 @@
     <Grid
         x:Name="LayoutRoot"
         Margin="12,0,12,0">
-        <ListBox
-            x:Name="MyShows">
-            <ListBox.ItemContainerStyle>
-                <Style
-                    TargetType="ListBoxItem">
-                    <Setter
-                        Property="HorizontalContentAlignment"
-                        Value="Stretch" />
-                </Style>
-            </ListBox.ItemContainerStyle>
-            <ListBox.ItemTemplate>
+        <phone:LongListSelector
+            ItemsSource="{Binding MyShows}">
+            <phone:LongListSelector.ItemTemplate>
                 <DataTemplate>
                     <Grid
                         Margin="0,4"
@@ -61,8 +54,8 @@
                             cal:View.Model="{Binding Item}" />
                     </Grid>
                 </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+            </phone:LongListSelector.ItemTemplate>
+        </phone:LongListSelector>
 
     </Grid>
 </UserControl>

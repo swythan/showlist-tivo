@@ -7,6 +7,7 @@
     xmlns:converters="clr-namespace:TivoAhoy.Phone.Converters"
     xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
     xmlns:vm="clr-namespace:TivoAhoy.Common.ViewModels;assembly=TivoAhoy.Common"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -25,17 +26,9 @@
     <Grid
         x:Name="LayoutRoot"
         Background="{StaticResource PhoneBackgroundBrush}">
-        <ListBox
-            x:Name="ToDoList">
-            <ListBox.ItemContainerStyle>
-                <Style
-                    TargetType="ListBoxItem">
-                    <Setter
-                        Property="HorizontalContentAlignment"
-                        Value="Stretch" />
-                </Style>
-            </ListBox.ItemContainerStyle>
-            <ListBox.ItemTemplate>
+        <phone:LongListSelector
+            ItemsSource="{Binding ToDoList}">
+            <phone:LongListSelector.ItemTemplate>
                 <DataTemplate>
                     <Grid
                         Margin="0,4"
@@ -115,7 +108,7 @@
                             Grid.Row="0" />
                     </Grid>
                 </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+            </phone:LongListSelector.ItemTemplate>
+        </phone:LongListSelector>
     </Grid>
 </UserControl>

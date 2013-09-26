@@ -7,6 +7,7 @@
     xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
     xmlns:vm="clr-namespace:TivoAhoy.Common.ViewModels;assembly=TivoAhoy.Common"
     xmlns:converters="clr-namespace:TivoAhoy.Phone.Converters"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -29,9 +30,9 @@
     <Grid
         x:Name="LayoutRoot"
         Margin="0,-6,0,0">
-        <ListBox
-            x:Name="Credits">
-            <ListBox.ItemTemplate>
+        <phone:LongListSelector
+            ItemsSource="{Binding Credits}">
+            <phone:LongListSelector.ItemTemplate>
                 <DataTemplate>
                     <Grid
                         Margin="12,6"
@@ -76,16 +77,8 @@
                         </StackPanel>
                     </Grid>
                 </DataTemplate>
-            </ListBox.ItemTemplate>
-            <ListBox.ItemContainerStyle>
-                <Style
-                    TargetType="ListBoxItem">
-                    <Setter
-                        Property="HorizontalContentAlignment"
-                        Value="Stretch" />
-                </Style>
-            </ListBox.ItemContainerStyle>
-        </ListBox>
+            </phone:LongListSelector.ItemTemplate>
+        </phone:LongListSelector>
         <TextBlock
             Text="No credits available" 
             HorizontalAlignment="Center"

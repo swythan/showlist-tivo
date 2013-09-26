@@ -1,4 +1,10 @@
-﻿namespace System
+﻿//-----------------------------------------------------------------------
+// <copyright file="Lazy.cs" company="James Chaldecott">
+// Copyright (c) 2012-2013 James Chaldecott. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
+
+namespace System
 {
     /// <summary>
     ///     Used to stub in what is missing from the Windows Phone 7 runtime

@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -137,12 +138,12 @@
         <TextBox
             x:Name="SearchText"
             Grid.Row="1" />
-        <ListBox
-            x:Name="Results"
+        <phone:LongListSelector
+            ItemsSource="{Binding Results}"
             Grid.Row="2"
             Grid.ColumnSpan="2"
             Margin="12">
-            <ListBox.ItemTemplate>
+            <phone:LongListSelector.ItemTemplate>
                 <DataTemplate>
                     <Grid
                         Margin="0,4"
@@ -152,16 +153,8 @@
                             cal:View.Model="{Binding}" />
                     </Grid>
                 </DataTemplate>
-            </ListBox.ItemTemplate>
-            <ListBox.ItemContainerStyle>
-                <Style
-                    TargetType="ListBoxItem">
-                    <Setter
-                        Property="HorizontalContentAlignment"
-                        Value="Stretch" />
-                </Style>
-            </ListBox.ItemContainerStyle>
-        </ListBox>
+            </phone:LongListSelector.ItemTemplate>
+        </phone:LongListSelector>
         <Button
             x:Name="SearchByVoice"
             FontFamily="Segoe UI Symbol"

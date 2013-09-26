@@ -1,4 +1,10 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="TivoConnectionService.cs" company="James Chaldecott">
+// Copyright (c) 2012-2013 James Chaldecott. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
+
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
@@ -14,6 +20,11 @@ namespace TivoTest
     [Export(typeof(ITivoConnectionService))]
     public class TivoConnectionService: PropertyChangedBase, ITivoConnectionService
     {
+        private const string TivoUsername = null;
+        private const string TivoPassword = null;
+        private const string TivoIPAddress = null;
+        private const string TivoMak = null;
+
         private bool isAwayModeEnabled = true;
         
         private TivoConnection connection = null;
@@ -62,11 +73,11 @@ namespace TivoTest
                 {
                     if (this.IsAwayModeEnabled)
                     {
-                        await localConnection.ConnectAway(@"james.chaldecott@virginmedia.com", @"lambBh00na");
+                        await localConnection.ConnectAway(TivoUsername, TivoPassword);
                     }
                     else
                     {
-                        await localConnection.Connect(IPAddress.Parse("192.168.0.100"), "9837127953");
+                        await localConnection.Connect(IPAddress.Parse(TivoIPAddress), TivoMak);
                     }
 
                     this.connection = localConnection;
