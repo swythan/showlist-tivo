@@ -32,7 +32,7 @@ namespace Tivo.Connect
         private Stream sslStream = null;
         private int lastRpcId = 0;
 
-        private Thread receiveThread;
+        private Task receiveTask;
         private Subject<Tuple<int, JObject>> receiveSubject;
         private CancellationTokenSource receiveCancellationTokenSource;
 
@@ -188,10 +188,11 @@ namespace Tivo.Connect
         {
             this.receiveCancellationTokenSource = new CancellationTokenSource();
 
-            this.receiveThread = new Thread((ThreadStart)RpcReceiveThreadProc);
-            this.receiveThread.IsBackground = true;
-            this.receiveThread.Name = "RPC Receive Thread";
-            this.receiveThread.Start();
+#if !WINDOWS_PHONE
+            receiveTask = Task.Run(() => RpcReceiveThreadProc(), receiveCancellationTokenSource.Token);
+#else
+            receiveTask = TaskEx.Run(() => RpcReceiveThreadProc(), receiveCancellationTokenSource.Token);
+#endif
         }
 
         private void RpcReceiveThreadProc()

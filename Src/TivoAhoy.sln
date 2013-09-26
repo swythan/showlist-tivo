@@ -24,9 +24,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TivoConnectionTest", "TivoC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TivoProxy", "TivoProxy\TivoProxy.csproj", "{94C2704A-DEFE-4DB4-9175-0212EDF53B72}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tivo.Connect", "Tivo.Connect\Tivo.Connect.csproj", "{3E1EFB52-90B7-439B-8354-B605A344CAC0}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 10
+		SccNumberOfProjects = 11
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://swythan.visualstudio.com/defaultcollection
 		SccLocalPath0 = .
@@ -57,6 +59,9 @@ Global
 		SccProjectUniqueName9 = TivoProxy\\TivoProxy.csproj
 		SccProjectName9 = TivoProxy
 		SccLocalPath9 = TivoProxy
+		SccProjectUniqueName10 = Tivo.Connect\\Tivo.Connect.csproj
+		SccProjectName10 = Tivo.Connect
+		SccLocalPath10 = Tivo.Connect
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -193,6 +198,18 @@ Global
 		{94C2704A-DEFE-4DB4-9175-0212EDF53B72}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{94C2704A-DEFE-4DB4-9175-0212EDF53B72}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{94C2704A-DEFE-4DB4-9175-0212EDF53B72}.Release|x86.ActiveCfg = Release|Any CPU
+		{3E1EFB52-90B7-439B-8354-B605A344CAC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E1EFB52-90B7-439B-8354-B605A344CAC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E1EFB52-90B7-439B-8354-B605A344CAC0}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{3E1EFB52-90B7-439B-8354-B605A344CAC0}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{3E1EFB52-90B7-439B-8354-B605A344CAC0}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{3E1EFB52-90B7-439B-8354-B605A344CAC0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3E1EFB52-90B7-439B-8354-B605A344CAC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E1EFB52-90B7-439B-8354-B605A344CAC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E1EFB52-90B7-439B-8354-B605A344CAC0}.Release|ARM.ActiveCfg = Release|Any CPU
+		{3E1EFB52-90B7-439B-8354-B605A344CAC0}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{3E1EFB52-90B7-439B-8354-B605A344CAC0}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{3E1EFB52-90B7-439B-8354-B605A344CAC0}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

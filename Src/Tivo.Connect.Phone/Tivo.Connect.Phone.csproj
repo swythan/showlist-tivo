@@ -106,88 +106,88 @@
     <Reference Include="mscorlib.extensions" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Tivo.Connect.Common\Entities\Category.cs">
+    <Compile Include="..\Tivo.Connect\Entities\Category.cs">
       <Link>Entities\Category.cs</Link>
     </Compile>
-    <Compile Include="..\Tivo.Connect.Common\Entities\Channel.cs">
+    <Compile Include="..\Tivo.Connect\Entities\Channel.cs">
       <Link>Entities\Channel.cs</Link>
     </Compile>
-    <Compile Include="..\Tivo.Connect.Common\Entities\Collection.cs">
+    <Compile Include="..\Tivo.Connect\Entities\Collection.cs">
       <Link>Entities\Collection.cs</Link>
     </Compile>
-    <Compile Include="..\Tivo.Connect.Common\Entities\Conflict.cs">
+    <Compile Include="..\Tivo.Connect\Entities\Conflict.cs">
       <Link>Entities\Conflict.cs</Link>
     </Compile>
-    <Compile Include="..\Tivo.Connect.Common\Entities\Container.cs">
+    <Compile Include="..\Tivo.Connect\Entities\Container.cs">
       <Link>Entities\Container.cs</Link>
     </Compile>
-    <Compile Include="..\Tivo.Connect.Common\Entities\ContentSummaryForPerson.cs">
+    <Compile Include="..\Tivo.Connect\Entities\ContentSummaryForPerson.cs">
       <Link>Entities\ContentSummaryForPerson.cs</Link>
     </Compile>
-    <Compile Include="..\Tivo.Connect.Common\Entities\Credit.cs">
+    <Compile Include="..\Tivo.Connect\Entities\Credit.cs">
       <Link>Entities\Credit.cs</Link>
     </Compile>
-    <Compile Include="..\Tivo.Connect.Common\Entities\GridRow.cs">
+    <Compile Include="..\Tivo.Connect\Entities\GridRow.cs">
       <Link>Entities\GridRow.cs</Link>
     </Compile>
-    <Compile Include="..\Tivo.Connect.Common\Entities\ImageInfo.cs">
+    <Compile Include="..\Tivo.Connect\Entities\ImageInfo.cs">
       <Link>Entities\ImageInfo.cs</Link>
     </Compile>
-    <Compile Include="..\Tivo.Connect.Common\Entities\IndividualShow.cs">
+    <Compile Include="..\Tivo.Connect\Entities\IndividualShow.cs">
       <Link>Entities\IndividualShow.cs</Link>
     </Compile>
-    <Compile Include="..\Tivo.Connect.Common\Entities\IUnifiedItem.cs">
+    <Compile Include="..\Tivo.Connect\Entities\IUnifiedItem.cs">
       <Link>Entities\IUnifiedItem.cs</Link>
     </Compile>
-    <Compile Include="..\Tivo.Connect.Common\Entities\Offer.cs">
+    <Compile Include="..\Tivo.Connect\Entities\Offer.cs">
       <Link>Entities\Offer.cs</Link>
     </Compile>
-    <Compile Include="..\Tivo.Connect.Common\Entities\Person.cs">
+    <Compile Include="..\Tivo.Connect\Entities\Person.cs">
       <Link>Entities\Person.cs</Link>
     </Compile>
-    <Compile Include="..\Tivo.Connect.Common\Entities\Recording.cs">
+    <Compile Include="..\Tivo.Connect\Entities\Recording.cs">
       <Link>Entities\Recording.cs</Link>
     </Compile>
-    <Compile Include="..\Tivo.Connect.Common\Entities\RecordingFolderItem.cs">
+    <Compile Include="..\Tivo.Connect\Entities\RecordingFolderItem.cs">
       <Link>Entities\RecordingFolderItem.cs</Link>
     </Compile>
-    <Compile Include="..\Tivo.Connect.Common\Entities\RecordingFolderItemCreator.cs">
+    <Compile Include="..\Tivo.Connect\Entities\RecordingFolderItemCreator.cs">
       <Link>Entities\RecordingFolderItemCreator.cs</Link>
     </Compile>
-    <Compile Include="..\Tivo.Connect.Common\Entities\ShowDetails.cs">
+    <Compile Include="..\Tivo.Connect\Entities\ShowDetails.cs">
       <Link>Entities\ShowDetails.cs</Link>
     </Compile>
-    <Compile Include="..\Tivo.Connect.Common\Entities\SubscribeResult.cs">
+    <Compile Include="..\Tivo.Connect\Entities\SubscribeResult.cs">
       <Link>Entities\SubscribeResult.cs</Link>
     </Compile>
-    <Compile Include="..\Tivo.Connect.Common\Entities\SubscriptionConflicts.cs">
+    <Compile Include="..\Tivo.Connect\Entities\SubscriptionConflicts.cs">
       <Link>Entities\SubscriptionConflicts.cs</Link>
     </Compile>
-    <Compile Include="..\Tivo.Connect.Common\Entities\SubscriptionIdentifier.cs">
+    <Compile Include="..\Tivo.Connect\Entities\SubscriptionIdentifier.cs">
       <Link>Entities\SubscriptionIdentifier.cs</Link>
     </Compile>
-    <Compile Include="..\Tivo.Connect.Common\Entities\UnifiedItemCreator.cs">
+    <Compile Include="..\Tivo.Connect\Entities\UnifiedItemCreator.cs">
       <Link>Entities\UnifiedItemCreator.cs</Link>
     </Compile>
-    <Compile Include="..\Tivo.Connect.Common\JsonCreationConverter.cs">
+    <Compile Include="..\Tivo.Connect\JsonCreationConverter.cs">
       <Link>JsonCreationConverter.cs</Link>
     </Compile>
-    <Compile Include="..\Tivo.Connect.Common\MindRpcFormatter.cs">
+    <Compile Include="..\Tivo.Connect\MindRpcFormatter.cs">
       <Link>MindRpcFormatter.cs</Link>
     </Compile>
-    <Compile Include="..\Tivo.Connect.Common\StringUtils.cs">
+    <Compile Include="..\Tivo.Connect\StringUtils.cs">
       <Link>StringUtils.cs</Link>
     </Compile>
-    <Compile Include="..\Tivo.Connect.Common\TivoConnection.Common.cs">
+    <Compile Include="..\Tivo.Connect\TivoConnection.Common.cs">
       <Link>TivoConnection.Common.cs</Link>
     </Compile>
-    <Compile Include="..\Tivo.Connect.Common\TivoException.cs">
+    <Compile Include="..\Tivo.Connect\TivoException.cs">
       <Link>TivoException.cs</Link>
     </Compile>
-    <Compile Include="..\Tivo.Connect.Common\TivoNetworkSession.cs">
+    <Compile Include="..\Tivo.Connect\TivoNetworkSession.cs">
       <Link>TivoNetworkSession.cs</Link>
     </Compile>
-    <Compile Include="..\Tivo.Connect.Common\TivoTlsClient.cs">
+    <Compile Include="..\Tivo.Connect\TivoTlsClient.cs">
       <Link>TivoTlsClient.cs</Link>
     </Compile>
     <Compile Include="AwaitableAsyncSubject.cs" />
