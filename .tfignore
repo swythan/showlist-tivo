@@ -43,3 +43,4 @@
 \Src\BouncyCastle\portableBC.patch
 \Src\BouncyCastle\doc\crypto.xml
 \Src\packages
+_ReSharper.*
