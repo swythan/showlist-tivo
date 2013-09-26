@@ -14,8 +14,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TivoAhoy.Phone", "TivoAhoy.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tivo.Connect.Desktop", "Tivo.Connect.Desktop\Tivo.Connect.Desktop.csproj", "{1618809C-2129-4720-A49C-83D6F940CABC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tivo.Connect.Phone", "Tivo.Connect.Phone\Tivo.Connect.Phone.csproj", "{AFFFC8BC-3E92-4860-97EF-66C331874DDE}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TivoAhoy.Common", "TivoAhoy.Common\TivoAhoy.Common.csproj", "{80FABC5F-78FB-423B-8983-BA3E85FCF748}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TivoAhoy.PhoneRT", "TivoAhoy.PhoneRT\TivoAhoy.PhoneRT.csproj", "{232FB191-2EF2-4D41-9CB9-CA1FC71B05B5}"
@@ -26,9 +24,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TivoProxy", "TivoProxy\Tivo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tivo.Connect", "Tivo.Connect\Tivo.Connect.csproj", "{3E1EFB52-90B7-439B-8354-B605A344CAC0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tivo.Connect.Phone.WP7", "Tivo.Connect.Phone.WP7\Tivo.Connect.Phone.WP7.csproj", "{AFFFC8BC-3E92-4860-97EF-66C331874DDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TivoAhoy.Common.WP7", "TivoAhoy.Common.WP7\TivoAhoy.Common.WP7.csproj", "{73AEC2D3-3A5E-4AE5-B6B0-7237207A3618}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 11
+		SccNumberOfProjects = 12
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://swythan.visualstudio.com/defaultcollection
 		SccLocalPath0 = .
@@ -44,24 +46,27 @@ Global
 		SccProjectUniqueName4 = Tivo.Connect.Desktop\\Tivo.Connect.Desktop.csproj
 		SccProjectName4 = Tivo.Connect.Desktop
 		SccLocalPath4 = Tivo.Connect.Desktop
-		SccProjectUniqueName5 = Tivo.Connect.Phone\\Tivo.Connect.Phone.csproj
-		SccProjectName5 = Tivo.Connect.Phone
-		SccLocalPath5 = Tivo.Connect.Phone
-		SccProjectUniqueName6 = TivoAhoy.Common\\TivoAhoy.Common.csproj
-		SccProjectName6 = TivoAhoy.Common
-		SccLocalPath6 = TivoAhoy.Common
-		SccProjectUniqueName7 = TivoAhoy.PhoneRT\\TivoAhoy.PhoneRT.csproj
-		SccProjectName7 = TivoAhoy.PhoneRT
-		SccLocalPath7 = TivoAhoy.PhoneRT
-		SccProjectUniqueName8 = TivoConnectionTest\\TivoConnectionTest.csproj
-		SccProjectName8 = TivoConnectionTest
-		SccLocalPath8 = TivoConnectionTest
-		SccProjectUniqueName9 = TivoProxy\\TivoProxy.csproj
-		SccProjectName9 = TivoProxy
-		SccLocalPath9 = TivoProxy
-		SccProjectUniqueName10 = Tivo.Connect\\Tivo.Connect.csproj
-		SccProjectName10 = Tivo.Connect
-		SccLocalPath10 = Tivo.Connect
+		SccProjectUniqueName5 = TivoAhoy.Common\\TivoAhoy.Common.csproj
+		SccProjectName5 = TivoAhoy.Common
+		SccLocalPath5 = TivoAhoy.Common
+		SccProjectUniqueName6 = TivoAhoy.PhoneRT\\TivoAhoy.PhoneRT.csproj
+		SccProjectName6 = TivoAhoy.PhoneRT
+		SccLocalPath6 = TivoAhoy.PhoneRT
+		SccProjectUniqueName7 = TivoConnectionTest\\TivoConnectionTest.csproj
+		SccProjectName7 = TivoConnectionTest
+		SccLocalPath7 = TivoConnectionTest
+		SccProjectUniqueName8 = TivoProxy\\TivoProxy.csproj
+		SccProjectName8 = TivoProxy
+		SccLocalPath8 = TivoProxy
+		SccProjectUniqueName9 = Tivo.Connect\\Tivo.Connect.csproj
+		SccProjectName9 = Tivo.Connect
+		SccLocalPath9 = Tivo.Connect
+		SccProjectUniqueName10 = Tivo.Connect.Phone.WP7\\Tivo.Connect.Phone.WP7.csproj
+		SccProjectName10 = Tivo.Connect.Phone.WP7
+		SccLocalPath10 = Tivo.Connect.Phone.WP7
+		SccProjectUniqueName11 = TivoAhoy.Common.WP7\\TivoAhoy.Common.WP7.csproj
+		SccProjectName11 = TivoAhoy.Common.WP7
+		SccLocalPath11 = TivoAhoy.Common.WP7
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -126,18 +131,6 @@ Global
 		{1618809C-2129-4720-A49C-83D6F940CABC}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{1618809C-2129-4720-A49C-83D6F940CABC}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{1618809C-2129-4720-A49C-83D6F940CABC}.Release|x86.ActiveCfg = Release|Any CPU
-		{AFFFC8BC-3E92-4860-97EF-66C331874DDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AFFFC8BC-3E92-4860-97EF-66C331874DDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AFFFC8BC-3E92-4860-97EF-66C331874DDE}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{AFFFC8BC-3E92-4860-97EF-66C331874DDE}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{AFFFC8BC-3E92-4860-97EF-66C331874DDE}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{AFFFC8BC-3E92-4860-97EF-66C331874DDE}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{AFFFC8BC-3E92-4860-97EF-66C331874DDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AFFFC8BC-3E92-4860-97EF-66C331874DDE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AFFFC8BC-3E92-4860-97EF-66C331874DDE}.Release|ARM.ActiveCfg = Release|Any CPU
-		{AFFFC8BC-3E92-4860-97EF-66C331874DDE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{AFFFC8BC-3E92-4860-97EF-66C331874DDE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{AFFFC8BC-3E92-4860-97EF-66C331874DDE}.Release|x86.ActiveCfg = Release|Any CPU
 		{80FABC5F-78FB-423B-8983-BA3E85FCF748}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{80FABC5F-78FB-423B-8983-BA3E85FCF748}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80FABC5F-78FB-423B-8983-BA3E85FCF748}.Debug|ARM.ActiveCfg = Debug|Any CPU
@@ -210,6 +203,30 @@ Global
 		{3E1EFB52-90B7-439B-8354-B605A344CAC0}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{3E1EFB52-90B7-439B-8354-B605A344CAC0}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{3E1EFB52-90B7-439B-8354-B605A344CAC0}.Release|x86.ActiveCfg = Release|Any CPU
+		{AFFFC8BC-3E92-4860-97EF-66C331874DDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFFFC8BC-3E92-4860-97EF-66C331874DDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFFFC8BC-3E92-4860-97EF-66C331874DDE}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{AFFFC8BC-3E92-4860-97EF-66C331874DDE}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{AFFFC8BC-3E92-4860-97EF-66C331874DDE}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{AFFFC8BC-3E92-4860-97EF-66C331874DDE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{AFFFC8BC-3E92-4860-97EF-66C331874DDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFFFC8BC-3E92-4860-97EF-66C331874DDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFFFC8BC-3E92-4860-97EF-66C331874DDE}.Release|ARM.ActiveCfg = Release|Any CPU
+		{AFFFC8BC-3E92-4860-97EF-66C331874DDE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{AFFFC8BC-3E92-4860-97EF-66C331874DDE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{AFFFC8BC-3E92-4860-97EF-66C331874DDE}.Release|x86.ActiveCfg = Release|Any CPU
+		{73AEC2D3-3A5E-4AE5-B6B0-7237207A3618}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73AEC2D3-3A5E-4AE5-B6B0-7237207A3618}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73AEC2D3-3A5E-4AE5-B6B0-7237207A3618}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{73AEC2D3-3A5E-4AE5-B6B0-7237207A3618}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{73AEC2D3-3A5E-4AE5-B6B0-7237207A3618}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{73AEC2D3-3A5E-4AE5-B6B0-7237207A3618}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{73AEC2D3-3A5E-4AE5-B6B0-7237207A3618}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73AEC2D3-3A5E-4AE5-B6B0-7237207A3618}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73AEC2D3-3A5E-4AE5-B6B0-7237207A3618}.Release|ARM.ActiveCfg = Release|Any CPU
+		{73AEC2D3-3A5E-4AE5-B6B0-7237207A3618}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{73AEC2D3-3A5E-4AE5-B6B0-7237207A3618}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{73AEC2D3-3A5E-4AE5-B6B0-7237207A3618}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

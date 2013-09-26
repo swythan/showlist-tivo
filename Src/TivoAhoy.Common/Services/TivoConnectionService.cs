@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Caliburn.Micro;
 using Coding4Fun.Toolkit.Controls;
 using Microsoft.Phone.Net.NetworkInformation;
+using Nito.AsyncEx;
 using Tivo.Connect;
 using TivoAhoy.Common.Events;
 using TivoAhoy.Common.Settings;
@@ -197,14 +198,14 @@ namespace TivoAhoy.Common.Services
             }
         }
 
-        public Task<TivoConnection> GetConnectionAsync()
+        public async Task<TivoConnection> GetConnectionAsync()
         {
             if (this.lazyConnection == null)
             {
-                return TaskEx.FromResult<TivoConnection>(null);
+                return null;
             }
 
-            return this.lazyConnection.Value;
+            return await this.lazyConnection;
         }
 
         private async Task<TivoConnection> ConnectAsync(bool forceAwayMode)

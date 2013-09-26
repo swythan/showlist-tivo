@@ -307,6 +307,10 @@
     <Content Include="Toolkit.Content\ApplicationBar.Select.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Tivo.Connect.Phone.WP7\Tivo.Connect.Phone.WP7.csproj">
+      <Project>{AFFFC8BC-3E92-4860-97EF-66C331874DDE}</Project>
+      <Name>Tivo.Connect.Phone.WP7</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TivoAhoy.Common.WP7\TivoAhoy.Common.WP7.csproj">
       <Project>{73AEC2D3-3A5E-4AE5-B6B0-7237207A3618}</Project>
       <Name>TivoAhoy.Common.WP7</Name>
