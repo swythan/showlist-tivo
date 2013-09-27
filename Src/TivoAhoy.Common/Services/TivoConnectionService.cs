@@ -5,6 +5,7 @@
 //-----------------------------------------------------------------------
 
 using System;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Caliburn.Micro;
@@ -208,6 +209,22 @@ namespace TivoAhoy.Common.Services
             return await this.lazyConnection;
         }
 
+
+        private static Tuple<string, Stream> LoadCertificateAndPassword(bool isVirginMedia)
+        {
+            // Load the cert
+            if (isVirginMedia)
+            {
+                var stream = typeof(TivoConnectionService).Assembly.GetManifestResourceStream("TivoAhoy.Common.tivo_vm.p12");
+                return Tuple.Create("R2N48DSKr2Cm", stream);
+            }
+            else
+            {
+                var stream = typeof(TivoConnectionService).Assembly.GetManifestResourceStream("TivoAhoy.Common.tivo_us.p12");
+                return Tuple.Create("mpE7Qy8cSqdf", stream);
+            }
+        }
+
         private async Task<TivoConnection> ConnectAsync(bool forceAwayMode)
         {
             if (!this.SettingsAppearValid ||
@@ -223,6 +240,8 @@ namespace TivoAhoy.Common.Services
 
                 var localConnection = new TivoConnection();
 
+                // TODO: detect this based on the Tivo mDNS data
+                var certs = LoadCertificateAndPassword(true);
                 if (!forceAwayMode)
                 {
                     var lanSettings = ConnectionSettings.KnownTivos
@@ -234,7 +253,7 @@ namespace TivoAhoy.Common.Services
                     {
                         try
                         {
-                            await localConnection.Connect(lanSettings.LastIpAddress, lanSettings.MediaAccessKey);
+                            await localConnection.Connect(lanSettings.LastIpAddress.ToString(), lanSettings.MediaAccessKey, certs.Item2, certs.Item1);
 
                             this.isConnected = true;
                             this.isAwayMode = false;
@@ -265,7 +284,11 @@ namespace TivoAhoy.Common.Services
                 {
                     try
                     {
-                        await localConnection.ConnectAway(ConnectionSettings.AwayModeUsername, ConnectionSettings.AwayModePassword);
+                        await localConnection.ConnectAway(ConnectionSettings.AwayModeUsername, 
+                                                          ConnectionSettings.AwayModePassword, 
+                                                          @"secure-tivo-api.virginmedia.com", // TODO: Detect the correct value
+                                                          certs.Item2, 
+                                                          certs.Item1);
 
                         this.isConnected = true;
                         this.isAwayMode = true;

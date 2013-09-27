@@ -8,40 +8,40 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Net;
-using System.Net.Sockets;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
+using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Org.BouncyCastle.Crypto.Tls;
 using Tivo.Connect.Entities;
+
 
 namespace Tivo.Connect
 {
     public class TivoNetworkSession : IDisposable
     {
-        private readonly int sessionId;
+        private readonly int _sessionId;
 
-        private bool isAwayMode;
-        private Socket client;
-        private TlsProtocolHandler protocolHandler;
+        private bool _isAwayMode;
+        private INetworkInterface _networkInterface;
 
-        private Stream sslStream = null;
-        private int lastRpcId = 0;
+        private Stream _sslStream = null;
+        private int _lastRpcId = 0;
 
         private Task receiveTask;
-        private Subject<Tuple<int, JObject>> receiveSubject;
-        private CancellationTokenSource receiveCancellationTokenSource;
+        private Subject<Tuple<int, JObject>> _receiveSubject;
+        private CancellationTokenSource _receiveCancellationTokenSource;
 
-        private JsonSerializerSettings jsonSettings;
-        private JsonSerializer jsonSerializer;
+        private readonly JsonSerializerSettings jsonSettings;
+        private JsonSerializer _jsonSerializer;
+
+        private static readonly Lazy<Func<INetworkInterface>> NetworkIntefaceFactory = new Lazy<Func<INetworkInterface>>(LoadPlatformNetworkInterface);
 
         public TivoNetworkSession()
         {
-            sessionId = new Random().Next(0x26c000, 0x27dc20);
+            _sessionId = new Random().Next(0x26c000, 0x27dc20);
 
             this.jsonSettings = new JsonSerializerSettings
             {
@@ -54,7 +54,8 @@ namespace Tivo.Connect
                 }
             };
 
-            this.jsonSerializer = JsonSerializer.Create(this.jsonSettings);
+            this._jsonSerializer = JsonSerializer.Create(this.jsonSettings);
+            _networkInterface = NetworkIntefaceFactory.Value();
         }
 
         public void Dispose()
@@ -67,33 +68,56 @@ namespace Tivo.Connect
         {
             if (disposing)
             {
-                if (this.protocolHandler != null)
+                if (_networkInterface != null)
                 {
-                    this.protocolHandler.Close();
-                    this.protocolHandler = null;
+                    _networkInterface.Dispose();
+                    _networkInterface = null;
                 }
 
-                if (this.client != null)
+                if (_receiveCancellationTokenSource != null)
                 {
-                    this.client.Dispose();
-                    Debug.WriteLine("Client closed.");
-
-                    this.client = null;
-                }
-
-                if (receiveCancellationTokenSource != null)
-                {
-                    receiveCancellationTokenSource.Cancel();
+                    _receiveCancellationTokenSource.Cancel();
                     // receiveCancellationTokenSource = null;
                 }
             }
         }
 
-        public async Task<JObject> Connect(EndPoint endPoint, bool isAwayMode, IDictionary<string, object> authMessage)
+        private static Func<INetworkInterface> LoadPlatformNetworkInterface()
         {
-            this.isAwayMode = isAwayMode;
-            this.sslStream = await ConnectNetworkStream(endPoint).ConfigureAwait(false);
-            this.receiveSubject = new Subject<Tuple<int, JObject>>();
+#if WP7
+            return () => new Tivo.Connect.Platform.NetworkInterface();
+#else
+            // get the plat lib
+            try
+            {
+
+                var assemblyName = new AssemblyName(typeof(TivoNetworkSession).GetTypeInfo().Assembly.FullName)
+                {
+                    Name = "Tivo.Connect.Platform"
+                };
+
+                var assm = Assembly.Load(assemblyName);
+
+                var type = assm.GetType("Tivo.Connect.Platform.NetworkInterface");
+
+                return () => (INetworkInterface)Activator.CreateInstance(type);
+            }
+            catch (Exception e)
+            {
+                throw new PlatformNotSupportedException(
+                    "Tivo.Connect.Platform.dll was not found. " +
+                    "Make sure the correct Tivo.Connect.Platform" +
+                    "Platform library is referenced by your main application",
+                    e);
+            }
+#endif
+        }
+
+        public async Task<JObject> Connect(TivoEndPoint endPoint, IDictionary<string, object> authMessage)
+        {
+            _isAwayMode = endPoint.Mode == TivoMode.Away;
+            _sslStream = await _networkInterface.Initialize(endPoint).ConfigureAwait(false);
+            _receiveSubject = new Subject<Tuple<int, JObject>>();
 
             // Send authentication message to the TiVo. 
             var authTask = SendRequest(authMessage);
@@ -105,93 +129,15 @@ namespace Tivo.Connect
             return await authTask;
         }
 
-        private async Task<Stream> ConnectNetworkStream(EndPoint remoteEndPoint)
-        {
-            if (this.client != null)
-            {
-                throw new InvalidOperationException("Cannot open the same connection twice.");
-            }
-
-            // Create a TCP/IP connection to the TiVo.
-            this.client = await ConnectSocketAsync(remoteEndPoint).ConfigureAwait(false);
-
-            Debug.WriteLine("Client connected.");
-
-            try
-            {
-                // Create an SSL stream that will close the client's stream.
-                var tivoTlsClient = new TivoTlsClient();
-
-                this.protocolHandler = new TlsProtocolHandler(new NetworkStream(this.client) { ReadTimeout = Timeout.Infinite });
-                this.protocolHandler.Connect(tivoTlsClient);
-            }
-            catch (IOException e)
-            {
-                Debug.WriteLine("Authentication failed - closing the connection.");
-
-                Debug.WriteLine("Exception: {0}", e.Message);
-                if (e.InnerException != null)
-                {
-                    Debug.WriteLine("Inner exception: {0}", e.InnerException.Message);
-                }
-
-                this.client.Dispose();
-                this.client = null;
-
-                this.protocolHandler.Close();
-                this.protocolHandler = null;
-
-                throw;
-            }
-
-            return protocolHandler.Stream;
-        }
-
-        private static async Task<Socket> ConnectSocketAsync(EndPoint remoteEndPoint)
-        {
-            var tcs = new TaskCompletionSource<Socket>();
-
-            var args = new SocketAsyncEventArgs()
-            {
-                RemoteEndPoint = remoteEndPoint,
-            };
-
-            args.Completed +=
-                (sender, e) =>
-                {
-                    if (e.ConnectByNameError != null)
-                    {
-                        tcs.TrySetException(e.ConnectByNameError);
-                    }
-                    else
-                    {
-                        if (e.SocketError != SocketError.Success)
-                        {
-                            tcs.TrySetException(new SocketException((int)e.SocketError));
-                        }
-                        else
-                        {
-                            tcs.TrySetResult(e.ConnectSocket);
-                        }
-                    }
-                };
-
-            if (!Socket.ConnectAsync(SocketType.Stream, ProtocolType.Tcp, args))
-            {
-                return args.ConnectSocket;
-            }
-
-            return await tcs.Task.ConfigureAwait(false);
-        }
 
         private void StartReceiveThread()
         {
-            this.receiveCancellationTokenSource = new CancellationTokenSource();
+            this._receiveCancellationTokenSource = new CancellationTokenSource();
 
 #if !WINDOWS_PHONE
-            receiveTask = Task.Run(() => RpcReceiveThreadProc(), receiveCancellationTokenSource.Token);
+            receiveTask = Task.Run(() => RpcReceiveThreadProc(), _receiveCancellationTokenSource.Token);
 #else
-            receiveTask = TaskEx.Run(() => RpcReceiveThreadProc(), receiveCancellationTokenSource.Token);
+            receiveTask = TaskEx.Run(() => RpcReceiveThreadProc(), _receiveCancellationTokenSource.Token);
 #endif
         }
 
@@ -201,18 +147,18 @@ namespace Tivo.Connect
             {
                 while (true)
                 {
-                    this.receiveSubject.OnNext(ReadMessage());
+                    this._receiveSubject.OnNext(ReadMessage());
 
-                    if (this.receiveCancellationTokenSource.IsCancellationRequested)
+                    if (this._receiveCancellationTokenSource.IsCancellationRequested)
                     {
-                        this.receiveSubject.OnCompleted();
+                        this._receiveSubject.OnCompleted();
                         return;
                     }
                 }
             }
             catch (Exception ex)
             {
-                this.receiveSubject.OnError(ex);
+                this._receiveSubject.OnError(ex);
             }
         }
 
@@ -240,24 +186,24 @@ namespace Tivo.Connect
 
             string bodyText = JsonConvert.SerializeObject(body, this.jsonSettings);
 
-            int requestRpcId = Interlocked.Increment(ref this.lastRpcId);
+            int requestRpcId = Interlocked.Increment(ref this._lastRpcId);
 
-            var reponseObservable = this.receiveSubject
+            var reponseObservable = this._receiveSubject
                 .Where(message => message.Item1 == requestRpcId)
                 .Select(message => message.Item2)
                 .Take(1);
 
-            var messageBytes = MindRpcFormatter.EncodeRequest(this.isAwayMode, this.sessionId, tsn, requestRpcId, requestType, bodyText);
+            var messageBytes = MindRpcFormatter.EncodeRequest(this._isAwayMode, this._sessionId, tsn, requestRpcId, requestType, bodyText);
 
-            this.sslStream.Write(messageBytes, 0, messageBytes.Length);
-            this.sslStream.Flush();
+            this._sslStream.Write(messageBytes, 0, messageBytes.Length);
+            this._sslStream.Flush();
 
             return await reponseObservable;
         }
 
         public Tuple<int, JObject> ReadMessage()
         {
-            var message = MindRpcFormatter.ReadMessage(this.sslStream);
+            var message = MindRpcFormatter.ReadMessage(this._sslStream);
 
             var body = JObject.Parse(message.Item2);
 

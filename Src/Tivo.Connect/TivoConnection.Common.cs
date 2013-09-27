@@ -7,8 +7,8 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
-using System.Net;
 using System.ServiceModel;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -76,15 +76,14 @@ namespace Tivo.Connect
             }
         }
 
-        public async Task Connect(IPAddress serverAddress, string mediaAccessKey)
+        public async Task Connect(string serverAddress, string mediaAccessKey, Stream certificate, string password)
         {
             this.capturedTsn = string.Empty;
 
             this.tivoSession = new TivoNetworkSession();
 
             var authTask = this.tivoSession.Connect(
-                new IPEndPoint(serverAddress, 1413), 
-                false, 
+                new TivoEndPoint(serverAddress, TivoMode.Local, certificate, password), 
                 BuildMakAuthenticationRequest(mediaAccessKey));
 
             var authResponse = await authTask.ConfigureAwait(false);
@@ -132,15 +131,14 @@ namespace Tivo.Connect
             this.capturedTsn = (string)bodyConfig["bodyId"];
         }
 
-        public async Task<string> ConnectAway(string username, string password)
+        public async Task<string> ConnectAway(string username, string password, string middleMindServer, Stream certificate, string certificatePassword)
         {
             this.capturedTsn = string.Empty;
 
             this.tivoSession = new TivoNetworkSession();
 
             var authTask = this.tivoSession.Connect(
-                new DnsEndPoint(@"secure-tivo-api.virginmedia.com", 443),
-                true,
+                new TivoEndPoint(middleMindServer, TivoMode.Away, certificate, certificatePassword), 
                 BuildUsernameAndPasswordAuthenticationRequest(username, password));
 
             var authResponse = await authTask.ConfigureAwait(false);

@@ -8,6 +8,7 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -64,20 +65,38 @@ namespace TivoTest
             }
         }
 
+        private static Tuple<string, Stream> LoadCertificateAndPassword(bool isVirginMedia)
+        {
+            // Load the cert
+            if (isVirginMedia)
+            {
+                var stream = typeof(TivoConnectionService).Assembly.GetManifestResourceStream("TivoTest.tivo_vm.p12");
+                return Tuple.Create("R2N48DSKr2Cm", stream);
+            }
+            else
+            {
+                var stream = typeof(TivoConnectionService).Assembly.GetManifestResourceStream("TivoTest.tivo_us.p12");
+                return Tuple.Create("mpE7Qy8cSqdf", stream);
+            }
+        }
+
         public async Task<TivoConnection> GetConnectionAsync()
         {
             if (this.connection == null)
             {
                 var localConnection = new TivoConnection();
+
+                var cert = LoadCertificateAndPassword(false);
+                var middleMind = false ? @"secure-tivo-api.virginmedia.com" : "middlemind.tivo.com";
                 try
                 {
                     if (this.IsAwayModeEnabled)
                     {
-                        await localConnection.ConnectAway(TivoUsername, TivoPassword);
+                        await localConnection.ConnectAway(TivoUsername, TivoPassword, middleMind, cert.Item2, cert.Item1);
                     }
                     else
                     {
-                        await localConnection.Connect(IPAddress.Parse(TivoIPAddress), TivoMak);
+                        await localConnection.Connect(TivoIPAddress, TivoMak, cert.Item2, cert.Item1);
                     }
 
                     this.connection = localConnection;

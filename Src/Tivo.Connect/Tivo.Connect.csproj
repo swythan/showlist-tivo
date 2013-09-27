@@ -64,11 +64,13 @@
     <Compile Include="Entities\SubscriptionConflicts.cs" />
     <Compile Include="Entities\SubscriptionIdentifier.cs" />
     <Compile Include="Entities\UnifiedItemCreator.cs" />
+    <Compile Include="INetworkInterface.cs" />
     <Compile Include="JsonCreationConverter.cs" />
     <Compile Include="MindRpcFormatter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringUtils.cs" />
     <Compile Include="TivoConnection.Common.cs" />
+    <Compile Include="TivoEndPoint.cs" />
     <Compile Include="TivoException.cs" />
     <Compile Include="TivoNetworkSession.cs" />
     <Compile Include="TivoTlsClient.cs" />

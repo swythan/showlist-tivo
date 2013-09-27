@@ -115,6 +115,20 @@ namespace TivoProxy
             }
         }
 
+        private static Tuple<string, Stream> LoadCertificateAndPassword(bool isVirginMedia)
+        {
+            // Load the cert
+            if (isVirginMedia)
+            {
+                var stream = typeof(ProxyConnection).Assembly.GetManifestResourceStream("TivoProxy.tivo_vm.p12");
+                return Tuple.Create("R2N48DSKr2Cm", stream);
+            }
+            else
+            {
+                var stream = typeof(ProxyConnection).Assembly.GetManifestResourceStream("TivoProxy.tivo_us.p12");
+                return Tuple.Create("mpE7Qy8cSqdf", stream);
+            }
+        }
 
         private async Task<Stream> ConnectNetworkStream(EndPoint remoteEndPoint)
         {
@@ -130,8 +144,9 @@ namespace TivoProxy
 
             try
             {
+                var cert = LoadCertificateAndPassword(true);
                 // Create an SSL stream that will close the client's stream.
-                var tivoTlsClient = new TivoTlsClient();
+                var tivoTlsClient = new TivoTlsClient(cert.Item2, cert.Item1);
 
                 this.protocolHandler = new TlsProtocolHandler(new NetworkStream(this.client) { ReadTimeout = Timeout.Infinite });
                 this.protocolHandler.Connect(tivoTlsClient);

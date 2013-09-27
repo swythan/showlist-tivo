@@ -272,8 +272,6 @@
     <None Include="Properties\WMAppManifest.xml">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="tivo_vm.p12" />
-    <Content Include="tivo_us.p12" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\AlignmentGrid.png" />
@@ -304,6 +302,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Tivo.Connect.Phone\Tivo.Connect.Phone.csproj">
+      <Project>{FCADC030-8559-4059-AFFA-A9A17D9DF544}</Project>
+      <Name>Tivo.Connect.Phone</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Tivo.Connect\Tivo.Connect.csproj">
       <Project>{3E1EFB52-90B7-439B-8354-B605A344CAC0}</Project>
       <Name>Tivo.Connect</Name>

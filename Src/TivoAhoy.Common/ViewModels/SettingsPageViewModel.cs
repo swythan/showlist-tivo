@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reactive.Disposables;
@@ -313,15 +314,33 @@ namespace TivoAhoy.Common.ViewModels
             }
         }
 
+        private static Tuple<string, Stream> LoadCertificateAndPassword(bool isVirginMedia)
+        {
+            // Load the cert
+            if (isVirginMedia)
+            {
+                var stream = typeof(TivoConnectionService).Assembly.GetManifestResourceStream("TivoAhoy.Common.tivo_vm.p12");
+                return Tuple.Create("R2N48DSKr2Cm", stream);
+            }
+            else
+            {
+                var stream = typeof(TivoConnectionService).Assembly.GetManifestResourceStream("TivoAhoy.Common.tivo_us.p12");
+                return Tuple.Create("mpE7Qy8cSqdf", stream);
+            }
+        }
+
         public async void TestAwayConnection()
         {
             var connection = new TivoConnection();
 
+            // TODO: Detect this
+            var cert = LoadCertificateAndPassword(true);
+            var middleMind = true ? @"secure-tivo-api.virginmedia.com" : "middlemind.tivo.com";
             try
             {
                 using (ShowProgress())
                 {
-                    await connection.ConnectAway(this.Username, this.Password);
+                    await connection.ConnectAway(this.Username, this.Password, middleMind, cert.Item2, cert.Item1);
 
                     ConnectionSettings.AwayModeUsername = this.Username;
                     ConnectionSettings.AwayModePassword = this.Password;
@@ -392,12 +411,14 @@ namespace TivoAhoy.Common.ViewModels
         public async void TestLANConnection()
         {
             var connection = new TivoConnection();
+            // TODO: Detect this
+            var cert = LoadCertificateAndPassword(true);
 
             try
             {
                 using (ShowProgress())
                 {
-                    await connection.Connect(this.LanSettings.LastIpAddress, this.LanSettings.MediaAccessKey);
+                    await connection.Connect(this.LanSettings.LastIpAddress.ToString(), this.LanSettings.MediaAccessKey, cert.Item2, cert.Item1);
 
                     if (!this.LanSettings.TSN.Equals(connection.ConnectedTsn, StringComparison.Ordinal))
                     {
