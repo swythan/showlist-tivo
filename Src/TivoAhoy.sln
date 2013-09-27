@@ -32,6 +32,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "crypto.WP7", "BouncyCastle\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WP7", "WP7", "{BDADF772-8A3E-4512-BF33-9CCDA7D962B4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{DD6C7597-B450-4B1E-BF43-AC341CF09C9B}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
 		SccNumberOfProjects = 13
@@ -39,6 +41,7 @@ Global
 		SccTeamFoundationServer = https://swythan.visualstudio.com/defaultcollection
 		SccLocalPath0 = .
 		SccProjectUniqueName1 = TivoTest\\TivoTest.csproj
+		SccProjectTopLevelParentUniqueName1 = TivoAhoy.sln
 		SccProjectName1 = TivoTest
 		SccLocalPath1 = TivoTest
 		SccProjectUniqueName2 = BouncyCastle\\crypto.csproj
@@ -58,6 +61,7 @@ Global
 		SccProjectName6 = TivoAhoy.PhoneRT
 		SccLocalPath6 = TivoAhoy.PhoneRT
 		SccProjectUniqueName7 = TivoConnectionTest\\TivoConnectionTest.csproj
+		SccProjectTopLevelParentUniqueName7 = TivoAhoy.sln
 		SccProjectName7 = TivoConnectionTest
 		SccLocalPath7 = TivoConnectionTest
 		SccProjectUniqueName8 = TivoProxy\\TivoProxy.csproj
@@ -256,8 +260,10 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{AFFFC8BC-3E92-4860-97EF-66C331874DDE} = {BDADF772-8A3E-4512-BF33-9CCDA7D962B4}
+		{73AEC2D3-3A5E-4AE5-B6B0-7237207A3618} = {BDADF772-8A3E-4512-BF33-9CCDA7D962B4}
 		{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A1} = {BDADF772-8A3E-4512-BF33-9CCDA7D962B4}
 		{00070FA1-5D64-40EE-9080-52D65ABFC7E8} = {BDADF772-8A3E-4512-BF33-9CCDA7D962B4}
-		{73AEC2D3-3A5E-4AE5-B6B0-7237207A3618} = {BDADF772-8A3E-4512-BF33-9CCDA7D962B4}
+		{13CAFD35-4DAC-49BE-A6FA-9BCEF041A46D} = {DD6C7597-B450-4B1E-BF43-AC341CF09C9B}
+		{339C13C7-7A66-4A13-B2DF-E810A96C23D3} = {DD6C7597-B450-4B1E-BF43-AC341CF09C9B}
 	EndGlobalSection
 EndGlobal
