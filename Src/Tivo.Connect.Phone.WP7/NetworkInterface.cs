@@ -10,17 +10,17 @@ using System.Threading;
 using System.Threading.Tasks;
 using Org.BouncyCastle.Crypto.Tls;
 
-namespace Tivo.Connect.Platform
+// ReSharper disable once CheckNamespace
+namespace Tivo.Connect
 {
-    class NetworkInterface : INetworkInterface
+    internal class NetworkInterface : INetworkInterface
     {
-        private Socket _client;
-        private TlsProtocolHandler _tlsProtocolHandler;
+        private Socket client;
+        private TlsProtocolHandler tlsProtocolHandler;
 
         public async Task<Stream> Initialize(TivoEndPoint endPoint)
         {
-
-            if (_client != null)
+            if (this.client != null)
             {
                 throw new InvalidOperationException("Cannot open the same connection twice.");
             }
@@ -28,7 +28,7 @@ namespace Tivo.Connect.Platform
             var ep = new DnsEndPoint(endPoint.Address, (int)endPoint.Mode);
 
             // Create a TCP/IP connection to the TiVo.
-            _client = await ConnectSocketAsync(ep).ConfigureAwait(false);
+            this.client = await ConnectSocketAsync(ep).ConfigureAwait(false);
 
             Debug.WriteLine("Client connected.");
 
@@ -37,8 +37,8 @@ namespace Tivo.Connect.Platform
                 // Create an SSL stream that will close the client's stream.
                 var tivoTlsClient = new TivoTlsClient(endPoint.Certificate, endPoint.Password);
 
-                _tlsProtocolHandler = new TlsProtocolHandler(new NetworkStream(_client) { ReadTimeout = Timeout.Infinite });
-                _tlsProtocolHandler.Connect(tivoTlsClient);
+                this.tlsProtocolHandler = new TlsProtocolHandler(new NetworkStream(this.client) {ReadTimeout = Timeout.Infinite});
+                this.tlsProtocolHandler.Connect(tivoTlsClient);
             }
             catch (IOException e)
             {
@@ -50,18 +50,33 @@ namespace Tivo.Connect.Platform
                     Debug.WriteLine("Inner exception: {0}", e.InnerException.Message);
                 }
 
-                _client.Dispose();
-                _client = null;
+                this.client.Dispose();
+                this.client = null;
 
-                _tlsProtocolHandler.Close();
-                _tlsProtocolHandler = null;
+                this.tlsProtocolHandler.Close();
+                this.tlsProtocolHandler = null;
 
                 throw;
             }
 
-            return _tlsProtocolHandler.Stream;
+            return this.tlsProtocolHandler.Stream;
         }
 
+
+        public void Dispose()
+        {
+            if (this.client != null)
+            {
+                this.client.Dispose();
+                this.client = null;
+            }
+
+            if (this.tlsProtocolHandler != null)
+            {
+                this.tlsProtocolHandler.Close();
+                this.tlsProtocolHandler = null;
+            }
+        }
 
         private static async Task<Socket> ConnectSocketAsync(EndPoint remoteEndPoint)
         {
@@ -98,21 +113,6 @@ namespace Tivo.Connect.Platform
             }
 
             return await tcs.Task.ConfigureAwait(false);
-        }
-
-        public void Dispose()
-        {
-            if (_client != null)
-            {
-                _client.Dispose();
-                _client = null;
-            }
-
-            if (_tlsProtocolHandler != null)
-            {
-                _tlsProtocolHandler.Close();
-                _tlsProtocolHandler = null;
-            }
         }
     }
 }

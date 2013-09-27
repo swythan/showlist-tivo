@@ -13,19 +13,20 @@ namespace Tivo.Connect.Platform
 {
     public class NetworkInterface : INetworkInterface
     {
-        private TcpClient _client;
-        private SslStream _stream;
+        private TcpClient client;
+        private SslStream stream;
 
         public async Task<Stream> Initialize(TivoEndPoint endPoint)
         {
-
-            if (_client != null && _client.Connected)
-                throw new InvalidOperationException("Cannot call Initialize on an already connected interface");
-
-            if (_client != null && !_client.Connected)
+            if (this.client != null && this.client.Connected)
             {
-                _stream.Dispose();
-                _client.Close();
+                throw new InvalidOperationException("Cannot call Initialize on an already connected interface");
+            }
+
+            if (this.client != null && !this.client.Connected)
+            {
+                this.stream.Dispose();
+                this.client.Close();
             }
 
             byte[] certBytes;
@@ -34,44 +35,44 @@ namespace Tivo.Connect.Platform
                 await endPoint.Certificate.CopyToAsync(ms).ConfigureAwait(false);
                 certBytes = ms.ToArray();
             }
+
             var cert = new X509Certificate2(certBytes, endPoint.Password);
 
             // Create new connection
-            _client = new TcpClient();
-            
-            await _client.ConnectAsync(endPoint.Address, (int)endPoint.Mode).ConfigureAwait(false);
+            this.client = new TcpClient();
 
-            _stream = new SslStream(_client.GetStream(),
-                                    true, // close inner stream on dispose
-                                    (sender, certificate, chain, errors) => true, // ignore cert errors
-                                    (sender, host, certificates, certificate, issuers) => cert); // provide local cert
+            await this.client.ConnectAsync(endPoint.Address, (int)endPoint.Mode).ConfigureAwait(false);
 
-            _stream.WriteTimeout = 10000;
-            
-            await _stream.AuthenticateAsClientAsync("Unused", new X509Certificate2Collection(), SslProtocols.Tls, false).ConfigureAwait(false);
+            this.stream = new SslStream(
+                this.client.GetStream(),
+                true,
+                // close inner stream on dispose
+                (sender, certificate, chain, errors) => true,
+                // ignore cert errors
+                (sender, host, certificates, certificate, issuers) => cert); // provide local cert
 
-            return _stream;
+            this.stream.WriteTimeout = 10000;
+
+            await this.stream.AuthenticateAsClientAsync("Unused", new X509Certificate2Collection(), SslProtocols.Tls, false).ConfigureAwait(false);
+
+            return this.stream;
         }
-
-
 
         public void Dispose()
         {
             try
             {
-                if (_client.Connected)
+                if (this.client.Connected)
                 {
-                    _client.Close();
-                    _stream.Dispose();
+                    this.client.Close();
+                    this.stream.Dispose();
 
-                    _client = null;
-                    _stream = null;
+                    this.client = null;
+                    this.stream = null;
                 }
             }
             catch (Exception)
             {
-
-
             }
         }
     }

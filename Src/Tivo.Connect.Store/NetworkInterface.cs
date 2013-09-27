@@ -13,40 +13,40 @@ namespace Tivo.Connect.Platform
 {
     internal class NetworkInterface : INetworkInterface
     {
-        private StreamSocket _streamSocket;
+        private StreamSocket streamSocket;
 
-        private TlsProtocolHandler _tlsProtocolHandler;
+        private TlsProtocolHandler tlsProtocolHandler;
 
 
         public void Dispose()
         {
-            _streamSocket.Dispose();
-            _streamSocket = null;
+            this.streamSocket.Dispose();
+            this.streamSocket = null;
         }
 
         public async Task<Stream> Initialize(TivoEndPoint endPoint)
         {
-            if (_streamSocket != null)
+            if (this.streamSocket != null)
                 throw new InvalidOperationException("Cannot call Initialize on an open interface");
 
 
-            _streamSocket = new StreamSocket();
+            this.streamSocket = new StreamSocket();
 
 
-            await _streamSocket.ConnectAsync(new HostName(endPoint.Address),
-                                             ((int)endPoint.Mode).ToString(CultureInfo.InvariantCulture),
-                                             SocketProtectionLevel.PlainSocket).AsTask().ConfigureAwait(false);
+            await this.streamSocket.ConnectAsync(new HostName(endPoint.Address),
+                                                 ((int)endPoint.Mode).ToString(CultureInfo.InvariantCulture),
+                                                 SocketProtectionLevel.PlainSocket).AsTask().ConfigureAwait(false);
 
-            
-            var readStream = _streamSocket.InputStream.AsStreamForRead();
-            var writeStream = _streamSocket.OutputStream.AsStreamForWrite();
+
+            var readStream = this.streamSocket.InputStream.AsStreamForRead();
+            var writeStream = this.streamSocket.OutputStream.AsStreamForWrite();
 
 
             var tivoTlsClient = new TivoTlsClient(endPoint.Certificate, endPoint.Password);
-            _tlsProtocolHandler = new TlsProtocolHandler(readStream, writeStream);
-            _tlsProtocolHandler.Connect(tivoTlsClient);
+            this.tlsProtocolHandler = new TlsProtocolHandler(readStream, writeStream);
+            this.tlsProtocolHandler.Connect(tivoTlsClient);
 
-            return _tlsProtocolHandler.Stream;
+            return this.tlsProtocolHandler.Stream;
         }
     }
 }

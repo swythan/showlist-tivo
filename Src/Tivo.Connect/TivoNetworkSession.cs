@@ -6,8 +6,8 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
 using System.Reflection;
@@ -22,26 +22,23 @@ namespace Tivo.Connect
 {
     public class TivoNetworkSession : IDisposable
     {
-        private readonly int _sessionId;
+        private static readonly Lazy<Func<INetworkInterface>> NetworkIntefaceFactory = new Lazy<Func<INetworkInterface>>(LoadPlatformNetworkInterface);
+        private readonly JsonSerializerSettings jsonSettings;
+        private readonly int sessionId;
 
-        private bool _isAwayMode;
-        private INetworkInterface _networkInterface;
-
-        private Stream _sslStream = null;
-        private int _lastRpcId = 0;
+        private bool isAwayMode;
+        private JsonSerializer jsonSerializer;
+        private int lastRpcId = 0;
+        private INetworkInterface networkInterface;
+        private CancellationTokenSource receiveCancellationTokenSource;
+        private Subject<Tuple<int, JObject>> receiveSubject;
 
         private Task receiveTask;
-        private Subject<Tuple<int, JObject>> _receiveSubject;
-        private CancellationTokenSource _receiveCancellationTokenSource;
-
-        private readonly JsonSerializerSettings jsonSettings;
-        private JsonSerializer _jsonSerializer;
-
-        private static readonly Lazy<Func<INetworkInterface>> NetworkIntefaceFactory = new Lazy<Func<INetworkInterface>>(LoadPlatformNetworkInterface);
+        private Stream sslStream = null;
 
         public TivoNetworkSession()
         {
-            _sessionId = new Random().Next(0x26c000, 0x27dc20);
+            this.sessionId = new Random().Next(0x26c000, 0x27dc20);
 
             this.jsonSettings = new JsonSerializerSettings
             {
@@ -49,18 +46,18 @@ namespace Tivo.Connect
                 DateFormatString = "yyyy'-'MM'-'dd HH':'mm':'ss",
                 Converters =
                 {
-                    new RecordingFolderItemCreator(), 
+                    new RecordingFolderItemCreator(),
                     new UnifiedItemCreator(),
                 }
             };
 
-            this._jsonSerializer = JsonSerializer.Create(this.jsonSettings);
-            _networkInterface = NetworkIntefaceFactory.Value();
+            this.jsonSerializer = JsonSerializer.Create(this.jsonSettings);
+            this.networkInterface = NetworkIntefaceFactory.Value();
         }
 
         public void Dispose()
         {
-            this.Dispose(true);
+            Dispose(true);
             GC.SuppressFinalize(this);
         }
 
@@ -68,15 +65,15 @@ namespace Tivo.Connect
         {
             if (disposing)
             {
-                if (_networkInterface != null)
+                if (this.networkInterface != null)
                 {
-                    _networkInterface.Dispose();
-                    _networkInterface = null;
+                    this.networkInterface.Dispose();
+                    this.networkInterface = null;
                 }
 
-                if (_receiveCancellationTokenSource != null)
+                if (this.receiveCancellationTokenSource != null)
                 {
-                    _receiveCancellationTokenSource.Cancel();
+                    this.receiveCancellationTokenSource.Cancel();
                     // receiveCancellationTokenSource = null;
                 }
             }
@@ -85,12 +82,11 @@ namespace Tivo.Connect
         private static Func<INetworkInterface> LoadPlatformNetworkInterface()
         {
 #if WP7
-            return () => new Tivo.Connect.Platform.NetworkInterface();
+            return () => new NetworkInterface();
 #else
             // get the plat lib
             try
             {
-
                 var assemblyName = new AssemblyName(typeof(TivoNetworkSession).GetTypeInfo().Assembly.FullName)
                 {
                     Name = "Tivo.Connect.Platform"
@@ -115,9 +111,9 @@ namespace Tivo.Connect
 
         public async Task<JObject> Connect(TivoEndPoint endPoint, IDictionary<string, object> authMessage)
         {
-            _isAwayMode = endPoint.Mode == TivoMode.Away;
-            _sslStream = await _networkInterface.Initialize(endPoint).ConfigureAwait(false);
-            _receiveSubject = new Subject<Tuple<int, JObject>>();
+            this.isAwayMode = endPoint.Mode == TivoMode.Away;
+            this.sslStream = await this.networkInterface.Initialize(endPoint).ConfigureAwait(false);
+            this.receiveSubject = new Subject<Tuple<int, JObject>>();
 
             // Send authentication message to the TiVo. 
             var authTask = SendRequest(authMessage);
@@ -132,12 +128,12 @@ namespace Tivo.Connect
 
         private void StartReceiveThread()
         {
-            this._receiveCancellationTokenSource = new CancellationTokenSource();
+            this.receiveCancellationTokenSource = new CancellationTokenSource();
 
 #if !WINDOWS_PHONE
-            receiveTask = Task.Run(() => RpcReceiveThreadProc(), _receiveCancellationTokenSource.Token);
+            this.receiveTask = Task.Run(() => RpcReceiveThreadProc(), this.receiveCancellationTokenSource.Token);
 #else
-            receiveTask = TaskEx.Run(() => RpcReceiveThreadProc(), _receiveCancellationTokenSource.Token);
+            this.receiveTask = TaskEx.Run(() => RpcReceiveThreadProc(), this.receiveCancellationTokenSource.Token);
 #endif
         }
 
@@ -147,18 +143,18 @@ namespace Tivo.Connect
             {
                 while (true)
                 {
-                    this._receiveSubject.OnNext(ReadMessage());
+                    this.receiveSubject.OnNext(ReadMessage());
 
-                    if (this._receiveCancellationTokenSource.IsCancellationRequested)
+                    if (this.receiveCancellationTokenSource.IsCancellationRequested)
                     {
-                        this._receiveSubject.OnCompleted();
+                        this.receiveSubject.OnCompleted();
                         return;
                     }
                 }
             }
             catch (Exception ex)
             {
-                this._receiveSubject.OnError(ex);
+                this.receiveSubject.OnError(ex);
             }
         }
 
@@ -184,31 +180,30 @@ namespace Tivo.Connect
                 tsn = tsnObj as string;
             }
 
-            string bodyText = JsonConvert.SerializeObject(body, this.jsonSettings);
+            var bodyText = JsonConvert.SerializeObject(body, this.jsonSettings);
 
-            int requestRpcId = Interlocked.Increment(ref this._lastRpcId);
+            var requestRpcId = Interlocked.Increment(ref this.lastRpcId);
 
-            var reponseObservable = this._receiveSubject
-                .Where(message => message.Item1 == requestRpcId)
-                .Select(message => message.Item2)
-                .Take(1);
+            var reponseObservable = this.receiveSubject
+                                        .Where(message => message.Item1 == requestRpcId)
+                                        .Select(message => message.Item2)
+                                        .Take(1);
 
-            var messageBytes = MindRpcFormatter.EncodeRequest(this._isAwayMode, this._sessionId, tsn, requestRpcId, requestType, bodyText);
+            var messageBytes = MindRpcFormatter.EncodeRequest(this.isAwayMode, this.sessionId, tsn, requestRpcId, requestType, bodyText);
 
-            this._sslStream.Write(messageBytes, 0, messageBytes.Length);
-            this._sslStream.Flush();
+            this.sslStream.Write(messageBytes, 0, messageBytes.Length);
+            this.sslStream.Flush();
 
             return await reponseObservable;
         }
 
         public Tuple<int, JObject> ReadMessage()
         {
-            var message = MindRpcFormatter.ReadMessage(this._sslStream);
+            var message = MindRpcFormatter.ReadMessage(this.sslStream);
 
             var body = JObject.Parse(message.Item2);
 
             return Tuple.Create(MindRpcFormatter.GetRpcIdFromHeader(message.Item1), body);
         }
-
     }
 }

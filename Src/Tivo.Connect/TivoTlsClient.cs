@@ -5,6 +5,7 @@
 //-----------------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Org.BouncyCastle.Crypto.Tls;
@@ -14,37 +15,42 @@ namespace Tivo.Connect
 {
     public class TivoTlsClient : DefaultTlsClient
     {
-        private readonly Stream _certificate;
-        private readonly string _password;
+        private readonly Stream certificate;
+        private readonly string password;
 
         public TivoTlsClient(Stream certificate, string password)
         {
-            if (certificate == null) 
+            if (certificate == null)
                 throw new ArgumentNullException("certificate");
-            if (password == null) 
+            if (password == null)
                 throw new ArgumentNullException("password");
 
-            _certificate = certificate;
-            _password = password;
+            this.certificate = certificate;
+            this.password = password;
         }
 
-        class TivoTlsAuthentication : TlsAuthentication
+        public override TlsAuthentication GetAuthentication()
         {
-            private readonly TivoTlsClient _context;
+            return new TivoTlsAuthentication(this);
+        }
 
-            public TivoTlsAuthentication(TivoTlsClient context)
+        private class TivoTlsAuthentication : TlsAuthentication
+        {
+            private readonly TivoTlsClient client;
+
+            public TivoTlsAuthentication(TivoTlsClient client)
             {
-                _context = context;
+                this.client = client;
             }
 
             public void NotifyServerCertificate(Certificate serverCertificate)
             {
             }
-            
+
             public TlsCredentials GetClientCredentials(CertificateRequest certificateRequest)
             {
                 // Load PKCS12 certificate store from stream resources
-                var keyStore = new Pkcs12Store(_context._certificate, _context._password.ToCharArray());
+                var keyStore = new Pkcs12Store(this.client.certificate, this.client.password.ToCharArray());
 
                 // Convert keys into structures needed for Certificate constructor
                 var aliases = keyStore.Aliases.OfType<string>();
@@ -59,13 +65,8 @@ namespace Tivo.Connect
                 // Get the private key
                 var keyEntry = keyStore.GetKey(aliases.First());
 
-                return new DefaultTlsSignerCredentials(_context.context, new Certificate(certStructures), keyEntry.Key);
+                return new DefaultTlsSignerCredentials(this.client.context, new Certificate(certStructures), keyEntry.Key);
             }
-        }
-
-        public override TlsAuthentication GetAuthentication()
-        {
-            return new TivoTlsAuthentication(this);
         }
     }
 }
