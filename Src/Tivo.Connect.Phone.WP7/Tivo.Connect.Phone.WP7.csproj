@@ -200,14 +200,14 @@
     <Compile Include="Sockets\TimerIntervals.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BouncyCastle\crypto.csproj">
-      <Project>{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A0}</Project>
-      <Name>crypto</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BouncyCastle\crypto.WP7.csproj">
+      <Project>{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A1}</Project>
+      <Name>crypto.WP7</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />

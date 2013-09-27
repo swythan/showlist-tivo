@@ -28,9 +28,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tivo.Connect.Phone.WP7", "T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TivoAhoy.Common.WP7", "TivoAhoy.Common.WP7\TivoAhoy.Common.WP7.csproj", "{73AEC2D3-3A5E-4AE5-B6B0-7237207A3618}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "crypto.WP7", "BouncyCastle\crypto.WP7.csproj", "{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WP7", "WP7", "{BDADF772-8A3E-4512-BF33-9CCDA7D962B4}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 12
+		SccNumberOfProjects = 13
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://swythan.visualstudio.com/defaultcollection
 		SccLocalPath0 = .
@@ -41,6 +45,7 @@ Global
 		SccProjectName2 = BouncyCastle
 		SccLocalPath2 = BouncyCastle
 		SccProjectUniqueName3 = TivoAhoy.Phone\\TivoAhoy.Phone.csproj
+		SccProjectTopLevelParentUniqueName3 = TivoAhoy.sln
 		SccProjectName3 = TivoAhoy.Phone
 		SccLocalPath3 = TivoAhoy.Phone
 		SccProjectUniqueName4 = Tivo.Connect.Desktop\\Tivo.Connect.Desktop.csproj
@@ -62,11 +67,17 @@ Global
 		SccProjectName9 = Tivo.Connect
 		SccLocalPath9 = Tivo.Connect
 		SccProjectUniqueName10 = Tivo.Connect.Phone.WP7\\Tivo.Connect.Phone.WP7.csproj
+		SccProjectTopLevelParentUniqueName10 = TivoAhoy.sln
 		SccProjectName10 = Tivo.Connect.Phone.WP7
 		SccLocalPath10 = Tivo.Connect.Phone.WP7
 		SccProjectUniqueName11 = TivoAhoy.Common.WP7\\TivoAhoy.Common.WP7.csproj
+		SccProjectTopLevelParentUniqueName11 = TivoAhoy.sln
 		SccProjectName11 = TivoAhoy.Common.WP7
 		SccLocalPath11 = TivoAhoy.Common.WP7
+		SccProjectUniqueName12 = BouncyCastle\\crypto.WP7.csproj
+		SccProjectTopLevelParentUniqueName12 = TivoAhoy.sln
+		SccProjectName12 = BouncyCastle
+		SccLocalPath12 = BouncyCastle
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -227,8 +238,26 @@ Global
 		{73AEC2D3-3A5E-4AE5-B6B0-7237207A3618}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{73AEC2D3-3A5E-4AE5-B6B0-7237207A3618}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{73AEC2D3-3A5E-4AE5-B6B0-7237207A3618}.Release|x86.ActiveCfg = Release|Any CPU
+		{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A1}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A1}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A1}.Release|ARM.ActiveCfg = Release|Any CPU
+		{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A1}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AFFFC8BC-3E92-4860-97EF-66C331874DDE} = {BDADF772-8A3E-4512-BF33-9CCDA7D962B4}
+		{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A1} = {BDADF772-8A3E-4512-BF33-9CCDA7D962B4}
+		{00070FA1-5D64-40EE-9080-52D65ABFC7E8} = {BDADF772-8A3E-4512-BF33-9CCDA7D962B4}
+		{73AEC2D3-3A5E-4AE5-B6B0-7237207A3618} = {BDADF772-8A3E-4512-BF33-9CCDA7D962B4}
 	EndGlobalSection
 EndGlobal
