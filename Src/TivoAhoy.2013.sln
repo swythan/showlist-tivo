@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.20827.3
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TivoTest", "TivoTest\TivoTest.csproj", "{13CAFD35-4DAC-49BE-A6FA-9BCEF041A46D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{475EEE18-68CB-44E2-ADCF-125594E7E20A}"
@@ -9,8 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{475EEE
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "crypto", "BouncyCastle\crypto.csproj", "{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A0}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TivoAhoy.Phone", "TivoAhoy.Phone\TivoAhoy.Phone.csproj", "{00070FA1-5D64-40EE-9080-52D65ABFC7E8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tivo.Connect.Desktop", "Tivo.Connect.Desktop\Tivo.Connect.Desktop.csproj", "{1618809C-2129-4720-A49C-83D6F940CABC}"
 EndProject
@@ -24,64 +24,40 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TivoProxy", "TivoProxy\Tivo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tivo.Connect", "Tivo.Connect\Tivo.Connect.csproj", "{3E1EFB52-90B7-439B-8354-B605A344CAC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tivo.Connect.Phone.WP7", "Tivo.Connect.Phone.WP7\Tivo.Connect.Phone.WP7.csproj", "{AFFFC8BC-3E92-4860-97EF-66C331874DDE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TivoAhoy.Common.WP7", "TivoAhoy.Common.WP7\TivoAhoy.Common.WP7.csproj", "{73AEC2D3-3A5E-4AE5-B6B0-7237207A3618}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "crypto.WP7", "BouncyCastle\crypto.WP7.csproj", "{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A1}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WP7", "WP7", "{BDADF772-8A3E-4512-BF33-9CCDA7D962B4}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{DD6C7597-B450-4B1E-BF43-AC341CF09C9B}"
 EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 13
+		SccNumberOfProjects = 9
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://swythan.visualstudio.com/defaultcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = TivoTest\\TivoTest.csproj
-		SccProjectTopLevelParentUniqueName1 = TivoAhoy.sln
-		SccProjectName1 = TivoTest
-		SccLocalPath1 = TivoTest
-		SccProjectUniqueName2 = BouncyCastle\\crypto.csproj
-		SccProjectName2 = BouncyCastle
-		SccLocalPath2 = BouncyCastle
-		SccProjectUniqueName3 = TivoAhoy.Phone\\TivoAhoy.Phone.csproj
-		SccProjectTopLevelParentUniqueName3 = TivoAhoy.sln
-		SccProjectName3 = TivoAhoy.Phone
-		SccLocalPath3 = TivoAhoy.Phone
-		SccProjectUniqueName4 = Tivo.Connect.Desktop\\Tivo.Connect.Desktop.csproj
-		SccProjectName4 = Tivo.Connect.Desktop
-		SccLocalPath4 = Tivo.Connect.Desktop
-		SccProjectUniqueName5 = TivoAhoy.Common\\TivoAhoy.Common.csproj
-		SccProjectName5 = TivoAhoy.Common
-		SccLocalPath5 = TivoAhoy.Common
-		SccProjectUniqueName6 = TivoAhoy.PhoneRT\\TivoAhoy.PhoneRT.csproj
-		SccProjectName6 = TivoAhoy.PhoneRT
-		SccLocalPath6 = TivoAhoy.PhoneRT
-		SccProjectUniqueName7 = TivoConnectionTest\\TivoConnectionTest.csproj
-		SccProjectTopLevelParentUniqueName7 = TivoAhoy.sln
-		SccProjectName7 = TivoConnectionTest
-		SccLocalPath7 = TivoConnectionTest
-		SccProjectUniqueName8 = TivoProxy\\TivoProxy.csproj
-		SccProjectName8 = TivoProxy
-		SccLocalPath8 = TivoProxy
-		SccProjectUniqueName9 = Tivo.Connect\\Tivo.Connect.csproj
-		SccProjectName9 = Tivo.Connect
-		SccLocalPath9 = Tivo.Connect
-		SccProjectUniqueName10 = Tivo.Connect.Phone.WP7\\Tivo.Connect.Phone.WP7.csproj
-		SccProjectTopLevelParentUniqueName10 = TivoAhoy.sln
-		SccProjectName10 = Tivo.Connect.Phone.WP7
-		SccLocalPath10 = Tivo.Connect.Phone.WP7
-		SccProjectUniqueName11 = TivoAhoy.Common.WP7\\TivoAhoy.Common.WP7.csproj
-		SccProjectTopLevelParentUniqueName11 = TivoAhoy.sln
-		SccProjectName11 = TivoAhoy.Common.WP7
-		SccLocalPath11 = TivoAhoy.Common.WP7
-		SccProjectUniqueName12 = BouncyCastle\\crypto.WP7.csproj
-		SccProjectTopLevelParentUniqueName12 = TivoAhoy.sln
-		SccProjectName12 = BouncyCastle
-		SccLocalPath12 = BouncyCastle
+		SccProjectUniqueName0 = TivoTest\\TivoTest.csproj
+		SccProjectTopLevelParentUniqueName0 = TivoAhoy.2013.sln
+		SccProjectName0 = TivoTest
+		SccLocalPath0 = TivoTest
+		SccProjectUniqueName1 = BouncyCastle\\crypto.csproj
+		SccProjectName1 = BouncyCastle
+		SccLocalPath1 = BouncyCastle
+		SccProjectUniqueName2 = Tivo.Connect.Desktop\\Tivo.Connect.Desktop.csproj
+		SccProjectName2 = Tivo.Connect.Desktop
+		SccLocalPath2 = Tivo.Connect.Desktop
+		SccProjectUniqueName3 = TivoAhoy.Common\\TivoAhoy.Common.csproj
+		SccProjectName3 = TivoAhoy.Common
+		SccLocalPath3 = TivoAhoy.Common
+		SccProjectUniqueName4 = TivoAhoy.PhoneRT\\TivoAhoy.PhoneRT.csproj
+		SccProjectName4 = TivoAhoy.PhoneRT
+		SccLocalPath4 = TivoAhoy.PhoneRT
+		SccProjectUniqueName5 = TivoConnectionTest\\TivoConnectionTest.csproj
+		SccProjectTopLevelParentUniqueName5 = TivoAhoy.2013.sln
+		SccProjectName5 = TivoConnectionTest
+		SccLocalPath5 = TivoConnectionTest
+		SccProjectUniqueName6 = TivoProxy\\TivoProxy.csproj
+		SccProjectName6 = TivoProxy
+		SccLocalPath6 = TivoProxy
+		SccProjectUniqueName7 = Tivo.Connect\\Tivo.Connect.csproj
+		SccProjectName7 = Tivo.Connect
+		SccLocalPath7 = Tivo.Connect
+		SccLocalPath8 = .
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -118,22 +94,6 @@ Global
 		{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A0}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A0}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A0}.Release|x86.ActiveCfg = Release|Any CPU
-		{00070FA1-5D64-40EE-9080-52D65ABFC7E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{00070FA1-5D64-40EE-9080-52D65ABFC7E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{00070FA1-5D64-40EE-9080-52D65ABFC7E8}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{00070FA1-5D64-40EE-9080-52D65ABFC7E8}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{00070FA1-5D64-40EE-9080-52D65ABFC7E8}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{00070FA1-5D64-40EE-9080-52D65ABFC7E8}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{00070FA1-5D64-40EE-9080-52D65ABFC7E8}.Debug|Mixed Platforms.Deploy.0 = Debug|Any CPU
-		{00070FA1-5D64-40EE-9080-52D65ABFC7E8}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{00070FA1-5D64-40EE-9080-52D65ABFC7E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{00070FA1-5D64-40EE-9080-52D65ABFC7E8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{00070FA1-5D64-40EE-9080-52D65ABFC7E8}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{00070FA1-5D64-40EE-9080-52D65ABFC7E8}.Release|ARM.ActiveCfg = Release|Any CPU
-		{00070FA1-5D64-40EE-9080-52D65ABFC7E8}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{00070FA1-5D64-40EE-9080-52D65ABFC7E8}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{00070FA1-5D64-40EE-9080-52D65ABFC7E8}.Release|Mixed Platforms.Deploy.0 = Release|Any CPU
-		{00070FA1-5D64-40EE-9080-52D65ABFC7E8}.Release|x86.ActiveCfg = Release|Any CPU
 		{1618809C-2129-4720-A49C-83D6F940CABC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1618809C-2129-4720-A49C-83D6F940CABC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1618809C-2129-4720-A49C-83D6F940CABC}.Debug|ARM.ActiveCfg = Debug|Any CPU
@@ -218,52 +178,12 @@ Global
 		{3E1EFB52-90B7-439B-8354-B605A344CAC0}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{3E1EFB52-90B7-439B-8354-B605A344CAC0}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{3E1EFB52-90B7-439B-8354-B605A344CAC0}.Release|x86.ActiveCfg = Release|Any CPU
-		{AFFFC8BC-3E92-4860-97EF-66C331874DDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AFFFC8BC-3E92-4860-97EF-66C331874DDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AFFFC8BC-3E92-4860-97EF-66C331874DDE}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{AFFFC8BC-3E92-4860-97EF-66C331874DDE}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{AFFFC8BC-3E92-4860-97EF-66C331874DDE}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{AFFFC8BC-3E92-4860-97EF-66C331874DDE}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{AFFFC8BC-3E92-4860-97EF-66C331874DDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AFFFC8BC-3E92-4860-97EF-66C331874DDE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AFFFC8BC-3E92-4860-97EF-66C331874DDE}.Release|ARM.ActiveCfg = Release|Any CPU
-		{AFFFC8BC-3E92-4860-97EF-66C331874DDE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{AFFFC8BC-3E92-4860-97EF-66C331874DDE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{AFFFC8BC-3E92-4860-97EF-66C331874DDE}.Release|x86.ActiveCfg = Release|Any CPU
-		{73AEC2D3-3A5E-4AE5-B6B0-7237207A3618}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{73AEC2D3-3A5E-4AE5-B6B0-7237207A3618}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{73AEC2D3-3A5E-4AE5-B6B0-7237207A3618}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{73AEC2D3-3A5E-4AE5-B6B0-7237207A3618}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{73AEC2D3-3A5E-4AE5-B6B0-7237207A3618}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{73AEC2D3-3A5E-4AE5-B6B0-7237207A3618}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{73AEC2D3-3A5E-4AE5-B6B0-7237207A3618}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{73AEC2D3-3A5E-4AE5-B6B0-7237207A3618}.Release|Any CPU.Build.0 = Release|Any CPU
-		{73AEC2D3-3A5E-4AE5-B6B0-7237207A3618}.Release|ARM.ActiveCfg = Release|Any CPU
-		{73AEC2D3-3A5E-4AE5-B6B0-7237207A3618}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{73AEC2D3-3A5E-4AE5-B6B0-7237207A3618}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{73AEC2D3-3A5E-4AE5-B6B0-7237207A3618}.Release|x86.ActiveCfg = Release|Any CPU
-		{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A1}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A1}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A1}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A1}.Release|ARM.ActiveCfg = Release|Any CPU
-		{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A1}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{AFFFC8BC-3E92-4860-97EF-66C331874DDE} = {BDADF772-8A3E-4512-BF33-9CCDA7D962B4}
-		{73AEC2D3-3A5E-4AE5-B6B0-7237207A3618} = {BDADF772-8A3E-4512-BF33-9CCDA7D962B4}
-		{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A1} = {BDADF772-8A3E-4512-BF33-9CCDA7D962B4}
-		{00070FA1-5D64-40EE-9080-52D65ABFC7E8} = {BDADF772-8A3E-4512-BF33-9CCDA7D962B4}
-		{13CAFD35-4DAC-49BE-A6FA-9BCEF041A46D} = {DD6C7597-B450-4B1E-BF43-AC341CF09C9B}
 		{339C13C7-7A66-4A13-B2DF-E810A96C23D3} = {DD6C7597-B450-4B1E-BF43-AC341CF09C9B}
+		{13CAFD35-4DAC-49BE-A6FA-9BCEF041A46D} = {DD6C7597-B450-4B1E-BF43-AC341CF09C9B}
 	EndGlobalSection
 EndGlobal
