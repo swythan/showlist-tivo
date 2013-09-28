@@ -140,27 +140,23 @@
     <Reference Include="System.Windows.Interactivity, Version=3.9.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Caliburn.Micro.1.5.2\lib\wp8\System.Windows.Interactivity.dll</HintPath>
     </Reference>
+    <Reference Include="Zeroconf">
+      <HintPath>..\packages\Zeroconf.2.0.0\lib\wp8\Zeroconf.dll</HintPath>
+    </Reference>
+    <Reference Include="Zeroconf.Platform">
+      <HintPath>..\packages\Zeroconf.2.0.0\lib\wp8\Zeroconf.Platform.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BitmapImageExtensions.cs" />
-    <Compile Include="Discovery\Answer.cs" />
-    <Compile Include="Discovery\BackReferenceBinaryReader.cs" />
-    <Compile Include="Discovery\BaseMessage.cs" />
-    <Compile Include="Discovery\BinaryHelper.cs" />
-    <Compile Include="Discovery\DnsEnums.cs" />
-    <Compile Include="Discovery\DomainName.cs" />
-    <Compile Include="Discovery\IRequest.cs" />
-    <Compile Include="Discovery\IResponse.cs" />
-    <Compile Include="Discovery\MDnsClient.cs" />
-    <Compile Include="Discovery\Message.cs" />
-    <Compile Include="Discovery\Question.cs" />
-    <Compile Include="Discovery\ResponseData.cs" />
+    <Compile Include="Discovery\DiscoveredTivo.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Events\ConnectionSettingsChanged.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AnalyticsService.cs" />
     <Compile Include="Services\ISpeechService.cs" />
     <Compile Include="Settings\ConnectionSettings.cs" />
-    <Compile Include="Discovery\DiscoveredTivo.cs" />
     <Compile Include="Services\IAnalyticsService.cs" />
     <Compile Include="Services\IProgressService.cs" />
     <Compile Include="Services\IScheduledRecordingsService.cs" />

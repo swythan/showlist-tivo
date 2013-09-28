@@ -28,6 +28,11 @@ using TivoAhoy.Common.Events;
 using TivoAhoy.Common.Services;
 using TivoAhoy.Common.Settings;
 
+
+#if !WP7
+using Zeroconf;
+#endif
+
 namespace TivoAhoy.Common.ViewModels
 {
     public class SettingsPageViewModel : Screen
@@ -334,8 +339,8 @@ namespace TivoAhoy.Common.ViewModels
             var connection = new TivoConnection();
 
             // TODO: Detect this
-            var cert = LoadCertificateAndPassword(true);
-            var middleMind = true ? @"secure-tivo-api.virginmedia.com" : "middlemind.tivo.com";
+            var cert = LoadCertificateAndPassword(false);
+            var middleMind = false ? @"secure-tivo-api.virginmedia.com" : "middlemind.tivo.com";
             try
             {
                 using (ShowProgress())
@@ -412,7 +417,7 @@ namespace TivoAhoy.Common.ViewModels
         {
             var connection = new TivoConnection();
             // TODO: Detect this
-            var cert = LoadCertificateAndPassword(true);
+            var cert = LoadCertificateAndPassword(false);
 
             try
             {
@@ -519,22 +524,14 @@ namespace TivoAhoy.Common.ViewModels
 
             using (ShowProgress())
             {
-                var dnsAnswers = await MDnsClient.CreateAndResolveAsync(dnsProtocol);
 
-                if (dnsAnswers != null)
+                var discovered = await DiscoverTivos();
+
+                if (discovered)
                 {
-                    var answersSubscription = dnsAnswers
-                        .Select(HandleDnsAnswer)
-                        .Where(x => x != null)
-                        .ObserveOnDispatcher()
-                        .Subscribe(x => this.discoveredTivos.Add(x));
-
-                    await TaskEx.Delay(TimeSpan.FromSeconds(3));
-
-                    answersSubscription.Dispose();
-
                     var selectedTivo = this.discoveredTivos
-                        .FirstOrDefault(x => x.TSN.Equals(ConnectionSettings.SelectedTivoTsn, StringComparison.Ordinal));
+                                            .FirstOrDefault(x => x.TSN.Equals(ConnectionSettings.SelectedTivoTsn, 
+                                                StringComparison.Ordinal));
 
                     if (selectedTivo == null)
                     {
@@ -544,6 +541,29 @@ namespace TivoAhoy.Common.ViewModels
                     this.CurrentDiscoveredTivo = selectedTivo;
                 }
             }
+        }
+
+#if WP7
+
+        private async Task<bool> DiscoverTivos()
+        {
+            var dnsAnswers = await MDnsClient.CreateAndResolveAsync(dnsProtocol);
+
+            if (dnsAnswers != null)
+            {
+                var answersSubscription = dnsAnswers
+                    .Select(HandleDnsAnswer)
+                    .Where(x => x != null)
+                    .ObserveOnDispatcher()
+                    .Subscribe(x => this.discoveredTivos.Add(x));
+
+                await TaskEx.Delay(TimeSpan.FromSeconds(3));
+
+                answersSubscription.Dispose();
+
+                return true;
+            }
+            return false;
         }
 
         private DiscoveredTivo HandleDnsAnswer(Discovery.Message msg)
@@ -610,5 +630,26 @@ namespace TivoAhoy.Common.ViewModels
 
             return new DiscoveredTivo(tivoName, tivoAddress, tivoTsn);
         }
+#else
+        private async Task<bool> DiscoverTivos()
+        {
+            const string tivoService = "_tivo-mindrpc._tcp.local.";
+            var results = await ZeroconfResolver.ResolveAsync(tivoService, TimeSpan.FromSeconds(.5));
+
+            if (results.Count > 0)
+            {
+                foreach (var host in results)
+                {
+                    var device = new DiscoveredTivo(host.DisplayName, 
+                        IPAddress.Parse(host.IPAddress), 
+                        host.Services.First().Value.Properties[0]["TSN"]);
+
+                    this.discoveredTivos.Add(device);
+                }
+                return true;
+            }
+            return false;
+        }
+#endif
     }
 }

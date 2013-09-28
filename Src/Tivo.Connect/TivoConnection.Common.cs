@@ -102,7 +102,8 @@ namespace Tivo.Connect
 
             CheckResponse(statusResponse, "optStatusResponse", "OptStatusGet");
 
-            if (((string)statusResponse["optStatus"]) != "optIn")
+            var optResponseString = (string)statusResponse["optStatus"];
+            if (optResponseString != "optIn" && optResponseString != "optNeutral")
             {
                 throw new ActionNotSupportedException("Network control not enabled");
             }

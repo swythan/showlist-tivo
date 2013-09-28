@@ -29,7 +29,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;SILVERLIGHT;WINDOWS_PHONE;WP7</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
@@ -39,7 +39,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>Bin\Release</OutputPath>
-    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE;WP7</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
@@ -117,44 +117,8 @@
     <Compile Include="..\TivoAhoy.Common\BitmapImageExtensions.cs">
       <Link>BitmapImageExtensions.cs</Link>
     </Compile>
-    <Compile Include="..\TivoAhoy.Common\Discovery\Answer.cs">
-      <Link>Discovery\Answer.cs</Link>
-    </Compile>
-    <Compile Include="..\TivoAhoy.Common\Discovery\BackReferenceBinaryReader.cs">
-      <Link>Discovery\BackReferenceBinaryReader.cs</Link>
-    </Compile>
-    <Compile Include="..\TivoAhoy.Common\Discovery\BaseMessage.cs">
-      <Link>Discovery\BaseMessage.cs</Link>
-    </Compile>
-    <Compile Include="..\TivoAhoy.Common\Discovery\BinaryHelper.cs">
-      <Link>Discovery\BinaryHelper.cs</Link>
-    </Compile>
     <Compile Include="..\TivoAhoy.Common\Discovery\DiscoveredTivo.cs">
       <Link>Discovery\DiscoveredTivo.cs</Link>
-    </Compile>
-    <Compile Include="..\TivoAhoy.Common\Discovery\DnsEnums.cs">
-      <Link>Discovery\DnsEnums.cs</Link>
-    </Compile>
-    <Compile Include="..\TivoAhoy.Common\Discovery\DomainName.cs">
-      <Link>Discovery\DomainName.cs</Link>
-    </Compile>
-    <Compile Include="..\TivoAhoy.Common\Discovery\IRequest.cs">
-      <Link>Discovery\IRequest.cs</Link>
-    </Compile>
-    <Compile Include="..\TivoAhoy.Common\Discovery\IResponse.cs">
-      <Link>Discovery\IResponse.cs</Link>
-    </Compile>
-    <Compile Include="..\TivoAhoy.Common\Discovery\MDnsClient.cs">
-      <Link>Discovery\MDnsClient.cs</Link>
-    </Compile>
-    <Compile Include="..\TivoAhoy.Common\Discovery\Message.cs">
-      <Link>Discovery\Message.cs</Link>
-    </Compile>
-    <Compile Include="..\TivoAhoy.Common\Discovery\Question.cs">
-      <Link>Discovery\Question.cs</Link>
-    </Compile>
-    <Compile Include="..\TivoAhoy.Common\Discovery\ResponseData.cs">
-      <Link>Discovery\ResponseData.cs</Link>
     </Compile>
     <Compile Include="..\TivoAhoy.Common\Events\ConnectionSettingsChanged.cs">
       <Link>Events\ConnectionSettingsChanged.cs</Link>
@@ -270,6 +234,18 @@
     <Compile Include="..\TivoAhoy.Common\ViewModels\UpcomingOffersViewModel.cs">
       <Link>ViewModels\UpcomingOffersViewModel.cs</Link>
     </Compile>
+    <Compile Include="Discovery\Answer.cs" />
+    <Compile Include="Discovery\BackReferenceBinaryReader.cs" />
+    <Compile Include="Discovery\BaseMessage.cs" />
+    <Compile Include="Discovery\BinaryHelper.cs" />
+    <Compile Include="Discovery\DnsEnums.cs" />
+    <Compile Include="Discovery\DomainName.cs" />
+    <Compile Include="Discovery\IRequest.cs" />
+    <Compile Include="Discovery\IResponse.cs" />
+    <Compile Include="Discovery\MDnsClient.cs" />
+    <Compile Include="Discovery\Message.cs" />
+    <Compile Include="Discovery\Question.cs" />
+    <Compile Include="Discovery\ResponseData.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\TivoAhoy.Common\Toolkit.Content\ApplicationBar.Cancel.png">

@@ -241,7 +241,7 @@ namespace TivoAhoy.Common.Services
                 var localConnection = new TivoConnection();
 
                 // TODO: detect this based on the Tivo mDNS data
-                var certs = LoadCertificateAndPassword(true);
+                var certs = LoadCertificateAndPassword(false);
                 if (!forceAwayMode)
                 {
                     var lanSettings = ConnectionSettings.KnownTivos

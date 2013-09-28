@@ -358,6 +358,12 @@
     <Reference Include="YourLastAboutDialog">
       <HintPath>..\packages\YLAD.2.1.0\lib\windowsphone8\YourLastAboutDialog.dll</HintPath>
     </Reference>
+    <Reference Include="Zeroconf">
+      <HintPath>..\packages\Zeroconf.2.0.0\lib\wp8\Zeroconf.dll</HintPath>
+    </Reference>
+    <Reference Include="Zeroconf.Platform">
+      <HintPath>..\packages\Zeroconf.2.0.0\lib\wp8\Zeroconf.Platform.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
