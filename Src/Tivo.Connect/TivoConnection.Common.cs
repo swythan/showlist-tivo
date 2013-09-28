@@ -132,7 +132,7 @@ namespace Tivo.Connect
             this.capturedTsn = (string)bodyConfig["bodyId"];
         }
 
-        public async Task<string> ConnectAway(string username, string password, string middleMindServer, Stream certificate, string certificatePassword)
+        public async Task<string> ConnectAway(string username, string password, string middleMindServer, bool isVirgin, Stream certificate, string certificatePassword)
         {
             this.capturedTsn = string.Empty;
 
@@ -140,7 +140,7 @@ namespace Tivo.Connect
 
             var authTask = this.tivoSession.Connect(
                 new TivoEndPoint(middleMindServer, TivoMode.Away, certificate, certificatePassword), 
-                BuildUsernameAndPasswordAuthenticationRequest(username, password));
+                BuildUsernameAndPasswordAuthenticationRequest(username, password, isVirgin));
 
             var authResponse = await authTask.ConfigureAwait(false);
 
@@ -515,7 +515,7 @@ namespace Tivo.Connect
             return body;
         }
 
-        private Dictionary<string, object> BuildUsernameAndPasswordAuthenticationRequest(string username, string password)
+        private Dictionary<string, object> BuildUsernameAndPasswordAuthenticationRequest(string username, string password, bool isVirgin)
         {
             var body = new Dictionary<string, object>()
             { 
@@ -524,12 +524,16 @@ namespace Tivo.Connect
                     new Dictionary<string, object>
                     {
                         { "domain", "virgin" },
-                        { "type", "usernameAndPasswordCredential" },
+                        { "type", isVirgin ? "usernameAndPasswordCredential" : "mmaCredential" },
                         { "username", username },
                         { "password", password }
                     }                
                 }
             };
+
+            // remove the extra param
+            if (!isVirgin)
+                ((IDictionary<string, object>)body["credential"]).Remove("domain");
 
             return body;
         }

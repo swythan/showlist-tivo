@@ -345,7 +345,7 @@ namespace TivoAhoy.Common.ViewModels
             {
                 using (ShowProgress())
                 {
-                    await connection.ConnectAway(this.Username, this.Password, middleMind, cert.Item2, cert.Item1);
+                    await connection.ConnectAway(this.Username, this.Password, middleMind, false, cert.Item2, cert.Item1);
 
                     ConnectionSettings.AwayModeUsername = this.Username;
                     ConnectionSettings.AwayModePassword = this.Password;

@@ -242,6 +242,8 @@ namespace TivoAhoy.Common.Services
 
                 // TODO: detect this based on the Tivo mDNS data
                 var certs = LoadCertificateAndPassword(false);
+                var middleMind = false ? @"secure-tivo-api.virginmedia.com" : "middlemind.tivo.com";
+
                 if (!forceAwayMode)
                 {
                     var lanSettings = ConnectionSettings.KnownTivos
@@ -285,8 +287,9 @@ namespace TivoAhoy.Common.Services
                     try
                     {
                         await localConnection.ConnectAway(ConnectionSettings.AwayModeUsername, 
-                                                          ConnectionSettings.AwayModePassword, 
-                                                          @"secure-tivo-api.virginmedia.com", // TODO: Detect the correct value
+                                                          ConnectionSettings.AwayModePassword,
+                                                          middleMind, 
+                                                          false,
                                                           certs.Item2, 
                                                           certs.Item1);
 

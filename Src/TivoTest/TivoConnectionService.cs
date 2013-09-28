@@ -92,7 +92,7 @@ namespace TivoTest
                 {
                     if (this.IsAwayModeEnabled)
                     {
-                        await localConnection.ConnectAway(TivoUsername, TivoPassword, middleMind, cert.Item2, cert.Item1);
+                        await localConnection.ConnectAway(TivoUsername, TivoPassword, middleMind, false, cert.Item2, cert.Item1);
                     }
                     else
                     {
