@@ -13,8 +13,9 @@ namespace Tivo.Connect
         public TivoMode Mode { get; private set; }
         public Stream Certificate { get; private set; }
         public string Password { get; private set; }
+        public bool IsVirginMedia { get; private set; }
 
-        public TivoEndPoint(string address, TivoMode mode, Stream certificate, string password)
+        public TivoEndPoint(string address, TivoMode mode, Stream certificate, string password, bool isVirginMedia)
         {
             if (certificate == null) 
                 throw new ArgumentNullException("certificate");
@@ -27,6 +28,7 @@ namespace Tivo.Connect
             Mode = mode;
             Certificate = certificate;
             Password = password;
+            IsVirginMedia = isVirginMedia;
         }
     }
 

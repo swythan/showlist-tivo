@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reactive.Linq;
@@ -15,6 +16,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Org.BouncyCastle.Utilities;
 using Tivo.Connect.Entities;
 
 
@@ -28,6 +30,7 @@ namespace Tivo.Connect
 
         private bool isAwayMode;
         private JsonSerializer jsonSerializer;
+        private bool isVirginMedia;
         private int lastRpcId = 0;
         private INetworkInterface networkInterface;
         private CancellationTokenSource receiveCancellationTokenSource;
@@ -112,6 +115,7 @@ namespace Tivo.Connect
         public async Task<JObject> Connect(TivoEndPoint endPoint, IDictionary<string, object> authMessage)
         {
             this.isAwayMode = endPoint.Mode == TivoMode.Away;
+            this.isVirginMedia = endPoint.IsVirginMedia;
             this.sslStream = await this.networkInterface.Initialize(endPoint).ConfigureAwait(false);
             this.receiveSubject = new Subject<Tuple<int, JObject>>();
 
@@ -182,6 +186,8 @@ namespace Tivo.Connect
 
             var bodyText = JsonConvert.SerializeObject(body, this.jsonSettings);
 
+            Debug.WriteLine("Sending Message:\n" + bodyText);
+
             var requestRpcId = Interlocked.Increment(ref this.lastRpcId);
 
             var reponseObservable = this.receiveSubject
@@ -189,8 +195,8 @@ namespace Tivo.Connect
                                         .Select(message => message.Item2)
                                         .Take(1);
 
-            var messageBytes = MindRpcFormatter.EncodeRequest(this.isAwayMode, this.sessionId, tsn, requestRpcId, requestType, bodyText);
-
+            var messageBytes = MindRpcFormatter.EncodeRequest(this.isAwayMode, this.sessionId, tsn, requestRpcId, this.isVirginMedia, requestType, bodyText);
+            
             this.sslStream.Write(messageBytes, 0, messageBytes.Length);
             this.sslStream.Flush();
 

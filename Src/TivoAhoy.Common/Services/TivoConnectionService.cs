@@ -255,7 +255,7 @@ namespace TivoAhoy.Common.Services
                     {
                         try
                         {
-                            await localConnection.Connect(lanSettings.LastIpAddress.ToString(), lanSettings.MediaAccessKey, certs.Item2, certs.Item1);
+                            await localConnection.Connect(lanSettings.LastIpAddress.ToString(), lanSettings.MediaAccessKey, certs.Item2, certs.Item1, false);
 
                             this.isConnected = true;
                             this.isAwayMode = false;

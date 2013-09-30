@@ -423,7 +423,7 @@ namespace TivoAhoy.Common.ViewModels
             {
                 using (ShowProgress())
                 {
-                    await connection.Connect(this.LanSettings.LastIpAddress.ToString(), this.LanSettings.MediaAccessKey, cert.Item2, cert.Item1);
+                    await connection.Connect(this.LanSettings.LastIpAddress.ToString(), this.LanSettings.MediaAccessKey, cert.Item2, cert.Item1, false);
 
                     if (!this.LanSettings.TSN.Equals(connection.ConnectedTsn, StringComparison.Ordinal))
                     {

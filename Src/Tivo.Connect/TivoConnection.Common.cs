@@ -76,14 +76,14 @@ namespace Tivo.Connect
             }
         }
 
-        public async Task Connect(string serverAddress, string mediaAccessKey, Stream certificate, string password)
+        public async Task Connect(string serverAddress, string mediaAccessKey, Stream certificate, string password, bool isVirgin)
         {
             this.capturedTsn = string.Empty;
 
             this.tivoSession = new TivoNetworkSession();
 
             var authTask = this.tivoSession.Connect(
-                new TivoEndPoint(serverAddress, TivoMode.Local, certificate, password), 
+                new TivoEndPoint(serverAddress, TivoMode.Local, certificate, password, isVirgin), 
                 BuildMakAuthenticationRequest(mediaAccessKey));
 
             var authResponse = await authTask.ConfigureAwait(false);
@@ -139,7 +139,7 @@ namespace Tivo.Connect
             this.tivoSession = new TivoNetworkSession();
 
             var authTask = this.tivoSession.Connect(
-                new TivoEndPoint(middleMindServer, TivoMode.Away, certificate, certificatePassword), 
+                new TivoEndPoint(middleMindServer, TivoMode.Away, certificate, certificatePassword, isVirgin), 
                 BuildUsernameAndPasswordAuthenticationRequest(username, password, isVirgin));
 
             var authResponse = await authTask.ConfigureAwait(false);
@@ -524,6 +524,7 @@ namespace Tivo.Connect
                     new Dictionary<string, object>
                     {
                         { "domain", "virgin" },
+                    //    { "type", "usernameAndPasswordCredential" },
                         { "type", isVirgin ? "usernameAndPasswordCredential" : "mmaCredential" },
                         { "username", username },
                         { "password", password }
