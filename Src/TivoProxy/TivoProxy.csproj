@@ -146,10 +146,10 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="TivoTest.cer">
+    <None Include="TivoTest_us.pfx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TivoTest.pfx">
+    <None Include="TivoTest_vm.pfx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <EmbeddedResource Include="tivo_us.p12" />

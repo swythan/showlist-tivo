@@ -25,19 +25,11 @@ namespace TivoProxy
 
         private Stream serverStream;
 
-        private string connectionType;
-        private IPAddress tivoAddress;
+        private TivoEndPoint serverEndPoint;
 
-        public ProxyConnection(Stream clientStream)
+        public ProxyConnection(Stream clientStream, TivoEndPoint serverEndPoint)
         {
-            this.clientStream = clientStream;
-
-            Task.Factory.StartNew(this.ClientReceiveThreadProc, TaskCreationOptions.LongRunning);
-        }
-
-        public ProxyConnection(Stream clientStream, IPAddress tivoAddress)
-        {
-            this.tivoAddress = tivoAddress;
+            this.serverEndPoint = serverEndPoint;
             this.clientStream = clientStream;
 
             Task.Factory.StartNew(this.ClientReceiveThreadProc, TaskCreationOptions.LongRunning);
@@ -45,15 +37,7 @@ namespace TivoProxy
 
         public async Task ConnectToServer()
         {
-            this.connectionType = "Away_Server";
-            this.serverStream = await this.ConnectNetworkStream(new DnsEndPoint(@"secure-tivo-api.virginmedia.com", 443))
-                .ConfigureAwait(false);
-        }
-
-        public async Task ConnectToTivo()
-        {
-            this.connectionType = "LAN_TiVo";
-            this.serverStream = await this.ConnectNetworkStream(new IPEndPoint(this.tivoAddress, 1413))
+            this.serverStream = await this.ConnectNetworkStream()
                 .ConfigureAwait(false);
         }
 
@@ -65,7 +49,7 @@ namespace TivoProxy
 
                 Console.WriteLine(
                     "Client -> {0} : Id={1} SchemaVersion={2}\n{3}",
-                    this.connectionType,
+                    this.serverEndPoint.Mode,
                     MindRpcFormatter.GetRpcIdFromHeader(receivedMessage.Item1),
                     MindRpcFormatter.GetValueFromHeader("SchemaVersion", receivedMessage.Item1),
                     receivedMessage.Item2);
@@ -77,14 +61,7 @@ namespace TivoProxy
                 {
                     firstMessage = true;
 
-                    if (this.tivoAddress != null)
-                    {
-                        ConnectToTivo().Wait();
-                    }
-                    else
-                    {
-                        ConnectToServer().Wait();
-                    }
+                    ConnectToServer().Wait();
                 }
 
                 this.serverStream.Write(onwardMessage, 0, onwardMessage.Length);
@@ -104,7 +81,7 @@ namespace TivoProxy
 
                 Console.WriteLine(
                     "{0} -> Client : Id={1} SchemaVersion={2}\n{3}",
-                    this.connectionType,
+                    this.serverEndPoint.Mode ,
                     MindRpcFormatter.GetRpcIdFromHeader(receivedMessage.Item1),
                     MindRpcFormatter.GetValueFromHeader("SchemaVersion", receivedMessage.Item1),
                     receivedMessage.Item2);
@@ -115,22 +92,7 @@ namespace TivoProxy
             }
         }
 
-        private static Tuple<string, Stream> LoadCertificateAndPassword(bool isVirginMedia)
-        {
-            // Load the cert
-            if (isVirginMedia)
-            {
-                var stream = typeof(ProxyConnection).Assembly.GetManifestResourceStream("TivoProxy.tivo_vm.p12");
-                return Tuple.Create("R2N48DSKr2Cm", stream);
-            }
-            else
-            {
-                var stream = typeof(ProxyConnection).Assembly.GetManifestResourceStream("TivoProxy.tivo_us.p12");
-                return Tuple.Create("mpE7Qy8cSqdf", stream);
-            }
-        }
-
-        private async Task<Stream> ConnectNetworkStream(EndPoint remoteEndPoint)
+        private async Task<Stream> ConnectNetworkStream()
         {
             if (this.client != null)
             {
@@ -138,15 +100,23 @@ namespace TivoProxy
             }
 
             // Create a TCP/IP connection to the TiVo.
-            this.client = await ConnectSocketAsync(remoteEndPoint).ConfigureAwait(false);
+            if (this.serverEndPoint.Mode == TivoMode.Away)
+            {
+                this.client = await ConnectSocketAsync(new DnsEndPoint(this.serverEndPoint.Address, 443))
+                    .ConfigureAwait(false);
+            }
+            else
+            {
+                this.client = await ConnectSocketAsync(new IPEndPoint(IPAddress.Parse(this.serverEndPoint.Address), 1413))
+                    .ConfigureAwait(false);
+            }
 
             Debug.WriteLine("Client connected.");
 
             try
             {
-                var cert = LoadCertificateAndPassword(true);
                 // Create an SSL stream that will close the client's stream.
-                var tivoTlsClient = new TivoTlsClient(cert.Item2, cert.Item1);
+                var tivoTlsClient = new TivoTlsClient(this.serverEndPoint.Certificate, this.serverEndPoint.Password);
 
                 this.protocolHandler = new TlsProtocolHandler(new NetworkStream(this.client) { ReadTimeout = Timeout.Infinite });
                 this.protocolHandler.Connect(tivoTlsClient);

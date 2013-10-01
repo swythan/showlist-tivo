@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
@@ -15,6 +16,7 @@ using System.Security.Authentication;
 using System.Security.Cryptography.X509Certificates;
 using ARSoft.Tools.Net.Dns;
 using Caliburn.Micro;
+using Tivo.Connect;
 using TivoProxy.Properties;
 using ZeroconfService;
 
@@ -35,6 +37,10 @@ namespace TivoProxy
 
         public ShellViewModel()
         {
+        }
+
+        private void LoadServerCertificate()
+        {
             //var certStore = new X509Store(StoreName.My, StoreLocation.LocalMachine);
             //certStore.Open(OpenFlags.ReadOnly | OpenFlags.OpenExistingOnly);
 
@@ -42,7 +48,44 @@ namespace TivoProxy
             //    .OfType<X509Certificate2>()
             //    .FirstOrDefault(x => x.Subject == "CN=secure-tivo-api.virginmedia.com");
 
-            this.serverCertificate = new X509Certificate2("TivoTest.pfx", "p@ssw0rd");
+            if (this.IsVirgin)
+            {
+                this.serverCertificate = new X509Certificate2("TivoTest_vm.pfx", "p@ssw0rd");
+            }
+            else
+            {
+                this.serverCertificate = new X509Certificate2("TivoTest_us.pfx", "p@ssw0rd");
+            }
+        }
+
+        private Tuple<string, Stream> LoadClientCertificateAndPassword()
+        {
+            // Load the cert
+            if (this.IsVirgin)
+            {
+                var stream = typeof(ProxyConnection).Assembly.GetManifestResourceStream("TivoProxy.tivo_vm.p12");
+                return Tuple.Create("R2N48DSKr2Cm", stream);
+            }
+            else
+            {
+                var stream = typeof(ProxyConnection).Assembly.GetManifestResourceStream("TivoProxy.tivo_us.p12");
+                return Tuple.Create("mpE7Qy8cSqdf", stream);
+            }
+        }
+
+        public bool IsVirgin
+        {
+            get { return Settings.Default.IsVirgin; }
+            set
+            {
+                if (Settings.Default.IsVirgin == value)
+                {
+                    return;
+                }
+
+                Settings.Default.IsVirgin = value;
+                NotifyOfPropertyChange(() => this.IsVirgin);
+            }
         }
 
         public string TivoIPAddress
@@ -141,6 +184,8 @@ namespace TivoProxy
 
         public void Start()
         {
+            this.LoadServerCertificate();
+
             StartDnsProxy();
 
             StartListeningLan();
@@ -173,7 +218,8 @@ namespace TivoProxy
                 // If the request is for the Away Mode server, then return our own IP address
                 if (question.RecordType == RecordType.A)
                 {
-                    if (question.Name == "secure-tivo-api.virginmedia.com")
+                    if (question.Name == "secure-tivo-api.virginmedia.com" ||
+                        question.Name == "middlemind.tivo.com")
                     {
                         query.AnswerRecords.Add(new ARecord(question.Name, 60, this.CurrentNetworkInterface.Item2));
                         query.ReturnCode = ReturnCode.NoError;
@@ -242,7 +288,10 @@ namespace TivoProxy
                 sslStream.ReadTimeout = 30000;
                 sslStream.WriteTimeout = 30000;
 
-                var proxy = new ProxyConnection(sslStream, IPAddress.Parse(this.TivoIPAddress));
+                var clientCert = this.LoadClientCertificateAndPassword();
+                var serverEndPoint = new TivoEndPoint(this.TivoIPAddress, TivoMode.Local, clientCert.Item2, clientCert.Item1, this.IsVirgin);
+
+                var proxy = new ProxyConnection(sslStream, serverEndPoint);
             }
             //catch (AuthenticationException e)
             catch (Exception e)
@@ -292,7 +341,11 @@ namespace TivoProxy
                 sslStream.ReadTimeout = 30000;
                 sslStream.WriteTimeout = 30000;
 
-                var proxy = new ProxyConnection(sslStream);
+                var clientCert = this.LoadClientCertificateAndPassword();
+                var middleMind = this.IsVirgin ? @"secure-tivo-api.virginmedia.com" : "middlemind.tivo.com";
+                var serverEndPoint = new TivoEndPoint(middleMind, TivoMode.Away, clientCert.Item2, clientCert.Item1, this.IsVirgin);
+                
+                var proxy = new ProxyConnection(sslStream, serverEndPoint);
             }
             //catch (AuthenticationException e)
             catch (Exception e)
@@ -367,13 +420,6 @@ namespace TivoProxy
             {
                 Console.WriteLine("Remote certificate is null.");
             }
-        }
-
-        private static void DisplayUsage()
-        {
-            Console.WriteLine("To start the server specify:");
-            Console.WriteLine("serverSync certificateFile.cer");
-            Environment.Exit(1);
         }
 
         private void AdvertiseService(string name, string tsn)
