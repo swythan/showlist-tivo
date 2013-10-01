@@ -13,6 +13,7 @@ using System.Net.Security;
 using System.Net.Sockets;
 using System.Security.Authentication;
 using System.Security.Cryptography.X509Certificates;
+using ARSoft.Tools.Net.Dns;
 using Caliburn.Micro;
 using TivoProxy.Properties;
 using ZeroconfService;
@@ -25,6 +26,7 @@ namespace TivoProxy
 
         private IDisposable serverSubscription;
 
+        private DnsServer dnsServer;
         private NetService mindService;
         private NetService remoteService;
         private NetService httpService;
@@ -139,6 +141,8 @@ namespace TivoProxy
 
         public void Start()
         {
+            StartDnsProxy();
+
             StartListeningLan();
             StartListeningAway();
             AdvertiseService(this.FriendlyName, this.Tsn);
@@ -147,6 +151,60 @@ namespace TivoProxy
 
             NotifyOfPropertyChange(() => this.CanStart);
             NotifyOfPropertyChange(() => this.CanStop);
+        }
+
+        private void StartDnsProxy()
+        {
+            this.dnsServer = new DnsServer(this.CurrentNetworkInterface.Item2, 10, 10, this.ProcessDnsQuery);
+            this.dnsServer.Start();
+        }
+
+        private DnsMessageBase ProcessDnsQuery(DnsMessageBase message, IPAddress clientAddress, ProtocolType protocol)
+        {
+            message.IsQuery = false;
+
+            DnsMessage query = message as DnsMessage;
+
+            if ((query != null) &&
+                (query.Questions.Count == 1))
+            {
+                DnsQuestion question = query.Questions[0];
+
+                // If the request is for the Away Mode server, then return our own IP address
+                if (question.RecordType == RecordType.A)
+                {
+                    if (question.Name == "secure-tivo-api.virginmedia.com")
+                    {
+                        query.AnswerRecords.Add(new ARecord(question.Name, 60, this.CurrentNetworkInterface.Item2));
+                        query.ReturnCode = ReturnCode.NoError;
+
+                        return query;
+                    }
+                }
+
+                // send query to upstream server
+                DnsMessage answer = DnsClient.Default.Resolve(question.Name, question.RecordType, question.RecordClass);
+
+                // if got an answer, copy it to the message sent to the client
+                if (answer != null)
+                {
+                    foreach (DnsRecordBase record in (answer.AnswerRecords))
+                    {
+                        query.AnswerRecords.Add(record);
+                    }
+                    foreach (DnsRecordBase record in (answer.AdditionalRecords))
+                    {
+                        query.AnswerRecords.Add(record);
+                    }
+
+                    query.ReturnCode = ReturnCode.NoError;
+                    return query;
+                }
+            }
+
+            // Not a valid query or upstream server did not answer correct
+            message.ReturnCode = ReturnCode.ServerFailure;
+            return message;
         }
 
         private void StartListeningLan()
@@ -208,7 +266,6 @@ namespace TivoProxy
                 //client.Close();
             }
         }
-
 
         private void StartListeningAway()
         {
@@ -432,12 +489,23 @@ namespace TivoProxy
                     return true;
                 }
 
+                if (this.dnsServer != null)
+                {
+                    return true;
+                }
+
                 return false;
             }
         }
 
         public void Stop()
         {
+            if (this.dnsServer != null)
+            {
+                this.dnsServer.Stop();
+                this.dnsServer = null;
+            }
+
             if (this.serverSubscription != null)
             {
                 this.serverSubscription.Dispose();
