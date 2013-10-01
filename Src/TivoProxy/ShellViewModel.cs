@@ -8,24 +8,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.NetworkInformation;
 using System.Net.Security;
 using System.Net.Sockets;
 using System.Security.Authentication;
 using System.Security.Cryptography.X509Certificates;
 using Caliburn.Micro;
+using TivoProxy.Properties;
 using ZeroconfService;
 
 namespace TivoProxy
 {
     public class ShellViewModel : Screen, IShell
     {
-        private const string TivoFriendlyName = null; // Friendly name here (defaults to last 4 chars of TSN)
-        private const string TivoTSN = null; // TSN goes here;
-        private const string LocalIPAddress = null;
-        private const string DefaultTivoIPAddress = null;
-
-        private string tivoIPAddress = DefaultTivoIPAddress;
-
         private X509Certificate serverCertificate;
 
         private IDisposable serverSubscription;
@@ -34,35 +29,93 @@ namespace TivoProxy
         private NetService remoteService;
         private NetService httpService;
         private NetService videostreamService;
+        private Tuple<NetworkInterface, IPAddress> currentNetworkInterface;
 
         public ShellViewModel()
         {
-            var certStore = new X509Store(StoreName.My, StoreLocation.LocalMachine);
-            certStore.Open(OpenFlags.ReadOnly | OpenFlags.OpenExistingOnly);
+            //var certStore = new X509Store(StoreName.My, StoreLocation.LocalMachine);
+            //certStore.Open(OpenFlags.ReadOnly | OpenFlags.OpenExistingOnly);
 
-            var serverCert = certStore.Certificates
-                .OfType<X509Certificate2>()
-                .FirstOrDefault(x => x.Subject == "CN=secure-tivo-api.virginmedia.com");
+            //var serverCert = certStore.Certificates
+            //    .OfType<X509Certificate2>()
+            //    .FirstOrDefault(x => x.Subject == "CN=secure-tivo-api.virginmedia.com");
 
-            this.serverCertificate = serverCert; // new X509Certificate("TivoTest.pfx", "TivoTest");
+            this.serverCertificate = new X509Certificate2("TivoTest.pfx", "p@ssw0rd");
         }
 
         public string TivoIPAddress
         {
-            get { return this.tivoIPAddress; }
+            get { return Settings.Default.TivoIPAddress; }
             set
             {
-                if (this.tivoIPAddress == value)
+                if (Settings.Default.TivoIPAddress == value)
                 {
                     return;
                 }
 
-                this.tivoIPAddress = value;
+                Settings.Default.TivoIPAddress = value;
                 NotifyOfPropertyChange(() => this.TivoIPAddress);
                 NotifyOfPropertyChange(() => this.CanStart);
             }
         }
 
+        public string Tsn
+        {
+            get { return Settings.Default.TivoTsn; }
+            set
+            {
+                if (Settings.Default.TivoTsn == value)
+                {
+                    return;
+                }
+
+                Settings.Default.TivoTsn = value;
+                NotifyOfPropertyChange(() => this.Tsn);
+                NotifyOfPropertyChange(() => this.CanStart);
+            }
+        }
+
+        public string FriendlyName
+        {
+            get { return Settings.Default.TivoFriendlyName; }
+            set
+            {
+                if (Settings.Default.TivoFriendlyName == value)
+                {
+                    return;
+                }
+
+                Settings.Default.TivoFriendlyName = value;
+                NotifyOfPropertyChange(() => this.FriendlyName);
+                NotifyOfPropertyChange(() => this.CanStart);
+            }
+        }
+
+        public IEnumerable<Tuple<NetworkInterface, IPAddress>> NetworkInterfaces
+        {
+            get
+            {
+                return NetworkInterface.GetAllNetworkInterfaces()
+                  .Where(x => x.Supports(NetworkInterfaceComponent.IPv4) && x.OperationalStatus == OperationalStatus.Up)
+                  .Select(x => Tuple.Create(x, this.GetIPv4Address(x)));
+            }
+        }
+
+        public Tuple<NetworkInterface, IPAddress> CurrentNetworkInterface
+        {
+            get { return this.currentNetworkInterface; }
+            set
+            {
+                if (this.currentNetworkInterface == value)
+                {
+                    return;
+                }
+
+                this.currentNetworkInterface = value;
+                NotifyOfPropertyChange(() => this.CurrentNetworkInterface);
+                NotifyOfPropertyChange(() => this.CanStart);
+            }
+        }
         public bool CanStart
         {
             get
@@ -72,8 +125,15 @@ namespace TivoProxy
                     return false;
                 }
 
+                if (string.IsNullOrWhiteSpace(this.Tsn) ||
+                    string.IsNullOrWhiteSpace(this.FriendlyName) ||
+                    this.CurrentNetworkInterface == null)
+                {
+                    return false;
+                }
+
                 IPAddress address;
-                return IPAddress.TryParse(this.tivoIPAddress, out address);
+                return IPAddress.TryParse(this.TivoIPAddress, out address);
             }
         }
 
@@ -81,7 +141,9 @@ namespace TivoProxy
         {
             StartListeningLan();
             StartListeningAway();
-            AdvertiseService(TivoFriendlyName, TivoTSN);
+            AdvertiseService(this.FriendlyName, this.Tsn);
+
+            Settings.Default.Save();
 
             NotifyOfPropertyChange(() => this.CanStart);
             NotifyOfPropertyChange(() => this.CanStop);
@@ -89,8 +151,18 @@ namespace TivoProxy
 
         private void StartListeningLan()
         {
-            this.serverSubscription = ObservableTcpListener.Start(IPAddress.Parse(LocalIPAddress), 1413, 1)
+            this.serverSubscription = ObservableTcpListener.Start(this.CurrentNetworkInterface.Item2, 1413, 1)
                 .Subscribe(OnLanClientConnected);
+        }
+
+        private IPAddress GetIPv4Address(NetworkInterface adapter)
+        {
+            var localAddress = adapter.GetIPProperties()
+                .UnicastAddresses
+                .Select(x => x.Address)
+                .FirstOrDefault(x => x.AddressFamily == AddressFamily.InterNetwork);
+
+            return localAddress;
         }
 
         private void OnLanClientConnected(TcpClient client)
@@ -140,7 +212,7 @@ namespace TivoProxy
 
         private void StartListeningAway()
         {
-            this.serverSubscription = ObservableTcpListener.Start(IPAddress.Parse(LocalIPAddress), 443, 1)
+            this.serverSubscription = ObservableTcpListener.Start(this.CurrentNetworkInterface.Item2, 443, 1)
                 .Subscribe(OnAwayClientConnected);
         }
 
