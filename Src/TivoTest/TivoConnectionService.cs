@@ -96,7 +96,7 @@ namespace TivoTest
                     }
                     else
                     {
-                        await localConnection.Connect(TivoIPAddress, TivoMak, cert.Item2, cert.Item1);
+                        await localConnection.Connect(TivoIPAddress, TivoMak, cert.Item2, cert.Item1, false);
                     }
 
                     this.connection = localConnection;
