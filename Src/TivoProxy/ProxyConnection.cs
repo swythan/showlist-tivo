@@ -47,11 +47,11 @@ namespace TivoProxy
             {
                 var receivedMessage = MindRpcFormatter.ReadMessage(this.clientStream);
 
-                Console.WriteLine(
-                    "Client -> {0} : Id={1} SchemaVersion={2}\n{3}",
+                TivoProxyEventSource.Log.MessageFromClient(
                     this.serverEndPoint.Mode,
+                    MindRpcFormatter.GetSchemaVersionFromHeader(receivedMessage.Item1),
                     MindRpcFormatter.GetRpcIdFromHeader(receivedMessage.Item1),
-                    MindRpcFormatter.GetValueFromHeader("SchemaVersion", receivedMessage.Item1),
+                    MindRpcFormatter.GetTypeFromHeader(receivedMessage.Item1),
                     receivedMessage.Item2);
 
                 var onwardMessage = MindRpcFormatter.EncodeMessage(receivedMessage.Item1, receivedMessage.Item2);
@@ -79,11 +79,11 @@ namespace TivoProxy
             {
                 var receivedMessage = MindRpcFormatter.ReadMessage(this.serverStream);
 
-                Console.WriteLine(
-                    "{0} -> Client : Id={1} SchemaVersion={2}\n{3}",
-                    this.serverEndPoint.Mode ,
-                    MindRpcFormatter.GetRpcIdFromHeader(receivedMessage.Item1),
-                    MindRpcFormatter.GetValueFromHeader("SchemaVersion", receivedMessage.Item1),
+                TivoProxyEventSource.Log.MessageFromServer(
+                    this.serverEndPoint.Mode, 
+                    MindRpcFormatter.GetSchemaVersionFromHeader(receivedMessage.Item1), 
+                    MindRpcFormatter.GetRpcIdFromHeader(receivedMessage.Item1), 
+                    MindRpcFormatter.GetTypeFromHeader(receivedMessage.Item1), 
                     receivedMessage.Item2);
 
                 var onwardMessage = MindRpcFormatter.EncodeMessage(receivedMessage.Item1, receivedMessage.Item2);
@@ -111,7 +111,7 @@ namespace TivoProxy
                     .ConfigureAwait(false);
             }
 
-            Debug.WriteLine("Client connected.");
+            TivoProxyEventSource.Log.ServerConnected(this.serverEndPoint.Mode, this.serverEndPoint.Address);
 
             try
             {
@@ -120,16 +120,12 @@ namespace TivoProxy
 
                 this.protocolHandler = new TlsProtocolHandler(new NetworkStream(this.client) { ReadTimeout = Timeout.Infinite });
                 this.protocolHandler.Connect(tivoTlsClient);
+
+                TivoProxyEventSource.Log.ServerConnected(this.serverEndPoint.Mode, this.serverEndPoint.Address);
             }
             catch (IOException e)
             {
-                Debug.WriteLine("Authentication failed - closing the connection.");
-
-                Debug.WriteLine("Exception: {0}", e.Message);
-                if (e.InnerException != null)
-                {
-                    Debug.WriteLine("Inner exception: {0}", e.InnerException.Message);
-                }
+                TivoProxyEventSource.Log.ServerConnectionFailure(this.serverEndPoint.Mode, e);
 
                 this.client.Dispose();
                 this.client = null;

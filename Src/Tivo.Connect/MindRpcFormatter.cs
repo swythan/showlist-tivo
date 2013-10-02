@@ -33,7 +33,7 @@ namespace Tivo.Connect
                 headerText,
                 bodyText);
 
-            Debug.WriteLine("Sending Message:\n" + messageString);
+            ////Debug.WriteLine("Sending Message:\n" + messageString);
 
             var messageBytes = Encoding.UTF8.GetBytes(messageString);
 
@@ -140,21 +140,30 @@ namespace Tivo.Connect
 
             string bodyText = Encoding.UTF8.GetString(bodyBytes, 0, bodyByteCount);
 
-            Debug.WriteLine("Received Message:\nHeader:\n{0}\n\nBody:\n{1}", header, bodyText);
+            ////Debug.WriteLine("Received Message:\nHeader:\n{0}\n\nBody:\n{1}", header, bodyText);
 
             return Tuple.Create(header, bodyText);
         }
 
         public static int GetRpcIdFromHeader(string header)
         {
-            return GetValueFromHeader("RpcId", header);
+            return GetIntValueFromHeader("RpcId", header);
         }
 
-        public static int GetValueFromHeader(string valueName, string header)
+        public static int GetSchemaVersionFromHeader(string header)
+        {
+            return GetIntValueFromHeader("SchemaVersion", header);
+        }
+
+        public static string GetTypeFromHeader(string header)
+        {
+            return GetValueFromHeader("Type", header);
+        }
+
+        public static string GetValueFromHeader(string valueName, string header)
         {
             var headerReader = new StringReader(header);
 
-            int rpcId = 0;
             while (true)
             {
                 var line = headerReader.ReadLine();
@@ -166,15 +175,29 @@ namespace Tivo.Connect
                     var tokens = line.Split(':');
                     if (tokens.Length > 1)
                     {
-                        if (int.TryParse(tokens[1], out rpcId))
-                        {
-                            return rpcId;
-                        }
+                        return tokens[1];
                     }
+                }
+            }
+
+            return null;
+        }
+
+        public static int GetIntValueFromHeader(string valueName, string header)
+        {
+            var stringValue = GetValueFromHeader(valueName, header);
+
+            if (stringValue != null)
+            {
+                int rpcId;
+                if (int.TryParse(stringValue, out rpcId))
+                {
+                    return rpcId;
                 }
             }
 
             return -1;
         }
+
     }
 }

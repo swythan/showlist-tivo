@@ -51,6 +51,9 @@
     <Reference Include="Caliburn.Micro">
       <HintPath>..\packages\Caliburn.Micro.1.5.2\lib\net45\Caliburn.Micro.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.SemanticLogging">
+      <HintPath>..\packages\EnterpriseLibrary.SemanticLogging.1.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.SemanticLogging.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Threading.Tasks">
       <HintPath>..\packages\Microsoft.Bcl.Async.1.0.16\lib\net45\Microsoft.Threading.Tasks.dll</HintPath>
     </Reference>
@@ -110,10 +113,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="SimpleEventTextFormatter.cs" />
     <Compile Include="System\Net\Sockets\ObservableTcpListener.cs" />
     <Compile Include="System\Net\Sockets\TcpListenerExtensions.cs" />
     <Compile Include="System\Reactive\Disposables\SerialDisposableExtensions.cs" />
     <Compile Include="System\Reactive\Linq\Observable2 - Concurrency.cs" />
+    <Compile Include="TivoProxyEventSource.cs" />
     <Page Include="ShellView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

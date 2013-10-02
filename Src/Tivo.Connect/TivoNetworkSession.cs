@@ -186,7 +186,7 @@ namespace Tivo.Connect
 
             var bodyText = JsonConvert.SerializeObject(body, this.jsonSettings);
 
-            Debug.WriteLine("Sending Message:\n" + bodyText);
+            ////Debug.WriteLine("Sending Message:\n" + bodyText);
 
             var requestRpcId = Interlocked.Increment(ref this.lastRpcId);
 

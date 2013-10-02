@@ -95,7 +95,7 @@ namespace Tivo.Connect
                 throw new UnauthorizedAccessException((string)authResponse["message"]);
             }
 
-            Debug.WriteLine("Authentication successful");
+            ////Debug.WriteLine("Authentication successful");
 
             // Now check that network control is enabled
             var statusResponse = await SendOptStatusGetRequest().ConfigureAwait(false);
@@ -151,7 +151,7 @@ namespace Tivo.Connect
                 throw new UnauthorizedAccessException((string)authResponse["message"]);
             }
 
-            Debug.WriteLine("Authentication successful");
+            ////Debug.WriteLine("Authentication successful");
 
             if (string.IsNullOrEmpty(this.capturedTsn))
             {

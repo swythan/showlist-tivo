@@ -14,6 +14,7 @@ using System.Net.Security;
 using System.Net.Sockets;
 using System.Security.Authentication;
 using System.Security.Cryptography.X509Certificates;
+using System.Text;
 using ARSoft.Tools.Net.Dns;
 using Caliburn.Micro;
 using Tivo.Connect;
@@ -278,11 +279,10 @@ namespace TivoProxy
             {
                 sslStream.AuthenticateAsServer(this.serverCertificate, false, SslProtocols.Default, false);
 
-                // Display the properties and settings for t5he authenticated stream.
-                DisplaySecurityLevel(sslStream);
-                DisplaySecurityServices(sslStream);
-                DisplayCertificateInformation(sslStream);
-                DisplayStreamProperties(sslStream);
+                TivoProxyEventSource.Log.ClientConnected(
+                    TivoMode.Local,
+                    ((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString(),
+                    FormatStreamProperties(sslStream));
 
                 // Set timeouts for the read and write to 30 seconds.
                 sslStream.ReadTimeout = 30000;
@@ -296,12 +296,8 @@ namespace TivoProxy
             //catch (AuthenticationException e)
             catch (Exception e)
             {
-                Console.WriteLine("Exception: {0}", e.Message);
-                if (e.InnerException != null)
-                {
-                    Console.WriteLine("Inner exception: {0}", e.InnerException.Message);
-                }
-                Console.WriteLine("Authentication failed - closing the connection.");
+                TivoProxyEventSource.Log.ClientConnectionFailure(TivoMode.Local,e);
+
                 sslStream.Close();
                 client.Close();
                 return;
@@ -331,11 +327,10 @@ namespace TivoProxy
             {
                 sslStream.AuthenticateAsServer(this.serverCertificate, false, SslProtocols.Default, false);
 
-                // Display the properties and settings for t5he authenticated stream.
-                DisplaySecurityLevel(sslStream);
-                DisplaySecurityServices(sslStream);
-                DisplayCertificateInformation(sslStream);
-                DisplayStreamProperties(sslStream);
+                TivoProxyEventSource.Log.ClientConnected(
+                    TivoMode.Away, 
+                    ((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString(), 
+                    FormatStreamProperties(sslStream));
 
                 // Set timeouts for the read and write to 30 seconds.
                 sslStream.ReadTimeout = 30000;
@@ -350,12 +345,8 @@ namespace TivoProxy
             //catch (AuthenticationException e)
             catch (Exception e)
             {
-                Console.WriteLine("Exception: {0}", e.Message);
-                if (e.InnerException != null)
-                {
-                    Console.WriteLine("Inner exception: {0}", e.InnerException.Message);
-                }
-                Console.WriteLine("Authentication failed - closing the connection.");
+                TivoProxyEventSource.Log.ClientConnectionFailure(TivoMode.Local, e);
+
                 sslStream.Close();
                 client.Close();
                 return;
@@ -370,55 +361,69 @@ namespace TivoProxy
             }
         }
 
-        static void DisplaySecurityLevel(SslStream stream)
+        private string FormatStreamProperties(SslStream sslStream)
         {
-            Console.WriteLine("Cipher: {0} strength {1}", stream.CipherAlgorithm, stream.CipherStrength);
-            Console.WriteLine("Hash: {0} strength {1}", stream.HashAlgorithm, stream.HashStrength);
-            Console.WriteLine("Key exchange: {0} strength {1}", stream.KeyExchangeAlgorithm, stream.KeyExchangeStrength);
-            Console.WriteLine("Protocol: {0}", stream.SslProtocol);
+            var result = new StringBuilder();
+
+            DisplaySecurityLevel(sslStream, result);
+            DisplaySecurityServices(sslStream, result);
+            DisplayCertificateInformation(sslStream, result);
+            DisplayStreamProperties(sslStream, result);
+
+            return result.ToString();
         }
 
-        static void DisplaySecurityServices(SslStream stream)
+        static void DisplaySecurityLevel(SslStream stream, StringBuilder result)
         {
-            Console.WriteLine("Is authenticated: {0} as server? {1}", stream.IsAuthenticated, stream.IsServer);
-            Console.WriteLine("IsSigned: {0}", stream.IsSigned);
-            Console.WriteLine("Is Encrypted: {0}", stream.IsEncrypted);
+            result.AppendFormat("Cipher: {0} strength {1}", stream.CipherAlgorithm, stream.CipherStrength).AppendLine();
+            result.AppendFormat("Hash: {0} strength {1}", stream.HashAlgorithm, stream.HashStrength).AppendLine();
+            result.AppendFormat("Key exchange: {0} strength {1}", stream.KeyExchangeAlgorithm, stream.KeyExchangeStrength).AppendLine();
+            result.AppendFormat("Protocol: {0}", stream.SslProtocol).AppendLine();
         }
 
-        static void DisplayStreamProperties(SslStream stream)
+        static void DisplaySecurityServices(SslStream stream, StringBuilder result)
         {
-            Console.WriteLine("Can read: {0}, write {1}", stream.CanRead, stream.CanWrite);
-            Console.WriteLine("Can timeout: {0}", stream.CanTimeout);
+            result.AppendFormat("Is authenticated: {0} as server? {1}", stream.IsAuthenticated, stream.IsServer).AppendLine();
+            result.AppendFormat("IsSigned: {0}", stream.IsSigned).AppendLine();
+            result.AppendFormat("Is Encrypted: {0}", stream.IsEncrypted).AppendLine();
         }
 
-        static void DisplayCertificateInformation(SslStream stream)
+        static void DisplayStreamProperties(SslStream stream, StringBuilder result)
         {
-            Console.WriteLine("Certificate revocation list checked: {0}", stream.CheckCertRevocationStatus);
+            result.AppendFormat("Can read: {0}, write {1}", stream.CanRead, stream.CanWrite).AppendLine();
+            result.AppendFormat("Can timeout: {0}", stream.CanTimeout).AppendLine();
+        }
+
+        static void DisplayCertificateInformation(SslStream stream, StringBuilder result)
+        {
+            result.AppendFormat("Certificate revocation list checked: {0}", stream.CheckCertRevocationStatus).AppendLine();
 
             X509Certificate localCertificate = stream.LocalCertificate;
             if (stream.LocalCertificate != null)
             {
-                Console.WriteLine("Local cert was issued to {0} and is valid from {1} until {2}.",
+                result.AppendFormat("Local cert was issued to {0} and is valid from {1} until {2}.",
                     localCertificate.Subject,
                     localCertificate.GetEffectiveDateString(),
-                    localCertificate.GetExpirationDateString());
+                    localCertificate.GetExpirationDateString())
+                    .AppendLine();
             }
             else
             {
-                Console.WriteLine("Local certificate is null.");
+                result.AppendFormat("Local certificate is null.").AppendLine();
             }
             // Display the properties of the client's certificate.
             X509Certificate remoteCertificate = stream.RemoteCertificate;
             if (stream.RemoteCertificate != null)
             {
-                Console.WriteLine("Remote cert was issued to {0} and is valid from {1} until {2}.",
+                result.AppendFormat("Remote cert was issued to {0} and is valid from {1} until {2}.",
                     remoteCertificate.Subject,
                     remoteCertificate.GetEffectiveDateString(),
-                    remoteCertificate.GetExpirationDateString());
+                    remoteCertificate.GetExpirationDateString())
+                    .AppendLine();
             }
             else
             {
-                Console.WriteLine("Remote certificate is null.");
+                result.AppendFormat("Remote certificate is null.").AppendLine();
             }
         }
 

@@ -30,7 +30,7 @@ namespace Tivo.Connect
             // Create a TCP/IP connection to the TiVo.
             this.client = await ConnectSocketAsync(ep).ConfigureAwait(false);
 
-            Debug.WriteLine("Client connected.");
+            ////Debug.WriteLine("Client connected.");
 
             try
             {
