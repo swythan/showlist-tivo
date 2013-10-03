@@ -1,16 +1,14 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="ImageInfo.cs" company="James Chaldecott">
+// <copyright file="AppGlobalData.cs" company="James Chaldecott">
 // Copyright (c) 2012-2013 James Chaldecott. All rights reserved.
 // </copyright>
 //-----------------------------------------------------------------------
 
-using System;
 using System.ComponentModel;
-using Newtonsoft.Json;
 
 namespace Tivo.Connect.Entities
 {
-    public class ImageInfo: INotifyPropertyChanged
+    public class AppGlobalData : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -23,22 +21,10 @@ namespace Tivo.Connect.Entities
             }
         }
 
-        public string ImageId { get; set; }
-        public string ImageType { get; set; }
-
-        public int? Width { get; set; }
-        public int? Height { get; set; }
-
-        [JsonProperty("imageUrl")]
-        public string OriginalImageUrl { get; set; }
-
-        [JsonIgnore]
-        public Uri ImageUrl
-        {
-            get
-            {
-                return ImageUrlMapper.Default.GetExternalImageUrl(this.OriginalImageUrl);
-            }
-        }
+        public string AppName { get; set; }
+        public string KeyName { get; set; }
+        public string LevelOfDetail { get; set; }
+        public string UpdateDate { get; set; }
+        public string Value { get; set; }
     }
 }

@@ -106,6 +106,9 @@
     <Reference Include="mscorlib.extensions" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Tivo.Connect\Entities\AppGlobalData.cs">
+      <Link>Entities\AppGlobalData.cs</Link>
+    </Compile>
     <Compile Include="..\Tivo.Connect\Entities\Category.cs">
       <Link>Entities\Category.cs</Link>
     </Compile>
@@ -168,6 +171,9 @@
     </Compile>
     <Compile Include="..\Tivo.Connect\Entities\UnifiedItemCreator.cs">
       <Link>Entities\UnifiedItemCreator.cs</Link>
+    </Compile>
+    <Compile Include="..\Tivo.Connect\ImageUrlMapper.cs">
+      <Link>ImageUrlMapper.cs</Link>
     </Compile>
     <Compile Include="..\Tivo.Connect\INetworkInterface.cs">
       <Link>INetworkInterface.cs</Link>

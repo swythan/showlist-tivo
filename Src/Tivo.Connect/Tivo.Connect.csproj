@@ -43,6 +43,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\AppGlobalData.cs" />
     <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\Channel.cs" />
     <Compile Include="Entities\Collection.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Entities\SubscriptionConflicts.cs" />
     <Compile Include="Entities\SubscriptionIdentifier.cs" />
     <Compile Include="Entities\UnifiedItemCreator.cs" />
+    <Compile Include="ImageUrlMapper.cs" />
     <Compile Include="INetworkInterface.cs" />
     <Compile Include="JsonCreationConverter.cs" />
     <Compile Include="MindRpcFormatter.cs" />

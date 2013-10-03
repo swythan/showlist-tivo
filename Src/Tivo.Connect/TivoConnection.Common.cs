@@ -130,6 +130,10 @@ namespace Tivo.Connect
             }
 
             this.capturedTsn = (string)bodyConfig["bodyId"];
+
+            var imageBaseUrls = await GetAppGlobalData("imageBaseUrl", 50).ConfigureAwait(false);
+
+            ImageUrlMapper.Default.Initialise(imageBaseUrls);
         }
 
         public async Task<string> ConnectAway(string username, string password, string middleMindServer, bool isVirgin, Stream certificate, string certificatePassword)
@@ -167,7 +171,28 @@ namespace Tivo.Connect
                 this.capturedTsn = (string)deviceIds[0]["id"];
             }
 
+            var imageBaseUrls = await GetAppGlobalData("imageBaseUrl", 50).ConfigureAwait(false);
+
+            ImageUrlMapper.Default.Initialise(imageBaseUrls);
+
             return (string)authResponse["mediaAccessKey"];
+        }
+
+        public async Task<IList<AppGlobalData>> GetAppGlobalData(string appName, int count)
+        {
+            var response = await SendAppGlobalDataSearchRequest(appName, count).ConfigureAwait(false);
+
+            CheckResponse(response, "appGlobalDataList", "appGlobalDataSearch");
+
+            var results = response["appGlobalData"];
+            if (results != null)
+            {
+                return results.ToObject<IList<AppGlobalData>>(this.jsonSerializer);
+            }
+            else
+            {
+                return new List<AppGlobalData>();
+            }
         }
 
         public async Task<IEnumerable<RecordingFolderItem>> GetMyShowsList(Container parent, IProgress<RecordingFolderItem> progress)
@@ -557,6 +582,19 @@ namespace Tivo.Connect
             };
 
             return this.tivoSession.SendRequest(body);
+        }
+
+        private async Task<JObject> SendAppGlobalDataSearchRequest(string appName, int count)
+        {
+            var request = new Dictionary<string, object>
+            {
+                { "type", "appGlobalDataSearch" },
+                { "appName", appName},
+                { "count", count },
+            };
+
+            var response = await this.tivoSession.SendRequest(request).ConfigureAwait(false);
+            return response;
         }
 
         private Task<JObject> SendGetFolderShowsRequest(string parentId)
