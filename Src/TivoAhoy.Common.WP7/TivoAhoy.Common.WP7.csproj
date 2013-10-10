@@ -152,6 +152,9 @@
     <Compile Include="..\TivoAhoy.Common\Services\ScheduledRecordingsService.cs">
       <Link>Services\ScheduledRecordingsService.cs</Link>
     </Compile>
+    <Compile Include="..\TivoAhoy.Common\Services\TivoCertificateStore.cs">
+      <Link>Services\TivoCertificateStore.cs</Link>
+    </Compile>
     <Compile Include="..\TivoAhoy.Common\Services\TivoConnectionService.cs">
       <Link>Services\TivoConnectionService.cs</Link>
     </Compile>

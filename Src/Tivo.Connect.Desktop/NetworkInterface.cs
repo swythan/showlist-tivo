@@ -24,7 +24,7 @@ namespace Tivo.Connect.Platform
             // Create new connection
             this.client = new TcpClient();
 
-            await this.client.ConnectAsync(endPoint.Address, (int)endPoint.Mode).ConfigureAwait(false);
+            await this.client.ConnectAsync(endPoint.Address, endPoint.Port).ConfigureAwait(false);
 
             var tivoTlsClient = new TivoTlsClient(endPoint.Certificate, endPoint.Password);
 

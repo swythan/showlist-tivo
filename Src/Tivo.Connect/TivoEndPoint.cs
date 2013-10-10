@@ -7,34 +7,126 @@ using System.Threading.Tasks;
 
 namespace Tivo.Connect
 {
-    public class TivoEndPoint
+    public class TivoEndPoint : IMindRpcHeaderInfo
     {
-        public string Address { get; private set; }
-        public TivoMode Mode { get; private set; }
-        public Stream Certificate { get; private set; }
-        public string Password { get; private set; }
-        public bool IsVirginMedia { get; private set; }
+        private readonly TivoServiceProvider serviceProvider;
+        private readonly ICertificateStore certificateStore;
+        private readonly string rpcAppName;
+        private readonly Version rpcAppVersion;
 
-        public TivoEndPoint(string address, TivoMode mode, Stream certificate, string password, bool isVirginMedia)
+        public static TivoEndPoint CreateAway(TivoServiceProvider serviceProvider, ICertificateStore certificateStore)
         {
-            if (certificate == null) 
-                throw new ArgumentNullException("certificate");
-            if (password == null) 
-                throw new ArgumentNullException("password");
+            return new TivoEndPoint(GetMiddlemindServerAddress(serviceProvider), TivoConnectionMode.Away, serviceProvider, certificateStore);
+        }
+
+        private static string GetMiddlemindServerAddress(TivoServiceProvider serviceProvider)
+        {
+            string address;
+            switch (serviceProvider)
+            {
+                case TivoServiceProvider.TivoUSA:
+                    address = "middlemind.tivo.com";
+                    break;
+
+                case TivoServiceProvider.VirginMediaUK:
+                    address = "secure-tivo-api.virginmedia.com";
+                    break;
+
+                case TivoServiceProvider.Unknown:
+                default:
+                    throw new ArgumentOutOfRangeException("serviceProvider", "Must specify a valid service provider.");
+            }
+
+            return address;
+        }
+
+        public static TivoEndPoint CreateLocal(string address, TivoServiceProvider serviceProvider, ICertificateStore certificateStore)
+        {
+            return new TivoEndPoint(address, TivoConnectionMode.Local, serviceProvider, certificateStore);
+        }
+
+        private TivoEndPoint(string address, TivoConnectionMode mode, TivoServiceProvider serviceProvider, ICertificateStore certificateStore)
+        {
+            if (certificateStore == null)
+                throw new ArgumentNullException("certificateStore");
+
             if (string.IsNullOrWhiteSpace(address))
                 throw new ArgumentNullException("address");
-            
-            Address = address;
-            Mode = mode;
-            Certificate = certificate;
-            Password = password;
-            IsVirginMedia = isVirginMedia;
-        }
-    }
 
-    public enum TivoMode
-    {
-        Away = 443,
-        Local = 1413
+            switch (serviceProvider)
+            {
+                case TivoServiceProvider.TivoUSA:
+                    this.rpcAppName = "Quicksilver";
+                    this.rpcAppVersion = new Version(1, 2);
+                    break;
+                case TivoServiceProvider.VirginMediaUK:
+                    this.rpcAppName = "com.virginmedia.quicksilvervm";
+                    this.rpcAppVersion = new Version(2, 2);
+                    break;
+                case TivoServiceProvider.Unknown:
+                default:
+                    throw new ArgumentOutOfRangeException("service", "Must specify a valid service provider.");
+            }
+
+            this.serviceProvider = serviceProvider;
+            this.certificateStore = certificateStore;
+            this.Address = address;
+            this.ConnectionMode = mode;
+        }
+
+        public TivoConnectionMode ConnectionMode { get; private set; }
+        public string Address { get; private set; }
+
+        public int Port 
+        {
+            get
+            {
+                switch (this.ConnectionMode)
+                {
+                    case TivoConnectionMode.Away:
+                        return 443;
+                    case TivoConnectionMode.Local:
+                        return 1413;
+                    default:
+                        throw new InvalidOperationException("Unsupported ConnectionMode");
+                }
+            }
+        }
+
+        public Stream Certificate
+        {
+            get
+            {
+                return this.certificateStore.GetCertificate(this.serviceProvider);
+            }
+        }
+
+        public string Password
+        {
+            get
+            {
+                return this.certificateStore.GetPassword(this.serviceProvider);
+            }
+        }
+
+        string IMindRpcHeaderInfo.ApplicationName
+        {
+            get { return this.rpcAppName; }
+        }
+
+        Version IMindRpcHeaderInfo.ApplicationVersion
+        {
+            get { return this.rpcAppVersion; }
+        }
+
+        int IMindRpcHeaderInfo.SchemaVersion
+        {
+            get
+            {
+                // We want version 10 in Away mode (so that we get the MAK in bodyAuthenticateResponse).
+                // Unfortunately using version 10 direct to a TiVo will crash it!
+                return (this.ConnectionMode == TivoConnectionMode.Away) ? 10 : 9;
+            }
+        }
     }
 }

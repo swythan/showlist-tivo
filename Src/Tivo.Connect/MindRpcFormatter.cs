@@ -3,10 +3,8 @@
 // Copyright (c) 2012-2013 James Chaldecott. All rights reserved.
 // </copyright>
 //-----------------------------------------------------------------------
-
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Text;
 
@@ -14,13 +12,9 @@ namespace Tivo.Connect
 {
     public static class MindRpcFormatter
     {
-        public static byte[] EncodeRequest(bool awayMode, int sessionId, string tsn, int rpcId, bool isVirgin, string requestType, string bodyText)
-        {
-            // We want version 10 in Away mode (so that we get the MAK in bodyAuthenticateResponse).
-            // Unfortunately using version 10 direct to a TiVo will crash it!
-            int schemaVersion = awayMode ? 10 : 9;
-            
-            string headerText = CreateHeader(sessionId, tsn, rpcId, requestType, schemaVersion, isVirgin);
+        public static byte[] EncodeRequest(TivoConnectionMode mode, int sessionId, string tsn, int rpcId, IMindRpcHeaderInfo headerInfo, string requestType, string bodyText)
+        {           
+            string headerText = CreateHeader(sessionId, tsn, rpcId, requestType, headerInfo);
 
             return EncodeMessage(headerText, bodyText);
         }
@@ -33,22 +27,17 @@ namespace Tivo.Connect
                 headerText,
                 bodyText);
 
-            ////Debug.WriteLine("Sending Message:\n" + messageString);
-
             var messageBytes = Encoding.UTF8.GetBytes(messageString);
 
             return messageBytes;
         }
 
-        public static string CreateHeader(int sessionId, string tsn, int rpcId, string requestType, int schemaVersion, bool isVirgin)
+        public static string CreateHeader(int sessionId, string tsn, int rpcId, string requestType, IMindRpcHeaderInfo headerInfo)
         {
-            int appMajorVersion = 2;
-            int appMinorVersion = 2;
-
             var header = new StringBuilder();
             header.AppendLine("Type:request");
             header.AppendLine(string.Format("RpcId:{0}", rpcId));
-            header.AppendLine(string.Format("SchemaVersion:{0}", schemaVersion));
+            header.AppendLine(string.Format("SchemaVersion:{0}", headerInfo.SchemaVersion));
             header.AppendLine("Content-Type:application/json");
             header.AppendLine("RequestType:" + requestType);
             header.AppendLine("ResponseCount:single");
@@ -58,17 +47,8 @@ namespace Tivo.Connect
                 header.AppendLine(string.Format("BodyId:{0}", tsn));
             }
 
-            if (isVirgin)
-            {
-                header.AppendLine("X-ApplicationName:com.virginmedia.quicksilvervm");
-                header.AppendLine(string.Format("X-ApplicationVersion:{0}.{1}", appMajorVersion, appMinorVersion));
-            }
-            else
-            {
-                header.AppendLine("X-ApplicationName:Quicksilver");
-                header.AppendLine("X-ApplicationVersion:1.2");
-            }
-
+            header.AppendLine("X-ApplicationName:" + headerInfo.ApplicationName);
+            header.AppendLine(string.Format("X-ApplicationVersion:{0}.{1}", headerInfo.ApplicationVersion.Major, headerInfo.ApplicationVersion.Minor));
             
             header.AppendLine(string.Format("X-ApplicationSessionId:0x{0:x}", sessionId));
             header.AppendLine();
@@ -139,8 +119,6 @@ namespace Tivo.Connect
             }
 
             string bodyText = Encoding.UTF8.GetString(bodyBytes, 0, bodyByteCount);
-
-            ////Debug.WriteLine("Received Message:\nHeader:\n{0}\n\nBody:\n{1}", header, bodyText);
 
             return Tuple.Create(header, bodyText);
         }

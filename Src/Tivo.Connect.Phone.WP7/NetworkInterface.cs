@@ -25,7 +25,7 @@ namespace Tivo.Connect
                 throw new InvalidOperationException("Cannot open the same connection twice.");
             }
 
-            var ep = new DnsEndPoint(endPoint.Address, (int)endPoint.Mode);
+            var ep = new DnsEndPoint(endPoint.Address, endPoint.Port);
 
             // Create a TCP/IP connection to the TiVo.
             this.client = await ConnectSocketAsync(ep).ConfigureAwait(false);

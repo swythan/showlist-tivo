@@ -59,21 +59,6 @@ namespace TivoProxy
             }
         }
 
-        private Tuple<string, Stream> LoadClientCertificateAndPassword()
-        {
-            // Load the cert
-            if (this.IsVirgin)
-            {
-                var stream = typeof(ProxyConnection).Assembly.GetManifestResourceStream("TivoProxy.tivo_vm.p12");
-                return Tuple.Create("R2N48DSKr2Cm", stream);
-            }
-            else
-            {
-                var stream = typeof(ProxyConnection).Assembly.GetManifestResourceStream("TivoProxy.tivo_us.p12");
-                return Tuple.Create("mpE7Qy8cSqdf", stream);
-            }
-        }
-
         public bool IsVirgin
         {
             get { return Settings.Default.IsVirgin; }
@@ -280,7 +265,7 @@ namespace TivoProxy
                 sslStream.AuthenticateAsServer(this.serverCertificate, false, SslProtocols.Default, false);
 
                 TivoProxyEventSource.Log.ClientConnected(
-                    TivoMode.Local,
+                    TivoConnectionMode.Local,
                     ((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString(),
                     FormatStreamProperties(sslStream));
 
@@ -288,15 +273,16 @@ namespace TivoProxy
                 sslStream.ReadTimeout = 30000;
                 sslStream.WriteTimeout = 30000;
 
-                var clientCert = this.LoadClientCertificateAndPassword();
-                var serverEndPoint = new TivoEndPoint(this.TivoIPAddress, TivoMode.Local, clientCert.Item2, clientCert.Item1, this.IsVirgin);
+                var serviceProvider = this.IsVirgin ? TivoServiceProvider.VirginMediaUK : TivoServiceProvider.TivoUSA;
+
+                var serverEndPoint = TivoEndPoint.CreateLocal(this.TivoIPAddress, serviceProvider, TivoCertificateStore.Instance);
 
                 var proxy = new ProxyConnection(sslStream, serverEndPoint);
             }
             //catch (AuthenticationException e)
             catch (Exception e)
             {
-                TivoProxyEventSource.Log.ClientConnectionFailure(TivoMode.Local,e);
+                TivoProxyEventSource.Log.ClientConnectionFailure(TivoConnectionMode.Local,e);
 
                 sslStream.Close();
                 client.Close();
@@ -328,7 +314,7 @@ namespace TivoProxy
                 sslStream.AuthenticateAsServer(this.serverCertificate, false, SslProtocols.Default, false);
 
                 TivoProxyEventSource.Log.ClientConnected(
-                    TivoMode.Away, 
+                    TivoConnectionMode.Away, 
                     ((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString(), 
                     FormatStreamProperties(sslStream));
 
@@ -336,16 +322,16 @@ namespace TivoProxy
                 sslStream.ReadTimeout = 30000;
                 sslStream.WriteTimeout = 30000;
 
-                var clientCert = this.LoadClientCertificateAndPassword();
-                var middleMind = this.IsVirgin ? @"secure-tivo-api.virginmedia.com" : "middlemind.tivo.com";
-                var serverEndPoint = new TivoEndPoint(middleMind, TivoMode.Away, clientCert.Item2, clientCert.Item1, this.IsVirgin);
+                var serviceProvider = this.IsVirgin ? TivoServiceProvider.VirginMediaUK : TivoServiceProvider.TivoUSA;
+
+                var serverEndPoint = TivoEndPoint.CreateAway(serviceProvider, TivoCertificateStore.Instance);
                 
                 var proxy = new ProxyConnection(sslStream, serverEndPoint);
             }
             //catch (AuthenticationException e)
             catch (Exception e)
             {
-                TivoProxyEventSource.Log.ClientConnectionFailure(TivoMode.Local, e);
+                TivoProxyEventSource.Log.ClientConnectionFailure(TivoConnectionMode.Local, e);
 
                 sslStream.Close();
                 client.Close();

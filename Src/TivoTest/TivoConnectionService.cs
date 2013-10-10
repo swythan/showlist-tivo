@@ -65,38 +65,23 @@ namespace TivoTest
             }
         }
 
-        private static Tuple<string, Stream> LoadCertificateAndPassword(bool isVirginMedia)
-        {
-            // Load the cert
-            if (isVirginMedia)
-            {
-                var stream = typeof(TivoConnectionService).Assembly.GetManifestResourceStream("TivoTest.tivo_vm.p12");
-                return Tuple.Create("R2N48DSKr2Cm", stream);
-            }
-            else
-            {
-                var stream = typeof(TivoConnectionService).Assembly.GetManifestResourceStream("TivoTest.tivo_us.p12");
-                return Tuple.Create("mpE7Qy8cSqdf", stream);
-            }
-        }
-
         public async Task<TivoConnection> GetConnectionAsync()
         {
             if (this.connection == null)
             {
                 var localConnection = new TivoConnection();
 
-                var cert = LoadCertificateAndPassword(false);
-                var middleMind = false ? @"secure-tivo-api.virginmedia.com" : "middlemind.tivo.com";
+                var serviceProvider = TivoServiceProvider.VirginMediaUK;
+
                 try
                 {
                     if (this.IsAwayModeEnabled)
                     {
-                        await localConnection.ConnectAway(TivoUsername, TivoPassword, middleMind, false, cert.Item2, cert.Item1);
+                        await localConnection.ConnectAway(TivoUsername, TivoPassword, serviceProvider, TivoCertificateStore.Instance);
                     }
                     else
                     {
-                        await localConnection.Connect(TivoIPAddress, TivoMak, cert.Item2, cert.Item1, false);
+                        await localConnection.Connect(TivoIPAddress, TivoMak, serviceProvider, TivoCertificateStore.Instance);
                     }
 
                     this.connection = localConnection;

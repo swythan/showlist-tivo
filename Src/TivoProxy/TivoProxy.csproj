@@ -118,6 +118,7 @@
     <Compile Include="System\Net\Sockets\TcpListenerExtensions.cs" />
     <Compile Include="System\Reactive\Disposables\SerialDisposableExtensions.cs" />
     <Compile Include="System\Reactive\Linq\Observable2 - Concurrency.cs" />
+    <Compile Include="TivoCertificateStore.cs" />
     <Compile Include="TivoProxyEventSource.cs" />
     <Page Include="ShellView.xaml">
       <Generator>MSBuild:Compile</Generator>

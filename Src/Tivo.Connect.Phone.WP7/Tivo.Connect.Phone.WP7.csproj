@@ -172,6 +172,9 @@
     <Compile Include="..\Tivo.Connect\Entities\UnifiedItemCreator.cs">
       <Link>Entities\UnifiedItemCreator.cs</Link>
     </Compile>
+    <Compile Include="..\Tivo.Connect\ICertificateStore.cs">
+      <Link>ICertificateStore.cs</Link>
+    </Compile>
     <Compile Include="..\Tivo.Connect\ImageUrlMapper.cs">
       <Link>ImageUrlMapper.cs</Link>
     </Compile>
@@ -184,11 +187,17 @@
     <Compile Include="..\Tivo.Connect\MindRpcFormatter.cs">
       <Link>MindRpcFormatter.cs</Link>
     </Compile>
+    <Compile Include="..\Tivo.Connect\MindRpcHeaderInfo.cs">
+      <Link>MindRpcHeaderInfo.cs</Link>
+    </Compile>
     <Compile Include="..\Tivo.Connect\StringUtils.cs">
       <Link>StringUtils.cs</Link>
     </Compile>
     <Compile Include="..\Tivo.Connect\TivoConnection.Common.cs">
       <Link>TivoConnection.Common.cs</Link>
+    </Compile>
+    <Compile Include="..\Tivo.Connect\TivoConnectionMode.cs">
+      <Link>TivoConnectionMode.cs</Link>
     </Compile>
     <Compile Include="..\Tivo.Connect\TivoEndPoint.cs">
       <Link>TivoEndPoint.cs</Link>
@@ -198,6 +207,9 @@
     </Compile>
     <Compile Include="..\Tivo.Connect\TivoNetworkSession.cs">
       <Link>TivoNetworkSession.cs</Link>
+    </Compile>
+    <Compile Include="..\Tivo.Connect\TivoServiceProvider.cs">
+      <Link>TivoServiceProvider.cs</Link>
     </Compile>
     <Compile Include="..\Tivo.Connect\TivoTlsClient.cs">
       <Link>TivoTlsClient.cs</Link>

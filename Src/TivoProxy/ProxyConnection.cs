@@ -48,7 +48,7 @@ namespace TivoProxy
                 var receivedMessage = MindRpcFormatter.ReadMessage(this.clientStream);
 
                 TivoProxyEventSource.Log.MessageFromClient(
-                    this.serverEndPoint.Mode,
+                    this.serverEndPoint.ConnectionMode,
                     MindRpcFormatter.GetSchemaVersionFromHeader(receivedMessage.Item1),
                     MindRpcFormatter.GetRpcIdFromHeader(receivedMessage.Item1),
                     MindRpcFormatter.GetTypeFromHeader(receivedMessage.Item1),
@@ -80,7 +80,7 @@ namespace TivoProxy
                 var receivedMessage = MindRpcFormatter.ReadMessage(this.serverStream);
 
                 TivoProxyEventSource.Log.MessageFromServer(
-                    this.serverEndPoint.Mode, 
+                    this.serverEndPoint.ConnectionMode, 
                     MindRpcFormatter.GetSchemaVersionFromHeader(receivedMessage.Item1), 
                     MindRpcFormatter.GetRpcIdFromHeader(receivedMessage.Item1), 
                     MindRpcFormatter.GetTypeFromHeader(receivedMessage.Item1), 
@@ -100,18 +100,18 @@ namespace TivoProxy
             }
 
             // Create a TCP/IP connection to the TiVo.
-            if (this.serverEndPoint.Mode == TivoMode.Away)
+            if (this.serverEndPoint.ConnectionMode == TivoConnectionMode.Away)
             {
-                this.client = await ConnectSocketAsync(new DnsEndPoint(this.serverEndPoint.Address, 443))
+                this.client = await ConnectSocketAsync(new DnsEndPoint(this.serverEndPoint.Address, this.serverEndPoint.Port))
                     .ConfigureAwait(false);
             }
             else
             {
-                this.client = await ConnectSocketAsync(new IPEndPoint(IPAddress.Parse(this.serverEndPoint.Address), 1413))
+                this.client = await ConnectSocketAsync(new IPEndPoint(IPAddress.Parse(this.serverEndPoint.Address), this.serverEndPoint.Port))
                     .ConfigureAwait(false);
             }
 
-            TivoProxyEventSource.Log.ServerConnected(this.serverEndPoint.Mode, this.serverEndPoint.Address);
+            TivoProxyEventSource.Log.ServerConnected(this.serverEndPoint.ConnectionMode, this.serverEndPoint.Address);
 
             try
             {
@@ -121,11 +121,11 @@ namespace TivoProxy
                 this.protocolHandler = new TlsProtocolHandler(new NetworkStream(this.client) { ReadTimeout = Timeout.Infinite });
                 this.protocolHandler.Connect(tivoTlsClient);
 
-                TivoProxyEventSource.Log.ServerConnected(this.serverEndPoint.Mode, this.serverEndPoint.Address);
+                TivoProxyEventSource.Log.ServerConnected(this.serverEndPoint.ConnectionMode, this.serverEndPoint.Address);
             }
             catch (IOException e)
             {
-                TivoProxyEventSource.Log.ServerConnectionFailure(this.serverEndPoint.Mode, e);
+                TivoProxyEventSource.Log.ServerConnectionFailure(this.serverEndPoint.ConnectionMode, e);
 
                 this.client.Dispose();
                 this.client = null;

@@ -76,14 +76,14 @@ namespace Tivo.Connect
             }
         }
 
-        public async Task Connect(string serverAddress, string mediaAccessKey, Stream certificate, string password, bool isVirgin)
+        public async Task Connect(string serverAddress, string mediaAccessKey, TivoServiceProvider serviceProvider, ICertificateStore certificateStore)
         {
             this.capturedTsn = string.Empty;
 
             this.tivoSession = new TivoNetworkSession();
 
             var authTask = this.tivoSession.Connect(
-                new TivoEndPoint(serverAddress, TivoMode.Local, certificate, password, isVirgin), 
+                TivoEndPoint.CreateLocal(serverAddress, serviceProvider, certificateStore), 
                 BuildMakAuthenticationRequest(mediaAccessKey));
 
             var authResponse = await authTask.ConfigureAwait(false);
@@ -136,15 +136,32 @@ namespace Tivo.Connect
             ImageUrlMapper.Default.Initialise(imageBaseUrls);
         }
 
-        public async Task<string> ConnectAway(string username, string password, string middleMindServer, bool isVirgin, Stream certificate, string certificatePassword)
+        public async Task<string> ConnectAway(string username, string password, TivoServiceProvider serviceProvider, ICertificateStore certificateStore)
         {
             this.capturedTsn = string.Empty;
 
             this.tivoSession = new TivoNetworkSession();
 
+            Dictionary<string, object> authMessage;
+
+            switch (serviceProvider)
+            {
+                case TivoServiceProvider.TivoUSA:
+                    authMessage = BuildMmaAuthenticationRequest(username, password);
+                    break;
+
+                case TivoServiceProvider.VirginMediaUK:
+                    authMessage = BuildUsernameAndPasswordAuthenticationRequest(username, password);
+                    break;
+
+                case TivoServiceProvider.Unknown:
+                default:
+                    throw new ArgumentOutOfRangeException("service", "Must specify a valid service provider.");
+            }
+
             var authTask = this.tivoSession.Connect(
-                new TivoEndPoint(middleMindServer, TivoMode.Away, certificate, certificatePassword, isVirgin), 
-                BuildUsernameAndPasswordAuthenticationRequest(username, password, isVirgin));
+                TivoEndPoint.CreateAway(serviceProvider, certificateStore),
+                authMessage);
 
             var authResponse = await authTask.ConfigureAwait(false);
 
@@ -540,7 +557,7 @@ namespace Tivo.Connect
             return body;
         }
 
-        private Dictionary<string, object> BuildUsernameAndPasswordAuthenticationRequest(string username, string password, bool isVirgin)
+        private Dictionary<string, object> BuildUsernameAndPasswordAuthenticationRequest(string username, string password)
         {
             var body = new Dictionary<string, object>()
             { 
@@ -549,17 +566,30 @@ namespace Tivo.Connect
                     new Dictionary<string, object>
                     {
                         { "domain", "virgin" },
-                    //    { "type", "usernameAndPasswordCredential" },
-                        { "type", isVirgin ? "usernameAndPasswordCredential" : "mmaCredential" },
+                        { "type", "usernameAndPasswordCredential" },
                         { "username", username },
                         { "password", password }
                     }                
                 }
             };
 
-            // remove the extra param
-            if (!isVirgin)
-                ((IDictionary<string, object>)body["credential"]).Remove("domain");
+            return body;
+        }
+
+        private Dictionary<string, object> BuildMmaAuthenticationRequest(string username, string password)
+        {
+            var body = new Dictionary<string, object>()
+            { 
+                { "type", "bodyAuthenticate" },
+                { "credential",  
+                    new Dictionary<string, object>
+                    {
+                        { "type", "mmaCredential" },
+                        { "username", username },
+                        { "password", password }
+                    }                
+                }
+            };
 
             return body;
         }

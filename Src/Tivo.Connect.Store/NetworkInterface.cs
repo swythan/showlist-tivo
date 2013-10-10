@@ -17,7 +17,6 @@ namespace Tivo.Connect.Platform
 
         private TlsProtocolHandler tlsProtocolHandler;
 
-
         public void Dispose()
         {
             this.streamSocket.Dispose();
@@ -28,19 +27,15 @@ namespace Tivo.Connect.Platform
         {
             if (this.streamSocket != null)
                 throw new InvalidOperationException("Cannot call Initialize on an open interface");
-
-
+            
             this.streamSocket = new StreamSocket();
 
-
             await this.streamSocket.ConnectAsync(new HostName(endPoint.Address),
-                                                 ((int)endPoint.Mode).ToString(CultureInfo.InvariantCulture),
+                                                 endPoint.Port.ToString(CultureInfo.InvariantCulture),
                                                  SocketProtectionLevel.PlainSocket).AsTask().ConfigureAwait(false);
-
 
             var readStream = this.streamSocket.InputStream.AsStreamForRead();
             var writeStream = this.streamSocket.OutputStream.AsStreamForWrite();
-
 
             var tivoTlsClient = new TivoTlsClient(endPoint.Certificate, endPoint.Password);
             this.tlsProtocolHandler = new TlsProtocolHandler(readStream, writeStream);

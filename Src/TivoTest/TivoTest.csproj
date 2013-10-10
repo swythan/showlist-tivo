@@ -107,6 +107,7 @@
       <DependentUpon>ShowGridView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ShowGridViewModel.cs" />
+    <Compile Include="TivoCertificateStore.cs" />
     <Compile Include="TivoConnectionService.cs" />
     <Compile Include="WhatsOnView.xaml.cs">
       <DependentUpon>WhatsOnView.xaml</DependentUpon>

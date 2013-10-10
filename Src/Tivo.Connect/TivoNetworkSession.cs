@@ -28,9 +28,11 @@ namespace Tivo.Connect
         private readonly JsonSerializerSettings jsonSettings;
         private readonly int sessionId;
 
-        private bool isAwayMode;
+        private TivoConnectionMode connectionMode;
+        private IMindRpcHeaderInfo headerInfo;
+
         private JsonSerializer jsonSerializer;
-        private bool isVirginMedia;
+
         private int lastRpcId = 0;
         private INetworkInterface networkInterface;
         private CancellationTokenSource receiveCancellationTokenSource;
@@ -114,8 +116,9 @@ namespace Tivo.Connect
 
         public async Task<JObject> Connect(TivoEndPoint endPoint, IDictionary<string, object> authMessage)
         {
-            this.isAwayMode = endPoint.Mode == TivoMode.Away;
-            this.isVirginMedia = endPoint.IsVirginMedia;
+            this.connectionMode = endPoint.ConnectionMode;
+            this.headerInfo = (IMindRpcHeaderInfo)endPoint;
+
             this.sslStream = await this.networkInterface.Initialize(endPoint).ConfigureAwait(false);
             this.receiveSubject = new Subject<Tuple<int, JObject>>();
 
@@ -195,8 +198,8 @@ namespace Tivo.Connect
                                         .Select(message => message.Item2)
                                         .Take(1);
 
-            var messageBytes = MindRpcFormatter.EncodeRequest(this.isAwayMode, this.sessionId, tsn, requestRpcId, this.isVirginMedia, requestType, bodyText);
-            
+            var messageBytes = MindRpcFormatter.EncodeRequest(this.connectionMode, this.sessionId, tsn, requestRpcId, this.headerInfo, requestType, bodyText);
+
             this.sslStream.Write(messageBytes, 0, messageBytes.Length);
             this.sslStream.Flush();
 
