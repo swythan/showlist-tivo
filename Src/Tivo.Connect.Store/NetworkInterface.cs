@@ -19,8 +19,11 @@ namespace Tivo.Connect.Platform
 
         public void Dispose()
         {
-            this.streamSocket.Dispose();
-            this.streamSocket = null;
+            if (this.streamSocket != null)
+            {
+                this.streamSocket.Dispose();
+                this.streamSocket = null;
+            }
         }
 
         public async Task<Stream> Initialize(TivoEndPoint endPoint)
