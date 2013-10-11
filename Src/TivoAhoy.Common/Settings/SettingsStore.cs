@@ -12,46 +12,38 @@ namespace TivoAhoy.Common.Settings
 {
     public static class SettingsStore
     {
-        private static object syncLock = new object();
+        private static readonly object syncLock = new object();
 
         public static  void AddOrUpdateValue(object value, string key)
         {
-            var valueChanged = false;
-
             lock (syncLock)
             {
-                try
+                if (value == null)
                 {
-                    if (value == null)
-                    {
-                        // Nothing to remove
-                        if (!IsolatedStorageSettings.ApplicationSettings.Contains(key))
-                            return;
+                    // Nothing to remove
+                    if (!IsolatedStorageSettings.ApplicationSettings.Contains(key))
+                        return;
 
-                        IsolatedStorageSettings.ApplicationSettings.Remove(key);
-                        Save();
-                    }
+                    IsolatedStorageSettings.ApplicationSettings.Remove(key);
+                    Save();
+                }
 
-                    // If the new value is different, set the new value.
-                    if (IsolatedStorageSettings.ApplicationSettings[key] != value)
-                    {
-                        IsolatedStorageSettings.ApplicationSettings[key] = value;
-                        valueChanged = true;
-                    }
-                }
-                catch (KeyNotFoundException)
+                // If the new value is different, set the new value.
+                object oldVal;
+                var valueChanged = false;
+                if (IsolatedStorageSettings.ApplicationSettings.TryGetValue(key, out oldVal))
                 {
-                    IsolatedStorageSettings.ApplicationSettings.Add(key, value);
-                    valueChanged = true;
+                    valueChanged = !Equals(oldVal, value);
                 }
-                catch (ArgumentException)
+                else
                 {
-                    IsolatedStorageSettings.ApplicationSettings.Add(key, value);
-                    valueChanged = true;
+                    valueChanged = true; // Key was not found
                 }
 
                 if (valueChanged)
                 {
+                    // Update the value
+                    IsolatedStorageSettings.ApplicationSettings[key] = value;
                     Save();
                 }
             }
@@ -61,22 +53,13 @@ namespace TivoAhoy.Common.Settings
         {
             lock (syncLock)
             {
-                T value;
-
-                try
+                object valObj;
+                if (IsolatedStorageSettings.ApplicationSettings.TryGetValue(key, out valObj))
                 {
-                    value = (T)IsolatedStorageSettings.ApplicationSettings[key];
-                }
-                catch (KeyNotFoundException)
-                {
-                    value = defaultValue;
-                }
-                catch (ArgumentException)
-                {
-                    value = defaultValue;
+                    return (T)valObj;
                 }
 
-                return value;
+                return defaultValue;
             }
         }
 
@@ -88,7 +71,6 @@ namespace TivoAhoy.Common.Settings
             }
             catch (Exception)
             {
-                return;
             }
         }
     }
