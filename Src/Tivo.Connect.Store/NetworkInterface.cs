@@ -19,6 +19,12 @@ namespace Tivo.Connect.Platform
 
         public void Dispose()
         {
+            if (this.tlsProtocolHandler != null)
+            {
+                this.tlsProtocolHandler.Close();
+                this.tlsProtocolHandler = null;
+            }
+
             if (this.streamSocket != null)
             {
                 this.streamSocket.Dispose();
