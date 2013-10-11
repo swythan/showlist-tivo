@@ -345,7 +345,7 @@ namespace TivoAhoy.Common.ViewModels
 
                 toast.Show();
             }
-            catch (UnauthorizedAccessException ex)
+            catch (UnauthorizedAccessException)
             {
                 var toast = new ToastPrompt()
                 {
@@ -479,7 +479,7 @@ namespace TivoAhoy.Common.ViewModels
 
                 toast.Show();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
             finally

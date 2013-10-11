@@ -75,7 +75,7 @@
 
             try
             {
-                await client.StartAsync();
+                client.Start();
 
                 var answers = await client.ResolveAsync(protocol);
 
@@ -152,7 +152,7 @@
             }
         }
 
-        public async Task StartAsync()
+        public void Start()
         {
             if (!IsStarted)
             {

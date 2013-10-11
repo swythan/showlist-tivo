@@ -32,9 +32,14 @@ namespace TivoAhoy.Common.Services
 
             connectionService.PropertyChanged += OnConnectionServicePropertyChanged;
 
+            InitializeRecordingsService();
+        }
+
+        private async void InitializeRecordingsService()
+        {
             if (connectionService.IsConnected)
             {
-                RefreshRecordings();
+                await RefreshRecordings();
             }
         }
 
@@ -95,13 +100,13 @@ namespace TivoAhoy.Common.Services
 
         }
 
-        private void OnConnectionServicePropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        private async void OnConnectionServicePropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             if (e.PropertyName == "IsConnected")
             {
                 NotifyOfPropertyChange(() => this.CanRefreshRecordings);
 
-                this.RefreshRecordings();
+                await this.RefreshRecordings();
             }
         }
 

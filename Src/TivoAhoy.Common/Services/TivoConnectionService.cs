@@ -100,14 +100,14 @@ namespace TivoAhoy.Common.Services
             }
         }
 
-        private void ResetConnection()
+        private async void ResetConnection()
         {
             this.isConnected = false;
             this.lazyConnection = null;
 
             this.NotifyOfPropertyChange(() => this.IsConnected);
 
-            AutoConnect();
+            await AutoConnect();
         }
 
         private async Task AutoConnect()

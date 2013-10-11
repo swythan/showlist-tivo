@@ -23,9 +23,6 @@ namespace TivoAhoy.PhoneRT.Views
 {
     public partial class CollectionDetailsPage : PhoneApplicationPage
     {
-        IDisposable creditsPropertyChangedSub;
-        IDisposable offersPropertyChangedSub;
-
         public CollectionDetailsPage()
         {
             InitializeComponent();
