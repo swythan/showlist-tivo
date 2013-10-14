@@ -59,13 +59,13 @@ namespace TivoProxy
             WriteEvent(4, mode, exceptionText);
         }
 
-        [Event(5, Message = "SENT -> {0} : {2} - {3}\n{4}\n")]
+        [Event(5, Message = "SENT -> {0} v{1}: {2} - {3}\n{4}\n")]
         public void MessageFromClient(TivoConnectionMode mode, int schemaVersion, int rpcId, string type, string message)
         {
             WriteEvent(5, mode, schemaVersion, rpcId, type, message);
         }
 
-        [Event(6, Message = "{0} -> RECV : {2} - {3}\n{4}\n")]
+        [Event(6, Message = "{0} -> RECV v{1}: {2} - {3}\n{4}\n")]
         public void MessageFromServer(TivoConnectionMode mode, int schemaVersion, int rpcId, string type, string message)
         {
             WriteEvent(6, mode, schemaVersion, rpcId, type, message);

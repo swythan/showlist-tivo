@@ -118,15 +118,5 @@ namespace Tivo.Connect
         {
             get { return this.rpcAppVersion; }
         }
-
-        int IMindRpcHeaderInfo.SchemaVersion
-        {
-            get
-            {
-                // We want version 10 in Away mode (so that we get the MAK in bodyAuthenticateResponse).
-                // Unfortunately using version 10 direct to a TiVo will crash it!
-                return (this.ConnectionMode == TivoConnectionMode.Away) ? 10 : 9;
-            }
-        }
     }
 }

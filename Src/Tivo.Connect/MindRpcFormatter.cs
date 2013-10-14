@@ -12,9 +12,9 @@ namespace Tivo.Connect
 {
     public static class MindRpcFormatter
     {
-        public static byte[] EncodeRequest(TivoConnectionMode mode, int sessionId, string tsn, int rpcId, IMindRpcHeaderInfo headerInfo, string requestType, string bodyText)
-        {           
-            string headerText = CreateHeader(sessionId, tsn, rpcId, requestType, headerInfo);
+        public static byte[] EncodeRequest(TivoConnectionMode mode, int sessionId, string tsn, int rpcId, int schemaVersion, IMindRpcHeaderInfo headerInfo, string requestType, string bodyText)
+        {
+            string headerText = CreateHeader(sessionId, tsn, rpcId, schemaVersion, headerInfo, requestType);
 
             return EncodeMessage(headerText, bodyText);
         }
@@ -32,12 +32,12 @@ namespace Tivo.Connect
             return messageBytes;
         }
 
-        public static string CreateHeader(int sessionId, string tsn, int rpcId, string requestType, IMindRpcHeaderInfo headerInfo)
+        public static string CreateHeader(int sessionId, string tsn, int rpcId, int schemaVersion, IMindRpcHeaderInfo headerInfo, string requestType)
         {
             var header = new StringBuilder();
             header.AppendLine("Type:request");
             header.AppendLine(string.Format("RpcId:{0}", rpcId));
-            header.AppendLine(string.Format("SchemaVersion:{0}", headerInfo.SchemaVersion));
+            header.AppendLine(string.Format("SchemaVersion:{0}", schemaVersion));
             header.AppendLine("Content-Type:application/json");
             header.AppendLine("RequestType:" + requestType);
             header.AppendLine("ResponseCount:single");
@@ -49,7 +49,7 @@ namespace Tivo.Connect
 
             header.AppendLine("X-ApplicationName:" + headerInfo.ApplicationName);
             header.AppendLine(string.Format("X-ApplicationVersion:{0}.{1}", headerInfo.ApplicationVersion.Major, headerInfo.ApplicationVersion.Minor));
-            
+
             header.AppendLine(string.Format("X-ApplicationSessionId:0x{0:x}", sessionId));
             header.AppendLine();
 

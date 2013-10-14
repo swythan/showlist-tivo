@@ -114,7 +114,7 @@ namespace Tivo.Connect
 #endif
         }
 
-        public async Task<JObject> Connect(TivoEndPoint endPoint, IDictionary<string, object> authMessage)
+        public async Task<JObject> Connect(TivoEndPoint endPoint, IDictionary<string, object> authMessage, int authMessageSchemaVersion)
         {
             this.connectionMode = endPoint.ConnectionMode;
             this.headerInfo = (IMindRpcHeaderInfo)endPoint;
@@ -123,7 +123,7 @@ namespace Tivo.Connect
             this.receiveSubject = new Subject<Tuple<int, JObject>>();
 
             // Send authentication message to the TiVo. 
-            var authTask = SendRequest(authMessage);
+            var authTask = SendRequest(authMessage, authMessageSchemaVersion);
 
             // Start listening on the socket *after* the first send operation.
             // This stops errors occuring on WP7
@@ -165,7 +165,7 @@ namespace Tivo.Connect
             }
         }
 
-        public async Task<JObject> SendRequest(IDictionary<string, object> body)
+        public async Task<JObject> SendRequest(IDictionary<string, object> body, int schemaVersion)
         {
             string requestType = null;
 
@@ -198,7 +198,7 @@ namespace Tivo.Connect
                                         .Select(message => message.Item2)
                                         .Take(1);
 
-            var messageBytes = MindRpcFormatter.EncodeRequest(this.connectionMode, this.sessionId, tsn, requestRpcId, this.headerInfo, requestType, bodyText);
+            var messageBytes = MindRpcFormatter.EncodeRequest(this.connectionMode, this.sessionId, tsn, requestRpcId, schemaVersion, this.headerInfo, requestType, bodyText);
 
             this.sslStream.Write(messageBytes, 0, messageBytes.Length);
             this.sslStream.Flush();

@@ -6,6 +6,5 @@ namespace Tivo.Connect
     {
         string ApplicationName { get; }
         Version ApplicationVersion { get; }
-        int SchemaVersion { get; }
     }
 }
