@@ -3,7 +3,6 @@
 // Copyright (c) 2012-2013 James Chaldecott. All rights reserved.
 // </copyright>
 //-----------------------------------------------------------------------
-
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,12 +12,9 @@ namespace Tivo.Connect
 {
     public static class MindRpcFormatter
     {
-        public static byte[] EncodeRequest(bool awayMode, int sessionId, string tsn, int rpcId, string requestType, string bodyText)
+        public static byte[] EncodeRequest(TivoConnectionMode mode, int sessionId, string tsn, int rpcId, int schemaVersion, IMindRpcHeaderInfo headerInfo, string requestType, string bodyText)
         {
-            // We want version 10 in Away mode (so that we get the MAK in bodyAuthenticateResponse).
-            // Unfortunately using version 10 direct to a TiVo will crash it!
-            int schemaVersion = awayMode ? 10 : 9;
-            string headerText = CreateHeader(sessionId, tsn, rpcId, requestType, schemaVersion);
+            string headerText = CreateHeader(sessionId, tsn, rpcId, schemaVersion, headerInfo, requestType);
 
             return EncodeMessage(headerText, bodyText);
         }
@@ -36,11 +32,8 @@ namespace Tivo.Connect
             return messageBytes;
         }
 
-        public static string CreateHeader(int sessionId, string tsn, int rpcId, string requestType, int schemaVersion)
+        public static string CreateHeader(int sessionId, string tsn, int rpcId, int schemaVersion, IMindRpcHeaderInfo headerInfo, string requestType)
         {
-            int appMajorVersion = 2;
-            int appMinorVersion = 2;
-
             var header = new StringBuilder();
             header.AppendLine("Type:request");
             header.AppendLine(string.Format("RpcId:{0}", rpcId));
@@ -54,8 +47,9 @@ namespace Tivo.Connect
                 header.AppendLine(string.Format("BodyId:{0}", tsn));
             }
 
-            header.AppendLine("X-ApplicationName:com.virginmedia.quicksilvervm");
-            header.AppendLine(string.Format("X-ApplicationVersion:{0}.{1}", appMajorVersion, appMinorVersion));
+            header.AppendLine("X-ApplicationName:" + headerInfo.ApplicationName);
+            header.AppendLine(string.Format("X-ApplicationVersion:{0}.{1}", headerInfo.ApplicationVersion.Major, headerInfo.ApplicationVersion.Minor));
+
             header.AppendLine(string.Format("X-ApplicationSessionId:0x{0:x}", sessionId));
             header.AppendLine();
 
@@ -131,14 +125,23 @@ namespace Tivo.Connect
 
         public static int GetRpcIdFromHeader(string header)
         {
-            return GetValueFromHeader("RpcId", header);
+            return GetIntValueFromHeader("RpcId", header);
         }
 
-        public static int GetValueFromHeader(string valueName, string header)
+        public static int GetSchemaVersionFromHeader(string header)
+        {
+            return GetIntValueFromHeader("SchemaVersion", header);
+        }
+
+        public static string GetTypeFromHeader(string header)
+        {
+            return GetValueFromHeader("Type", header);
+        }
+
+        public static string GetValueFromHeader(string valueName, string header)
         {
             var headerReader = new StringReader(header);
 
-            int rpcId = 0;
             while (true)
             {
                 var line = headerReader.ReadLine();
@@ -150,15 +153,29 @@ namespace Tivo.Connect
                     var tokens = line.Split(':');
                     if (tokens.Length > 1)
                     {
-                        if (int.TryParse(tokens[1], out rpcId))
-                        {
-                            return rpcId;
-                        }
+                        return tokens[1];
                     }
+                }
+            }
+
+            return null;
+        }
+
+        public static int GetIntValueFromHeader(string valueName, string header)
+        {
+            var stringValue = GetValueFromHeader(valueName, header);
+
+            if (stringValue != null)
+            {
+                int rpcId;
+                if (int.TryParse(stringValue, out rpcId))
+                {
+                    return rpcId;
                 }
             }
 
             return -1;
         }
+
     }
 }

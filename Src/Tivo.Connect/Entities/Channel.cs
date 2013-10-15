@@ -44,21 +44,7 @@ namespace Tivo.Connect.Entities
         {
             get
             {
-                if (this.LogoIndex != null)
-                {
-                    const string urlFormat = @"http://tivo-icdn.virginmedia.com/images-production/static/logos/65x55/{0}.png";
-
-                    int logoIdInUrl = this.LogoIndex.Value & 0xFFFF;
-                    var logoUrlString = string.Format(urlFormat, logoIdInUrl);
-
-                    Uri logoUrl;
-                    if (Uri.TryCreate(logoUrlString, UriKind.Absolute, out logoUrl))
-                    {
-                        return logoUrl;
-                    }
-                }
-
-                return null;
+                return ImageUrlMapper.Default.GetLogoImageUrl(this.LogoIndex);
             }
         }
     }

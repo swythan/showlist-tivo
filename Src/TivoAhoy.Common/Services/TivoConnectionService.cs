@@ -5,11 +5,13 @@
 //-----------------------------------------------------------------------
 
 using System;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Caliburn.Micro;
 using Coding4Fun.Toolkit.Controls;
 using Microsoft.Phone.Net.NetworkInformation;
+using Nito.AsyncEx;
 using Tivo.Connect;
 using TivoAhoy.Common.Events;
 using TivoAhoy.Common.Settings;
@@ -98,14 +100,14 @@ namespace TivoAhoy.Common.Services
             }
         }
 
-        private void ResetConnection()
+        private async void ResetConnection()
         {
             this.isConnected = false;
             this.lazyConnection = null;
 
             this.NotifyOfPropertyChange(() => this.IsConnected);
 
-            AutoConnect();
+            await AutoConnect();
         }
 
         private async Task AutoConnect()
@@ -197,14 +199,14 @@ namespace TivoAhoy.Common.Services
             }
         }
 
-        public Task<TivoConnection> GetConnectionAsync()
+        public async Task<TivoConnection> GetConnectionAsync()
         {
             if (this.lazyConnection == null)
             {
-                return TaskEx.FromResult<TivoConnection>(null);
+                return null;
             }
 
-            return this.lazyConnection.Value;
+            return await this.lazyConnection;
         }
 
         private async Task<TivoConnection> ConnectAsync(bool forceAwayMode)
@@ -222,6 +224,9 @@ namespace TivoAhoy.Common.Services
 
                 var localConnection = new TivoConnection();
 
+                // TODO: detect this based on the Tivo mDNS data
+                var service = TivoServiceProvider.VirginMediaUK;
+
                 if (!forceAwayMode)
                 {
                     var lanSettings = ConnectionSettings.KnownTivos
@@ -233,7 +238,7 @@ namespace TivoAhoy.Common.Services
                     {
                         try
                         {
-                            await localConnection.Connect(lanSettings.LastIpAddress, lanSettings.MediaAccessKey);
+                            await localConnection.Connect(lanSettings.LastIpAddress.ToString(), lanSettings.MediaAccessKey, service, TivoCertificateStore.Instance);
 
                             this.isConnected = true;
                             this.isAwayMode = false;
@@ -264,7 +269,11 @@ namespace TivoAhoy.Common.Services
                 {
                     try
                     {
-                        await localConnection.ConnectAway(ConnectionSettings.AwayModeUsername, ConnectionSettings.AwayModePassword);
+                        await localConnection.ConnectAway(
+                            ConnectionSettings.AwayModeUsername,
+                            ConnectionSettings.AwayModePassword,
+                            service,
+                            TivoCertificateStore.Instance);
 
                         this.isConnected = true;
                         this.isAwayMode = true;

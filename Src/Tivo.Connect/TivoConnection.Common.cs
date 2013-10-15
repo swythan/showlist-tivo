@@ -7,8 +7,8 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
-using System.Net;
 using System.ServiceModel;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -19,6 +19,14 @@ namespace Tivo.Connect
 {
     public class TivoConnection : IDisposable
     {
+        // Usually use schema version 9
+        private const int SchemaVersion = 9;
+
+        // We want schema version 10 for Away Mode authentication so that we get the MAK in bodyAuthenticateResponse.
+        // Otherwise we use version 9, so that the TiVo doesn't crash in Home mode, and also format: idSequence still 
+        // works in Away Mode.
+        private const int AwayModeAuthSchemaVersion = 10;
+
         private TivoNetworkSession tivoSession;
 
         private JsonSerializerSettings jsonSettings;
@@ -76,16 +84,16 @@ namespace Tivo.Connect
             }
         }
 
-        public async Task Connect(IPAddress serverAddress, string mediaAccessKey)
+        public async Task Connect(string serverAddress, string mediaAccessKey, TivoServiceProvider serviceProvider, ICertificateStore certificateStore)
         {
             this.capturedTsn = string.Empty;
 
             this.tivoSession = new TivoNetworkSession();
 
             var authTask = this.tivoSession.Connect(
-                new IPEndPoint(serverAddress, 1413), 
-                false, 
-                BuildMakAuthenticationRequest(mediaAccessKey));
+                TivoEndPoint.CreateLocal(serverAddress, serviceProvider, certificateStore), 
+                BuildMakAuthenticationRequest(mediaAccessKey),
+                SchemaVersion);
 
             var authResponse = await authTask.ConfigureAwait(false);
 
@@ -96,14 +104,15 @@ namespace Tivo.Connect
                 throw new UnauthorizedAccessException((string)authResponse["message"]);
             }
 
-            Debug.WriteLine("Authentication successful");
+            ////Debug.WriteLine("Authentication successful");
 
             // Now check that network control is enabled
             var statusResponse = await SendOptStatusGetRequest().ConfigureAwait(false);
 
             CheckResponse(statusResponse, "optStatusResponse", "OptStatusGet");
 
-            if (((string)statusResponse["optStatus"]) != "optIn")
+            var optResponseString = (string)statusResponse["optStatus"];
+            if (optResponseString != "optIn" && optResponseString != "optNeutral")
             {
                 throw new ActionNotSupportedException("Network control not enabled");
             }
@@ -130,18 +139,39 @@ namespace Tivo.Connect
             }
 
             this.capturedTsn = (string)bodyConfig["bodyId"];
+
+            var imageBaseUrls = await GetAppGlobalData("imageBaseUrl", 50).ConfigureAwait(false);
+
+            ImageUrlMapper.Default.Initialise(imageBaseUrls);
         }
 
-        public async Task<string> ConnectAway(string username, string password)
+        public async Task<string> ConnectAway(string username, string password, TivoServiceProvider serviceProvider, ICertificateStore certificateStore)
         {
             this.capturedTsn = string.Empty;
 
             this.tivoSession = new TivoNetworkSession();
 
+            Dictionary<string, object> authMessage;
+
+            switch (serviceProvider)
+            {
+                case TivoServiceProvider.TivoUSA:
+                    authMessage = BuildMmaAuthenticationRequest(username, password);
+                    break;
+
+                case TivoServiceProvider.VirginMediaUK:
+                    authMessage = BuildUsernameAndPasswordAuthenticationRequest(username, password);
+                    break;
+
+                case TivoServiceProvider.Unknown:
+                default:
+                    throw new ArgumentOutOfRangeException("service", "Must specify a valid service provider.");
+            }
+
             var authTask = this.tivoSession.Connect(
-                new DnsEndPoint(@"secure-tivo-api.virginmedia.com", 443),
-                true,
-                BuildUsernameAndPasswordAuthenticationRequest(username, password));
+                TivoEndPoint.CreateAway(serviceProvider, certificateStore),
+                authMessage,
+                AwayModeAuthSchemaVersion);
 
             var authResponse = await authTask.ConfigureAwait(false);
 
@@ -152,7 +182,7 @@ namespace Tivo.Connect
                 throw new UnauthorizedAccessException((string)authResponse["message"]);
             }
 
-            Debug.WriteLine("Authentication successful");
+            ////Debug.WriteLine("Authentication successful");
 
             if (string.IsNullOrEmpty(this.capturedTsn))
             {
@@ -168,7 +198,28 @@ namespace Tivo.Connect
                 this.capturedTsn = (string)deviceIds[0]["id"];
             }
 
+            var imageBaseUrls = await GetAppGlobalData("imageBaseUrl", 50).ConfigureAwait(false);
+
+            ImageUrlMapper.Default.Initialise(imageBaseUrls);
+
             return (string)authResponse["mediaAccessKey"];
+        }
+
+        public async Task<IList<AppGlobalData>> GetAppGlobalData(string appName, int count)
+        {
+            var response = await SendAppGlobalDataSearchRequest(appName, count).ConfigureAwait(false);
+
+            CheckResponse(response, "appGlobalDataList", "appGlobalDataSearch");
+
+            var results = response["appGlobalData"];
+            if (results != null)
+            {
+                return results.ToObject<IList<AppGlobalData>>(this.jsonSerializer);
+            }
+            else
+            {
+                return new List<AppGlobalData>();
+            }
         }
 
         public async Task<IEnumerable<RecordingFolderItem>> GetMyShowsList(Container parent, IProgress<RecordingFolderItem> progress)
@@ -440,7 +491,7 @@ namespace Tivo.Connect
                 { "bodyId", this.capturedTsn },
             };
 
-            var whatsOnResponse = await this.tivoSession.SendRequest(whatsOnSearchBody).ConfigureAwait(false);
+            var whatsOnResponse = await this.tivoSession.SendRequest(whatsOnSearchBody, SchemaVersion).ConfigureAwait(false);
 
             CheckResponse(whatsOnResponse, "whatsOnList", "whatsOnSearch");
 
@@ -535,6 +586,24 @@ namespace Tivo.Connect
             return body;
         }
 
+        private Dictionary<string, object> BuildMmaAuthenticationRequest(string username, string password)
+        {
+            var body = new Dictionary<string, object>()
+            { 
+                { "type", "bodyAuthenticate" },
+                { "credential",  
+                    new Dictionary<string, object>
+                    {
+                        { "type", "mmaCredential" },
+                        { "username", username },
+                        { "password", password }
+                    }                
+                }
+            };
+
+            return body;
+        }
+
         private Task<JObject> SendOptStatusGetRequest()
         {
             var body = new Dictionary<string, object>()
@@ -542,7 +611,7 @@ namespace Tivo.Connect
                 { "type", "optStatusGet" }
             };
 
-            return this.tivoSession.SendRequest(body);
+            return this.tivoSession.SendRequest(body, SchemaVersion);
         }
 
         private Task<JObject> SendBodyConfigSearchRequest()
@@ -552,7 +621,20 @@ namespace Tivo.Connect
                 { "type", "bodyConfigSearch" }
             };
 
-            return this.tivoSession.SendRequest(body);
+            return this.tivoSession.SendRequest(body, SchemaVersion);
+        }
+
+        private async Task<JObject> SendAppGlobalDataSearchRequest(string appName, int count)
+        {
+            var request = new Dictionary<string, object>
+            {
+                { "type", "appGlobalDataSearch" },
+                { "appName", appName},
+                { "count", count },
+            };
+
+            var response = await this.tivoSession.SendRequest(request, SchemaVersion).ConfigureAwait(false);
+            return response;
         }
 
         private Task<JObject> SendGetFolderShowsRequest(string parentId)
@@ -560,8 +642,10 @@ namespace Tivo.Connect
             var body = new Dictionary<string, object>
             {
                 { "type", "recordingFolderItemSearch" },
-                { "orderBy", new string[] { "startTime" } },
+                { "note", new string[] { "recordingForChildRecordingId" } },
                 { "bodyId", this.capturedTsn },
+                { "orderBy", new string[] { "startTime" } },
+                { "count", "1000" },
                 { "format", "idSequence" },
             };
 
@@ -570,7 +654,7 @@ namespace Tivo.Connect
                 body["parentRecordingFolderItemId"] = parentId;
             }
 
-            return this.tivoSession.SendRequest(body);
+            return this.tivoSession.SendRequest(body, SchemaVersion);
         }
 
         private Task<JObject> SendGetMyShowsItemDetailsRequest(IEnumerable<long> itemIds)
@@ -659,7 +743,7 @@ namespace Tivo.Connect
                 }
             };
 
-            return this.tivoSession.SendRequest(body);
+            return this.tivoSession.SendRequest(body, SchemaVersion);
         }
 
         private async Task<JObject> SendContentSearchRequest(string contentId)
@@ -742,7 +826,7 @@ namespace Tivo.Connect
                 //}
             };
 
-            var response = await this.tivoSession.SendRequest(body).ConfigureAwait(false);
+            var response = await this.tivoSession.SendRequest(body, SchemaVersion).ConfigureAwait(false);
             return response;
         }
 
@@ -764,7 +848,7 @@ namespace Tivo.Connect
                     }
                 };
 
-            return this.tivoSession.SendRequest(body);
+            return this.tivoSession.SendRequest(body, SchemaVersion);
         }
 
         private Task<JObject> SendDeleteRecordingRequest(string recordingId)
@@ -788,7 +872,7 @@ namespace Tivo.Connect
                     { "recordingId", recordingId }
                 };
 
-            return this.tivoSession.SendRequest(request);
+            return this.tivoSession.SendRequest(request, SchemaVersion);
         }
 
         private Task<JObject> SendScheduleSingleRecordingRequest(string contentId, string offerId)
@@ -926,7 +1010,7 @@ namespace Tivo.Connect
                     }  
                 };
 
-            return this.tivoSession.SendRequest(request);
+            return this.tivoSession.SendRequest(request, SchemaVersion);
         }
 
         private async Task<JObject> SendChannelSearchRequest()
@@ -969,7 +1053,7 @@ namespace Tivo.Connect
                 }  
             };
 
-            var response = await this.tivoSession.SendRequest(request).ConfigureAwait(false);
+            var response = await this.tivoSession.SendRequest(request, SchemaVersion).ConfigureAwait(false);
             return response;
         }
 
@@ -1053,7 +1137,7 @@ namespace Tivo.Connect
                 }  
             };
 
-            var response = await this.tivoSession.SendRequest(request).ConfigureAwait(false);
+            var response = await this.tivoSession.SendRequest(request, SchemaVersion).ConfigureAwait(false);
             return response;
         }
 
@@ -1068,7 +1152,7 @@ namespace Tivo.Connect
                 { "format", "idSequence" }
             };
 
-            var response = await this.tivoSession.SendRequest(request).ConfigureAwait(false);
+            var response = await this.tivoSession.SendRequest(request, SchemaVersion).ConfigureAwait(false);
             return response;
         }
 
@@ -1131,7 +1215,7 @@ namespace Tivo.Connect
                 }  
             };
 
-            var response = await this.tivoSession.SendRequest(request).ConfigureAwait(false);
+            var response = await this.tivoSession.SendRequest(request, SchemaVersion).ConfigureAwait(false);
             return response;
         }
 
@@ -1215,7 +1299,7 @@ namespace Tivo.Connect
                 }  
             };
 
-            var response = await this.tivoSession.SendRequest(request).ConfigureAwait(false);
+            var response = await this.tivoSession.SendRequest(request, SchemaVersion).ConfigureAwait(false);
             return response;
         }
 
@@ -1232,7 +1316,7 @@ namespace Tivo.Connect
                 { "note", new[] { "recordingForOfferId" } },
             };
 
-            var response = await this.tivoSession.SendRequest(request).ConfigureAwait(false);
+            var response = await this.tivoSession.SendRequest(request, SchemaVersion).ConfigureAwait(false);
             return response;
         }
 
@@ -1242,7 +1326,7 @@ namespace Tivo.Connect
 
             request["collectionId"] = new[] { collectionId };
 
-            var response = await this.tivoSession.SendRequest(request).ConfigureAwait(false);
+            var response = await this.tivoSession.SendRequest(request, SchemaVersion).ConfigureAwait(false);
             return response;
         }
 
@@ -1252,7 +1336,7 @@ namespace Tivo.Connect
 
             request["contentId"] = new[] { contentId };
 
-            var response = await this.tivoSession.SendRequest(request).ConfigureAwait(false);
+            var response = await this.tivoSession.SendRequest(request, SchemaVersion).ConfigureAwait(false);
             return response;
         }
 
@@ -1350,7 +1434,7 @@ namespace Tivo.Connect
                 { "levelOfDetail", "high" },
             };
 
-            var response = await this.tivoSession.SendRequest(request).ConfigureAwait(false);
+            var response = await this.tivoSession.SendRequest(request, SchemaVersion).ConfigureAwait(false);
             return response;
         }
 
@@ -1371,7 +1455,7 @@ namespace Tivo.Connect
                 { "levelOfDetail", "high" },
             };
 
-            var response = await this.tivoSession.SendRequest(request).ConfigureAwait(false);
+            var response = await this.tivoSession.SendRequest(request, SchemaVersion).ConfigureAwait(false);
             return response;
         }
 
@@ -1423,7 +1507,7 @@ namespace Tivo.Connect
                 },
             };
 
-            var response = await this.tivoSession.SendRequest(request).ConfigureAwait(false);
+            var response = await this.tivoSession.SendRequest(request, SchemaVersion).ConfigureAwait(false);
             return response;
         }
 
@@ -1449,7 +1533,7 @@ namespace Tivo.Connect
                 { "levelOfDetail", "high" },
             };
 
-            var response = await this.tivoSession.SendRequest(request).ConfigureAwait(false);
+            var response = await this.tivoSession.SendRequest(request, SchemaVersion).ConfigureAwait(false);
             return response;
         }
 

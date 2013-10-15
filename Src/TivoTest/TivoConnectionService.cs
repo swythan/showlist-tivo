@@ -8,6 +8,7 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -20,10 +21,10 @@ namespace TivoTest
     [Export(typeof(ITivoConnectionService))]
     public class TivoConnectionService: PropertyChangedBase, ITivoConnectionService
     {
-        private const string TivoUsername = @"james.chaldecott@virginmedia.com";
-        private const string TivoPassword = @"lambBh00na";
-        private const string TivoIPAddress = "192.168.0.100";
-        private const string TivoMak = "9837127953";
+        private const string TivoUsername = null;
+        private const string TivoPassword = null;
+        private const string TivoIPAddress = null;
+        private const string TivoMak = null;
 
         private bool isAwayModeEnabled = true;
         
@@ -69,15 +70,18 @@ namespace TivoTest
             if (this.connection == null)
             {
                 var localConnection = new TivoConnection();
+
+                var serviceProvider = TivoServiceProvider.VirginMediaUK;
+
                 try
                 {
                     if (this.IsAwayModeEnabled)
                     {
-                        await localConnection.ConnectAway(TivoUsername, TivoPassword);
+                        await localConnection.ConnectAway(TivoUsername, TivoPassword, serviceProvider, TivoCertificateStore.Instance);
                     }
                     else
                     {
-                        await localConnection.Connect(IPAddress.Parse(TivoIPAddress), TivoMak);
+                        await localConnection.Connect(TivoIPAddress, TivoMak, serviceProvider, TivoCertificateStore.Instance);
                     }
 
                     this.connection = localConnection;

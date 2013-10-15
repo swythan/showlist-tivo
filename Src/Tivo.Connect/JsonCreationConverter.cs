@@ -5,6 +5,7 @@
 //-----------------------------------------------------------------------
 
 using System;
+using System.Reflection;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -22,7 +23,11 @@ namespace Tivo.Connect
 
         public override bool CanConvert(Type objectType)
         {
+#if WINDOWS_PHONE || NETFX
             return typeof(T).IsAssignableFrom(objectType);
+#else
+            return typeof(T).GetTypeInfo().IsAssignableFrom(objectType.GetTypeInfo());
+#endif
         }
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
