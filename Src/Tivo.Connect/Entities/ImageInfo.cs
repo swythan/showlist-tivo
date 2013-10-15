@@ -37,22 +37,7 @@ namespace Tivo.Connect.Entities
         {
             get
             {
-                if (this.OriginalImageUrl != null)
-                {
-                    Uri originalUrl;
-                    if (Uri.TryCreate(this.OriginalImageUrl, UriKind.Absolute, out originalUrl))
-                    {
-                        if (originalUrl.AbsolutePath.StartsWith("/images"))
-                        {
-                            var imagePath = originalUrl.AbsolutePath.Substring(7);
-                            var vmImageHost = @"http://tivo-icdn.virginmedia.com/images-vm_production";
-
-                            return new Uri(vmImageHost + imagePath);
-                        }
-                    }
-                }
-
-                return null;
+                return ImageUrlMapper.Default.GetExternalImageUrl(this.OriginalImageUrl);
             }
         }
     }

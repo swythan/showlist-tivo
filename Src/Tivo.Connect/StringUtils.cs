@@ -17,7 +17,11 @@ namespace Tivo.Connect
                 return string.Empty;
             }
 
+#if WINDOWS_PHONE || NETFX
             return Regex.Replace(input, "([A-Z])", " $1", RegexOptions.Compiled).Trim();
+#else
+            return Regex.Replace(input, "([A-Z])", " $1").Trim();
+#endif
         }
 
         public static string UppercaseFirst(this string input)

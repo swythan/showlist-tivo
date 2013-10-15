@@ -272,8 +272,6 @@
     <None Include="Properties\WMAppManifest.xml">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="tivo_vm.p12" />
-    <Content Include="tivo_us.p12" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\AlignmentGrid.png" />
@@ -305,8 +303,12 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tivo.Connect.Phone\Tivo.Connect.Phone.csproj">
-      <Project>{AFFFC8BC-3E92-4860-97EF-66C331874DDE}</Project>
+      <Project>{FCADC030-8559-4059-AFFA-A9A17D9DF544}</Project>
       <Name>Tivo.Connect.Phone</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tivo.Connect\Tivo.Connect.csproj">
+      <Project>{3E1EFB52-90B7-439B-8354-B605A344CAC0}</Project>
+      <Name>Tivo.Connect</Name>
     </ProjectReference>
     <ProjectReference Include="..\TivoAhoy.Common\TivoAhoy.Common.csproj">
       <Project>{80FABC5F-78FB-423B-8983-BA3E85FCF748}</Project>
@@ -314,16 +316,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Caliburn.Micro, Version=1.5.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Caliburn.Micro">
       <HintPath>..\packages\Caliburn.Micro.1.5.2\lib\wp8\Caliburn.Micro.dll</HintPath>
     </Reference>
-    <Reference Include="Caliburn.Micro.Extensions, Version=1.5.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Caliburn.Micro.Extensions">
       <HintPath>..\packages\Caliburn.Micro.1.5.2\lib\wp8\Caliburn.Micro.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="Coding4Fun.Toolkit.Controls, Version=2.0.7.0, Culture=neutral, PublicKeyToken=c5fd7b72b1a17ce4, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Coding4Fun.Toolkit.Controls">
       <HintPath>..\packages\Coding4Fun.Toolkit.Controls.2.0.7\lib\windowsphone8\Coding4Fun.Toolkit.Controls.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Expression.Interactions, Version=3.9.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -358,6 +357,12 @@
     </Reference>
     <Reference Include="YourLastAboutDialog">
       <HintPath>..\packages\YLAD.2.1.0\lib\windowsphone8\YourLastAboutDialog.dll</HintPath>
+    </Reference>
+    <Reference Include="Zeroconf">
+      <HintPath>..\packages\Zeroconf.2.0.0\lib\wp8\Zeroconf.dll</HintPath>
+    </Reference>
+    <Reference Include="Zeroconf.Platform">
+      <HintPath>..\packages\Zeroconf.2.0.0\lib\wp8\Zeroconf.Platform.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />

@@ -8,6 +8,7 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -69,15 +70,18 @@ namespace TivoTest
             if (this.connection == null)
             {
                 var localConnection = new TivoConnection();
+
+                var serviceProvider = TivoServiceProvider.VirginMediaUK;
+
                 try
                 {
                     if (this.IsAwayModeEnabled)
                     {
-                        await localConnection.ConnectAway(TivoUsername, TivoPassword);
+                        await localConnection.ConnectAway(TivoUsername, TivoPassword, serviceProvider, TivoCertificateStore.Instance);
                     }
                     else
                     {
-                        await localConnection.Connect(IPAddress.Parse(TivoIPAddress), TivoMak);
+                        await localConnection.Connect(TivoIPAddress, TivoMak, serviceProvider, TivoCertificateStore.Instance);
                     }
 
                     this.connection = localConnection;

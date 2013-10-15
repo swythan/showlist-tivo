@@ -6,63 +6,147 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.NetworkInformation;
 using System.Net.Security;
 using System.Net.Sockets;
 using System.Security.Authentication;
 using System.Security.Cryptography.X509Certificates;
+using System.Text;
+using ARSoft.Tools.Net.Dns;
 using Caliburn.Micro;
+using Tivo.Connect;
+using TivoProxy.Properties;
 using ZeroconfService;
 
 namespace TivoProxy
 {
     public class ShellViewModel : Screen, IShell
     {
-        private const string TivoFriendlyName = null; // Friendly name here (defaults to last 4 chars of TSN)
-        private const string TivoTSN = null; // TSN goes here;
-        private const string LocalIPAddress = null;
-        private const string DefaultTivoIPAddress = null;
-
-        private string tivoIPAddress = DefaultTivoIPAddress;
-
         private X509Certificate serverCertificate;
 
         private IDisposable serverSubscription;
 
+        private DnsServer dnsServer;
         private NetService mindService;
         private NetService remoteService;
         private NetService httpService;
         private NetService videostreamService;
+        private Tuple<NetworkInterface, IPAddress> currentNetworkInterface;
 
         public ShellViewModel()
         {
-            var certStore = new X509Store(StoreName.My, StoreLocation.LocalMachine);
-            certStore.Open(OpenFlags.ReadOnly | OpenFlags.OpenExistingOnly);
-
-            var serverCert = certStore.Certificates
-                .OfType<X509Certificate2>()
-                .FirstOrDefault(x => x.Subject == "CN=secure-tivo-api.virginmedia.com");
-
-            this.serverCertificate = serverCert; // new X509Certificate("TivoTest.pfx", "TivoTest");
         }
 
-        public string TivoIPAddress
+        private void LoadServerCertificate()
         {
-            get { return this.tivoIPAddress; }
+            //var certStore = new X509Store(StoreName.My, StoreLocation.LocalMachine);
+            //certStore.Open(OpenFlags.ReadOnly | OpenFlags.OpenExistingOnly);
+
+            //var serverCert = certStore.Certificates
+            //    .OfType<X509Certificate2>()
+            //    .FirstOrDefault(x => x.Subject == "CN=secure-tivo-api.virginmedia.com");
+
+            if (this.IsVirgin)
+            {
+                this.serverCertificate = new X509Certificate2("TivoTest_vm.pfx", "p@ssw0rd");
+            }
+            else
+            {
+                this.serverCertificate = new X509Certificate2("TivoTest_us.pfx", "p@ssw0rd");
+            }
+        }
+
+        public bool IsVirgin
+        {
+            get { return Settings.Default.IsVirgin; }
             set
             {
-                if (this.tivoIPAddress == value)
+                if (Settings.Default.IsVirgin == value)
                 {
                     return;
                 }
 
-                this.tivoIPAddress = value;
+                Settings.Default.IsVirgin = value;
+                NotifyOfPropertyChange(() => this.IsVirgin);
+            }
+        }
+
+        public string TivoIPAddress
+        {
+            get { return Settings.Default.TivoIPAddress; }
+            set
+            {
+                if (Settings.Default.TivoIPAddress == value)
+                {
+                    return;
+                }
+
+                Settings.Default.TivoIPAddress = value;
                 NotifyOfPropertyChange(() => this.TivoIPAddress);
                 NotifyOfPropertyChange(() => this.CanStart);
             }
         }
 
+        public string Tsn
+        {
+            get { return Settings.Default.TivoTsn; }
+            set
+            {
+                if (Settings.Default.TivoTsn == value)
+                {
+                    return;
+                }
+
+                Settings.Default.TivoTsn = value;
+                NotifyOfPropertyChange(() => this.Tsn);
+                NotifyOfPropertyChange(() => this.CanStart);
+            }
+        }
+
+        public string FriendlyName
+        {
+            get { return Settings.Default.TivoFriendlyName; }
+            set
+            {
+                if (Settings.Default.TivoFriendlyName == value)
+                {
+                    return;
+                }
+
+                Settings.Default.TivoFriendlyName = value;
+                NotifyOfPropertyChange(() => this.FriendlyName);
+                NotifyOfPropertyChange(() => this.CanStart);
+            }
+        }
+
+        public IEnumerable<Tuple<NetworkInterface, IPAddress>> NetworkInterfaces
+        {
+            get
+            {
+                return NetworkInterface.GetAllNetworkInterfaces()
+                  .Where(x => x.Supports(NetworkInterfaceComponent.IPv4) && x.OperationalStatus == OperationalStatus.Up)
+                  .Select(x => Tuple.Create(x, this.GetIPv4Address(x)));
+            }
+        }
+
+        public Tuple<NetworkInterface, IPAddress> CurrentNetworkInterface
+        {
+            get { return this.currentNetworkInterface; }
+            set
+            {
+                if (this.currentNetworkInterface == value)
+                {
+                    return;
+                }
+
+                this.currentNetworkInterface = value;
+                NotifyOfPropertyChange(() => this.CurrentNetworkInterface);
+                NotifyOfPropertyChange(() => this.CanStart);
+            }
+        }
         public bool CanStart
         {
             get
@@ -72,25 +156,103 @@ namespace TivoProxy
                     return false;
                 }
 
+                if (string.IsNullOrWhiteSpace(this.Tsn) ||
+                    string.IsNullOrWhiteSpace(this.FriendlyName) ||
+                    this.CurrentNetworkInterface == null)
+                {
+                    return false;
+                }
+
                 IPAddress address;
-                return IPAddress.TryParse(this.tivoIPAddress, out address);
+                return IPAddress.TryParse(this.TivoIPAddress, out address);
             }
         }
 
         public void Start()
         {
+            this.LoadServerCertificate();
+
+            StartDnsProxy();
+
             StartListeningLan();
             StartListeningAway();
-            AdvertiseService(TivoFriendlyName, TivoTSN);
+            AdvertiseService(this.FriendlyName, this.Tsn);
+
+            Settings.Default.Save();
 
             NotifyOfPropertyChange(() => this.CanStart);
             NotifyOfPropertyChange(() => this.CanStop);
         }
 
+        private void StartDnsProxy()
+        {
+            this.dnsServer = new DnsServer(this.CurrentNetworkInterface.Item2, 10, 10, this.ProcessDnsQuery);
+            this.dnsServer.Start();
+        }
+
+        private DnsMessageBase ProcessDnsQuery(DnsMessageBase message, IPAddress clientAddress, ProtocolType protocol)
+        {
+            message.IsQuery = false;
+
+            DnsMessage query = message as DnsMessage;
+
+            if ((query != null) &&
+                (query.Questions.Count == 1))
+            {
+                DnsQuestion question = query.Questions[0];
+
+                // If the request is for the Away Mode server, then return our own IP address
+                if (question.RecordType == RecordType.A)
+                {
+                    if (question.Name == "secure-tivo-api.virginmedia.com" ||
+                        question.Name == "middlemind.tivo.com")
+                    {
+                        query.AnswerRecords.Add(new ARecord(question.Name, 60, this.CurrentNetworkInterface.Item2));
+                        query.ReturnCode = ReturnCode.NoError;
+
+                        return query;
+                    }
+                }
+
+                // send query to upstream server
+                DnsMessage answer = DnsClient.Default.Resolve(question.Name, question.RecordType, question.RecordClass);
+
+                // if got an answer, copy it to the message sent to the client
+                if (answer != null)
+                {
+                    foreach (DnsRecordBase record in (answer.AnswerRecords))
+                    {
+                        query.AnswerRecords.Add(record);
+                    }
+                    foreach (DnsRecordBase record in (answer.AdditionalRecords))
+                    {
+                        query.AnswerRecords.Add(record);
+                    }
+
+                    query.ReturnCode = ReturnCode.NoError;
+                    return query;
+                }
+            }
+
+            // Not a valid query or upstream server did not answer correct
+            message.ReturnCode = ReturnCode.ServerFailure;
+            return message;
+        }
+
         private void StartListeningLan()
         {
-            this.serverSubscription = ObservableTcpListener.Start(IPAddress.Parse(LocalIPAddress), 1413, 1)
+            this.serverSubscription = ObservableTcpListener.Start(this.CurrentNetworkInterface.Item2, 1413, 1)
                 .Subscribe(OnLanClientConnected);
+        }
+
+        private IPAddress GetIPv4Address(NetworkInterface adapter)
+        {
+            var localAddress = adapter.GetIPProperties()
+                .UnicastAddresses
+                .Select(x => x.Address)
+                .FirstOrDefault(x => x.AddressFamily == AddressFamily.InterNetwork);
+
+            return localAddress;
         }
 
         private void OnLanClientConnected(TcpClient client)
@@ -102,27 +264,26 @@ namespace TivoProxy
             {
                 sslStream.AuthenticateAsServer(this.serverCertificate, false, SslProtocols.Default, false);
 
-                // Display the properties and settings for t5he authenticated stream.
-                DisplaySecurityLevel(sslStream);
-                DisplaySecurityServices(sslStream);
-                DisplayCertificateInformation(sslStream);
-                DisplayStreamProperties(sslStream);
+                TivoProxyEventSource.Log.ClientConnected(
+                    TivoConnectionMode.Local,
+                    ((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString(),
+                    FormatStreamProperties(sslStream));
 
                 // Set timeouts for the read and write to 30 seconds.
                 sslStream.ReadTimeout = 30000;
                 sslStream.WriteTimeout = 30000;
 
-                var proxy = new ProxyConnection(sslStream, IPAddress.Parse(this.TivoIPAddress));
+                var serviceProvider = this.IsVirgin ? TivoServiceProvider.VirginMediaUK : TivoServiceProvider.TivoUSA;
+
+                var serverEndPoint = TivoEndPoint.CreateLocal(this.TivoIPAddress, serviceProvider, TivoCertificateStore.Instance);
+
+                var proxy = new ProxyConnection(sslStream, serverEndPoint);
             }
             //catch (AuthenticationException e)
             catch (Exception e)
             {
-                Console.WriteLine("Exception: {0}", e.Message);
-                if (e.InnerException != null)
-                {
-                    Console.WriteLine("Inner exception: {0}", e.InnerException.Message);
-                }
-                Console.WriteLine("Authentication failed - closing the connection.");
+                TivoProxyEventSource.Log.ClientConnectionFailure(TivoConnectionMode.Local,e);
+
                 sslStream.Close();
                 client.Close();
                 return;
@@ -137,10 +298,9 @@ namespace TivoProxy
             }
         }
 
-
         private void StartListeningAway()
         {
-            this.serverSubscription = ObservableTcpListener.Start(IPAddress.Parse(LocalIPAddress), 443, 1)
+            this.serverSubscription = ObservableTcpListener.Start(this.CurrentNetworkInterface.Item2, 443, 1)
                 .Subscribe(OnAwayClientConnected);
         }
 
@@ -153,27 +313,26 @@ namespace TivoProxy
             {
                 sslStream.AuthenticateAsServer(this.serverCertificate, false, SslProtocols.Default, false);
 
-                // Display the properties and settings for t5he authenticated stream.
-                DisplaySecurityLevel(sslStream);
-                DisplaySecurityServices(sslStream);
-                DisplayCertificateInformation(sslStream);
-                DisplayStreamProperties(sslStream);
+                TivoProxyEventSource.Log.ClientConnected(
+                    TivoConnectionMode.Away, 
+                    ((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString(), 
+                    FormatStreamProperties(sslStream));
 
                 // Set timeouts for the read and write to 30 seconds.
                 sslStream.ReadTimeout = 30000;
                 sslStream.WriteTimeout = 30000;
 
-                var proxy = new ProxyConnection(sslStream);
+                var serviceProvider = this.IsVirgin ? TivoServiceProvider.VirginMediaUK : TivoServiceProvider.TivoUSA;
+
+                var serverEndPoint = TivoEndPoint.CreateAway(serviceProvider, TivoCertificateStore.Instance);
+                
+                var proxy = new ProxyConnection(sslStream, serverEndPoint);
             }
             //catch (AuthenticationException e)
             catch (Exception e)
             {
-                Console.WriteLine("Exception: {0}", e.Message);
-                if (e.InnerException != null)
-                {
-                    Console.WriteLine("Inner exception: {0}", e.InnerException.Message);
-                }
-                Console.WriteLine("Authentication failed - closing the connection.");
+                TivoProxyEventSource.Log.ClientConnectionFailure(TivoConnectionMode.Local, e);
+
                 sslStream.Close();
                 client.Close();
                 return;
@@ -188,63 +347,70 @@ namespace TivoProxy
             }
         }
 
-        static void DisplaySecurityLevel(SslStream stream)
+        private string FormatStreamProperties(SslStream sslStream)
         {
-            Console.WriteLine("Cipher: {0} strength {1}", stream.CipherAlgorithm, stream.CipherStrength);
-            Console.WriteLine("Hash: {0} strength {1}", stream.HashAlgorithm, stream.HashStrength);
-            Console.WriteLine("Key exchange: {0} strength {1}", stream.KeyExchangeAlgorithm, stream.KeyExchangeStrength);
-            Console.WriteLine("Protocol: {0}", stream.SslProtocol);
+            var result = new StringBuilder();
+
+            DisplaySecurityLevel(sslStream, result);
+            DisplaySecurityServices(sslStream, result);
+            DisplayCertificateInformation(sslStream, result);
+            DisplayStreamProperties(sslStream, result);
+
+            return result.ToString();
         }
 
-        static void DisplaySecurityServices(SslStream stream)
+        static void DisplaySecurityLevel(SslStream stream, StringBuilder result)
         {
-            Console.WriteLine("Is authenticated: {0} as server? {1}", stream.IsAuthenticated, stream.IsServer);
-            Console.WriteLine("IsSigned: {0}", stream.IsSigned);
-            Console.WriteLine("Is Encrypted: {0}", stream.IsEncrypted);
+            result.AppendFormat("Cipher: {0} strength {1}", stream.CipherAlgorithm, stream.CipherStrength).AppendLine();
+            result.AppendFormat("Hash: {0} strength {1}", stream.HashAlgorithm, stream.HashStrength).AppendLine();
+            result.AppendFormat("Key exchange: {0} strength {1}", stream.KeyExchangeAlgorithm, stream.KeyExchangeStrength).AppendLine();
+            result.AppendFormat("Protocol: {0}", stream.SslProtocol).AppendLine();
         }
 
-        static void DisplayStreamProperties(SslStream stream)
+        static void DisplaySecurityServices(SslStream stream, StringBuilder result)
         {
-            Console.WriteLine("Can read: {0}, write {1}", stream.CanRead, stream.CanWrite);
-            Console.WriteLine("Can timeout: {0}", stream.CanTimeout);
+            result.AppendFormat("Is authenticated: {0} as server? {1}", stream.IsAuthenticated, stream.IsServer).AppendLine();
+            result.AppendFormat("IsSigned: {0}", stream.IsSigned).AppendLine();
+            result.AppendFormat("Is Encrypted: {0}", stream.IsEncrypted).AppendLine();
         }
 
-        static void DisplayCertificateInformation(SslStream stream)
+        static void DisplayStreamProperties(SslStream stream, StringBuilder result)
         {
-            Console.WriteLine("Certificate revocation list checked: {0}", stream.CheckCertRevocationStatus);
+            result.AppendFormat("Can read: {0}, write {1}", stream.CanRead, stream.CanWrite).AppendLine();
+            result.AppendFormat("Can timeout: {0}", stream.CanTimeout).AppendLine();
+        }
+
+        static void DisplayCertificateInformation(SslStream stream, StringBuilder result)
+        {
+            result.AppendFormat("Certificate revocation list checked: {0}", stream.CheckCertRevocationStatus).AppendLine();
 
             X509Certificate localCertificate = stream.LocalCertificate;
             if (stream.LocalCertificate != null)
             {
-                Console.WriteLine("Local cert was issued to {0} and is valid from {1} until {2}.",
+                result.AppendFormat("Local cert was issued to {0} and is valid from {1} until {2}.",
                     localCertificate.Subject,
                     localCertificate.GetEffectiveDateString(),
-                    localCertificate.GetExpirationDateString());
+                    localCertificate.GetExpirationDateString())
+                    .AppendLine();
             }
             else
             {
-                Console.WriteLine("Local certificate is null.");
+                result.AppendFormat("Local certificate is null.").AppendLine();
             }
             // Display the properties of the client's certificate.
             X509Certificate remoteCertificate = stream.RemoteCertificate;
             if (stream.RemoteCertificate != null)
             {
-                Console.WriteLine("Remote cert was issued to {0} and is valid from {1} until {2}.",
+                result.AppendFormat("Remote cert was issued to {0} and is valid from {1} until {2}.",
                     remoteCertificate.Subject,
                     remoteCertificate.GetEffectiveDateString(),
-                    remoteCertificate.GetExpirationDateString());
+                    remoteCertificate.GetExpirationDateString())
+                    .AppendLine();
             }
             else
             {
-                Console.WriteLine("Remote certificate is null.");
+                result.AppendFormat("Remote certificate is null.").AppendLine();
             }
-        }
-
-        private static void DisplayUsage()
-        {
-            Console.WriteLine("To start the server specify:");
-            Console.WriteLine("serverSync certificateFile.cer");
-            Environment.Exit(1);
         }
 
         private void AdvertiseService(string name, string tsn)
@@ -360,12 +526,23 @@ namespace TivoProxy
                     return true;
                 }
 
+                if (this.dnsServer != null)
+                {
+                    return true;
+                }
+
                 return false;
             }
         }
 
         public void Stop()
         {
+            if (this.dnsServer != null)
+            {
+                this.dnsServer.Stop();
+                this.dnsServer = null;
+            }
+
             if (this.serverSubscription != null)
             {
                 this.serverSubscription.Dispose();
