@@ -4,6 +4,7 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
+using System;
 using System.Net;
 using System.Runtime.Serialization;
 
@@ -26,6 +27,9 @@ namespace TivoAhoy.Common.Settings
 
         [DataMember]
         public string NetworkName { get; set; }
+
+        [DataMember]
+        public bool? IsVirginMedia { get; set; }
 
         public IPAddress LastIpAddress
         {
@@ -52,5 +56,6 @@ namespace TivoAhoy.Common.Settings
                 }
             }
         }
+     
     }
 }

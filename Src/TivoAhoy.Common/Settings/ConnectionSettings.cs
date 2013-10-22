@@ -5,7 +5,9 @@
 //-----------------------------------------------------------------------
 
 using System.Collections.Generic;
+using System.Globalization;
 using System.Net;
+using Tivo.Connect;
 
 namespace TivoAhoy.Common.Settings
 {
@@ -33,6 +35,22 @@ namespace TivoAhoy.Common.Settings
         {
             get { return SettingsStore.GetValueOrDefault(string.Empty, "Password"); }
             set { SettingsStore.AddOrUpdateValue(value, "Password"); }
+        }
+
+        public static TivoServiceProvider AwayModeServiceProvider
+        {
+            get { return SettingsStore.GetValueOrDefault(GetDefaultServiceProviderByLanguage(), "AwayModeServiceProvider"); }
+            set { SettingsStore.AddOrUpdateValue(value, "AwayModeServiceProvider"); }
+        }
+
+        private static TivoServiceProvider GetDefaultServiceProviderByLanguage()
+        {
+            // default awayServiceProvider to defaults based on language
+            var culture = CultureInfo.CurrentUICulture;
+            if(culture.Name.StartsWith("en-US"))
+                return TivoServiceProvider.TivoUSA;
+            
+            return TivoServiceProvider.VirginMediaUK; 
         }
 
         public static bool LanSettingsAppearValid(IPAddress ipAddress, string mediaAccessKey)

@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -50,8 +51,9 @@ namespace TivoAhoy.Common.ViewModels
 
         private bool isTestInProgress;
 
-        private ObservableCollection<DiscoveredTivo> discoveredTivos = new ObservableCollection<DiscoveredTivo>();
+        private readonly ObservableCollection<DiscoveredTivo> discoveredTivos = new ObservableCollection<DiscoveredTivo>();
         private DiscoveredTivo currentDiscoveredTivo;
+        private TivoServiceProvider awayServiceProvider;
 
         public SettingsPageViewModel(
             IEventAggregator eventAggregator, 
@@ -63,6 +65,13 @@ namespace TivoAhoy.Common.ViewModels
             this.progressService = progressService;
 
             this.connectionService.PropertyChanged += OnConnectionServicePropertyChanged;
+
+            // default awayServiceProvider to defaults based on language
+            var culture = CultureInfo.CurrentUICulture;
+            if(culture.Name.StartsWith("en-US"))
+                awayServiceProvider = TivoServiceProvider.TivoUSA;
+            else
+                awayServiceProvider = TivoServiceProvider.VirginMediaUK; 
         }
 
         private void OnConnectionServicePropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -89,6 +98,7 @@ namespace TivoAhoy.Common.ViewModels
 
             this.Username = ConnectionSettings.AwayModeUsername;
             this.Password = ConnectionSettings.AwayModePassword;
+            this.AwayServiceProvider = ConnectionSettings.AwayModeServiceProvider;
         }
 
         protected override void OnDeactivate(bool close)
@@ -134,6 +144,7 @@ namespace TivoAhoy.Common.ViewModels
                         };
                     }
 
+                    settings.IsVirginMedia = this.currentDiscoveredTivo.IsVirginMedia;
                     settings.LastIpAddress = this.currentDiscoveredTivo.IpAddress;
                     settings.NetworkName = this.connectionService.ConnectedNetworkName;
 
@@ -253,6 +264,21 @@ namespace TivoAhoy.Common.ViewModels
             }
         }
 
+        public TivoServiceProvider AwayServiceProvider
+        {
+            get { return this.awayServiceProvider; }
+            set
+            {
+                if (this.awayServiceProvider == value)
+                    return;
+
+                this.awayServiceProvider = value;
+                NotifyOfPropertyChange(() => this.AwayServiceProvider);
+                NotifyOfPropertyChange(() => this.CanTestAwayConnection);
+                NotifyOfPropertyChange(() => this.AwaySettingsAppearValid);
+            }
+        }
+
         public bool IsTestInProgress
         {
             get { return this.isTestInProgress; }
@@ -323,16 +349,15 @@ namespace TivoAhoy.Common.ViewModels
         {
             var connection = new TivoConnection();
 
-            // TODO: Detect this
-            var serviceProvider = TivoServiceProvider.VirginMediaUK;
             try
             {
                 using (ShowProgress())
                 {
-                    await connection.ConnectAway(this.Username, this.Password, serviceProvider, TivoCertificateStore.Instance);
+                    await connection.ConnectAway(this.Username, this.Password, this.AwayServiceProvider, TivoCertificateStore.Instance);
 
                     ConnectionSettings.AwayModeUsername = this.Username;
                     ConnectionSettings.AwayModePassword = this.Password;
+                    ConnectionSettings.AwayModeServiceProvider = this.AwayServiceProvider;
                     this.eventAggregator.Publish(new ConnectionSettingsChanged());
                 }
 
@@ -400,14 +425,13 @@ namespace TivoAhoy.Common.ViewModels
         public async void TestLANConnection()
         {
             var connection = new TivoConnection();
-            // TODO: Detect this
-            var serviceProvider = TivoServiceProvider.VirginMediaUK;
 
             try
             {
                 using (ShowProgress())
                 {
-                    await connection.Connect(this.LanSettings.LastIpAddress.ToString(), this.LanSettings.MediaAccessKey, serviceProvider, TivoCertificateStore.Instance);
+                    var service = lanSettings.IsVirginMedia == false ? TivoServiceProvider.TivoUSA : TivoServiceProvider.VirginMediaUK;
+                    await connection.Connect(this.LanSettings.LastIpAddress.ToString(), this.LanSettings.MediaAccessKey, service, TivoCertificateStore.Instance);
 
                     if (!this.LanSettings.TSN.Equals(connection.ConnectedTsn, StringComparison.Ordinal))
                     {
@@ -495,7 +519,8 @@ namespace TivoAhoy.Common.ViewModels
                 if (this.IsTestInProgress)
                     return false;
 
-                return this.connectionService.ConnectedNetworkName != null;
+                //return true; // use this for testing in emulator
+               return this.connectionService.ConnectedNetworkName != null;
             }
         }
 
@@ -577,6 +602,7 @@ namespace TivoAhoy.Common.ViewModels
             IPAddress tivoAddress = null;
             string tivoName = null;
             string tivoTsn = null;
+            string platform = null;
 
             foreach (var additional in msg.Additionals)
             {
@@ -590,6 +616,10 @@ namespace TivoAhoy.Common.ViewModels
                         if (property.Key == "TSN")
                         {
                             tivoTsn = property.Value;
+                        }
+                        if (property.Key == "platform")
+                        {
+                            platform = property.Value;
                         }
                     }
                 }
@@ -612,7 +642,7 @@ namespace TivoAhoy.Common.ViewModels
 
             Debug.WriteLine("TiVo found at {0}:{1}", msg.From.Address, port);
 
-            return new DiscoveredTivo(tivoName, tivoAddress, tivoTsn);
+            return new DiscoveredTivo(tivoName, tivoAddress, tivoTsn, platform);
         }
 #else
         private async Task<bool> DiscoverTivos()
@@ -626,7 +656,8 @@ namespace TivoAhoy.Common.ViewModels
                 {
                     var device = new DiscoveredTivo(host.DisplayName, 
                         IPAddress.Parse(host.IPAddress), 
-                        host.Services.First().Value.Properties[0]["TSN"]);
+                        host.Services.First().Value.Properties[0]["TSN"],
+                        host.Services.First().Value.Properties[0]["platform"]);
 
                     this.discoveredTivos.Add(device);
                 }

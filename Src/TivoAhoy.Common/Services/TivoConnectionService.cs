@@ -224,8 +224,7 @@ namespace TivoAhoy.Common.Services
 
                 var localConnection = new TivoConnection();
 
-                // TODO: detect this based on the Tivo mDNS data
-                var service = TivoServiceProvider.VirginMediaUK;
+               
 
                 if (!forceAwayMode)
                 {
@@ -236,6 +235,7 @@ namespace TivoAhoy.Common.Services
                         ConnectionSettings.LanSettingsAppearValid(lanSettings.LastIpAddress, lanSettings.MediaAccessKey) &&
                         lanSettings.NetworkName == this.ConnectedNetworkName)
                     {
+                        var service = lanSettings.IsVirginMedia == false ? TivoServiceProvider.TivoUSA : TivoServiceProvider.VirginMediaUK;
                         try
                         {
                             await localConnection.Connect(lanSettings.LastIpAddress.ToString(), lanSettings.MediaAccessKey, service, TivoCertificateStore.Instance);
@@ -272,7 +272,7 @@ namespace TivoAhoy.Common.Services
                         await localConnection.ConnectAway(
                             ConnectionSettings.AwayModeUsername,
                             ConnectionSettings.AwayModePassword,
-                            service,
+                            ConnectionSettings.AwayModeServiceProvider,
                             TivoCertificateStore.Instance);
 
                         this.isConnected = true;
