@@ -12,6 +12,7 @@ using Caliburn.Micro;
 using Microsoft.Phone.Controls;
 using TivoAhoy.Common.Services;
 using TivoAhoy.Common.ViewModels;
+using TivoAhoy.Phone.Services;
 
 namespace TivoAhoy.Phone
 {
@@ -28,6 +29,7 @@ namespace TivoAhoy.Phone
             container.Instance<IProgressService>(new ProgressService(RootFrame));
 
             container.Singleton<IAnalyticsService, AnalyticsService>();
+            container.Singleton<IDiscoveryService, DiscoveryService>();
             container.Singleton<ITivoConnectionService, TivoConnectionService>();
             container.Singleton<IScheduledRecordingsService, ScheduledRecordingsService>();
 

@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 
-namespace TivoAhoy.Common.Discovery
+namespace TivoAhoy.Phone.Discovery
 {
     public class Answer : IServerResponse
     {

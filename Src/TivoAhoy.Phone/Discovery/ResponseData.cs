@@ -1,4 +1,4 @@
-﻿namespace TivoAhoy.Common.Discovery
+﻿namespace TivoAhoy.Phone.Discovery
 {
     using System;
     using System.Collections.Generic;

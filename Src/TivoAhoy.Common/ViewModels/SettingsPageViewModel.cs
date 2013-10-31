@@ -5,41 +5,30 @@
 //-----------------------------------------------------------------------
 
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Globalization;
-using System.IO;
 using System.Linq;
-using System.Net;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using System.ServiceModel;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using Caliburn.Micro;
 using Coding4Fun.Toolkit.Controls;
-using Microsoft.Phone.Net.NetworkInformation;
 using Tivo.Connect;
 using TivoAhoy.Common.Discovery;
 using TivoAhoy.Common.Events;
 using TivoAhoy.Common.Services;
 using TivoAhoy.Common.Settings;
 
-
-#if !WP7
-using Zeroconf;
-#endif
-
 namespace TivoAhoy.Common.ViewModels
 {
     public class SettingsPageViewModel : Screen
     {
-        private const string dnsProtocol = "_tivo-mindrpc._tcp.";
-
+        private readonly IDiscoveryService discoveryService;
         private readonly IEventAggregator eventAggregator;
         private readonly IProgressService progressService;
         private readonly ITivoConnectionService connectionService;
@@ -58,10 +47,12 @@ namespace TivoAhoy.Common.ViewModels
         public SettingsPageViewModel(
             IEventAggregator eventAggregator, 
             IProgressService progressService, 
-            ITivoConnectionService connectionService)
+            ITivoConnectionService connectionService,
+            IDiscoveryService discoveryService)
         {
             this.eventAggregator = eventAggregator;
             this.connectionService = connectionService;
+            this.discoveryService = discoveryService;
             this.progressService = progressService;
 
             this.connectionService.PropertyChanged += OnConnectionServicePropertyChanged;
@@ -533,14 +524,14 @@ namespace TivoAhoy.Common.ViewModels
 
             using (ShowProgress())
             {
+                var progress = new Microsoft.Progress<DiscoveredTivo>(x => this.discoveredTivos.Add(x));
+                
+                await discoveryService.DiscoverTivosAsync(progress, CancellationToken.None);
 
-                var discovered = await DiscoverTivos();
-
-                if (discovered)
+                if (this.discoveredTivos.Any())
                 {
                     var selectedTivo = this.discoveredTivos
-                                            .FirstOrDefault(x => x.TSN.Equals(ConnectionSettings.SelectedTivoTsn, 
-                                                StringComparison.Ordinal));
+                        .FirstOrDefault(x => x.TSN.Equals(ConnectionSettings.SelectedTivoTsn, StringComparison.OrdinalIgnoreCase));
 
                     if (selectedTivo == null)
                     {
@@ -551,120 +542,5 @@ namespace TivoAhoy.Common.ViewModels
                 }
             }
         }
-
-#if WP7
-
-        private async Task<bool> DiscoverTivos()
-        {
-            var dnsAnswers = await MDnsClient.CreateAndResolveAsync(dnsProtocol);
-
-            if (dnsAnswers != null)
-            {
-                var answersSubscription = dnsAnswers
-                    .Select(HandleDnsAnswer)
-                    .Where(x => x != null)
-                    .ObserveOnDispatcher()
-                    .Subscribe(x => this.discoveredTivos.Add(x));
-
-                await TaskEx.Delay(TimeSpan.FromSeconds(3));
-
-                answersSubscription.Dispose();
-
-                return true;
-            }
-            return false;
-        }
-
-        private DiscoveredTivo HandleDnsAnswer(Discovery.Message msg)
-        {
-            bool isTivoResponse = false;
-
-            foreach (var answer in msg.Answers)
-            {
-                if (answer.Type == Discovery.Type.PTR)
-                {
-                    var ptrData = (Discovery.Ptr)answer.ResponseData;
-                    var name = ptrData.DomainName.ToString();
-
-                    if (name.Contains(dnsProtocol))
-                    {
-                        isTivoResponse = true;
-                    }
-                }
-            }
-
-            if (!isTivoResponse)
-            {
-                return null;
-            }
-
-            int? port = null;
-            IPAddress tivoAddress = null;
-            string tivoName = null;
-            string tivoTsn = null;
-            string platform = null;
-
-            foreach (var additional in msg.Additionals)
-            {
-                if (additional.Type == Discovery.Type.TXT)
-                {
-                    var txtData = (Discovery.Txt)additional.ResponseData;
-
-                    foreach (var property in txtData.Properties)
-                    {
-                        Debug.WriteLine("TXT entry: {0} = {1}", property.Key, property.Value);
-                        if (property.Key == "TSN")
-                        {
-                            tivoTsn = property.Value;
-                        }
-                        if (property.Key == "platform")
-                        {
-                            platform = property.Value;
-                        }
-                    }
-                }
-
-                if (additional.Type == Discovery.Type.A)
-                {
-                    var hostAddress = (Discovery.HostAddress)additional.ResponseData;
-
-                    tivoAddress = hostAddress.Address;
-                    tivoName = additional.DomainName[0];
-                }
-
-                if (additional.Type == Discovery.Type.SRV)
-                {
-                    var srvData = (Discovery.Srv)additional.ResponseData;
-
-                    port = srvData.Port;
-                }
-            }
-
-            Debug.WriteLine("TiVo found at {0}:{1}", msg.From.Address, port);
-
-            return new DiscoveredTivo(tivoName, tivoAddress, tivoTsn, platform);
-        }
-#else
-        private async Task<bool> DiscoverTivos()
-        {
-            const string tivoService = "_tivo-mindrpc._tcp.local.";
-            var results = await ZeroconfResolver.ResolveAsync(tivoService, TimeSpan.FromSeconds(.5));
-
-            if (results.Count > 0)
-            {
-                foreach (var host in results)
-                {
-                    var device = new DiscoveredTivo(host.DisplayName, 
-                        IPAddress.Parse(host.IPAddress), 
-                        host.Services.First().Value.Properties[0]["TSN"],
-                        host.Services.First().Value.Properties[0]["platform"]);
-
-                    this.discoveredTivos.Add(device);
-                }
-                return true;
-            }
-            return false;
-        }
-#endif
     }
 }

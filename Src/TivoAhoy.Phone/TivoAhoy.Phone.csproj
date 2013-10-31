@@ -142,6 +142,19 @@
     <Compile Include="Converters\ImageInfoListToUrlConverter.cs" />
     <Compile Include="Converters\NullOrEmptyToVisibilityConverter.cs" />
     <Compile Include="Converters\UtcToLocalTimeConverter.cs" />
+    <Compile Include="Discovery\Answer.cs" />
+    <Compile Include="Discovery\BackReferenceBinaryReader.cs" />
+    <Compile Include="Discovery\BaseMessage.cs" />
+    <Compile Include="Discovery\BinaryHelper.cs" />
+    <Compile Include="Discovery\DnsEnums.cs" />
+    <Compile Include="Discovery\DomainName.cs" />
+    <Compile Include="Discovery\IRequest.cs" />
+    <Compile Include="Discovery\IResponse.cs" />
+    <Compile Include="Discovery\MDnsClient.cs" />
+    <Compile Include="Discovery\Message.cs" />
+    <Compile Include="Discovery\Question.cs" />
+    <Compile Include="Discovery\ResponseData.cs" />
+    <Compile Include="Services\DiscoveryService.cs" />
     <Compile Include="Views\ChannelListView.xaml.cs">
       <DependentUpon>ChannelListView.xaml</DependentUpon>
     </Compile>

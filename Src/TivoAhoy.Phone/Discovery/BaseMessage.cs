@@ -1,4 +1,4 @@
-﻿namespace TivoAhoy.Common.Discovery
+﻿namespace TivoAhoy.Phone.Discovery
 {
     public abstract class BaseMessage<T> : IClientResponse<T>, IServerRequest<T>, IServerResponse, IClientRequest
     {

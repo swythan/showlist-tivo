@@ -134,6 +134,9 @@
     <Compile Include="..\TivoAhoy.Common\Services\IAnalyticsService.cs">
       <Link>Services\IAnalyticsService.cs</Link>
     </Compile>
+    <Compile Include="..\TivoAhoy.Common\Services\IDiscoveryService.cs">
+      <Link>Services\IDiscoveryService.cs</Link>
+    </Compile>
     <Compile Include="..\TivoAhoy.Common\Services\IProgressService.cs">
       <Link>Services\IProgressService.cs</Link>
     </Compile>
@@ -239,18 +242,6 @@
     <Compile Include="..\TivoAhoy.Common\ViewModels\UpcomingOffersViewModel.cs">
       <Link>ViewModels\UpcomingOffersViewModel.cs</Link>
     </Compile>
-    <Compile Include="Discovery\Answer.cs" />
-    <Compile Include="Discovery\BackReferenceBinaryReader.cs" />
-    <Compile Include="Discovery\BaseMessage.cs" />
-    <Compile Include="Discovery\BinaryHelper.cs" />
-    <Compile Include="Discovery\DnsEnums.cs" />
-    <Compile Include="Discovery\DomainName.cs" />
-    <Compile Include="Discovery\IRequest.cs" />
-    <Compile Include="Discovery\IResponse.cs" />
-    <Compile Include="Discovery\MDnsClient.cs" />
-    <Compile Include="Discovery\Message.cs" />
-    <Compile Include="Discovery\Question.cs" />
-    <Compile Include="Discovery\ResponseData.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\TivoAhoy.Common\Toolkit.Content\ApplicationBar.Cancel.png">
