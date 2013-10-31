@@ -32,7 +32,10 @@ namespace Tivo.Connect
         private JsonSerializerSettings jsonSettings;
         private JsonSerializer jsonSerializer;
 
-        private string capturedTsn;
+        private string mediaAccessKey;
+        private IList<AnyBody> associatedTivos;
+
+        private string selectedTsn;
 
         public TivoConnection()
         {
@@ -68,30 +71,52 @@ namespace Tivo.Connect
             }
         }
 
+        public string MediaAccessKey
+        {
+            get
+            {
+                return this.mediaAccessKey;
+            }
+        }
+
+        public IEnumerable<AnyBody> AssociatedTivos
+        {
+            get
+            {
+                return this.associatedTivos.AsEnumerable();
+            }
+        }
+
+        public void SelectTiVo(AnyBody tivo)
+        {
+            this.selectedTsn = tivo.Id;
+        }
+
         public string ConnectedTsn
         {
             get
             {
-                if (this.capturedTsn == null)
+                if (this.selectedTsn == null)
                     return null;
 
-                if (this.capturedTsn.StartsWith("tsn:"))
+                if (this.selectedTsn.StartsWith("tsn:"))
                 {
-                    return this.capturedTsn.Substring(4);
+                    return this.selectedTsn.Substring(4);
                 }
 
-                return this.capturedTsn;
+                return this.selectedTsn;
             }
         }
 
         public async Task Connect(string serverAddress, string mediaAccessKey, TivoServiceProvider serviceProvider, ICertificateStore certificateStore)
         {
-            this.capturedTsn = string.Empty;
+            this.selectedTsn = string.Empty;
+            this.mediaAccessKey = mediaAccessKey;
 
             this.tivoSession = new TivoNetworkSession();
 
             var authTask = this.tivoSession.Connect(
-                TivoEndPoint.CreateLocal(serverAddress, serviceProvider, certificateStore), 
+                TivoEndPoint.CreateLocal(serverAddress, serviceProvider, certificateStore),
                 BuildMakAuthenticationRequest(mediaAccessKey),
                 SchemaVersion);
 
@@ -138,16 +163,16 @@ namespace Tivo.Connect
                 throw new FormatException("No TSN returned in bodyConfig");
             }
 
-            this.capturedTsn = (string)bodyConfig["bodyId"];
+            this.selectedTsn = (string)bodyConfig["bodyId"];
 
             var imageBaseUrls = await GetAppGlobalData("imageBaseUrl", 50).ConfigureAwait(false);
 
             ImageUrlMapper.Default.Initialise(imageBaseUrls);
         }
 
-        public async Task<string> ConnectAway(string username, string password, TivoServiceProvider serviceProvider, ICertificateStore certificateStore)
+        public async Task ConnectAway(string username, string password, TivoServiceProvider serviceProvider, ICertificateStore certificateStore)
         {
-            this.capturedTsn = string.Empty;
+            this.selectedTsn = string.Empty;
 
             this.tivoSession = new TivoNetworkSession();
 
@@ -182,27 +207,26 @@ namespace Tivo.Connect
                 throw new UnauthorizedAccessException((string)authResponse["message"]);
             }
 
-            ////Debug.WriteLine("Authentication successful");
-
-            if (string.IsNullOrEmpty(this.capturedTsn))
+            var deviceIds = authResponse["deviceId"];
+            if (deviceIds == null)
             {
-                var deviceIds = (JArray)authResponse["deviceId"];
-
-                if (deviceIds == null ||
-                    deviceIds.Count < 1)
-                {
-                    throw new InvalidOperationException("No TiVo devices associated with account");
-                }
-
-                // TODO : Select which TiVO
-                this.capturedTsn = (string)deviceIds[0]["id"];
+                throw new InvalidOperationException("No TiVo devices associated with account");
             }
+
+            this.associatedTivos = deviceIds.ToObject<IList<AnyBody>>(this.jsonSerializer);
+
+            if (this.associatedTivos.Count == 0)
+            {
+                throw new InvalidOperationException("No TiVo devices associated with account");
+            }
+
+            this.selectedTsn = this.associatedTivos.First().Id;
+            
+            this.mediaAccessKey = (string)authResponse["mediaAccessKey"];
 
             var imageBaseUrls = await GetAppGlobalData("imageBaseUrl", 50).ConfigureAwait(false);
 
             ImageUrlMapper.Default.Initialise(imageBaseUrls);
-
-            return (string)authResponse["mediaAccessKey"];
         }
 
         public async Task<IList<AppGlobalData>> GetAppGlobalData(string appName, int count)
@@ -488,7 +512,7 @@ namespace Tivo.Connect
             var whatsOnSearchBody = new Dictionary<string, object>()
             { 
                 { "type", "whatsOnSearch" },
-                { "bodyId", this.capturedTsn },
+                { "bodyId", this.selectedTsn },
             };
 
             var whatsOnResponse = await this.tivoSession.SendRequest(whatsOnSearchBody, SchemaVersion).ConfigureAwait(false);
@@ -643,7 +667,7 @@ namespace Tivo.Connect
             {
                 { "type", "recordingFolderItemSearch" },
                 { "note", new string[] { "recordingForChildRecordingId" } },
-                { "bodyId", this.capturedTsn },
+                { "bodyId", this.selectedTsn },
                 { "orderBy", new string[] { "startTime" } },
                 { "count", "1000" },
                 { "format", "idSequence" },
@@ -663,7 +687,7 @@ namespace Tivo.Connect
             {
                 { "type", "recordingFolderItemSearch" },
                 { "orderBy", new string[] { "startTime" } },
-                { "bodyId", this.capturedTsn },
+                { "bodyId", this.selectedTsn },
                 { "objectIdAndType", itemIds.ToArray() },
                 { "note", new string[] { "recordingForChildRecordingId" } },
                 { "responseTemplate", 
@@ -766,7 +790,7 @@ namespace Tivo.Connect
             {
                 { "contentId", new string[] { contentId } },
                 { "filterUnavailableContent", false },
-                { "bodyId", this.capturedTsn },
+                { "bodyId", this.selectedTsn },
 //                { "note", new string[] { "userContentForCollectionId", "broadbandOfferGroupForContentId", "recordingForContentId" } },
                 { "note", new string[] { "recordingForContentId" } },
                 { "type", "contentSearch" },
@@ -836,7 +860,7 @@ namespace Tivo.Connect
                 new Dictionary<string, object>
                 { 
                     { "type", "uiNavigate" },
-                    { "bodyId", this.capturedTsn },
+                    { "bodyId", this.selectedTsn },
                     { "uri", "x-tivo:classicui:playback" },
                     { "parameters", 
                         new Dictionary<string, object> 
@@ -867,7 +891,7 @@ namespace Tivo.Connect
                 new Dictionary<string, object>
                 { 
                     { "type", "recordingUpdate" },
-                    { "bodyId", this.capturedTsn },
+                    { "bodyId", this.selectedTsn },
                     { "state", newState },
                     { "recordingId", recordingId }
                 };
@@ -882,7 +906,7 @@ namespace Tivo.Connect
                 new Dictionary<string, object>
                 { 
                     { "type", "subscribe" },
-                    { "bodyId", this.capturedTsn },
+                    { "bodyId", this.selectedTsn },
                     { "recordingQuality", "best" },
                     { "showStatus", "rerunsAllowed" },
                     { "maxRecordings", 1 },
@@ -1018,7 +1042,7 @@ namespace Tivo.Connect
             var request = new Dictionary<string, object>
             {
                 { "type", "channelSearch" },
-                { "bodyId", this.capturedTsn },
+                { "bodyId", this.selectedTsn },
                 { "noLimit", true},
                 { "isReceived", true },
                 { "responseTemplate", 
@@ -1062,7 +1086,7 @@ namespace Tivo.Connect
             var request = new Dictionary<string, object>
             {
                 { "type", "gridRowSearch" },
-                { "bodyId", this.capturedTsn },
+                { "bodyId", this.selectedTsn },
                 { "orderBy", new string[] { "channelNumber"} },
                 { "isReceived", true},
                 { "minEndTime", minEndTime },
@@ -1146,7 +1170,7 @@ namespace Tivo.Connect
             var request = new Dictionary<string, object>
             {
                 { "type", "recordingSearch" },
-                { "bodyId", this.capturedTsn },
+                { "bodyId", this.selectedTsn },
                 { "state", states },
                 { "noLimit", true },
                 { "format", "idSequence" }
@@ -1161,7 +1185,7 @@ namespace Tivo.Connect
             var request = new Dictionary<string, object>
             {
                 { "type", "recordingSearch" },
-                { "bodyId", this.capturedTsn },
+                { "bodyId", this.selectedTsn },
                 { "state", states },
                 { "offset", offset },
                 { "count", count },
@@ -1224,7 +1248,7 @@ namespace Tivo.Connect
             var request = new Dictionary<string, object>
             {
                 { "type", "recordingSearch" },
-                { "bodyId", this.capturedTsn },
+                { "bodyId", this.selectedTsn },
                 { "state", new[] { "inProgress", "scheduled" } },
                 { "recordingId", recordingId },
                 { "levelOfDetail", "low" },
@@ -1308,7 +1332,7 @@ namespace Tivo.Connect
             var request = new Dictionary<string, object>
             {
                 { "type", "offerSearch" },
-                { "bodyId", this.capturedTsn },
+                { "bodyId", this.selectedTsn },
                 { "searchable", true},
                 { "receivedChannelsOnly", false},
                 { "namespace", "refserver" },
@@ -1345,7 +1369,7 @@ namespace Tivo.Connect
             var request = new Dictionary<string, object>
             {
                 { "type", "offerSearch" },
-                { "bodyId", this.capturedTsn },
+                { "bodyId", this.selectedTsn },
                 { "offset", offset },
                 { "count", count },
                 { "searchable", true},
@@ -1420,7 +1444,7 @@ namespace Tivo.Connect
             var request = new Dictionary<string, object>
             {
                 { "type", "collectionSearch" },
-                { "bodyId", this.capturedTsn },
+                { "bodyId", this.selectedTsn },
                 { "filterUnavailable", false },
                 { "collectionId", new[] { collectionId } },
                 { "note", 
@@ -1443,7 +1467,7 @@ namespace Tivo.Connect
             var request = new Dictionary<string, object>
             {
                 { "type", "unifiedItemSearch" },
-                { "bodyId", this.capturedTsn },
+                { "bodyId", this.selectedTsn },
                 { "keyword", keyword },
                 { "count", count },
                 { "offset", offset },
@@ -1464,7 +1488,7 @@ namespace Tivo.Connect
             var request = new Dictionary<string, object>
             {
                 { "type", "personSearch" },
-                { "bodyId", this.capturedTsn },
+                { "bodyId", this.selectedTsn },
                 { "personId", new[] { personId } },
                 { "note", 
                     new string[] 
@@ -1527,7 +1551,7 @@ namespace Tivo.Connect
             var request = new Dictionary<string, object>
             {
                 { "type", "personSearch" },
-                { "bodyId", this.capturedTsn },
+                { "bodyId", this.selectedTsn },
                 { "personId", new[] { personId } },
                 { "note", notes },
                 { "levelOfDetail", "high" },

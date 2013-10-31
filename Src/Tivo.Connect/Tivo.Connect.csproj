@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\AppGlobalData.cs" />
+    <Compile Include="Entities\BodyCapabilities.cs" />
     <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\Channel.cs" />
     <Compile Include="Entities\Collection.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="Entities\Container.cs" />
     <Compile Include="Entities\ContentSummaryForPerson.cs" />
     <Compile Include="Entities\Credit.cs" />
+    <Compile Include="Entities\AnyBody.cs" />
     <Compile Include="Entities\GridRow.cs" />
     <Compile Include="Entities\ImageInfo.cs" />
     <Compile Include="Entities\IndividualShow.cs" />

@@ -87,12 +87,19 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Zeroconf">
+      <HintPath>..\packages\Zeroconf.2.0.0\lib\net45\Zeroconf.dll</HintPath>
+    </Reference>
+    <Reference Include="Zeroconf.Platform">
+      <HintPath>..\packages\Zeroconf.2.0.0\lib\net45\Zeroconf.Platform.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DiscoveredTivo.cs" />
     <Compile Include="DurationToWidthConverter.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -102,6 +109,10 @@
       <DependentUpon>SearchView.xaml</DependentUpon>
     </Compile>
     <Compile Include="SearchViewModel.cs" />
+    <Compile Include="SetupConnectionView.xaml.cs">
+      <DependentUpon>SetupConnectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SetupConnectionViewModel.cs" />
     <Compile Include="ShellViewModel.cs" />
     <Compile Include="ShowGridView.xaml.cs">
       <DependentUpon>ShowGridView.xaml</DependentUpon>
@@ -128,6 +139,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="SearchView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SetupConnectionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
