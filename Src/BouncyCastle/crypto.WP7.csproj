@@ -7,7 +7,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{38872A5F-E87E-4FAD-B109-8EB7B2E6A4A1}</ProjectGuid>
     <AssemblyKeyContainerName />
-    <AssemblyName>crypto</AssemblyName>
+    <AssemblyName>crypto.wp7</AssemblyName>
     <AssemblyOriginatorKeyFile />
     <DelaySign>false</DelaySign>
     <OutputType>Library</OutputType>
@@ -32,7 +32,7 @@
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
     <DefineConstants>TRACE;DEBUG;PORTABLE</DefineConstants>
-    <DocumentationFile>doc\wp7\crypto.xml</DocumentationFile>
+    <DocumentationFile>doc\wp7\crypto.wp7.xml</DocumentationFile>
     <DebugSymbols>true</DebugSymbols>
     <Optimize>false</Optimize>
     <RegisterForComInterop>false</RegisterForComInterop>
