@@ -106,8 +106,14 @@
     <Reference Include="mscorlib.extensions" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Tivo.Connect\Entities\AnyBody.cs">
+      <Link>Entities\AnyBody.cs</Link>
+    </Compile>
     <Compile Include="..\Tivo.Connect\Entities\AppGlobalData.cs">
       <Link>Entities\AppGlobalData.cs</Link>
+    </Compile>
+    <Compile Include="..\Tivo.Connect\Entities\BodyCapabilities.cs">
+      <Link>Entities\BodyCapabilities.cs</Link>
     </Compile>
     <Compile Include="..\Tivo.Connect\Entities\Category.cs">
       <Link>Entities\Category.cs</Link>

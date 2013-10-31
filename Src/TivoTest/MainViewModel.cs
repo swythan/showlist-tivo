@@ -20,18 +20,21 @@ namespace TivoTest
     [Export(typeof(MainViewModel))]
     public partial class MainViewModel : PropertyChangedBase
     {
-        private ITivoConnectionService tivoConnectionService;
+        private readonly ITivoConnectionService tivoConnectionService;
+        private readonly IWindowManager windowManager;
 
         private BindableCollection<RecordingFolderItem> shows;
-
+        
         [ImportingConstructor]
         public MainViewModel(
             ITivoConnectionService tivoConnectionService,
+            IWindowManager windowManager,
             WhatsOnViewModel whatsOnModel,
             ShowGridViewModel showGridModel,
             SearchViewModel searchModel)
         {
             this.tivoConnectionService = tivoConnectionService;
+            this.windowManager = windowManager;
             this.WhatsOn = whatsOnModel;
             this.ShowGrid = showGridModel;
             this.Search = searchModel;
@@ -60,6 +63,11 @@ namespace TivoTest
                 this.shows = value;
                 NotifyOfPropertyChange(() => this.Shows);
             }
+        }
+
+        public void SetupConnection()
+        {
+            this.windowManager.ShowDialog(new SetupConnectionViewModel());
         }
 
         public async void Connect()
