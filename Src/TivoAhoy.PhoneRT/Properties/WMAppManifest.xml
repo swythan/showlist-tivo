@@ -4,7 +4,7 @@
   <Languages xmlns="">
     <Language code="en" />
   </Languages>
-  <App xmlns="" ProductID="{0056bd0c-d7a2-4f93-9f1f-8ee5bbef8c76}" Title="Show List for TiVo®" RuntimeType="Silverlight" Version="2.1.0.0" Genre="apps.normal" Author="James Chaldecott" Description="Access your Virgin Media TiVo® DVR using WiFi.&#xD;&#xA;&#xD;&#xA;Browse your My Shows list, upcoming recordings and the EPG.  You can then schedule, cancel or delete recordings, as well start recordings playing (on your TV)." Publisher="James Chaldecott" PublisherID="{0793f9bc-15e5-49c0-b3e6-143006bbb03b}">
+  <App xmlns="" ProductID="{0056bd0c-d7a2-4f93-9f1f-8ee5bbef8c76}" Title="Show List for TiVo®" RuntimeType="Silverlight" Version="2.2.0.0" Genre="apps.normal" Author="James Chaldecott" Description="Access your Virgin Media TiVo® DVR using WiFi.&#xD;&#xA;&#xD;&#xA;Browse your My Shows list, upcoming recordings and the EPG.  You can then schedule, cancel or delete recordings, as well start recordings playing (on your TV)." Publisher="James Chaldecott" PublisherID="{0793f9bc-15e5-49c0-b3e6-143006bbb03b}">
     <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon_100x100.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
