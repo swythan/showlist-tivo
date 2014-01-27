@@ -4,7 +4,7 @@ namespace Tivo.Connect
 {
     public interface ICertificateStore
     {
-        Stream GetCertificate(TivoServiceProvider serviceProvider);
-        string GetPassword(TivoServiceProvider serviceProvider);
+        Stream GetCertificate(TivoServiceProvider serviceProvider, bool fallback);
+        string GetPassword(TivoServiceProvider serviceProvider, bool fallback);
     }
 }

@@ -17,16 +17,16 @@ namespace TivoAhoy.Common.Services
         {
         }
 
-        Stream ICertificateStore.GetCertificate(TivoServiceProvider serviceProvider)
+        Stream ICertificateStore.GetCertificate(TivoServiceProvider serviceProvider, bool fallback)
         {
             string resourceName;
             switch (serviceProvider)
             {
                 case TivoServiceProvider.TivoUSA:
-                    resourceName = "TivoAhoy.Common.tivo_us.p12";
+                    resourceName = fallback ? "TivoTest.tivo_us.p12" : "TivoTest.tivo_us_2013.p12";
                     break;
                 case TivoServiceProvider.VirginMediaUK:
-                    resourceName = "TivoAhoy.Common.tivo_vm.p12";
+                    resourceName = fallback ? "TivoTest.tivo_vm.p12" : "TivoTest.tivo_vm_2013.p12";
                     break;
 
                 case TivoServiceProvider.Unknown:
@@ -37,15 +37,15 @@ namespace TivoAhoy.Common.Services
             return typeof(TivoCertificateStore).Assembly.GetManifestResourceStream(resourceName);
         }
 
-        string ICertificateStore.GetPassword(TivoServiceProvider serviceProvider)
+        string ICertificateStore.GetPassword(TivoServiceProvider serviceProvider, bool fallback)
         {
             switch (serviceProvider)
             {
                 case TivoServiceProvider.TivoUSA:
-                    return "mpE7Qy8cSqdf";
+                    return fallback ? "mpE7Qy8cSqdf" : "l18XSexbHr";
 
                 case TivoServiceProvider.VirginMediaUK:
-                    return "R2N48DSKr2Cm";
+                    return fallback ? "R2N48DSKr2Cm" : "AY1T2SGRktnz";
 
                 case TivoServiceProvider.Unknown:
                 default:

@@ -196,6 +196,8 @@
     <None Include="packages.config" />
     <EmbeddedResource Include="tivo_us.p12" />
     <EmbeddedResource Include="tivo_vm.p12" />
+    <EmbeddedResource Include="tivo_us_2013.p12" />
+    <EmbeddedResource Include="tivo_vm_2013.p12" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />

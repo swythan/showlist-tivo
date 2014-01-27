@@ -97,7 +97,7 @@ namespace Tivo.Connect
         {
             get
             {
-                return this.certificateStore.GetCertificate(this.serviceProvider);
+                return this.certificateStore.GetCertificate(this.serviceProvider, false);
             }
         }
 
@@ -105,7 +105,7 @@ namespace Tivo.Connect
         {
             get
             {
-                return this.certificateStore.GetPassword(this.serviceProvider);
+                return this.certificateStore.GetPassword(this.serviceProvider, false);
             }
         }
 
