@@ -167,6 +167,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <Resource Include="tivo_vm_2013.p12" />
     <Resource Include="tivo_us.p12" />
     <Resource Include="tivo_vm.p12" />
   </ItemGroup>
