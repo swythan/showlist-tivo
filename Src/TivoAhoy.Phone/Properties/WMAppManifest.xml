@@ -5,7 +5,7 @@
        ProductID="{0056bd0c-d7a2-4f93-9f1f-8ee5bbef8c76}"
        Title="Show List for TiVo®"
        RuntimeType="Silverlight"
-       Version="2.1.0.0"
+       Version="2.1.1.0"
        Genre="apps.normal"
        Author="James Chaldecott"
        Description="Access your Virgin Media TiVo® DVR using WiFi.&#xD;&#xA;&#xD;&#xA;Browse your My Shows list, upcoming recordings and the EPG.  You can then schedule, cancel or delete recordings, as well start recordings playing (on your TV)."
