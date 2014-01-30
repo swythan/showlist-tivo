@@ -23,10 +23,10 @@ namespace TivoAhoy.Common.Services
             switch (serviceProvider)
             {
                 case TivoServiceProvider.TivoUSA:
-                    resourceName = fallback ? "TivoTest.tivo_us.p12" : "TivoTest.tivo_us_2013.p12";
+                    resourceName = fallback ? "tivo_us.p12" : "tivo_us_2013.p12";
                     break;
                 case TivoServiceProvider.VirginMediaUK:
-                    resourceName = fallback ? "TivoTest.tivo_vm.p12" : "TivoTest.tivo_vm_2013.p12";
+                    resourceName = fallback ? "tivo_vm.p12" : "tivo_vm_2013.p12";
                     break;
 
                 case TivoServiceProvider.Unknown:
@@ -34,7 +34,7 @@ namespace TivoAhoy.Common.Services
                     throw new ArgumentOutOfRangeException("serviceProvider", "Must specify a valid service provider.");
             }
 
-            return typeof(TivoCertificateStore).Assembly.GetManifestResourceStream(resourceName);
+            return typeof(TivoCertificateStore).Assembly.GetManifestResourceStream("TivoAhoy.Common." + resourceName);
         }
 
         string ICertificateStore.GetPassword(TivoServiceProvider serviceProvider, bool fallback)
