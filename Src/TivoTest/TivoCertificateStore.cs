@@ -42,7 +42,7 @@ namespace TivoTest
             switch (serviceProvider)
             {
                 case TivoServiceProvider.TivoUSA:
-                    return "mpE7Qy8cSqdf";
+                    return "l18XSexbHr";
 
                 case TivoServiceProvider.VirginMediaUK:
                     return "R2N48DSKr2Cm";
