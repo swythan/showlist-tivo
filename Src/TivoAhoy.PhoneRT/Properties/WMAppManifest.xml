@@ -1,11 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
-  <DefaultLanguage xmlns="" code="en" />
+<Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment"
+            AppPlatformVersion="8.0">
+  <DefaultLanguage xmlns=""
+                   code="en" />
   <Languages xmlns="">
     <Language code="en" />
   </Languages>
-  <App xmlns="" ProductID="{0056bd0c-d7a2-4f93-9f1f-8ee5bbef8c76}" Title="Show List for TiVo®" RuntimeType="Silverlight" Version="2.2.0.0" Genre="apps.normal" Author="James Chaldecott" Description="Access your Virgin Media TiVo® DVR using WiFi.&#xD;&#xA;&#xD;&#xA;Browse your My Shows list, upcoming recordings and the EPG.  You can then schedule, cancel or delete recordings, as well start recordings playing (on your TV)." Publisher="James Chaldecott" PublisherID="{0793f9bc-15e5-49c0-b3e6-143006bbb03b}">
-    <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon_100x100.png</IconPath>
+  <App xmlns=""
+       ProductID="{0056bd0c-d7a2-4f93-9f1f-8ee5bbef8c76}"
+       Title="zShow List for TiVo®"
+       RuntimeType="Silverlight"
+       Version="2.2.0.0"
+       Genre="apps.normal"
+       Author="James Chaldecott"
+       Description="Access your Virgin Media TiVo® DVR using WiFi.&#xD;&#xA;&#xD;&#xA;Browse your My Shows list, upcoming recordings and the EPG.  You can then schedule, cancel or delete recordings, as well start recordings playing (on your TV)."
+       Publisher="James Chaldecott"
+       PublisherID="{0793f9bc-15e5-49c0-b3e6-143006bbb03b}">
+    <IconPath IsRelative="true"
+              IsResource="false">Assets\ApplicationIcon_100x100.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
       <Capability Name="ID_CAP_IDENTITY_DEVICE" />
@@ -13,14 +25,18 @@
       <Capability Name="ID_CAP_SPEECH_RECOGNITION" />
     </Capabilities>
     <Tasks>
-      <DefaultTask Name="_default" NavigationPage="Views/MainPage.xaml" />
+      <DefaultTask Name="_default"
+                   NavigationPage="Views/MainPage.xaml" />
     </Tasks>
     <Tokens>
-      <PrimaryToken TokenID="TivoAhoy.PhoneRTToken" TaskName="_default">
+      <PrimaryToken TokenID="TivoAhoy.PhoneRTToken"
+                    TaskName="_default">
         <TemplateFlip>
-          <SmallImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileSmall_159x159.png</SmallImageURI>
+          <SmallImageURI IsRelative="true"
+                         IsResource="false">Assets\Tiles\FlipCycleTileSmall_159x159.png</SmallImageURI>
           <Count>0</Count>
-          <BackgroundImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileMedium_336x336.png</BackgroundImageURI>
+          <BackgroundImageURI IsRelative="true"
+                              IsResource="false">Assets\Tiles\FlipCycleTileMedium_336x336.png</BackgroundImageURI>
           <Title>Show List</Title>
           <BackContent>
           </BackContent>
@@ -28,9 +44,11 @@
           </BackBackgroundImageURI>
           <BackTitle>
           </BackTitle>
-          <LargeBackgroundImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileLarge_691x336.png</LargeBackgroundImageURI>
+          <LargeBackgroundImageURI IsRelative="true"
+                                   IsResource="false">Assets\Tiles\FlipCycleTileLarge_691x336.png</LargeBackgroundImageURI>
           <LargeBackContent />
-          <LargeBackBackgroundImageURI IsRelative="true" IsResource="false">
+          <LargeBackBackgroundImageURI IsRelative="true"
+                                       IsResource="false">
           </LargeBackBackgroundImageURI>
           <DeviceLockImageURI>
           </DeviceLockImageURI>

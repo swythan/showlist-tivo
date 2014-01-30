@@ -3,7 +3,7 @@
             AppPlatformVersion="7.1">
   <App xmlns=""
        ProductID="{0056bd0c-d7a2-4f93-9f1f-8ee5bbef8c76}"
-       Title="Show List for TiVo®"
+       Title="zShow List for TiVo®"
        RuntimeType="Silverlight"
        Version="2.2.0.0"
        Genre="apps.normal"
