@@ -29,6 +29,7 @@ namespace TivoAhoy.PhoneRT
             container.Instance<IProgressService>(new ProgressService(RootFrame));
 
             container.Singleton<IAnalyticsService, AnalyticsService>();
+            container.Singleton<IDiscoveryService, DiscoveryService>();
             container.Singleton<ITivoConnectionService, TivoConnectionService>();
             container.Singleton<IScheduledRecordingsService, ScheduledRecordingsService>();
             container.Singleton<ISpeechService, SpeechService>();

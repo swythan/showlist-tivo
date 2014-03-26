@@ -140,10 +140,14 @@ namespace TivoAhoy.Common.ViewModels
 
             try
             {
+                var connection = this.connectionService.Connection;
+                if (connection == null)
+                {
+                    return;
+                }
+
                 using (this.progressService.Show())
                 {
-                    var connection = await this.connectionService.GetConnectionAsync();
-
                     this.lastSearchText = this.SearchText;
 
                     IEnumerable<IUnifiedItem> result = await connection.ExecuteUnifiedItemSearch(this.SearchText, 0, 25);
@@ -191,8 +195,6 @@ namespace TivoAhoy.Common.ViewModels
 
         public async void SearchByVoice()
         {
-            // Start connecting now (in case we are disconnected, esp at start-up)
-            var connectTask = this.connectionService.GetConnectionAsync();
 
             string findText = await this.speechService.RecognizeTextFromWebSearchGrammar("Ex. \"The Simpsons\"");
 
@@ -202,9 +204,6 @@ namespace TivoAhoy.Common.ViewModels
             }
 
             this.SearchText = findText;
-
-            // Wait for the connection to succeed (or fail)
-            await connectTask;
 
             if (this.CanSearchByVoice)
             {

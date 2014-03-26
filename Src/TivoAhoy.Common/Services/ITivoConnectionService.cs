@@ -17,10 +17,10 @@ namespace TivoAhoy.Common.Services
         bool SettingsAppearValid { get; }
 
         bool IsConnected { get; }
-        bool IsAwayMode { get; }
+        bool IsHomeMode { get; }
 
         bool IsConnectionEnabled { get; set; }
 
-        Task<TivoConnection> GetConnectionAsync();
+        TivoConnection Connection { get; }
     }
 }

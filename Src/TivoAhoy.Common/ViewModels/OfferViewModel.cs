@@ -149,7 +149,11 @@ namespace TivoAhoy.Common.ViewModels
         {
             try
             {
-                var connection = await this.connectionService.GetConnectionAsync();
+                var connection = this.connectionService.Connection;
+                if (connection == null)
+                {
+                    return;
+                }
 
                 using (this.progressService.Show())
                 {

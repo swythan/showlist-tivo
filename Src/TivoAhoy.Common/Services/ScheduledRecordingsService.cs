@@ -81,7 +81,11 @@ namespace TivoAhoy.Common.Services
                 return;
             }
             
-            var connection = await this.connectionService.GetConnectionAsync();
+            var connection = this.connectionService.Connection;
+            if (connection == null)
+            {
+                return;
+            }
 
             using (progressService.Show())
             {
@@ -95,9 +99,9 @@ namespace TivoAhoy.Common.Services
                     var page = await connection.GetScheduledRecordings(offset, pageSize);
                     recordings.AddRange(page);
                 }
+
                 this.ScheduledRecordings = recordings;
             }
-
         }
 
         private async void OnConnectionServicePropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)

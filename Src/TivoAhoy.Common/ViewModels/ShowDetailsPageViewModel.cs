@@ -89,19 +89,19 @@ namespace TivoAhoy.Common.ViewModels
                 Description = "This is the description of this very interesting episode. Don't let it catch you out, as it really is very interesting"
             };
 
-            this.Offer = 
-                new Offer() 
+            this.Offer =
+                new Offer()
                 {
                     Title = "The Walking Dead",
-                    Subtitle = "An Interesting Episode", 
-                    StartTime = DateTime.Parse("21:00"), 
+                    Subtitle = "An Interesting Episode",
+                    StartTime = DateTime.Parse("21:00"),
                     DurationSeconds = 1825,
-                    Channel = 
-                        new Channel() 
-                        { 
-                            ChannelNumber = 150, 
-                            CallSign = "Ch5 HD", 
-                            LogoIndex = 65736 
+                    Channel =
+                        new Channel()
+                        {
+                            ChannelNumber = 150,
+                            CallSign = "Ch5 HD",
+                            LogoIndex = 65736
                         }
                 };
         }
@@ -311,8 +311,8 @@ namespace TivoAhoy.Common.ViewModels
             get
             {
                 this.upcomingOffersViewModel.ContentID = this.ShowContentID;
-                this.upcomingOffersViewModel.ExcludedOfferIds = new [] { this.ShowOfferID };
-                
+                this.upcomingOffersViewModel.ExcludedOfferIds = new[] { this.ShowOfferID };
+
                 return this.upcomingOffersViewModel;
             }
         }
@@ -328,10 +328,14 @@ namespace TivoAhoy.Common.ViewModels
         {
             try
             {
+                var connection = this.connectionService.Connection;
+                if (connection == null)
+                {
+                    return;
+                }
+
                 using (this.ShowProgress())
                 {
-                    var connection = await this.connectionService.GetConnectionAsync();
-
                     this.Show = await connection.GetShowContentDetails(this.ShowContentID);
 
                     if (!string.IsNullOrEmpty(this.ShowOfferID))
@@ -479,7 +483,7 @@ namespace TivoAhoy.Common.ViewModels
                     return false;
 
                 return
-                    !this.connectionService.IsAwayMode &&
+                    this.connectionService.IsHomeMode &&
                     !this.IsOperationInProgress;
             }
         }
@@ -490,10 +494,14 @@ namespace TivoAhoy.Common.ViewModels
 
             try
             {
+                var connection = this.connectionService.Connection;
+                if (connection == null)
+                {
+                    return;
+                }
+
                 using (this.ShowProgress())
                 {
-                    var connection = await this.connectionService.GetConnectionAsync();
-
                     await connection.PlayShow(this.ShowRecordingID);
                 }
             }
@@ -535,10 +543,14 @@ namespace TivoAhoy.Common.ViewModels
 
             try
             {
+                var connection = this.connectionService.Connection;
+                if (connection == null)
+                {
+                    return;
+                }
+
                 using (this.ShowProgress())
                 {
-                    var connection = await this.connectionService.GetConnectionAsync();
-
                     await connection.DeleteRecording(this.ShowRecordingID);
                 }
 
@@ -588,9 +600,14 @@ namespace TivoAhoy.Common.ViewModels
 
             try
             {
+                var connection = this.connectionService.Connection;
+                if (connection == null)
+                {
+                    return;
+                }
+
                 using (this.ShowProgress())
                 {
-                    var connection = await this.connectionService.GetConnectionAsync();
                     await connection.CancelRecording(this.ShowRecordingID);
                 }
 
@@ -640,11 +657,15 @@ namespace TivoAhoy.Common.ViewModels
 
             try
             {
+                var connection = this.connectionService.Connection;
+                if (connection == null)
+                {
+                    return;
+                }
+
                 SubscribeResult result;
                 using (this.ShowProgress())
                 {
-                    var connection = await this.connectionService.GetConnectionAsync();
-
                     result = await connection.ScheduleSingleRecording(this.ShowContentID, this.ShowOfferID);
                 }
 

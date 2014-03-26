@@ -213,7 +213,11 @@ namespace TivoAhoy.Common.ViewModels
             {
                 using (this.progressService.Show())
                 {
-                    var connection = await this.connectionService.GetConnectionAsync();
+                    var connection = this.connectionService.Connection;
+                    if (connection == null)
+                    {
+                        return;
+                    }
 
                     if (this.channels == null)
                     {

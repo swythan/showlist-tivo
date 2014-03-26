@@ -175,7 +175,11 @@ namespace TivoAhoy.Common.ViewModels
             {
                 using (this.progressService.Show())
                 {
-                    var connection = await this.connectionService.GetConnectionAsync();
+                    var connection = this.connectionService.Connection;
+                    if (connection == null)
+                    {
+                        return;
+                    }
 
                     this.Person = await connection.GetPersonDetails(this.PersonID, false);
 

@@ -5,41 +5,43 @@
 //-----------------------------------------------------------------------
 
 using System;
-using System.IO;
+using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Threading;
 using System.Threading.Tasks;
 using Caliburn.Micro;
 using Coding4Fun.Toolkit.Controls;
 using Microsoft.Phone.Net.NetworkInformation;
-using Nito.AsyncEx;
 using Tivo.Connect;
+using TivoAhoy.Common.Discovery;
 using TivoAhoy.Common.Events;
 using TivoAhoy.Common.Settings;
-using TivoAhoy.Common.Utils;
 
 namespace TivoAhoy.Common.Services
 {
     public class TivoConnectionService : PropertyChangedBase, ITivoConnectionService, IHandle<ConnectionSettingsChanged>
     {
         private readonly IAnalyticsService analyticsService;
+        private readonly IDiscoveryService discoveryService;
         private readonly IEventAggregator eventAggregator;
         private readonly IProgressService progressService;
 
         private bool isConnectionEnabled = false;
 
-        private AsyncLazy<TivoConnection> lazyConnection;
-
-        private bool isConnected = false;
-        private bool isAwayMode = false;
+        private TivoConnection awayConnection;
+        private TivoConnection homeConnection;
 
         private string error;
 
         public TivoConnectionService(
             IAnalyticsService analyticsService,
+            IDiscoveryService discoveryService,
             IEventAggregator eventAggregator,
             IProgressService progressService)
         {
             this.analyticsService = analyticsService;
+            this.discoveryService = discoveryService;
             this.eventAggregator = eventAggregator;
             this.progressService = progressService;
 
@@ -88,45 +90,128 @@ namespace TivoAhoy.Common.Services
             }
         }
 
-        private void OnNetworkAvailabilityChanged(object sender, NetworkNotificationEventArgs e)
+        private async void OnNetworkAvailabilityChanged(object sender, NetworkNotificationEventArgs e)
         {
-            if (e.NetworkInterface.InterfaceSubtype == NetworkInterfaceSubType.WiFi)
+            if (e.NotificationType == NetworkNotificationType.InterfaceConnected ||
+                e.NotificationType == NetworkNotificationType.InterfaceDisconnected)
             {
-                if (e.NotificationType == NetworkNotificationType.InterfaceConnected ||
-                    e.NotificationType == NetworkNotificationType.InterfaceDisconnected)
+                if (e.NetworkInterface.InterfaceSubtype == NetworkInterfaceSubType.WiFi)
                 {
                     NotifyOfPropertyChange(() => this.ConnectedNetworkName);
+                }
+
+                if (e.NotificationType == NetworkNotificationType.InterfaceConnected)
+                {
+                    await AutoConnect().ConfigureAwait(false);
+                }
+
+                if (e.NotificationType == NetworkNotificationType.InterfaceDisconnected)
+                {
+                    await ResetConnection();
                 }
             }
         }
 
-        private async void ResetConnection()
+        private async Task ResetConnection()
         {
-            this.isConnected = false;
-            this.lazyConnection = null;
+            this.awayConnection = null;
+            this.homeConnection = null;
 
             this.NotifyOfPropertyChange(() => this.IsConnected);
 
-            await AutoConnect();
+            await AutoConnect().ConfigureAwait(false);
         }
 
         private async Task AutoConnect()
         {
-            if (this.SettingsAppearValid)
+            bool wasAwayConnectedAlready = this.awayConnection != null;
+            bool wasHomeConnectedAlready = this.homeConnection != null;
+ 
+            if (this.SettingsAppearValid && this.IsConnectionEnabled)
             {
-                this.lazyConnection = new AsyncLazy<TivoConnection>(async () => await this.ConnectAsync(false));
+                Task<IEnumerable<DiscoveredTivo>> discoveryTask;
+                if (this.ConnectedNetworkName != null)
+                {
+                    discoveryTask = this.discoveryService.DiscoverTivosAsync(null, CancellationToken.None);
+                }
+                else
+                {
+                    discoveryTask = TaskEx.FromResult(Enumerable.Empty<DiscoveredTivo>());
+                }
 
-                await TaskEx.Delay(TimeSpan.FromSeconds(2));
+                // TODO: detect this based on the Tivo mDNS data
+                var service = TivoServiceProvider.VirginMediaUK;
 
-                this.lazyConnection.Start();
+                string username = ConnectionSettings.AwayModeUsername;
+                string password = ConnectionSettings.AwayModePassword;
+
+                if (this.awayConnection == null)
+                {
+                    this.awayConnection = await this.ConnectAwayModeAsync(username, password, service);
+                }
+
+                var found = await discoveryTask;
+                if (this.awayConnection != null)
+                {
+                    var accountTivos = this.awayConnection.AssociatedTivos;
+
+                    var availableTivos = accountTivos.Join(
+                        found, 
+                        b => b.Id.Substring(4), 
+                        t => t.TSN, 
+                        (b, t) => new { t.Name, t.TSN, t.IpAddress, b.FriendlyName },
+                        StringComparer.OrdinalIgnoreCase);
+
+                    var firstAvailable = availableTivos.FirstOrDefault();
+
+                    if (firstAvailable != null)
+                    {
+                        this.homeConnection = await this.ConnectHomeModeAsync(firstAvailable.IpAddress, this.awayConnection.MediaAccessKey, service);
+                    }
+                }
+            }
+
+            this.NotifyOfPropertyChange(() => this.IsConnected);
+            this.NotifyOfPropertyChange(() => this.IsHomeMode);
+
+
+            if (this.homeConnection != null && !wasHomeConnectedAlready)
+            {
+                Execute.BeginOnUIThread(() =>
+                {
+                    var toast = new ToastPrompt()
+                    {
+                        Title = "Connected",
+                        Message = "Home Mode",
+                        MillisecondsUntilHidden = 600,
+                    };
+
+                    toast.Show();
+                });
+            }
+            else
+            {
+                if (this.awayConnection != null && !wasAwayConnectedAlready)
+                {
+                    Execute.BeginOnUIThread(() =>
+                    {
+                        var toast = new ToastPrompt()
+                        {
+                            Title = "Connected",
+                            Message = "Away Mode",
+                            MillisecondsUntilHidden = 600,
+                        };
+
+                        toast.Show();
+                    });
+                }
             }
         }
 
-
-        void IHandle<ConnectionSettingsChanged>.Handle(ConnectionSettingsChanged message)
+        async void IHandle<ConnectionSettingsChanged>.Handle(ConnectionSettingsChanged message)
         {
             this.NotifyOfPropertyChange(() => this.SettingsAppearValid);
-            ResetConnection();
+            await ResetConnection().ConfigureAwait(false);
         }
 
         public bool SettingsAppearValid
@@ -138,20 +223,7 @@ namespace TivoAhoy.Common.Services
                     return true;
                 }
 
-                var lanSettings = ConnectionSettings.KnownTivos
-                    .FirstOrDefault(x => x.TSN.Equals(ConnectionSettings.SelectedTivoTsn, StringComparison.Ordinal));
-
-                if (lanSettings == null)
-                {
-                    return false;
-                }
-
-                if (lanSettings.NetworkName != this.ConnectedNetworkName)
-                {
-                    return false;
-                }
-
-                return ConnectionSettings.LanSettingsAppearValid(lanSettings.LastIpAddress, lanSettings.MediaAccessKey);
+                return false;
             }
         }
 
@@ -159,29 +231,15 @@ namespace TivoAhoy.Common.Services
         {
             get
             {
-                return this.isConnected;
+                return this.awayConnection != null || this.homeConnection != null;
             }
         }
 
-        public bool IsAwayMode
+        public bool IsHomeMode
         {
             get
             {
-                return this.isAwayMode;
-            }
-
-            set
-            {
-                if (this.isAwayMode == value)
-                {
-                    return;
-                }
-
-                this.isAwayMode = value;
-
-                ResetConnection();
-
-                this.NotifyOfPropertyChange(() => this.IsAwayMode);
+                return this.homeConnection != null;
             }
         }
 
@@ -199,110 +257,84 @@ namespace TivoAhoy.Common.Services
             }
         }
 
-        public async Task<TivoConnection> GetConnectionAsync()
+        public TivoConnection Connection
         {
-            if (this.lazyConnection == null)
+            get
+            {
+                if (this.homeConnection != null)
+                {
+                    return homeConnection;
+                }
+
+                return this.awayConnection;
+            }
+        }
+
+        private async Task<TivoConnection> ConnectAwayModeAsync(
+            string username,
+            string password,
+            TivoServiceProvider serviceProvider)
+        {
+            if (!this.IsConnectionEnabled)
             {
                 return null;
             }
 
-            return await this.lazyConnection;
-        }
-
-        private async Task<TivoConnection> ConnectAsync(bool forceAwayMode)
-        {
-            if (!this.SettingsAppearValid ||
-                !this.IsConnectionEnabled)
+            if (!ConnectionSettings.AwaySettingsAppearValid(username, password))
             {
                 return null;
             }
 
             using (this.progressService.Show())
             {
-                this.isConnected = false;
-                this.isAwayMode = false;
-
                 var localConnection = new TivoConnection();
 
-                // TODO: detect this based on the Tivo mDNS data
-                var service = TivoServiceProvider.VirginMediaUK;
-
-                if (!forceAwayMode)
+                try
                 {
-                    var lanSettings = ConnectionSettings.KnownTivos
-                        .FirstOrDefault(x => x.TSN.Equals(ConnectionSettings.SelectedTivoTsn, StringComparison.Ordinal));
+                    await localConnection.ConnectAway(username, password, serviceProvider, TivoCertificateStore.Instance);
 
-                    if (lanSettings != null &&
-                        ConnectionSettings.LanSettingsAppearValid(lanSettings.LastIpAddress, lanSettings.MediaAccessKey) &&
-                        lanSettings.NetworkName == this.ConnectedNetworkName)
-                    {
-                        try
-                        {
-                            await localConnection.Connect(lanSettings.LastIpAddress.ToString(), lanSettings.MediaAccessKey, service, TivoCertificateStore.Instance);
-
-                            this.isConnected = true;
-                            this.isAwayMode = false;
-
-                            Execute.BeginOnUIThread(() =>
-                                {
-                                    var toast = new ToastPrompt()
-                                    {
-                                        Title = "Connected",
-                                        Message = "Home Mode",
-                                        MillisecondsUntilHidden = 600,
-                                    };
-
-                                    toast.Show();
-                                });
-
-                            this.analyticsService.ConnectedHomeMode();
-
-                        }
-                        catch (Exception ex)
-                        {
-                            this.Error = ex.Message;
-                        }
-                    }
+                    this.analyticsService.ConnectedAwayMode();
                 }
-
-                if (!this.isConnected)
+                catch (Exception ex)
                 {
-                    try
-                    {
-                        await localConnection.ConnectAway(
-                            ConnectionSettings.AwayModeUsername,
-                            ConnectionSettings.AwayModePassword,
-                            service,
-                            TivoCertificateStore.Instance);
+                    this.Error = ex.Message;
 
-                        this.isConnected = true;
-                        this.isAwayMode = true;
-
-                        Execute.BeginOnUIThread(() =>
-                            {
-                                var toast = new ToastPrompt()
-                                {
-                                    Title = "Connected",
-                                    Message = "Away Mode",
-                                    MillisecondsUntilHidden = 600,
-                                };
-
-                                toast.Show();
-                            });
-
-                        this.analyticsService.ConnectedAwayMode();
-                    }
-                    catch (Exception ex)
-                    {
-                        this.Error = ex.Message;
-                    }
+                    localConnection.Dispose();
+                    localConnection = null;
                 }
+                
+                return localConnection;
+            }
+        }
 
-                NotifyOfPropertyChange(() => IsConnected);
-                NotifyOfPropertyChange(() => IsAwayMode);
+        private async Task<TivoConnection> ConnectHomeModeAsync(
+            IPAddress serverAddress,
+            string mediaAccessKey,
+            TivoServiceProvider serviceProvider)
+        {
+            if (!this.IsConnectionEnabled)
+            {
+                return null;
+            }
 
-                if (!this.isConnected)
+            if (!ConnectionSettings.LanSettingsAppearValid(serverAddress, mediaAccessKey))
+            {
+                return null;
+            }
+
+            using (this.progressService.Show())
+            {
+                var localConnection = new TivoConnection();
+                try
                 {
+                    await localConnection.Connect(serverAddress.ToString(), mediaAccessKey, serviceProvider, TivoCertificateStore.Instance);
+
+                    this.analyticsService.ConnectedHomeMode();
+                }
+                catch (Exception ex)
+                {
+                    this.Error = ex.Message;
+
                     localConnection.Dispose();
                     localConnection = null;
                 }

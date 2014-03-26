@@ -245,7 +245,11 @@ namespace TivoAhoy.Common.ViewModels
 
                 using (this.progressService.Show())
                 {
-                    var connection = await this.connectionService.GetConnectionAsync();
+                    var connection = this.connectionService.Connection;
+                    if (connection == null)
+                    {
+                        return;
+                    }
 
                     List<Offer> upcomingOffers = new List<Offer>();
 
