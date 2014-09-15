@@ -252,6 +252,8 @@ namespace Tivo.Connect
 
             var folderShows = await SendGetFolderShowsRequest(parentId).ConfigureAwait(false);
 
+            CheckResponse(folderShows, "idSequence", "recordingFolderItemSearch");
+
             var objectIds = folderShows["objectIdAndType"].ToObject<IList<long>>(this.jsonSerializer);
 
             return await GetRecordingFolderItemsAsync(objectIds, 5, progress).ConfigureAwait(false);
@@ -260,6 +262,8 @@ namespace Tivo.Connect
         public async Task<IEnumerable<long>> GetRecordingFolderItemIds(string parentId)
         {
             var folderShows = await SendGetFolderShowsRequest(parentId).ConfigureAwait(false);
+
+            CheckResponse(folderShows, "idSequence", "recordingFolderItemSearch");
 
             return folderShows["objectIdAndType"].ToObject<IList<long>>(this.jsonSerializer);
         }
@@ -571,7 +575,14 @@ namespace Tivo.Connect
                 throw new FormatException(string.Format("Expecting {0}, but got {1}", expectedType, responseType));
             }
 
-            throw new TivoException((string)response["text"], (string)response["code"], operationName);
+            string cause = null;
+            if (response["cause"] != null && 
+                (string)response["cause"]["type"] == "middlemindErrorCause")
+            {
+                cause = (string)response["cause"]["text"];
+            }
+
+            throw new TivoException((string)response["text"], (string)response["code"], cause, operationName);
         }
 
         private Dictionary<string, object> BuildMakAuthenticationRequest(string mediaAccessKey)

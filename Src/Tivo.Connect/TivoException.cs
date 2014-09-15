@@ -14,16 +14,17 @@ namespace Tivo.Connect
 {
     public class TivoException : Exception
     {
-        public TivoException(string text, string code, string operationName)
-            : base(GetMessage(text, code, operationName))
+        public TivoException(string text, string code, string cause, string operationName)
+            : base(GetMessage(text, code, cause, operationName))
         {
             this.OriginalText = text;
             this.Code = code;
+            this.Cause = cause;
             this.OperationName = operationName;
         } 
 
-        public TivoException(string text, string code, string operationName, Exception inner)
-            : base(GetMessage(text, code, operationName), inner)
+        public TivoException(string text, string code, string cause, string operationName, Exception inner)
+            : base(GetMessage(text, code, cause, operationName), inner)
         {
             this.OriginalText = text;
             this.Code = code;
@@ -35,14 +36,27 @@ namespace Tivo.Connect
         public string Code { get; private set; }
 
         public string OperationName { get; private set; }
+        
+        public string Cause { get; private set; }
 
-        private static string GetMessage(string text, string code, string operationName)
+        private static string GetMessage(string text, string code, string cause, string operationName)
         {
-            return string.Format(
-                "{0} returned an error.\n Error code: {1}\nError text:{2}",
-                operationName,
-                code,
-                text);
+            if (string.IsNullOrWhiteSpace(cause))
+            {
+                return string.Format(
+                    "{0} returned an error.\n Error code: {1}\n Error text:{2}",
+                    operationName,
+                    code,
+                    text);
+            }
+            else
+            {
+                return string.Format(
+                    "{0} returned an error.\n Error code: {1}\n Cause:{2}",
+                    operationName,
+                    code,
+                    cause);
+            }
         }
     }
 }

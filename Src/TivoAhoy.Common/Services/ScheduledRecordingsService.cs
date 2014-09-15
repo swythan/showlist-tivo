@@ -23,6 +23,8 @@ namespace TivoAhoy.Common.Services
         private IEnumerable<Recording> recordings;
         private Dictionary<string, Recording> recordingsByOfferId;
 
+        private string error;
+
         public ScheduledRecordingsService(
             IProgressService progressService,
             ITivoConnectionService connectionService)
@@ -39,7 +41,7 @@ namespace TivoAhoy.Common.Services
         {
             if (connectionService.IsConnected)
             {
-                await RefreshRecordings();
+                await SafeRefreshRecordings();
             }
         }
 
@@ -80,27 +82,49 @@ namespace TivoAhoy.Common.Services
             {
                 return;
             }
-            
+
             var connection = this.connectionService.Connection;
             if (connection == null)
             {
                 return;
             }
 
+            this.Error = null;
+
             using (progressService.Show())
             {
-                var recordingIds = await connection.GetScheduledRecordingIds();
-
-                var recordings = new List<Recording>();
-
-                int pageSize = 20;
-                for (int offset = 0; offset < recordingIds.Count; offset += pageSize)
+                try
                 {
-                    var page = await connection.GetScheduledRecordings(offset, pageSize);
-                    recordings.AddRange(page);
-                }
+                    var recordingIds = await connection.GetScheduledRecordingIds();
 
-                this.ScheduledRecordings = recordings;
+                    var recordings = new List<Recording>();
+
+                    int pageSize = 20;
+                    for (int offset = 0; offset < recordingIds.Count; offset += pageSize)
+                    {
+                        var page = await connection.GetScheduledRecordings(offset, pageSize);
+                        recordings.AddRange(page);
+                    }
+
+                    this.ScheduledRecordings = recordings;
+                }
+                catch (Exception ex)
+                {
+                    this.Error = ex.Message;
+                    throw;
+                }
+            }
+        }
+
+        private async Task SafeRefreshRecordings()
+        {
+            try
+            {
+                await this.RefreshRecordings();
+            }
+            catch (Exception ex)
+            {
+                this.Error = ex.Message;
             }
         }
 
@@ -110,7 +134,7 @@ namespace TivoAhoy.Common.Services
             {
                 NotifyOfPropertyChange(() => this.CanRefreshRecordings);
 
-                await this.RefreshRecordings();
+                await SafeRefreshRecordings();
             }
         }
 
@@ -127,6 +151,24 @@ namespace TivoAhoy.Common.Services
                 this.recordingsByOfferId = this.recordings.ToDictionary(x => x.OfferId);
 
                 this.NotifyOfPropertyChange(() => this.ScheduledRecordings);
+            }
+        }
+
+        public string Error
+        {
+            get
+            {
+                return this.error;
+            }
+            set
+            {
+                if (this.error == value)
+                {
+                    return;
+                }
+
+                this.error = value;
+                this.NotifyOfPropertyChange(() => this.Error);
             }
         }
     }
