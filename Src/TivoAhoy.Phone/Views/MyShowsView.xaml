@@ -9,6 +9,7 @@
     xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
     xmlns:ec="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions"
     xmlns:vm="clr-namespace:TivoAhoy.Common.ViewModels;assembly=TivoAhoy.Common"
+    xmlns:bab="clr-namespace:Caliburn.Micro.BindableAppBar;assembly=Caliburn.Micro.BindableAppBar"
     x:Class="TivoAhoy.Phone.Views.MyShowsView"
     mc:Ignorable="d"
     d:DesignHeight="480"
@@ -64,5 +65,18 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
+        <bab:BindableAppBar>
+            <bab:BindableAppBarButton
+                x:Name="RefreshShows"
+                Text="Refresh"
+                IconUri="/Images/appbar.refresh.rest.png" />
+
+            <bab:BindableAppBarMenuItem
+                cal:Message.Attach="ShowSignInPage"
+                Text="sign in" />
+            <bab:BindableAppBarMenuItem
+                Text="about"
+                cal:Message.Attach="ShowAbout" />
+        </bab:BindableAppBar>
     </Grid>
 </UserControl>

@@ -8,6 +8,7 @@
     xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
     xmlns:vm="clr-namespace:TivoAhoy.Common.ViewModels;assembly=TivoAhoy.Common"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:bab="clr-namespace:Caliburn.Micro.BindableAppBar;assembly=Caliburn.Micro.BindableAppBar"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -110,5 +111,19 @@
                 </DataTemplate>
             </phone:LongListSelector.ItemTemplate>
         </phone:LongListSelector>
+
+        <bab:BindableAppBar>
+            <bab:BindableAppBarButton
+                x:Name="RefreshToDoList"
+                Text="Refresh"
+                IconUri="/Images/appbar.refresh.rest.png" />
+
+            <bab:BindableAppBarMenuItem
+                cal:Message.Attach="ShowSignInPage"
+                Text="sign in" />
+            <bab:BindableAppBarMenuItem
+                Text="about"
+                cal:Message.Attach="ShowAbout" />
+        </bab:BindableAppBar>
     </Grid>
 </UserControl>

@@ -122,7 +122,9 @@ namespace TivoAhoy.PhoneRT
         {
             base.OnClose(sender, e);
 
-            EnableConnections(false);
+            // Don't disable connections on close, as it can cause notifications which trigger a crash in BindableAppBar
+            //EnableConnections(false);
+
             EnableAnalytics(false);
         }
 

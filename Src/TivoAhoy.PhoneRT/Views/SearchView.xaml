@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:bab="clr-namespace:Caliburn.Micro.BindableAppBar;assembly=Caliburn.Micro.BindableAppBar"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -164,5 +165,14 @@
             VerticalAlignment="Top"
             Grid.Row="1"
             Style="{StaticResource MicButtonStyle}" />
+
+        <bab:BindableAppBar>
+            <bab:BindableAppBarMenuItem
+                cal:Message.Attach="ShowSignInPage"
+                Text="sign in" />
+            <bab:BindableAppBarMenuItem
+                Text="about"
+                cal:Message.Attach="ShowAbout" />
+        </bab:BindableAppBar>
     </Grid>
 </UserControl>

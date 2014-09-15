@@ -7,6 +7,7 @@
     xmlns:converters="clr-namespace:TivoAhoy.Phone.Converters"
     xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
     xmlns:vm="clr-namespace:TivoAhoy.Common.ViewModels;assembly=TivoAhoy.Common"
+    xmlns:bab="clr-namespace:Caliburn.Micro.BindableAppBar;assembly=Caliburn.Micro.BindableAppBar"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -117,5 +118,19 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+
+        <bab:BindableAppBar>
+            <bab:BindableAppBarButton
+                x:Name="RefreshShows"
+                Text="Refresh"
+                IconUri="/Images/appbar.refresh.rest.png" />
+
+            <bab:BindableAppBarMenuItem
+                cal:Message.Attach="ShowSignInPage"
+                Text="sign in" />
+            <bab:BindableAppBarMenuItem
+                Text="about"
+                cal:Message.Attach="ShowAbout" />
+        </bab:BindableAppBar>
     </Grid>
 </UserControl>

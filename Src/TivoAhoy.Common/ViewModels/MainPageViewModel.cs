@@ -11,6 +11,7 @@ namespace TivoAhoy.Common.ViewModels
     using System.Linq;
     using System.Threading;
     using Caliburn.Micro;
+    using Caliburn.Micro.BindableAppBar;
     using TivoAhoy.Common.Events;
     using TivoAhoy.Common.Services;
 
@@ -49,19 +50,15 @@ namespace TivoAhoy.Common.ViewModels
             connectionService.PropertyChanged += OnConnectionServicePropertyChanged;
 
             this.channelListViewModel.DisplayName = "guide";
-            this.channelListViewModel.PropertyChanged += OnViewModelPropertyChanged;
             this.Items.Add(channelListViewModel);
 
             this.toDoListViewModel.DisplayName = "scheduled";
-            this.toDoListViewModel.PropertyChanged += OnViewModelPropertyChanged;
             this.Items.Add(toDoListViewModel);
 
             this.myShowsViewModel.DisplayName = "my shows";
-            this.myShowsViewModel.PropertyChanged += OnViewModelPropertyChanged;
             this.Items.Add(myShowsViewModel);
 
             this.searchViewModel.DisplayName = "search";
-            this.searchViewModel.PropertyChanged += OnViewModelPropertyChanged;
             this.Items.Add(searchViewModel);
 
             this.ActivateItem(this.channelListViewModel);
@@ -75,23 +72,13 @@ namespace TivoAhoy.Common.ViewModels
             }
         }
 
-        private void OnViewModelPropertyChanged(object sender, PropertyChangedEventArgs args)
-        {
-            if (args.PropertyName == "CanRefreshShows" ||
-                args.PropertyName == "CanRefreshToDoList")
-            {
-                if (sender == this.ActiveItem)
-                {
-                    this.NotifyOfPropertyChange(() => this.CanRefreshList);
-                }
-            }
-        }
-
         protected override void OnActivate()
         {
             base.OnActivate();
 
-            NotifyOfPropertyChange(() => this.CanRefreshList);
+            // Initialize appbar, the views have been attached by this point
+            AppBarConductor.Mixin(this);
+
             NotifyOfPropertyChange(() => this.ShowSettingsPrompt);
 
             if (this.isFirstActivation)
@@ -133,12 +120,6 @@ namespace TivoAhoy.Common.ViewModels
             }
         }
 
-        protected override void OnActivationProcessed(IScreen item, bool success)
-        {
-            base.OnActivationProcessed(item, success);
-            NotifyOfPropertyChange(() => this.CanRefreshList);
-        }
-
         public string VoiceCommandName
         {
             get;
@@ -165,53 +146,6 @@ namespace TivoAhoy.Common.ViewModels
             var settingsUri = navigationService.UriFor<SignInPageViewModel>().BuildUri();
 
             navigationService.Navigate(settingsUri);
-        }
-
-        public bool CanRefreshList
-        {
-            get
-            {
-                var myShows = this.ActiveItem as MyShowsViewModel;
-                if (myShows != null)
-                {
-                    return myShows.CanRefreshShows;
-                }
-
-                var channels = this.ActiveItem as ChannelListViewModel;
-                if (channels != null)
-                {
-                    return channels.CanRefreshShows;
-                }
-
-                var toDoList = this.ActiveItem as ToDoListViewModel;
-                if (toDoList != null)
-                {
-                    return toDoList.CanRefreshToDoList;
-                }
-
-                return false;
-            }
-        }
-
-        public void RefreshList()
-        {
-            var myShows = this.ActiveItem as MyShowsViewModel;
-            if (myShows != null)
-            {
-                myShows.RefreshShows();
-            }
-
-            var channels = this.ActiveItem as ChannelListViewModel;
-            if (channels != null)
-            {
-                channels.RefreshShows();
-            }
-
-            var toDoList = this.ActiveItem as ToDoListViewModel;
-            if (toDoList != null)
-            {
-                toDoList.RefreshToDoList();
-            }
         }
 
         public void ShowAbout()

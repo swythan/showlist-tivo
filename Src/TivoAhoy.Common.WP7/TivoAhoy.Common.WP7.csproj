@@ -52,6 +52,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Caliburn.Micro.1.5.2\lib\wp71\Caliburn.Micro.dll</HintPath>
     </Reference>
+    <Reference Include="Caliburn.Micro.BindableAppBar">
+      <HintPath>..\packages\Caliburn.Micro.BindableAppBar.1.0.5.0\lib\wp71\Caliburn.Micro.BindableAppBar.dll</HintPath>
+    </Reference>
     <Reference Include="Caliburn.Micro.Extensions, Version=1.5.2.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Caliburn.Micro.1.5.2\lib\wp71\Caliburn.Micro.Extensions.dll</HintPath>
