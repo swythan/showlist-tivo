@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Windows.Controls;
 using Caliburn.Micro;
+using Caliburn.Micro.BindableAppBar;
 using Microsoft.Phone.Controls;
 using TivoAhoy.Common.Services;
 using TivoAhoy.Common.ViewModels;
@@ -215,6 +216,23 @@ namespace TivoAhoy.PhoneRT
 
                         return false;
                     };
+
+            // App Bar Conventions
+            ConventionManager.AddElementConvention<BindableAppBarButton>(
+                Control.IsEnabledProperty, "DataContext", "Click");
+
+            ConventionManager.AddElementConvention<BindableAppBarMenuItem>(
+                Control.IsEnabledProperty, "DataContext", "Click");
+
+            MessageBinder.SpecialValues.Add("$pressedkey", (context) =>
+            {
+                var keyArgs = context.EventArgs as System.Windows.Input.KeyEventArgs;
+
+                if (keyArgs != null)
+                    return keyArgs.Key;
+
+                return null;
+            });
         }
     }
 }

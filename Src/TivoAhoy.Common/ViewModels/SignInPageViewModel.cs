@@ -9,6 +9,7 @@ using System.ComponentModel;
 using System.Reactive.Disposables;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using Caliburn.Micro;
 using Coding4Fun.Toolkit.Controls;
@@ -28,6 +29,9 @@ namespace TivoAhoy.Common.ViewModels
 
         private string username;
         private string password;
+
+        private string originalUsername;
+        private string originalPassword;
 
         private bool isTestInProgress;
 
@@ -49,6 +53,9 @@ namespace TivoAhoy.Common.ViewModels
 
             this.Username = ConnectionSettings.AwayModeUsername;
             this.Password = ConnectionSettings.AwayModePassword;
+
+            this.originalUsername = this.Username;
+            this.originalPassword = this.Password;
         }
 
         public string Username
@@ -108,19 +115,56 @@ namespace TivoAhoy.Common.ViewModels
                 Disposable.Create(() => this.SetIsTestInProgress(false)));
         }
 
-        public bool CanConnect
-        {
-            get
-            {
-                return this.AwaySettingsAppearValid && !this.IsTestInProgress;
-            }
-        }
-
         public bool AwaySettingsAppearValid
         {
             get
             {
                 return ConnectionSettings.AwaySettingsAppearValid(this.Username, this.Password);
+            }
+        }
+
+        public void OnPasswordKeyDown(Key key)
+        {
+            if (key == Key.Enter)
+            {
+                if (this.CanConnect)
+                {
+                    this.Connect();
+                }
+            }
+        }
+
+        public bool CanCancel
+        {
+            get
+            {
+                return 
+                    this.navigationService.CanGoBack && 
+                    !this.IsTestInProgress;
+            }
+        }
+
+        public void Cancel()
+        {
+            if (this.CanCancel)
+            {
+                if (ConnectionSettings.AwayModeUsername != this.originalUsername ||
+                    ConnectionSettings.AwayModePassword != this.originalPassword)
+                {
+                    ConnectionSettings.AwayModeUsername = this.originalUsername;
+                    ConnectionSettings.AwayModePassword = this.originalPassword;
+                    this.eventAggregator.Publish(new ConnectionSettingsChanged());
+                }
+
+                this.navigationService.GoBack();
+            }
+        }
+
+        public bool CanConnect
+        {
+            get
+            {
+                return this.AwaySettingsAppearValid && !this.IsTestInProgress;
             }
         }
 
