@@ -33,6 +33,7 @@ namespace TivoAhoy.Common.Services
         private TivoConnection homeConnection;
 
         private string error;
+        private Task connectionTask;
 
         public TivoConnectionService(
             IAnalyticsService analyticsService,
@@ -48,6 +49,23 @@ namespace TivoAhoy.Common.Services
             this.eventAggregator.Subscribe(this);
 
             DeviceNetworkInformation.NetworkAvailabilityChanged += OnNetworkAvailabilityChanged;
+        }
+
+        public async Task<bool> EnsureConnectedAsync()
+        {
+            if (!IsConnectionEnabled)
+            {
+                return false;
+            }
+
+            if (connectionTask == null)
+            {
+                connectionTask = AutoConnect();
+            }
+
+            await connectionTask.ConfigureAwait(true);
+
+            return this.IsConnected;
         }
 
         public bool IsConnectionEnabled
@@ -90,7 +108,7 @@ namespace TivoAhoy.Common.Services
             }
         }
 
-        private async void OnNetworkAvailabilityChanged(object sender, NetworkNotificationEventArgs e)
+        private void OnNetworkAvailabilityChanged(object sender, NetworkNotificationEventArgs e)
         {
             if (e.NotificationType == NetworkNotificationType.InterfaceConnected ||
                 e.NotificationType == NetworkNotificationType.InterfaceDisconnected)
@@ -102,24 +120,24 @@ namespace TivoAhoy.Common.Services
 
                 if (e.NotificationType == NetworkNotificationType.InterfaceConnected)
                 {
-                    await AutoConnect().ConfigureAwait(false);
+                    this.connectionTask = AutoConnect();
                 }
 
                 if (e.NotificationType == NetworkNotificationType.InterfaceDisconnected)
                 {
-                    await ResetConnection();
+                    ResetConnection();
                 }
             }
         }
 
-        private async Task ResetConnection()
+        private void ResetConnection()
         {
             this.awayConnection = null;
             this.homeConnection = null;
 
             this.NotifyOfPropertyChange(() => this.IsConnected);
 
-            await AutoConnect().ConfigureAwait(false);
+            this.connectionTask = AutoConnect();
         }
 
         private async Task AutoConnect()
@@ -211,7 +229,7 @@ namespace TivoAhoy.Common.Services
         async void IHandle<ConnectionSettingsChanged>.Handle(ConnectionSettingsChanged message)
         {
             this.NotifyOfPropertyChange(() => this.SettingsAppearValid);
-            await ResetConnection().ConfigureAwait(false);
+            ResetConnection();
         }
 
         public bool SettingsAppearValid

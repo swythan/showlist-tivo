@@ -233,6 +233,9 @@
     <Compile Include="..\TivoAhoy.Common\ViewModels\ShowDetailsPageViewModel.cs">
       <Link>ViewModels\ShowDetailsPageViewModel.cs</Link>
     </Compile>
+    <Compile Include="..\TivoAhoy.Common\ViewModels\SignInPageViewModel.cs">
+      <Link>ViewModels\SignInPageViewModel.cs</Link>
+    </Compile>
     <Compile Include="..\TivoAhoy.Common\ViewModels\ToDoListViewModel.cs">
       <Link>ViewModels\ToDoListViewModel.cs</Link>
     </Compile>

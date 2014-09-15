@@ -34,6 +34,7 @@ namespace TivoAhoy.PhoneRT
             container.Singleton<IScheduledRecordingsService, ScheduledRecordingsService>();
             container.Singleton<ISpeechService, SpeechService>();
 
+            container.PerRequest<SignInPageViewModel>();
             container.PerRequest<SettingsPageViewModel>();
             container.PerRequest<MainPageViewModel>();
             container.PerRequest<ShowContainerShowsPageViewModel>();

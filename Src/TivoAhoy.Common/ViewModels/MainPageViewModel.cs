@@ -156,7 +156,14 @@ namespace TivoAhoy.Common.ViewModels
         public void ShowSettings()
         {
             var settingsUri = navigationService.UriFor<SettingsPageViewModel>().BuildUri();
-            
+
+            navigationService.Navigate(settingsUri);
+        }
+
+        public void ShowSignInPage()
+        {
+            var settingsUri = navigationService.UriFor<SignInPageViewModel>().BuildUri();
+
             navigationService.Navigate(settingsUri);
         }
 

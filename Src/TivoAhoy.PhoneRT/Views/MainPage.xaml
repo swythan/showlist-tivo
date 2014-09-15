@@ -58,12 +58,12 @@
                 Valid connection settings for your TiVo® DVR have not been entered. 
             </Paragraph>
             <Paragraph />
-            <Paragraph>
-                Please go to 
+            <Paragraph TextAlignment="Center">
+                Please
                 <Hyperlink
-                    NavigateUri="/Views/SettingsPage.xaml">
-                    Settings
-                </Hyperlink> and enter your connection settings.
+                    NavigateUri="/Views/SignInPage.xaml">
+                    Sign In
+                </Hyperlink>
             </Paragraph>
         </RichTextBox>
     </Grid>
@@ -78,8 +78,8 @@
                 Message="RefreshList" />
             <shell:ApplicationBar.MenuItems>
                 <cal:AppBarMenuItem
-                    Message="ShowSettings"
-                    Text="settings" />
+                    Message="ShowSignInPage"
+                    Text="sign in" />
                 <cal:AppBarMenuItem
                     Text="about"
                     Message="ShowAbout" />

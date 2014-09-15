@@ -5,6 +5,7 @@
 //-----------------------------------------------------------------------
 
 using System.ComponentModel;
+using System.Threading;
 using System.Threading.Tasks;
 using Tivo.Connect;
 
@@ -20,7 +21,11 @@ namespace TivoAhoy.Common.Services
         bool IsHomeMode { get; }
 
         bool IsConnectionEnabled { get; set; }
+        
+        Task<bool> EnsureConnectedAsync();
 
         TivoConnection Connection { get; }
+
+        string Error { get; }
     }
 }

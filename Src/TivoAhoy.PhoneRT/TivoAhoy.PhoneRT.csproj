@@ -124,6 +124,9 @@
     <Compile Include="Views\AppCreditsView.xaml.cs">
       <DependentUpon>AppCreditsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SignInPage.xaml.cs">
+      <DependentUpon>SignInPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UpcomingOffersView.xaml.cs">
       <DependentUpon>UpcomingOffersView.xaml</DependentUpon>
     </Compile>
@@ -206,6 +209,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\AppCreditsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SignInPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

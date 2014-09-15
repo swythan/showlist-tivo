@@ -173,6 +173,7 @@
     <Compile Include="ViewModels\ChannelListViewModel.cs" />
     <Compile Include="ViewModels\CollectionItemViewModel.cs" />
     <Compile Include="ViewModels\CollectionDetailsPageViewModel.cs" />
+    <Compile Include="ViewModels\SignInPageViewModel.cs" />
     <Compile Include="ViewModels\UpcomingOffersViewModel.cs" />
     <Compile Include="ViewModels\PersonContentViewModel.cs" />
     <Compile Include="ViewModels\CreditsViewModel.cs" />
