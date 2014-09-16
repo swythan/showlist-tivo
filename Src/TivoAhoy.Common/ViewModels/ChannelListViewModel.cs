@@ -173,6 +173,46 @@ namespace TivoAhoy.Common.ViewModels
             }
         }
 
+        public void IncrementDate()
+        {
+            IncrementDate(1);
+        }
+
+        public void DecrementDate()
+        {
+            IncrementDate(-1);
+        }
+
+        private void IncrementDate(int daysToIncrement)
+        {
+            var newDate = (this.SelectedDate + TimeSpan.FromDays(daysToIncrement)).Date;
+
+            if (this.Dates.Contains(newDate))
+            {
+                this.SelectedDate = newDate;
+            }
+        }
+
+        public void IncrementTime()
+        {
+            this.IncrementTime(TimeSpan.FromMinutes(30));
+        }
+
+        public void DecrementTime()
+        {
+            this.IncrementTime(TimeSpan.FromMinutes(-30));
+        }
+
+        private void IncrementTime(TimeSpan timeToIncrement)
+        {
+            var newStartTime = this.StartTime + timeToIncrement;
+
+            if (this.Dates.Contains(newStartTime.Date))
+            {
+                this.StartTime = newStartTime;
+            }
+        }
+
         public IList Shows
         {
             get { return this.shows; }
